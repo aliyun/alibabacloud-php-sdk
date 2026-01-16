@@ -36,12 +36,22 @@ class ListJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $enableAssignNode;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
      * @var bool
      */
     public $fromAllWorkspaces;
+
+    /**
+     * @var string
+     */
+    public $imageSearch;
 
     /**
      * @var string
@@ -57,6 +67,21 @@ class ListJobsShrinkRequest extends Model
      * @var string
      */
     public $jobType;
+
+    /**
+     * @var string
+     */
+    public $numericRangeField;
+
+    /**
+     * @var int
+     */
+    public $numericRangeMax;
+
+    /**
+     * @var int
+     */
+    public $numericRangeMin;
 
     /**
      * @var string
@@ -87,6 +112,11 @@ class ListJobsShrinkRequest extends Model
      * @var string
      */
     public $pipelineId;
+
+    /**
+     * @var string
+     */
+    public $reasonSearch;
 
     /**
      * @var string
@@ -126,6 +156,16 @@ class ListJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $timeRangeField;
+
+    /**
+     * @var string
+     */
+    public $userCommandSearch;
+
+    /**
+     * @var string
+     */
     public $userIdForFilter;
 
     /**
@@ -143,17 +183,23 @@ class ListJobsShrinkRequest extends Model
         'caller' => 'Caller',
         'displayName' => 'DisplayName',
         'displayNameSearchMode' => 'DisplayNameSearchMode',
+        'enableAssignNode' => 'EnableAssignNode',
         'endTime' => 'EndTime',
         'fromAllWorkspaces' => 'FromAllWorkspaces',
+        'imageSearch' => 'ImageSearch',
         'jobId' => 'JobId',
         'jobIds' => 'JobIds',
         'jobType' => 'JobType',
+        'numericRangeField' => 'NumericRangeField',
+        'numericRangeMax' => 'NumericRangeMax',
+        'numericRangeMin' => 'NumericRangeMin',
         'order' => 'Order',
         'oversoldInfo' => 'OversoldInfo',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'paymentType' => 'PaymentType',
         'pipelineId' => 'PipelineId',
+        'reasonSearch' => 'ReasonSearch',
         'resourceId' => 'ResourceId',
         'resourceQuotaName' => 'ResourceQuotaName',
         'showOwn' => 'ShowOwn',
@@ -161,6 +207,8 @@ class ListJobsShrinkRequest extends Model
         'startTime' => 'StartTime',
         'status' => 'Status',
         'tagsShrink' => 'Tags',
+        'timeRangeField' => 'TimeRangeField',
+        'userCommandSearch' => 'UserCommandSearch',
         'userIdForFilter' => 'UserIdForFilter',
         'username' => 'Username',
         'workspaceId' => 'WorkspaceId',
@@ -194,12 +242,20 @@ class ListJobsShrinkRequest extends Model
             $res['DisplayNameSearchMode'] = $this->displayNameSearchMode;
         }
 
+        if (null !== $this->enableAssignNode) {
+            $res['EnableAssignNode'] = $this->enableAssignNode;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
 
         if (null !== $this->fromAllWorkspaces) {
             $res['FromAllWorkspaces'] = $this->fromAllWorkspaces;
+        }
+
+        if (null !== $this->imageSearch) {
+            $res['ImageSearch'] = $this->imageSearch;
         }
 
         if (null !== $this->jobId) {
@@ -212,6 +268,18 @@ class ListJobsShrinkRequest extends Model
 
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+
+        if (null !== $this->numericRangeField) {
+            $res['NumericRangeField'] = $this->numericRangeField;
+        }
+
+        if (null !== $this->numericRangeMax) {
+            $res['NumericRangeMax'] = $this->numericRangeMax;
+        }
+
+        if (null !== $this->numericRangeMin) {
+            $res['NumericRangeMin'] = $this->numericRangeMin;
         }
 
         if (null !== $this->order) {
@@ -236,6 +304,10 @@ class ListJobsShrinkRequest extends Model
 
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
+        }
+
+        if (null !== $this->reasonSearch) {
+            $res['ReasonSearch'] = $this->reasonSearch;
         }
 
         if (null !== $this->resourceId) {
@@ -264,6 +336,14 @@ class ListJobsShrinkRequest extends Model
 
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
+        }
+
+        if (null !== $this->timeRangeField) {
+            $res['TimeRangeField'] = $this->timeRangeField;
+        }
+
+        if (null !== $this->userCommandSearch) {
+            $res['UserCommandSearch'] = $this->userCommandSearch;
         }
 
         if (null !== $this->userIdForFilter) {
@@ -309,12 +389,20 @@ class ListJobsShrinkRequest extends Model
             $model->displayNameSearchMode = $map['DisplayNameSearchMode'];
         }
 
+        if (isset($map['EnableAssignNode'])) {
+            $model->enableAssignNode = $map['EnableAssignNode'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
 
         if (isset($map['FromAllWorkspaces'])) {
             $model->fromAllWorkspaces = $map['FromAllWorkspaces'];
+        }
+
+        if (isset($map['ImageSearch'])) {
+            $model->imageSearch = $map['ImageSearch'];
         }
 
         if (isset($map['JobId'])) {
@@ -327,6 +415,18 @@ class ListJobsShrinkRequest extends Model
 
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+
+        if (isset($map['NumericRangeField'])) {
+            $model->numericRangeField = $map['NumericRangeField'];
+        }
+
+        if (isset($map['NumericRangeMax'])) {
+            $model->numericRangeMax = $map['NumericRangeMax'];
+        }
+
+        if (isset($map['NumericRangeMin'])) {
+            $model->numericRangeMin = $map['NumericRangeMin'];
         }
 
         if (isset($map['Order'])) {
@@ -351,6 +451,10 @@ class ListJobsShrinkRequest extends Model
 
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
+        }
+
+        if (isset($map['ReasonSearch'])) {
+            $model->reasonSearch = $map['ReasonSearch'];
         }
 
         if (isset($map['ResourceId'])) {
@@ -379,6 +483,14 @@ class ListJobsShrinkRequest extends Model
 
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
+        }
+
+        if (isset($map['TimeRangeField'])) {
+            $model->timeRangeField = $map['TimeRangeField'];
+        }
+
+        if (isset($map['UserCommandSearch'])) {
+            $model->userCommandSearch = $map['UserCommandSearch'];
         }
 
         if (isset($map['UserIdForFilter'])) {

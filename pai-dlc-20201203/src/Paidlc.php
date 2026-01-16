@@ -1590,12 +1590,20 @@ class Paidlc extends OpenApiClient
             @$query['DisplayNameSearchMode'] = $request->displayNameSearchMode;
         }
 
+        if (null !== $request->enableAssignNode) {
+            @$query['EnableAssignNode'] = $request->enableAssignNode;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }
 
         if (null !== $request->fromAllWorkspaces) {
             @$query['FromAllWorkspaces'] = $request->fromAllWorkspaces;
+        }
+
+        if (null !== $request->imageSearch) {
+            @$query['ImageSearch'] = $request->imageSearch;
         }
 
         if (null !== $request->jobId) {
@@ -1608,6 +1616,18 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->jobType) {
             @$query['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->numericRangeField) {
+            @$query['NumericRangeField'] = $request->numericRangeField;
+        }
+
+        if (null !== $request->numericRangeMax) {
+            @$query['NumericRangeMax'] = $request->numericRangeMax;
+        }
+
+        if (null !== $request->numericRangeMin) {
+            @$query['NumericRangeMin'] = $request->numericRangeMin;
         }
 
         if (null !== $request->order) {
@@ -1632,6 +1652,10 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->pipelineId) {
             @$query['PipelineId'] = $request->pipelineId;
+        }
+
+        if (null !== $request->reasonSearch) {
+            @$query['ReasonSearch'] = $request->reasonSearch;
         }
 
         if (null !== $request->resourceId) {
@@ -1660,6 +1684,14 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->tagsShrink) {
             @$query['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->timeRangeField) {
+            @$query['TimeRangeField'] = $request->timeRangeField;
+        }
+
+        if (null !== $request->userCommandSearch) {
+            @$query['UserCommandSearch'] = $request->userCommandSearch;
         }
 
         if (null !== $request->userIdForFilter) {
