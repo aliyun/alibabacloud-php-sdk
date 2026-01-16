@@ -351,6 +351,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchRecursionRecordsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchRecursionZonesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchRecursionZonesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchRecursionZonesShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SetCloudGtmInstanceConfigLogSwitchRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SetCloudGtmInstanceConfigLogSwitchResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetDnsGtmAccessModeRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetDnsGtmAccessModeResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetDnsGtmMonitorStatusRequest;
@@ -12939,6 +12941,75 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchRecursionZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置全局流量管理实例配置日志开关.
+     *
+     * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetCloudGtmInstanceConfigLogSwitchResponse
+     *
+     * @param SetCloudGtmInstanceConfigLogSwitchRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SetCloudGtmInstanceConfigLogSwitchResponse
+     */
+    public function setCloudGtmInstanceConfigLogSwitchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetCloudGtmInstanceConfigLogSwitch',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetCloudGtmInstanceConfigLogSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置全局流量管理实例配置日志开关.
+     *
+     * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
+     *
+     * @returns SetCloudGtmInstanceConfigLogSwitchResponse
+     *
+     * @param SetCloudGtmInstanceConfigLogSwitchRequest $request
+     *
+     * @return SetCloudGtmInstanceConfigLogSwitchResponse
+     */
+    public function setCloudGtmInstanceConfigLogSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setCloudGtmInstanceConfigLogSwitchWithOptions($request, $runtime);
     }
 
     /**
