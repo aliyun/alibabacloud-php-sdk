@@ -11,6 +11,11 @@ class CreatStockOssCheckTaskRequest extends Model
     /**
      * @var string
      */
+    public $bucketPrefixFilterConfig;
+
+    /**
+     * @var string
+     */
     public $buckets;
 
     /**
@@ -148,6 +153,7 @@ class CreatStockOssCheckTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'bucketPrefixFilterConfig' => 'BucketPrefixFilterConfig',
         'buckets' => 'Buckets',
         'callbackId' => 'CallbackId',
         'distinctHistoryTasks' => 'DistinctHistoryTasks',
@@ -186,6 +192,10 @@ class CreatStockOssCheckTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bucketPrefixFilterConfig) {
+            $res['BucketPrefixFilterConfig'] = $this->bucketPrefixFilterConfig;
+        }
+
         if (null !== $this->buckets) {
             $res['Buckets'] = $this->buckets;
         }
@@ -309,6 +319,10 @@ class CreatStockOssCheckTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BucketPrefixFilterConfig'])) {
+            $model->bucketPrefixFilterConfig = $map['BucketPrefixFilterConfig'];
+        }
+
         if (isset($map['Buckets'])) {
             $model->buckets = $map['Buckets'];
         }

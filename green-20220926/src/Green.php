@@ -817,6 +817,10 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bucketPrefixFilterConfig) {
+            @$query['BucketPrefixFilterConfig'] = $request->bucketPrefixFilterConfig;
+        }
+
         if (null !== $request->buckets) {
             @$query['Buckets'] = $request->buckets;
         }
@@ -1206,6 +1210,10 @@ class Green extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->bucketPrefixFilterConfig) {
+            @$body['BucketPrefixFilterConfig'] = $request->bucketPrefixFilterConfig;
+        }
+
         if (null !== $request->buckets) {
             @$body['Buckets'] = $request->buckets;
         }

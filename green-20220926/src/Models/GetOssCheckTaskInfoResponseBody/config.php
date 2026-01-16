@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220926\Models\ConfigBucketPrefixFilterConfigValue;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponseBody\config\scanServiceInfos;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponseBody\config\userFreezeConfig;
 
 class config extends Model
 {
+    /**
+     * @var ConfigBucketPrefixFilterConfigValue[]
+     */
+    public $bucketPrefixFilterConfig;
+
     /**
      * @var int
      */
@@ -130,6 +136,7 @@ class config extends Model
      */
     public $userFreezeConfig;
     protected $_name = [
+        'bucketPrefixFilterConfig' => 'BucketPrefixFilterConfig',
         'callbackId' => 'CallbackId',
         'distinctHistoryTasks' => 'DistinctHistoryTasks',
         'endTime' => 'EndTime',
@@ -158,6 +165,9 @@ class config extends Model
 
     public function validate()
     {
+        if (\is_array($this->bucketPrefixFilterConfig)) {
+            Model::validateArray($this->bucketPrefixFilterConfig);
+        }
         if (\is_array($this->prefixFilters)) {
             Model::validateArray($this->prefixFilters);
         }
@@ -176,6 +186,15 @@ class config extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bucketPrefixFilterConfig) {
+            if (\is_array($this->bucketPrefixFilterConfig)) {
+                $res['BucketPrefixFilterConfig'] = [];
+                foreach ($this->bucketPrefixFilterConfig as $key1 => $value1) {
+                    $res['BucketPrefixFilterConfig'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
+        }
+
         if (null !== $this->callbackId) {
             $res['CallbackId'] = $this->callbackId;
         }
@@ -304,6 +323,15 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BucketPrefixFilterConfig'])) {
+            if (!empty($map['BucketPrefixFilterConfig'])) {
+                $model->bucketPrefixFilterConfig = [];
+                foreach ($map['BucketPrefixFilterConfig'] as $key1 => $value1) {
+                    $model->bucketPrefixFilterConfig[$key1] = ConfigBucketPrefixFilterConfigValue::fromMap($value1);
+                }
+            }
+        }
+
         if (isset($map['CallbackId'])) {
             $model->callbackId = $map['CallbackId'];
         }

@@ -11,6 +11,11 @@ class CreatePreCheckRequest extends Model
     /**
      * @var string
      */
+    public $bucketPrefixFilterConfig;
+
+    /**
+     * @var string
+     */
     public $buckets;
 
     /**
@@ -78,6 +83,7 @@ class CreatePreCheckRequest extends Model
      */
     public $taskName;
     protected $_name = [
+        'bucketPrefixFilterConfig' => 'BucketPrefixFilterConfig',
         'buckets' => 'Buckets',
         'distinctHistoryTasks' => 'DistinctHistoryTasks',
         'endTime' => 'EndTime',
@@ -102,6 +108,10 @@ class CreatePreCheckRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bucketPrefixFilterConfig) {
+            $res['BucketPrefixFilterConfig'] = $this->bucketPrefixFilterConfig;
+        }
+
         if (null !== $this->buckets) {
             $res['Buckets'] = $this->buckets;
         }
@@ -169,6 +179,10 @@ class CreatePreCheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BucketPrefixFilterConfig'])) {
+            $model->bucketPrefixFilterConfig = $map['BucketPrefixFilterConfig'];
+        }
+
         if (isset($map['Buckets'])) {
             $model->buckets = $map['Buckets'];
         }
