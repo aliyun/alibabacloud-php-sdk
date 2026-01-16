@@ -36,6 +36,11 @@ class SingleSendMailRequest extends Model
     public $clickTrace;
 
     /**
+     * @var bool
+     */
+    public $domainAuth;
+
+    /**
      * @var string
      */
     public $fromAlias;
@@ -125,6 +130,7 @@ class SingleSendMailRequest extends Model
         'attachments' => 'Attachments',
         'bccAddress' => 'BccAddress',
         'clickTrace' => 'ClickTrace',
+        'domainAuth' => 'DomainAuth',
         'fromAlias' => 'FromAlias',
         'headers' => 'Headers',
         'htmlBody' => 'HtmlBody',
@@ -183,6 +189,10 @@ class SingleSendMailRequest extends Model
 
         if (null !== $this->clickTrace) {
             $res['ClickTrace'] = $this->clickTrace;
+        }
+
+        if (null !== $this->domainAuth) {
+            $res['DomainAuth'] = $this->domainAuth;
         }
 
         if (null !== $this->fromAlias) {
@@ -289,6 +299,10 @@ class SingleSendMailRequest extends Model
 
         if (isset($map['ClickTrace'])) {
             $model->clickTrace = $map['ClickTrace'];
+        }
+
+        if (isset($map['DomainAuth'])) {
+            $model->domainAuth = $map['DomainAuth'];
         }
 
         if (isset($map['FromAlias'])) {

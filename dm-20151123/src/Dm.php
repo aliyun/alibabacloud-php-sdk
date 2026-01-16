@@ -468,6 +468,10 @@ class Dm extends OpenApiClient
             @$query['ClickTrace'] = $request->clickTrace;
         }
 
+        if (null !== $request->domainAuth) {
+            @$query['DomainAuth'] = $request->domainAuth;
+        }
+
         if (null !== $request->headers) {
             @$query['Headers'] = $request->headers;
         }
@@ -5512,6 +5516,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->clickTrace) {
             @$body['ClickTrace'] = $request->clickTrace;
+        }
+
+        if (null !== $request->domainAuth) {
+            @$body['DomainAuth'] = $request->domainAuth;
         }
 
         if (null !== $request->fromAlias) {

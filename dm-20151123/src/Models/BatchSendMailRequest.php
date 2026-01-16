@@ -24,6 +24,11 @@ class BatchSendMailRequest extends Model
     public $clickTrace;
 
     /**
+     * @var bool
+     */
+    public $domainAuth;
+
+    /**
      * @var string
      */
     public $headers;
@@ -86,6 +91,7 @@ class BatchSendMailRequest extends Model
         'accountName' => 'AccountName',
         'addressType' => 'AddressType',
         'clickTrace' => 'ClickTrace',
+        'domainAuth' => 'DomainAuth',
         'headers' => 'Headers',
         'ipPoolId' => 'IpPoolId',
         'ownerId' => 'OwnerId',
@@ -118,6 +124,10 @@ class BatchSendMailRequest extends Model
 
         if (null !== $this->clickTrace) {
             $res['ClickTrace'] = $this->clickTrace;
+        }
+
+        if (null !== $this->domainAuth) {
+            $res['DomainAuth'] = $this->domainAuth;
         }
 
         if (null !== $this->headers) {
@@ -189,6 +199,10 @@ class BatchSendMailRequest extends Model
 
         if (isset($map['ClickTrace'])) {
             $model->clickTrace = $map['ClickTrace'];
+        }
+
+        if (isset($map['DomainAuth'])) {
+            $model->domainAuth = $map['DomainAuth'];
         }
 
         if (isset($map['Headers'])) {
