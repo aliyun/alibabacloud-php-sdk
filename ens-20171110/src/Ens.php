@@ -56,6 +56,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateARMServerInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClassicNetworkResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterNodePoolRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterNodePoolResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterNodePoolShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateClusterShrinkRequest;
@@ -138,6 +141,11 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketLifecycleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketLifecycleResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteBucketResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterNodePoolRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterNodePoolResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterNodesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterNodesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterNodesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskRequest;
@@ -208,6 +216,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeployInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeploySDGShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAddonRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAddonResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeApplicationRequest;
@@ -224,12 +234,20 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskAvailableResourceInfo
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterNodePoolsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterNodePoolsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterNodesRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterNodesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClustersV1Request;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClustersV1Response;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterUserKubeconfigRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterUserKubeconfigResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCreatePrePaidInstanceResultResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDataDistResultRequest;
@@ -441,6 +459,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketInfoRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketInfoResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketLifecycleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetBucketLifecycleResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\GetClusterAddonInstanceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\GetClusterAddonInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssStorageAndAccByBucketsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\GetOssUsageDataRequest;
@@ -451,6 +471,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ImportImageShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\InitializeENSECKServiceRoleResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\InstallClusterAddonsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\InstallClusterAddonsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\InstallClusterAddonsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinPublicIpsToEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\JoinSecurityGroupRequest;
@@ -477,6 +500,12 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ManageAICLoginRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ManageAICLoginResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterAddonRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterAddonResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterAddonShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterNodePoolRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterNodePoolResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterNodePoolShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsEipAddressAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyEnsRouteEntryRequest;
@@ -608,6 +637,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SaveSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SaveSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ScaleClusterNodePoolRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ScaleClusterNodePoolResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ScaleClusterNodePoolShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersShrinkRequest;
@@ -656,6 +688,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateHaVipRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateHaVipResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnInstallClusterAddonsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnInstallClusterAddonsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnInstallClusterAddonsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGShrinkRequest;
@@ -672,6 +707,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeApplicationResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeClusterAddonsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeClusterAddonsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeClusterAddonsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UploadAICPublicKeyRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UploadAICPublicKeyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2472,6 +2510,89 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建集群节点池.
+     *
+     * @param tmpReq - CreateClusterNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterNodePoolResponse
+     *
+     * @param CreateClusterNodePoolRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateClusterNodePoolResponse
+     */
+    public function createClusterNodePoolWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateClusterNodePoolShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->kubernetesConfig) {
+            $request->kubernetesConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kubernetesConfig, 'KubernetesConfig', 'json');
+        }
+
+        if (null !== $tmpReq->nodepoolInfo) {
+            $request->nodepoolInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodepoolInfo, 'NodepoolInfo', 'json');
+        }
+
+        if (null !== $tmpReq->scalingGroup) {
+            $request->scalingGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scalingGroup, 'ScalingGroup', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->kubernetesConfigShrink) {
+            @$query['KubernetesConfig'] = $request->kubernetesConfigShrink;
+        }
+
+        if (null !== $request->nodepoolInfoShrink) {
+            @$query['NodepoolInfo'] = $request->nodepoolInfoShrink;
+        }
+
+        if (null !== $request->scalingGroupShrink) {
+            @$query['ScalingGroup'] = $request->scalingGroupShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateClusterNodePool',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建集群节点池.
+     *
+     * @param request - CreateClusterNodePoolRequest
+     *
+     * @returns CreateClusterNodePoolResponse
+     *
+     * @param CreateClusterNodePoolRequest $request
+     *
+     * @return CreateClusterNodePoolResponse
+     */
+    public function createClusterNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClusterNodePoolWithOptions($request, $runtime);
     }
 
     /**
@@ -5552,6 +5673,134 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 删除节点池.
+     *
+     * @param request - DeleteClusterNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterNodePoolResponse
+     *
+     * @param DeleteClusterNodePoolRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteClusterNodePoolResponse
+     */
+    public function deleteClusterNodePoolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->nodepoolId) {
+            @$query['NodepoolId'] = $request->nodepoolId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteClusterNodePool',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除节点池.
+     *
+     * @param request - DeleteClusterNodePoolRequest
+     *
+     * @returns DeleteClusterNodePoolResponse
+     *
+     * @param DeleteClusterNodePoolRequest $request
+     *
+     * @return DeleteClusterNodePoolResponse
+     */
+    public function deleteClusterNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClusterNodePoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除节点池指定节点.
+     *
+     * @param tmpReq - DeleteClusterNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterNodesResponse
+     *
+     * @param DeleteClusterNodesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteClusterNodesResponse
+     */
+    public function deleteClusterNodesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteClusterNodesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'Body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bodyShrink) {
+            @$query['Body'] = $request->bodyShrink;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteClusterNodes',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除节点池指定节点.
+     *
+     * @param request - DeleteClusterNodesRequest
+     *
+     * @returns DeleteClusterNodesResponse
+     *
+     * @param DeleteClusterNodesRequest $request
+     *
+     * @return DeleteClusterNodesResponse
+     */
+    public function deleteClusterNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClusterNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a disk.
      *
      * @remarks
@@ -7598,6 +7847,67 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 查询指定组件的信息.
+     *
+     * @param request - DescribeAddonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAddonResponse
+     *
+     * @param DescribeAddonRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeAddonResponse
+     */
+    public function describeAddonWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
+        }
+
+        if (null !== $request->addonVersion) {
+            @$query['AddonVersion'] = $request->addonVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAddon',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定组件的信息.
+     *
+     * @param request - DescribeAddonRequest
+     *
+     * @returns DescribeAddonResponse
+     *
+     * @param DescribeAddonRequest $request
+     *
+     * @return DescribeAddonResponse
+     */
+    public function describeAddon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAddonWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the basic properties, resources, and container status of an application.
      *
      * @param request - DescribeApplicationRequest
@@ -8038,6 +8348,63 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 查询集群详细信息.
+     *
+     * @param request - DescribeClusterDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterDetailResponse
+     *
+     * @param DescribeClusterDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeClusterDetailResponse
+     */
+    public function describeClusterDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClusterDetail',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClusterDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群详细信息.
+     *
+     * @param request - DescribeClusterDetailRequest
+     *
+     * @returns DescribeClusterDetailResponse
+     *
+     * @param DescribeClusterDetailRequest $request
+     *
+     * @return DescribeClusterDetailResponse
+     */
+    public function describeClusterDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
      *
      * @remarks
@@ -8098,6 +8465,197 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeClusterKubeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询集群节点池信息.
+     *
+     * @param request - DescribeClusterNodePoolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterNodePoolsResponse
+     *
+     * @param DescribeClusterNodePoolsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeClusterNodePoolsResponse
+     */
+    public function describeClusterNodePoolsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClusterNodePools',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClusterNodePoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群节点池信息.
+     *
+     * @param request - DescribeClusterNodePoolsRequest
+     *
+     * @returns DescribeClusterNodePoolsResponse
+     *
+     * @param DescribeClusterNodePoolsRequest $request
+     *
+     * @return DescribeClusterNodePoolsResponse
+     */
+    public function describeClusterNodePools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterNodePoolsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询节点池节点.
+     *
+     * @param request - DescribeClusterNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterNodesResponse
+     *
+     * @param DescribeClusterNodesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeClusterNodesResponse
+     */
+    public function describeClusterNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->nodepoolId) {
+            @$query['NodepoolId'] = $request->nodepoolId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClusterNodes',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点池节点.
+     *
+     * @param request - DescribeClusterNodesRequest
+     *
+     * @returns DescribeClusterNodesResponse
+     *
+     * @param DescribeClusterNodesRequest $request
+     *
+     * @return DescribeClusterNodesResponse
+     */
+    public function describeClusterNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询集群KubeConfig.
+     *
+     * @param request - DescribeClusterUserKubeconfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterUserKubeconfigResponse
+     *
+     * @param DescribeClusterUserKubeconfigRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeClusterUserKubeconfigResponse
+     */
+    public function describeClusterUserKubeconfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClusterUserKubeconfig',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClusterUserKubeconfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群KubeConfig.
+     *
+     * @param request - DescribeClusterUserKubeconfigRequest
+     *
+     * @returns DescribeClusterUserKubeconfigResponse
+     *
+     * @param DescribeClusterUserKubeconfigRequest $request
+     *
+     * @return DescribeClusterUserKubeconfigResponse
+     */
+    public function describeClusterUserKubeconfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterUserKubeconfigWithOptions($request, $runtime);
     }
 
     /**
@@ -15286,6 +15844,67 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 查询集群内指定组件实例信息.
+     *
+     * @param request - GetClusterAddonInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterAddonInstanceResponse
+     *
+     * @param GetClusterAddonInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetClusterAddonInstanceResponse
+     */
+    public function getClusterAddonInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetClusterAddonInstance',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClusterAddonInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询集群内指定组件实例信息.
+     *
+     * @param request - GetClusterAddonInstanceRequest
+     *
+     * @returns GetClusterAddonInstanceResponse
+     *
+     * @param GetClusterAddonInstanceRequest $request
+     *
+     * @return GetClusterAddonInstanceResponse
+     */
+    public function getClusterAddonInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClusterAddonInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
      *
      * @param request - GetOssStorageAndAccByBucketsRequest
@@ -15619,6 +16238,73 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->initializeENSECKServiceRoleWithOptions($runtime);
+    }
+
+    /**
+     * 安装集群组件.
+     *
+     * @param tmpReq - InstallClusterAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallClusterAddonsResponse
+     *
+     * @param InstallClusterAddonsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return InstallClusterAddonsResponse
+     */
+    public function installClusterAddonsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InstallClusterAddonsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addons) {
+            $request->addonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addons, 'Addons', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addonsShrink) {
+            @$query['Addons'] = $request->addonsShrink;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstallClusterAddons',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 安装集群组件.
+     *
+     * @param request - InstallClusterAddonsRequest
+     *
+     * @returns InstallClusterAddonsResponse
+     *
+     * @param InstallClusterAddonsRequest $request
+     *
+     * @return InstallClusterAddonsResponse
+     */
+    public function installClusterAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installClusterAddonsWithOptions($request, $runtime);
     }
 
     /**
@@ -16553,6 +17239,160 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->manageAICLoginWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改集群组件实例配置.
+     *
+     * @param tmpReq - ModifyClusterAddonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyClusterAddonResponse
+     *
+     * @param ModifyClusterAddonRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyClusterAddonResponse
+     */
+    public function modifyClusterAddonWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyClusterAddonShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addon) {
+            $request->addonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addon, 'Addon', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addonShrink) {
+            @$query['Addon'] = $request->addonShrink;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->componentName) {
+            @$query['ComponentName'] = $request->componentName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyClusterAddon',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyClusterAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改集群组件实例配置.
+     *
+     * @param request - ModifyClusterAddonRequest
+     *
+     * @returns ModifyClusterAddonResponse
+     *
+     * @param ModifyClusterAddonRequest $request
+     *
+     * @return ModifyClusterAddonResponse
+     */
+    public function modifyClusterAddon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyClusterAddonWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新集群节点池.
+     *
+     * @param tmpReq - ModifyClusterNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyClusterNodePoolResponse
+     *
+     * @param ModifyClusterNodePoolRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyClusterNodePoolResponse
+     */
+    public function modifyClusterNodePoolWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyClusterNodePoolShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->kubernetesConfig) {
+            $request->kubernetesConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kubernetesConfig, 'KubernetesConfig', 'json');
+        }
+
+        if (null !== $tmpReq->nodepoolInfo) {
+            $request->nodepoolInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodepoolInfo, 'NodepoolInfo', 'json');
+        }
+
+        if (null !== $tmpReq->scalingGroup) {
+            $request->scalingGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scalingGroup, 'ScalingGroup', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->kubernetesConfigShrink) {
+            @$query['KubernetesConfig'] = $request->kubernetesConfigShrink;
+        }
+
+        if (null !== $request->nodepoolInfoShrink) {
+            @$query['NodepoolInfo'] = $request->nodepoolInfoShrink;
+        }
+
+        if (null !== $request->scalingGroupShrink) {
+            @$query['ScalingGroup'] = $request->scalingGroupShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyClusterNodePool',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新集群节点池.
+     *
+     * @param request - ModifyClusterNodePoolRequest
+     *
+     * @returns ModifyClusterNodePoolResponse
+     *
+     * @param ModifyClusterNodePoolRequest $request
+     *
+     * @return ModifyClusterNodePoolResponse
+     */
+    public function modifyClusterNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyClusterNodePoolWithOptions($request, $runtime);
     }
 
     /**
@@ -20844,6 +21684,77 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 调整节点池节点数.
+     *
+     * @param tmpReq - ScaleClusterNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleClusterNodePoolResponse
+     *
+     * @param ScaleClusterNodePoolRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ScaleClusterNodePoolResponse
+     */
+    public function scaleClusterNodePoolWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ScaleClusterNodePoolShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'Body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bodyShrink) {
+            @$query['Body'] = $request->bodyShrink;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->nodepoolId) {
+            @$query['NodepoolId'] = $request->nodepoolId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ScaleClusterNodePool',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ScaleClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调整节点池节点数.
+     *
+     * @param request - ScaleClusterNodePoolRequest
+     *
+     * @returns ScaleClusterNodePoolResponse
+     *
+     * @param ScaleClusterNodePoolRequest $request
+     *
+     * @return ScaleClusterNodePoolResponse
+     */
+    public function scaleClusterNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->scaleClusterNodePoolWithOptions($request, $runtime);
+    }
+
+    /**
      * Sets the weights of backend servers.
      *
      * @remarks
@@ -22329,6 +23240,73 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 卸载集群组件.
+     *
+     * @param tmpReq - UnInstallClusterAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnInstallClusterAddonsResponse
+     *
+     * @param UnInstallClusterAddonsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UnInstallClusterAddonsResponse
+     */
+    public function unInstallClusterAddonsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UnInstallClusterAddonsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addons) {
+            $request->addonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addons, 'Addons', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addonsShrink) {
+            @$query['Addons'] = $request->addonsShrink;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnInstallClusterAddons',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnInstallClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 卸载集群组件.
+     *
+     * @param request - UnInstallClusterAddonsRequest
+     *
+     * @returns UnInstallClusterAddonsResponse
+     *
+     * @param UnInstallClusterAddonsRequest $request
+     *
+     * @return UnInstallClusterAddonsResponse
+     */
+    public function unInstallClusterAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unInstallClusterAddonsWithOptions($request, $runtime);
+    }
+
+    /**
      * Unassigns secondary private IP addresses from an elastic network interface (ENI).
      *
      * @param request - UnassignPrivateIpAddressesRequest
@@ -22919,6 +23897,73 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 升级集群实例组件.
+     *
+     * @param tmpReq - UpgradeClusterAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeClusterAddonsResponse
+     *
+     * @param UpgradeClusterAddonsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpgradeClusterAddonsResponse
+     */
+    public function upgradeClusterAddonsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpgradeClusterAddonsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addons) {
+            $request->addonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addons, 'Addons', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addonsShrink) {
+            @$query['Addons'] = $request->addonsShrink;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeClusterAddons',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 升级集群实例组件.
+     *
+     * @param request - UpgradeClusterAddonsRequest
+     *
+     * @returns UpgradeClusterAddonsResponse
+     *
+     * @param UpgradeClusterAddonsRequest $request
+     *
+     * @return UpgradeClusterAddonsResponse
+     */
+    public function upgradeClusterAddons($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeClusterAddonsWithOptions($request, $runtime);
     }
 
     /**
