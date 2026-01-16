@@ -11,14 +11,29 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\re
 class hitResult extends Model
 {
     /**
+     * @var string
+     */
+    public $artificialRule;
+
+    /**
      * @var conditions
      */
     public $conditions;
 
     /**
+     * @var string
+     */
+    public $finalHitResult;
+
+    /**
      * @var hits
      */
     public $hits;
+
+    /**
+     * @var string
+     */
+    public $machineHitResult;
 
     /**
      * @var string
@@ -55,8 +70,11 @@ class hitResult extends Model
      */
     public $type;
     protected $_name = [
+        'artificialRule' => 'ArtificialRule',
         'conditions' => 'Conditions',
+        'finalHitResult' => 'FinalHitResult',
         'hits' => 'Hits',
+        'machineHitResult' => 'MachineHitResult',
         'name' => 'Name',
         'reviewResult' => 'ReviewResult',
         'rid' => 'Rid',
@@ -80,12 +98,24 @@ class hitResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->artificialRule) {
+            $res['ArtificialRule'] = $this->artificialRule;
+        }
+
         if (null !== $this->conditions) {
             $res['Conditions'] = null !== $this->conditions ? $this->conditions->toArray($noStream) : $this->conditions;
         }
 
+        if (null !== $this->finalHitResult) {
+            $res['FinalHitResult'] = $this->finalHitResult;
+        }
+
         if (null !== $this->hits) {
             $res['Hits'] = null !== $this->hits ? $this->hits->toArray($noStream) : $this->hits;
+        }
+
+        if (null !== $this->machineHitResult) {
+            $res['MachineHitResult'] = $this->machineHitResult;
         }
 
         if (null !== $this->name) {
@@ -127,12 +157,24 @@ class hitResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtificialRule'])) {
+            $model->artificialRule = $map['ArtificialRule'];
+        }
+
         if (isset($map['Conditions'])) {
             $model->conditions = conditions::fromMap($map['Conditions']);
         }
 
+        if (isset($map['FinalHitResult'])) {
+            $model->finalHitResult = $map['FinalHitResult'];
+        }
+
         if (isset($map['Hits'])) {
             $model->hits = hits::fromMap($map['Hits']);
+        }
+
+        if (isset($map['MachineHitResult'])) {
+            $model->machineHitResult = $map['MachineHitResult'];
         }
 
         if (isset($map['Name'])) {

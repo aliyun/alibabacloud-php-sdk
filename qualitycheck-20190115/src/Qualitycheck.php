@@ -2609,6 +2609,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取质检结果.
+     *
      * @param request - GetResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2650,6 +2652,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取质检结果.
+     *
      * @param request - GetResultRequest
      *
      * @returns GetResultResponse

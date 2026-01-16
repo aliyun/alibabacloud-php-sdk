@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\OperatorBasicInfo;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\JudgeNodeMetaDesc;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\OperatorBasicInfo\param\dimensions;
 
 class param extends Model
 {
@@ -80,6 +81,11 @@ class param extends Model
     public $differentRole;
 
     /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
+    /**
      * @var string
      */
     public $endType;
@@ -98,6 +104,11 @@ class param extends Model
      * @var bool
      */
     public $fromEnd;
+
+    /**
+     * @var string
+     */
+    public $hitCondition;
 
     /**
      * @var int
@@ -160,9 +171,19 @@ class param extends Model
     public $knowledgeTargetType;
 
     /**
+     * @var string
+     */
+    public $knowledges;
+
+    /**
      * @var string[]
      */
     public $lgfSentences;
+
+    /**
+     * @var string
+     */
+    public $llmModelCode;
 
     /**
      * @var int
@@ -223,6 +244,11 @@ class param extends Model
      * @var int
      */
     public $roleId;
+
+    /**
+     * @var string
+     */
+    public $sceneName;
 
     /**
      * @var int
@@ -288,10 +314,12 @@ class param extends Model
         'customerParam' => 'CustomerParam',
         'delayTime' => 'DelayTime',
         'differentRole' => 'Different_role',
+        'dimensions' => 'Dimensions',
         'endType' => 'EndType',
         'excludes' => 'Excludes',
         'from' => 'From',
         'fromEnd' => 'From_end',
+        'hitCondition' => 'HitCondition',
         'hitTime' => 'Hit_time',
         'inSentence' => 'In_sentence',
         'interval' => 'Interval',
@@ -304,7 +332,9 @@ class param extends Model
         'knowledgeTargetId' => 'KnowledgeTargetId',
         'knowledgeTargetName' => 'KnowledgeTargetName',
         'knowledgeTargetType' => 'KnowledgeTargetType',
+        'knowledges' => 'Knowledges',
         'lgfSentences' => 'LgfSentences',
+        'llmModelCode' => 'LlmModelCode',
         'maxEmotionChangeValue' => 'MaxEmotionChangeValue',
         'minWordSize' => 'MinWordSize',
         'nearDialogue' => 'Near_dialogue',
@@ -317,6 +347,7 @@ class param extends Model
         'references' => 'References',
         'regex' => 'Regex',
         'roleId' => 'RoleId',
+        'sceneName' => 'SceneName',
         'score' => 'Score',
         'similarityThreshold' => 'Similarity_threshold',
         'similarlySentences' => 'SimilarlySentences',
@@ -336,6 +367,9 @@ class param extends Model
         }
         if (null !== $this->customerParam) {
             $this->customerParam->validate();
+        }
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
         }
         if (\is_array($this->excludes)) {
             Model::validateArray($this->excludes);
@@ -425,6 +459,17 @@ class param extends Model
             $res['Different_role'] = $this->differentRole;
         }
 
+        if (null !== $this->dimensions) {
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->endType) {
             $res['EndType'] = $this->endType;
         }
@@ -446,6 +491,10 @@ class param extends Model
 
         if (null !== $this->fromEnd) {
             $res['From_end'] = $this->fromEnd;
+        }
+
+        if (null !== $this->hitCondition) {
+            $res['HitCondition'] = $this->hitCondition;
         }
 
         if (null !== $this->hitTime) {
@@ -503,6 +552,10 @@ class param extends Model
             $res['KnowledgeTargetType'] = $this->knowledgeTargetType;
         }
 
+        if (null !== $this->knowledges) {
+            $res['Knowledges'] = $this->knowledges;
+        }
+
         if (null !== $this->lgfSentences) {
             if (\is_array($this->lgfSentences)) {
                 $res['LgfSentences'] = [];
@@ -512,6 +565,10 @@ class param extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->llmModelCode) {
+            $res['LlmModelCode'] = $this->llmModelCode;
         }
 
         if (null !== $this->maxEmotionChangeValue) {
@@ -574,6 +631,10 @@ class param extends Model
 
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
+        }
+
+        if (null !== $this->sceneName) {
+            $res['SceneName'] = $this->sceneName;
         }
 
         if (null !== $this->score) {
@@ -707,6 +768,17 @@ class param extends Model
             $model->differentRole = $map['Different_role'];
         }
 
+        if (isset($map['Dimensions'])) {
+            if (!empty($map['Dimensions'])) {
+                $model->dimensions = [];
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['EndType'])) {
             $model->endType = $map['EndType'];
         }
@@ -728,6 +800,10 @@ class param extends Model
 
         if (isset($map['From_end'])) {
             $model->fromEnd = $map['From_end'];
+        }
+
+        if (isset($map['HitCondition'])) {
+            $model->hitCondition = $map['HitCondition'];
         }
 
         if (isset($map['Hit_time'])) {
@@ -785,6 +861,10 @@ class param extends Model
             $model->knowledgeTargetType = $map['KnowledgeTargetType'];
         }
 
+        if (isset($map['Knowledges'])) {
+            $model->knowledges = $map['Knowledges'];
+        }
+
         if (isset($map['LgfSentences'])) {
             if (!empty($map['LgfSentences'])) {
                 $model->lgfSentences = [];
@@ -794,6 +874,10 @@ class param extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['LlmModelCode'])) {
+            $model->llmModelCode = $map['LlmModelCode'];
         }
 
         if (isset($map['MaxEmotionChangeValue'])) {
@@ -856,6 +940,10 @@ class param extends Model
 
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
+        }
+
+        if (isset($map['SceneName'])) {
+            $model->sceneName = $map['SceneName'];
         }
 
         if (isset($map['Score'])) {
