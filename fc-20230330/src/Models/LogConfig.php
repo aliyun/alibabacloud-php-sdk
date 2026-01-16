@@ -16,6 +16,11 @@ class LogConfig extends Model
     /**
      * @var bool
      */
+    public $enableLlmMetrics;
+
+    /**
+     * @var bool
+     */
     public $enableRequestMetrics;
 
     /**
@@ -34,6 +39,7 @@ class LogConfig extends Model
     public $project;
     protected $_name = [
         'enableInstanceMetrics' => 'enableInstanceMetrics',
+        'enableLlmMetrics' => 'enableLlmMetrics',
         'enableRequestMetrics' => 'enableRequestMetrics',
         'logBeginRule' => 'logBeginRule',
         'logstore' => 'logstore',
@@ -50,6 +56,10 @@ class LogConfig extends Model
         $res = [];
         if (null !== $this->enableInstanceMetrics) {
             $res['enableInstanceMetrics'] = $this->enableInstanceMetrics;
+        }
+
+        if (null !== $this->enableLlmMetrics) {
+            $res['enableLlmMetrics'] = $this->enableLlmMetrics;
         }
 
         if (null !== $this->enableRequestMetrics) {
@@ -81,6 +91,10 @@ class LogConfig extends Model
         $model = new self();
         if (isset($map['enableInstanceMetrics'])) {
             $model->enableInstanceMetrics = $map['enableInstanceMetrics'];
+        }
+
+        if (isset($map['enableLlmMetrics'])) {
+            $model->enableLlmMetrics = $map['enableLlmMetrics'];
         }
 
         if (isset($map['enableRequestMetrics'])) {
