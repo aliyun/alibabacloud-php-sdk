@@ -1,3 +1,9 @@
+2026-01-16 Version: 2.7.1
+- Update API CreateIndex: add request parameters database.
+- Update API CreateIndex: add request parameters datasourceCode.
+- Update API CreateIndex: add request parameters table.
+
+
 2026-01-15 Version: 2.7.0
 - Support API GetIndexMonitor.
 - Update API DescribeFile: add response parameters Body.Data.ParseResultDownloadUrl.

@@ -911,6 +911,14 @@ class Bailian extends OpenApiClient
             @$query['chunkMode'] = $request->chunkMode;
         }
 
+        if (null !== $request->database) {
+            @$query['database'] = $request->database;
+        }
+
+        if (null !== $request->datasourceCode) {
+            @$query['datasourceCode'] = $request->datasourceCode;
+        }
+
         if (null !== $request->enableHeaders) {
             @$query['enableHeaders'] = $request->enableHeaders;
         }
@@ -929,6 +937,10 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->pipelineRetrieveRateLimitStrategy) {
             @$query['pipelineRetrieveRateLimitStrategy'] = $request->pipelineRetrieveRateLimitStrategy;
+        }
+
+        if (null !== $request->table) {
+            @$query['table'] = $request->table;
         }
 
         $req = new OpenApiRequest([

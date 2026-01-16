@@ -114,6 +114,16 @@ class CreateIndexShrinkRequest extends Model
     public $chunkMode;
 
     /**
+     * @var string
+     */
+    public $database;
+
+    /**
+     * @var string
+     */
+    public $datasourceCode;
+
+    /**
      * @var bool
      */
     public $enableHeaders;
@@ -137,6 +147,11 @@ class CreateIndexShrinkRequest extends Model
      * @var string
      */
     public $pipelineRetrieveRateLimitStrategy;
+
+    /**
+     * @var string
+     */
+    public $table;
     protected $_name = [
         'categoryIdsShrink' => 'CategoryIds',
         'chunkSize' => 'ChunkSize',
@@ -159,11 +174,14 @@ class CreateIndexShrinkRequest extends Model
         'structureType' => 'StructureType',
         'tableIdsShrink' => 'TableIds',
         'chunkMode' => 'chunkMode',
+        'database' => 'database',
+        'datasourceCode' => 'datasourceCode',
         'enableHeaders' => 'enableHeaders',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
         'pipelineCommercialCu' => 'pipelineCommercialCu',
         'pipelineCommercialType' => 'pipelineCommercialType',
         'pipelineRetrieveRateLimitStrategy' => 'pipelineRetrieveRateLimitStrategy',
+        'table' => 'table',
     ];
 
     public function validate()
@@ -258,6 +276,14 @@ class CreateIndexShrinkRequest extends Model
             $res['chunkMode'] = $this->chunkMode;
         }
 
+        if (null !== $this->database) {
+            $res['database'] = $this->database;
+        }
+
+        if (null !== $this->datasourceCode) {
+            $res['datasourceCode'] = $this->datasourceCode;
+        }
+
         if (null !== $this->enableHeaders) {
             $res['enableHeaders'] = $this->enableHeaders;
         }
@@ -276,6 +302,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (null !== $this->pipelineRetrieveRateLimitStrategy) {
             $res['pipelineRetrieveRateLimitStrategy'] = $this->pipelineRetrieveRateLimitStrategy;
+        }
+
+        if (null !== $this->table) {
+            $res['table'] = $this->table;
         }
 
         return $res;
@@ -373,6 +403,14 @@ class CreateIndexShrinkRequest extends Model
             $model->chunkMode = $map['chunkMode'];
         }
 
+        if (isset($map['database'])) {
+            $model->database = $map['database'];
+        }
+
+        if (isset($map['datasourceCode'])) {
+            $model->datasourceCode = $map['datasourceCode'];
+        }
+
         if (isset($map['enableHeaders'])) {
             $model->enableHeaders = $map['enableHeaders'];
         }
@@ -391,6 +429,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['pipelineRetrieveRateLimitStrategy'])) {
             $model->pipelineRetrieveRateLimitStrategy = $map['pipelineRetrieveRateLimitStrategy'];
+        }
+
+        if (isset($map['table'])) {
+            $model->table = $map['table'];
         }
 
         return $model;
