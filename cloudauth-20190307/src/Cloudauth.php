@@ -4890,6 +4890,26 @@ class Cloudauth extends OpenApiClient
             @$query['ProductCode'] = $request->productCode;
         }
 
+        if (null !== $request->riskBizScenario) {
+            @$query['RiskBizScenario'] = $request->riskBizScenario;
+        }
+
+        if (null !== $request->riskDevice) {
+            @$query['RiskDevice'] = $request->riskDevice;
+        }
+
+        if (null !== $request->riskDeviceToken) {
+            @$query['RiskDeviceToken'] = $request->riskDeviceToken;
+        }
+
+        if (null !== $request->riskGeneric) {
+            @$query['RiskGeneric'] = $request->riskGeneric;
+        }
+
+        if (null !== $request->riskModelMining) {
+            @$query['RiskModelMining'] = $request->riskModelMining;
+        }
+
         if (null !== $request->root) {
             @$query['Root'] = $request->root;
         }

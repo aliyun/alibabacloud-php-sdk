@@ -52,6 +52,31 @@ class items extends Model
     /**
      * @var int
      */
+    public $riskBizScenario;
+
+    /**
+     * @var int
+     */
+    public $riskDevice;
+
+    /**
+     * @var int
+     */
+    public $riskDeviceToken;
+
+    /**
+     * @var int
+     */
+    public $riskGeneric;
+
+    /**
+     * @var int
+     */
+    public $riskModelMining;
+
+    /**
+     * @var int
+     */
     public $root;
 
     /**
@@ -87,6 +112,11 @@ class items extends Model
         'outerOrderNo' => 'OuterOrderNo',
         'passed' => 'Passed',
         'productCode' => 'ProductCode',
+        'riskBizScenario' => 'RiskBizScenario',
+        'riskDevice' => 'RiskDevice',
+        'riskDeviceToken' => 'RiskDeviceToken',
+        'riskGeneric' => 'RiskGeneric',
+        'riskModelMining' => 'RiskModelMining',
         'root' => 'Root',
         'sceneId' => 'SceneId',
         'simulator' => 'Simulator',
@@ -136,6 +166,26 @@ class items extends Model
 
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+
+        if (null !== $this->riskBizScenario) {
+            $res['RiskBizScenario'] = $this->riskBizScenario;
+        }
+
+        if (null !== $this->riskDevice) {
+            $res['RiskDevice'] = $this->riskDevice;
+        }
+
+        if (null !== $this->riskDeviceToken) {
+            $res['RiskDeviceToken'] = $this->riskDeviceToken;
+        }
+
+        if (null !== $this->riskGeneric) {
+            $res['RiskGeneric'] = $this->riskGeneric;
+        }
+
+        if (null !== $this->riskModelMining) {
+            $res['RiskModelMining'] = $this->riskModelMining;
         }
 
         if (null !== $this->root) {
@@ -203,6 +253,26 @@ class items extends Model
 
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+
+        if (isset($map['RiskBizScenario'])) {
+            $model->riskBizScenario = $map['RiskBizScenario'];
+        }
+
+        if (isset($map['RiskDevice'])) {
+            $model->riskDevice = $map['RiskDevice'];
+        }
+
+        if (isset($map['RiskDeviceToken'])) {
+            $model->riskDeviceToken = $map['RiskDeviceToken'];
+        }
+
+        if (isset($map['RiskGeneric'])) {
+            $model->riskGeneric = $map['RiskGeneric'];
+        }
+
+        if (isset($map['RiskModelMining'])) {
+            $model->riskModelMining = $map['RiskModelMining'];
         }
 
         if (isset($map['Root'])) {
