@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\NetworkConfig;
 
 use AlibabaCloud\Dara\Model;
 
-class RemoveApmResponseBody extends Model
+class loadBalanceConfig extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $vsArea;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $result;
+    public $vswitchId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'result' => 'Result',
+        'vsArea' => 'vsArea',
+        'vswitchId' => 'vswitchId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class RemoveApmResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->vsArea) {
+            $res['vsArea'] = $this->vsArea;
         }
 
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
+        if (null !== $this->vswitchId) {
+            $res['vswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class RemoveApmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['vsArea'])) {
+            $model->vsArea = $map['vsArea'];
         }
 
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+        if (isset($map['vswitchId'])) {
+            $model->vswitchId = $map['vswitchId'];
         }
 
         return $model;

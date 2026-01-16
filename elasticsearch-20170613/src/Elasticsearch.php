@@ -71,7 +71,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteSnapshotRepoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersRequest;
@@ -149,8 +148,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAllNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAllNodeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmRequest;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsResponse;
@@ -240,7 +237,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemoveApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewLogstashRequest;
@@ -261,10 +257,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RunPipelinesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ShrinkNodeResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StartCollectorResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopCollectorResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\StopPipelinesRequest;
@@ -275,6 +269,10 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TransferNodeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TransferNodeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TriggerNetworkRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TriggerNetworkResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TurnOffZoneRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TurnOffZoneResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TurnOnZoneRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\TurnOnZoneResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UninstallKibanaPluginRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UninstallKibanaPluginResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UninstallLogstashPluginRequest;
@@ -289,8 +287,6 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAdvancedSettingRequest
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAdvancedSettingResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAliwsDictRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateAliwsDictResponse;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateApmRequest;
-use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateBlackIpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateBlackIpsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateCollectorNameRequest;
@@ -2649,57 +2645,6 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Describe APM.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeApmResponse
-     *
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeApmResponse
-     */
-    public function describeApmWithOptions($instanceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'DescribeApm',
-            'version' => '2017-06-13',
-            'protocol' => 'HTTPS',
-            'pathname' => '/openapi/apm/' . Url::percentEncode($instanceId) . '',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeApmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Describe APM.
-     *
-     * @returns DescribeApmResponse
-     *
-     * @param string $instanceId
-     *
-     * @return DescribeApmResponse
-     */
-    public function describeApm($instanceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->describeApmWithOptions($instanceId, $headers, $runtime);
-    }
-
-    /**
      * Queries the details of a shipper.
      *
      * @param headers - map
@@ -3856,6 +3801,11 @@ class Elasticsearch extends OpenApiClient
     public function enableKibanaPvlNetworkWithOptions($InstanceId, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         $body = [];
         if (null !== $request->endpointName) {
             @$body['endpointName'] = $request->endpointName;
@@ -3875,6 +3825,7 @@ class Elasticsearch extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -5582,83 +5533,6 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->listAlternativeSnapshotReposWithOptions($InstanceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * ListApm.
-     *
-     * @param request - ListApmRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListApmResponse
-     *
-     * @param ListApmRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListApmResponse
-     */
-    public function listApmWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->description) {
-            @$query['description'] = $request->description;
-        }
-
-        if (null !== $request->instanceId) {
-            @$query['instanceId'] = $request->instanceId;
-        }
-
-        if (null !== $request->output) {
-            @$query['output'] = $request->output;
-        }
-
-        if (null !== $request->page) {
-            @$query['page'] = $request->page;
-        }
-
-        if (null !== $request->size) {
-            @$query['size'] = $request->size;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ListApm',
-            'version' => '2017-06-13',
-            'protocol' => 'HTTPS',
-            'pathname' => '/openapi/apm',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return ListApmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * ListApm.
-     *
-     * @param request - ListApmRequest
-     *
-     * @returns ListApmResponse
-     *
-     * @param ListApmRequest $request
-     *
-     * @return ListApmResponse
-     */
-    public function listApm($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listApmWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9005,57 +8879,6 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * RemoveApm.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RemoveApmResponse
-     *
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return RemoveApmResponse
-     */
-    public function removeApmWithOptions($instanceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'RemoveApm',
-            'version' => '2017-06-13',
-            'protocol' => 'HTTPS',
-            'pathname' => '/openapi/apm/' . Url::percentEncode($instanceId) . '',
-            'method' => 'DELETE',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return RemoveApmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * RemoveApm.
-     *
-     * @returns RemoveApmResponse
-     *
-     * @param string $instanceId
-     *
-     * @return RemoveApmResponse
-     */
-    public function removeApm($instanceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->removeApmWithOptions($instanceId, $headers, $runtime);
-    }
-
-    /**
      * Call RenewInstance to renew a subscription instance.
      *
      * @param request - RenewInstanceRequest
@@ -9737,57 +9560,6 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * StartApm.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartApmResponse
-     *
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return StartApmResponse
-     */
-    public function startApmWithOptions($instanceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'StartApm',
-            'version' => '2017-06-13',
-            'protocol' => 'HTTPS',
-            'pathname' => '/openapi/apm/' . Url::percentEncode($instanceId) . '/actions/start',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return StartApmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * StartApm.
-     *
-     * @returns StartApmResponse
-     *
-     * @param string $instanceId
-     *
-     * @return StartApmResponse
-     */
-    public function startApm($instanceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->startApmWithOptions($instanceId, $headers, $runtime);
-    }
-
-    /**
      * Starts a collector to collect data.
      *
      * @param request - StartCollectorRequest
@@ -9848,57 +9620,6 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->startCollectorWithOptions($ResId, $request, $headers, $runtime);
-    }
-
-    /**
-     * StopApm.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopApmResponse
-     *
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return StopApmResponse
-     */
-    public function stopApmWithOptions($instanceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'StopApm',
-            'version' => '2017-06-13',
-            'protocol' => 'HTTPS',
-            'pathname' => '/openapi/apm/' . Url::percentEncode($instanceId) . '/actions/stop',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return StopApmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * StopApm.
-     *
-     * @returns StopApmResponse
-     *
-     * @param string $instanceId
-     *
-     * @return StopApmResponse
-     */
-    public function stopApm($instanceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->stopApmWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
@@ -10240,6 +9961,132 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->triggerNetworkWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 可用区关机.
+     *
+     * @param request - TurnOffZoneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TurnOffZoneResponse
+     *
+     * @param string             $instanceId
+     * @param TurnOffZoneRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return TurnOffZoneResponse
+     */
+    public function turnOffZoneWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->zone) {
+            @$query['zone'] = $request->zone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TurnOffZone',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($instanceId) . '/actions/turnOff-zone',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TurnOffZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 可用区关机.
+     *
+     * @param request - TurnOffZoneRequest
+     *
+     * @returns TurnOffZoneResponse
+     *
+     * @param string             $instanceId
+     * @param TurnOffZoneRequest $request
+     *
+     * @return TurnOffZoneResponse
+     */
+    public function turnOffZone($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->turnOffZoneWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 可用区开机.
+     *
+     * @param request - TurnOnZoneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TurnOnZoneResponse
+     *
+     * @param string            $instanceId
+     * @param TurnOnZoneRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return TurnOnZoneResponse
+     */
+    public function turnOnZoneWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->zone) {
+            @$query['zone'] = $request->zone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TurnOnZone',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($instanceId) . '/actions/turnOn-zone',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TurnOnZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 可用区开机.
+     *
+     * @param request - TurnOnZoneRequest
+     *
+     * @returns TurnOnZoneResponse
+     *
+     * @param string            $instanceId
+     * @param TurnOnZoneRequest $request
+     *
+     * @return TurnOnZoneResponse
+     */
+    public function turnOnZone($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->turnOnZoneWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -10740,85 +10587,6 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->updateAliwsDictWithOptions($InstanceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * 修改APM实规格配置.
-     *
-     * @param request - UpdateApmRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateApmResponse
-     *
-     * @param string           $instanceId
-     * @param UpdateApmRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return UpdateApmResponse
-     */
-    public function updateApmWithOptions($instanceId, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->description) {
-            @$body['description'] = $request->description;
-        }
-
-        if (null !== $request->outputES) {
-            @$body['outputES'] = $request->outputES;
-        }
-
-        if (null !== $request->outputESPassword) {
-            @$body['outputESPassword'] = $request->outputESPassword;
-        }
-
-        if (null !== $request->outputESUserName) {
-            @$body['outputESUserName'] = $request->outputESUserName;
-        }
-
-        if (null !== $request->token) {
-            @$body['token'] = $request->token;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'UpdateApm',
-            'version' => '2017-06-13',
-            'protocol' => 'HTTPS',
-            'pathname' => '/openapi/apm/' . Url::percentEncode($instanceId) . '',
-            'method' => 'PUT',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return UpdateApmResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 修改APM实规格配置.
-     *
-     * @param request - UpdateApmRequest
-     *
-     * @returns UpdateApmResponse
-     *
-     * @param string           $instanceId
-     * @param UpdateApmRequest $request
-     *
-     * @return UpdateApmResponse
-     */
-    public function updateApm($instanceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateApmWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -11769,6 +11537,10 @@ class Elasticsearch extends OpenApiClient
             @$body['nodeSpec'] = $request->nodeSpec;
         }
 
+        if (null !== $request->updateType) {
+            @$body['updateType'] = $request->updateType;
+        }
+
         if (null !== $request->warmNodeConfiguration) {
             @$body['warmNodeConfiguration'] = $request->warmNodeConfiguration;
         }
@@ -11840,10 +11612,19 @@ class Elasticsearch extends OpenApiClient
             @$query['clientToken'] = $request->clientToken;
         }
 
+        $body = [];
+        if (null !== $request->paymentInfo) {
+            @$body['paymentInfo'] = $request->paymentInfo;
+        }
+
+        if (null !== $request->paymentType) {
+            @$body['paymentType'] = $request->paymentType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
-            'body' => $request->body,
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceChargeType',
@@ -11916,10 +11697,15 @@ class Elasticsearch extends OpenApiClient
             @$query['updateStrategy'] = $request->updateStrategy;
         }
 
+        $body = [];
+        if (null !== $request->esConfig) {
+            @$body['esConfig'] = $request->esConfig;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
-            'body' => $request->body,
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceSettings',
@@ -11980,6 +11766,10 @@ class Elasticsearch extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->pvlId) {
             @$query['pvlId'] = $request->pvlId;
         }

@@ -28,11 +28,17 @@ class EnableKibanaPvlNetworkRequest extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'endpointName' => 'endpointName',
         'securityGroups' => 'securityGroups',
         'vSwitchIdsZone' => 'vSwitchIdsZone',
         'vpcId' => 'vpcId',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -79,6 +85,10 @@ class EnableKibanaPvlNetworkRequest extends Model
             $res['vpcId'] = $this->vpcId;
         }
 
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+
         return $res;
     }
 
@@ -118,6 +128,10 @@ class EnableKibanaPvlNetworkRequest extends Model
 
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

@@ -5,9 +5,25 @@
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\NetworkConfig\loadBalanceConfig;
 
 class NetworkConfig extends Model
 {
+    /**
+     * @var int
+     */
+    public $lbReplica;
+
+    /**
+     * @var loadBalanceConfig[]
+     */
+    public $loadBalanceConfig;
+
+    /**
+     * @var string
+     */
+    public $loadBalanceType;
+
     /**
      * @var string
      */
@@ -33,6 +49,9 @@ class NetworkConfig extends Model
      */
     public $whiteIpGroupList;
     protected $_name = [
+        'lbReplica' => 'lbReplica',
+        'loadBalanceConfig' => 'loadBalanceConfig',
+        'loadBalanceType' => 'loadBalanceType',
         'type' => 'type',
         'vpcId' => 'vpcId',
         'vsArea' => 'vsArea',
@@ -42,6 +61,9 @@ class NetworkConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->loadBalanceConfig)) {
+            Model::validateArray($this->loadBalanceConfig);
+        }
         if (\is_array($this->whiteIpGroupList)) {
             Model::validateArray($this->whiteIpGroupList);
         }
@@ -51,6 +73,25 @@ class NetworkConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->lbReplica) {
+            $res['lbReplica'] = $this->lbReplica;
+        }
+
+        if (null !== $this->loadBalanceConfig) {
+            if (\is_array($this->loadBalanceConfig)) {
+                $res['loadBalanceConfig'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalanceConfig as $item1) {
+                    $res['loadBalanceConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->loadBalanceType) {
+            $res['loadBalanceType'] = $this->loadBalanceType;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -89,6 +130,25 @@ class NetworkConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['lbReplica'])) {
+            $model->lbReplica = $map['lbReplica'];
+        }
+
+        if (isset($map['loadBalanceConfig'])) {
+            if (!empty($map['loadBalanceConfig'])) {
+                $model->loadBalanceConfig = [];
+                $n1 = 0;
+                foreach ($map['loadBalanceConfig'] as $item1) {
+                    $model->loadBalanceConfig[$n1] = loadBalanceConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['loadBalanceType'])) {
+            $model->loadBalanceType = $map['loadBalanceType'];
+        }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

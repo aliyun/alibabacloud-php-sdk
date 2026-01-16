@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateApmResponseBody extends Model
+class TurnOnZoneResponseBody extends Model
 {
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $result;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'result' => 'Result',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -31,11 +25,7 @@ class UpdateApmResponseBody extends Model
     {
         $res = [];
         if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class UpdateApmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

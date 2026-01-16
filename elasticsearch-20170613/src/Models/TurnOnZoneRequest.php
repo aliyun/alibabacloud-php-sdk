@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class StopApmResponseBody extends Model
+class TurnOnZoneRequest extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $result;
+    public $zone;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'result' => 'Result',
+        'zone' => 'zone',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class StopApmResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
+        if (null !== $this->zone) {
+            $res['zone'] = $this->zone;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class StopApmResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+        if (isset($map['zone'])) {
+            $model->zone = $map['zone'];
         }
 
         return $model;

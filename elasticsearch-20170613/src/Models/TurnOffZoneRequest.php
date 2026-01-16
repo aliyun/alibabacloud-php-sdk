@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponseBody;
+namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class headers extends Model
+class TurnOffZoneRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $xTotalCount;
+    public $zone;
     protected $_name = [
-        'xTotalCount' => 'X-Total-Count',
+        'zone' => 'zone',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class headers extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->xTotalCount) {
-            $res['X-Total-Count'] = $this->xTotalCount;
+        if (null !== $this->zone) {
+            $res['zone'] = $this->zone;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class headers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X-Total-Count'])) {
-            $model->xTotalCount = $map['X-Total-Count'];
+        if (isset($map['zone'])) {
+            $model->zone = $map['zone'];
         }
 
         return $model;

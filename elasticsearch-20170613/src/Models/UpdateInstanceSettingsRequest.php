@@ -9,9 +9,9 @@ use AlibabaCloud\Dara\Model;
 class UpdateInstanceSettingsRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $body;
+    public $esConfig;
 
     /**
      * @var string
@@ -28,7 +28,7 @@ class UpdateInstanceSettingsRequest extends Model
      */
     public $updateStrategy;
     protected $_name = [
-        'body' => 'body',
+        'esConfig' => 'esConfig',
         'clientToken' => 'clientToken',
         'force' => 'force',
         'updateStrategy' => 'updateStrategy',
@@ -36,14 +36,22 @@ class UpdateInstanceSettingsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->esConfig)) {
+            Model::validateArray($this->esConfig);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['body'] = $this->body;
+        if (null !== $this->esConfig) {
+            if (\is_array($this->esConfig)) {
+                $res['esConfig'] = [];
+                foreach ($this->esConfig as $key1 => $value1) {
+                    $res['esConfig'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->clientToken) {
@@ -69,8 +77,13 @@ class UpdateInstanceSettingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->body = $map['body'];
+        if (isset($map['esConfig'])) {
+            if (!empty($map['esConfig'])) {
+                $model->esConfig = [];
+                foreach ($map['esConfig'] as $key1 => $value1) {
+                    $model->esConfig[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['clientToken'])) {

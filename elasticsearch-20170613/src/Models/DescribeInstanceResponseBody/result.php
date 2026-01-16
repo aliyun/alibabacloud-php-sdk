@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\clientNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\dictList;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\elasticDataNodeConfiguration;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\endpoints;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\ikHotDicts;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\kibanaConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\masterConfiguration;
@@ -96,6 +97,11 @@ class result extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var endpoints[]
+     */
+    public $endpoints;
 
     /**
      * @var mixed[]
@@ -317,6 +323,7 @@ class result extends Model
         'enableKibanaPublicNetwork' => 'enableKibanaPublicNetwork',
         'enablePublic' => 'enablePublic',
         'endTime' => 'endTime',
+        'endpoints' => 'endpoints',
         'esConfig' => 'esConfig',
         'esIPBlacklist' => 'esIPBlacklist',
         'esIPWhitelist' => 'esIPWhitelist',
@@ -376,6 +383,9 @@ class result extends Model
         }
         if (null !== $this->elasticDataNodeConfiguration) {
             $this->elasticDataNodeConfiguration->validate();
+        }
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
         }
         if (\is_array($this->esConfig)) {
             Model::validateArray($this->esConfig);
@@ -506,6 +516,17 @@ class result extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->endpoints) {
+            if (\is_array($this->endpoints)) {
+                $res['endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['endpoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->esConfig) {
@@ -842,6 +863,17 @@ class result extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['endpoints'])) {
+            if (!empty($map['endpoints'])) {
+                $model->endpoints = [];
+                $n1 = 0;
+                foreach ($map['endpoints'] as $item1) {
+                    $model->endpoints[$n1] = endpoints::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['esConfig'])) {

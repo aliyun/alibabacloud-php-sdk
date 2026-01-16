@@ -21,10 +21,16 @@ class UpdateKibanaPvlNetworkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $pvlId;
     protected $_name = [
         'endpointName' => 'endpointName',
         'securityGroups' => 'securityGroups',
+        'clientToken' => 'clientToken',
         'pvlId' => 'pvlId',
     ];
 
@@ -52,6 +58,10 @@ class UpdateKibanaPvlNetworkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
         }
 
         if (null !== $this->pvlId) {
@@ -82,6 +92,10 @@ class UpdateKibanaPvlNetworkRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
         }
 
         if (isset($map['pvlId'])) {

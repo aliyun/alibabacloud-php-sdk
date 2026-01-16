@@ -44,6 +44,11 @@ class UpdateInstanceRequest extends Model
     public $nodeSpec;
 
     /**
+     * @var string
+     */
+    public $updateType;
+
+    /**
      * @var WarmNodeConfiguration
      */
     public $warmNodeConfiguration;
@@ -70,6 +75,7 @@ class UpdateInstanceRequest extends Model
         'masterConfiguration' => 'masterConfiguration',
         'nodeAmount' => 'nodeAmount',
         'nodeSpec' => 'nodeSpec',
+        'updateType' => 'updateType',
         'warmNodeConfiguration' => 'warmNodeConfiguration',
         'clientToken' => 'clientToken',
         'force' => 'force',
@@ -130,6 +136,10 @@ class UpdateInstanceRequest extends Model
             $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toArray($noStream) : $this->nodeSpec;
         }
 
+        if (null !== $this->updateType) {
+            $res['updateType'] = $this->updateType;
+        }
+
         if (null !== $this->warmNodeConfiguration) {
             $res['warmNodeConfiguration'] = null !== $this->warmNodeConfiguration ? $this->warmNodeConfiguration->toArray($noStream) : $this->warmNodeConfiguration;
         }
@@ -183,6 +193,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['nodeSpec'])) {
             $model->nodeSpec = NodeSpec::fromMap($map['nodeSpec']);
+        }
+
+        if (isset($map['updateType'])) {
+            $model->updateType = $map['updateType'];
         }
 
         if (isset($map['warmNodeConfiguration'])) {

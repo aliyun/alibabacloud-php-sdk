@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateApmResponse extends Model
+class TurnOffZoneResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UpdateApmResponse extends Model
     public $statusCode;
 
     /**
-     * @var UpdateApmResponseBody
+     * @var TurnOffZoneResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UpdateApmResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateApmResponseBody::fromMap($map['body']);
+            $model->body = TurnOffZoneResponseBody::fromMap($map['body']);
         }
 
         return $model;
