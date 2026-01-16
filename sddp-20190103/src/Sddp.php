@@ -650,6 +650,10 @@ class Sddp extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
         if (null !== $request->sourceIp) {
             @$query['SourceIp'] = $request->sourceIp;
         }

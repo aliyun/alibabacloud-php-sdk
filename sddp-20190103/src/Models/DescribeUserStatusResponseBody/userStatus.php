@@ -16,6 +16,11 @@ class userStatus extends Model
     /**
      * @var bool
      */
+    public $assetRoleAuthed;
+
+    /**
+     * @var bool
+     */
     public $auditClosable;
 
     /**
@@ -109,6 +114,7 @@ class userStatus extends Model
     public $useOssSize;
     protected $_name = [
         'accessKeyId' => 'AccessKeyId',
+        'assetRoleAuthed' => 'AssetRoleAuthed',
         'auditClosable' => 'AuditClosable',
         'auditReleasable' => 'AuditReleasable',
         'authed' => 'Authed',
@@ -140,6 +146,10 @@ class userStatus extends Model
         $res = [];
         if (null !== $this->accessKeyId) {
             $res['AccessKeyId'] = $this->accessKeyId;
+        }
+
+        if (null !== $this->assetRoleAuthed) {
+            $res['AssetRoleAuthed'] = $this->assetRoleAuthed;
         }
 
         if (null !== $this->auditClosable) {
@@ -231,6 +241,10 @@ class userStatus extends Model
         $model = new self();
         if (isset($map['AccessKeyId'])) {
             $model->accessKeyId = $map['AccessKeyId'];
+        }
+
+        if (isset($map['AssetRoleAuthed'])) {
+            $model->assetRoleAuthed = $map['AssetRoleAuthed'];
         }
 
         if (isset($map['AuditClosable'])) {

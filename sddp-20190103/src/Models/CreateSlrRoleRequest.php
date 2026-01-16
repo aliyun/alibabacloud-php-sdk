@@ -21,10 +21,16 @@ class CreateSlrRoleRequest extends Model
     /**
      * @var string
      */
+    public $serviceName;
+
+    /**
+     * @var string
+     */
     public $sourceIp;
     protected $_name = [
         'featureType' => 'FeatureType',
         'lang' => 'Lang',
+        'serviceName' => 'ServiceName',
         'sourceIp' => 'SourceIp',
     ];
 
@@ -42,6 +48,10 @@ class CreateSlrRoleRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         if (null !== $this->sourceIp) {
@@ -65,6 +75,10 @@ class CreateSlrRoleRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         if (isset($map['SourceIp'])) {
