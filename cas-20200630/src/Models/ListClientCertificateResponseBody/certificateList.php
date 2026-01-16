@@ -19,6 +19,11 @@ class certificateList extends Model
     public $algorithm;
 
     /**
+     * @var string
+     */
+    public $aliasName;
+
+    /**
      * @var int
      */
     public $beforeDate;
@@ -47,6 +52,11 @@ class certificateList extends Model
      * @var int
      */
     public $days;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var string
@@ -130,12 +140,14 @@ class certificateList extends Model
     protected $_name = [
         'afterDate' => 'AfterDate',
         'algorithm' => 'Algorithm',
+        'aliasName' => 'AliasName',
         'beforeDate' => 'BeforeDate',
         'certificateType' => 'CertificateType',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
         'customIdentifier' => 'CustomIdentifier',
         'days' => 'Days',
+        'id' => 'Id',
         'identifier' => 'Identifier',
         'keySize' => 'KeySize',
         'locality' => 'Locality',
@@ -170,6 +182,10 @@ class certificateList extends Model
             $res['Algorithm'] = $this->algorithm;
         }
 
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
+
         if (null !== $this->beforeDate) {
             $res['BeforeDate'] = $this->beforeDate;
         }
@@ -192,6 +208,10 @@ class certificateList extends Model
 
         if (null !== $this->days) {
             $res['Days'] = $this->days;
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         if (null !== $this->identifier) {
@@ -277,6 +297,10 @@ class certificateList extends Model
             $model->algorithm = $map['Algorithm'];
         }
 
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
+
         if (isset($map['BeforeDate'])) {
             $model->beforeDate = $map['BeforeDate'];
         }
@@ -299,6 +323,10 @@ class certificateList extends Model
 
         if (isset($map['Days'])) {
             $model->days = $map['Days'];
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         if (isset($map['Identifier'])) {

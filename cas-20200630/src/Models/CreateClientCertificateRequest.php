@@ -20,9 +20,19 @@ class CreateClientCertificateRequest extends Model
     public $algorithm;
 
     /**
+     * @var string
+     */
+    public $aliasName;
+
+    /**
      * @var int
      */
     public $beforeTime;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var string
@@ -111,7 +121,9 @@ class CreateClientCertificateRequest extends Model
     protected $_name = [
         'afterTime' => 'AfterTime',
         'algorithm' => 'Algorithm',
+        'aliasName' => 'AliasName',
         'beforeTime' => 'BeforeTime',
+        'clientToken' => 'ClientToken',
         'commonName' => 'CommonName',
         'country' => 'Country',
         'customIdentifier' => 'CustomIdentifier',
@@ -150,8 +162,16 @@ class CreateClientCertificateRequest extends Model
             $res['Algorithm'] = $this->algorithm;
         }
 
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
+        }
+
         if (null !== $this->beforeTime) {
             $res['BeforeTime'] = $this->beforeTime;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->commonName) {
@@ -248,8 +268,16 @@ class CreateClientCertificateRequest extends Model
             $model->algorithm = $map['Algorithm'];
         }
 
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
+        }
+
         if (isset($map['BeforeTime'])) {
             $model->beforeTime = $map['BeforeTime'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['CommonName'])) {

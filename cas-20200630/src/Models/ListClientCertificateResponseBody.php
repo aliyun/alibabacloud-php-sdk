@@ -22,6 +22,11 @@ class ListClientCertificateResponseBody extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var int
+     */
     public $pageCount;
 
     /**
@@ -41,6 +46,7 @@ class ListClientCertificateResponseBody extends Model
     protected $_name = [
         'certificateList' => 'CertificateList',
         'currentPage' => 'CurrentPage',
+        'maxResults' => 'MaxResults',
         'pageCount' => 'PageCount',
         'requestId' => 'RequestId',
         'showSize' => 'ShowSize',
@@ -71,6 +77,10 @@ class ListClientCertificateResponseBody extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
 
         if (null !== $this->pageCount) {
@@ -113,6 +123,10 @@ class ListClientCertificateResponseBody extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
 
         if (isset($map['PageCount'])) {

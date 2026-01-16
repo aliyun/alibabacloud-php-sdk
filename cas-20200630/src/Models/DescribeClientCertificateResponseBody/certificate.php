@@ -20,6 +20,11 @@ class certificate extends Model
     public $algorithm;
 
     /**
+     * @var string
+     */
+    public $aliasName;
+
+    /**
      * @var int
      */
     public $beforeDate;
@@ -53,6 +58,16 @@ class certificate extends Model
      * @var int
      */
     public $days;
+
+    /**
+     * @var string
+     */
+    public $fullAlgorithm;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var string
@@ -135,12 +150,18 @@ class certificate extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $uploadFlag;
+
+    /**
      * @var string
      */
     public $x509Certificate;
     protected $_name = [
         'afterDate' => 'AfterDate',
         'algorithm' => 'Algorithm',
+        'aliasName' => 'AliasName',
         'beforeDate' => 'BeforeDate',
         'certChain' => 'CertChain',
         'certificateType' => 'CertificateType',
@@ -148,6 +169,8 @@ class certificate extends Model
         'countryCode' => 'CountryCode',
         'customIdentifier' => 'CustomIdentifier',
         'days' => 'Days',
+        'fullAlgorithm' => 'FullAlgorithm',
+        'id' => 'Id',
         'identifier' => 'Identifier',
         'keySize' => 'KeySize',
         'locality' => 'Locality',
@@ -164,6 +187,7 @@ class certificate extends Model
         'status' => 'Status',
         'subjectDN' => 'SubjectDN',
         'tags' => 'Tags',
+        'uploadFlag' => 'UploadFlag',
         'x509Certificate' => 'X509Certificate',
     ];
 
@@ -184,6 +208,10 @@ class certificate extends Model
 
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->aliasName) {
+            $res['AliasName'] = $this->aliasName;
         }
 
         if (null !== $this->beforeDate) {
@@ -212,6 +240,14 @@ class certificate extends Model
 
         if (null !== $this->days) {
             $res['Days'] = $this->days;
+        }
+
+        if (null !== $this->fullAlgorithm) {
+            $res['FullAlgorithm'] = $this->fullAlgorithm;
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         if (null !== $this->identifier) {
@@ -285,6 +321,10 @@ class certificate extends Model
             }
         }
 
+        if (null !== $this->uploadFlag) {
+            $res['UploadFlag'] = $this->uploadFlag;
+        }
+
         if (null !== $this->x509Certificate) {
             $res['X509Certificate'] = $this->x509Certificate;
         }
@@ -306,6 +346,10 @@ class certificate extends Model
 
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['AliasName'])) {
+            $model->aliasName = $map['AliasName'];
         }
 
         if (isset($map['BeforeDate'])) {
@@ -334,6 +378,14 @@ class certificate extends Model
 
         if (isset($map['Days'])) {
             $model->days = $map['Days'];
+        }
+
+        if (isset($map['FullAlgorithm'])) {
+            $model->fullAlgorithm = $map['FullAlgorithm'];
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         if (isset($map['Identifier'])) {
@@ -405,6 +457,10 @@ class certificate extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UploadFlag'])) {
+            $model->uploadFlag = $map['UploadFlag'];
         }
 
         if (isset($map['X509Certificate'])) {

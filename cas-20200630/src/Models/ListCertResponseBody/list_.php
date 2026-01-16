@@ -59,7 +59,7 @@ class list_ extends Model
     public $extra;
 
     /**
-     * @var string
+     * @var int
      */
     public $id;
 

@@ -256,6 +256,10 @@ class Cas extends OpenApiClient
             @$query['Algorithm'] = $request->algorithm;
         }
 
+        if (null !== $request->aliasName) {
+            @$query['AliasName'] = $request->aliasName;
+        }
+
         if (null !== $request->beforeTime) {
             @$query['BeforeTime'] = $request->beforeTime;
         }
@@ -328,8 +332,14 @@ class Cas extends OpenApiClient
             @$query['Years'] = $request->years;
         }
 
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateClientCertificate',
@@ -2264,6 +2274,10 @@ class Cas extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->parentIdentifier) {
+            @$query['ParentIdentifier'] = $request->parentIdentifier;
         }
 
         if (null !== $request->showSize) {

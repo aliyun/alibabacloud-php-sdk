@@ -39,6 +39,11 @@ class ListCertRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $parentIdentifier;
+
+    /**
      * @var int
      */
     public $showSize;
@@ -59,6 +64,7 @@ class ListCertRequest extends Model
         'instanceUuid' => 'InstanceUuid',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'parentIdentifier' => 'ParentIdentifier',
         'showSize' => 'ShowSize',
         'status' => 'Status',
         'type' => 'Type',
@@ -94,6 +100,10 @@ class ListCertRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->parentIdentifier) {
+            $res['ParentIdentifier'] = $this->parentIdentifier;
         }
 
         if (null !== $this->showSize) {
@@ -141,6 +151,10 @@ class ListCertRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['ParentIdentifier'])) {
+            $model->parentIdentifier = $map['ParentIdentifier'];
         }
 
         if (isset($map['ShowSize'])) {
