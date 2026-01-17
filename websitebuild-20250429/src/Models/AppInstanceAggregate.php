@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AppInstanceAggregate\partnerDetail;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AppInstanceAggregate\tags;
 
 class AppInstanceAggregate extends Model
 {
@@ -109,9 +111,19 @@ class AppInstanceAggregate extends Model
     public $name;
 
     /**
+     * @var partnerDetail
+     */
+    public $partnerDetail;
+
+    /**
      * @var AppInstanceProfile
      */
     public $profile;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -144,6 +156,11 @@ class AppInstanceAggregate extends Model
     public $statusText;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $thumbnailUrl;
@@ -173,13 +190,16 @@ class AppInstanceAggregate extends Model
         'gmtPublish' => 'GmtPublish',
         'iconUrl' => 'IconUrl',
         'name' => 'Name',
+        'partnerDetail' => 'PartnerDetail',
         'profile' => 'Profile',
+        'resourceGroupId' => 'ResourceGroupId',
         'siteHost' => 'SiteHost',
         'slug' => 'Slug',
         'sourceType' => 'SourceType',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'statusText' => 'StatusText',
+        'tags' => 'Tags',
         'thumbnailUrl' => 'ThumbnailUrl',
         'userId' => 'UserId',
     ];
@@ -195,8 +215,14 @@ class AppInstanceAggregate extends Model
         if (\is_array($this->appServiceList)) {
             Model::validateArray($this->appServiceList);
         }
+        if (null !== $this->partnerDetail) {
+            $this->partnerDetail->validate();
+        }
         if (null !== $this->profile) {
             $this->profile->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -298,8 +324,16 @@ class AppInstanceAggregate extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->partnerDetail) {
+            $res['PartnerDetail'] = null !== $this->partnerDetail ? $this->partnerDetail->toArray($noStream) : $this->partnerDetail;
+        }
+
         if (null !== $this->profile) {
             $res['Profile'] = null !== $this->profile ? $this->profile->toArray($noStream) : $this->profile;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->siteHost) {
@@ -324,6 +358,17 @@ class AppInstanceAggregate extends Model
 
         if (null !== $this->statusText) {
             $res['StatusText'] = $this->statusText;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->thumbnailUrl) {
@@ -439,8 +484,16 @@ class AppInstanceAggregate extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['PartnerDetail'])) {
+            $model->partnerDetail = partnerDetail::fromMap($map['PartnerDetail']);
+        }
+
         if (isset($map['Profile'])) {
             $model->profile = AppInstanceProfile::fromMap($map['Profile']);
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SiteHost'])) {
@@ -465,6 +518,17 @@ class AppInstanceAggregate extends Model
 
         if (isset($map['StatusText'])) {
             $model->statusText = $map['StatusText'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ThumbnailUrl'])) {

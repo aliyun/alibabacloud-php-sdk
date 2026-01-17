@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest\tags;
 
-class CreateAppInstanceRequest extends Model
+class CreateAppInstanceShrinkRequest extends Model
 {
     /**
      * @var string
@@ -65,9 +64,9 @@ class CreateAppInstanceRequest extends Model
     public $siteVersion;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'autoRenew' => 'AutoRenew',
@@ -80,14 +79,11 @@ class CreateAppInstanceRequest extends Model
         'quantity' => 'Quantity',
         'resourceGroupId' => 'ResourceGroupId',
         'siteVersion' => 'SiteVersion',
-        'tags' => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
         parent::validate();
     }
 
@@ -138,15 +134,8 @@ class CreateAppInstanceRequest extends Model
             $res['SiteVersion'] = $this->siteVersion;
         }
 
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         return $res;
@@ -205,14 +194,7 @@ class CreateAppInstanceRequest extends Model
         }
 
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         return $model;

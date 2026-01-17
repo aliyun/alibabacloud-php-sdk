@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
@@ -173,19 +174,25 @@ class WebsiteBuild extends OpenApiClient
     /**
      * Create a website instance.
      *
-     * @param request - CreateAppInstanceRequest
+     * @param tmpReq - CreateAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateAppInstanceResponse
      *
-     * @param CreateAppInstanceRequest $request
+     * @param CreateAppInstanceRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return CreateAppInstanceResponse
      */
-    public function createAppInstanceWithOptions($request, $runtime)
+    public function createAppInstanceWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateAppInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->applicationType) {
             @$query['ApplicationType'] = $request->applicationType;
@@ -227,8 +234,18 @@ class WebsiteBuild extends OpenApiClient
             @$query['SiteVersion'] = $request->siteVersion;
         }
 
+        $body = [];
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAppInstance',
