@@ -781,6 +781,10 @@ class Selectdb extends OpenApiClient
             @$query['ClusterNodeType'] = $request->clusterNodeType;
         }
 
+        if (null !== $request->configPatternType) {
+            @$query['ConfigPatternType'] = $request->configPatternType;
+        }
+
         if (null !== $request->connectionString) {
             @$query['ConnectionString'] = $request->connectionString;
         }

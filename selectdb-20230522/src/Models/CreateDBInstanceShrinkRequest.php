@@ -41,6 +41,11 @@ class CreateDBInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $configPatternType;
+
+    /**
+     * @var string
+     */
     public $connectionString;
 
     /**
@@ -139,6 +144,7 @@ class CreateDBInstanceShrinkRequest extends Model
         'clientToken' => 'ClientToken',
         'clusterNodeCount' => 'ClusterNodeCount',
         'clusterNodeType' => 'ClusterNodeType',
+        'configPatternType' => 'ConfigPatternType',
         'connectionString' => 'ConnectionString',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
@@ -190,6 +196,10 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (null !== $this->clusterNodeType) {
             $res['ClusterNodeType'] = $this->clusterNodeType;
+        }
+
+        if (null !== $this->configPatternType) {
+            $res['ConfigPatternType'] = $this->configPatternType;
         }
 
         if (null !== $this->connectionString) {
@@ -301,6 +311,10 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (isset($map['ClusterNodeType'])) {
             $model->clusterNodeType = $map['ClusterNodeType'];
+        }
+
+        if (isset($map['ConfigPatternType'])) {
+            $model->configPatternType = $map['ConfigPatternType'];
         }
 
         if (isset($map['ConnectionString'])) {

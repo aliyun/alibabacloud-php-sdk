@@ -25,6 +25,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $configPatternType;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -174,6 +179,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     protected $_name = [
         'canUpgradeVersions' => 'CanUpgradeVersions',
         'chargeType' => 'ChargeType',
+        'configPatternType' => 'ConfigPatternType',
         'createTime' => 'CreateTime',
         'DBClusterList' => 'DBClusterList',
         'DBInstanceId' => 'DBInstanceId',
@@ -242,6 +248,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->configPatternType) {
+            $res['ConfigPatternType'] = $this->configPatternType;
         }
 
         if (null !== $this->createTime) {
@@ -416,6 +426,10 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ConfigPatternType'])) {
+            $model->configPatternType = $map['ConfigPatternType'];
         }
 
         if (isset($map['CreateTime'])) {
