@@ -170,6 +170,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskLogFilesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskLogFilesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskMetricsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskMetricsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRequest;
@@ -7264,6 +7268,176 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAIDBClusterPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型算子日志.
+     *
+     * @param request - DescribeAIDBClusterTaskLogFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterTaskLogFilesResponse
+     *
+     * @param DescribeAIDBClusterTaskLogFilesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeAIDBClusterTaskLogFilesResponse
+     */
+    public function describeAIDBClusterTaskLogFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterTaskLogFiles',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterTaskLogFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型算子日志.
+     *
+     * @param request - DescribeAIDBClusterTaskLogFilesRequest
+     *
+     * @returns DescribeAIDBClusterTaskLogFilesResponse
+     *
+     * @param DescribeAIDBClusterTaskLogFilesRequest $request
+     *
+     * @return DescribeAIDBClusterTaskLogFilesResponse
+     */
+    public function describeAIDBClusterTaskLogFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterTaskLogFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型算子指标.
+     *
+     * @param request - DescribeAIDBClusterTaskMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterTaskMetricsResponse
+     *
+     * @param DescribeAIDBClusterTaskMetricsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAIDBClusterTaskMetricsResponse
+     */
+    public function describeAIDBClusterTaskMetricsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterTaskMetrics',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterTaskMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型算子指标.
+     *
+     * @param request - DescribeAIDBClusterTaskMetricsRequest
+     *
+     * @returns DescribeAIDBClusterTaskMetricsResponse
+     *
+     * @param DescribeAIDBClusterTaskMetricsRequest $request
+     *
+     * @return DescribeAIDBClusterTaskMetricsResponse
+     */
+    public function describeAIDBClusterTaskMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterTaskMetricsWithOptions($request, $runtime);
     }
 
     /**
