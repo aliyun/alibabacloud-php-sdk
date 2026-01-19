@@ -45,6 +45,11 @@ class states extends Model
     public $certState;
 
     /**
+     * @var string
+     */
+    public $cloudServiceName;
+
+    /**
      * @var cloudServiceRoles[]
      */
     public $cloudServiceRoles;
@@ -61,6 +66,7 @@ class states extends Model
         'accountType' => 'account_type',
         'certExpireTime' => 'cert_expire_time',
         'certState' => 'cert_state',
+        'cloudServiceName' => 'cloud_service_name',
         'cloudServiceRoles' => 'cloud_service_roles',
         'revokable' => 'revokable',
     ];
@@ -102,6 +108,10 @@ class states extends Model
 
         if (null !== $this->certState) {
             $res['cert_state'] = $this->certState;
+        }
+
+        if (null !== $this->cloudServiceName) {
+            $res['cloud_service_name'] = $this->cloudServiceName;
         }
 
         if (null !== $this->cloudServiceRoles) {
@@ -156,6 +166,10 @@ class states extends Model
 
         if (isset($map['cert_state'])) {
             $model->certState = $map['cert_state'];
+        }
+
+        if (isset($map['cloud_service_name'])) {
+            $model->cloudServiceName = $map['cloud_service_name'];
         }
 
         if (isset($map['cloud_service_roles'])) {
