@@ -280,12 +280,20 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSBpsListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSBpsListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDdosMaxBurstGbpsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDdosMaxBurstGbpsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeEdgeContainerAppStatsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeEdgeContainerAppStatsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSIntelligentAclRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSIntelligentAclRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSIntelligentRateLimitRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSIntelligentRateLimitRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeKvAccountStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksResponse;
@@ -648,6 +656,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetDdosMaxBurstGbpsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetDdosMaxBurstGbpsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackProtectionRequest;
@@ -2912,7 +2922,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建边缘容器应用的镜像秘钥.
+     * Create an image secret for the edge container application.
      *
      * @param Request - CreateEdgeContainerAppImageSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2963,7 +2973,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建边缘容器应用的镜像秘钥.
+     * Create an image secret for the edge container application.
      *
      * @param Request - CreateEdgeContainerAppImageSecretRequest
      *
@@ -7141,7 +7151,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除边缘容器应用的镜像秘钥.
+     * Delete the image secret of an edge container application.
      *
      * @param Request - DeleteEdgeContainerAppImageSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7184,7 +7194,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除边缘容器应用的镜像秘钥.
+     * Delete the image secret of an edge container application.
      *
      * @param Request - DeleteEdgeContainerAppImageSecretRequest
      *
@@ -7328,7 +7338,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除深度学习和防护下发的规则.
+     * Delete rules for deep learning and protection distribution.
      *
      * @param Request - DeleteHttpDDoSIntelligentRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7375,7 +7385,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除深度学习和防护下发的规则.
+     * Delete rules for deep learning and protection distribution.
      *
      * @param Request - DeleteHttpDDoSIntelligentRuleRequest
      *
@@ -9374,18 +9384,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 用于删除实例级别的Web应用防火墙规则集。
+     * Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
      *
      * @remarks
-     * ## 请求说明
-     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
-     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
-     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
-     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
-     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
-     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
-     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
-     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     * ## Request Description
+     * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
      *
      * @param Request - DeleteUserWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9430,18 +9433,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 用于删除实例级别的Web应用防火墙规则集。
+     * Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
      *
      * @remarks
-     * ## 请求说明
-     * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
-     * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
-     * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
-     * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
-     * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
-     * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
-     * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
-     * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+     * ## Request Description
+     * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
      *
      * @param Request - DeleteUserWafRulesetRequest
      *
@@ -10105,6 +10101,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询当前实例设置的Ddos最大防护弹性值
+     *
+     * @param Request - DescribeDdosMaxBurstGbpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDdosMaxBurstGbpsResponse
+     *
+     * @param DescribeDdosMaxBurstGbpsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDdosMaxBurstGbpsResponse
+     */
+    public function describeDdosMaxBurstGbpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDdosMaxBurstGbps',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDdosMaxBurstGbpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前实例设置的Ddos最大防护弹性值
+     *
+     * @param Request - DescribeDdosMaxBurstGbpsRequest
+     *
+     * @returns DescribeDdosMaxBurstGbpsResponse
+     *
+     * @param DescribeDdosMaxBurstGbpsRequest $request
+     *
+     * @return DescribeDdosMaxBurstGbpsResponse
+     */
+    public function describeDdosMaxBurstGbps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDdosMaxBurstGbpsWithOptions($request, $runtime);
+    }
+
+    /**
      * Provides monitoring data for metrics of ESA edge containers.
      *
      * @param Request - DescribeEdgeContainerAppStatsRequest
@@ -10269,6 +10318,209 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHttpDDoSAttackProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询HTTP DDoS攻击防护规则.
+     *
+     * @param Request - DescribeHttpDDoSAttackRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHttpDDoSAttackRulesResponse
+     *
+     * @param DescribeHttpDDoSAttackRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeHttpDDoSAttackRulesResponse
+     */
+    public function describeHttpDDoSAttackRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHttpDDoSAttackRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHttpDDoSAttackRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询HTTP DDoS攻击防护规则.
+     *
+     * @param Request - DescribeHttpDDoSAttackRulesRequest
+     *
+     * @returns DescribeHttpDDoSAttackRulesResponse
+     *
+     * @param DescribeHttpDDoSAttackRulesRequest $request
+     *
+     * @return DescribeHttpDDoSAttackRulesResponse
+     */
+    public function describeHttpDDoSAttackRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHttpDDoSAttackRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询深度学习和防护下发的精准访问控制规则.
+     *
+     * @param Request - DescribeHttpDDoSIntelligentAclRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHttpDDoSIntelligentAclRulesResponse
+     *
+     * @param DescribeHttpDDoSIntelligentAclRulesRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeHttpDDoSIntelligentAclRulesResponse
+     */
+    public function describeHttpDDoSIntelligentAclRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHttpDDoSIntelligentAclRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHttpDDoSIntelligentAclRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询深度学习和防护下发的精准访问控制规则.
+     *
+     * @param Request - DescribeHttpDDoSIntelligentAclRulesRequest
+     *
+     * @returns DescribeHttpDDoSIntelligentAclRulesResponse
+     *
+     * @param DescribeHttpDDoSIntelligentAclRulesRequest $request
+     *
+     * @return DescribeHttpDDoSIntelligentAclRulesResponse
+     */
+    public function describeHttpDDoSIntelligentAclRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHttpDDoSIntelligentAclRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询深度学习和防护下发的频率控制规则.
+     *
+     * @param Request - DescribeHttpDDoSIntelligentRateLimitRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHttpDDoSIntelligentRateLimitRulesResponse
+     *
+     * @param DescribeHttpDDoSIntelligentRateLimitRulesRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeHttpDDoSIntelligentRateLimitRulesResponse
+     */
+    public function describeHttpDDoSIntelligentRateLimitRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHttpDDoSIntelligentRateLimitRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHttpDDoSIntelligentRateLimitRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询深度学习和防护下发的频率控制规则.
+     *
+     * @param Request - DescribeHttpDDoSIntelligentRateLimitRulesRequest
+     *
+     * @returns DescribeHttpDDoSIntelligentRateLimitRulesResponse
+     *
+     * @param DescribeHttpDDoSIntelligentRateLimitRulesRequest $request
+     *
+     * @return DescribeHttpDDoSIntelligentRateLimitRulesResponse
+     */
+    public function describeHttpDDoSIntelligentRateLimitRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHttpDDoSIntelligentRateLimitRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -12954,7 +13206,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询Key-Value对的某个Key的详情.
+     * Queries the value and time to live (TTL) of a key.
      *
      * @param Request - GetKvDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12997,7 +13249,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询Key-Value对的某个Key的详情.
+     * Queries the value and time to live (TTL) of a key.
      *
      * @param Request - GetKvDetailRequest
      *
@@ -16126,7 +16378,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取边缘容器应用的镜像秘钥列表.
+     * Retrieve the list of image secrets for edge container applications.
      *
      * @param Request - ListEdgeContainerAppImageSecretsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16165,7 +16417,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取边缘容器应用的镜像秘钥列表.
+     * Retrieve the list of image secrets for edge container applications.
      *
      * @param Request - ListEdgeContainerAppImageSecretsRequest
      *
@@ -20951,6 +21203,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 设置Ddos实例的最大防护弹性值
+     *
+     * @param Request - SetDdosMaxBurstGbpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDdosMaxBurstGbpsResponse
+     *
+     * @param SetDdosMaxBurstGbpsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetDdosMaxBurstGbpsResponse
+     */
+    public function setDdosMaxBurstGbpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxBurstGbps) {
+            @$query['MaxBurstGbps'] = $request->maxBurstGbps;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetDdosMaxBurstGbps',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetDdosMaxBurstGbpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置Ddos实例的最大防护弹性值
+     *
+     * @param Request - SetDdosMaxBurstGbpsRequest
+     *
+     * @returns SetDdosMaxBurstGbpsResponse
+     *
+     * @param SetDdosMaxBurstGbpsRequest $request
+     *
+     * @return SetDdosMaxBurstGbpsResponse
+     */
+    public function setDdosMaxBurstGbps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDdosMaxBurstGbpsWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures smart HTTP DDoS protection.
      *
      * @param Request - SetHttpDDoSAttackIntelligentProtectionRequest
@@ -21077,7 +21390,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 设置HTTP DDoS攻击防护指定规则防护动作.
+     * Set the Protection Action for Specified HTTP DDoS Attack Rules.
      *
      * @param Request - SetHttpDDoSAttackRuleActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21124,7 +21437,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 设置HTTP DDoS攻击防护指定规则防护动作.
+     * Set the Protection Action for Specified HTTP DDoS Attack Rules.
      *
      * @param Request - SetHttpDDoSAttackRuleActionRequest
      *
@@ -21142,7 +21455,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 设置HTTP DDoS攻击防护指定规则防护状态
+     * Set the Protection Status of Specified HTTP DDoS Attack Rules.
      *
      * @param Request - SetHttpDDoSAttackRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21189,7 +21502,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 设置HTTP DDoS攻击防护指定规则防护状态
+     * Set the Protection Status of Specified HTTP DDoS Attack Rules.
      *
      * @param Request - SetHttpDDoSAttackRuleStatusRequest
      *
