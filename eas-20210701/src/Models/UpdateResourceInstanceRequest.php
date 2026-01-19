@@ -12,8 +12,14 @@ class UpdateResourceInstanceRequest extends Model
      * @var string
      */
     public $action;
+
+    /**
+     * @var string
+     */
+    public $newDiskSize;
     protected $_name = [
         'action' => 'Action',
+        'newDiskSize' => 'NewDiskSize',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class UpdateResourceInstanceRequest extends Model
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
+        }
+
+        if (null !== $this->newDiskSize) {
+            $res['NewDiskSize'] = $this->newDiskSize;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class UpdateResourceInstanceRequest extends Model
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
+        }
+
+        if (isset($map['NewDiskSize'])) {
+            $model->newDiskSize = $map['NewDiskSize'];
         }
 
         return $model;

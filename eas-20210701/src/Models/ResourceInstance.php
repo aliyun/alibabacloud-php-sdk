@@ -72,6 +72,11 @@ class ResourceInstance extends Model
     /**
      * @var string
      */
+    public $instancePhase;
+
+    /**
+     * @var string
+     */
     public $instanceStatus;
 
     /**
@@ -141,6 +146,7 @@ class ResourceInstance extends Model
         'instanceIp' => 'InstanceIp',
         'instanceMemory' => 'InstanceMemory',
         'instanceName' => 'InstanceName',
+        'instancePhase' => 'InstancePhase',
         'instanceStatus' => 'InstanceStatus',
         'instanceSystemDiskSize' => 'InstanceSystemDiskSize',
         'instanceTenantIp' => 'InstanceTenantIp',
@@ -212,6 +218,10 @@ class ResourceInstance extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->instancePhase) {
+            $res['InstancePhase'] = $this->instancePhase;
         }
 
         if (null !== $this->instanceStatus) {
@@ -326,6 +336,10 @@ class ResourceInstance extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['InstancePhase'])) {
+            $model->instancePhase = $map['InstancePhase'];
         }
 
         if (isset($map['InstanceStatus'])) {
