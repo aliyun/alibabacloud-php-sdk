@@ -42,6 +42,11 @@ class evaluationResultList extends Model
     /**
      * @var int
      */
+    public $lastCompliantFixedTimestamp;
+
+    /**
+     * @var int
+     */
     public $lastNonCompliantRecordTimestamp;
 
     /**
@@ -65,6 +70,7 @@ class evaluationResultList extends Model
         'evaluationId' => 'EvaluationId',
         'evaluationResultIdentifier' => 'EvaluationResultIdentifier',
         'invokingEventMessageType' => 'InvokingEventMessageType',
+        'lastCompliantFixedTimestamp' => 'LastCompliantFixedTimestamp',
         'lastNonCompliantRecordTimestamp' => 'LastNonCompliantRecordTimestamp',
         'remediationEnabled' => 'RemediationEnabled',
         'resultRecordedTimestamp' => 'ResultRecordedTimestamp',
@@ -104,6 +110,10 @@ class evaluationResultList extends Model
 
         if (null !== $this->invokingEventMessageType) {
             $res['InvokingEventMessageType'] = $this->invokingEventMessageType;
+        }
+
+        if (null !== $this->lastCompliantFixedTimestamp) {
+            $res['LastCompliantFixedTimestamp'] = $this->lastCompliantFixedTimestamp;
         }
 
         if (null !== $this->lastNonCompliantRecordTimestamp) {
@@ -155,6 +165,10 @@ class evaluationResultList extends Model
 
         if (isset($map['InvokingEventMessageType'])) {
             $model->invokingEventMessageType = $map['InvokingEventMessageType'];
+        }
+
+        if (isset($map['LastCompliantFixedTimestamp'])) {
+            $model->lastCompliantFixedTimestamp = $map['LastCompliantFixedTimestamp'];
         }
 
         if (isset($map['LastNonCompliantRecordTimestamp'])) {
