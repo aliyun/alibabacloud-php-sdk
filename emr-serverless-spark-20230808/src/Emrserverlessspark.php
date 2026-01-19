@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeSessionsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeSessionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
@@ -3001,6 +3003,79 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listLivyComputeWithOptions($workspaceBizId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取livy gateway历史session.
+     *
+     * @param request - ListLivyComputeSessionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLivyComputeSessionsResponse
+     *
+     * @param string                         $workspaceId
+     * @param string                         $livyComputeId
+     * @param ListLivyComputeSessionsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListLivyComputeSessionsResponse
+     */
+    public function listLivyComputeSessionsWithOptions($workspaceId, $livyComputeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNum) {
+            @$query['pageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLivyComputeSessions',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/livycompute/' . Url::percentEncode($livyComputeId) . '/session',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLivyComputeSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取livy gateway历史session.
+     *
+     * @param request - ListLivyComputeSessionsRequest
+     *
+     * @returns ListLivyComputeSessionsResponse
+     *
+     * @param string                         $workspaceId
+     * @param string                         $livyComputeId
+     * @param ListLivyComputeSessionsRequest $request
+     *
+     * @return ListLivyComputeSessionsResponse
+     */
+    public function listLivyComputeSessions($workspaceId, $livyComputeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLivyComputeSessionsWithOptions($workspaceId, $livyComputeId, $request, $headers, $runtime);
     }
 
     /**
