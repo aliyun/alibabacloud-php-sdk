@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReplaceMigrationAvailableNumbersRequest extends Model
 {
@@ -33,32 +33,37 @@ class ReplaceMigrationAvailableNumbersRequest extends Model
      */
     public $v2Numbers;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'operatorName' => 'OperatorName',
-        'operatorUid'  => 'OperatorUid',
-        'v1Numbers'    => 'V1Numbers',
-        'v2Numbers'    => 'V2Numbers',
+        'operatorUid' => 'OperatorUid',
+        'v1Numbers' => 'V1Numbers',
+        'v2Numbers' => 'V2Numbers',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->operatorName) {
             $res['OperatorName'] = $this->operatorName;
         }
+
         if (null !== $this->operatorUid) {
             $res['OperatorUid'] = $this->operatorUid;
         }
+
         if (null !== $this->v1Numbers) {
             $res['V1Numbers'] = $this->v1Numbers;
         }
+
         if (null !== $this->v2Numbers) {
             $res['V2Numbers'] = $this->v2Numbers;
         }
@@ -66,26 +71,30 @@ class ReplaceMigrationAvailableNumbersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReplaceMigrationAvailableNumbersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OperatorName'])) {
             $model->operatorName = $map['OperatorName'];
         }
+
         if (isset($map['OperatorUid'])) {
             $model->operatorUid = $map['OperatorUid'];
         }
+
         if (isset($map['V1Numbers'])) {
             $model->v1Numbers = $map['V1Numbers'];
         }
+
         if (isset($map['V2Numbers'])) {
             $model->v2Numbers = $map['V2Numbers'];
         }

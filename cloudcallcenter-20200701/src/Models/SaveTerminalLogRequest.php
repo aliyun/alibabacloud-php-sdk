@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveTerminalLogRequest extends Model
 {
@@ -53,48 +53,57 @@ class SaveTerminalLogRequest extends Model
      */
     public $uniqueRequestId;
     protected $_name = [
-        'appName'         => 'AppName',
-        'callId'          => 'CallId',
-        'content'         => 'Content',
-        'dataType'        => 'DataType',
-        'instanceId'      => 'InstanceId',
-        'jobId'           => 'JobId',
-        'methodName'      => 'MethodName',
-        'status'          => 'Status',
+        'appName' => 'AppName',
+        'callId' => 'CallId',
+        'content' => 'Content',
+        'dataType' => 'DataType',
+        'instanceId' => 'InstanceId',
+        'jobId' => 'JobId',
+        'methodName' => 'MethodName',
+        'status' => 'Status',
         'uniqueRequestId' => 'UniqueRequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->methodName) {
             $res['MethodName'] = $this->methodName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->uniqueRequestId) {
             $res['UniqueRequestId'] = $this->uniqueRequestId;
         }
@@ -102,38 +111,46 @@ class SaveTerminalLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveTerminalLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['MethodName'])) {
             $model->methodName = $map['MethodName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UniqueRequestId'])) {
             $model->uniqueRequestId = $map['UniqueRequestId'];
         }

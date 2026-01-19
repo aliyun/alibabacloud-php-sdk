@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data\back2Back;
 use AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data\inbound;
 use AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data\internal;
 use AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data\outbound;
 use AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListIntervalAgentSkillGroupReportResponseBody\data\overall;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -39,42 +39,61 @@ class data extends Model
     public $overall;
 
     /**
-     * @example 1620291600000
-     *
      * @var int
      */
     public $statsTime;
     protected $_name = [
         'back2Back' => 'Back2Back',
-        'inbound'   => 'Inbound',
-        'internal'  => 'Internal',
-        'outbound'  => 'Outbound',
-        'overall'   => 'Overall',
+        'inbound' => 'Inbound',
+        'internal' => 'Internal',
+        'outbound' => 'Outbound',
+        'overall' => 'Overall',
         'statsTime' => 'StatsTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->back2Back) {
+            $this->back2Back->validate();
+        }
+        if (null !== $this->inbound) {
+            $this->inbound->validate();
+        }
+        if (null !== $this->internal) {
+            $this->internal->validate();
+        }
+        if (null !== $this->outbound) {
+            $this->outbound->validate();
+        }
+        if (null !== $this->overall) {
+            $this->overall->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->back2Back) {
-            $res['Back2Back'] = null !== $this->back2Back ? $this->back2Back->toMap() : null;
+            $res['Back2Back'] = null !== $this->back2Back ? $this->back2Back->toArray($noStream) : $this->back2Back;
         }
+
         if (null !== $this->inbound) {
-            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
+            $res['Inbound'] = null !== $this->inbound ? $this->inbound->toArray($noStream) : $this->inbound;
         }
+
         if (null !== $this->internal) {
-            $res['Internal'] = null !== $this->internal ? $this->internal->toMap() : null;
+            $res['Internal'] = null !== $this->internal ? $this->internal->toArray($noStream) : $this->internal;
         }
+
         if (null !== $this->outbound) {
-            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toMap() : null;
+            $res['Outbound'] = null !== $this->outbound ? $this->outbound->toArray($noStream) : $this->outbound;
         }
+
         if (null !== $this->overall) {
-            $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
+            $res['Overall'] = null !== $this->overall ? $this->overall->toArray($noStream) : $this->overall;
         }
+
         if (null !== $this->statsTime) {
             $res['StatsTime'] = $this->statsTime;
         }
@@ -82,29 +101,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Back2Back'])) {
             $model->back2Back = back2Back::fromMap($map['Back2Back']);
         }
+
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
         }
+
         if (isset($map['Internal'])) {
             $model->internal = internal::fromMap($map['Internal']);
         }
+
         if (isset($map['Outbound'])) {
             $model->outbound = outbound::fromMap($map['Outbound']);
         }
+
         if (isset($map['Overall'])) {
             $model->overall = overall::fromMap($map['Overall']);
         }
+
         if (isset($map['StatsTime'])) {
             $model->statsTime = $map['StatsTime'];
         }

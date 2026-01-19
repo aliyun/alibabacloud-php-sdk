@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CampaignDetail extends Model
 {
@@ -93,80 +93,97 @@ class CampaignDetail extends Model
      */
     public $updateTime;
     protected $_name = [
-        'actualEndTime'      => 'ActualEndTime',
-        'actualStartTime'    => 'ActualStartTime',
-        'casesAborted'       => 'CasesAborted',
-        'casesConnected'     => 'CasesConnected',
-        'casesUncompleted'   => 'CasesUncompleted',
-        'completedRate'      => 'CompletedRate',
-        'createTime'         => 'CreateTime',
-        'id'                 => 'Id',
-        'maxAttemptCount'    => 'MaxAttemptCount',
+        'actualEndTime' => 'ActualEndTime',
+        'actualStartTime' => 'ActualStartTime',
+        'casesAborted' => 'CasesAborted',
+        'casesConnected' => 'CasesConnected',
+        'casesUncompleted' => 'CasesUncompleted',
+        'completedRate' => 'CompletedRate',
+        'createTime' => 'CreateTime',
+        'id' => 'Id',
+        'maxAttemptCount' => 'MaxAttemptCount',
         'minAttemptInterval' => 'MinAttemptInterval',
-        'name'               => 'Name',
-        'planedEndTime'      => 'PlanedEndTime',
-        'planedStartTime'    => 'PlanedStartTime',
-        'queueName'          => 'QueueName',
-        'state'              => 'State',
-        'totalCases'         => 'TotalCases',
-        'updateTime'         => 'UpdateTime',
+        'name' => 'Name',
+        'planedEndTime' => 'PlanedEndTime',
+        'planedStartTime' => 'PlanedStartTime',
+        'queueName' => 'QueueName',
+        'state' => 'State',
+        'totalCases' => 'TotalCases',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actualEndTime) {
             $res['ActualEndTime'] = $this->actualEndTime;
         }
+
         if (null !== $this->actualStartTime) {
             $res['ActualStartTime'] = $this->actualStartTime;
         }
+
         if (null !== $this->casesAborted) {
             $res['CasesAborted'] = $this->casesAborted;
         }
+
         if (null !== $this->casesConnected) {
             $res['CasesConnected'] = $this->casesConnected;
         }
+
         if (null !== $this->casesUncompleted) {
             $res['CasesUncompleted'] = $this->casesUncompleted;
         }
+
         if (null !== $this->completedRate) {
             $res['CompletedRate'] = $this->completedRate;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->maxAttemptCount) {
             $res['MaxAttemptCount'] = $this->maxAttemptCount;
         }
+
         if (null !== $this->minAttemptInterval) {
             $res['MinAttemptInterval'] = $this->minAttemptInterval;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->planedEndTime) {
             $res['PlanedEndTime'] = $this->planedEndTime;
         }
+
         if (null !== $this->planedStartTime) {
             $res['PlanedStartTime'] = $this->planedStartTime;
         }
+
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->totalCases) {
             $res['TotalCases'] = $this->totalCases;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -174,62 +191,78 @@ class CampaignDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CampaignDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActualEndTime'])) {
             $model->actualEndTime = $map['ActualEndTime'];
         }
+
         if (isset($map['ActualStartTime'])) {
             $model->actualStartTime = $map['ActualStartTime'];
         }
+
         if (isset($map['CasesAborted'])) {
             $model->casesAborted = $map['CasesAborted'];
         }
+
         if (isset($map['CasesConnected'])) {
             $model->casesConnected = $map['CasesConnected'];
         }
+
         if (isset($map['CasesUncompleted'])) {
             $model->casesUncompleted = $map['CasesUncompleted'];
         }
+
         if (isset($map['CompletedRate'])) {
             $model->completedRate = $map['CompletedRate'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MaxAttemptCount'])) {
             $model->maxAttemptCount = $map['MaxAttemptCount'];
         }
+
         if (isset($map['MinAttemptInterval'])) {
             $model->minAttemptInterval = $map['MinAttemptInterval'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PlanedEndTime'])) {
             $model->planedEndTime = $map['PlanedEndTime'];
         }
+
         if (isset($map['PlanedStartTime'])) {
             $model->planedStartTime = $map['PlanedStartTime'];
         }
+
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['TotalCases'])) {
             $model->totalCases = $map['TotalCases'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models\ListCasesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -48,44 +48,52 @@ class list_ extends Model
      */
     public $state;
     protected $_name = [
-        'abandonType'     => 'AbandonType',
-        'attemptCount'    => 'AttemptCount',
-        'caseId'          => 'CaseId',
+        'abandonType' => 'AbandonType',
+        'attemptCount' => 'AttemptCount',
+        'caseId' => 'CaseId',
         'customVariables' => 'CustomVariables',
-        'expandInfo'      => 'ExpandInfo',
-        'failureReason'   => 'FailureReason',
-        'phoneNumber'     => 'PhoneNumber',
-        'state'           => 'State',
+        'expandInfo' => 'ExpandInfo',
+        'failureReason' => 'FailureReason',
+        'phoneNumber' => 'PhoneNumber',
+        'state' => 'State',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abandonType) {
             $res['AbandonType'] = $this->abandonType;
         }
+
         if (null !== $this->attemptCount) {
             $res['AttemptCount'] = $this->attemptCount;
         }
+
         if (null !== $this->caseId) {
             $res['CaseId'] = $this->caseId;
         }
+
         if (null !== $this->customVariables) {
             $res['CustomVariables'] = $this->customVariables;
         }
+
         if (null !== $this->expandInfo) {
             $res['ExpandInfo'] = $this->expandInfo;
         }
+
         if (null !== $this->failureReason) {
             $res['FailureReason'] = $this->failureReason;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -93,35 +101,42 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbandonType'])) {
             $model->abandonType = $map['AbandonType'];
         }
+
         if (isset($map['AttemptCount'])) {
             $model->attemptCount = $map['AttemptCount'];
         }
+
         if (isset($map['CaseId'])) {
             $model->caseId = $map['CaseId'];
         }
+
         if (isset($map['CustomVariables'])) {
             $model->customVariables = $map['CustomVariables'];
         }
+
         if (isset($map['ExpandInfo'])) {
             $model->expandInfo = $map['ExpandInfo'];
         }
+
         if (isset($map['FailureReason'])) {
             $model->failureReason = $map['FailureReason'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

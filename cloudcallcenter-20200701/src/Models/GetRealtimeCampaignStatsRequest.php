@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRealtimeCampaignStatsRequest extends Model
 {
     /**
-     * @example 111
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 111
-     *
      * @var string
      */
     public $queueId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'queueId'    => 'QueueId',
+        'queueId' => 'QueueId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->queueId) {
             $res['QueueId'] = $this->queueId;
         }
@@ -43,17 +41,18 @@ class GetRealtimeCampaignStatsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRealtimeCampaignStatsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['QueueId'])) {
             $model->queueId = $map['QueueId'];
         }

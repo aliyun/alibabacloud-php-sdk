@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AbortCampaignRequest extends Model
 {
@@ -24,14 +24,16 @@ class AbortCampaignRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->campaignId) {
             $res['CampaignId'] = $this->campaignId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,17 +41,18 @@ class AbortCampaignRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbortCampaignRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CampaignId'])) {
             $model->campaignId = $map['CampaignId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

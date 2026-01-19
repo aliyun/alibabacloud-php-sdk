@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIntervalAgentSkillGroupReportRequest extends Model
 {
     /**
-     * @example agent@ccc-test
-     *
      * @var string
      */
     public $agentId;
 
     /**
-     * @example 1532707199000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example ccc-test
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example Daily
-     *
      * @var string
      */
     public $interval;
@@ -42,53 +34,66 @@ class ListIntervalAgentSkillGroupReportRequest extends Model
     public $mediaType;
 
     /**
-     * @example skg-default@ccc-test
-     *
+     * @var bool
+     */
+    public $showDefaultIfEmpty;
+
+    /**
      * @var string
      */
     public $skillGroupId;
 
     /**
-     * @example 1532448000000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'agentId'      => 'AgentId',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
-        'interval'     => 'Interval',
-        'mediaType'    => 'MediaType',
+        'agentId' => 'AgentId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
+        'mediaType' => 'MediaType',
+        'showDefaultIfEmpty' => 'ShowDefaultIfEmpty',
         'skillGroupId' => 'SkillGroupId',
-        'startTime'    => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
+        if (null !== $this->showDefaultIfEmpty) {
+            $res['ShowDefaultIfEmpty'] = $this->showDefaultIfEmpty;
+        }
+
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -96,32 +101,42 @@ class ListIntervalAgentSkillGroupReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIntervalAgentSkillGroupReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
+        if (isset($map['ShowDefaultIfEmpty'])) {
+            $model->showDefaultIfEmpty = $map['ShowDefaultIfEmpty'];
+        }
+
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

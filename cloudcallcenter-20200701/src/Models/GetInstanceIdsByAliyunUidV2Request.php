@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceIdsByAliyunUidV2Request extends Model
 {
@@ -18,9 +18,10 @@ class GetInstanceIdsByAliyunUidV2Request extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunUid) {
@@ -30,11 +31,11 @@ class GetInstanceIdsByAliyunUidV2Request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceIdsByAliyunUidV2Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnregisterDeviceRequest extends Model
 {
@@ -19,19 +19,21 @@ class UnregisterDeviceRequest extends Model
     public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -39,17 +41,18 @@ class UnregisterDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnregisterDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

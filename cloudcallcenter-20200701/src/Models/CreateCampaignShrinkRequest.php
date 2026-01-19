@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudCallCenter\V20200701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCampaignShrinkRequest extends Model
 {
@@ -41,6 +41,16 @@ class CreateCampaignShrinkRequest extends Model
     /**
      * @var string
      */
+    public $flashSmsParameters;
+
+    /**
+     * @var string
+     */
+    public $instGroupId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -57,6 +67,11 @@ class CreateCampaignShrinkRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $numberListShrink;
 
     /**
      * @var string
@@ -88,76 +103,107 @@ class CreateCampaignShrinkRequest extends Model
      */
     public $strategyType;
     protected $_name = [
-        'callableTime'          => 'CallableTime',
-        'caseFileKey'           => 'CaseFileKey',
-        'caseListShrink'        => 'CaseList',
-        'contactFlowId'         => 'ContactFlowId',
-        'endTime'               => 'EndTime',
+        'callableTime' => 'CallableTime',
+        'caseFileKey' => 'CaseFileKey',
+        'caseListShrink' => 'CaseList',
+        'contactFlowId' => 'ContactFlowId',
+        'endTime' => 'EndTime',
         'executingUntilTimeout' => 'ExecutingUntilTimeout',
-        'instanceId'            => 'InstanceId',
-        'maxAttemptCount'       => 'MaxAttemptCount',
-        'minAttemptInterval'    => 'MinAttemptInterval',
-        'name'                  => 'Name',
-        'queueId'               => 'QueueId',
-        'simulation'            => 'Simulation',
-        'simulationParameters'  => 'SimulationParameters',
-        'startTime'             => 'StartTime',
-        'strategyParameters'    => 'StrategyParameters',
-        'strategyType'          => 'StrategyType',
+        'flashSmsParameters' => 'FlashSmsParameters',
+        'instGroupId' => 'InstGroupId',
+        'instanceId' => 'InstanceId',
+        'maxAttemptCount' => 'MaxAttemptCount',
+        'minAttemptInterval' => 'MinAttemptInterval',
+        'name' => 'Name',
+        'numberListShrink' => 'NumberList',
+        'queueId' => 'QueueId',
+        'simulation' => 'Simulation',
+        'simulationParameters' => 'SimulationParameters',
+        'startTime' => 'StartTime',
+        'strategyParameters' => 'StrategyParameters',
+        'strategyType' => 'StrategyType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callableTime) {
             $res['CallableTime'] = $this->callableTime;
         }
+
         if (null !== $this->caseFileKey) {
             $res['CaseFileKey'] = $this->caseFileKey;
         }
+
         if (null !== $this->caseListShrink) {
             $res['CaseList'] = $this->caseListShrink;
         }
+
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->executingUntilTimeout) {
             $res['ExecutingUntilTimeout'] = $this->executingUntilTimeout;
         }
+
+        if (null !== $this->flashSmsParameters) {
+            $res['FlashSmsParameters'] = $this->flashSmsParameters;
+        }
+
+        if (null !== $this->instGroupId) {
+            $res['InstGroupId'] = $this->instGroupId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->maxAttemptCount) {
             $res['MaxAttemptCount'] = $this->maxAttemptCount;
         }
+
         if (null !== $this->minAttemptInterval) {
             $res['MinAttemptInterval'] = $this->minAttemptInterval;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
+        if (null !== $this->numberListShrink) {
+            $res['NumberList'] = $this->numberListShrink;
+        }
+
         if (null !== $this->queueId) {
             $res['QueueId'] = $this->queueId;
         }
+
         if (null !== $this->simulation) {
             $res['Simulation'] = $this->simulation;
         }
+
         if (null !== $this->simulationParameters) {
             $res['SimulationParameters'] = $this->simulationParameters;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->strategyParameters) {
             $res['StrategyParameters'] = $this->strategyParameters;
         }
+
         if (null !== $this->strategyType) {
             $res['StrategyType'] = $this->strategyType;
         }
@@ -165,59 +211,86 @@ class CreateCampaignShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCampaignShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallableTime'])) {
             $model->callableTime = $map['CallableTime'];
         }
+
         if (isset($map['CaseFileKey'])) {
             $model->caseFileKey = $map['CaseFileKey'];
         }
+
         if (isset($map['CaseList'])) {
             $model->caseListShrink = $map['CaseList'];
         }
+
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['ExecutingUntilTimeout'])) {
             $model->executingUntilTimeout = $map['ExecutingUntilTimeout'];
         }
+
+        if (isset($map['FlashSmsParameters'])) {
+            $model->flashSmsParameters = $map['FlashSmsParameters'];
+        }
+
+        if (isset($map['InstGroupId'])) {
+            $model->instGroupId = $map['InstGroupId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MaxAttemptCount'])) {
             $model->maxAttemptCount = $map['MaxAttemptCount'];
         }
+
         if (isset($map['MinAttemptInterval'])) {
             $model->minAttemptInterval = $map['MinAttemptInterval'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
+        if (isset($map['NumberList'])) {
+            $model->numberListShrink = $map['NumberList'];
+        }
+
         if (isset($map['QueueId'])) {
             $model->queueId = $map['QueueId'];
         }
+
         if (isset($map['Simulation'])) {
             $model->simulation = $map['Simulation'];
         }
+
         if (isset($map['SimulationParameters'])) {
             $model->simulationParameters = $map['SimulationParameters'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StrategyParameters'])) {
             $model->strategyParameters = $map['StrategyParameters'];
         }
+
         if (isset($map['StrategyType'])) {
             $model->strategyType = $map['StrategyType'];
         }
