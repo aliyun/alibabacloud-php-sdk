@@ -1594,6 +1594,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->refundReason) {
             @$query['RefundReason'] = $request->refundReason;
         }

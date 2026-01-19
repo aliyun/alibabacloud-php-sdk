@@ -16,6 +16,11 @@ class RefundAppInstanceForPartnerRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $refundReason;
 
     /**
@@ -24,6 +29,7 @@ class RefundAppInstanceForPartnerRequest extends Model
     public $userId;
     protected $_name = [
         'bizId' => 'BizId',
+        'clientToken' => 'ClientToken',
         'refundReason' => 'RefundReason',
         'userId' => 'UserId',
     ];
@@ -38,6 +44,10 @@ class RefundAppInstanceForPartnerRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->refundReason) {
@@ -61,6 +71,10 @@ class RefundAppInstanceForPartnerRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['RefundReason'])) {
