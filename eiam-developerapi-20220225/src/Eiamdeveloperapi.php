@@ -77,6 +77,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersForGroupResponse
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupResponse;
@@ -2255,6 +2258,78 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new ListUsersForGroupHeaders([]);
 
         return $this->listUsersForGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取云角色（CloudAccountRole）的临时访问凭证
+     *
+     * @param request - ObtainCloudAccountRoleAccessCredentialRequest
+     * @param headers - ObtainCloudAccountRoleAccessCredentialHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ObtainCloudAccountRoleAccessCredentialResponse
+     *
+     * @param string                                        $instanceId
+     * @param ObtainCloudAccountRoleAccessCredentialRequest $request
+     * @param ObtainCloudAccountRoleAccessCredentialHeaders $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ObtainCloudAccountRoleAccessCredentialResponse
+     */
+    public function obtainCloudAccountRoleAccessCredentialWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountRoleExternalId) {
+            @$query['cloudAccountRoleExternalId'] = $request->cloudAccountRoleExternalId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ObtainCloudAccountRoleAccessCredential',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/cloudAccountRoles/_/actions/obtainAccessCredential',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ObtainCloudAccountRoleAccessCredentialResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 获取云角色（CloudAccountRole）的临时访问凭证
+     *
+     * @param request - ObtainCloudAccountRoleAccessCredentialRequest
+     *
+     * @returns ObtainCloudAccountRoleAccessCredentialResponse
+     *
+     * @param string                                        $instanceId
+     * @param ObtainCloudAccountRoleAccessCredentialRequest $request
+     *
+     * @return ObtainCloudAccountRoleAccessCredentialResponse
+     */
+    public function obtainCloudAccountRoleAccessCredential($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ObtainCloudAccountRoleAccessCredentialHeaders([]);
+
+        return $this->obtainCloudAccountRoleAccessCredentialWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
