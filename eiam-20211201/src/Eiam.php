@@ -19,6 +19,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToOrganizationalU
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToUsersResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToClientRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToClientResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToGroupRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToOrganizationalUnitRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerScopesToUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerToClientRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeResourceServerToClientResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\BindUserAuthnSourceMappingRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\BindUserAuthnSourceMappingResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretRequest;
@@ -27,10 +37,18 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationFederatedCredentialR
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateClientPublicKeyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateClientPublicKeyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCloudAccountRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCloudAccountResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCloudAccountRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCustomPrivacyPolicyRequest;
@@ -55,6 +73,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkZoneRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkZoneResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateResourceServerScopeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateResourceServerScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationClientSecretRequest;
@@ -63,10 +83,18 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationFederatedCredentialR
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteClientPublicKeyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteClientPublicKeyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCloudAccountRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCloudAccountResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCloudAccountRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCustomPrivacyPolicyRequest;
@@ -91,6 +119,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitChildrenReque
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitChildrenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteResourceServerScopeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteResourceServerScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteUsersRequest;
@@ -103,9 +133,13 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationClientSecretRequest
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationClientSecretResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationFederatedCredentialRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationFederatedCredentialResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationM2MClientRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationM2MClientResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationProvisioningRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationProvisioningResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationResourceServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationResourceServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoResponse;
@@ -113,6 +147,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableClientPublicKeyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableClientPublicKeyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCloudAccountRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCustomPrivacyPolicyRequest;
@@ -131,6 +169,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInternalAuthenticationSourceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInternalAuthenticationSourceResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableResourceServerCustomSubjectRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableResourceServerCustomSubjectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationApiInvokeRequest;
@@ -139,9 +179,13 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationClientSecretResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationFederatedCredentialRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationFederatedCredentialResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationM2MClientRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationM2MClientResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationProvisioningRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationProvisioningResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationResourceServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationResourceServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoResponse;
@@ -149,6 +193,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableClientPublicKeyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableClientPublicKeyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCloudAccountRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCustomPrivacyPolicyRequest;
@@ -167,6 +215,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInternalAuthenticationSourceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInternalAuthenticationSourceResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableResourceServerCustomSubjectRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableResourceServerCustomSubjectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobRequest;
@@ -187,12 +237,20 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningScopeReques
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetClientPublicKeyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetClientPublicKeyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCustomPrivacyPolicyRequest;
@@ -231,6 +289,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordHistoryConfigurationReques
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordHistoryConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordInitializationConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordInitializationConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetResourceServerScopeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetResourceServerScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetRootOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetRootOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobRequest;
@@ -247,6 +307,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsFo
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsForProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationRolesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationRolesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForNetworkAccessEndpointRequest;
@@ -265,6 +327,12 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListClientPublicKeysRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListClientPublicKeysResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountRolesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountRolesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForNetworkZoneRequest;
@@ -288,6 +356,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersReque
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForResourceServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForResourceServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsRequest;
@@ -311,9 +381,13 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitParentsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitParentsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForResourceServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForResourceServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServersForUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServersForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsRequest;
@@ -322,6 +396,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForResourceServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForResourceServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretRequest;
@@ -344,6 +420,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromOrganizationalUn
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromUsersResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerFromClientRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerFromClientResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromClientRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromClientResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromGroupRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromOrganizationalUnitRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationGrantScopeRequest;
@@ -354,6 +440,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningScopeReques
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationResourceServerIdentifierRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationResourceServerIdentifierResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainRequest;
@@ -372,6 +460,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordHistoryConfigurationReques
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordHistoryConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordInitializationConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordInitializationConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPrimaryClientPublicKeyRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPrimaryClientPublicKeyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetUserPrimaryOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetUserPrimaryOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingRequest;
@@ -392,12 +482,22 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialR
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationRoleDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationRoleDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationRoleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationSsoFormParamsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationSsoFormParamsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountRoleDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountRoleDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyRequest;
@@ -432,6 +532,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitParentIdReque
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitParentIdResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateResourceServerScopeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateResourceServerScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserPasswordRequest;
@@ -949,6 +1051,359 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 授权指定ResourceServer下的Scope给Client.
+     *
+     * @param request - AuthorizeResourceServerScopesToClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeResourceServerScopesToClientResponse
+     *
+     * @param AuthorizeResourceServerScopesToClientRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return AuthorizeResourceServerScopesToClientResponse
+     */
+    public function authorizeResourceServerScopesToClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientApplicationId) {
+            @$query['ClientApplicationId'] = $request->clientApplicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerApplicationId) {
+            @$query['ResourceServerApplicationId'] = $request->resourceServerApplicationId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeResourceServerScopesToClient',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeResourceServerScopesToClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 授权指定ResourceServer下的Scope给Client.
+     *
+     * @param request - AuthorizeResourceServerScopesToClientRequest
+     *
+     * @returns AuthorizeResourceServerScopesToClientResponse
+     *
+     * @param AuthorizeResourceServerScopesToClientRequest $request
+     *
+     * @return AuthorizeResourceServerScopesToClientResponse
+     */
+    public function authorizeResourceServerScopesToClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeResourceServerScopesToClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * 授予组ResourceServerScope权限.
+     *
+     * @param request - AuthorizeResourceServerScopesToGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeResourceServerScopesToGroupResponse
+     *
+     * @param AuthorizeResourceServerScopesToGroupRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return AuthorizeResourceServerScopesToGroupResponse
+     */
+    public function authorizeResourceServerScopesToGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeResourceServerScopesToGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeResourceServerScopesToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 授予组ResourceServerScope权限.
+     *
+     * @param request - AuthorizeResourceServerScopesToGroupRequest
+     *
+     * @returns AuthorizeResourceServerScopesToGroupResponse
+     *
+     * @param AuthorizeResourceServerScopesToGroupRequest $request
+     *
+     * @return AuthorizeResourceServerScopesToGroupResponse
+     */
+    public function authorizeResourceServerScopesToGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeResourceServerScopesToGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 授予组织ResourceServerScope权限.
+     *
+     * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
+     *
+     * @param AuthorizeResourceServerScopesToOrganizationalUnitRequest $request
+     * @param RuntimeOptions                                           $runtime
+     *
+     * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
+     */
+    public function authorizeResourceServerScopesToOrganizationalUnitWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeResourceServerScopesToOrganizationalUnit',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeResourceServerScopesToOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 授予组织ResourceServerScope权限.
+     *
+     * @param request - AuthorizeResourceServerScopesToOrganizationalUnitRequest
+     *
+     * @returns AuthorizeResourceServerScopesToOrganizationalUnitResponse
+     *
+     * @param AuthorizeResourceServerScopesToOrganizationalUnitRequest $request
+     *
+     * @return AuthorizeResourceServerScopesToOrganizationalUnitResponse
+     */
+    public function authorizeResourceServerScopesToOrganizationalUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeResourceServerScopesToOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 授予用户ResourceServerScope权限.
+     *
+     * @param request - AuthorizeResourceServerScopesToUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeResourceServerScopesToUserResponse
+     *
+     * @param AuthorizeResourceServerScopesToUserRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return AuthorizeResourceServerScopesToUserResponse
+     */
+    public function authorizeResourceServerScopesToUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeResourceServerScopesToUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeResourceServerScopesToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 授予用户ResourceServerScope权限.
+     *
+     * @param request - AuthorizeResourceServerScopesToUserRequest
+     *
+     * @returns AuthorizeResourceServerScopesToUserResponse
+     *
+     * @param AuthorizeResourceServerScopesToUserRequest $request
+     *
+     * @return AuthorizeResourceServerScopesToUserResponse
+     */
+    public function authorizeResourceServerScopesToUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeResourceServerScopesToUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 授权指定ResourceServer给Client.
+     *
+     * @param request - AuthorizeResourceServerToClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeResourceServerToClientResponse
+     *
+     * @param AuthorizeResourceServerToClientRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AuthorizeResourceServerToClientResponse
+     */
+    public function authorizeResourceServerToClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientApplicationId) {
+            @$query['ClientApplicationId'] = $request->clientApplicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerApplicationId) {
+            @$query['ResourceServerApplicationId'] = $request->resourceServerApplicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeResourceServerToClient',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeResourceServerToClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 授权指定ResourceServer给Client.
+     *
+     * @param request - AuthorizeResourceServerToClientRequest
+     *
+     * @returns AuthorizeResourceServerToClientResponse
+     *
+     * @param AuthorizeResourceServerToClientRequest $request
+     *
+     * @return AuthorizeResourceServerToClientResponse
+     */
+    public function authorizeResourceServerToClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeResourceServerToClientWithOptions($request, $runtime);
+    }
+
+    /**
      * 绑定三方登录账户.
      *
      * @param request - BindUserAuthnSourceMappingRequest
@@ -1255,6 +1710,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 创建应用角色.
+     *
+     * @param request - CreateApplicationRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationRoleResponse
+     *
+     * @param CreateApplicationRoleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateApplicationRoleResponse
+     */
+    public function createApplicationRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleName) {
+            @$query['ApplicationRoleName'] = $request->applicationRoleName;
+        }
+
+        if (null !== $request->applicationRoleValue) {
+            @$query['ApplicationRoleValue'] = $request->applicationRoleValue;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用角色.
+     *
+     * @param request - CreateApplicationRoleRequest
+     *
+     * @returns CreateApplicationRoleResponse
+     *
+     * @param CreateApplicationRoleRequest $request
+     *
+     * @return CreateApplicationRoleResponse
+     */
+    public function createApplicationRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建应用Token.
      *
      * @param request - CreateApplicationTokenRequest
@@ -1382,6 +1910,237 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用ClientPublicKey.
+     *
+     * @param request - CreateClientPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClientPublicKeyResponse
+     *
+     * @param CreateClientPublicKeyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateClientPublicKeyResponse
+     */
+    public function createClientPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->algorithmType) {
+            @$query['AlgorithmType'] = $request->algorithmType;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->publicKey) {
+            @$query['PublicKey'] = $request->publicKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateClientPublicKey',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateClientPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用ClientPublicKey.
+     *
+     * @param request - CreateClientPublicKeyRequest
+     *
+     * @returns CreateClientPublicKeyResponse
+     *
+     * @param CreateClientPublicKeyRequest $request
+     *
+     * @return CreateClientPublicKeyResponse
+     */
+    public function createClientPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClientPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建云账号.
+     *
+     * @param request - CreateCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudAccountResponse
+     *
+     * @param CreateCloudAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCloudAccountResponse
+     */
+    public function createCloudAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountExternalId) {
+            @$query['CloudAccountExternalId'] = $request->cloudAccountExternalId;
+        }
+
+        if (null !== $request->cloudAccountName) {
+            @$query['CloudAccountName'] = $request->cloudAccountName;
+        }
+
+        if (null !== $request->cloudAccountProviderName) {
+            @$query['CloudAccountProviderName'] = $request->cloudAccountProviderName;
+        }
+
+        if (null !== $request->cloudAccountVendorType) {
+            @$query['CloudAccountVendorType'] = $request->cloudAccountVendorType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建云账号.
+     *
+     * @param request - CreateCloudAccountRequest
+     *
+     * @returns CreateCloudAccountResponse
+     *
+     * @param CreateCloudAccountRequest $request
+     *
+     * @return CreateCloudAccountResponse
+     */
+    public function createCloudAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建云角色.
+     *
+     * @param request - CreateCloudAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudAccountRoleResponse
+     *
+     * @param CreateCloudAccountRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateCloudAccountRoleResponse
+     */
+    public function createCloudAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountRoleName) {
+            @$query['CloudAccountRoleName'] = $request->cloudAccountRoleName;
+        }
+
+        if (null !== $request->cloudAccountRoleType) {
+            @$query['CloudAccountRoleType'] = $request->cloudAccountRoleType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudAccountRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建云角色.
+     *
+     * @param request - CreateCloudAccountRoleRequest
+     *
+     * @returns CreateCloudAccountRoleResponse
+     *
+     * @param CreateCloudAccountRoleRequest $request
+     *
+     * @return CreateCloudAccountRoleResponse
+     */
+    public function createCloudAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudAccountRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -2319,6 +3078,83 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 创建指定ResourceServer下的Scope.
+     *
+     * @param request - CreateResourceServerScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceServerScopeResponse
+     *
+     * @param CreateResourceServerScopeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateResourceServerScopeResponse
+     */
+    public function createResourceServerScopeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->authorizationType) {
+            @$query['AuthorizationType'] = $request->authorizationType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeName) {
+            @$query['ResourceServerScopeName'] = $request->resourceServerScopeName;
+        }
+
+        if (null !== $request->resourceServerScopeType) {
+            @$query['ResourceServerScopeType'] = $request->resourceServerScopeType;
+        }
+
+        if (null !== $request->resourceServerScopeValue) {
+            @$query['ResourceServerScopeValue'] = $request->resourceServerScopeValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateResourceServerScope',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateResourceServerScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建指定ResourceServer下的Scope.
+     *
+     * @param request - CreateResourceServerScopeRequest
+     *
+     * @returns CreateResourceServerScopeResponse
+     *
+     * @param CreateResourceServerScopeRequest $request
+     *
+     * @return CreateResourceServerScopeResponse
+     */
+    public function createResourceServerScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResourceServerScopeWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
      *
      * @param request - CreateUserRequest
@@ -2633,6 +3469,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 删除应用角色.
+     *
+     * @param request - DeleteApplicationRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationRoleResponse
+     *
+     * @param DeleteApplicationRoleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteApplicationRoleResponse
+     */
+    public function deleteApplicationRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用角色.
+     *
+     * @param request - DeleteApplicationRoleRequest
+     *
+     * @returns DeleteApplicationRoleResponse
+     *
+     * @param DeleteApplicationRoleRequest $request
+     *
+     * @return DeleteApplicationRoleResponse
+     */
+    public function deleteApplicationRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除ApplicationToken.
      *
      * @param request - DeleteApplicationTokenRequest
@@ -2756,6 +3657,197 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定的应用ClientPublicKey.
+     *
+     * @param request - DeleteClientPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClientPublicKeyResponse
+     *
+     * @param DeleteClientPublicKeyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteClientPublicKeyResponse
+     */
+    public function deleteClientPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientPublicKeyId) {
+            @$query['ClientPublicKeyId'] = $request->clientPublicKeyId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteClientPublicKey',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteClientPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定的应用ClientPublicKey.
+     *
+     * @param request - DeleteClientPublicKeyRequest
+     *
+     * @returns DeleteClientPublicKeyResponse
+     *
+     * @param DeleteClientPublicKeyRequest $request
+     *
+     * @return DeleteClientPublicKeyResponse
+     */
+    public function deleteClientPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除云账号.
+     *
+     * @param request - DeleteCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudAccountResponse
+     *
+     * @param DeleteCloudAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCloudAccountResponse
+     */
+    public function deleteCloudAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除云账号.
+     *
+     * @param request - DeleteCloudAccountRequest
+     *
+     * @returns DeleteCloudAccountResponse
+     *
+     * @param DeleteCloudAccountRequest $request
+     *
+     * @return DeleteCloudAccountResponse
+     */
+    public function deleteCloudAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除云角色.
+     *
+     * @param request - DeleteCloudAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudAccountRoleResponse
+     *
+     * @param DeleteCloudAccountRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteCloudAccountRoleResponse
+     */
+    public function deleteCloudAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountRoleId) {
+            @$query['CloudAccountRoleId'] = $request->cloudAccountRoleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudAccountRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除云角色.
+     *
+     * @param request - DeleteCloudAccountRoleRequest
+     *
+     * @returns DeleteCloudAccountRoleResponse
+     *
+     * @param DeleteCloudAccountRoleRequest $request
+     *
+     * @return DeleteCloudAccountRoleResponse
+     */
+    public function deleteCloudAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudAccountRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -3503,6 +4595,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 删除指定ResourceServer下的Scope.
+     *
+     * @param request - DeleteResourceServerScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceServerScopeResponse
+     *
+     * @param DeleteResourceServerScopeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteResourceServerScopeResponse
+     */
+    public function deleteResourceServerScopeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeId) {
+            @$query['ResourceServerScopeId'] = $request->resourceServerScopeId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteResourceServerScope',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteResourceServerScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定ResourceServer下的Scope.
+     *
+     * @param request - DeleteResourceServerScopeRequest
+     *
+     * @returns DeleteResourceServerScopeResponse
+     *
+     * @param DeleteResourceServerScopeRequest $request
+     *
+     * @return DeleteResourceServerScopeResponse
+     */
+    public function deleteResourceServerScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteResourceServerScopeWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
      *
      * @param request - DeleteUserRequest
@@ -3948,6 +5105,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用M2M Client 能力.
+     *
+     * @param request - DisableApplicationM2MClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableApplicationM2MClientResponse
+     *
+     * @param DisableApplicationM2MClientRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DisableApplicationM2MClientResponse
+     */
+    public function disableApplicationM2MClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableApplicationM2MClient',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableApplicationM2MClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用M2M Client 能力.
+     *
+     * @param request - DisableApplicationM2MClientRequest
+     *
+     * @returns DisableApplicationM2MClientResponse
+     *
+     * @param DisableApplicationM2MClientRequest $request
+     *
+     * @return DisableApplicationM2MClientResponse
+     */
+    public function disableApplicationM2MClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableApplicationM2MClientWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
      * @param request - DisableApplicationProvisioningRequest
@@ -4006,6 +5224,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableApplicationProvisioningWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用ResourceServer能力.
+     *
+     * @param request - DisableApplicationResourceServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableApplicationResourceServerResponse
+     *
+     * @param DisableApplicationResourceServerRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DisableApplicationResourceServerResponse
+     */
+    public function disableApplicationResourceServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableApplicationResourceServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableApplicationResourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用ResourceServer能力.
+     *
+     * @param request - DisableApplicationResourceServerRequest
+     *
+     * @returns DisableApplicationResourceServerResponse
+     *
+     * @param DisableApplicationResourceServerRequest $request
+     *
+     * @return DisableApplicationResourceServerResponse
+     */
+    public function disableApplicationResourceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableApplicationResourceServerWithOptions($request, $runtime);
     }
 
     /**
@@ -4193,6 +5472,144 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用指定的应用ClientPublicKey.
+     *
+     * @param request - DisableClientPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableClientPublicKeyResponse
+     *
+     * @param DisableClientPublicKeyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DisableClientPublicKeyResponse
+     */
+    public function disableClientPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientPublicKeyId) {
+            @$query['ClientPublicKeyId'] = $request->clientPublicKeyId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableClientPublicKey',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableClientPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用指定的应用ClientPublicKey.
+     *
+     * @param request - DisableClientPublicKeyRequest
+     *
+     * @returns DisableClientPublicKeyResponse
+     *
+     * @param DisableClientPublicKeyRequest $request
+     *
+     * @return DisableClientPublicKeyResponse
+     */
+    public function disableClientPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableClientPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用云角色.
+     *
+     * @param request - DisableCloudAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableCloudAccountRoleResponse
+     *
+     * @param DisableCloudAccountRoleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableCloudAccountRoleResponse
+     */
+    public function disableCloudAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountRoleId) {
+            @$query['CloudAccountRoleId'] = $request->cloudAccountRoleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableCloudAccountRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableCloudAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用云角色.
+     *
+     * @param request - DisableCloudAccountRoleRequest
+     *
+     * @returns DisableCloudAccountRoleResponse
+     *
+     * @param DisableCloudAccountRoleRequest $request
+     *
+     * @return DisableCloudAccountRoleResponse
+     */
+    public function disableCloudAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableCloudAccountRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -4751,6 +6168,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用资源服务器自定义主体.
+     *
+     * @param request - DisableResourceServerCustomSubjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableResourceServerCustomSubjectResponse
+     *
+     * @param DisableResourceServerCustomSubjectRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DisableResourceServerCustomSubjectResponse
+     */
+    public function disableResourceServerCustomSubjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableResourceServerCustomSubject',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableResourceServerCustomSubjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用资源服务器自定义主体.
+     *
+     * @param request - DisableResourceServerCustomSubjectRequest
+     *
+     * @returns DisableResourceServerCustomSubjectResponse
+     *
+     * @param DisableResourceServerCustomSubjectRequest $request
+     *
+     * @return DisableResourceServerCustomSubjectResponse
+     */
+    public function disableResourceServerCustomSubject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableResourceServerCustomSubjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
      *
      * @param request - DisableUserRequest
@@ -5064,6 +6542,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 启用M2M Client 能力.
+     *
+     * @param request - EnableApplicationM2MClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableApplicationM2MClientResponse
+     *
+     * @param EnableApplicationM2MClientRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return EnableApplicationM2MClientResponse
+     */
+    public function enableApplicationM2MClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableApplicationM2MClient',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableApplicationM2MClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用M2M Client 能力.
+     *
+     * @param request - EnableApplicationM2MClientRequest
+     *
+     * @returns EnableApplicationM2MClientResponse
+     *
+     * @param EnableApplicationM2MClientRequest $request
+     *
+     * @return EnableApplicationM2MClientResponse
+     */
+    public function enableApplicationM2MClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableApplicationM2MClientWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
      * @param request - EnableApplicationProvisioningRequest
@@ -5122,6 +6661,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableApplicationProvisioningWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用ResourceServer能力.
+     *
+     * @param request - EnableApplicationResourceServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableApplicationResourceServerResponse
+     *
+     * @param EnableApplicationResourceServerRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return EnableApplicationResourceServerResponse
+     */
+    public function enableApplicationResourceServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableApplicationResourceServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableApplicationResourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用ResourceServer能力.
+     *
+     * @param request - EnableApplicationResourceServerRequest
+     *
+     * @returns EnableApplicationResourceServerResponse
+     *
+     * @param EnableApplicationResourceServerRequest $request
+     *
+     * @return EnableApplicationResourceServerResponse
+     */
+    public function enableApplicationResourceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableApplicationResourceServerWithOptions($request, $runtime);
     }
 
     /**
@@ -5309,6 +6909,144 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用指定的应用ClientPublicKey.
+     *
+     * @param request - EnableClientPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableClientPublicKeyResponse
+     *
+     * @param EnableClientPublicKeyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EnableClientPublicKeyResponse
+     */
+    public function enableClientPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientPublicKeyId) {
+            @$query['ClientPublicKeyId'] = $request->clientPublicKeyId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableClientPublicKey',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableClientPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用指定的应用ClientPublicKey.
+     *
+     * @param request - EnableClientPublicKeyRequest
+     *
+     * @returns EnableClientPublicKeyResponse
+     *
+     * @param EnableClientPublicKeyRequest $request
+     *
+     * @return EnableClientPublicKeyResponse
+     */
+    public function enableClientPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableClientPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用云角色.
+     *
+     * @param request - EnableCloudAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableCloudAccountRoleResponse
+     *
+     * @param EnableCloudAccountRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableCloudAccountRoleResponse
+     */
+    public function enableCloudAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountRoleId) {
+            @$query['CloudAccountRoleId'] = $request->cloudAccountRoleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableCloudAccountRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableCloudAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用云角色.
+     *
+     * @param request - EnableCloudAccountRoleRequest
+     *
+     * @returns EnableCloudAccountRoleResponse
+     *
+     * @param EnableCloudAccountRoleRequest $request
+     *
+     * @return EnableCloudAccountRoleResponse
+     */
+    public function enableCloudAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableCloudAccountRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -5864,6 +7602,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableInternalAuthenticationSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用资源服务器自定义主体.
+     *
+     * @param request - EnableResourceServerCustomSubjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableResourceServerCustomSubjectResponse
+     *
+     * @param EnableResourceServerCustomSubjectRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return EnableResourceServerCustomSubjectResponse
+     */
+    public function enableResourceServerCustomSubjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableResourceServerCustomSubject',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableResourceServerCustomSubjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用资源服务器自定义主体.
+     *
+     * @param request - EnableResourceServerCustomSubjectRequest
+     *
+     * @returns EnableResourceServerCustomSubjectResponse
+     *
+     * @param EnableResourceServerCustomSubjectRequest $request
+     *
+     * @return EnableResourceServerCustomSubjectResponse
+     */
+    public function enableResourceServerCustomSubject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableResourceServerCustomSubjectWithOptions($request, $runtime);
     }
 
     /**
@@ -6485,6 +8284,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 获取角色信息.
+     *
+     * @param request - GetApplicationRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApplicationRoleResponse
+     *
+     * @param GetApplicationRoleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetApplicationRoleResponse
+     */
+    public function getApplicationRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApplicationRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApplicationRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取角色信息.
+     *
+     * @param request - GetApplicationRoleRequest
+     *
+     * @returns GetApplicationRoleResponse
+     *
+     * @param GetApplicationRoleRequest $request
+     *
+     * @return GetApplicationRoleResponse
+     */
+    public function getApplicationRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
      * @param request - GetApplicationSsoConfigRequest
@@ -6661,6 +8525,197 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定应用ClientPublicKey.
+     *
+     * @param request - GetClientPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClientPublicKeyResponse
+     *
+     * @param GetClientPublicKeyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetClientPublicKeyResponse
+     */
+    public function getClientPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientPublicKeyId) {
+            @$query['ClientPublicKeyId'] = $request->clientPublicKeyId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetClientPublicKey',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClientPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定应用ClientPublicKey.
+     *
+     * @param request - GetClientPublicKeyRequest
+     *
+     * @returns GetClientPublicKeyResponse
+     *
+     * @param GetClientPublicKeyRequest $request
+     *
+     * @return GetClientPublicKeyResponse
+     */
+    public function getClientPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取云账号.
+     *
+     * @param request - GetCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudAccountResponse
+     *
+     * @param GetCloudAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCloudAccountResponse
+     */
+    public function getCloudAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCloudAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取云账号.
+     *
+     * @param request - GetCloudAccountRequest
+     *
+     * @returns GetCloudAccountResponse
+     *
+     * @param GetCloudAccountRequest $request
+     *
+     * @return GetCloudAccountResponse
+     */
+    public function getCloudAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCloudAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取云角色.
+     *
+     * @param request - GetCloudAccountRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudAccountRoleResponse
+     *
+     * @param GetCloudAccountRoleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCloudAccountRoleResponse
+     */
+    public function getCloudAccountRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountRoleId) {
+            @$query['CloudAccountRoleId'] = $request->cloudAccountRoleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCloudAccountRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCloudAccountRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取云角色.
+     *
+     * @param request - GetCloudAccountRoleRequest
+     *
+     * @returns GetCloudAccountRoleResponse
+     *
+     * @param GetCloudAccountRoleRequest $request
+     *
+     * @return GetCloudAccountRoleResponse
+     */
+    public function getCloudAccountRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCloudAccountRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -7807,6 +9862,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询指定ResourceServer下的Scope.
+     *
+     * @param request - GetResourceServerScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceServerScopeResponse
+     *
+     * @param GetResourceServerScopeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetResourceServerScopeResponse
+     */
+    public function getResourceServerScopeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeId) {
+            @$query['ResourceServerScopeId'] = $request->resourceServerScopeId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceServerScope',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceServerScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定ResourceServer下的Scope.
+     *
+     * @param request - GetResourceServerScopeRequest
+     *
+     * @returns GetResourceServerScopeResponse
+     *
+     * @param GetResourceServerScopeRequest $request
+     *
+     * @return GetResourceServerScopeResponse
+     */
+    public function getResourceServerScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceServerScopeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
      * @param request - GetRootOrganizationalUnitRequest
@@ -8328,6 +10448,79 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationFederatedCredentialsForProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 游标分页查询应用角色.
+     *
+     * @param request - ListApplicationRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationRolesResponse
+     *
+     * @param ListApplicationRolesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListApplicationRolesResponse
+     */
+    public function listApplicationRolesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationRoles',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 游标分页查询应用角色.
+     *
+     * @param request - ListApplicationRolesRequest
+     *
+     * @returns ListApplicationRolesResponse
+     *
+     * @param ListApplicationRolesRequest $request
+     *
+     * @return ListApplicationRolesResponse
+     */
+    public function listApplicationRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationRolesWithOptions($request, $runtime);
     }
 
     /**
@@ -8991,6 +11184,217 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBrandsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定应用所属的全部ClientPublicKey.
+     *
+     * @param request - ListClientPublicKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClientPublicKeysResponse
+     *
+     * @param ListClientPublicKeysRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListClientPublicKeysResponse
+     */
+    public function listClientPublicKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListClientPublicKeys',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListClientPublicKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定应用所属的全部ClientPublicKey.
+     *
+     * @param request - ListClientPublicKeysRequest
+     *
+     * @returns ListClientPublicKeysResponse
+     *
+     * @param ListClientPublicKeysRequest $request
+     *
+     * @return ListClientPublicKeysResponse
+     */
+    public function listClientPublicKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClientPublicKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云角色列表.
+     *
+     * @param request - ListCloudAccountRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAccountRolesResponse
+     *
+     * @param ListCloudAccountRolesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListCloudAccountRolesResponse
+     */
+    public function listCloudAccountRolesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAccountRoles',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAccountRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云角色列表.
+     *
+     * @param request - ListCloudAccountRolesRequest
+     *
+     * @returns ListCloudAccountRolesResponse
+     *
+     * @param ListCloudAccountRolesRequest $request
+     *
+     * @return ListCloudAccountRolesResponse
+     */
+    public function listCloudAccountRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAccountRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云账号列表.
+     *
+     * @param request - ListCloudAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAccountsResponse
+     *
+     * @param ListCloudAccountsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCloudAccountsResponse
+     */
+    public function listCloudAccountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAccounts',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云账号列表.
+     *
+     * @param request - ListCloudAccountsRequest
+     *
+     * @returns ListCloudAccountsResponse
+     *
+     * @param ListCloudAccountsRequest $request
+     *
+     * @return ListCloudAccountsResponse
+     */
+    public function listCloudAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAccountsWithOptions($request, $runtime);
     }
 
     /**
@@ -9866,6 +12270,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询ResourceServer授权的组和Scope权限.
+     *
+     * @param request - ListGroupsForResourceServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupsForResourceServerResponse
+     *
+     * @param ListGroupsForResourceServerRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListGroupsForResourceServerResponse
+     */
+    public function listGroupsForResourceServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGroupsForResourceServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGroupsForResourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ResourceServer授权的组和Scope权限.
+     *
+     * @param request - ListGroupsForResourceServerRequest
+     *
+     * @returns ListGroupsForResourceServerResponse
+     *
+     * @param ListGroupsForResourceServerRequest $request
+     *
+     * @return ListGroupsForResourceServerResponse
+     */
+    public function listGroupsForResourceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupsForResourceServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
      *
      * @param request - ListGroupsForUserRequest
@@ -10677,6 +13154,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询被授权到组织的ResourceServers和Scopes权限.
+     *
+     * @param request - ListOrganizationalUnitsForResourceServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOrganizationalUnitsForResourceServerResponse
+     *
+     * @param ListOrganizationalUnitsForResourceServerRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ListOrganizationalUnitsForResourceServerResponse
+     */
+    public function listOrganizationalUnitsForResourceServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOrganizationalUnitsForResourceServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOrganizationalUnitsForResourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询被授权到组织的ResourceServers和Scopes权限.
+     *
+     * @param request - ListOrganizationalUnitsForResourceServerRequest
+     *
+     * @returns ListOrganizationalUnitsForResourceServerResponse
+     *
+     * @param ListOrganizationalUnitsForResourceServerRequest $request
+     *
+     * @return ListOrganizationalUnitsForResourceServerResponse
+     */
+    public function listOrganizationalUnitsForResourceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOrganizationalUnitsForResourceServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the supported Alibaba Cloud regions.
      *
      * @param request - ListRegionsRequest
@@ -10718,6 +13268,79 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRegionsWithOptions($runtime);
+    }
+
+    /**
+     * 查询用户的被授予ResourceServers和Scopes的权限.
+     *
+     * @param request - ListResourceServersForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceServersForUserResponse
+     *
+     * @param ListResourceServersForUserRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListResourceServersForUserResponse
+     */
+    public function listResourceServersForUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourceServersForUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourceServersForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户的被授予ResourceServers和Scopes的权限.
+     *
+     * @param request - ListResourceServersForUserRequest
+     *
+     * @returns ListResourceServersForUserResponse
+     *
+     * @param ListResourceServersForUserRequest $request
+     *
+     * @return ListResourceServersForUserResponse
+     */
+    public function listResourceServersForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceServersForUserWithOptions($request, $runtime);
     }
 
     /**
@@ -11159,6 +13782,79 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUsersForGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询ResourceServer授权的用户和Scope权限.
+     *
+     * @param request - ListUsersForResourceServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersForResourceServerResponse
+     *
+     * @param ListUsersForResourceServerRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListUsersForResourceServerResponse
+     */
+    public function listUsersForResourceServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUsersForResourceServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUsersForResourceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询ResourceServer授权的用户和Scope权限.
+     *
+     * @param request - ListUsersForResourceServerRequest
+     *
+     * @returns ListUsersForResourceServerResponse
+     *
+     * @param ListUsersForResourceServerRequest $request
+     *
+     * @return ListUsersForResourceServerResponse
+     */
+    public function listUsersForResourceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersForResourceServerWithOptions($request, $runtime);
     }
 
     /**
@@ -11828,6 +14524,347 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 解除指定ResourceServer到Client的授权.
+     *
+     * @param request - RevokeResourceServerFromClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourceServerFromClientResponse
+     *
+     * @param RevokeResourceServerFromClientRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RevokeResourceServerFromClientResponse
+     */
+    public function revokeResourceServerFromClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientApplicationId) {
+            @$query['ClientApplicationId'] = $request->clientApplicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerApplicationId) {
+            @$query['ResourceServerApplicationId'] = $request->resourceServerApplicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeResourceServerFromClient',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeResourceServerFromClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除指定ResourceServer到Client的授权.
+     *
+     * @param request - RevokeResourceServerFromClientRequest
+     *
+     * @returns RevokeResourceServerFromClientResponse
+     *
+     * @param RevokeResourceServerFromClientRequest $request
+     *
+     * @return RevokeResourceServerFromClientResponse
+     */
+    public function revokeResourceServerFromClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeResourceServerFromClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解除指定ResourceServer下的Scope给Client.
+     *
+     * @param request - RevokeResourceServerScopesFromClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourceServerScopesFromClientResponse
+     *
+     * @param RevokeResourceServerScopesFromClientRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RevokeResourceServerScopesFromClientResponse
+     */
+    public function revokeResourceServerScopesFromClientWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientApplicationId) {
+            @$query['ClientApplicationId'] = $request->clientApplicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerApplicationId) {
+            @$query['ResourceServerApplicationId'] = $request->resourceServerApplicationId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeResourceServerScopesFromClient',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeResourceServerScopesFromClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除指定ResourceServer下的Scope给Client.
+     *
+     * @param request - RevokeResourceServerScopesFromClientRequest
+     *
+     * @returns RevokeResourceServerScopesFromClientResponse
+     *
+     * @param RevokeResourceServerScopesFromClientRequest $request
+     *
+     * @return RevokeResourceServerScopesFromClientResponse
+     */
+    public function revokeResourceServerScopesFromClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeResourceServerScopesFromClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消被授予到组的ResourceServerScope权限.
+     *
+     * @param request - RevokeResourceServerScopesFromGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourceServerScopesFromGroupResponse
+     *
+     * @param RevokeResourceServerScopesFromGroupRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RevokeResourceServerScopesFromGroupResponse
+     */
+    public function revokeResourceServerScopesFromGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeResourceServerScopesFromGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeResourceServerScopesFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消被授予到组的ResourceServerScope权限.
+     *
+     * @param request - RevokeResourceServerScopesFromGroupRequest
+     *
+     * @returns RevokeResourceServerScopesFromGroupResponse
+     *
+     * @param RevokeResourceServerScopesFromGroupRequest $request
+     *
+     * @return RevokeResourceServerScopesFromGroupResponse
+     */
+    public function revokeResourceServerScopesFromGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeResourceServerScopesFromGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消被授予到组织的ResourceServerScope权限.
+     *
+     * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourceServerScopesFromOrganizationalUnitResponse
+     *
+     * @param RevokeResourceServerScopesFromOrganizationalUnitRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
+     */
+    public function revokeResourceServerScopesFromOrganizationalUnitWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeResourceServerScopesFromOrganizationalUnit',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeResourceServerScopesFromOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消被授予到组织的ResourceServerScope权限.
+     *
+     * @param request - RevokeResourceServerScopesFromOrganizationalUnitRequest
+     *
+     * @returns RevokeResourceServerScopesFromOrganizationalUnitResponse
+     *
+     * @param RevokeResourceServerScopesFromOrganizationalUnitRequest $request
+     *
+     * @return RevokeResourceServerScopesFromOrganizationalUnitResponse
+     */
+    public function revokeResourceServerScopesFromOrganizationalUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeResourceServerScopesFromOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 取消被授予用户的ResourceServerScope权限.
+     *
+     * @param request - RevokeResourceServerScopesFromUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourceServerScopesFromUserResponse
+     *
+     * @param RevokeResourceServerScopesFromUserRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RevokeResourceServerScopesFromUserResponse
+     */
+    public function revokeResourceServerScopesFromUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeResourceServerScopesFromUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeResourceServerScopesFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消被授予用户的ResourceServerScope权限.
+     *
+     * @param request - RevokeResourceServerScopesFromUserRequest
+     *
+     * @returns RevokeResourceServerScopesFromUserResponse
+     *
+     * @param RevokeResourceServerScopesFromUserRequest $request
+     *
+     * @return RevokeResourceServerScopesFromUserResponse
+     */
+    public function revokeResourceServerScopesFromUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeResourceServerScopesFromUserWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a synchronization job and immediately runs the job.
      *
      * @param request - RunSynchronizationJobRequest
@@ -12186,6 +15223,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置ResourceServer的Identifier.
+     *
+     * @param request - SetApplicationResourceServerIdentifierRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetApplicationResourceServerIdentifierResponse
+     *
+     * @param SetApplicationResourceServerIdentifierRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SetApplicationResourceServerIdentifierResponse
+     */
+    public function setApplicationResourceServerIdentifierWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerIdentifier) {
+            @$query['ResourceServerIdentifier'] = $request->resourceServerIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetApplicationResourceServerIdentifier',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetApplicationResourceServerIdentifierResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置ResourceServer的Identifier.
+     *
+     * @param request - SetApplicationResourceServerIdentifierRequest
+     *
+     * @returns SetApplicationResourceServerIdentifierResponse
+     *
+     * @param SetApplicationResourceServerIdentifierRequest $request
+     *
+     * @return SetApplicationResourceServerIdentifierResponse
+     */
+    public function setApplicationResourceServerIdentifier($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setApplicationResourceServerIdentifierWithOptions($request, $runtime);
     }
 
     /**
@@ -12845,6 +15951,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setPasswordInitializationConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置指定的应用ClientPublicKey优先启用状态
+     *
+     * @param request - SetPrimaryClientPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetPrimaryClientPublicKeyResponse
+     *
+     * @param SetPrimaryClientPublicKeyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetPrimaryClientPublicKeyResponse
+     */
+    public function setPrimaryClientPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->clientPublicKeyId) {
+            @$query['ClientPublicKeyId'] = $request->clientPublicKeyId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetPrimaryClientPublicKey',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetPrimaryClientPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置指定的应用ClientPublicKey优先启用状态
+     *
+     * @param request - SetPrimaryClientPublicKeyRequest
+     *
+     * @returns SetPrimaryClientPublicKeyResponse
+     *
+     * @param SetPrimaryClientPublicKeyRequest $request
+     *
+     * @return SetPrimaryClientPublicKeyResponse
+     */
+    public function setPrimaryClientPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setPrimaryClientPublicKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -13526,6 +16701,148 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 修改应用角色.
+     *
+     * @param request - UpdateApplicationRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationRoleResponse
+     *
+     * @param UpdateApplicationRoleRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateApplicationRoleResponse
+     */
+    public function updateApplicationRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
+        if (null !== $request->applicationRoleName) {
+            @$query['ApplicationRoleName'] = $request->applicationRoleName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationRole',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用角色.
+     *
+     * @param request - UpdateApplicationRoleRequest
+     *
+     * @returns UpdateApplicationRoleResponse
+     *
+     * @param UpdateApplicationRoleRequest $request
+     *
+     * @return UpdateApplicationRoleResponse
+     */
+    public function updateApplicationRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用角色描述.
+     *
+     * @param request - UpdateApplicationRoleDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationRoleDescriptionResponse
+     *
+     * @param UpdateApplicationRoleDescriptionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateApplicationRoleDescriptionResponse
+     */
+    public function updateApplicationRoleDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationRoleId) {
+            @$query['ApplicationRoleId'] = $request->applicationRoleId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationRoleDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationRoleDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用角色描述.
+     *
+     * @param request - UpdateApplicationRoleDescriptionRequest
+     *
+     * @returns UpdateApplicationRoleDescriptionResponse
+     *
+     * @param UpdateApplicationRoleDescriptionRequest $request
+     *
+     * @return UpdateApplicationRoleDescriptionResponse
+     */
+    public function updateApplicationRoleDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationRoleDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新模板应用的SSO参数.
      *
      * @param request - UpdateApplicationSsoFormParamsRequest
@@ -13722,6 +17039,217 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新云账号.
+     *
+     * @param request - UpdateCloudAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCloudAccountResponse
+     *
+     * @param UpdateCloudAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateCloudAccountResponse
+     */
+    public function updateCloudAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountName) {
+            @$query['CloudAccountName'] = $request->cloudAccountName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCloudAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新云账号.
+     *
+     * @param request - UpdateCloudAccountRequest
+     *
+     * @returns UpdateCloudAccountResponse
+     *
+     * @param UpdateCloudAccountRequest $request
+     *
+     * @return UpdateCloudAccountResponse
+     */
+    public function updateCloudAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新云账号描述.
+     *
+     * @param request - UpdateCloudAccountDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCloudAccountDescriptionResponse
+     *
+     * @param UpdateCloudAccountDescriptionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateCloudAccountDescriptionResponse
+     */
+    public function updateCloudAccountDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCloudAccountDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCloudAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新云账号描述.
+     *
+     * @param request - UpdateCloudAccountDescriptionRequest
+     *
+     * @returns UpdateCloudAccountDescriptionResponse
+     *
+     * @param UpdateCloudAccountDescriptionRequest $request
+     *
+     * @return UpdateCloudAccountDescriptionResponse
+     */
+    public function updateCloudAccountDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudAccountDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新云角色描述.
+     *
+     * @param request - UpdateCloudAccountRoleDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCloudAccountRoleDescriptionResponse
+     *
+     * @param UpdateCloudAccountRoleDescriptionRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateCloudAccountRoleDescriptionResponse
+     */
+    public function updateCloudAccountRoleDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountRoleId) {
+            @$query['CloudAccountRoleId'] = $request->cloudAccountRoleId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCloudAccountRoleDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCloudAccountRoleDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新云角色描述.
+     *
+     * @param request - UpdateCloudAccountRoleDescriptionRequest
+     *
+     * @returns UpdateCloudAccountRoleDescriptionResponse
+     *
+     * @param UpdateCloudAccountRoleDescriptionRequest $request
+     *
+     * @return UpdateCloudAccountRoleDescriptionResponse
+     */
+    public function updateCloudAccountRoleDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudAccountRoleDescriptionWithOptions($request, $runtime);
     }
 
     /**
@@ -14943,6 +18471,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateOrganizationalUnitParentIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新指定ResourceServer下的Scope.
+     *
+     * @param request - UpdateResourceServerScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceServerScopeResponse
+     *
+     * @param UpdateResourceServerScopeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateResourceServerScopeResponse
+     */
+    public function updateResourceServerScopeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceServerScopeId) {
+            @$query['ResourceServerScopeId'] = $request->resourceServerScopeId;
+        }
+
+        if (null !== $request->resourceServerScopeName) {
+            @$query['ResourceServerScopeName'] = $request->resourceServerScopeName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateResourceServerScope',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateResourceServerScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新指定ResourceServer下的Scope.
+     *
+     * @param request - UpdateResourceServerScopeRequest
+     *
+     * @returns UpdateResourceServerScopeResponse
+     *
+     * @param UpdateResourceServerScopeRequest $request
+     *
+     * @return UpdateResourceServerScopeResponse
+     */
+    public function updateResourceServerScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateResourceServerScopeWithOptions($request, $runtime);
     }
 
     /**
