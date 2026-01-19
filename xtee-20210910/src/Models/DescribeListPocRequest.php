@@ -31,12 +31,24 @@ class DescribeListPocRequest extends Model
     /**
      * @var string
      */
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
         'regId' => 'RegId',
+        'taskName' => 'TaskName',
+        'taskStatus' => 'TaskStatus',
         'type' => 'Type',
     ];
 
@@ -62,6 +74,14 @@ class DescribeListPocRequest extends Model
 
         if (null !== $this->regId) {
             $res['RegId'] = $this->regId;
+        }
+
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         if (null !== $this->type) {
@@ -93,6 +113,14 @@ class DescribeListPocRequest extends Model
 
         if (isset($map['RegId'])) {
             $model->regId = $map['RegId'];
+        }
+
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         if (isset($map['Type'])) {

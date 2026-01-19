@@ -9717,6 +9717,14 @@ class Xtee extends OpenApiClient
             @$query['RegId'] = $request->regId;
         }
 
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
+        }
+
         if (null !== $request->type) {
             @$query['Type'] = $request->type;
         }
