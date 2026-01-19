@@ -39,6 +39,11 @@ class domainItem extends Model
     public $certificateValidStart;
 
     /**
+     * @var bool
+     */
+    public $clientCertSDnPassThrough;
+
+    /**
      * @var string
      */
     public $customDomainType;
@@ -79,6 +84,21 @@ class domainItem extends Model
     public $isHttpRedirectToHttps;
 
     /**
+     * @var bool
+     */
+    public $sslOcspCacheEnable;
+
+    /**
+     * @var bool
+     */
+    public $sslOcspEnable;
+
+    /**
+     * @var int
+     */
+    public $sslVerifyDepth;
+
+    /**
      * @var string
      */
     public $wildcardDomainPatterns;
@@ -89,6 +109,7 @@ class domainItem extends Model
         'certificateName' => 'CertificateName',
         'certificateValidEnd' => 'CertificateValidEnd',
         'certificateValidStart' => 'CertificateValidStart',
+        'clientCertSDnPassThrough' => 'ClientCertSDnPassThrough',
         'customDomainType' => 'CustomDomainType',
         'domainBindingStatus' => 'DomainBindingStatus',
         'domainCNAMEStatus' => 'DomainCNAMEStatus',
@@ -97,6 +118,9 @@ class domainItem extends Model
         'domainRemark' => 'DomainRemark',
         'domainWebSocketStatus' => 'DomainWebSocketStatus',
         'isHttpRedirectToHttps' => 'IsHttpRedirectToHttps',
+        'sslOcspCacheEnable' => 'SslOcspCacheEnable',
+        'sslOcspEnable' => 'SslOcspEnable',
+        'sslVerifyDepth' => 'SslVerifyDepth',
         'wildcardDomainPatterns' => 'WildcardDomainPatterns',
     ];
 
@@ -132,6 +156,10 @@ class domainItem extends Model
             $res['CertificateValidStart'] = $this->certificateValidStart;
         }
 
+        if (null !== $this->clientCertSDnPassThrough) {
+            $res['ClientCertSDnPassThrough'] = $this->clientCertSDnPassThrough;
+        }
+
         if (null !== $this->customDomainType) {
             $res['CustomDomainType'] = $this->customDomainType;
         }
@@ -162,6 +190,18 @@ class domainItem extends Model
 
         if (null !== $this->isHttpRedirectToHttps) {
             $res['IsHttpRedirectToHttps'] = $this->isHttpRedirectToHttps;
+        }
+
+        if (null !== $this->sslOcspCacheEnable) {
+            $res['SslOcspCacheEnable'] = $this->sslOcspCacheEnable;
+        }
+
+        if (null !== $this->sslOcspEnable) {
+            $res['SslOcspEnable'] = $this->sslOcspEnable;
+        }
+
+        if (null !== $this->sslVerifyDepth) {
+            $res['SslVerifyDepth'] = $this->sslVerifyDepth;
         }
 
         if (null !== $this->wildcardDomainPatterns) {
@@ -203,6 +243,10 @@ class domainItem extends Model
             $model->certificateValidStart = $map['CertificateValidStart'];
         }
 
+        if (isset($map['ClientCertSDnPassThrough'])) {
+            $model->clientCertSDnPassThrough = $map['ClientCertSDnPassThrough'];
+        }
+
         if (isset($map['CustomDomainType'])) {
             $model->customDomainType = $map['CustomDomainType'];
         }
@@ -233,6 +277,18 @@ class domainItem extends Model
 
         if (isset($map['IsHttpRedirectToHttps'])) {
             $model->isHttpRedirectToHttps = $map['IsHttpRedirectToHttps'];
+        }
+
+        if (isset($map['SslOcspCacheEnable'])) {
+            $model->sslOcspCacheEnable = $map['SslOcspCacheEnable'];
+        }
+
+        if (isset($map['SslOcspEnable'])) {
+            $model->sslOcspEnable = $map['SslOcspEnable'];
+        }
+
+        if (isset($map['SslVerifyDepth'])) {
+            $model->sslVerifyDepth = $map['SslVerifyDepth'];
         }
 
         if (isset($map['WildcardDomainPatterns'])) {
