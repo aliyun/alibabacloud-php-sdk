@@ -335,6 +335,11 @@ class officeSites extends Model
      * @var string
      */
     public $vpcType;
+
+    /**
+     * @var string
+     */
+    public $vplVersion;
     protected $_name = [
         'ADConnectors' => 'ADConnectors',
         'acceleratorId' => 'AcceleratorId',
@@ -401,6 +406,7 @@ class officeSites extends Model
         'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
         'vpcType' => 'VpcType',
+        'vplVersion' => 'VplVersion',
     ];
 
     public function validate()
@@ -751,6 +757,10 @@ class officeSites extends Model
             $res['VpcType'] = $this->vpcType;
         }
 
+        if (null !== $this->vplVersion) {
+            $res['VplVersion'] = $this->vplVersion;
+        }
+
         return $res;
     }
 
@@ -1076,6 +1086,10 @@ class officeSites extends Model
 
         if (isset($map['VpcType'])) {
             $model->vpcType = $map['VpcType'];
+        }
+
+        if (isset($map['VplVersion'])) {
+            $model->vplVersion = $map['VplVersion'];
         }
 
         return $model;
