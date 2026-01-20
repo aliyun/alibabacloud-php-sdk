@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayResponseBody;
+namespace AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayOteResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class statusList extends Model
 {
     /**
      * @var string
@@ -16,10 +16,16 @@ class data extends Model
     /**
      * @var string
      */
-    public $serverHoldStatus;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $statusMsg;
     protected $_name = [
         'domainName' => 'DomainName',
-        'serverHoldStatus' => 'ServerHoldStatus',
+        'status' => 'Status',
+        'statusMsg' => 'StatusMsg',
     ];
 
     public function validate()
@@ -34,8 +40,12 @@ class data extends Model
             $res['DomainName'] = $this->domainName;
         }
 
-        if (null !== $this->serverHoldStatus) {
-            $res['ServerHoldStatus'] = $this->serverHoldStatus;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->statusMsg) {
+            $res['StatusMsg'] = $this->statusMsg;
         }
 
         return $res;
@@ -53,8 +63,12 @@ class data extends Model
             $model->domainName = $map['DomainName'];
         }
 
-        if (isset($map['ServerHoldStatus'])) {
-            $model->serverHoldStatus = $map['ServerHoldStatus'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['StatusMsg'])) {
+            $model->statusMsg = $map['StatusMsg'];
         }
 
         return $model;

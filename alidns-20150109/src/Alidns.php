@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionRecordRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionRecordResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionZoneRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRecursionZoneResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRspDomainServerHoldStatusForGatewayOteRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRspDomainServerHoldStatusForGatewayOteResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRspDomainServerHoldStatusForGatewayRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\AddRspDomainServerHoldStatusForGatewayResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\BindInstanceDomainsRequest;
@@ -322,6 +324,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsAppKeyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsAppKeyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsUdpIpSegmentResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayOteRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayOteResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemoveRspDomainServerHoldStatusForGatewayResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmAddressPoolAddressRequest;
@@ -472,6 +476,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneProxyPatternRequ
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneProxyPatternResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneRemarkRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRecursionZoneRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayOteRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayOteResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateRspDomainServerProhibitStatusForGatewayResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseRequest;
@@ -1781,11 +1787,15 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * 用于添加特定域名的serverHold状态信息。
      *
      * @remarks
      * ## 请求说明
-     * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
      *
      * @param request - AddRspDomainServerHoldStatusForGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1832,11 +1842,15 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * 用于添加特定域名的serverHold状态信息。
      *
      * @remarks
      * ## 请求说明
-     * - 本接口专为网关用户设计，允许他们添加指定域名的serverHold属性。
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
      *
      * @param request - AddRspDomainServerHoldStatusForGatewayRequest
      *
@@ -1851,6 +1865,87 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addRspDomainServerHoldStatusForGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于删除特定域名的serverHold状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRspDomainServerHoldStatusForGatewayOteResponse
+     *
+     * @param AddRspDomainServerHoldStatusForGatewayOteRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return AddRspDomainServerHoldStatusForGatewayOteResponse
+     */
+    public function addRspDomainServerHoldStatusForGatewayOteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->statusMsg) {
+            @$query['StatusMsg'] = $request->statusMsg;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddRspDomainServerHoldStatusForGatewayOte',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddRspDomainServerHoldStatusForGatewayOteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于删除特定域名的serverHold状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
+     *
+     * @returns AddRspDomainServerHoldStatusForGatewayOteResponse
+     *
+     * @param AddRspDomainServerHoldStatusForGatewayOteRequest $request
+     *
+     * @return AddRspDomainServerHoldStatusForGatewayOteResponse
+     */
+    public function addRspDomainServerHoldStatusForGatewayOte($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addRspDomainServerHoldStatusForGatewayOteWithOptions($request, $runtime);
     }
 
     /**
@@ -11936,6 +12031,87 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * 用于删除特定域名的serverHold状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveRspDomainServerHoldStatusForGatewayOteResponse
+     *
+     * @param RemoveRspDomainServerHoldStatusForGatewayOteRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return RemoveRspDomainServerHoldStatusForGatewayOteResponse
+     */
+    public function removeRspDomainServerHoldStatusForGatewayOteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->statusMsg) {
+            @$query['StatusMsg'] = $request->statusMsg;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveRspDomainServerHoldStatusForGatewayOte',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveRspDomainServerHoldStatusForGatewayOteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于删除特定域名的serverHold状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
+     *
+     * @returns RemoveRspDomainServerHoldStatusForGatewayOteResponse
+     *
+     * @param RemoveRspDomainServerHoldStatusForGatewayOteRequest $request
+     *
+     * @return RemoveRspDomainServerHoldStatusForGatewayOteResponse
+     */
+    public function removeRspDomainServerHoldStatusForGatewayOte($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeRspDomainServerHoldStatusForGatewayOteWithOptions($request, $runtime);
+    }
+
+    /**
      * Replaces the addresses referenced by an address pool.
      *
      * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
@@ -17352,6 +17528,91 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRspDomainServerProhibitStatusForGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于更新特定域名的状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRspDomainServerProhibitStatusForGatewayOteResponse
+     *
+     * @param UpdateRspDomainServerProhibitStatusForGatewayOteRequest $request
+     * @param RuntimeOptions                                          $runtime
+     *
+     * @return UpdateRspDomainServerProhibitStatusForGatewayOteResponse
+     */
+    public function updateRspDomainServerProhibitStatusForGatewayOteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addStatusList) {
+            @$query['AddStatusList'] = $request->addStatusList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deleteStatusList) {
+            @$query['DeleteStatusList'] = $request->deleteStatusList;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRspDomainServerProhibitStatusForGatewayOte',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRspDomainServerProhibitStatusForGatewayOteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于更新特定域名的状态信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     *
+     * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
+     *
+     * @returns UpdateRspDomainServerProhibitStatusForGatewayOteResponse
+     *
+     * @param UpdateRspDomainServerProhibitStatusForGatewayOteRequest $request
+     *
+     * @return UpdateRspDomainServerProhibitStatusForGatewayOteResponse
+     */
+    public function updateRspDomainServerProhibitStatusForGatewayOte($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRspDomainServerProhibitStatusForGatewayOteWithOptions($request, $runtime);
     }
 
     /**
