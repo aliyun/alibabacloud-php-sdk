@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\executionConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\knowledgeConfigList;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\scheduleTaskConfig;
 
 class data extends Model
 {
@@ -29,6 +30,11 @@ class data extends Model
      * @var string
      */
     public $customAgentId;
+
+    /**
+     * @var string
+     */
+    public $DMSUnit;
 
     /**
      * @var string
@@ -71,6 +77,11 @@ class data extends Model
     public $instruction;
 
     /**
+     * @var bool
+     */
+    public $isScheduleTask;
+
+    /**
      * @var string
      */
     public $knowledge;
@@ -96,6 +107,11 @@ class data extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $nextRuntime;
+
+    /**
      * @var string
      */
     public $offlineTime;
@@ -109,6 +125,11 @@ class data extends Model
      * @var string
      */
     public $releaseTime;
+
+    /**
+     * @var scheduleTaskConfig
+     */
+    public $scheduleTaskConfig;
 
     /**
      * @var string
@@ -134,6 +155,7 @@ class data extends Model
         'aliyunUid' => 'AliyunUid',
         'creatorUserName' => 'CreatorUserName',
         'customAgentId' => 'CustomAgentId',
+        'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
         'defaultAgent' => 'DefaultAgent',
         'description' => 'Description',
@@ -142,14 +164,17 @@ class data extends Model
         'gmtCreated' => 'GmtCreated',
         'gmtModified' => 'GmtModified',
         'instruction' => 'Instruction',
+        'isScheduleTask' => 'IsScheduleTask',
         'knowledge' => 'Knowledge',
         'knowledgeConfigList' => 'KnowledgeConfigList',
         'modifier' => 'Modifier',
         'modifierUserName' => 'ModifierUserName',
         'name' => 'Name',
+        'nextRuntime' => 'NextRuntime',
         'offlineTime' => 'OfflineTime',
         'region' => 'Region',
         'releaseTime' => 'ReleaseTime',
+        'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'status' => 'Status',
         'textReportConfig' => 'TextReportConfig',
         'webReportConfig' => 'WebReportConfig',
@@ -163,6 +188,9 @@ class data extends Model
         }
         if (\is_array($this->knowledgeConfigList)) {
             Model::validateArray($this->knowledgeConfigList);
+        }
+        if (null !== $this->scheduleTaskConfig) {
+            $this->scheduleTaskConfig->validate();
         }
         parent::validate();
     }
@@ -184,6 +212,10 @@ class data extends Model
 
         if (null !== $this->customAgentId) {
             $res['CustomAgentId'] = $this->customAgentId;
+        }
+
+        if (null !== $this->DMSUnit) {
+            $res['DMSUnit'] = $this->DMSUnit;
         }
 
         if (null !== $this->dataJson) {
@@ -218,6 +250,10 @@ class data extends Model
             $res['Instruction'] = $this->instruction;
         }
 
+        if (null !== $this->isScheduleTask) {
+            $res['IsScheduleTask'] = $this->isScheduleTask;
+        }
+
         if (null !== $this->knowledge) {
             $res['Knowledge'] = $this->knowledge;
         }
@@ -245,6 +281,10 @@ class data extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->nextRuntime) {
+            $res['NextRuntime'] = $this->nextRuntime;
+        }
+
         if (null !== $this->offlineTime) {
             $res['OfflineTime'] = $this->offlineTime;
         }
@@ -255,6 +295,10 @@ class data extends Model
 
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
+        }
+
+        if (null !== $this->scheduleTaskConfig) {
+            $res['ScheduleTaskConfig'] = null !== $this->scheduleTaskConfig ? $this->scheduleTaskConfig->toArray($noStream) : $this->scheduleTaskConfig;
         }
 
         if (null !== $this->status) {
@@ -300,6 +344,10 @@ class data extends Model
             $model->customAgentId = $map['CustomAgentId'];
         }
 
+        if (isset($map['DMSUnit'])) {
+            $model->DMSUnit = $map['DMSUnit'];
+        }
+
         if (isset($map['DataJson'])) {
             $model->dataJson = $map['DataJson'];
         }
@@ -332,6 +380,10 @@ class data extends Model
             $model->instruction = $map['Instruction'];
         }
 
+        if (isset($map['IsScheduleTask'])) {
+            $model->isScheduleTask = $map['IsScheduleTask'];
+        }
+
         if (isset($map['Knowledge'])) {
             $model->knowledge = $map['Knowledge'];
         }
@@ -359,6 +411,10 @@ class data extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['NextRuntime'])) {
+            $model->nextRuntime = $map['NextRuntime'];
+        }
+
         if (isset($map['OfflineTime'])) {
             $model->offlineTime = $map['OfflineTime'];
         }
@@ -369,6 +425,10 @@ class data extends Model
 
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];
+        }
+
+        if (isset($map['ScheduleTaskConfig'])) {
+            $model->scheduleTaskConfig = scheduleTaskConfig::fromMap($map['ScheduleTaskConfig']);
         }
 
         if (isset($map['Status'])) {
