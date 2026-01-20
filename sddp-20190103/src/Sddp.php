@@ -960,6 +960,10 @@ class Sddp extends OpenApiClient
             @$query['RuleID'] = $request->ruleID;
         }
 
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
         if (null !== $request->ruleName) {
             @$query['RuleName'] = $request->ruleName;
         }
