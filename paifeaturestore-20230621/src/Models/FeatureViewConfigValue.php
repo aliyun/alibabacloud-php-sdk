@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\FeatureViewConfigValue\snapshot;
 
 class FeatureViewConfigValue extends Model
 {
@@ -27,17 +28,26 @@ class FeatureViewConfigValue extends Model
      * @var bool
      */
     public $useMock;
+
+    /**
+     * @var snapshot
+     */
+    public $snapshot;
     protected $_name = [
         'partitions' => 'Partitions',
         'eventTime' => 'EventTime',
         'equal' => 'Equal',
         'useMock' => 'UseMock',
+        'snapshot' => 'Snapshot',
     ];
 
     public function validate()
     {
         if (\is_array($this->partitions)) {
             Model::validateArray($this->partitions);
+        }
+        if (null !== $this->snapshot) {
+            $this->snapshot->validate();
         }
         parent::validate();
     }
@@ -64,6 +74,10 @@ class FeatureViewConfigValue extends Model
 
         if (null !== $this->useMock) {
             $res['UseMock'] = $this->useMock;
+        }
+
+        if (null !== $this->snapshot) {
+            $res['Snapshot'] = null !== $this->snapshot ? $this->snapshot->toArray($noStream) : $this->snapshot;
         }
 
         return $res;
@@ -96,6 +110,10 @@ class FeatureViewConfigValue extends Model
 
         if (isset($map['UseMock'])) {
             $model->useMock = $map['UseMock'];
+        }
+
+        if (isset($map['Snapshot'])) {
+            $model->snapshot = snapshot::fromMap($map['Snapshot']);
         }
 
         return $model;
