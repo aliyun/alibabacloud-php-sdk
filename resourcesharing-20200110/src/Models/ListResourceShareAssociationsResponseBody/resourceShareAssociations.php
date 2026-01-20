@@ -57,6 +57,11 @@ class resourceShareAssociations extends Model
     /**
      * @var string
      */
+    public $resourceProperty;
+
+    /**
+     * @var string
+     */
     public $resourceShareId;
 
     /**
@@ -83,6 +88,7 @@ class resourceShareAssociations extends Model
         'entityType' => 'EntityType',
         'external' => 'External',
         'resourceArn' => 'ResourceArn',
+        'resourceProperty' => 'ResourceProperty',
         'resourceShareId' => 'ResourceShareId',
         'resourceShareName' => 'ResourceShareName',
         'targetProperty' => 'TargetProperty',
@@ -141,6 +147,10 @@ class resourceShareAssociations extends Model
 
         if (null !== $this->resourceArn) {
             $res['ResourceArn'] = $this->resourceArn;
+        }
+
+        if (null !== $this->resourceProperty) {
+            $res['ResourceProperty'] = $this->resourceProperty;
         }
 
         if (null !== $this->resourceShareId) {
@@ -211,6 +221,10 @@ class resourceShareAssociations extends Model
 
         if (isset($map['ResourceArn'])) {
             $model->resourceArn = $map['ResourceArn'];
+        }
+
+        if (isset($map['ResourceProperty'])) {
+            $model->resourceProperty = $map['ResourceProperty'];
         }
 
         if (isset($map['ResourceShareId'])) {

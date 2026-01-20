@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\resourceProperties;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\resources;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\AssociateResourceShareRequest\targetProperties;
 
@@ -19,6 +20,11 @@ class AssociateResourceShareRequest extends Model
      * @var string[]
      */
     public $resourceArns;
+
+    /**
+     * @var resourceProperties[]
+     */
+    public $resourceProperties;
 
     /**
      * @var string
@@ -42,6 +48,7 @@ class AssociateResourceShareRequest extends Model
     protected $_name = [
         'permissionNames' => 'PermissionNames',
         'resourceArns' => 'ResourceArns',
+        'resourceProperties' => 'ResourceProperties',
         'resourceShareId' => 'ResourceShareId',
         'resources' => 'Resources',
         'targetProperties' => 'TargetProperties',
@@ -55,6 +62,9 @@ class AssociateResourceShareRequest extends Model
         }
         if (\is_array($this->resourceArns)) {
             Model::validateArray($this->resourceArns);
+        }
+        if (\is_array($this->resourceProperties)) {
+            Model::validateArray($this->resourceProperties);
         }
         if (\is_array($this->resources)) {
             Model::validateArray($this->resources);
@@ -88,6 +98,17 @@ class AssociateResourceShareRequest extends Model
                 $n1 = 0;
                 foreach ($this->resourceArns as $item1) {
                     $res['ResourceArns'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceProperties) {
+            if (\is_array($this->resourceProperties)) {
+                $res['ResourceProperties'] = [];
+                $n1 = 0;
+                foreach ($this->resourceProperties as $item1) {
+                    $res['ResourceProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -158,6 +179,17 @@ class AssociateResourceShareRequest extends Model
                 $n1 = 0;
                 foreach ($map['ResourceArns'] as $item1) {
                     $model->resourceArns[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ResourceProperties'])) {
+            if (!empty($map['ResourceProperties'])) {
+                $model->resourceProperties = [];
+                $n1 = 0;
+                foreach ($map['ResourceProperties'] as $item1) {
+                    $model->resourceProperties[$n1] = resourceProperties::fromMap($item1);
                     ++$n1;
                 }
             }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\resourceProperties;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\resources;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\tag;
 use AlibabaCloud\SDK\ResourceSharing\V20200110\Models\CreateResourceShareRequest\targetProperties;
@@ -30,6 +31,11 @@ class CreateResourceShareRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var resourceProperties[]
+     */
+    public $resourceProperties;
 
     /**
      * @var string
@@ -60,6 +66,7 @@ class CreateResourceShareRequest extends Model
         'permissionNames' => 'PermissionNames',
         'resourceArns' => 'ResourceArns',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceProperties' => 'ResourceProperties',
         'resourceShareName' => 'ResourceShareName',
         'resources' => 'Resources',
         'tag' => 'Tag',
@@ -74,6 +81,9 @@ class CreateResourceShareRequest extends Model
         }
         if (\is_array($this->resourceArns)) {
             Model::validateArray($this->resourceArns);
+        }
+        if (\is_array($this->resourceProperties)) {
+            Model::validateArray($this->resourceProperties);
         }
         if (\is_array($this->resources)) {
             Model::validateArray($this->resources);
@@ -121,6 +131,17 @@ class CreateResourceShareRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceProperties) {
+            if (\is_array($this->resourceProperties)) {
+                $res['ResourceProperties'] = [];
+                $n1 = 0;
+                foreach ($this->resourceProperties as $item1) {
+                    $res['ResourceProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->resourceShareName) {
@@ -210,6 +231,17 @@ class CreateResourceShareRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceProperties'])) {
+            if (!empty($map['ResourceProperties'])) {
+                $model->resourceProperties = [];
+                $n1 = 0;
+                foreach ($map['ResourceProperties'] as $item1) {
+                    $model->resourceProperties[$n1] = resourceProperties::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ResourceShareName'])) {

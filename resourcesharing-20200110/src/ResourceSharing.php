@@ -189,6 +189,10 @@ class ResourceSharing extends OpenApiClient
             @$query['ResourceArns'] = $request->resourceArns;
         }
 
+        if (null !== $request->resourceProperties) {
+            @$query['ResourceProperties'] = $request->resourceProperties;
+        }
+
         if (null !== $request->resourceShareId) {
             @$query['ResourceShareId'] = $request->resourceShareId;
         }
@@ -459,6 +463,10 @@ class ResourceSharing extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceProperties) {
+            @$query['ResourceProperties'] = $request->resourceProperties;
         }
 
         if (null !== $request->resourceShareName) {
