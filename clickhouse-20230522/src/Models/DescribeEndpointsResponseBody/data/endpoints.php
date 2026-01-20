@@ -22,6 +22,11 @@ class endpoints extends Model
     /**
      * @var string
      */
+    public $endpointName;
+
+    /**
+     * @var string
+     */
     public $IPAddress;
 
     /**
@@ -56,6 +61,7 @@ class endpoints extends Model
     protected $_name = [
         'computingGroupId' => 'ComputingGroupId',
         'connectionString' => 'ConnectionString',
+        'endpointName' => 'EndpointName',
         'IPAddress' => 'IPAddress',
         'netType' => 'NetType',
         'ports' => 'Ports',
@@ -82,6 +88,10 @@ class endpoints extends Model
 
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+
+        if (null !== $this->endpointName) {
+            $res['EndpointName'] = $this->endpointName;
         }
 
         if (null !== $this->IPAddress) {
@@ -136,6 +146,10 @@ class endpoints extends Model
 
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+
+        if (isset($map['EndpointName'])) {
+            $model->endpointName = $map['EndpointName'];
         }
 
         if (isset($map['IPAddress'])) {

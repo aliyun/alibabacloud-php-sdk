@@ -1859,6 +1859,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }

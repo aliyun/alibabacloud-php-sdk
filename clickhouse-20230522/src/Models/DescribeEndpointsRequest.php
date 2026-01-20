@@ -11,6 +11,11 @@ class DescribeEndpointsRequest extends Model
     /**
      * @var string
      */
+    public $computingGroupId;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -18,6 +23,7 @@ class DescribeEndpointsRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'computingGroupId' => 'ComputingGroupId',
         'DBInstanceId' => 'DBInstanceId',
         'regionId' => 'RegionId',
     ];
@@ -30,6 +36,10 @@ class DescribeEndpointsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->computingGroupId) {
+            $res['ComputingGroupId'] = $this->computingGroupId;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -49,6 +59,10 @@ class DescribeEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComputingGroupId'])) {
+            $model->computingGroupId = $map['ComputingGroupId'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
