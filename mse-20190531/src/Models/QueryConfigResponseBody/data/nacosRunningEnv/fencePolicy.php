@@ -17,9 +17,15 @@ class fencePolicy extends Model
      * @var string[]
      */
     public $interceptPolicy;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
         'enabledModules' => 'enabledModules',
         'interceptPolicy' => 'interceptPolicy',
+        'serviceName' => 'serviceName',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class fencePolicy extends Model
             }
         }
 
+        if (null !== $this->serviceName) {
+            $res['serviceName'] = $this->serviceName;
+        }
+
         return $res;
     }
 
@@ -85,6 +95,10 @@ class fencePolicy extends Model
                     $model->interceptPolicy[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['serviceName'])) {
+            $model->serviceName = $map['serviceName'];
         }
 
         return $model;
