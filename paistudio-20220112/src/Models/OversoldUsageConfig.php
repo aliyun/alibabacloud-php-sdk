@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class OversoldUsageConfig extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
     public $disabled;
 
