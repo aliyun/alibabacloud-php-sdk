@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatResponseBody;
+namespace AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
 

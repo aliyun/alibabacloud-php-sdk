@@ -11,6 +11,11 @@ class ListDigitalEmployeesRequest extends Model
     /**
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @var string
+     */
     public $employeeType;
 
     /**
@@ -28,6 +33,7 @@ class ListDigitalEmployeesRequest extends Model
      */
     public $nextToken;
     protected $_name = [
+        'displayName' => 'displayName',
         'employeeType' => 'employeeType',
         'maxResults' => 'maxResults',
         'name' => 'name',
@@ -42,6 +48,10 @@ class ListDigitalEmployeesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
+        }
+
         if (null !== $this->employeeType) {
             $res['employeeType'] = $this->employeeType;
         }
@@ -69,6 +79,10 @@ class ListDigitalEmployeesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
+        }
+
         if (isset($map['employeeType'])) {
             $model->employeeType = $map['employeeType'];
         }

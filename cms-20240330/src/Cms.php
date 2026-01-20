@@ -4490,6 +4490,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->displayName) {
+            @$query['displayName'] = $request->displayName;
+        }
+
         if (null !== $request->employeeType) {
             @$query['employeeType'] = $request->employeeType;
         }

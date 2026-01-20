@@ -5,10 +5,15 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataResponseBody\messages;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataResponseBody\data;
 
 class GetThreadDataResponseBody extends Model
 {
+    /**
+     * @var data[]
+     */
+    public $data;
+
     /**
      * @var string
      */
@@ -18,11 +23,6 @@ class GetThreadDataResponseBody extends Model
      * @var int
      */
     public $maxResults;
-
-    /**
-     * @var messages[]
-     */
-    public $messages;
 
     /**
      * @var string
@@ -39,9 +39,9 @@ class GetThreadDataResponseBody extends Model
      */
     public $threadId;
     protected $_name = [
+        'data' => 'data',
         'digitalEmployeeName' => 'digitalEmployeeName',
         'maxResults' => 'maxResults',
-        'messages' => 'messages',
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
         'threadId' => 'threadId',
@@ -49,8 +49,8 @@ class GetThreadDataResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->messages)) {
-            Model::validateArray($this->messages);
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
         }
         parent::validate();
     }
@@ -58,23 +58,23 @@ class GetThreadDataResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->data) {
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->digitalEmployeeName) {
             $res['digitalEmployeeName'] = $this->digitalEmployeeName;
         }
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
-        }
-
-        if (null !== $this->messages) {
-            if (\is_array($this->messages)) {
-                $res['messages'] = [];
-                $n1 = 0;
-                foreach ($this->messages as $item1) {
-                    $res['messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->nextToken) {
@@ -100,23 +100,23 @@ class GetThreadDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['data'])) {
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['digitalEmployeeName'])) {
             $model->digitalEmployeeName = $map['digitalEmployeeName'];
         }
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
-        }
-
-        if (isset($map['messages'])) {
-            if (!empty($map['messages'])) {
-                $model->messages = [];
-                $n1 = 0;
-                foreach ($map['messages'] as $item1) {
-                    $model->messages[$n1] = messages::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['nextToken'])) {
