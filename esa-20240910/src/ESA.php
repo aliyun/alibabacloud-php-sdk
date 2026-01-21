@@ -575,6 +575,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteOriginClientCertificatesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteOriginClientCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteRoutesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteRoutesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesRequest;
@@ -18535,6 +18537,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSiteDeliveryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点回源客户端证书列表.
+     *
+     * @param Request - ListSiteOriginClientCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSiteOriginClientCertificatesResponse
+     *
+     * @param ListSiteOriginClientCertificatesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListSiteOriginClientCertificatesResponse
+     */
+    public function listSiteOriginClientCertificatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSiteOriginClientCertificates',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSiteOriginClientCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点回源客户端证书列表.
+     *
+     * @param Request - ListSiteOriginClientCertificatesRequest
+     *
+     * @returns ListSiteOriginClientCertificatesResponse
+     *
+     * @param ListSiteOriginClientCertificatesRequest $request
+     *
+     * @return ListSiteOriginClientCertificatesResponse
+     */
+    public function listSiteOriginClientCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSiteOriginClientCertificatesWithOptions($request, $runtime);
     }
 
     /**
