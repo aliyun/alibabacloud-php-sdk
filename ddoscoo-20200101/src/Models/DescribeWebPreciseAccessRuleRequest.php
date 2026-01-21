@@ -16,9 +16,15 @@ class DescribeWebPreciseAccessRuleRequest extends Model
     /**
      * @var string
      */
+    public $owner;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
     protected $_name = [
         'domains' => 'Domains',
+        'owner' => 'Owner',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -42,6 +48,10 @@ class DescribeWebPreciseAccessRuleRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -68,6 +78,10 @@ class DescribeWebPreciseAccessRuleRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ResourceGroupId'])) {

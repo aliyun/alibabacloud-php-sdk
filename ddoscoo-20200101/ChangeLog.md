@@ -1,3 +1,8 @@
+2026-01-21 Version: 2.8.2
+- Update API DescribeWebPreciseAccessRule: add request parameters Owner.
+- Update API DescribeWebPreciseAccessRule: add response parameters Body.PreciseAccessConfigList.$.RuleList.$.ExpirePeriod.
+
+
 2026-01-07 Version: 2.8.1
 - Update API DescribeDomainCcProtectSwitch: add response parameters Body.ProtectSwitchList.$.CcGlobalSwitch.
 

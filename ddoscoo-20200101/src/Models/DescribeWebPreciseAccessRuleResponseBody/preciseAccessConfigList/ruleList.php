@@ -22,6 +22,11 @@ class ruleList extends Model
     /**
      * @var int
      */
+    public $expirePeriod;
+
+    /**
+     * @var int
+     */
     public $expires;
 
     /**
@@ -36,6 +41,7 @@ class ruleList extends Model
     protected $_name = [
         'action' => 'Action',
         'conditionList' => 'ConditionList',
+        'expirePeriod' => 'ExpirePeriod',
         'expires' => 'Expires',
         'name' => 'Name',
         'owner' => 'Owner',
@@ -65,6 +71,10 @@ class ruleList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->expirePeriod) {
+            $res['ExpirePeriod'] = $this->expirePeriod;
         }
 
         if (null !== $this->expires) {
@@ -103,6 +113,10 @@ class ruleList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ExpirePeriod'])) {
+            $model->expirePeriod = $map['ExpirePeriod'];
         }
 
         if (isset($map['Expires'])) {

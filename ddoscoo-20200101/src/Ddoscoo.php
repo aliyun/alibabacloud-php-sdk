@@ -10119,6 +10119,10 @@ class Ddoscoo extends OpenApiClient
             @$query['Domains'] = $request->domains;
         }
 
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
