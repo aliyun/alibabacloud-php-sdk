@@ -632,6 +632,10 @@ class Privatelink extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->crossRegionBandwidth) {
+            @$query['CrossRegionBandwidth'] = $request->crossRegionBandwidth;
+        }
+
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
         }
@@ -678,6 +682,10 @@ class Privatelink extends OpenApiClient
 
         if (null !== $request->serviceName) {
             @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
 
         if (null !== $request->tag) {
@@ -810,6 +818,10 @@ class Privatelink extends OpenApiClient
 
         if (null !== $request->serviceSupportIPv6) {
             @$query['ServiceSupportIPv6'] = $request->serviceSupportIPv6;
+        }
+
+        if (null !== $request->supportedRegionList) {
+            @$query['SupportedRegionList'] = $request->supportedRegionList;
         }
 
         if (null !== $request->tag) {
@@ -2431,6 +2443,10 @@ class Privatelink extends OpenApiClient
             @$query['ServiceName'] = $request->serviceName;
         }
 
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
         if (null !== $request->serviceType) {
             @$query['ServiceType'] = $request->serviceType;
         }
@@ -2611,6 +2627,10 @@ class Privatelink extends OpenApiClient
 
         if (null !== $request->serviceName) {
             @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
 
         if (null !== $request->tag) {
@@ -3094,6 +3114,10 @@ class Privatelink extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->crossRegionBandwidth) {
+            @$query['CrossRegionBandwidth'] = $request->crossRegionBandwidth;
+        }
+
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
         }
@@ -3280,6 +3304,10 @@ class Privatelink extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->addSupportedRegionSet) {
+            @$query['AddSupportedRegionSet'] = $request->addSupportedRegionSet;
+        }
+
         if (null !== $request->addressIpVersion) {
             @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
@@ -3294,6 +3322,10 @@ class Privatelink extends OpenApiClient
 
         if (null !== $request->connectBandwidth) {
             @$query['ConnectBandwidth'] = $request->connectBandwidth;
+        }
+
+        if (null !== $request->deleteSupportedRegionSet) {
+            @$query['DeleteSupportedRegionSet'] = $request->deleteSupportedRegionSet;
         }
 
         if (null !== $request->dryRun) {

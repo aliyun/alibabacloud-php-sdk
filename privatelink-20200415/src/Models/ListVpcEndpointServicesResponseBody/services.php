@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointServicesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointServicesResponseBody\services\supportedRegionSet;
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointServicesResponseBody\services\tags;
 
 class services extends Model
@@ -100,6 +101,11 @@ class services extends Model
     public $serviceType;
 
     /**
+     * @var supportedRegionSet[]
+     */
+    public $supportedRegionSet;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -127,12 +133,16 @@ class services extends Model
         'serviceStatus' => 'ServiceStatus',
         'serviceSupportIPv6' => 'ServiceSupportIPv6',
         'serviceType' => 'ServiceType',
+        'supportedRegionSet' => 'SupportedRegionSet',
         'tags' => 'Tags',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportedRegionSet)) {
+            Model::validateArray($this->supportedRegionSet);
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -212,6 +222,17 @@ class services extends Model
 
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+
+        if (null !== $this->supportedRegionSet) {
+            if (\is_array($this->supportedRegionSet)) {
+                $res['SupportedRegionSet'] = [];
+                $n1 = 0;
+                foreach ($this->supportedRegionSet as $item1) {
+                    $res['SupportedRegionSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tags) {
@@ -310,6 +331,17 @@ class services extends Model
 
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+
+        if (isset($map['SupportedRegionSet'])) {
+            if (!empty($map['SupportedRegionSet'])) {
+                $model->supportedRegionSet = [];
+                $n1 = 0;
+                foreach ($map['SupportedRegionSet'] as $item1) {
+                    $model->supportedRegionSet[$n1] = supportedRegionSet::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Tags'])) {

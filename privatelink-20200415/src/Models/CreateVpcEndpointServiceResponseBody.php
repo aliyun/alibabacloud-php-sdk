@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\CreateVpcEndpointServiceResponseBody\supportedRegionSet;
 
 class CreateVpcEndpointServiceResponseBody extends Model
 {
@@ -69,6 +70,11 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public $serviceSupportIPv6;
 
     /**
+     * @var supportedRegionSet[]
+     */
+    public $supportedRegionSet;
+
+    /**
      * @var bool
      */
     public $zoneAffinityEnabled;
@@ -85,11 +91,15 @@ class CreateVpcEndpointServiceResponseBody extends Model
         'serviceName' => 'ServiceName',
         'serviceStatus' => 'ServiceStatus',
         'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'supportedRegionSet' => 'SupportedRegionSet',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportedRegionSet)) {
+            Model::validateArray($this->supportedRegionSet);
+        }
         parent::validate();
     }
 
@@ -142,6 +152,17 @@ class CreateVpcEndpointServiceResponseBody extends Model
 
         if (null !== $this->serviceSupportIPv6) {
             $res['ServiceSupportIPv6'] = $this->serviceSupportIPv6;
+        }
+
+        if (null !== $this->supportedRegionSet) {
+            if (\is_array($this->supportedRegionSet)) {
+                $res['SupportedRegionSet'] = [];
+                $n1 = 0;
+                foreach ($this->supportedRegionSet as $item1) {
+                    $res['SupportedRegionSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->zoneAffinityEnabled) {
@@ -205,6 +226,17 @@ class CreateVpcEndpointServiceResponseBody extends Model
 
         if (isset($map['ServiceSupportIPv6'])) {
             $model->serviceSupportIPv6 = $map['ServiceSupportIPv6'];
+        }
+
+        if (isset($map['SupportedRegionSet'])) {
+            if (!empty($map['SupportedRegionSet'])) {
+                $model->supportedRegionSet = [];
+                $n1 = 0;
+                foreach ($map['SupportedRegionSet'] as $item1) {
+                    $model->supportedRegionSet[$n1] = supportedRegionSet::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ZoneAffinityEnabled'])) {

@@ -32,6 +32,11 @@ class connections extends Model
     /**
      * @var string
      */
+    public $endpointRegionId;
+
+    /**
+     * @var string
+     */
     public $endpointVpcId;
 
     /**
@@ -57,6 +62,11 @@ class connections extends Model
     /**
      * @var string
      */
+    public $serviceRegionId;
+
+    /**
+     * @var string
+     */
     public $trafficControlMode;
 
     /**
@@ -68,11 +78,13 @@ class connections extends Model
         'connectionStatus' => 'ConnectionStatus',
         'endpointId' => 'EndpointId',
         'endpointOwnerId' => 'EndpointOwnerId',
+        'endpointRegionId' => 'EndpointRegionId',
         'endpointVpcId' => 'EndpointVpcId',
         'modifiedTime' => 'ModifiedTime',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwner' => 'ResourceOwner',
         'serviceId' => 'ServiceId',
+        'serviceRegionId' => 'ServiceRegionId',
         'trafficControlMode' => 'TrafficControlMode',
         'zones' => 'Zones',
     ];
@@ -104,6 +116,10 @@ class connections extends Model
             $res['EndpointOwnerId'] = $this->endpointOwnerId;
         }
 
+        if (null !== $this->endpointRegionId) {
+            $res['EndpointRegionId'] = $this->endpointRegionId;
+        }
+
         if (null !== $this->endpointVpcId) {
             $res['EndpointVpcId'] = $this->endpointVpcId;
         }
@@ -122,6 +138,10 @@ class connections extends Model
 
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
 
         if (null !== $this->trafficControlMode) {
@@ -166,6 +186,10 @@ class connections extends Model
             $model->endpointOwnerId = $map['EndpointOwnerId'];
         }
 
+        if (isset($map['EndpointRegionId'])) {
+            $model->endpointRegionId = $map['EndpointRegionId'];
+        }
+
         if (isset($map['EndpointVpcId'])) {
             $model->endpointVpcId = $map['EndpointVpcId'];
         }
@@ -184,6 +208,10 @@ class connections extends Model
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['TrafficControlMode'])) {

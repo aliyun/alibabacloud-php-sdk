@@ -42,6 +42,11 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     /**
      * @var string
      */
+    public $serviceRegionId;
+
+    /**
+     * @var string
+     */
     public $serviceType;
 
     /**
@@ -55,6 +60,7 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'serviceId' => 'ServiceId',
         'serviceName' => 'ServiceName',
+        'serviceRegionId' => 'ServiceRegionId',
         'serviceType' => 'ServiceType',
         'tag' => 'Tag',
     ];
@@ -92,6 +98,10 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
 
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
 
         if (null !== $this->serviceType) {
@@ -142,6 +152,10 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
 
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['ServiceType'])) {

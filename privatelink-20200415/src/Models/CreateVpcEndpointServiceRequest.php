@@ -66,6 +66,11 @@ class CreateVpcEndpointServiceRequest extends Model
     public $serviceSupportIPv6;
 
     /**
+     * @var string[]
+     */
+    public $supportedRegionList;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -86,6 +91,7 @@ class CreateVpcEndpointServiceRequest extends Model
         'serviceDescription' => 'ServiceDescription',
         'serviceResourceType' => 'ServiceResourceType',
         'serviceSupportIPv6' => 'ServiceSupportIPv6',
+        'supportedRegionList' => 'SupportedRegionList',
         'tag' => 'Tag',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
@@ -94,6 +100,9 @@ class CreateVpcEndpointServiceRequest extends Model
     {
         if (\is_array($this->resource)) {
             Model::validateArray($this->resource);
+        }
+        if (\is_array($this->supportedRegionList)) {
+            Model::validateArray($this->supportedRegionList);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -153,6 +162,17 @@ class CreateVpcEndpointServiceRequest extends Model
 
         if (null !== $this->serviceSupportIPv6) {
             $res['ServiceSupportIPv6'] = $this->serviceSupportIPv6;
+        }
+
+        if (null !== $this->supportedRegionList) {
+            if (\is_array($this->supportedRegionList)) {
+                $res['SupportedRegionList'] = [];
+                $n1 = 0;
+                foreach ($this->supportedRegionList as $item1) {
+                    $res['SupportedRegionList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tag) {
@@ -230,6 +250,17 @@ class CreateVpcEndpointServiceRequest extends Model
 
         if (isset($map['ServiceSupportIPv6'])) {
             $model->serviceSupportIPv6 = $map['ServiceSupportIPv6'];
+        }
+
+        if (isset($map['SupportedRegionList'])) {
+            if (!empty($map['SupportedRegionList'])) {
+                $model->supportedRegionList = [];
+                $n1 = 0;
+                foreach ($map['SupportedRegionList'] as $item1) {
+                    $model->supportedRegionList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Tag'])) {

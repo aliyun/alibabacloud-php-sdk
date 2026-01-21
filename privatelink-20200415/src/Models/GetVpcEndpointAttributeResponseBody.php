@@ -29,6 +29,11 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @var int
+     */
+    public $crossRegionBandwidth;
+
+    /**
      * @var string
      */
     public $endpointBusinessStatus;
@@ -106,6 +111,11 @@ class GetVpcEndpointAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $serviceRegionId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -122,6 +132,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
         'bandwidth' => 'Bandwidth',
         'connectionStatus' => 'ConnectionStatus',
         'createTime' => 'CreateTime',
+        'crossRegionBandwidth' => 'CrossRegionBandwidth',
         'endpointBusinessStatus' => 'EndpointBusinessStatus',
         'endpointDescription' => 'EndpointDescription',
         'endpointDomain' => 'EndpointDomain',
@@ -137,6 +148,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
         'resourceOwner' => 'ResourceOwner',
         'serviceId' => 'ServiceId',
         'serviceName' => 'ServiceName',
+        'serviceRegionId' => 'ServiceRegionId',
         'vpcId' => 'VpcId',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
         'zonePrivateIpAddressCount' => 'ZonePrivateIpAddressCount',
@@ -164,6 +176,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->crossRegionBandwidth) {
+            $res['CrossRegionBandwidth'] = $this->crossRegionBandwidth;
         }
 
         if (null !== $this->endpointBusinessStatus) {
@@ -226,6 +242,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
             $res['ServiceName'] = $this->serviceName;
         }
 
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
+        }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -263,6 +283,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CrossRegionBandwidth'])) {
+            $model->crossRegionBandwidth = $map['CrossRegionBandwidth'];
         }
 
         if (isset($map['EndpointBusinessStatus'])) {
@@ -323,6 +347,10 @@ class GetVpcEndpointAttributeResponseBody extends Model
 
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['VpcId'])) {

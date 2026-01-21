@@ -65,6 +65,11 @@ class ListVpcEndpointsRequest extends Model
     public $serviceName;
 
     /**
+     * @var string
+     */
+    public $serviceRegionId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -85,6 +90,7 @@ class ListVpcEndpointsRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'serviceName' => 'ServiceName',
+        'serviceRegionId' => 'ServiceRegionId',
         'tag' => 'Tag',
         'vpcId' => 'VpcId',
     ];
@@ -142,6 +148,10 @@ class ListVpcEndpointsRequest extends Model
 
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
 
         if (null !== $this->tag) {
@@ -212,6 +222,10 @@ class ListVpcEndpointsRequest extends Model
 
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['Tag'])) {

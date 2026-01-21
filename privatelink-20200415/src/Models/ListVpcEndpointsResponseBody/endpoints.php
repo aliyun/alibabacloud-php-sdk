@@ -30,6 +30,11 @@ class endpoints extends Model
     public $createTime;
 
     /**
+     * @var int
+     */
+    public $crossRegionBandwidth;
+
+    /**
      * @var string
      */
     public $endpointBusinessStatus;
@@ -95,6 +100,11 @@ class endpoints extends Model
     public $serviceName;
 
     /**
+     * @var string
+     */
+    public $serviceRegionId;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -113,6 +123,7 @@ class endpoints extends Model
         'bandwidth' => 'Bandwidth',
         'connectionStatus' => 'ConnectionStatus',
         'createTime' => 'CreateTime',
+        'crossRegionBandwidth' => 'CrossRegionBandwidth',
         'endpointBusinessStatus' => 'EndpointBusinessStatus',
         'endpointDescription' => 'EndpointDescription',
         'endpointDomain' => 'EndpointDomain',
@@ -126,6 +137,7 @@ class endpoints extends Model
         'resourceOwner' => 'ResourceOwner',
         'serviceId' => 'ServiceId',
         'serviceName' => 'ServiceName',
+        'serviceRegionId' => 'ServiceRegionId',
         'tags' => 'Tags',
         'vpcId' => 'VpcId',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
@@ -156,6 +168,10 @@ class endpoints extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->crossRegionBandwidth) {
+            $res['CrossRegionBandwidth'] = $this->crossRegionBandwidth;
         }
 
         if (null !== $this->endpointBusinessStatus) {
@@ -210,6 +226,10 @@ class endpoints extends Model
             $res['ServiceName'] = $this->serviceName;
         }
 
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
@@ -254,6 +274,10 @@ class endpoints extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CrossRegionBandwidth'])) {
+            $model->crossRegionBandwidth = $map['CrossRegionBandwidth'];
         }
 
         if (isset($map['EndpointBusinessStatus'])) {
@@ -306,6 +330,10 @@ class endpoints extends Model
 
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['Tags'])) {

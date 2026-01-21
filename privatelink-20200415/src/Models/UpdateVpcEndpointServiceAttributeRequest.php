@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateVpcEndpointServiceAttributeRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $addSupportedRegionSet;
+
+    /**
      * @var string
      */
     public $addressIpVersion;
@@ -27,6 +32,11 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
      * @var int
      */
     public $connectBandwidth;
+
+    /**
+     * @var string[]
+     */
+    public $deleteSupportedRegionSet;
 
     /**
      * @var bool
@@ -58,10 +68,12 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
      */
     public $zoneAffinityEnabled;
     protected $_name = [
+        'addSupportedRegionSet' => 'AddSupportedRegionSet',
         'addressIpVersion' => 'AddressIpVersion',
         'autoAcceptEnabled' => 'AutoAcceptEnabled',
         'clientToken' => 'ClientToken',
         'connectBandwidth' => 'ConnectBandwidth',
+        'deleteSupportedRegionSet' => 'DeleteSupportedRegionSet',
         'dryRun' => 'DryRun',
         'regionId' => 'RegionId',
         'serviceDescription' => 'ServiceDescription',
@@ -72,12 +84,29 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addSupportedRegionSet)) {
+            Model::validateArray($this->addSupportedRegionSet);
+        }
+        if (\is_array($this->deleteSupportedRegionSet)) {
+            Model::validateArray($this->deleteSupportedRegionSet);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addSupportedRegionSet) {
+            if (\is_array($this->addSupportedRegionSet)) {
+                $res['AddSupportedRegionSet'] = [];
+                $n1 = 0;
+                foreach ($this->addSupportedRegionSet as $item1) {
+                    $res['AddSupportedRegionSet'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->addressIpVersion) {
             $res['AddressIpVersion'] = $this->addressIpVersion;
         }
@@ -92,6 +121,17 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
 
         if (null !== $this->connectBandwidth) {
             $res['ConnectBandwidth'] = $this->connectBandwidth;
+        }
+
+        if (null !== $this->deleteSupportedRegionSet) {
+            if (\is_array($this->deleteSupportedRegionSet)) {
+                $res['DeleteSupportedRegionSet'] = [];
+                $n1 = 0;
+                foreach ($this->deleteSupportedRegionSet as $item1) {
+                    $res['DeleteSupportedRegionSet'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->dryRun) {
@@ -129,6 +169,17 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddSupportedRegionSet'])) {
+            if (!empty($map['AddSupportedRegionSet'])) {
+                $model->addSupportedRegionSet = [];
+                $n1 = 0;
+                foreach ($map['AddSupportedRegionSet'] as $item1) {
+                    $model->addSupportedRegionSet[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AddressIpVersion'])) {
             $model->addressIpVersion = $map['AddressIpVersion'];
         }
@@ -143,6 +194,17 @@ class UpdateVpcEndpointServiceAttributeRequest extends Model
 
         if (isset($map['ConnectBandwidth'])) {
             $model->connectBandwidth = $map['ConnectBandwidth'];
+        }
+
+        if (isset($map['DeleteSupportedRegionSet'])) {
+            if (!empty($map['DeleteSupportedRegionSet'])) {
+                $model->deleteSupportedRegionSet = [];
+                $n1 = 0;
+                foreach ($map['DeleteSupportedRegionSet'] as $item1) {
+                    $model->deleteSupportedRegionSet[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DryRun'])) {

@@ -21,6 +21,11 @@ class CreateVpcEndpointRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $crossRegionBandwidth;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -76,6 +81,11 @@ class CreateVpcEndpointRequest extends Model
     public $serviceName;
 
     /**
+     * @var string
+     */
+    public $serviceRegionId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -102,6 +112,7 @@ class CreateVpcEndpointRequest extends Model
     protected $_name = [
         'addressIpVersion' => 'AddressIpVersion',
         'clientToken' => 'ClientToken',
+        'crossRegionBandwidth' => 'CrossRegionBandwidth',
         'dryRun' => 'DryRun',
         'endpointDescription' => 'EndpointDescription',
         'endpointName' => 'EndpointName',
@@ -113,6 +124,7 @@ class CreateVpcEndpointRequest extends Model
         'securityGroupId' => 'SecurityGroupId',
         'serviceId' => 'ServiceId',
         'serviceName' => 'ServiceName',
+        'serviceRegionId' => 'ServiceRegionId',
         'tag' => 'Tag',
         'vpcId' => 'VpcId',
         'zone' => 'Zone',
@@ -143,6 +155,10 @@ class CreateVpcEndpointRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->crossRegionBandwidth) {
+            $res['CrossRegionBandwidth'] = $this->crossRegionBandwidth;
         }
 
         if (null !== $this->dryRun) {
@@ -194,6 +210,10 @@ class CreateVpcEndpointRequest extends Model
 
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
 
         if (null !== $this->tag) {
@@ -249,6 +269,10 @@ class CreateVpcEndpointRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['CrossRegionBandwidth'])) {
+            $model->crossRegionBandwidth = $map['CrossRegionBandwidth'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
@@ -298,6 +322,10 @@ class CreateVpcEndpointRequest extends Model
 
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['Tag'])) {

@@ -19,6 +19,11 @@ class UpdateVpcEndpointAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $crossRegionBandwidth;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -60,6 +65,7 @@ class UpdateVpcEndpointAttributeRequest extends Model
     protected $_name = [
         'addressIpVersion' => 'AddressIpVersion',
         'clientToken' => 'ClientToken',
+        'crossRegionBandwidth' => 'CrossRegionBandwidth',
         'dryRun' => 'DryRun',
         'endpointDescription' => 'EndpointDescription',
         'endpointId' => 'EndpointId',
@@ -84,6 +90,10 @@ class UpdateVpcEndpointAttributeRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->crossRegionBandwidth) {
+            $res['CrossRegionBandwidth'] = $this->crossRegionBandwidth;
         }
 
         if (null !== $this->dryRun) {
@@ -135,6 +145,10 @@ class UpdateVpcEndpointAttributeRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CrossRegionBandwidth'])) {
+            $model->crossRegionBandwidth = $map['CrossRegionBandwidth'];
         }
 
         if (isset($map['DryRun'])) {
