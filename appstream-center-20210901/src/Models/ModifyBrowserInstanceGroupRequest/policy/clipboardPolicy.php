@@ -24,6 +24,11 @@ class clipboardPolicy extends Model
     public $clipboardScope;
 
     /**
+     * @var string
+     */
+    public $clipboardSizeUnit;
+
+    /**
      * @var int
      */
     public $clipboardWriteLimit;
@@ -46,6 +51,7 @@ class clipboardPolicy extends Model
         'clipboard' => 'Clipboard',
         'clipboardReadLimit' => 'ClipboardReadLimit',
         'clipboardScope' => 'ClipboardScope',
+        'clipboardSizeUnit' => 'ClipboardSizeUnit',
         'clipboardWriteLimit' => 'ClipboardWriteLimit',
         'fileClipboard' => 'FileClipboard',
         'richTextClipboard' => 'RichTextClipboard',
@@ -70,6 +76,10 @@ class clipboardPolicy extends Model
 
         if (null !== $this->clipboardScope) {
             $res['ClipboardScope'] = $this->clipboardScope;
+        }
+
+        if (null !== $this->clipboardSizeUnit) {
+            $res['ClipboardSizeUnit'] = $this->clipboardSizeUnit;
         }
 
         if (null !== $this->clipboardWriteLimit) {
@@ -109,6 +119,10 @@ class clipboardPolicy extends Model
 
         if (isset($map['ClipboardScope'])) {
             $model->clipboardScope = $map['ClipboardScope'];
+        }
+
+        if (isset($map['ClipboardSizeUnit'])) {
+            $model->clipboardSizeUnit = $map['ClipboardSizeUnit'];
         }
 
         if (isset($map['ClipboardWriteLimit'])) {
