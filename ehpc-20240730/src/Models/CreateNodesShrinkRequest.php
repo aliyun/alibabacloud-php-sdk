@@ -54,6 +54,11 @@ class CreateNodesShrinkRequest extends Model
     public $keepAlive;
 
     /**
+     * @var int
+     */
+    public $minCount;
+
+    /**
      * @var string
      */
     public $queueName;
@@ -82,6 +87,7 @@ class CreateNodesShrinkRequest extends Model
         'hostnameSuffix' => 'HostnameSuffix',
         'hostnamesShrink' => 'Hostnames',
         'keepAlive' => 'KeepAlive',
+        'minCount' => 'MinCount',
         'queueName' => 'QueueName',
         'ramRole' => 'RamRole',
         'reservedNodePoolId' => 'ReservedNodePoolId',
@@ -130,6 +136,10 @@ class CreateNodesShrinkRequest extends Model
 
         if (null !== $this->keepAlive) {
             $res['KeepAlive'] = $this->keepAlive;
+        }
+
+        if (null !== $this->minCount) {
+            $res['MinCount'] = $this->minCount;
         }
 
         if (null !== $this->queueName) {
@@ -193,6 +203,10 @@ class CreateNodesShrinkRequest extends Model
 
         if (isset($map['KeepAlive'])) {
             $model->keepAlive = $map['KeepAlive'];
+        }
+
+        if (isset($map['MinCount'])) {
+            $model->minCount = $map['MinCount'];
         }
 
         if (isset($map['QueueName'])) {

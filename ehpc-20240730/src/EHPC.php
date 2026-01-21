@@ -646,6 +646,10 @@ class EHPC extends OpenApiClient
             @$query['KeepAlive'] = $request->keepAlive;
         }
 
+        if (null !== $request->minCount) {
+            @$query['MinCount'] = $request->minCount;
+        }
+
         if (null !== $request->queueName) {
             @$query['QueueName'] = $request->queueName;
         }
