@@ -336,12 +336,17 @@ class Alb extends OpenApiClient
             @$query['ServerGroupId'] = $request->serverGroupId;
         }
 
+        $body = [];
+        $bodyFlat = [];
         if (null !== $request->servers) {
-            @$query['Servers'] = $request->servers;
+            @$bodyFlat['Servers'] = $request->servers;
         }
 
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddServersToServerGroup',
@@ -5318,10 +5323,6 @@ class Alb extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->addedServers) {
-            @$query['AddedServers'] = $request->addedServers;
-        }
-
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -5338,8 +5339,17 @@ class Alb extends OpenApiClient
             @$query['ServerGroupId'] = $request->serverGroupId;
         }
 
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->addedServers) {
+            @$bodyFlat['AddedServers'] = $request->addedServers;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ReplaceServersInServerGroup',
@@ -6974,12 +6984,17 @@ class Alb extends OpenApiClient
             @$query['ServerGroupId'] = $request->serverGroupId;
         }
 
+        $body = [];
+        $bodyFlat = [];
         if (null !== $request->servers) {
-            @$query['Servers'] = $request->servers;
+            @$bodyFlat['Servers'] = $request->servers;
         }
 
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServerGroupServersAttribute',
