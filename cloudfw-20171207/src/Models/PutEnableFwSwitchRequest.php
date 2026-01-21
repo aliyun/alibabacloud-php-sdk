@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class PutEnableFwSwitchRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
      * @var string[]
      */
     public $ipaddrList;
@@ -17,6 +22,11 @@ class PutEnableFwSwitchRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $memberUid;
 
     /**
      * @var string[]
@@ -33,8 +43,10 @@ class PutEnableFwSwitchRequest extends Model
      */
     public $sourceIp;
     protected $_name = [
+        'ipVersion' => 'IpVersion',
         'ipaddrList' => 'IpaddrList',
         'lang' => 'Lang',
+        'memberUid' => 'MemberUid',
         'regionList' => 'RegionList',
         'resourceTypeList' => 'ResourceTypeList',
         'sourceIp' => 'SourceIp',
@@ -57,6 +69,10 @@ class PutEnableFwSwitchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+
         if (null !== $this->ipaddrList) {
             if (\is_array($this->ipaddrList)) {
                 $res['IpaddrList'] = [];
@@ -70,6 +86,10 @@ class PutEnableFwSwitchRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->memberUid) {
+            $res['MemberUid'] = $this->memberUid;
         }
 
         if (null !== $this->regionList) {
@@ -109,6 +129,10 @@ class PutEnableFwSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+
         if (isset($map['IpaddrList'])) {
             if (!empty($map['IpaddrList'])) {
                 $model->ipaddrList = [];
@@ -122,6 +146,10 @@ class PutEnableFwSwitchRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['MemberUid'])) {
+            $model->memberUid = $map['MemberUid'];
         }
 
         if (isset($map['RegionList'])) {

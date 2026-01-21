@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyResourceTypeAutoEnableRequest extends Model
+class DescribeRegionResourceTypeAutoEnableRequest extends Model
 {
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $regionNo;
-
-    /**
-     * @var string
-     */
-    public $resourceTypeAutoEnable;
     protected $_name = [
         'lang' => 'Lang',
-        'regionNo' => 'RegionNo',
-        'resourceTypeAutoEnable' => 'ResourceTypeAutoEnable',
     ];
 
     public function validate()
@@ -38,14 +26,6 @@ class ModifyResourceTypeAutoEnableRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-
-        if (null !== $this->regionNo) {
-            $res['RegionNo'] = $this->regionNo;
-        }
-
-        if (null !== $this->resourceTypeAutoEnable) {
-            $res['ResourceTypeAutoEnable'] = $this->resourceTypeAutoEnable;
         }
 
         return $res;
@@ -61,14 +41,6 @@ class ModifyResourceTypeAutoEnableRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-
-        if (isset($map['RegionNo'])) {
-            $model->regionNo = $map['RegionNo'];
-        }
-
-        if (isset($map['ResourceTypeAutoEnable'])) {
-            $model->resourceTypeAutoEnable = $map['ResourceTypeAutoEnable'];
         }
 
         return $model;

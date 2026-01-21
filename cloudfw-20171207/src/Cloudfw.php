@@ -23,6 +23,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ClearLogStoreStorageRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ClearLogStoreStorageResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAckClusterConnectorRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAckClusterConnectorResponse;
@@ -310,6 +311,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsStatisticsReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsStatisticsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRegionInfoRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRegionInfoResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRegionResourceTypeAutoEnableRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRegionResourceTypeAutoEnableResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeResourceTypeAutoEnableRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeResourceTypeAutoEnableResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
@@ -417,6 +420,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPrecheckDetailR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallPrecheckDetailResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallSummaryInfoRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallSummaryInfoResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallTrafficAssetListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallTrafficAssetListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallZoneRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallZoneResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcListLiteRequest;
@@ -520,6 +525,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetRuleHitCountResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SetAutoProtectNewAssetsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SetAutoProtectNewAssetsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAckClusterConnectorRequest;
@@ -1381,13 +1388,22 @@ class Cloudfw extends OpenApiClient
      *
      * @returns ClearLogStoreStorageResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param ClearLogStoreStorageRequest $request
+     * @param RuntimeOptions              $runtime
      *
      * @return ClearLogStoreStorageResponse
      */
-    public function clearLogStoreStorageWithOptions($runtime)
+    public function clearLogStoreStorageWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->site) {
+            @$query['Site'] = $request->site;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'ClearLogStoreStorage',
             'version' => '2017-12-07',
@@ -1406,15 +1422,19 @@ class Cloudfw extends OpenApiClient
     /**
      * 清空防火墙日志.
      *
+     * @param request - ClearLogStoreStorageRequest
+     *
      * @returns ClearLogStoreStorageResponse
+     *
+     * @param ClearLogStoreStorageRequest $request
      *
      * @return ClearLogStoreStorageResponse
      */
-    public function clearLogStoreStorage()
+    public function clearLogStoreStorage($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->clearLogStoreStorageWithOptions($runtime);
+        return $this->clearLogStoreStorageWithOptions($request, $runtime);
     }
 
     /**
@@ -12354,6 +12374,63 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 查询地域和资产类型引流设置.
+     *
+     * @param request - DescribeRegionResourceTypeAutoEnableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionResourceTypeAutoEnableResponse
+     *
+     * @param DescribeRegionResourceTypeAutoEnableRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeRegionResourceTypeAutoEnableResponse
+     */
+    public function describeRegionResourceTypeAutoEnableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegionResourceTypeAutoEnable',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionResourceTypeAutoEnableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询地域和资产类型引流设置.
+     *
+     * @param request - DescribeRegionResourceTypeAutoEnableRequest
+     *
+     * @returns DescribeRegionResourceTypeAutoEnableResponse
+     *
+     * @param DescribeRegionResourceTypeAutoEnableRequest $request
+     *
+     * @return DescribeRegionResourceTypeAutoEnableResponse
+     */
+    public function describeRegionResourceTypeAutoEnable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionResourceTypeAutoEnableWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询资产类型默认引流
      *
      * @param request - DescribeResourceTypeAutoEnableRequest
@@ -16805,6 +16882,103 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * 查询VPC互访的资产信息.
+     *
+     * @param request - DescribeVpcFirewallTrafficAssetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallTrafficAssetListResponse
+     *
+     * @param DescribeVpcFirewallTrafficAssetListRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeVpcFirewallTrafficAssetListResponse
+     */
+    public function describeVpcFirewallTrafficAssetListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->IP) {
+            @$query['IP'] = $request->IP;
+        }
+
+        if (null !== $request->isAITraffic) {
+            @$query['IsAITraffic'] = $request->isAITraffic;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallTrafficAssetList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallTrafficAssetListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询VPC互访的资产信息.
+     *
+     * @param request - DescribeVpcFirewallTrafficAssetListRequest
+     *
+     * @returns DescribeVpcFirewallTrafficAssetListResponse
+     *
+     * @param DescribeVpcFirewallTrafficAssetListRequest $request
+     *
+     * @return DescribeVpcFirewallTrafficAssetListResponse
+     */
+    public function describeVpcFirewallTrafficAssetList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallTrafficAssetListWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询VPC防火墙资源可用区.
      *
      * @param request - DescribeVpcFirewallZoneRequest
@@ -18838,6 +19012,10 @@ class Cloudfw extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
         if (null !== $request->resourceTypeAutoEnable) {
             @$query['ResourceTypeAutoEnable'] = $request->resourceTypeAutoEnable;
         }
@@ -18974,6 +19152,10 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->newRegionId) {
             @$query['NewRegionId'] = $request->newRegionId;
+        }
+
+        if (null !== $request->site) {
+            @$query['Site'] = $request->site;
         }
 
         $req = new OpenApiRequest([
@@ -19410,6 +19592,14 @@ class Cloudfw extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->logVersion) {
+            @$query['LogVersion'] = $request->logVersion;
+        }
+
+        if (null !== $request->slsRegionId) {
+            @$query['SlsRegionId'] = $request->slsRegionId;
         }
 
         if (null !== $request->storageTime) {
@@ -20352,12 +20542,20 @@ class Cloudfw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
+        }
+
         if (null !== $request->ipaddrList) {
             @$query['IpaddrList'] = $request->ipaddrList;
         }
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
         }
 
         if (null !== $request->regionList) {
@@ -20510,12 +20708,20 @@ class Cloudfw extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
+        }
+
         if (null !== $request->ipaddrList) {
             @$query['IpaddrList'] = $request->ipaddrList;
         }
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
         }
 
         if (null !== $request->regionList) {
@@ -20884,6 +21090,71 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetVpcFirewallRuleHitCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开启自动保护新入资产.
+     *
+     * @param request - SetAutoProtectNewAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAutoProtectNewAssetsResponse
+     *
+     * @param SetAutoProtectNewAssetsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetAutoProtectNewAssetsResponse
+     */
+    public function setAutoProtectNewAssetsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoProtect) {
+            @$query['AutoProtect'] = $request->autoProtect;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAutoProtectNewAssets',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAutoProtectNewAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启自动保护新入资产.
+     *
+     * @param request - SetAutoProtectNewAssetsRequest
+     *
+     * @returns SetAutoProtectNewAssetsResponse
+     *
+     * @param SetAutoProtectNewAssetsRequest $request
+     *
+     * @return SetAutoProtectNewAssetsResponse
+     */
+    public function setAutoProtectNewAssets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAutoProtectNewAssetsWithOptions($request, $runtime);
     }
 
     /**

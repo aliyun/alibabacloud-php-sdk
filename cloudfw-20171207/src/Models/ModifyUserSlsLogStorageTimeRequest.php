@@ -16,9 +16,21 @@ class ModifyUserSlsLogStorageTimeRequest extends Model
     /**
      * @var int
      */
+    public $logVersion;
+
+    /**
+     * @var string
+     */
+    public $slsRegionId;
+
+    /**
+     * @var int
+     */
     public $storageTime;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'logVersion' => 'LogVersion',
+        'slsRegionId' => 'SlsRegionId',
         'storageTime' => 'StorageTime',
     ];
 
@@ -32,6 +44,14 @@ class ModifyUserSlsLogStorageTimeRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->logVersion) {
+            $res['LogVersion'] = $this->logVersion;
+        }
+
+        if (null !== $this->slsRegionId) {
+            $res['SlsRegionId'] = $this->slsRegionId;
         }
 
         if (null !== $this->storageTime) {
@@ -51,6 +71,14 @@ class ModifyUserSlsLogStorageTimeRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['LogVersion'])) {
+            $model->logVersion = $map['LogVersion'];
+        }
+
+        if (isset($map['SlsRegionId'])) {
+            $model->slsRegionId = $map['SlsRegionId'];
         }
 
         if (isset($map['StorageTime'])) {

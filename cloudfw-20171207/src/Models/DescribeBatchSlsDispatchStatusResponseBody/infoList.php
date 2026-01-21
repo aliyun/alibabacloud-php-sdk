@@ -2,28 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
+namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeBatchSlsDispatchStatusResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeBatchSlsDispatchStatusResponseBody\infoList;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeBatchSlsDispatchStatusResponseBody\itemList;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeBatchSlsDispatchStatusResponseBody\infoList\itemList;
 
-class DescribeBatchSlsDispatchStatusResponseBody extends Model
+class infoList extends Model
 {
-    /**
-     * @var infoList[]
-     */
-    public $infoList;
-
     /**
      * @var itemList[]
      */
     public $itemList;
-
-    /**
-     * @var string
-     */
-    public $logVersion;
 
     /**
      * @var string
@@ -38,21 +27,16 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $site;
     protected $_name = [
-        'infoList' => 'InfoList',
         'itemList' => 'ItemList',
-        'logVersion' => 'LogVersion',
         'logstoreName' => 'LogstoreName',
         'projectName' => 'ProjectName',
-        'requestId' => 'RequestId',
+        'site' => 'Site',
     ];
 
     public function validate()
     {
-        if (\is_array($this->infoList)) {
-            Model::validateArray($this->infoList);
-        }
         if (\is_array($this->itemList)) {
             Model::validateArray($this->itemList);
         }
@@ -62,17 +46,6 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->infoList) {
-            if (\is_array($this->infoList)) {
-                $res['InfoList'] = [];
-                $n1 = 0;
-                foreach ($this->infoList as $item1) {
-                    $res['InfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->itemList) {
             if (\is_array($this->itemList)) {
                 $res['ItemList'] = [];
@@ -84,10 +57,6 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
             }
         }
 
-        if (null !== $this->logVersion) {
-            $res['LogVersion'] = $this->logVersion;
-        }
-
         if (null !== $this->logstoreName) {
             $res['LogstoreName'] = $this->logstoreName;
         }
@@ -96,8 +65,8 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
             $res['ProjectName'] = $this->projectName;
         }
 
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->site) {
+            $res['Site'] = $this->site;
         }
 
         return $res;
@@ -111,17 +80,6 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InfoList'])) {
-            if (!empty($map['InfoList'])) {
-                $model->infoList = [];
-                $n1 = 0;
-                foreach ($map['InfoList'] as $item1) {
-                    $model->infoList[$n1] = infoList::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['ItemList'])) {
             if (!empty($map['ItemList'])) {
                 $model->itemList = [];
@@ -133,10 +91,6 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
             }
         }
 
-        if (isset($map['LogVersion'])) {
-            $model->logVersion = $map['LogVersion'];
-        }
-
         if (isset($map['LogstoreName'])) {
             $model->logstoreName = $map['LogstoreName'];
         }
@@ -145,8 +99,8 @@ class DescribeBatchSlsDispatchStatusResponseBody extends Model
             $model->projectName = $map['ProjectName'];
         }
 
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Site'])) {
+            $model->site = $map['Site'];
         }
 
         return $model;

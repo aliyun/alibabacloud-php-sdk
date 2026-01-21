@@ -27,11 +27,17 @@ class ModifySlsDispatchStatusRequest extends Model
      * @var string
      */
     public $newRegionId;
+
+    /**
+     * @var string
+     */
+    public $site;
     protected $_name = [
         'dispatchValue' => 'DispatchValue',
         'enableStatus' => 'EnableStatus',
         'filterKeys' => 'FilterKeys',
         'newRegionId' => 'NewRegionId',
+        'site' => 'Site',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ModifySlsDispatchStatusRequest extends Model
 
         if (null !== $this->newRegionId) {
             $res['NewRegionId'] = $this->newRegionId;
+        }
+
+        if (null !== $this->site) {
+            $res['Site'] = $this->site;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ModifySlsDispatchStatusRequest extends Model
 
         if (isset($map['NewRegionId'])) {
             $model->newRegionId = $map['NewRegionId'];
+        }
+
+        if (isset($map['Site'])) {
+            $model->site = $map['Site'];
         }
 
         return $model;
