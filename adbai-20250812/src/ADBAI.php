@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\ADBAI\V20250812;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateAgentPlatformRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateAgentPlatformResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateAgentPlatformShrinkRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformShrinkRequest;
@@ -47,6 +50,81 @@ class ADBAI extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建指标平台.
+     *
+     * @param tmpReq - CreateAgentPlatformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentPlatformResponse
+     *
+     * @param CreateAgentPlatformRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateAgentPlatformResponse
+     */
+    public function createAgentPlatformWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAgentPlatformShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aiPlatformConfig) {
+            $request->aiPlatformConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aiPlatformConfig, 'AiPlatformConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->aiPlatformConfigShrink) {
+            @$query['AiPlatformConfig'] = $request->aiPlatformConfigShrink;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentPlatform',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建指标平台.
+     *
+     * @param request - CreateAgentPlatformRequest
+     *
+     * @returns CreateAgentPlatformResponse
+     *
+     * @param CreateAgentPlatformRequest $request
+     *
+     * @return CreateAgentPlatformResponse
+     */
+    public function createAgentPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentPlatformWithOptions($request, $runtime);
     }
 
     /**
