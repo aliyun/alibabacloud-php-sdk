@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTasksResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTasksShrinkRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTerraformProviderVersionsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTerraformProviderVersionsResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ManageTerraformStateRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ManageTerraformStateResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\OperateJobRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\OperateJobResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\PublishRegistryModuleVersionRequest;
@@ -4142,6 +4144,87 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->listTerraformProviderVersionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 支持状态文件的资源导入和移除.
+     *
+     * @param request - ManageTerraformStateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManageTerraformStateResponse
+     *
+     * @param ManageTerraformStateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ManageTerraformStateResponse
+     */
+    public function manageTerraformStateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->identifier) {
+            @$body['identifier'] = $request->identifier;
+        }
+
+        if (null !== $request->importResourceId) {
+            @$body['importResourceId'] = $request->importResourceId;
+        }
+
+        if (null !== $request->resourceIdentifier) {
+            @$body['resourceIdentifier'] = $request->resourceIdentifier;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ManageTerraformState',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/manage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ManageTerraformStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 支持状态文件的资源导入和移除.
+     *
+     * @param request - ManageTerraformStateRequest
+     *
+     * @returns ManageTerraformStateResponse
+     *
+     * @param ManageTerraformStateRequest $request
+     *
+     * @return ManageTerraformStateResponse
+     */
+    public function manageTerraformState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->manageTerraformStateWithOptions($request, $headers, $runtime);
     }
 
     /**
