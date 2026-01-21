@@ -214,6 +214,11 @@ class optionJson extends Model
     /**
      * @var string
      */
+    public $privateCrtFileName;
+
+    /**
+     * @var string
+     */
     public $protocol;
 
     /**
@@ -307,6 +312,11 @@ class optionJson extends Model
     public $trafficHijackElementWhitelist;
 
     /**
+     * @var bool
+     */
+    public $usePrivateCrt;
+
+    /**
      * @var string
      */
     public $username;
@@ -354,6 +364,7 @@ class optionJson extends Model
         'pingPort' => 'ping_port',
         'pingType' => 'ping_type',
         'port' => 'port',
+        'privateCrtFileName' => 'private_crt_file_name',
         'protocol' => 'protocol',
         'quicEnabled' => 'quic_enabled',
         'quicTarget' => 'quic_target',
@@ -373,6 +384,7 @@ class optionJson extends Model
         'trafficHijackElementBlacklist' => 'traffic_hijack_element_blacklist',
         'trafficHijackElementCount' => 'traffic_hijack_element_count',
         'trafficHijackElementWhitelist' => 'traffic_hijack_element_whitelist',
+        'usePrivateCrt' => 'use_private_crt',
         'username' => 'username',
         'waitTimeAfterCompletion' => 'waitTime_after_completion',
     ];
@@ -576,6 +588,10 @@ class optionJson extends Model
             $res['port'] = $this->port;
         }
 
+        if (null !== $this->privateCrtFileName) {
+            $res['private_crt_file_name'] = $this->privateCrtFileName;
+        }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
@@ -650,6 +666,10 @@ class optionJson extends Model
 
         if (null !== $this->trafficHijackElementWhitelist) {
             $res['traffic_hijack_element_whitelist'] = null !== $this->trafficHijackElementWhitelist ? $this->trafficHijackElementWhitelist->toArray($noStream) : $this->trafficHijackElementWhitelist;
+        }
+
+        if (null !== $this->usePrivateCrt) {
+            $res['use_private_crt'] = $this->usePrivateCrt;
         }
 
         if (null !== $this->username) {
@@ -823,6 +843,10 @@ class optionJson extends Model
             $model->port = $map['port'];
         }
 
+        if (isset($map['private_crt_file_name'])) {
+            $model->privateCrtFileName = $map['private_crt_file_name'];
+        }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
@@ -897,6 +921,10 @@ class optionJson extends Model
 
         if (isset($map['traffic_hijack_element_whitelist'])) {
             $model->trafficHijackElementWhitelist = trafficHijackElementWhitelist::fromMap($map['traffic_hijack_element_whitelist']);
+        }
+
+        if (isset($map['use_private_crt'])) {
+            $model->usePrivateCrt = $map['use_private_crt'];
         }
 
         if (isset($map['username'])) {
