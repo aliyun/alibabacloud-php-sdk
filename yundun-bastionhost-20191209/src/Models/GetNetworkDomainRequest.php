@@ -11,6 +11,11 @@ class GetNetworkDomainRequest extends Model
     /**
      * @var string
      */
+    public $checkProxyState;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,6 +28,7 @@ class GetNetworkDomainRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'checkProxyState' => 'CheckProxyState',
         'instanceId' => 'InstanceId',
         'networkDomainId' => 'NetworkDomainId',
         'regionId' => 'RegionId',
@@ -36,6 +42,10 @@ class GetNetworkDomainRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->checkProxyState) {
+            $res['CheckProxyState'] = $this->checkProxyState;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -59,6 +69,10 @@ class GetNetworkDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckProxyState'])) {
+            $model->checkProxyState = $map['CheckProxyState'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

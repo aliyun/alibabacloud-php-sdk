@@ -1641,6 +1641,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 创建导出配置的任务
+     *
      * @param request - CreateExportConfigJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1682,6 +1684,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 创建导出配置的任务
+     *
      * @param request - CreateExportConfigJobRequest
      *
      * @returns CreateExportConfigJobResponse
@@ -2119,6 +2123,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 创建运维审批工单.
+     *
      * @param request - CreateOperationTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2188,6 +2194,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 创建运维审批工单.
+     *
      * @param request - CreateOperationTicketRequest
      *
      * @returns CreateOperationTicketResponse
@@ -4662,6 +4670,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 获取导出配置任务进度.
+     *
      * @param request - GetExportConfigJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4707,6 +4717,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 获取导出配置任务进度.
+     *
      * @param request - GetExportConfigJobRequest
      *
      * @returns GetExportConfigJobResponse
@@ -5117,6 +5129,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 获取堡垒机实例存储信息.
+     *
      * @param request - GetInstanceStoreInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5158,6 +5172,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * 获取堡垒机实例存储信息.
+     *
      * @param request - GetInstanceStoreInfoRequest
      *
      * @returns GetInstanceStoreInfoResponse
@@ -5261,6 +5277,10 @@ class Yundunbastionhost extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->checkProxyState) {
+            @$query['CheckProxyState'] = $request->checkProxyState;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

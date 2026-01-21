@@ -11,6 +11,16 @@ class SSH extends Model
     /**
      * @var string
      */
+    public $allowDirectTcp;
+
+    /**
+     * @var string
+     */
+    public $allowTcpForwarding;
+
+    /**
+     * @var string
+     */
     public $execCommand;
 
     /**
@@ -58,6 +68,8 @@ class SSH extends Model
      */
     public $x11Forwarding;
     protected $_name = [
+        'allowDirectTcp' => 'AllowDirectTcp',
+        'allowTcpForwarding' => 'AllowTcpForwarding',
         'execCommand' => 'ExecCommand',
         'SFTPChannel' => 'SFTPChannel',
         'SFTPDownloadFile' => 'SFTPDownloadFile',
@@ -78,6 +90,14 @@ class SSH extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowDirectTcp) {
+            $res['AllowDirectTcp'] = $this->allowDirectTcp;
+        }
+
+        if (null !== $this->allowTcpForwarding) {
+            $res['AllowTcpForwarding'] = $this->allowTcpForwarding;
+        }
+
         if (null !== $this->execCommand) {
             $res['ExecCommand'] = $this->execCommand;
         }
@@ -129,6 +149,14 @@ class SSH extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowDirectTcp'])) {
+            $model->allowDirectTcp = $map['AllowDirectTcp'];
+        }
+
+        if (isset($map['AllowTcpForwarding'])) {
+            $model->allowTcpForwarding = $map['AllowTcpForwarding'];
+        }
+
         if (isset($map['ExecCommand'])) {
             $model->execCommand = $map['ExecCommand'];
         }

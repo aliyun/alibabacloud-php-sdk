@@ -26,11 +26,23 @@ class RDP extends Model
     /**
      * @var string
      */
+    public $diskRedirectionDownload;
+
+    /**
+     * @var string
+     */
+    public $diskRedirectionUpload;
+
+    /**
+     * @var string
+     */
     public $recordKeyboard;
     protected $_name = [
         'clipboardDownload' => 'ClipboardDownload',
         'clipboardUpload' => 'ClipboardUpload',
         'diskRedirection' => 'DiskRedirection',
+        'diskRedirectionDownload' => 'DiskRedirectionDownload',
+        'diskRedirectionUpload' => 'DiskRedirectionUpload',
         'recordKeyboard' => 'RecordKeyboard',
     ];
 
@@ -52,6 +64,14 @@ class RDP extends Model
 
         if (null !== $this->diskRedirection) {
             $res['DiskRedirection'] = $this->diskRedirection;
+        }
+
+        if (null !== $this->diskRedirectionDownload) {
+            $res['DiskRedirectionDownload'] = $this->diskRedirectionDownload;
+        }
+
+        if (null !== $this->diskRedirectionUpload) {
+            $res['DiskRedirectionUpload'] = $this->diskRedirectionUpload;
         }
 
         if (null !== $this->recordKeyboard) {
@@ -79,6 +99,14 @@ class RDP extends Model
 
         if (isset($map['DiskRedirection'])) {
             $model->diskRedirection = $map['DiskRedirection'];
+        }
+
+        if (isset($map['DiskRedirectionDownload'])) {
+            $model->diskRedirectionDownload = $map['DiskRedirectionDownload'];
+        }
+
+        if (isset($map['DiskRedirectionUpload'])) {
+            $model->diskRedirectionUpload = $map['DiskRedirectionUpload'];
         }
 
         if (isset($map['RecordKeyboard'])) {
