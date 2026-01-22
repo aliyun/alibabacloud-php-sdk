@@ -4220,6 +4220,10 @@ class Polardbx extends OpenApiClient
             @$query['DbVersion'] = $request->dbVersion;
         }
 
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

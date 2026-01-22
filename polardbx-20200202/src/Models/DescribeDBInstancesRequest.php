@@ -16,6 +16,11 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -54,6 +59,7 @@ class DescribeDBInstancesRequest extends Model
     public $tags;
     protected $_name = [
         'dbVersion' => 'DbVersion',
+        'description' => 'Description',
         'instanceId' => 'InstanceId',
         'mustHasCdc' => 'MustHasCdc',
         'pageNumber' => 'PageNumber',
@@ -74,6 +80,10 @@ class DescribeDBInstancesRequest extends Model
         $res = [];
         if (null !== $this->dbVersion) {
             $res['DbVersion'] = $this->dbVersion;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->instanceId) {
@@ -121,6 +131,10 @@ class DescribeDBInstancesRequest extends Model
         $model = new self();
         if (isset($map['DbVersion'])) {
             $model->dbVersion = $map['DbVersion'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['InstanceId'])) {
