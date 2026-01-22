@@ -13,6 +13,10 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformShrinkRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ResetEmbodiedAIPlatformPasswordRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ResetEmbodiedAIPlatformPasswordResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -297,5 +301,147 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEmbodiedAIPlatformsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询具身智能平台资源用量.
+     *
+     * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEmbodiedAIPlatformResourceUsageInfoResponse
+     *
+     * @param GetEmbodiedAIPlatformResourceUsageInfoRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
+     */
+    public function getEmbodiedAIPlatformResourceUsageInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->platformName) {
+            @$query['PlatformName'] = $request->platformName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEmbodiedAIPlatformResourceUsageInfo',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEmbodiedAIPlatformResourceUsageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询具身智能平台资源用量.
+     *
+     * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
+     *
+     * @returns GetEmbodiedAIPlatformResourceUsageInfoResponse
+     *
+     * @param GetEmbodiedAIPlatformResourceUsageInfoRequest $request
+     *
+     * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
+     */
+    public function getEmbodiedAIPlatformResourceUsageInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEmbodiedAIPlatformResourceUsageInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重置具身智能平台密码
+     *
+     * @param request - ResetEmbodiedAIPlatformPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetEmbodiedAIPlatformPasswordResponse
+     *
+     * @param ResetEmbodiedAIPlatformPasswordRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ResetEmbodiedAIPlatformPasswordResponse
+     */
+    public function resetEmbodiedAIPlatformPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->platformName) {
+            @$query['PlatformName'] = $request->platformName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetEmbodiedAIPlatformPassword',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetEmbodiedAIPlatformPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置具身智能平台密码
+     *
+     * @param request - ResetEmbodiedAIPlatformPasswordRequest
+     *
+     * @returns ResetEmbodiedAIPlatformPasswordResponse
+     *
+     * @param ResetEmbodiedAIPlatformPasswordRequest $request
+     *
+     * @return ResetEmbodiedAIPlatformPasswordResponse
+     */
+    public function resetEmbodiedAIPlatformPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetEmbodiedAIPlatformPasswordWithOptions($request, $runtime);
     }
 }
