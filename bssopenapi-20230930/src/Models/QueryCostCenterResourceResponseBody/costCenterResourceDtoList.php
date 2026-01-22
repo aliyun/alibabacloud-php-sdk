@@ -11,6 +11,21 @@ class costCenterResourceDtoList extends Model
     /**
      * @var string
      */
+    public $addStrategy;
+
+    /**
+     * @var string
+     */
+    public $addStrategyName;
+
+    /**
+     * @var int
+     */
+    public $applicablePeriodNum;
+
+    /**
+     * @var string
+     */
     public $apportionItemCode;
 
     /**
@@ -54,9 +69,24 @@ class costCenterResourceDtoList extends Model
     public $costCenterUpdateTime;
 
     /**
+     * @var int
+     */
+    public $financeUnitRuleVersion;
+
+    /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $masterCommodityCode;
+
+    /**
+     * @var string
+     */
+    public $masterInstanceId;
 
     /**
      * @var int
@@ -82,6 +112,21 @@ class costCenterResourceDtoList extends Model
      * @var string
      */
     public $pipName;
+
+    /**
+     * @var int
+     */
+    public $recentBillingMonth;
+
+    /**
+     * @var string
+     */
+    public $regionName;
+
+    /**
+     * @var string
+     */
+    public $regionNo;
 
     /**
      * @var string
@@ -132,7 +177,15 @@ class costCenterResourceDtoList extends Model
      * @var int
      */
     public $rootCostCenterId;
+
+    /**
+     * @var int
+     */
+    public $startBillingMonth;
     protected $_name = [
+        'addStrategy' => 'AddStrategy',
+        'addStrategyName' => 'AddStrategyName',
+        'applicablePeriodNum' => 'ApplicablePeriodNum',
         'apportionItemCode' => 'ApportionItemCode',
         'apportionItemName' => 'ApportionItemName',
         'commodityCode' => 'CommodityCode',
@@ -142,12 +195,18 @@ class costCenterResourceDtoList extends Model
         'costCenterId' => 'CostCenterId',
         'costCenterName' => 'CostCenterName',
         'costCenterUpdateTime' => 'CostCenterUpdateTime',
+        'financeUnitRuleVersion' => 'FinanceUnitRuleVersion',
         'instanceId' => 'InstanceId',
+        'masterCommodityCode' => 'MasterCommodityCode',
+        'masterInstanceId' => 'MasterInstanceId',
         'ownerAccountId' => 'OwnerAccountId',
         'ownerAccountName' => 'OwnerAccountName',
         'parentCostCenterId' => 'ParentCostCenterId',
         'pipCode' => 'PipCode',
         'pipName' => 'PipName',
+        'recentBillingMonth' => 'RecentBillingMonth',
+        'regionName' => 'RegionName',
+        'regionNo' => 'RegionNo',
         'resourceGroup' => 'ResourceGroup',
         'resourceId' => 'ResourceId',
         'resourceNick' => 'ResourceNick',
@@ -158,6 +217,7 @@ class costCenterResourceDtoList extends Model
         'resourceUserId' => 'ResourceUserId',
         'resourceUserName' => 'ResourceUserName',
         'rootCostCenterId' => 'RootCostCenterId',
+        'startBillingMonth' => 'StartBillingMonth',
     ];
 
     public function validate()
@@ -168,6 +228,18 @@ class costCenterResourceDtoList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addStrategy) {
+            $res['AddStrategy'] = $this->addStrategy;
+        }
+
+        if (null !== $this->addStrategyName) {
+            $res['AddStrategyName'] = $this->addStrategyName;
+        }
+
+        if (null !== $this->applicablePeriodNum) {
+            $res['ApplicablePeriodNum'] = $this->applicablePeriodNum;
+        }
+
         if (null !== $this->apportionItemCode) {
             $res['ApportionItemCode'] = $this->apportionItemCode;
         }
@@ -204,8 +276,20 @@ class costCenterResourceDtoList extends Model
             $res['CostCenterUpdateTime'] = $this->costCenterUpdateTime;
         }
 
+        if (null !== $this->financeUnitRuleVersion) {
+            $res['FinanceUnitRuleVersion'] = $this->financeUnitRuleVersion;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->masterCommodityCode) {
+            $res['MasterCommodityCode'] = $this->masterCommodityCode;
+        }
+
+        if (null !== $this->masterInstanceId) {
+            $res['MasterInstanceId'] = $this->masterInstanceId;
         }
 
         if (null !== $this->ownerAccountId) {
@@ -226,6 +310,18 @@ class costCenterResourceDtoList extends Model
 
         if (null !== $this->pipName) {
             $res['PipName'] = $this->pipName;
+        }
+
+        if (null !== $this->recentBillingMonth) {
+            $res['RecentBillingMonth'] = $this->recentBillingMonth;
+        }
+
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
+        }
+
+        if (null !== $this->regionNo) {
+            $res['RegionNo'] = $this->regionNo;
         }
 
         if (null !== $this->resourceGroup) {
@@ -268,6 +364,10 @@ class costCenterResourceDtoList extends Model
             $res['RootCostCenterId'] = $this->rootCostCenterId;
         }
 
+        if (null !== $this->startBillingMonth) {
+            $res['StartBillingMonth'] = $this->startBillingMonth;
+        }
+
         return $res;
     }
 
@@ -279,6 +379,18 @@ class costCenterResourceDtoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddStrategy'])) {
+            $model->addStrategy = $map['AddStrategy'];
+        }
+
+        if (isset($map['AddStrategyName'])) {
+            $model->addStrategyName = $map['AddStrategyName'];
+        }
+
+        if (isset($map['ApplicablePeriodNum'])) {
+            $model->applicablePeriodNum = $map['ApplicablePeriodNum'];
+        }
+
         if (isset($map['ApportionItemCode'])) {
             $model->apportionItemCode = $map['ApportionItemCode'];
         }
@@ -315,8 +427,20 @@ class costCenterResourceDtoList extends Model
             $model->costCenterUpdateTime = $map['CostCenterUpdateTime'];
         }
 
+        if (isset($map['FinanceUnitRuleVersion'])) {
+            $model->financeUnitRuleVersion = $map['FinanceUnitRuleVersion'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['MasterCommodityCode'])) {
+            $model->masterCommodityCode = $map['MasterCommodityCode'];
+        }
+
+        if (isset($map['MasterInstanceId'])) {
+            $model->masterInstanceId = $map['MasterInstanceId'];
         }
 
         if (isset($map['OwnerAccountId'])) {
@@ -337,6 +461,18 @@ class costCenterResourceDtoList extends Model
 
         if (isset($map['PipName'])) {
             $model->pipName = $map['PipName'];
+        }
+
+        if (isset($map['RecentBillingMonth'])) {
+            $model->recentBillingMonth = $map['RecentBillingMonth'];
+        }
+
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
+        }
+
+        if (isset($map['RegionNo'])) {
+            $model->regionNo = $map['RegionNo'];
         }
 
         if (isset($map['ResourceGroup'])) {
@@ -377,6 +513,10 @@ class costCenterResourceDtoList extends Model
 
         if (isset($map['RootCostCenterId'])) {
             $model->rootCostCenterId = $map['RootCostCenterId'];
+        }
+
+        if (isset($map['StartBillingMonth'])) {
+            $model->startBillingMonth = $map['StartBillingMonth'];
         }
 
         return $model;

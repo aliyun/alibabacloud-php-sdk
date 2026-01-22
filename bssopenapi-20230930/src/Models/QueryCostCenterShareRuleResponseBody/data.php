@@ -16,6 +16,11 @@ class data extends Model
     public $fromCostCenterShareRuleDetails;
 
     /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
      * @var int
      */
     public $ownerAccountId;
@@ -41,6 +46,7 @@ class data extends Model
     public $toCostCenterShareRuleDetails;
     protected $_name = [
         'fromCostCenterShareRuleDetails' => 'FromCostCenterShareRuleDetails',
+        'gmtModified' => 'GmtModified',
         'ownerAccountId' => 'OwnerAccountId',
         'shareRuleId' => 'ShareRuleId',
         'shareRuleName' => 'ShareRuleName',
@@ -71,6 +77,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
 
         if (null !== $this->ownerAccountId) {
@@ -120,6 +130,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
 
         if (isset($map['OwnerAccountId'])) {
