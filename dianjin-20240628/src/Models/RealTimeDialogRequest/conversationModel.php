@@ -44,6 +44,11 @@ class conversationModel extends Model
     public $end;
 
     /**
+     * @var string
+     */
+    public $intentionCode;
+
+    /**
      * @var int
      */
     public $role;
@@ -60,6 +65,7 @@ class conversationModel extends Model
         'customerServiceId' => 'customerServiceId',
         'customerServiceType' => 'customerServiceType',
         'end' => 'end',
+        'intentionCode' => 'intentionCode',
         'role' => 'role',
         'type' => 'type',
     ];
@@ -98,6 +104,10 @@ class conversationModel extends Model
 
         if (null !== $this->end) {
             $res['end'] = $this->end;
+        }
+
+        if (null !== $this->intentionCode) {
+            $res['intentionCode'] = $this->intentionCode;
         }
 
         if (null !== $this->role) {
@@ -145,6 +155,10 @@ class conversationModel extends Model
 
         if (isset($map['end'])) {
             $model->end = $map['end'];
+        }
+
+        if (isset($map['intentionCode'])) {
+            $model->intentionCode = $map['intentionCode'];
         }
 
         if (isset($map['role'])) {
