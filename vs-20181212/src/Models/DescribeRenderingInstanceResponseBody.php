@@ -42,6 +42,11 @@ class DescribeRenderingInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
     public $internalIp;
 
     /**
@@ -94,6 +99,7 @@ class DescribeRenderingInstanceResponseBody extends Model
         'creationTime' => 'CreationTime',
         'egressIp' => 'EgressIp',
         'hostname' => 'Hostname',
+        'instanceChargeType' => 'InstanceChargeType',
         'internalIp' => 'InternalIp',
         'isp' => 'Isp',
         'portMappings' => 'PortMappings',
@@ -157,6 +163,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
 
         if (null !== $this->internalIp) {
@@ -242,6 +252,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
+        }
+
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
 
         if (isset($map['InternalIp'])) {
