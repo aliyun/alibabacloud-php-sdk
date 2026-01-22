@@ -72,6 +72,16 @@ class GetLindormV2InstanceResponseBody extends Model
     public $enableCompute;
 
     /**
+     * @var bool
+     */
+    public $enableFS;
+
+    /**
+     * @var bool
+     */
+    public $enableStoreTDE;
+
+    /**
      * @var engineList[]
      */
     public $engineList;
@@ -208,6 +218,8 @@ class GetLindormV2InstanceResponseBody extends Model
         'diskThreshold' => 'DiskThreshold',
         'diskUsage' => 'DiskUsage',
         'enableCompute' => 'EnableCompute',
+        'enableFS' => 'EnableFS',
+        'enableStoreTDE' => 'EnableStoreTDE',
         'engineList' => 'EngineList',
         'expiredMilliseconds' => 'ExpiredMilliseconds',
         'initialRootPassword' => 'InitialRootPassword',
@@ -301,6 +313,14 @@ class GetLindormV2InstanceResponseBody extends Model
 
         if (null !== $this->enableCompute) {
             $res['EnableCompute'] = $this->enableCompute;
+        }
+
+        if (null !== $this->enableFS) {
+            $res['EnableFS'] = $this->enableFS;
+        }
+
+        if (null !== $this->enableStoreTDE) {
+            $res['EnableStoreTDE'] = $this->enableStoreTDE;
         }
 
         if (null !== $this->engineList) {
@@ -479,6 +499,14 @@ class GetLindormV2InstanceResponseBody extends Model
 
         if (isset($map['EnableCompute'])) {
             $model->enableCompute = $map['EnableCompute'];
+        }
+
+        if (isset($map['EnableFS'])) {
+            $model->enableFS = $map['EnableFS'];
+        }
+
+        if (isset($map['EnableStoreTDE'])) {
+            $model->enableStoreTDE = $map['EnableStoreTDE'];
         }
 
         if (isset($map['EngineList'])) {
