@@ -22,6 +22,16 @@ class recallConfig extends Model
     /**
      * @var string
      */
+    public $itemConditionArray;
+
+    /**
+     * @var string
+     */
+    public $itemConditionExpression;
+
+    /**
+     * @var string
+     */
     public $itemVectorField;
 
     /**
@@ -66,6 +76,8 @@ class recallConfig extends Model
     protected $_name = [
         'description' => 'Description',
         'extendedConfig' => 'ExtendedConfig',
+        'itemConditionArray' => 'ItemConditionArray',
+        'itemConditionExpression' => 'ItemConditionExpression',
         'itemVectorField' => 'ItemVectorField',
         'itemVectorRecallManagementTableId' => 'ItemVectorRecallManagementTableId',
         'name' => 'Name',
@@ -94,6 +106,14 @@ class recallConfig extends Model
 
         if (null !== $this->extendedConfig) {
             $res['ExtendedConfig'] = $this->extendedConfig;
+        }
+
+        if (null !== $this->itemConditionArray) {
+            $res['ItemConditionArray'] = $this->itemConditionArray;
+        }
+
+        if (null !== $this->itemConditionExpression) {
+            $res['ItemConditionExpression'] = $this->itemConditionExpression;
         }
 
         if (null !== $this->itemVectorField) {
@@ -156,6 +176,14 @@ class recallConfig extends Model
 
         if (isset($map['ExtendedConfig'])) {
             $model->extendedConfig = $map['ExtendedConfig'];
+        }
+
+        if (isset($map['ItemConditionArray'])) {
+            $model->itemConditionArray = $map['ItemConditionArray'];
+        }
+
+        if (isset($map['ItemConditionExpression'])) {
+            $model->itemConditionExpression = $map['ItemConditionExpression'];
         }
 
         if (isset($map['ItemVectorField'])) {

@@ -27,6 +27,11 @@ class recallConfigs extends Model
     /**
      * @var string
      */
+    public $itemConditionExpression;
+
+    /**
+     * @var string
+     */
     public $itemVectorField;
 
     /**
@@ -72,6 +77,7 @@ class recallConfigs extends Model
         'description' => 'Description',
         'extendedConfig' => 'ExtendedConfig',
         'itemConditionArray' => 'ItemConditionArray',
+        'itemConditionExpression' => 'ItemConditionExpression',
         'itemVectorField' => 'ItemVectorField',
         'itemVectorRecallManagementTableId' => 'ItemVectorRecallManagementTableId',
         'name' => 'Name',
@@ -104,6 +110,10 @@ class recallConfigs extends Model
 
         if (null !== $this->itemConditionArray) {
             $res['ItemConditionArray'] = $this->itemConditionArray;
+        }
+
+        if (null !== $this->itemConditionExpression) {
+            $res['ItemConditionExpression'] = $this->itemConditionExpression;
         }
 
         if (null !== $this->itemVectorField) {
@@ -170,6 +180,10 @@ class recallConfigs extends Model
 
         if (isset($map['ItemConditionArray'])) {
             $model->itemConditionArray = $map['ItemConditionArray'];
+        }
+
+        if (isset($map['ItemConditionExpression'])) {
+            $model->itemConditionExpression = $map['ItemConditionExpression'];
         }
 
         if (isset($map['ItemVectorField'])) {
