@@ -62,6 +62,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $keyServerId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -124,6 +129,7 @@ class result extends Model
         'id' => 'Id',
         'issuer' => 'Issuer',
         'issuerCN' => 'IssuerCN',
+        'keyServerId' => 'KeyServerId',
         'name' => 'Name',
         'notAfter' => 'NotAfter',
         'notBefore' => 'NotBefore',
@@ -193,6 +199,10 @@ class result extends Model
 
         if (null !== $this->issuerCN) {
             $res['IssuerCN'] = $this->issuerCN;
+        }
+
+        if (null !== $this->keyServerId) {
+            $res['KeyServerId'] = $this->keyServerId;
         }
 
         if (null !== $this->name) {
@@ -295,6 +305,10 @@ class result extends Model
 
         if (isset($map['IssuerCN'])) {
             $model->issuerCN = $map['IssuerCN'];
+        }
+
+        if (isset($map['KeyServerId'])) {
+            $model->keyServerId = $map['KeyServerId'];
         }
 
         if (isset($map['Name'])) {

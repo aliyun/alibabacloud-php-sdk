@@ -1078,7 +1078,19 @@ class ESA extends OpenApiClient
     public function applyCertificateWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1087,7 +1099,7 @@ class ESA extends OpenApiClient
             'version' => '2024-09-10',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -11561,7 +11573,15 @@ class ESA extends OpenApiClient
     public function getCertificateWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -11570,7 +11590,7 @@ class ESA extends OpenApiClient
             'version' => '2024-09-10',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -16018,7 +16038,27 @@ class ESA extends OpenApiClient
     public function listCertificatesWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->validOnly) {
+            @$query['ValidOnly'] = $request->validOnly;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -16027,7 +16067,7 @@ class ESA extends OpenApiClient
             'version' => '2024-09-10',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -16071,7 +16111,23 @@ class ESA extends OpenApiClient
     public function listCertificatesByRecordWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
+        }
+
+        if (null !== $request->recordName) {
+            @$query['RecordName'] = $request->recordName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->validOnly) {
+            @$query['ValidOnly'] = $request->validOnly;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -16080,7 +16136,7 @@ class ESA extends OpenApiClient
             'version' => '2024-09-10',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -21106,6 +21162,10 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->keyServerId) {
+            @$query['KeyServerId'] = $request->keyServerId;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }

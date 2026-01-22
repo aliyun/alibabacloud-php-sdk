@@ -26,6 +26,11 @@ class SetCertificateRequest extends Model
     /**
      * @var string
      */
+    public $keyServerId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -61,6 +66,7 @@ class SetCertificateRequest extends Model
         'casId' => 'CasId',
         'certificate' => 'Certificate',
         'id' => 'Id',
+        'keyServerId' => 'KeyServerId',
         'name' => 'Name',
         'ownerId' => 'OwnerId',
         'privateKey' => 'PrivateKey',
@@ -88,6 +94,10 @@ class SetCertificateRequest extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->keyServerId) {
+            $res['KeyServerId'] = $this->keyServerId;
         }
 
         if (null !== $this->name) {
@@ -139,6 +149,10 @@ class SetCertificateRequest extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['KeyServerId'])) {
+            $model->keyServerId = $map['KeyServerId'];
         }
 
         if (isset($map['Name'])) {
