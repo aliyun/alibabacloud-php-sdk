@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatRequest;
@@ -40,6 +42,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeResponse;
@@ -106,6 +111,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesRequest;
@@ -161,6 +169,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeRequest;
@@ -527,6 +537,91 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createAggTaskGroupWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建Webhook.
+     *
+     * @param request - CreateAlertWebhookRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertWebhookResponse
+     *
+     * @param CreateAlertWebhookRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAlertWebhookResponse
+     */
+    public function createAlertWebhookWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contentType) {
+            @$body['contentType'] = $request->contentType;
+        }
+
+        if (null !== $request->headers) {
+            @$body['headers'] = $request->headers;
+        }
+
+        if (null !== $request->lang) {
+            @$body['lang'] = $request->lang;
+        }
+
+        if (null !== $request->method) {
+            @$body['method'] = $request->method;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        if (null !== $request->webhookId) {
+            @$body['webhookId'] = $request->webhookId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlertWebhook',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webhook',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlertWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Webhook.
+     *
+     * @param request - CreateAlertWebhookRequest
+     *
+     * @returns CreateAlertWebhookResponse
+     *
+     * @param CreateAlertWebhookRequest $request
+     *
+     * @return CreateAlertWebhookResponse
+     */
+    public function createAlertWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertWebhookWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1766,6 +1861,73 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime);
+    }
+
+    /**
+     * 删除Webhook.
+     *
+     * @param tmpReq - DeleteAlertWebhooksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertWebhooksResponse
+     *
+     * @param DeleteAlertWebhooksRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAlertWebhooksResponse
+     */
+    public function deleteAlertWebhooksWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAlertWebhooksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->webhookIds) {
+            $request->webhookIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->webhookIds, 'webhookIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->webhookIdsShrink) {
+            @$query['webhookIds'] = $request->webhookIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlertWebhooks',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webhooks',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlertWebhooksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Webhook.
+     *
+     * @param request - DeleteAlertWebhooksRequest
+     *
+     * @returns DeleteAlertWebhooksResponse
+     *
+     * @param DeleteAlertWebhooksRequest $request
+     *
+     * @return DeleteAlertWebhooksResponse
+     */
+    public function deleteAlertWebhooks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertWebhooksWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4403,6 +4565,85 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询Webhook.
+     *
+     * @param tmpReq - ListAlertWebhooksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertWebhooksResponse
+     *
+     * @param ListAlertWebhooksRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAlertWebhooksResponse
+     */
+    public function listAlertWebhooksWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAlertWebhooksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->webhookIds) {
+            $request->webhookIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->webhookIds, 'webhookIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->webhookIdsShrink) {
+            @$query['webhookIds'] = $request->webhookIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertWebhooks',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webhooks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertWebhooksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Webhook.
+     *
+     * @param request - ListAlertWebhooksRequest
+     *
+     * @returns ListAlertWebhooksResponse
+     *
+     * @param ListAlertWebhooksRequest $request
+     *
+     * @return ListAlertWebhooksResponse
+     */
+    public function listAlertWebhooks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertWebhooksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 业务链路列表.
      *
      * @param request - ListBizTracesRequest
@@ -6358,6 +6599,89 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateAggTaskGroupStatusWithOptions($instanceId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新Webhook.
+     *
+     * @param request - UpdateAlertWebhookRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertWebhookResponse
+     *
+     * @param string                    $webhookId
+     * @param UpdateAlertWebhookRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAlertWebhookResponse
+     */
+    public function updateAlertWebhookWithOptions($webhookId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contentType) {
+            @$body['contentType'] = $request->contentType;
+        }
+
+        if (null !== $request->headers) {
+            @$body['headers'] = $request->headers;
+        }
+
+        if (null !== $request->lang) {
+            @$body['lang'] = $request->lang;
+        }
+
+        if (null !== $request->method) {
+            @$body['method'] = $request->method;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertWebhook',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webhook/' . Url::percentEncode($webhookId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Webhook.
+     *
+     * @param request - UpdateAlertWebhookRequest
+     *
+     * @returns UpdateAlertWebhookResponse
+     *
+     * @param string                    $webhookId
+     * @param UpdateAlertWebhookRequest $request
+     *
+     * @return UpdateAlertWebhookResponse
+     */
+    public function updateAlertWebhook($webhookId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertWebhookWithOptions($webhookId, $request, $headers, $runtime);
     }
 
     /**
