@@ -31,6 +31,11 @@ class loginProfile extends Model
     /**
      * @var string
      */
+    public $passwordStatus;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -47,6 +52,7 @@ class loginProfile extends Model
         'lastLoginTime' => 'LastLoginTime',
         'MFABindRequired' => 'MFABindRequired',
         'passwordResetRequired' => 'PasswordResetRequired',
+        'passwordStatus' => 'PasswordStatus',
         'status' => 'Status',
         'updateDate' => 'UpdateDate',
         'userPrincipalName' => 'UserPrincipalName',
@@ -74,6 +80,10 @@ class loginProfile extends Model
 
         if (null !== $this->passwordResetRequired) {
             $res['PasswordResetRequired'] = $this->passwordResetRequired;
+        }
+
+        if (null !== $this->passwordStatus) {
+            $res['PasswordStatus'] = $this->passwordStatus;
         }
 
         if (null !== $this->status) {
@@ -113,6 +123,10 @@ class loginProfile extends Model
 
         if (isset($map['PasswordResetRequired'])) {
             $model->passwordResetRequired = $map['PasswordResetRequired'];
+        }
+
+        if (isset($map['PasswordStatus'])) {
+            $model->passwordStatus = $map['PasswordStatus'];
         }
 
         if (isset($map['Status'])) {

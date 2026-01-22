@@ -5192,6 +5192,10 @@ class Ims extends OpenApiClient
             @$query['HardExpire'] = $request->hardExpire;
         }
 
+        if (null !== $request->initialPasswordAge) {
+            @$query['InitialPasswordAge'] = $request->initialPasswordAge;
+        }
+
         if (null !== $request->maxLoginAttemps) {
             @$query['MaxLoginAttemps'] = $request->maxLoginAttemps;
         }
@@ -5329,6 +5333,14 @@ class Ims extends OpenApiClient
 
         if (null !== $request->MFAOperationForLogin) {
             @$query['MFAOperationForLogin'] = $request->MFAOperationForLogin;
+        }
+
+        if (null !== $request->maxIdleDaysForAccessKeys) {
+            @$query['MaxIdleDaysForAccessKeys'] = $request->maxIdleDaysForAccessKeys;
+        }
+
+        if (null !== $request->maxIdleDaysForUsers) {
+            @$query['MaxIdleDaysForUsers'] = $request->maxIdleDaysForUsers;
         }
 
         if (null !== $request->operationForRiskLogin) {

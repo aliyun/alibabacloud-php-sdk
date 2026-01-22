@@ -54,6 +54,16 @@ class SetSecurityPreferenceRequest extends Model
     public $MFAOperationForLogin;
 
     /**
+     * @var int
+     */
+    public $maxIdleDaysForAccessKeys;
+
+    /**
+     * @var int
+     */
+    public $maxIdleDaysForUsers;
+
+    /**
      * @var string
      */
     public $operationForRiskLogin;
@@ -72,6 +82,8 @@ class SetSecurityPreferenceRequest extends Model
         'loginNetworkMasks' => 'LoginNetworkMasks',
         'loginSessionDuration' => 'LoginSessionDuration',
         'MFAOperationForLogin' => 'MFAOperationForLogin',
+        'maxIdleDaysForAccessKeys' => 'MaxIdleDaysForAccessKeys',
+        'maxIdleDaysForUsers' => 'MaxIdleDaysForUsers',
         'operationForRiskLogin' => 'OperationForRiskLogin',
         'verificationTypes' => 'VerificationTypes',
     ];
@@ -121,6 +133,14 @@ class SetSecurityPreferenceRequest extends Model
 
         if (null !== $this->MFAOperationForLogin) {
             $res['MFAOperationForLogin'] = $this->MFAOperationForLogin;
+        }
+
+        if (null !== $this->maxIdleDaysForAccessKeys) {
+            $res['MaxIdleDaysForAccessKeys'] = $this->maxIdleDaysForAccessKeys;
+        }
+
+        if (null !== $this->maxIdleDaysForUsers) {
+            $res['MaxIdleDaysForUsers'] = $this->maxIdleDaysForUsers;
         }
 
         if (null !== $this->operationForRiskLogin) {
@@ -183,6 +203,14 @@ class SetSecurityPreferenceRequest extends Model
 
         if (isset($map['MFAOperationForLogin'])) {
             $model->MFAOperationForLogin = $map['MFAOperationForLogin'];
+        }
+
+        if (isset($map['MaxIdleDaysForAccessKeys'])) {
+            $model->maxIdleDaysForAccessKeys = $map['MaxIdleDaysForAccessKeys'];
+        }
+
+        if (isset($map['MaxIdleDaysForUsers'])) {
+            $model->maxIdleDaysForUsers = $map['MaxIdleDaysForUsers'];
         }
 
         if (isset($map['OperationForRiskLogin'])) {

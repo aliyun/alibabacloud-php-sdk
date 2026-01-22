@@ -16,6 +16,11 @@ class SetPasswordPolicyRequest extends Model
     /**
      * @var int
      */
+    public $initialPasswordAge;
+
+    /**
+     * @var int
+     */
     public $maxLoginAttemps;
 
     /**
@@ -64,6 +69,7 @@ class SetPasswordPolicyRequest extends Model
     public $requireUppercaseCharacters;
     protected $_name = [
         'hardExpire' => 'HardExpire',
+        'initialPasswordAge' => 'InitialPasswordAge',
         'maxLoginAttemps' => 'MaxLoginAttemps',
         'maxPasswordAge' => 'MaxPasswordAge',
         'minimumPasswordDifferentCharacter' => 'MinimumPasswordDifferentCharacter',
@@ -86,6 +92,10 @@ class SetPasswordPolicyRequest extends Model
         $res = [];
         if (null !== $this->hardExpire) {
             $res['HardExpire'] = $this->hardExpire;
+        }
+
+        if (null !== $this->initialPasswordAge) {
+            $res['InitialPasswordAge'] = $this->initialPasswordAge;
         }
 
         if (null !== $this->maxLoginAttemps) {
@@ -141,6 +151,10 @@ class SetPasswordPolicyRequest extends Model
         $model = new self();
         if (isset($map['HardExpire'])) {
             $model->hardExpire = $map['HardExpire'];
+        }
+
+        if (isset($map['InitialPasswordAge'])) {
+            $model->initialPasswordAge = $map['InitialPasswordAge'];
         }
 
         if (isset($map['MaxLoginAttemps'])) {
