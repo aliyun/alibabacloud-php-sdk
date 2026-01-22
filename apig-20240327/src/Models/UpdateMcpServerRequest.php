@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\assembledSources;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\backendConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\grayMcpServerConfigs;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateMcpServerRequest\mcpServerConfig;
 
 class UpdateMcpServerRequest extends Model
 {
@@ -52,6 +53,11 @@ class UpdateMcpServerRequest extends Model
     public $match;
 
     /**
+     * @var mcpServerConfig
+     */
+    public $mcpServerConfig;
+
+    /**
      * @var bool
      */
     public $mcpStatisticsEnable;
@@ -74,6 +80,7 @@ class UpdateMcpServerRequest extends Model
         'exposedUriPath' => 'exposedUriPath',
         'grayMcpServerConfigs' => 'grayMcpServerConfigs',
         'match' => 'match',
+        'mcpServerConfig' => 'mcpServerConfig',
         'mcpStatisticsEnable' => 'mcpStatisticsEnable',
         'protocol' => 'protocol',
         'type' => 'type',
@@ -95,6 +102,9 @@ class UpdateMcpServerRequest extends Model
         }
         if (null !== $this->match) {
             $this->match->validate();
+        }
+        if (null !== $this->mcpServerConfig) {
+            $this->mcpServerConfig->validate();
         }
         parent::validate();
     }
@@ -153,6 +163,10 @@ class UpdateMcpServerRequest extends Model
 
         if (null !== $this->match) {
             $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
+        }
+
+        if (null !== $this->mcpServerConfig) {
+            $res['mcpServerConfig'] = null !== $this->mcpServerConfig ? $this->mcpServerConfig->toArray($noStream) : $this->mcpServerConfig;
         }
 
         if (null !== $this->mcpStatisticsEnable) {
@@ -229,6 +243,10 @@ class UpdateMcpServerRequest extends Model
 
         if (isset($map['match'])) {
             $model->match = HttpRouteMatch::fromMap($map['match']);
+        }
+
+        if (isset($map['mcpServerConfig'])) {
+            $model->mcpServerConfig = mcpServerConfig::fromMap($map['mcpServerConfig']);
         }
 
         if (isset($map['mcpStatisticsEnable'])) {

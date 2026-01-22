@@ -1374,6 +1374,10 @@ class APIG extends OpenApiClient
             @$body['match'] = $request->match;
         }
 
+        if (null !== $request->mcpServerConfig) {
+            @$body['mcpServerConfig'] = $request->mcpServerConfig;
+        }
+
         if (null !== $request->mcpStatisticsEnable) {
             @$body['mcpStatisticsEnable'] = $request->mcpStatisticsEnable;
         }
@@ -7325,6 +7329,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->match) {
             @$body['match'] = $request->match;
+        }
+
+        if (null !== $request->mcpServerConfig) {
+            @$body['mcpServerConfig'] = $request->mcpServerConfig;
         }
 
         if (null !== $request->mcpStatisticsEnable) {
