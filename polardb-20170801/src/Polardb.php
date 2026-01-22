@@ -335,6 +335,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionRe
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentChatRecordsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentChatRecordsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentSessionStatusRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentSessionStatusResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
@@ -392,6 +398,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalRequest;
@@ -14828,6 +14836,185 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询指定会话明细.
+     *
+     * @param request - DescribePolarAgentChatRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarAgentChatRecordsResponse
+     *
+     * @param DescribePolarAgentChatRecordsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePolarAgentChatRecordsResponse
+     */
+    public function describePolarAgentChatRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarAgentChatRecords',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarAgentChatRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定会话明细.
+     *
+     * @param request - DescribePolarAgentChatRecordsRequest
+     *
+     * @returns DescribePolarAgentChatRecordsResponse
+     *
+     * @param DescribePolarAgentChatRecordsRequest $request
+     *
+     * @return DescribePolarAgentChatRecordsResponse
+     */
+    public function describePolarAgentChatRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarAgentChatRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询会话状态
+     *
+     * @param request - DescribePolarAgentSessionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarAgentSessionStatusResponse
+     *
+     * @param DescribePolarAgentSessionStatusRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribePolarAgentSessionStatusResponse
+     */
+    public function describePolarAgentSessionStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarAgentSessionStatus',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarAgentSessionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询会话状态
+     *
+     * @param request - DescribePolarAgentSessionStatusRequest
+     *
+     * @returns DescribePolarAgentSessionStatusResponse
+     *
+     * @param DescribePolarAgentSessionStatusRequest $request
+     *
+     * @return DescribePolarAgentSessionStatusResponse
+     */
+    public function describePolarAgentSessionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarAgentSessionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看历史会话记录.
+     *
+     * @param request - DescribePolarAgentUserSessionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarAgentUserSessionsResponse
+     *
+     * @param DescribePolarAgentUserSessionsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribePolarAgentUserSessionsResponse
+     */
+    public function describePolarAgentUserSessionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarAgentUserSessions',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarAgentUserSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看历史会话记录.
+     *
+     * @param request - DescribePolarAgentUserSessionsRequest
+     *
+     * @returns DescribePolarAgentUserSessionsResponse
+     *
+     * @param DescribePolarAgentUserSessionsRequest $request
+     *
+     * @return DescribePolarAgentUserSessionsResponse
+     */
+    public function describePolarAgentUserSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarAgentUserSessionsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取PolarFS实例详情.
      *
      * @param request - DescribePolarFsAttributeRequest
@@ -17295,6 +17482,138 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateUpgradeReportForSyncCloneWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建聊天记录.
+     *
+     * @param request - GetPolarAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolarAgentResponse
+     *
+     * @param GetPolarAgentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPolarAgentResponse
+     */
+    public function getPolarAgentWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPolarAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            $data = json_decode($resp->event->data, true);
+
+            yield GetPolarAgentResponse::fromMap([
+                'statusCode' => $resp->statusCode,
+                'headers' => $resp->headers,
+                'body' => Dara::merge([
+                    'RequestId' => $resp->event->id,
+                    'Message' => $resp->event->event,
+                ], $data),
+            ]);
+        }
+    }
+
+    /**
+     * 创建聊天记录.
+     *
+     * @param request - GetPolarAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolarAgentResponse
+     *
+     * @param GetPolarAgentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPolarAgentResponse
+     */
+    public function getPolarAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPolarAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPolarAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建聊天记录.
+     *
+     * @param request - GetPolarAgentRequest
+     *
+     * @returns GetPolarAgentResponse
+     *
+     * @param GetPolarAgentRequest $request
+     *
+     * @return GetPolarAgentResponse
+     */
+    public function getPolarAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolarAgentWithOptions($request, $runtime);
     }
 
     /**
