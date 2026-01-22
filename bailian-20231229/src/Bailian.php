@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateChunkResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateIndexRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateIndexResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryRequest;
@@ -4019,6 +4021,97 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateFileTagWithOptions($WorkspaceId, $FileId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新索引任务
+     *
+     * @param request - UpdateIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIndexResponse
+     *
+     * @param string             $WorkspaceId
+     * @param UpdateIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateIndexResponse
+     */
+    public function updateIndexWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->denseSimilarityTopK) {
+            @$query['DenseSimilarityTopK'] = $request->denseSimilarityTopK;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pipelineCommercialCu) {
+            @$query['PipelineCommercialCu'] = $request->pipelineCommercialCu;
+        }
+
+        if (null !== $request->pipelineCommercialType) {
+            @$query['PipelineCommercialType'] = $request->pipelineCommercialType;
+        }
+
+        if (null !== $request->rerankMinScore) {
+            @$query['RerankMinScore'] = $request->rerankMinScore;
+        }
+
+        if (null !== $request->sparseSimilarityTopK) {
+            @$query['SparseSimilarityTopK'] = $request->sparseSimilarityTopK;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateIndex',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/index/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新索引任务
+     *
+     * @param request - UpdateIndexRequest
+     *
+     * @returns UpdateIndexResponse
+     *
+     * @param string             $WorkspaceId
+     * @param UpdateIndexRequest $request
+     *
+     * @return UpdateIndexResponse
+     */
+    public function updateIndex($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateIndexWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
