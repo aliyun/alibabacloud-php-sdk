@@ -54,6 +54,11 @@ class PushRequest extends Model
     public $androidHonorTargetUserType;
 
     /**
+     * @var int
+     */
+    public $androidHuaweiBusinessType;
+
+    /**
      * @var string
      */
     public $androidHuaweiLiveNotificationPayload;
@@ -592,6 +597,7 @@ class PushRequest extends Model
         'androidBigTitle' => 'AndroidBigTitle',
         'androidExtParameters' => 'AndroidExtParameters',
         'androidHonorTargetUserType' => 'AndroidHonorTargetUserType',
+        'androidHuaweiBusinessType' => 'AndroidHuaweiBusinessType',
         'androidHuaweiLiveNotificationPayload' => 'AndroidHuaweiLiveNotificationPayload',
         'androidHuaweiReceiptId' => 'AndroidHuaweiReceiptId',
         'androidHuaweiTargetUserType' => 'AndroidHuaweiTargetUserType',
@@ -748,6 +754,10 @@ class PushRequest extends Model
 
         if (null !== $this->androidHonorTargetUserType) {
             $res['AndroidHonorTargetUserType'] = $this->androidHonorTargetUserType;
+        }
+
+        if (null !== $this->androidHuaweiBusinessType) {
+            $res['AndroidHuaweiBusinessType'] = $this->androidHuaweiBusinessType;
         }
 
         if (null !== $this->androidHuaweiLiveNotificationPayload) {
@@ -1229,6 +1239,10 @@ class PushRequest extends Model
 
         if (isset($map['AndroidHonorTargetUserType'])) {
             $model->androidHonorTargetUserType = $map['AndroidHonorTargetUserType'];
+        }
+
+        if (isset($map['AndroidHuaweiBusinessType'])) {
+            $model->androidHuaweiBusinessType = $map['AndroidHuaweiBusinessType'];
         }
 
         if (isset($map['AndroidHuaweiLiveNotificationPayload'])) {

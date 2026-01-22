@@ -1046,6 +1046,10 @@ class Push extends OpenApiClient
             @$query['AndroidHonorTargetUserType'] = $request->androidHonorTargetUserType;
         }
 
+        if (null !== $request->androidHuaweiBusinessType) {
+            @$query['AndroidHuaweiBusinessType'] = $request->androidHuaweiBusinessType;
+        }
+
         if (null !== $request->androidHuaweiLiveNotificationPayload) {
             @$query['AndroidHuaweiLiveNotificationPayload'] = $request->androidHuaweiLiveNotificationPayload;
         }

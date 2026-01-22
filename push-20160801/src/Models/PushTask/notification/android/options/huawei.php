@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class huawei extends Model
 {
     /**
+     * @var int
+     */
+    public $businessType;
+
+    /**
      * @var string
      */
     public $category;
@@ -33,6 +38,7 @@ class huawei extends Model
      */
     public $urgency;
     protected $_name = [
+        'businessType' => 'BusinessType',
         'category' => 'Category',
         'importance' => 'Importance',
         'liveNotificationPayload' => 'LiveNotificationPayload',
@@ -48,6 +54,10 @@ class huawei extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -79,6 +89,10 @@ class huawei extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
