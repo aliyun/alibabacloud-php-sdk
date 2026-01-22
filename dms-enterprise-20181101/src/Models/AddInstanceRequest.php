@@ -111,6 +111,11 @@ class AddInstanceRequest extends Model
     /**
      * @var string
      */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
     public $safeRule;
 
     /**
@@ -173,6 +178,7 @@ class AddInstanceRequest extends Model
         'networkType' => 'NetworkType',
         'port' => 'Port',
         'queryTimeout' => 'QueryTimeout',
+        'roleArn' => 'RoleArn',
         'safeRule' => 'SafeRule',
         'sid' => 'Sid',
         'skipTest' => 'SkipTest',
@@ -270,6 +276,10 @@ class AddInstanceRequest extends Model
 
         if (null !== $this->queryTimeout) {
             $res['QueryTimeout'] = $this->queryTimeout;
+        }
+
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
 
         if (null !== $this->safeRule) {
@@ -397,6 +407,10 @@ class AddInstanceRequest extends Model
 
         if (isset($map['QueryTimeout'])) {
             $model->queryTimeout = $map['QueryTimeout'];
+        }
+
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
 
         if (isset($map['SafeRule'])) {

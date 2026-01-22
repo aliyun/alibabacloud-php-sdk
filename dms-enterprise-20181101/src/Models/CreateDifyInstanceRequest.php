@@ -14,6 +14,11 @@ class CreateDifyInstanceRequest extends Model
     public $adbpgInstanceMode;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @var string
      */
     public $backupVSwitchId;
@@ -304,6 +309,7 @@ class CreateDifyInstanceRequest extends Model
     public $zoneId;
     protected $_name = [
         'adbpgInstanceMode' => 'AdbpgInstanceMode',
+        'autoRenew' => 'AutoRenew',
         'backupVSwitchId' => 'BackupVSwitchId',
         'clientToken' => 'ClientToken',
         'dataRegion' => 'DataRegion',
@@ -374,6 +380,10 @@ class CreateDifyInstanceRequest extends Model
         $res = [];
         if (null !== $this->adbpgInstanceMode) {
             $res['AdbpgInstanceMode'] = $this->adbpgInstanceMode;
+        }
+
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
 
         if (null !== $this->backupVSwitchId) {
@@ -621,6 +631,10 @@ class CreateDifyInstanceRequest extends Model
         $model = new self();
         if (isset($map['AdbpgInstanceMode'])) {
             $model->adbpgInstanceMode = $map['AdbpgInstanceMode'];
+        }
+
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
 
         if (isset($map['BackupVSwitchId'])) {

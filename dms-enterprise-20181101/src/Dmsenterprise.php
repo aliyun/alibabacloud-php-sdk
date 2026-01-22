@@ -961,6 +961,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['QueryTimeout'] = $request->queryTimeout;
         }
 
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
         if (null !== $request->safeRule) {
             @$query['SafeRule'] = $request->safeRule;
         }
@@ -2278,10 +2282,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 带有DMS脱敏能力的聊天API接口.
+     * Chat API with DMS Data Masking capabilities.
      *
      * @remarks
-     * 带有DMS脱敏能力的聊天API接口
+     * Chat API with DMS Data Masking capabilities.
      *
      * @param tmpReq - ChatWithDesensitizeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2432,10 +2436,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 带有DMS脱敏能力的聊天API接口.
+     * Chat API with DMS Data Masking capabilities.
      *
      * @remarks
-     * 带有DMS脱敏能力的聊天API接口
+     * Chat API with DMS Data Masking capabilities.
      *
      * @param request - ChatWithDesensitizeRequest
      *
@@ -2453,10 +2457,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 带有DMS脱敏能力的聊天SSE API接口.
+     * Chat SSE API with DMS Data Masking capability.
      *
      * @remarks
-     * 带有DMS脱敏能力的聊天SSE API接口
+     * Chat SSE API with DMS Data Masking capability.
      *
      * @param tmpReq - ChatWithDesensitizeSSERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2639,10 +2643,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 带有DMS脱敏能力的聊天SSE API接口.
+     * Chat SSE API with DMS Data Masking capability.
      *
      * @remarks
-     * 带有DMS脱敏能力的聊天SSE API接口
+     * Chat SSE API with DMS Data Masking capability.
      *
      * @param tmpReq - ChatWithDesensitizeSSERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2813,10 +2817,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 带有DMS脱敏能力的聊天SSE API接口.
+     * Chat SSE API with DMS Data Masking capability.
      *
      * @remarks
-     * 带有DMS脱敏能力的聊天SSE API接口
+     * Chat SSE API with DMS Data Masking capability.
      *
      * @param request - ChatWithDesensitizeSSERequest
      *
@@ -2834,7 +2838,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 批量校验是否有表访问权限.
+     * Batch verify table permissions.
+     *
+     * @remarks
+     * Verify the permissions on multiple tables at a time.
      *
      * @param tmpReq - CheckBatchTableAccessPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2895,7 +2902,10 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 批量校验是否有表访问权限.
+     * Batch verify table permissions.
+     *
+     * @remarks
+     * Verify the permissions on multiple tables at a time.
      *
      * @param request - CheckBatchTableAccessPermissionRequest
      *
@@ -4216,6 +4226,10 @@ class Dmsenterprise extends OpenApiClient
         $query = [];
         if (null !== $request->adbpgInstanceMode) {
             @$query['AdbpgInstanceMode'] = $request->adbpgInstanceMode;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
 
         if (null !== $request->backupVSwitchId) {
