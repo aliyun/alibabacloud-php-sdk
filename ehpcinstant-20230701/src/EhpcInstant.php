@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataShrinkReq
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobResultsRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobResultsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetActionPlanRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetActionPlanResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsRequest;
@@ -895,6 +897,83 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeJobMetricLastWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询作业输出.
+     *
+     * @param request - DescribeJobResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeJobResultsResponse
+     *
+     * @param DescribeJobResultsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeJobResultsResponse
+     */
+    public function describeJobResultsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->arrayIndex) {
+            @$query['ArrayIndex'] = $request->arrayIndex;
+        }
+
+        if (null !== $request->contentEncoding) {
+            @$query['ContentEncoding'] = $request->contentEncoding;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->limitBytes) {
+            @$query['LimitBytes'] = $request->limitBytes;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeJobResults',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeJobResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询作业输出.
+     *
+     * @param request - DescribeJobResultsRequest
+     *
+     * @returns DescribeJobResultsResponse
+     *
+     * @param DescribeJobResultsRequest $request
+     *
+     * @return DescribeJobResultsResponse
+     */
+    public function describeJobResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeJobResultsWithOptions($request, $runtime);
     }
 
     /**
