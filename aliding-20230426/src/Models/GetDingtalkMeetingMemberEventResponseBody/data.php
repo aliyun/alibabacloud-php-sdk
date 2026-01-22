@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $confModule;
+
+    /**
+     * @var string
+     */
     public $eventId;
 
     /**
@@ -28,6 +33,7 @@ class data extends Model
      */
     public $ts;
     protected $_name = [
+        'confModule' => 'confModule',
         'eventId' => 'eventId',
         'eventName' => 'eventName',
         'eventType' => 'eventType',
@@ -42,6 +48,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->confModule) {
+            $res['confModule'] = $this->confModule;
+        }
+
         if (null !== $this->eventId) {
             $res['eventId'] = $this->eventId;
         }
@@ -69,6 +79,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['confModule'])) {
+            $model->confModule = $map['confModule'];
+        }
+
         if (isset($map['eventId'])) {
             $model->eventId = $map['eventId'];
         }

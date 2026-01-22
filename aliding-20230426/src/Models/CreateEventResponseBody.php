@@ -34,6 +34,11 @@ class CreateEventResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $encryptedId;
+
+    /**
      * @var end
      */
     public $end;
@@ -106,6 +111,7 @@ class CreateEventResponseBody extends Model
         'attendees' => 'attendees',
         'createTime' => 'createTime',
         'description' => 'description',
+        'encryptedId' => 'encryptedId',
         'end' => 'end',
         'id' => 'id',
         'isAllDay' => 'isAllDay',
@@ -177,6 +183,10 @@ class CreateEventResponseBody extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->encryptedId) {
+            $res['encryptedId'] = $this->encryptedId;
         }
 
         if (null !== $this->end) {
@@ -277,6 +287,10 @@ class CreateEventResponseBody extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['encryptedId'])) {
+            $model->encryptedId = $map['encryptedId'];
         }
 
         if (isset($map['end'])) {

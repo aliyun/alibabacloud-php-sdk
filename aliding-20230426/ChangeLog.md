@@ -1,3 +1,8 @@
+2026-01-22 Version: 2.39.1
+- Update API CreateEvent: add response parameters Body.encryptedId.
+- Update API GetDingtalkMeetingMemberEvent: add response parameters Body.data.$.confModule.
+
+
 2026-01-06 Version: 2.39.0
 - Support API GetDingtalkMeetingInfo.
 - Support API GetDingtalkMeetingList.
