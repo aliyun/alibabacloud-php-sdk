@@ -89,6 +89,11 @@ class CreateAgentRuntimeInput extends Model
     public $protocolConfiguration;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $sessionConcurrencyLimitPerInstance;
@@ -114,6 +119,7 @@ class CreateAgentRuntimeInput extends Model
         'networkConfiguration' => 'networkConfiguration',
         'port' => 'port',
         'protocolConfiguration' => 'protocolConfiguration',
+        'resourceGroupId' => 'resourceGroupId',
         'sessionConcurrencyLimitPerInstance' => 'sessionConcurrencyLimitPerInstance',
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
     ];
@@ -216,6 +222,10 @@ class CreateAgentRuntimeInput extends Model
             $res['protocolConfiguration'] = null !== $this->protocolConfiguration ? $this->protocolConfiguration->toArray($noStream) : $this->protocolConfiguration;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->sessionConcurrencyLimitPerInstance) {
             $res['sessionConcurrencyLimitPerInstance'] = $this->sessionConcurrencyLimitPerInstance;
         }
@@ -302,6 +312,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (isset($map['protocolConfiguration'])) {
             $model->protocolConfiguration = ProtocolConfiguration::fromMap($map['protocolConfiguration']);
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['sessionConcurrencyLimitPerInstance'])) {

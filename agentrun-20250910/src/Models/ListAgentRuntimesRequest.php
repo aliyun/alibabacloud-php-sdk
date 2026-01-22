@@ -26,6 +26,11 @@ class ListAgentRuntimesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $searchMode;
 
     /**
@@ -36,6 +41,7 @@ class ListAgentRuntimesRequest extends Model
         'agentRuntimeName' => 'agentRuntimeName',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'resourceGroupId' => 'resourceGroupId',
         'searchMode' => 'searchMode',
         'status' => 'status',
     ];
@@ -58,6 +64,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->searchMode) {
@@ -89,6 +99,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['searchMode'])) {

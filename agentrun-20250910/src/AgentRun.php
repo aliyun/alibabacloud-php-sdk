@@ -2470,6 +2470,10 @@ class AgentRun extends OpenApiClient
             @$query['pageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->searchMode) {
             @$query['searchMode'] = $request->searchMode;
         }
