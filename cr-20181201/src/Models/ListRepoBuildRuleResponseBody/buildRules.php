@@ -21,6 +21,11 @@ class buildRules extends Model
     /**
      * @var string
      */
+    public $destArtifactType;
+
+    /**
+     * @var string
+     */
     public $dockerfileLocation;
 
     /**
@@ -50,6 +55,7 @@ class buildRules extends Model
     protected $_name = [
         'buildArgs' => 'BuildArgs',
         'buildRuleId' => 'BuildRuleId',
+        'destArtifactType' => 'DestArtifactType',
         'dockerfileLocation' => 'DockerfileLocation',
         'dockerfileName' => 'DockerfileName',
         'imageTag' => 'ImageTag',
@@ -85,6 +91,10 @@ class buildRules extends Model
 
         if (null !== $this->buildRuleId) {
             $res['BuildRuleId'] = $this->buildRuleId;
+        }
+
+        if (null !== $this->destArtifactType) {
+            $res['DestArtifactType'] = $this->destArtifactType;
         }
 
         if (null !== $this->dockerfileLocation) {
@@ -142,6 +152,10 @@ class buildRules extends Model
 
         if (isset($map['BuildRuleId'])) {
             $model->buildRuleId = $map['BuildRuleId'];
+        }
+
+        if (isset($map['DestArtifactType'])) {
+            $model->destArtifactType = $map['DestArtifactType'];
         }
 
         if (isset($map['DockerfileLocation'])) {

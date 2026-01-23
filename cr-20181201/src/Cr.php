@@ -2197,7 +2197,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 创建扫描规则.
+     * Creates a scan or content analysis rule.
+     *
+     * @remarks
+     * Creates a scan or content analysis rule.
      *
      * @param tmpReq - CreateScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2274,7 +2277,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 创建扫描规则.
+     * Creates a scan or content analysis rule.
+     *
+     * @remarks
+     * Creates a scan or content analysis rule.
      *
      * @param request - CreateScanRuleRequest
      *
@@ -2292,7 +2298,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 创建实例域名路由规则.
+     * Creates an instance store domain name routing rule.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param tmpReq - CreateStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2341,7 +2350,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 创建实例域名路由规则.
+     * Creates an instance store domain name routing rule.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param request - CreateStorageDomainRoutingRuleRequest
      *
@@ -3344,7 +3356,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 删除扫描规则.
+     * Deletes a scan rule.
+     *
+     * @remarks
+     * Deletes a scan rule.
      *
      * @param request - DeleteScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3387,7 +3402,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 删除扫描规则.
+     * Deletes a scan rule.
+     *
+     * @remarks
+     * Deletes a scan rule.
      *
      * @param request - DeleteScanRuleRequest
      *
@@ -3405,7 +3423,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 删除实例存储域名映射规则.
+     * Deletes an instance store domain name routing rule.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param request - DeleteStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3448,7 +3469,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 删除实例存储域名映射规则.
+     * Deletes an instance store domain name routing rule.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param request - DeleteStorageDomainRoutingRuleRequest
      *
@@ -3780,10 +3804,13 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+     * Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
      *
      * @remarks
-     * The ID of the Container Registry instance.
+     * The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
+     * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
+     * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
+     * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
      *
      * @param request - GetAuthorizationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3822,10 +3849,13 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+     * Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
      *
      * @remarks
-     * The ID of the Container Registry instance.
+     * The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
+     * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
+     * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
+     * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
      *
      * @param request - GetAuthorizationTokenRequest
      *
@@ -4899,7 +4929,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 查询扫描规则.
+     * Obtains a scan rule.
+     *
+     * @remarks
+     * Get scan rule.
      *
      * @param request - GetScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4942,7 +4975,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 查询扫描规则.
+     * Obtains a scan rule.
+     *
+     * @remarks
+     * Get scan rule.
      *
      * @param request - GetScanRuleRequest
      *
@@ -4960,7 +4996,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 查询实例存储域名路由规则.
+     * Queries instance storage domain routing rules.
+     *
+     * @remarks
+     * This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
      *
      * @param request - GetStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5003,7 +5042,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 查询实例存储域名路由规则.
+     * Queries instance storage domain routing rules.
+     *
+     * @remarks
+     * This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
      *
      * @param request - GetStorageDomainRoutingRuleRequest
      *
@@ -6771,7 +6813,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 查询扫描规则.
+     * Lists the scan rules.
+     *
+     * @remarks
+     * Lists the scan rules.
      *
      * @param request - ListScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6806,7 +6851,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 查询扫描规则.
+     * Lists the scan rules.
+     *
+     * @remarks
+     * Lists the scan rules.
      *
      * @param request - ListScanRuleRequest
      *
@@ -8112,7 +8160,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 更新扫描规则.
+     * Updates a scan rule.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param tmpReq - UpdateScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8189,7 +8240,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 更新扫描规则.
+     * Updates a scan rule.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param request - UpdateScanRuleRequest
      *
@@ -8207,7 +8261,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 更新实例域名路由规则.
+     * Updates a routing rule for an instance store domain name.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param tmpReq - UpdateStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8260,7 +8317,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 更新实例域名路由规则.
+     * Updates a routing rule for an instance store domain name.
+     *
+     * @remarks
+     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
      *
      * @param request - UpdateStorageDomainRoutingRuleRequest
      *
