@@ -220,6 +220,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $hoverConfigMsg;
+
+    /**
+     * @var string
+     */
     public $html5Access;
 
     /**
@@ -311,6 +316,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $modelLibrary;
+
+    /**
+     * @var string
+     */
+    public $multiScreen;
 
     /**
      * @var string
@@ -456,6 +466,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $resetDesktop;
+
+    /**
+     * @var int
+     */
+    public $resolutionDpi;
 
     /**
      * @var int
@@ -692,6 +707,7 @@ class describePolicyGroups extends Model
         'fileTransferSpeed' => 'FileTransferSpeed',
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
         'gpuAcceleration' => 'GpuAcceleration',
+        'hoverConfigMsg' => 'HoverConfigMsg',
         'html5Access' => 'Html5Access',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
@@ -711,6 +727,7 @@ class describePolicyGroups extends Model
         'mobileWuyingKeeper' => 'MobileWuyingKeeper',
         'mobileWyAssistant' => 'MobileWyAssistant',
         'modelLibrary' => 'ModelLibrary',
+        'multiScreen' => 'MultiScreen',
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
@@ -740,6 +757,7 @@ class describePolicyGroups extends Model
         'recordingUserNotifyMessage' => 'RecordingUserNotifyMessage',
         'remoteCoordinate' => 'RemoteCoordinate',
         'resetDesktop' => 'ResetDesktop',
+        'resolutionDpi' => 'ResolutionDpi',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionModel' => 'ResolutionModel',
         'resolutionWidth' => 'ResolutionWidth',
@@ -1046,6 +1064,10 @@ class describePolicyGroups extends Model
             $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
 
+        if (null !== $this->hoverConfigMsg) {
+            $res['HoverConfigMsg'] = $this->hoverConfigMsg;
+        }
+
         if (null !== $this->html5Access) {
             $res['Html5Access'] = $this->html5Access;
         }
@@ -1127,6 +1149,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->modelLibrary) {
             $res['ModelLibrary'] = $this->modelLibrary;
+        }
+
+        if (null !== $this->multiScreen) {
+            $res['MultiScreen'] = $this->multiScreen;
         }
 
         if (null !== $this->name) {
@@ -1285,6 +1311,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->resetDesktop) {
             $res['ResetDesktop'] = $this->resetDesktop;
+        }
+
+        if (null !== $this->resolutionDpi) {
+            $res['ResolutionDpi'] = $this->resolutionDpi;
         }
 
         if (null !== $this->resolutionHeight) {
@@ -1677,6 +1707,10 @@ class describePolicyGroups extends Model
             $model->gpuAcceleration = $map['GpuAcceleration'];
         }
 
+        if (isset($map['HoverConfigMsg'])) {
+            $model->hoverConfigMsg = $map['HoverConfigMsg'];
+        }
+
         if (isset($map['Html5Access'])) {
             $model->html5Access = $map['Html5Access'];
         }
@@ -1758,6 +1792,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['ModelLibrary'])) {
             $model->modelLibrary = $map['ModelLibrary'];
+        }
+
+        if (isset($map['MultiScreen'])) {
+            $model->multiScreen = $map['MultiScreen'];
         }
 
         if (isset($map['Name'])) {
@@ -1916,6 +1954,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['ResetDesktop'])) {
             $model->resetDesktop = $map['ResetDesktop'];
+        }
+
+        if (isset($map['ResolutionDpi'])) {
+            $model->resolutionDpi = $map['ResolutionDpi'];
         }
 
         if (isset($map['ResolutionHeight'])) {

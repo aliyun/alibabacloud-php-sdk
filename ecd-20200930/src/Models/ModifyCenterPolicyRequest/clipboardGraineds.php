@@ -27,11 +27,35 @@ class clipboardGraineds extends Model
      * @var string
      */
     public $grainedType;
+
+    /**
+     * @var int
+     */
+    public $inClipboardSize;
+
+    /**
+     * @var string
+     */
+    public $inClipboardSizeUnit;
+
+    /**
+     * @var int
+     */
+    public $outClipboardSize;
+
+    /**
+     * @var string
+     */
+    public $outClipboardSizeUnit;
     protected $_name = [
         'clipboardSize' => 'ClipboardSize',
         'clipboardSizeUnit' => 'ClipboardSizeUnit',
         'clipboardType' => 'ClipboardType',
         'grainedType' => 'GrainedType',
+        'inClipboardSize' => 'InClipboardSize',
+        'inClipboardSizeUnit' => 'InClipboardSizeUnit',
+        'outClipboardSize' => 'OutClipboardSize',
+        'outClipboardSizeUnit' => 'OutClipboardSizeUnit',
     ];
 
     public function validate()
@@ -56,6 +80,22 @@ class clipboardGraineds extends Model
 
         if (null !== $this->grainedType) {
             $res['GrainedType'] = $this->grainedType;
+        }
+
+        if (null !== $this->inClipboardSize) {
+            $res['InClipboardSize'] = $this->inClipboardSize;
+        }
+
+        if (null !== $this->inClipboardSizeUnit) {
+            $res['InClipboardSizeUnit'] = $this->inClipboardSizeUnit;
+        }
+
+        if (null !== $this->outClipboardSize) {
+            $res['OutClipboardSize'] = $this->outClipboardSize;
+        }
+
+        if (null !== $this->outClipboardSizeUnit) {
+            $res['OutClipboardSizeUnit'] = $this->outClipboardSizeUnit;
         }
 
         return $res;
@@ -83,6 +123,22 @@ class clipboardGraineds extends Model
 
         if (isset($map['GrainedType'])) {
             $model->grainedType = $map['GrainedType'];
+        }
+
+        if (isset($map['InClipboardSize'])) {
+            $model->inClipboardSize = $map['InClipboardSize'];
+        }
+
+        if (isset($map['InClipboardSizeUnit'])) {
+            $model->inClipboardSizeUnit = $map['InClipboardSizeUnit'];
+        }
+
+        if (isset($map['OutClipboardSize'])) {
+            $model->outClipboardSize = $map['OutClipboardSize'];
+        }
+
+        if (isset($map['OutClipboardSizeUnit'])) {
+            $model->outClipboardSizeUnit = $map['OutClipboardSizeUnit'];
         }
 
         return $model;

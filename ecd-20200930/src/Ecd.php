@@ -3731,6 +3731,10 @@ class Ecd extends OpenApiClient
             @$query['GpuAcceleration'] = $request->gpuAcceleration;
         }
 
+        if (null !== $request->hoverConfigMsg) {
+            @$query['HoverConfigMsg'] = $request->hoverConfigMsg;
+        }
+
         if (null !== $request->html5FileTransfer) {
             @$query['Html5FileTransfer'] = $request->html5FileTransfer;
         }
@@ -3801,6 +3805,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->modelLibrary) {
             @$query['ModelLibrary'] = $request->modelLibrary;
+        }
+
+        if (null !== $request->multiScreen) {
+            @$query['MultiScreen'] = $request->multiScreen;
         }
 
         if (null !== $request->name) {
@@ -3905,6 +3913,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->resetDesktop) {
             @$query['ResetDesktop'] = $request->resetDesktop;
+        }
+
+        if (null !== $request->resolutionDpi) {
+            @$query['ResolutionDpi'] = $request->resolutionDpi;
         }
 
         if (null !== $request->resolutionHeight) {
@@ -18289,6 +18301,10 @@ class Ecd extends OpenApiClient
             @$query['GpuAcceleration'] = $request->gpuAcceleration;
         }
 
+        if (null !== $request->hoverConfigMsg) {
+            @$query['HoverConfigMsg'] = $request->hoverConfigMsg;
+        }
+
         if (null !== $request->html5FileTransfer) {
             @$query['Html5FileTransfer'] = $request->html5FileTransfer;
         }
@@ -18359,6 +18375,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->modelLibrary) {
             @$query['ModelLibrary'] = $request->modelLibrary;
+        }
+
+        if (null !== $request->multiScreen) {
+            @$query['MultiScreen'] = $request->multiScreen;
         }
 
         if (null !== $request->name) {
@@ -18467,6 +18487,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->resetDesktop) {
             @$query['ResetDesktop'] = $request->resetDesktop;
+        }
+
+        if (null !== $request->resolutionDpi) {
+            @$query['ResolutionDpi'] = $request->resolutionDpi;
         }
 
         if (null !== $request->resolutionHeight) {

@@ -179,6 +179,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $hoverConfigMsg;
+
+    /**
+     * @var string
+     */
     public $html5Access;
 
     /**
@@ -370,6 +375,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $remoteCoordinate;
+
+    /**
+     * @var int
+     */
+    public $resolutionDpi;
 
     /**
      * @var int
@@ -583,6 +593,7 @@ class describePolicyGroups extends Model
         'fileTransferSpeed' => 'FileTransferSpeed',
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
         'gpuAcceleration' => 'GpuAcceleration',
+        'hoverConfigMsg' => 'HoverConfigMsg',
         'html5Access' => 'Html5Access',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
@@ -622,6 +633,7 @@ class describePolicyGroups extends Model
         'recordingUserNotify' => 'RecordingUserNotify',
         'recordingUserNotifyMessage' => 'RecordingUserNotifyMessage',
         'remoteCoordinate' => 'RemoteCoordinate',
+        'resolutionDpi' => 'ResolutionDpi',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionModel' => 'ResolutionModel',
         'resolutionWidth' => 'ResolutionWidth',
@@ -884,6 +896,10 @@ class describePolicyGroups extends Model
             $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
 
+        if (null !== $this->hoverConfigMsg) {
+            $res['HoverConfigMsg'] = $this->hoverConfigMsg;
+        }
+
         if (null !== $this->html5Access) {
             $res['Html5Access'] = $this->html5Access;
         }
@@ -1066,6 +1082,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->remoteCoordinate) {
             $res['RemoteCoordinate'] = $this->remoteCoordinate;
+        }
+
+        if (null !== $this->resolutionDpi) {
+            $res['ResolutionDpi'] = $this->resolutionDpi;
         }
 
         if (null !== $this->resolutionHeight) {
@@ -1414,6 +1434,10 @@ class describePolicyGroups extends Model
             $model->gpuAcceleration = $map['GpuAcceleration'];
         }
 
+        if (isset($map['HoverConfigMsg'])) {
+            $model->hoverConfigMsg = $map['HoverConfigMsg'];
+        }
+
         if (isset($map['Html5Access'])) {
             $model->html5Access = $map['Html5Access'];
         }
@@ -1596,6 +1620,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['RemoteCoordinate'])) {
             $model->remoteCoordinate = $map['RemoteCoordinate'];
+        }
+
+        if (isset($map['ResolutionDpi'])) {
+            $model->resolutionDpi = $map['ResolutionDpi'];
         }
 
         if (isset($map['ResolutionHeight'])) {
