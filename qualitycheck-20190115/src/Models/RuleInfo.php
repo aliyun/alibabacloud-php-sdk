@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RuleInfo\preqRule;
 
 class RuleInfo extends Model
 {
@@ -147,6 +148,11 @@ class RuleInfo extends Model
      * @var int
      */
     public $operationMode;
+
+    /**
+     * @var preqRule[]
+     */
+    public $preqRule;
 
     /**
      * @var int
@@ -311,6 +317,7 @@ class RuleInfo extends Model
         'modifyType' => 'ModifyType',
         'name' => 'Name',
         'operationMode' => 'OperationMode',
+        'preqRule' => 'PreqRule',
         'qualityCheckType' => 'QualityCheckType',
         'rid' => 'Rid',
         'ruleCategoryName' => 'RuleCategoryName',
@@ -347,6 +354,9 @@ class RuleInfo extends Model
         }
         if (\is_array($this->dialogues)) {
             Model::validateArray($this->dialogues);
+        }
+        if (\is_array($this->preqRule)) {
+            Model::validateArray($this->preqRule);
         }
         if (null !== $this->schemeCheckType) {
             $this->schemeCheckType->validate();
@@ -484,6 +494,17 @@ class RuleInfo extends Model
 
         if (null !== $this->operationMode) {
             $res['OperationMode'] = $this->operationMode;
+        }
+
+        if (null !== $this->preqRule) {
+            if (\is_array($this->preqRule)) {
+                $res['PreqRule'] = [];
+                $n1 = 0;
+                foreach ($this->preqRule as $item1) {
+                    $res['PreqRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->qualityCheckType) {
@@ -736,6 +757,17 @@ class RuleInfo extends Model
 
         if (isset($map['OperationMode'])) {
             $model->operationMode = $map['OperationMode'];
+        }
+
+        if (isset($map['PreqRule'])) {
+            if (!empty($map['PreqRule'])) {
+                $model->preqRule = [];
+                $n1 = 0;
+                foreach ($map['PreqRule'] as $item1) {
+                    $model->preqRule[$n1] = preqRule::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['QualityCheckType'])) {
