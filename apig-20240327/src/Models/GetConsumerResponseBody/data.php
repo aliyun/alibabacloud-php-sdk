@@ -12,7 +12,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\JwtIdentityConfig;
 class data extends Model
 {
     /**
-     * @var AkSkIdentityConfig
+     * @var AkSkIdentityConfig[]
      */
     public $akSkIdentityConfigs;
 
@@ -75,8 +75,8 @@ class data extends Model
 
     public function validate()
     {
-        if (null !== $this->akSkIdentityConfigs) {
-            $this->akSkIdentityConfigs->validate();
+        if (\is_array($this->akSkIdentityConfigs)) {
+            Model::validateArray($this->akSkIdentityConfigs);
         }
         if (null !== $this->apiKeyIdentityConfig) {
             $this->apiKeyIdentityConfig->validate();
@@ -91,7 +91,14 @@ class data extends Model
     {
         $res = [];
         if (null !== $this->akSkIdentityConfigs) {
-            $res['akSkIdentityConfigs'] = null !== $this->akSkIdentityConfigs ? $this->akSkIdentityConfigs->toArray($noStream) : $this->akSkIdentityConfigs;
+            if (\is_array($this->akSkIdentityConfigs)) {
+                $res['akSkIdentityConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->akSkIdentityConfigs as $item1) {
+                    $res['akSkIdentityConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->apiKeyIdentityConfig) {
@@ -142,7 +149,14 @@ class data extends Model
     {
         $model = new self();
         if (isset($map['akSkIdentityConfigs'])) {
-            $model->akSkIdentityConfigs = AkSkIdentityConfig::fromMap($map['akSkIdentityConfigs']);
+            if (!empty($map['akSkIdentityConfigs'])) {
+                $model->akSkIdentityConfigs = [];
+                $n1 = 0;
+                foreach ($map['akSkIdentityConfigs'] as $item1) {
+                    $model->akSkIdentityConfigs[$n1] = AkSkIdentityConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['apiKeyIdentityConfig'])) {
