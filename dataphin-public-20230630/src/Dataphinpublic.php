@@ -29,6 +29,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceApiShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityRequest;
@@ -92,6 +95,39 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceShrinkRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyCatalogRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyCatalogResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyCatalogShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityIdentifyResultRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityIdentifyResultResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityIdentifyResultShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityLevelRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityLevelResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityLevelShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardLookupTableRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardLookupTableResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardLookupTableShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardMappingRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardMappingResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardMappingShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardRelationsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardRelationsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardRelationsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardSetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardSetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardSetShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardWordRootRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardWordRootResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStandardWordRootShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingShrinkRequest;
@@ -122,6 +158,18 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityRulesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityRulesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityRulesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualitySchedulesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualitySchedulesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualitySchedulesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityTemplatesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityTemplatesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityTemplatesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityWatchesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityWatchesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityWatchesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRegisterLineageRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRegisterLineageResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRegisterLineageShrinkRequest;
@@ -130,6 +178,36 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteResourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityClassifyCatalogRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityClassifyCatalogResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityClassifyCatalogShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityClassifyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityClassifyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityClassifyShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityIdentifyResultsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityIdentifyResultsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityIdentifyResultsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityLevelRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityLevelResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteSecurityLevelShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardInValidMappingRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardInValidMappingResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardInValidMappingShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardLookupTableRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardLookupTableResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardRelationsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardRelationsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardRelationsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardSetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardSetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardValidMappingRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardValidMappingResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardValidMappingShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardWordRootRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteStandardWordRootResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUdfRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUdfResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupRequest;
@@ -140,6 +218,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskShrinkReque
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteTriggerNodeRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteTriggerNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataShrinkRequest;
@@ -154,6 +234,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetMappingRelationsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetMappingRelationsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetMappingRelationsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoRequest;
@@ -162,6 +245,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesRequ
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBelongAssetMappingRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBelongAssetMappingResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBelongAssetMappingShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoRequest;
@@ -256,14 +342,59 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectWhiteListsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectWhiteListsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityAlertOfAllRuleScopeByWatchIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityAlertOfAllRuleScopeByWatchIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleTaskLogRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleTaskLogResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityRuleTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityScheduleRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityScheduleResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualitySchedulesByWatchIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualitySchedulesByWatchIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchByObjectIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchByObjectIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchTaskLogRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchTaskLogResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityClassifyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityClassifyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityIdentifyResultRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityIdentifyResultResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityLevelRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityLevelResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecuritySecretKeyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecuritySecretKeyResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSparkLocalClientInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardLookupTableRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardLookupTableResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardSetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardSetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardStatisticsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardStatisticsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardStatisticsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardWordRootRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardWordRootResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamJobsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamJobsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceRequest;
@@ -273,9 +404,17 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunResponse
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineagesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineagesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineagesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineagesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineagesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineagesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTransferInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTransferInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUdfByVersionRequest;
@@ -368,6 +507,21 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRulesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRulesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRulesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRuleTasksRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRuleTasksResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityRuleTasksShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityTemplatesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityTemplatesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityTemplatesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchTasksRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchTasksResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchTasksShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogShrinkRequest;
@@ -380,9 +534,21 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdSh
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyRecordsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyRecordsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyRecordsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyResultsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyResultsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyResultsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStandardsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStandardsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStandardsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTablesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTablesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTablesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersShrinkRequest;
@@ -403,6 +569,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineByAsyncShrin
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflinePipelineShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineStandardRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineStandardResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineStandardShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityShrinkRequest;
@@ -420,9 +589,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishDataServiceApiRespon
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveQualityRuleSchedulesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveQualityRuleSchedulesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveQualityRuleSchedulesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberShrinkRequest;
@@ -449,6 +624,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityWatchTasksRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityWatchTasksResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityWatchTasksShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentShrinkRequest;
@@ -501,12 +682,48 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineShrinkRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateProjectMemberShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateQualityRuleSwitchRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateQualityRuleSwitchResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateQualityRuleSwitchShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateQualityWatchSwitchRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateQualityWatchSwitchResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateQualityWatchSwitchShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateResourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateResourceShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyCatalogRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyCatalogResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyCatalogShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityIdentifyResultStatusRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityIdentifyResultStatusResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityIdentifyResultStatusShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityLevelRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityLevelResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityLevelShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardLookupTableRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardLookupTableResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardLookupTableShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardMappingToInvalidRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardMappingToInvalidResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardMappingToInvalidShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardSetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardSetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardSetShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardWordRootRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardWordRootResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateStandardWordRootShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantComputeEngineRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantComputeEngineResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantComputeEngineShrinkRequest;
@@ -521,6 +738,21 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityScheduleRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityScheduleResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityScheduleShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityWatchAlertRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityWatchAlertResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityWatchAlertShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityWatchRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityWatchResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpsertQualityWatchShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1126,6 +1358,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyDataServiceAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 指定质量规则和调度设置进行绑定。
+     *
+     * @param tmpReq - AssignQualityRuleOfAllRuleScopeSchedulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssignQualityRuleOfAllRuleScopeSchedulesResponse
+     *
+     * @param AssignQualityRuleOfAllRuleScopeSchedulesRequest $tmpReq
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
+     */
+    public function assignQualityRuleOfAllRuleScopeSchedulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assignCommand) {
+            $request->assignCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assignCommand, 'AssignCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->assignCommandShrink) {
+            @$body['AssignCommand'] = $request->assignCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AssignQualityRuleOfAllRuleScopeSchedules',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssignQualityRuleOfAllRuleScopeSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 指定质量规则和调度设置进行绑定。
+     *
+     * @param request - AssignQualityRuleOfAllRuleScopeSchedulesRequest
+     *
+     * @returns AssignQualityRuleOfAllRuleScopeSchedulesResponse
+     *
+     * @param AssignQualityRuleOfAllRuleScopeSchedulesRequest $request
+     *
+     * @return AssignQualityRuleOfAllRuleScopeSchedulesResponse
+     */
+    public function assignQualityRuleOfAllRuleScopeSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignQualityRuleOfAllRuleScopeSchedulesWithOptions($request, $runtime);
     }
 
     /**
@@ -2643,6 +2944,765 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 新建数据分类。
+     *
+     * @param tmpReq - CreateSecurityClassifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecurityClassifyResponse
+     *
+     * @param CreateSecurityClassifyRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSecurityClassifyResponse
+     */
+    public function createSecurityClassifyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSecurityClassifyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecurityClassify',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecurityClassifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建数据分类。
+     *
+     * @param request - CreateSecurityClassifyRequest
+     *
+     * @returns CreateSecurityClassifyResponse
+     *
+     * @param CreateSecurityClassifyRequest $request
+     *
+     * @return CreateSecurityClassifyResponse
+     */
+    public function createSecurityClassify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityClassifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建数据分类目录。
+     *
+     * @param tmpReq - CreateSecurityClassifyCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecurityClassifyCatalogResponse
+     *
+     * @param CreateSecurityClassifyCatalogRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateSecurityClassifyCatalogResponse
+     */
+    public function createSecurityClassifyCatalogWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSecurityClassifyCatalogShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecurityClassifyCatalog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecurityClassifyCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建数据分类目录。
+     *
+     * @param request - CreateSecurityClassifyCatalogRequest
+     *
+     * @returns CreateSecurityClassifyCatalogResponse
+     *
+     * @param CreateSecurityClassifyCatalogRequest $request
+     *
+     * @return CreateSecurityClassifyCatalogResponse
+     */
+    public function createSecurityClassifyCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityClassifyCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建安全识别结果。
+     *
+     * @param tmpReq - CreateSecurityIdentifyResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecurityIdentifyResultResponse
+     *
+     * @param CreateSecurityIdentifyResultRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateSecurityIdentifyResultResponse
+     */
+    public function createSecurityIdentifyResultWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSecurityIdentifyResultShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecurityIdentifyResult',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecurityIdentifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建安全识别结果。
+     *
+     * @param request - CreateSecurityIdentifyResultRequest
+     *
+     * @returns CreateSecurityIdentifyResultResponse
+     *
+     * @param CreateSecurityIdentifyResultRequest $request
+     *
+     * @return CreateSecurityIdentifyResultResponse
+     */
+    public function createSecurityIdentifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityIdentifyResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建数据分级。
+     *
+     * @param tmpReq - CreateSecurityLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecurityLevelResponse
+     *
+     * @param CreateSecurityLevelRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSecurityLevelResponse
+     */
+    public function createSecurityLevelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSecurityLevelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecurityLevel',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建数据分级。
+     *
+     * @param request - CreateSecurityLevelRequest
+     *
+     * @returns CreateSecurityLevelResponse
+     *
+     * @param CreateSecurityLevelRequest $request
+     *
+     * @return CreateSecurityLevelResponse
+     */
+    public function createSecurityLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建标准。
+     *
+     * @param tmpReq - CreateStandardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardResponse
+     *
+     * @param CreateStandardRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateStandardResponse
+     */
+    public function createStandardWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandard',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建标准。
+     *
+     * @param request - CreateStandardRequest
+     *
+     * @returns CreateStandardResponse
+     *
+     * @param CreateStandardRequest $request
+     *
+     * @return CreateStandardResponse
+     */
+    public function createStandard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据标准码表。
+     *
+     * @param tmpReq - CreateStandardLookupTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardLookupTableResponse
+     *
+     * @param CreateStandardLookupTableRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateStandardLookupTableResponse
+     */
+    public function createStandardLookupTableWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardLookupTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandardLookupTable',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardLookupTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据标准码表。
+     *
+     * @param request - CreateStandardLookupTableRequest
+     *
+     * @returns CreateStandardLookupTableResponse
+     *
+     * @param CreateStandardLookupTableRequest $request
+     *
+     * @return CreateStandardLookupTableResponse
+     */
+    public function createStandardLookupTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardLookupTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建标准映射关系, 包括有效映射和无效映射。
+     *
+     * @param tmpReq - CreateStandardMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardMappingResponse
+     *
+     * @param CreateStandardMappingRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateStandardMappingResponse
+     */
+    public function createStandardMappingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardMappingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandardMapping',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建标准映射关系, 包括有效映射和无效映射。
+     *
+     * @param request - CreateStandardMappingRequest
+     *
+     * @returns CreateStandardMappingResponse
+     *
+     * @param CreateStandardMappingRequest $request
+     *
+     * @return CreateStandardMappingResponse
+     */
+    public function createStandardMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardMappingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建标准关联关系。
+     *
+     * @param tmpReq - CreateStandardRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardRelationsResponse
+     *
+     * @param CreateStandardRelationsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateStandardRelationsResponse
+     */
+    public function createStandardRelationsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardRelationsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandardRelations',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建标准关联关系。
+     *
+     * @param request - CreateStandardRelationsRequest
+     *
+     * @returns CreateStandardRelationsResponse
+     *
+     * @param CreateStandardRelationsRequest $request
+     *
+     * @return CreateStandardRelationsResponse
+     */
+    public function createStandardRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建标准集。
+     *
+     * @param tmpReq - CreateStandardSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardSetResponse
+     *
+     * @param CreateStandardSetRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateStandardSetResponse
+     */
+    public function createStandardSetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardSetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandardSet',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建标准集。
+     *
+     * @param request - CreateStandardSetRequest
+     *
+     * @returns CreateStandardSetResponse
+     *
+     * @param CreateStandardSetRequest $request
+     *
+     * @return CreateStandardSetResponse
+     */
+    public function createStandardSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据标准模板。
+     *
+     * @param tmpReq - CreateStandardTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardTemplateResponse
+     *
+     * @param CreateStandardTemplateRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateStandardTemplateResponse
+     */
+    public function createStandardTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandardTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据标准模板。
+     *
+     * @param request - CreateStandardTemplateRequest
+     *
+     * @returns CreateStandardTemplateResponse
+     *
+     * @param CreateStandardTemplateRequest $request
+     *
+     * @return CreateStandardTemplateResponse
+     */
+    public function createStandardTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据标准词根。
+     *
+     * @param tmpReq - CreateStandardWordRootRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStandardWordRootResponse
+     *
+     * @param CreateStandardWordRootRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateStandardWordRootResponse
+     */
+    public function createStandardWordRootWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateStandardWordRootShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStandardWordRoot',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStandardWordRootResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据标准词根。
+     *
+     * @param request - CreateStandardWordRootRequest
+     *
+     * @returns CreateStandardWordRootResponse
+     *
+     * @param CreateStandardWordRootRequest $request
+     *
+     * @return CreateStandardWordRootResponse
+     */
+    public function createStandardWordRoot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStandardWordRootWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建流批一体任务
      *
      * @param tmpReq - CreateStreamBatchJobMappingRequest
@@ -3443,6 +4503,282 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 批量删除质量规则对象。
+     *
+     * @param tmpReq - DeleteQualityRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQualityRulesResponse
+     *
+     * @param DeleteQualityRulesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteQualityRulesResponse
+     */
+    public function deleteQualityRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteQualityRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteQualityRules',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除质量规则对象。
+     *
+     * @param request - DeleteQualityRulesRequest
+     *
+     * @returns DeleteQualityRulesResponse
+     *
+     * @param DeleteQualityRulesRequest $request
+     *
+     * @return DeleteQualityRulesResponse
+     */
+    public function deleteQualityRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除质量调度对象。
+     *
+     * @param tmpReq - DeleteQualitySchedulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQualitySchedulesResponse
+     *
+     * @param DeleteQualitySchedulesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteQualitySchedulesResponse
+     */
+    public function deleteQualitySchedulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteQualitySchedulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteQualitySchedules',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteQualitySchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除质量调度对象。
+     *
+     * @param request - DeleteQualitySchedulesRequest
+     *
+     * @returns DeleteQualitySchedulesResponse
+     *
+     * @param DeleteQualitySchedulesRequest $request
+     *
+     * @return DeleteQualitySchedulesResponse
+     */
+    public function deleteQualitySchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualitySchedulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除质量模板对象。
+     *
+     * @param tmpReq - DeleteQualityTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQualityTemplatesResponse
+     *
+     * @param DeleteQualityTemplatesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteQualityTemplatesResponse
+     */
+    public function deleteQualityTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteQualityTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteQualityTemplates',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteQualityTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除质量模板对象。
+     *
+     * @param request - DeleteQualityTemplatesRequest
+     *
+     * @returns DeleteQualityTemplatesResponse
+     *
+     * @param DeleteQualityTemplatesRequest $request
+     *
+     * @return DeleteQualityTemplatesResponse
+     */
+    public function deleteQualityTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除质量监控对象。
+     *
+     * @param tmpReq - DeleteQualityWatchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQualityWatchesResponse
+     *
+     * @param DeleteQualityWatchesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteQualityWatchesResponse
+     */
+    public function deleteQualityWatchesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteQualityWatchesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteQualityWatches',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteQualityWatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除质量监控对象。
+     *
+     * @param request - DeleteQualityWatchesRequest
+     *
+     * @returns DeleteQualityWatchesResponse
+     *
+     * @param DeleteQualityWatchesRequest $request
+     *
+     * @return DeleteQualityWatchesResponse
+     */
+    public function deleteQualityWatches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQualityWatchesWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除注册血缘。
      *
      * @param tmpReq - DeleteRegisterLineageRequest
@@ -3647,6 +4983,741 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRowPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据分类。
+     *
+     * @param tmpReq - DeleteSecurityClassifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityClassifyResponse
+     *
+     * @param DeleteSecurityClassifyRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSecurityClassifyResponse
+     */
+    public function deleteSecurityClassifyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteSecurityClassifyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityClassify',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityClassifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据分类。
+     *
+     * @param request - DeleteSecurityClassifyRequest
+     *
+     * @returns DeleteSecurityClassifyResponse
+     *
+     * @param DeleteSecurityClassifyRequest $request
+     *
+     * @return DeleteSecurityClassifyResponse
+     */
+    public function deleteSecurityClassify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityClassifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据分类目录。
+     *
+     * @param tmpReq - DeleteSecurityClassifyCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityClassifyCatalogResponse
+     *
+     * @param DeleteSecurityClassifyCatalogRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteSecurityClassifyCatalogResponse
+     */
+    public function deleteSecurityClassifyCatalogWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteSecurityClassifyCatalogShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityClassifyCatalog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityClassifyCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据分类目录。
+     *
+     * @param request - DeleteSecurityClassifyCatalogRequest
+     *
+     * @returns DeleteSecurityClassifyCatalogResponse
+     *
+     * @param DeleteSecurityClassifyCatalogRequest $request
+     *
+     * @return DeleteSecurityClassifyCatalogResponse
+     */
+    public function deleteSecurityClassifyCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityClassifyCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除安全识别结果。
+     *
+     * @param tmpReq - DeleteSecurityIdentifyResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityIdentifyResultsResponse
+     *
+     * @param DeleteSecurityIdentifyResultsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteSecurityIdentifyResultsResponse
+     */
+    public function deleteSecurityIdentifyResultsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteSecurityIdentifyResultsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityIdentifyResults',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityIdentifyResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除安全识别结果。
+     *
+     * @param request - DeleteSecurityIdentifyResultsRequest
+     *
+     * @returns DeleteSecurityIdentifyResultsResponse
+     *
+     * @param DeleteSecurityIdentifyResultsRequest $request
+     *
+     * @return DeleteSecurityIdentifyResultsResponse
+     */
+    public function deleteSecurityIdentifyResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityIdentifyResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据分级。
+     *
+     * @param tmpReq - DeleteSecurityLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityLevelResponse
+     *
+     * @param DeleteSecurityLevelRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSecurityLevelResponse
+     */
+    public function deleteSecurityLevelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteSecurityLevelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityLevel',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据分级。
+     *
+     * @param request - DeleteSecurityLevelRequest
+     *
+     * @returns DeleteSecurityLevelResponse
+     *
+     * @param DeleteSecurityLevelRequest $request
+     *
+     * @return DeleteSecurityLevelResponse
+     */
+    public function deleteSecurityLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除标准。
+     *
+     * @param tmpReq - DeleteStandardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardResponse
+     *
+     * @param DeleteStandardRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteStandardResponse
+     */
+    public function deleteStandardWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteStandardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandard',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除标准。
+     *
+     * @param request - DeleteStandardRequest
+     *
+     * @returns DeleteStandardResponse
+     *
+     * @param DeleteStandardRequest $request
+     *
+     * @return DeleteStandardResponse
+     */
+    public function deleteStandard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除无效映射关系。
+     *
+     * @param tmpReq - DeleteStandardInValidMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardInValidMappingResponse
+     *
+     * @param DeleteStandardInValidMappingRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteStandardInValidMappingResponse
+     */
+    public function deleteStandardInValidMappingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteStandardInValidMappingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandardInValidMapping',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardInValidMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除无效映射关系。
+     *
+     * @param request - DeleteStandardInValidMappingRequest
+     *
+     * @returns DeleteStandardInValidMappingResponse
+     *
+     * @param DeleteStandardInValidMappingRequest $request
+     *
+     * @return DeleteStandardInValidMappingResponse
+     */
+    public function deleteStandardInValidMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardInValidMappingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据标准码表。
+     *
+     * @param request - DeleteStandardLookupTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardLookupTableResponse
+     *
+     * @param DeleteStandardLookupTableRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteStandardLookupTableResponse
+     */
+    public function deleteStandardLookupTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandardLookupTable',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardLookupTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据标准码表。
+     *
+     * @param request - DeleteStandardLookupTableRequest
+     *
+     * @returns DeleteStandardLookupTableResponse
+     *
+     * @param DeleteStandardLookupTableRequest $request
+     *
+     * @return DeleteStandardLookupTableResponse
+     */
+    public function deleteStandardLookupTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardLookupTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除标准关联关系。
+     *
+     * @param tmpReq - DeleteStandardRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardRelationsResponse
+     *
+     * @param DeleteStandardRelationsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteStandardRelationsResponse
+     */
+    public function deleteStandardRelationsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteStandardRelationsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandardRelations',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除标准关联关系。
+     *
+     * @param request - DeleteStandardRelationsRequest
+     *
+     * @returns DeleteStandardRelationsResponse
+     *
+     * @param DeleteStandardRelationsRequest $request
+     *
+     * @return DeleteStandardRelationsResponse
+     */
+    public function deleteStandardRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除标准集。
+     *
+     * @param request - DeleteStandardSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardSetResponse
+     *
+     * @param DeleteStandardSetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteStandardSetResponse
+     */
+    public function deleteStandardSetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandardSet',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除标准集。
+     *
+     * @param request - DeleteStandardSetRequest
+     *
+     * @returns DeleteStandardSetResponse
+     *
+     * @param DeleteStandardSetRequest $request
+     *
+     * @return DeleteStandardSetResponse
+     */
+    public function deleteStandardSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除有效映射关系。
+     *
+     * @param tmpReq - DeleteStandardValidMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardValidMappingResponse
+     *
+     * @param DeleteStandardValidMappingRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteStandardValidMappingResponse
+     */
+    public function deleteStandardValidMappingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteStandardValidMappingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandardValidMapping',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardValidMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除有效映射关系。
+     *
+     * @param request - DeleteStandardValidMappingRequest
+     *
+     * @returns DeleteStandardValidMappingResponse
+     *
+     * @param DeleteStandardValidMappingRequest $request
+     *
+     * @return DeleteStandardValidMappingResponse
+     */
+    public function deleteStandardValidMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardValidMappingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据标准词根。
+     *
+     * @param request - DeleteStandardWordRootRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStandardWordRootResponse
+     *
+     * @param DeleteStandardWordRootRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteStandardWordRootResponse
+     */
+    public function deleteStandardWordRootWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStandardWordRoot',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStandardWordRootResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据标准词根。
+     *
+     * @param request - DeleteStandardWordRootRequest
+     *
+     * @returns DeleteStandardWordRootResponse
+     *
+     * @param DeleteStandardWordRootRequest $request
+     *
+     * @return DeleteStandardWordRootResponse
+     */
+    public function deleteStandardWordRoot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStandardWordRootWithOptions($request, $runtime);
     }
 
     /**
@@ -3919,6 +5990,83 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeManualNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 运行触发式节点。
+     *
+     * @param request - ExecuteTriggerNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteTriggerNodeResponse
+     *
+     * @param ExecuteTriggerNodeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExecuteTriggerNodeResponse
+     */
+    public function executeTriggerNodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizDate) {
+            @$query['BizDate'] = $request->bizDate;
+        }
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->index) {
+            @$query['Index'] = $request->index;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteTriggerNode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteTriggerNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 运行触发式节点。
+     *
+     * @param request - ExecuteTriggerNodeRequest
+     *
+     * @returns ExecuteTriggerNodeResponse
+     *
+     * @param ExecuteTriggerNodeRequest $request
+     *
+     * @return ExecuteTriggerNodeResponse
+     */
+    public function executeTriggerNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeTriggerNodeWithOptions($request, $runtime);
     }
 
     /**
@@ -4332,6 +6480,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 根据资产对象GUID查询映射关系。
+     *
+     * @param tmpReq - GetAssetMappingRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetMappingRelationsResponse
+     *
+     * @param GetAssetMappingRelationsRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAssetMappingRelationsResponse
+     */
+    public function getAssetMappingRelationsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAssetMappingRelationsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetMappingQuery) {
+            $request->assetMappingQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetMappingQuery, 'AssetMappingQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->assetMappingQueryShrink) {
+            @$body['AssetMappingQuery'] = $request->assetMappingQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAssetMappingRelations',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetMappingRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据资产对象GUID查询映射关系。
+     *
+     * @param request - GetAssetMappingRelationsRequest
+     *
+     * @returns GetAssetMappingRelationsResponse
+     *
+     * @param GetAssetMappingRelationsRequest $request
+     *
+     * @return GetAssetMappingRelationsResponse
+     */
+    public function getAssetMappingRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetMappingRelationsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取离线计算任务详情。
      *
      * @param request - GetBatchTaskInfoRequest
@@ -4601,6 +6818,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBatchTaskVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据归属资产GUID查询映射关系。
+     *
+     * @param tmpReq - GetBelongAssetMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBelongAssetMappingResponse
+     *
+     * @param GetBelongAssetMappingRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetBelongAssetMappingResponse
+     */
+    public function getBelongAssetMappingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetBelongAssetMappingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetMappingQuery) {
+            $request->assetMappingQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetMappingQuery, 'AssetMappingQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->assetMappingQueryShrink) {
+            @$body['AssetMappingQuery'] = $request->assetMappingQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetBelongAssetMapping',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBelongAssetMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据归属资产GUID查询映射关系。
+     *
+     * @param request - GetBelongAssetMappingRequest
+     *
+     * @returns GetBelongAssetMappingResponse
+     *
+     * @param GetBelongAssetMappingRequest $request
+     *
+     * @return GetBelongAssetMappingResponse
+     */
+    public function getBelongAssetMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBelongAssetMappingWithOptions($request, $runtime);
     }
 
     /**
@@ -7459,6 +9745,681 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 通过监控对象ID获取告警设置。
+     *
+     * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityAlertOfAllRuleScopeByWatchIdResponse
+     *
+     * @param GetQualityAlertOfAllRuleScopeByWatchIdRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
+     */
+    public function getQualityAlertOfAllRuleScopeByWatchIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->watchId) {
+            @$query['WatchId'] = $request->watchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityAlertOfAllRuleScopeByWatchId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityAlertOfAllRuleScopeByWatchIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过监控对象ID获取告警设置。
+     *
+     * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
+     *
+     * @returns GetQualityAlertOfAllRuleScopeByWatchIdResponse
+     *
+     * @param GetQualityAlertOfAllRuleScopeByWatchIdRequest $request
+     *
+     * @return GetQualityAlertOfAllRuleScopeByWatchIdResponse
+     */
+    public function getQualityAlertOfAllRuleScopeByWatchId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityAlertOfAllRuleScopeByWatchIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取质量规则对象。
+     *
+     * @param request - GetQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityRuleResponse
+     *
+     * @param GetQualityRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetQualityRuleResponse
+     */
+    public function getQualityRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityRule',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质量规则对象。
+     *
+     * @param request - GetQualityRuleRequest
+     *
+     * @returns GetQualityRuleResponse
+     *
+     * @param GetQualityRuleRequest $request
+     *
+     * @return GetQualityRuleResponse
+     */
+    public function getQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取质量任务对象详情。
+     *
+     * @param request - GetQualityRuleTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityRuleTaskResponse
+     *
+     * @param GetQualityRuleTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetQualityRuleTaskResponse
+     */
+    public function getQualityRuleTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->ruleTaskId) {
+            @$query['RuleTaskId'] = $request->ruleTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityRuleTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityRuleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质量任务对象详情。
+     *
+     * @param request - GetQualityRuleTaskRequest
+     *
+     * @returns GetQualityRuleTaskResponse
+     *
+     * @param GetQualityRuleTaskRequest $request
+     *
+     * @return GetQualityRuleTaskResponse
+     */
+    public function getQualityRuleTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityRuleTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取质量任务对象日志内容。
+     *
+     * @param request - GetQualityRuleTaskLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityRuleTaskLogResponse
+     *
+     * @param GetQualityRuleTaskLogRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetQualityRuleTaskLogResponse
+     */
+    public function getQualityRuleTaskLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->ruleTaskId) {
+            @$query['RuleTaskId'] = $request->ruleTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityRuleTaskLog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityRuleTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质量任务对象日志内容。
+     *
+     * @param request - GetQualityRuleTaskLogRequest
+     *
+     * @returns GetQualityRuleTaskLogResponse
+     *
+     * @param GetQualityRuleTaskLogRequest $request
+     *
+     * @return GetQualityRuleTaskLogResponse
+     */
+    public function getQualityRuleTaskLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityRuleTaskLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取质量调度对象。
+     *
+     * @param request - GetQualityScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityScheduleResponse
+     *
+     * @param GetQualityScheduleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetQualityScheduleResponse
+     */
+    public function getQualityScheduleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualitySchedule',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质量调度对象。
+     *
+     * @param request - GetQualityScheduleRequest
+     *
+     * @returns GetQualityScheduleResponse
+     *
+     * @param GetQualityScheduleRequest $request
+     *
+     * @return GetQualityScheduleResponse
+     */
+    public function getQualitySchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityScheduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过监控对象ID获取调度设置列表。
+     *
+     * @param request - GetQualitySchedulesByWatchIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualitySchedulesByWatchIdResponse
+     *
+     * @param GetQualitySchedulesByWatchIdRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetQualitySchedulesByWatchIdResponse
+     */
+    public function getQualitySchedulesByWatchIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->watchId) {
+            @$query['WatchId'] = $request->watchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualitySchedulesByWatchId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualitySchedulesByWatchIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过监控对象ID获取调度设置列表。
+     *
+     * @param request - GetQualitySchedulesByWatchIdRequest
+     *
+     * @returns GetQualitySchedulesByWatchIdResponse
+     *
+     * @param GetQualitySchedulesByWatchIdRequest $request
+     *
+     * @return GetQualitySchedulesByWatchIdResponse
+     */
+    public function getQualitySchedulesByWatchId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualitySchedulesByWatchIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取质量模板对象。
+     *
+     * @param request - GetQualityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityTemplateResponse
+     *
+     * @param GetQualityTemplateRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetQualityTemplateResponse
+     */
+    public function getQualityTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质量模板对象。
+     *
+     * @param request - GetQualityTemplateRequest
+     *
+     * @returns GetQualityTemplateResponse
+     *
+     * @param GetQualityTemplateRequest $request
+     *
+     * @return GetQualityTemplateResponse
+     */
+    public function getQualityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取质量监控对象。
+     *
+     * @param request - GetQualityWatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityWatchResponse
+     *
+     * @param GetQualityWatchRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetQualityWatchResponse
+     */
+    public function getQualityWatchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityWatch',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityWatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取质量监控对象。
+     *
+     * @param request - GetQualityWatchRequest
+     *
+     * @returns GetQualityWatchResponse
+     *
+     * @param GetQualityWatchRequest $request
+     *
+     * @return GetQualityWatchResponse
+     */
+    public function getQualityWatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityWatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+     *
+     * @param request - GetQualityWatchByObjectIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityWatchByObjectIdResponse
+     *
+     * @param GetQualityWatchByObjectIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetQualityWatchByObjectIdResponse
+     */
+    public function getQualityWatchByObjectIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->watchObjectId) {
+            @$query['WatchObjectId'] = $request->watchObjectId;
+        }
+
+        if (null !== $request->watchType) {
+            @$query['WatchType'] = $request->watchType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityWatchByObjectId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityWatchByObjectIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+     *
+     * @param request - GetQualityWatchByObjectIdRequest
+     *
+     * @returns GetQualityWatchByObjectIdResponse
+     *
+     * @param GetQualityWatchByObjectIdRequest $request
+     *
+     * @return GetQualityWatchByObjectIdResponse
+     */
+    public function getQualityWatchByObjectId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityWatchByObjectIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取监控任务对象。
+     *
+     * @param request - GetQualityWatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityWatchTaskResponse
+     *
+     * @param GetQualityWatchTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetQualityWatchTaskResponse
+     */
+    public function getQualityWatchTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->watchTaskId) {
+            @$query['WatchTaskId'] = $request->watchTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityWatchTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityWatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取监控任务对象。
+     *
+     * @param request - GetQualityWatchTaskRequest
+     *
+     * @returns GetQualityWatchTaskResponse
+     *
+     * @param GetQualityWatchTaskRequest $request
+     *
+     * @return GetQualityWatchTaskResponse
+     */
+    public function getQualityWatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityWatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取监控任务对象的日志内容。
+     *
+     * @param request - GetQualityWatchTaskLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityWatchTaskLogResponse
+     *
+     * @param GetQualityWatchTaskLogRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetQualityWatchTaskLogResponse
+     */
+    public function getQualityWatchTaskLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->watchTaskId) {
+            @$query['WatchTaskId'] = $request->watchTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualityWatchTaskLog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualityWatchTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取监控任务对象的日志内容。
+     *
+     * @param request - GetQualityWatchTaskLogRequest
+     *
+     * @returns GetQualityWatchTaskLogResponse
+     *
+     * @param GetQualityWatchTaskLogRequest $request
+     *
+     * @return GetQualityWatchTaskLogResponse
+     */
+    public function getQualityWatchTaskLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualityWatchTaskLogWithOptions($request, $runtime);
+    }
+
+    /**
      * 根据集群ID获取集群版本.
      *
      * @param request - GetQueueEngineVersionByEnvRequest
@@ -7670,6 +10631,250 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 获取数据分类详情。
+     *
+     * @param request - GetSecurityClassifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityClassifyResponse
+     *
+     * @param GetSecurityClassifyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSecurityClassifyResponse
+     */
+    public function getSecurityClassifyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityClassify',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityClassifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据分类详情。
+     *
+     * @param request - GetSecurityClassifyRequest
+     *
+     * @returns GetSecurityClassifyResponse
+     *
+     * @param GetSecurityClassifyRequest $request
+     *
+     * @return GetSecurityClassifyResponse
+     */
+    public function getSecurityClassify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityClassifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取识别结果详情。
+     *
+     * @param request - GetSecurityIdentifyResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityIdentifyResultResponse
+     *
+     * @param GetSecurityIdentifyResultRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetSecurityIdentifyResultResponse
+     */
+    public function getSecurityIdentifyResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityIdentifyResult',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityIdentifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取识别结果详情。
+     *
+     * @param request - GetSecurityIdentifyResultRequest
+     *
+     * @returns GetSecurityIdentifyResultResponse
+     *
+     * @param GetSecurityIdentifyResultRequest $request
+     *
+     * @return GetSecurityIdentifyResultResponse
+     */
+    public function getSecurityIdentifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityIdentifyResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据分级详情。
+     *
+     * @param request - GetSecurityLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityLevelResponse
+     *
+     * @param GetSecurityLevelRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSecurityLevelResponse
+     */
+    public function getSecurityLevelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->index) {
+            @$query['Index'] = $request->index;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityLevel',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据分级详情。
+     *
+     * @param request - GetSecurityLevelRequest
+     *
+     * @returns GetSecurityLevelResponse
+     *
+     * @param GetSecurityLevelRequest $request
+     *
+     * @return GetSecurityLevelResponse
+     */
+    public function getSecurityLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过密钥名称获取密钥值。
+     *
+     * @param request - GetSecuritySecretKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecuritySecretKeyResponse
+     *
+     * @param GetSecuritySecretKeyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSecuritySecretKeyResponse
+     */
+    public function getSecuritySecretKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecuritySecretKey',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecuritySecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过密钥名称获取密钥值。
+     *
+     * @param request - GetSecuritySecretKeyRequest
+     *
+     * @returns GetSecuritySecretKeyResponse
+     *
+     * @param GetSecuritySecretKeyRequest $request
+     *
+     * @return GetSecuritySecretKeyResponse
+     */
+    public function getSecuritySecretKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecuritySecretKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取计算源对应集群的spark客户信息.
      *
      * @param request - GetSparkLocalClientInfoRequest
@@ -7732,6 +10937,416 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSparkLocalClientInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取标准详情。
+     *
+     * @param tmpReq - GetStandardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandardResponse
+     *
+     * @param GetStandardRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetStandardResponse
+     */
+    public function getStandardWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetStandardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->standardGetQuery) {
+            $request->standardGetQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->standardGetQuery, 'StandardGetQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->standardGetQueryShrink) {
+            @$body['StandardGetQuery'] = $request->standardGetQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandard',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取标准详情。
+     *
+     * @param request - GetStandardRequest
+     *
+     * @returns GetStandardResponse
+     *
+     * @param GetStandardRequest $request
+     *
+     * @return GetStandardResponse
+     */
+    public function getStandard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据标准码表详情。
+     *
+     * @param request - GetStandardLookupTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandardLookupTableResponse
+     *
+     * @param GetStandardLookupTableRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetStandardLookupTableResponse
+     */
+    public function getStandardLookupTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->nullable) {
+            @$query['Nullable'] = $request->nullable;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandardLookupTable',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandardLookupTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据标准码表详情。
+     *
+     * @param request - GetStandardLookupTableRequest
+     *
+     * @returns GetStandardLookupTableResponse
+     *
+     * @param GetStandardLookupTableRequest $request
+     *
+     * @return GetStandardLookupTableResponse
+     */
+    public function getStandardLookupTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardLookupTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取标准集详情。
+     *
+     * @param request - GetStandardSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandardSetResponse
+     *
+     * @param GetStandardSetRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetStandardSetResponse
+     */
+    public function getStandardSetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->nullable) {
+            @$query['Nullable'] = $request->nullable;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandardSet',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandardSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取标准集详情。
+     *
+     * @param request - GetStandardSetRequest
+     *
+     * @returns GetStandardSetResponse
+     *
+     * @param GetStandardSetRequest $request
+     *
+     * @return GetStandardSetResponse
+     */
+    public function getStandardSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询目录下按照标准类型统计标准数目。
+     *
+     * @param tmpReq - GetStandardStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandardStatisticsResponse
+     *
+     * @param GetStandardStatisticsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetStandardStatisticsResponse
+     */
+    public function getStandardStatisticsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetStandardStatisticsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statisticsQuery) {
+            $request->statisticsQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statisticsQuery, 'StatisticsQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->statisticsQueryShrink) {
+            @$body['StatisticsQuery'] = $request->statisticsQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandardStatistics',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandardStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询目录下按照标准类型统计标准数目。
+     *
+     * @param request - GetStandardStatisticsRequest
+     *
+     * @returns GetStandardStatisticsResponse
+     *
+     * @param GetStandardStatisticsRequest $request
+     *
+     * @return GetStandardStatisticsResponse
+     */
+    public function getStandardStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据标准模板详情。
+     *
+     * @param tmpReq - GetStandardTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandardTemplateResponse
+     *
+     * @param GetStandardTemplateRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetStandardTemplateResponse
+     */
+    public function getStandardTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetStandardTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterQuery) {
+            $request->filterQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterQuery, 'FilterQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->nullable) {
+            @$query['Nullable'] = $request->nullable;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->filterQueryShrink) {
+            @$body['FilterQuery'] = $request->filterQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandardTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据标准模板详情。
+     *
+     * @param request - GetStandardTemplateRequest
+     *
+     * @returns GetStandardTemplateResponse
+     *
+     * @param GetStandardTemplateRequest $request
+     *
+     * @return GetStandardTemplateResponse
+     */
+    public function getStandardTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据标准词根详情。
+     *
+     * @param request - GetStandardWordRootRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandardWordRootResponse
+     *
+     * @param GetStandardWordRootRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetStandardWordRootResponse
+     */
+    public function getStandardWordRootWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nullable) {
+            @$query['Nullable'] = $request->nullable;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandardWordRoot',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandardWordRootResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据标准词根详情。
+     *
+     * @param request - GetStandardWordRootRequest
+     *
+     * @returns GetStandardWordRootResponse
+     *
+     * @param GetStandardWordRootRequest $request
+     *
+     * @return GetStandardWordRootResponse
+     */
+    public function getStandardWordRoot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandardWordRootWithOptions($request, $runtime);
     }
 
     /**
@@ -7999,6 +11614,144 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 查询资产表字段血缘信息。
+     *
+     * @param tmpReq - GetTableColumnLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableColumnLineagesResponse
+     *
+     * @param GetTableColumnLineagesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetTableColumnLineagesResponse
+     */
+    public function getTableColumnLineagesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetTableColumnLineagesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterQuery) {
+            $request->filterQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterQuery, 'FilterQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
+        }
+
+        $body = [];
+        if (null !== $request->filterQueryShrink) {
+            @$body['FilterQuery'] = $request->filterQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableColumnLineages',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableColumnLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资产表字段血缘信息。
+     *
+     * @param request - GetTableColumnLineagesRequest
+     *
+     * @returns GetTableColumnLineagesResponse
+     *
+     * @param GetTableColumnLineagesRequest $request
+     *
+     * @return GetTableColumnLineagesResponse
+     */
+    public function getTableColumnLineages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableColumnLineagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资产清单中Dataphin表的字段。
+     *
+     * @param request - GetTableColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableColumnsResponse
+     *
+     * @param GetTableColumnsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTableColumnsResponse
+     */
+    public function getTableColumnsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableColumns',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资产清单中Dataphin表的字段。
+     *
+     * @param request - GetTableColumnsRequest
+     *
+     * @returns GetTableColumnsResponse
+     *
+     * @param GetTableColumnsRequest $request
+     *
+     * @return GetTableColumnsResponse
+     */
+    public function getTableColumns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableColumnsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询表血缘信息.
      *
      * @param tmpReq - GetTableLineageByTaskIdRequest
@@ -8065,6 +11818,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableLineageByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资产表血缘信息。
+     *
+     * @param tmpReq - GetTableLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableLineagesResponse
+     *
+     * @param GetTableLineagesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTableLineagesResponse
+     */
+    public function getTableLineagesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetTableLineagesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterQuery) {
+            $request->filterQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterQuery, 'FilterQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
+        }
+
+        $body = [];
+        if (null !== $request->filterQueryShrink) {
+            @$body['FilterQuery'] = $request->filterQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableLineages',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资产表血缘信息。
+     *
+     * @param request - GetTableLineagesRequest
+     *
+     * @returns GetTableLineagesResponse
+     *
+     * @param GetTableLineagesRequest $request
+     *
+     * @return GetTableLineagesResponse
+     */
+    public function getTableLineages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableLineagesWithOptions($request, $runtime);
     }
 
     /**
@@ -10341,6 +14167,351 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 分页查询质量规则任务。
+     *
+     * @param tmpReq - ListQualityRuleTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityRuleTasksResponse
+     *
+     * @param ListQualityRuleTasksRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListQualityRuleTasksResponse
+     */
+    public function listQualityRuleTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListQualityRuleTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListQualityRuleTasks',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQualityRuleTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询质量规则任务。
+     *
+     * @param request - ListQualityRuleTasksRequest
+     *
+     * @returns ListQualityRuleTasksResponse
+     *
+     * @param ListQualityRuleTasksRequest $request
+     *
+     * @return ListQualityRuleTasksResponse
+     */
+    public function listQualityRuleTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityRuleTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询质量规则。
+     *
+     * @param tmpReq - ListQualityRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityRulesResponse
+     *
+     * @param ListQualityRulesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListQualityRulesResponse
+     */
+    public function listQualityRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListQualityRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListQualityRules',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询质量规则。
+     *
+     * @param request - ListQualityRulesRequest
+     *
+     * @returns ListQualityRulesResponse
+     *
+     * @param ListQualityRulesRequest $request
+     *
+     * @return ListQualityRulesResponse
+     */
+    public function listQualityRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询质量模板。
+     *
+     * @param tmpReq - ListQualityTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityTemplatesResponse
+     *
+     * @param ListQualityTemplatesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListQualityTemplatesResponse
+     */
+    public function listQualityTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListQualityTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListQualityTemplates',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQualityTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询质量模板。
+     *
+     * @param request - ListQualityTemplatesRequest
+     *
+     * @returns ListQualityTemplatesResponse
+     *
+     * @param ListQualityTemplatesRequest $request
+     *
+     * @return ListQualityTemplatesResponse
+     */
+    public function listQualityTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询质量监控任务。
+     *
+     * @param tmpReq - ListQualityWatchTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityWatchTasksResponse
+     *
+     * @param ListQualityWatchTasksRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListQualityWatchTasksResponse
+     */
+    public function listQualityWatchTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListQualityWatchTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListQualityWatchTasks',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQualityWatchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询质量监控任务。
+     *
+     * @param request - ListQualityWatchTasksRequest
+     *
+     * @returns ListQualityWatchTasksResponse
+     *
+     * @param ListQualityWatchTasksRequest $request
+     *
+     * @return ListQualityWatchTasksResponse
+     */
+    public function listQualityWatchTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityWatchTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询质量监控对象。
+     *
+     * @param tmpReq - ListQualityWatchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityWatchesResponse
+     *
+     * @param ListQualityWatchesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListQualityWatchesResponse
+     */
+    public function listQualityWatchesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListQualityWatchesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListQualityWatches',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQualityWatchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询质量监控对象。
+     *
+     * @param request - ListQualityWatchesRequest
+     *
+     * @returns ListQualityWatchesResponse
+     *
+     * @param ListQualityWatchesRequest $request
+     *
+     * @return ListQualityWatchesResponse
+     */
+    public function listQualityWatches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQualityWatchesWithOptions($request, $runtime);
+    }
+
+    /**
      * 分页获取权限操作列表.
      *
      * @param tmpReq - ListResourcePermissionOperationLogRequest
@@ -10617,6 +14788,213 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 分页查询安全识别结果的识别记录。
+     *
+     * @param tmpReq - ListSecurityIdentifyRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecurityIdentifyRecordsResponse
+     *
+     * @param ListSecurityIdentifyRecordsRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListSecurityIdentifyRecordsResponse
+     */
+    public function listSecurityIdentifyRecordsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSecurityIdentifyRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSecurityIdentifyRecords',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecurityIdentifyRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询安全识别结果的识别记录。
+     *
+     * @param request - ListSecurityIdentifyRecordsRequest
+     *
+     * @returns ListSecurityIdentifyRecordsResponse
+     *
+     * @param ListSecurityIdentifyRecordsRequest $request
+     *
+     * @return ListSecurityIdentifyRecordsResponse
+     */
+    public function listSecurityIdentifyRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityIdentifyRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询安全识别结果。
+     *
+     * @param tmpReq - ListSecurityIdentifyResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecurityIdentifyResultsResponse
+     *
+     * @param ListSecurityIdentifyResultsRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListSecurityIdentifyResultsResponse
+     */
+    public function listSecurityIdentifyResultsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSecurityIdentifyResultsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSecurityIdentifyResults',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecurityIdentifyResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询安全识别结果。
+     *
+     * @param request - ListSecurityIdentifyResultsRequest
+     *
+     * @returns ListSecurityIdentifyResultsResponse
+     *
+     * @param ListSecurityIdentifyResultsRequest $request
+     *
+     * @return ListSecurityIdentifyResultsResponse
+     */
+    public function listSecurityIdentifyResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityIdentifyResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询标准列表。
+     *
+     * @param tmpReq - ListStandardsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStandardsResponse
+     *
+     * @param ListStandardsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListStandardsResponse
+     */
+    public function listStandardsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListStandardsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListStandards',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStandardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询标准列表。
+     *
+     * @param request - ListStandardsRequest
+     *
+     * @returns ListStandardsResponse
+     *
+     * @param ListStandardsRequest $request
+     *
+     * @return ListStandardsResponse
+     */
+    public function listStandards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStandardsWithOptions($request, $runtime);
+    }
+
+    /**
      * 分页获取待发布记录列表.
      *
      * @param tmpReq - ListSubmitRecordsRequest
@@ -10683,6 +15061,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSubmitRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询查询资产表元数据。
+     *
+     * @param tmpReq - ListTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTablesResponse
+     */
+    public function listTablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTables',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询查询资产表元数据。
+     *
+     * @param request - ListTablesRequest
+     *
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $request
+     *
+     * @return ListTablesResponse
+     */
+    public function listTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTablesWithOptions($request, $runtime);
     }
 
     /**
@@ -11185,6 +15632,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 下线标准。
+     *
+     * @param tmpReq - OfflineStandardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineStandardResponse
+     *
+     * @param OfflineStandardRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OfflineStandardResponse
+     */
+    public function offlineStandardWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new OfflineStandardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->offlineCommand) {
+            $request->offlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->offlineCommandShrink) {
+            @$body['OfflineCommand'] = $request->offlineCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineStandard',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineStandardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下线标准。
+     *
+     * @param request - OfflineStandardRequest
+     *
+     * @returns OfflineStandardResponse
+     *
+     * @param OfflineStandardRequest $request
+     *
+     * @return OfflineStandardResponse
+     */
+    public function offlineStandard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlineStandardWithOptions($request, $runtime);
+    }
+
+    /**
      * 上线业务实体。
      *
      * @param tmpReq - OnlineBizEntityRequest
@@ -11607,6 +16123,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 发布标准。
+     *
+     * @param tmpReq - PublishStandardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishStandardResponse
+     *
+     * @param PublishStandardRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PublishStandardResponse
+     */
+    public function publishStandardWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PublishStandardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->publishCommand) {
+            $request->publishCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->publishCommandShrink) {
+            @$body['PublishCommand'] = $request->publishCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishStandard',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishStandardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布标准。
+     *
+     * @param request - PublishStandardRequest
+     *
+     * @returns PublishStandardResponse
+     *
+     * @param PublishStandardRequest $request
+     *
+     * @return PublishStandardResponse
+     */
+    public function publishStandard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishStandardWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除项目成员。
      *
      * @param tmpReq - RemoveProjectMemberRequest
@@ -11677,6 +16262,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeProjectMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除质量规则和调度的绑定关系。
+     *
+     * @param tmpReq - RemoveQualityRuleSchedulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveQualityRuleSchedulesResponse
+     *
+     * @param RemoveQualityRuleSchedulesRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RemoveQualityRuleSchedulesResponse
+     */
+    public function removeQualityRuleSchedulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RemoveQualityRuleSchedulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveQualityRuleSchedules',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveQualityRuleSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除质量规则和调度的绑定关系。
+     *
+     * @param request - RemoveQualityRuleSchedulesRequest
+     *
+     * @returns RemoveQualityRuleSchedulesResponse
+     *
+     * @param RemoveQualityRuleSchedulesRequest $request
+     *
+     * @return RemoveQualityRuleSchedulesResponse
+     */
+    public function removeQualityRuleSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeQualityRuleSchedulesWithOptions($request, $runtime);
     }
 
     /**
@@ -12306,6 +16960,144 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量提交规则任务,支持试跑。
+     *
+     * @param tmpReq - SubmitQualityRuleTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitQualityRuleTasksResponse
+     *
+     * @param SubmitQualityRuleTasksRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitQualityRuleTasksResponse
+     */
+    public function submitQualityRuleTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitQualityRuleTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitQualityRuleTasks',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitQualityRuleTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量提交规则任务,支持试跑。
+     *
+     * @param request - SubmitQualityRuleTasksRequest
+     *
+     * @returns SubmitQualityRuleTasksResponse
+     *
+     * @param SubmitQualityRuleTasksRequest $request
+     *
+     * @return SubmitQualityRuleTasksResponse
+     */
+    public function submitQualityRuleTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitQualityRuleTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量提交监控对象校验任务。
+     *
+     * @param tmpReq - SubmitQualityWatchTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitQualityWatchTasksResponse
+     *
+     * @param SubmitQualityWatchTasksRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitQualityWatchTasksResponse
+     */
+    public function submitQualityWatchTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitQualityWatchTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitQualityWatchTasks',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitQualityWatchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量提交监控对象校验任务。
+     *
+     * @param request - SubmitQualityWatchTasksRequest
+     *
+     * @returns SubmitQualityWatchTasksResponse
+     *
+     * @param SubmitQualityWatchTasksRequest $request
+     *
+     * @return SubmitQualityWatchTasksResponse
+     */
+    public function submitQualityWatchTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitQualityWatchTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -13571,6 +18363,144 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 批量开启或关闭质量规则。
+     *
+     * @param tmpReq - UpdateQualityRuleSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQualityRuleSwitchResponse
+     *
+     * @param UpdateQualityRuleSwitchRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateQualityRuleSwitchResponse
+     */
+    public function updateQualityRuleSwitchWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateQualityRuleSwitchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateQualityRuleSwitch',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateQualityRuleSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量开启或关闭质量规则。
+     *
+     * @param request - UpdateQualityRuleSwitchRequest
+     *
+     * @returns UpdateQualityRuleSwitchResponse
+     *
+     * @param UpdateQualityRuleSwitchRequest $request
+     *
+     * @return UpdateQualityRuleSwitchResponse
+     */
+    public function updateQualityRuleSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateQualityRuleSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量开启或关闭质量监控对象。
+     *
+     * @param tmpReq - UpdateQualityWatchSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQualityWatchSwitchResponse
+     *
+     * @param UpdateQualityWatchSwitchRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateQualityWatchSwitchResponse
+     */
+    public function updateQualityWatchSwitchWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateQualityWatchSwitchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateQualityWatchSwitch',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateQualityWatchSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量开启或关闭质量监控对象。
+     *
+     * @param request - UpdateQualityWatchSwitchRequest
+     *
+     * @returns UpdateQualityWatchSwitchResponse
+     *
+     * @param UpdateQualityWatchSwitchRequest $request
+     *
+     * @return UpdateQualityWatchSwitchResponse
+     */
+    public function updateQualityWatchSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateQualityWatchSwitchWithOptions($request, $runtime);
+    }
+
+    /**
      * 编辑资源文件。
      *
      * @param tmpReq - UpdateResourceRequest
@@ -13706,6 +18636,696 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRowPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据分类。
+     *
+     * @param tmpReq - UpdateSecurityClassifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityClassifyResponse
+     *
+     * @param UpdateSecurityClassifyRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSecurityClassifyResponse
+     */
+    public function updateSecurityClassifyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSecurityClassifyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityClassify',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityClassifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据分类。
+     *
+     * @param request - UpdateSecurityClassifyRequest
+     *
+     * @returns UpdateSecurityClassifyResponse
+     *
+     * @param UpdateSecurityClassifyRequest $request
+     *
+     * @return UpdateSecurityClassifyResponse
+     */
+    public function updateSecurityClassify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityClassifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据分类目录。
+     *
+     * @param tmpReq - UpdateSecurityClassifyCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityClassifyCatalogResponse
+     *
+     * @param UpdateSecurityClassifyCatalogRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateSecurityClassifyCatalogResponse
+     */
+    public function updateSecurityClassifyCatalogWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSecurityClassifyCatalogShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityClassifyCatalog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityClassifyCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据分类目录。
+     *
+     * @param request - UpdateSecurityClassifyCatalogRequest
+     *
+     * @returns UpdateSecurityClassifyCatalogResponse
+     *
+     * @param UpdateSecurityClassifyCatalogRequest $request
+     *
+     * @return UpdateSecurityClassifyCatalogResponse
+     */
+    public function updateSecurityClassifyCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityClassifyCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新安全识别结果的生效状态。
+     *
+     * @param tmpReq - UpdateSecurityIdentifyResultStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityIdentifyResultStatusResponse
+     *
+     * @param UpdateSecurityIdentifyResultStatusRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateSecurityIdentifyResultStatusResponse
+     */
+    public function updateSecurityIdentifyResultStatusWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSecurityIdentifyResultStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityIdentifyResultStatus',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityIdentifyResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新安全识别结果的生效状态。
+     *
+     * @param request - UpdateSecurityIdentifyResultStatusRequest
+     *
+     * @returns UpdateSecurityIdentifyResultStatusResponse
+     *
+     * @param UpdateSecurityIdentifyResultStatusRequest $request
+     *
+     * @return UpdateSecurityIdentifyResultStatusResponse
+     */
+    public function updateSecurityIdentifyResultStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityIdentifyResultStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过分级顺序更新数据分级。
+     *
+     * @param tmpReq - UpdateSecurityLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityLevelResponse
+     *
+     * @param UpdateSecurityLevelRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateSecurityLevelResponse
+     */
+    public function updateSecurityLevelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSecurityLevelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityLevel',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过分级顺序更新数据分级。
+     *
+     * @param request - UpdateSecurityLevelRequest
+     *
+     * @returns UpdateSecurityLevelResponse
+     *
+     * @param UpdateSecurityLevelRequest $request
+     *
+     * @return UpdateSecurityLevelResponse
+     */
+    public function updateSecurityLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新标准。
+     *
+     * @param tmpReq - UpdateStandardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStandardResponse
+     *
+     * @param UpdateStandardRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateStandardResponse
+     */
+    public function updateStandardWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStandardShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStandard',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStandardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新标准。
+     *
+     * @param request - UpdateStandardRequest
+     *
+     * @returns UpdateStandardResponse
+     *
+     * @param UpdateStandardRequest $request
+     *
+     * @return UpdateStandardResponse
+     */
+    public function updateStandard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据标准码表。
+     *
+     * @param tmpReq - UpdateStandardLookupTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStandardLookupTableResponse
+     *
+     * @param UpdateStandardLookupTableRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateStandardLookupTableResponse
+     */
+    public function updateStandardLookupTableWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStandardLookupTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStandardLookupTable',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStandardLookupTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据标准码表。
+     *
+     * @param request - UpdateStandardLookupTableRequest
+     *
+     * @returns UpdateStandardLookupTableResponse
+     *
+     * @param UpdateStandardLookupTableRequest $request
+     *
+     * @return UpdateStandardLookupTableResponse
+     */
+    public function updateStandardLookupTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardLookupTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 将标准映射关系置为无效映射。
+     *
+     * @param tmpReq - UpdateStandardMappingToInvalidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStandardMappingToInvalidResponse
+     *
+     * @param UpdateStandardMappingToInvalidRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateStandardMappingToInvalidResponse
+     */
+    public function updateStandardMappingToInvalidWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStandardMappingToInvalidShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStandardMappingToInvalid',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStandardMappingToInvalidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将标准映射关系置为无效映射。
+     *
+     * @param request - UpdateStandardMappingToInvalidRequest
+     *
+     * @returns UpdateStandardMappingToInvalidResponse
+     *
+     * @param UpdateStandardMappingToInvalidRequest $request
+     *
+     * @return UpdateStandardMappingToInvalidResponse
+     */
+    public function updateStandardMappingToInvalid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardMappingToInvalidWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新标准集。
+     *
+     * @param tmpReq - UpdateStandardSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStandardSetResponse
+     *
+     * @param UpdateStandardSetRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateStandardSetResponse
+     */
+    public function updateStandardSetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStandardSetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStandardSet',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStandardSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新标准集。
+     *
+     * @param request - UpdateStandardSetRequest
+     *
+     * @returns UpdateStandardSetResponse
+     *
+     * @param UpdateStandardSetRequest $request
+     *
+     * @return UpdateStandardSetResponse
+     */
+    public function updateStandardSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据标准模板。
+     *
+     * @param tmpReq - UpdateStandardTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStandardTemplateResponse
+     *
+     * @param UpdateStandardTemplateRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateStandardTemplateResponse
+     */
+    public function updateStandardTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStandardTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStandardTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStandardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据标准模板。
+     *
+     * @param request - UpdateStandardTemplateRequest
+     *
+     * @returns UpdateStandardTemplateResponse
+     *
+     * @param UpdateStandardTemplateRequest $request
+     *
+     * @return UpdateStandardTemplateResponse
+     */
+    public function updateStandardTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据标准词根。
+     *
+     * @param tmpReq - UpdateStandardWordRootRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStandardWordRootResponse
+     *
+     * @param UpdateStandardWordRootRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateStandardWordRootResponse
+     */
+    public function updateStandardWordRootWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateStandardWordRootShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStandardWordRoot',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStandardWordRootResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据标准词根。
+     *
+     * @param request - UpdateStandardWordRootRequest
+     *
+     * @returns UpdateStandardWordRootResponse
+     *
+     * @param UpdateStandardWordRootRequest $request
+     *
+     * @return UpdateStandardWordRootResponse
+     */
+    public function updateStandardWordRoot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateStandardWordRootWithOptions($request, $runtime);
     }
 
     /**
@@ -14047,5 +19667,350 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserGroupSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建或者修改质量规则。
+     *
+     * @param tmpReq - UpsertQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertQualityRuleResponse
+     *
+     * @param UpsertQualityRuleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpsertQualityRuleResponse
+     */
+    public function upsertQualityRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpsertQualityRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upsertCommand) {
+            $request->upsertCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upsertCommand, 'UpsertCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->upsertCommandShrink) {
+            @$body['UpsertCommand'] = $request->upsertCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertQualityRule',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建或者修改质量规则。
+     *
+     * @param request - UpsertQualityRuleRequest
+     *
+     * @returns UpsertQualityRuleResponse
+     *
+     * @param UpsertQualityRuleRequest $request
+     *
+     * @return UpsertQualityRuleResponse
+     */
+    public function upsertQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建或者修改调度设置。
+     *
+     * @param tmpReq - UpsertQualityScheduleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertQualityScheduleResponse
+     *
+     * @param UpsertQualityScheduleRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpsertQualityScheduleResponse
+     */
+    public function upsertQualityScheduleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpsertQualityScheduleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upsertCommand) {
+            $request->upsertCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upsertCommand, 'UpsertCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->upsertCommandShrink) {
+            @$body['UpsertCommand'] = $request->upsertCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertQualitySchedule',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertQualityScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建或者修改调度设置。
+     *
+     * @param request - UpsertQualityScheduleRequest
+     *
+     * @returns UpsertQualityScheduleResponse
+     *
+     * @param UpsertQualityScheduleRequest $request
+     *
+     * @return UpsertQualityScheduleResponse
+     */
+    public function upsertQualitySchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertQualityScheduleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建或者修改质量模板。
+     *
+     * @param tmpReq - UpsertQualityTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertQualityTemplateResponse
+     *
+     * @param UpsertQualityTemplateRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpsertQualityTemplateResponse
+     */
+    public function upsertQualityTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpsertQualityTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upsertCommand) {
+            $request->upsertCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upsertCommand, 'UpsertCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->upsertCommandShrink) {
+            @$body['UpsertCommand'] = $request->upsertCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertQualityTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertQualityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建或者修改质量模板。
+     *
+     * @param request - UpsertQualityTemplateRequest
+     *
+     * @returns UpsertQualityTemplateResponse
+     *
+     * @param UpsertQualityTemplateRequest $request
+     *
+     * @return UpsertQualityTemplateResponse
+     */
+    public function upsertQualityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertQualityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+     *
+     * @param tmpReq - UpsertQualityWatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertQualityWatchResponse
+     *
+     * @param UpsertQualityWatchRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpsertQualityWatchResponse
+     */
+    public function upsertQualityWatchWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpsertQualityWatchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upsertCommand) {
+            $request->upsertCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upsertCommand, 'UpsertCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->upsertCommandShrink) {
+            @$body['UpsertCommand'] = $request->upsertCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertQualityWatch',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertQualityWatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+     *
+     * @param request - UpsertQualityWatchRequest
+     *
+     * @returns UpsertQualityWatchResponse
+     *
+     * @param UpsertQualityWatchRequest $request
+     *
+     * @return UpsertQualityWatchResponse
+     */
+    public function upsertQualityWatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertQualityWatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新建或者修改监控对象告警设置。
+     *
+     * @param tmpReq - UpsertQualityWatchAlertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertQualityWatchAlertResponse
+     *
+     * @param UpsertQualityWatchAlertRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpsertQualityWatchAlertResponse
+     */
+    public function upsertQualityWatchAlertWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpsertQualityWatchAlertShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->upsertCommand) {
+            $request->upsertCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->upsertCommand, 'UpsertCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->upsertCommandShrink) {
+            @$body['UpsertCommand'] = $request->upsertCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertQualityWatchAlert',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertQualityWatchAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建或者修改监控对象告警设置。
+     *
+     * @param request - UpsertQualityWatchAlertRequest
+     *
+     * @returns UpsertQualityWatchAlertResponse
+     *
+     * @param UpsertQualityWatchAlertRequest $request
+     *
+     * @return UpsertQualityWatchAlertResponse
+     */
+    public function upsertQualityWatchAlert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertQualityWatchAlertWithOptions($request, $runtime);
     }
 }
