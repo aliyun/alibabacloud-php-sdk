@@ -36,6 +36,11 @@ class ListCouponUsageRequest extends Model
     /**
      * @var int
      */
+    public $t2PartnerUid;
+
+    /**
+     * @var int
+     */
     public $uid;
     protected $_name = [
         'account' => 'Account',
@@ -43,6 +48,7 @@ class ListCouponUsageRequest extends Model
         'page' => 'Page',
         'pageSize' => 'PageSize',
         'status' => 'Status',
+        't2PartnerUid' => 'T2PartnerUid',
         'uid' => 'Uid',
     ];
 
@@ -72,6 +78,10 @@ class ListCouponUsageRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->t2PartnerUid) {
+            $res['T2PartnerUid'] = $this->t2PartnerUid;
         }
 
         if (null !== $this->uid) {
@@ -107,6 +117,10 @@ class ListCouponUsageRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['T2PartnerUid'])) {
+            $model->t2PartnerUid = $map['T2PartnerUid'];
         }
 
         if (isset($map['Uid'])) {

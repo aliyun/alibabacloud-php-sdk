@@ -14,6 +14,11 @@ class IssueCouponForCustomerRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $applicationReason;
+
+    /**
      * @var int
      */
     public $couponTemplateId;
@@ -29,6 +34,7 @@ class IssueCouponForCustomerRequest extends Model
     public $uidlist;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'applicationReason' => 'ApplicationReason',
         'couponTemplateId' => 'CouponTemplateId',
         'isUseBenefit' => 'IsUseBenefit',
         'uidlist' => 'Uidlist',
@@ -44,6 +50,10 @@ class IssueCouponForCustomerRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->applicationReason) {
+            $res['ApplicationReason'] = $this->applicationReason;
         }
 
         if (null !== $this->couponTemplateId) {
@@ -71,6 +81,10 @@ class IssueCouponForCustomerRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['ApplicationReason'])) {
+            $model->applicationReason = $map['ApplicationReason'];
         }
 
         if (isset($map['CouponTemplateId'])) {

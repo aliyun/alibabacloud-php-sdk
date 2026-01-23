@@ -1912,6 +1912,10 @@ class Agency extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
+        if (null !== $request->applicationReason) {
+            @$query['ApplicationReason'] = $request->applicationReason;
+        }
+
         if (null !== $request->couponTemplateId) {
             @$query['CouponTemplateId'] = $request->couponTemplateId;
         }
@@ -2045,6 +2049,10 @@ class Agency extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->t2PartnerUid) {
+            @$query['T2PartnerUid'] = $request->t2PartnerUid;
         }
 
         if (null !== $request->uid) {
