@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBClusterAndNodesParametersRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $clearBinlog;
+
+    /**
      * @var string
      */
     public $DBClusterId;
@@ -68,6 +73,7 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
      */
     public $standbyClusterIdListNeedToSync;
     protected $_name = [
+        'clearBinlog' => 'ClearBinlog',
         'DBClusterId' => 'DBClusterId',
         'DBNodeIds' => 'DBNodeIds',
         'fromTimeService' => 'FromTimeService',
@@ -90,6 +96,10 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clearBinlog) {
+            $res['ClearBinlog'] = $this->clearBinlog;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -149,6 +159,10 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClearBinlog'])) {
+            $model->clearBinlog = $map['ClearBinlog'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

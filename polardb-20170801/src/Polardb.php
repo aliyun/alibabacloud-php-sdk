@@ -19712,6 +19712,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clearBinlog) {
+            @$query['ClearBinlog'] = $request->clearBinlog;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -20795,6 +20799,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clearBinlog) {
+            @$query['ClearBinlog'] = $request->clearBinlog;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
