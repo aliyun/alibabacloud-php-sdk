@@ -9,7 +9,6 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponseBody\po
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponseBody\policies\entityGroup;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponseBody\policies\managedInfo;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponseBody\policies\subAddonRelease;
-use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponseBody\policies\tags;
 
 class policies extends Model
 {
@@ -69,11 +68,6 @@ class policies extends Model
     public $subAddonRelease;
 
     /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $userId;
@@ -94,7 +88,6 @@ class policies extends Model
         'regionId' => 'regionId',
         'resourceGroupId' => 'resourceGroupId',
         'subAddonRelease' => 'subAddonRelease',
-        'tags' => 'tags',
         'userId' => 'userId',
         'workspace' => 'workspace',
     ];
@@ -112,9 +105,6 @@ class policies extends Model
         }
         if (null !== $this->subAddonRelease) {
             $this->subAddonRelease->validate();
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -164,17 +154,6 @@ class policies extends Model
 
         if (null !== $this->subAddonRelease) {
             $res['subAddonRelease'] = null !== $this->subAddonRelease ? $this->subAddonRelease->toArray($noStream) : $this->subAddonRelease;
-        }
-
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->userId) {
@@ -238,17 +217,6 @@ class policies extends Model
 
         if (isset($map['subAddonRelease'])) {
             $model->subAddonRelease = subAddonRelease::fromMap($map['subAddonRelease']);
-        }
-
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['userId'])) {

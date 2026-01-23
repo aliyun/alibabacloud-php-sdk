@@ -53,6 +53,11 @@ class ListPrometheusInstancesRequest extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'filterRegionIds' => 'filterRegionIds',
         'maxResults' => 'maxResults',
@@ -63,6 +68,7 @@ class ListPrometheusInstancesRequest extends Model
         'resourceType' => 'resourceType',
         'tag' => 'tag',
         'version' => 'version',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -119,6 +125,10 @@ class ListPrometheusInstancesRequest extends Model
             $res['version'] = $this->version;
         }
 
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class ListPrometheusInstancesRequest extends Model
 
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;

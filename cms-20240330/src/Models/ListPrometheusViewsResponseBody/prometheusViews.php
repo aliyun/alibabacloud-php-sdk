@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusViewsResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusViewsResponseBody\prometheusViews\tags;
 
 class prometheusViews extends Model
 {
@@ -52,22 +51,12 @@ class prometheusViews extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $resourceType;
 
     /**
      * @var string
      */
     public $status;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
 
     /**
      * @var string
@@ -92,10 +81,8 @@ class prometheusViews extends Model
         'prometheusViewId' => 'prometheusViewId',
         'prometheusViewName' => 'prometheusViewName',
         'regionId' => 'regionId',
-        'resourceGroupId' => 'resourceGroupId',
         'resourceType' => 'resourceType',
         'status' => 'status',
-        'tags' => 'tags',
         'userId' => 'userId',
         'version' => 'version',
         'workspace' => 'workspace',
@@ -103,9 +90,6 @@ class prometheusViews extends Model
 
     public function validate()
     {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
         parent::validate();
     }
 
@@ -144,27 +128,12 @@ class prometheusViews extends Model
             $res['regionId'] = $this->regionId;
         }
 
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
-        }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
-        }
-
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->userId) {
@@ -222,27 +191,12 @@ class prometheusViews extends Model
             $model->regionId = $map['regionId'];
         }
 
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
-        }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
-        }
-
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['userId'])) {

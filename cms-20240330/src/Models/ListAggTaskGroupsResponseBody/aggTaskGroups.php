@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsResponseBody\aggTaskGroups\tags;
 
 class aggTaskGroups extends Model
 {
@@ -85,11 +84,6 @@ class aggTaskGroups extends Model
     public $status;
 
     /**
-     * @var tags[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $targetPrometheusId;
@@ -119,7 +113,6 @@ class aggTaskGroups extends Model
         'scheduleTimeExpr' => 'scheduleTimeExpr',
         'sourcePrometheusId' => 'sourcePrometheusId',
         'status' => 'status',
-        'tags' => 'tags',
         'targetPrometheusId' => 'targetPrometheusId',
         'toTime' => 'toTime',
         'updateTime' => 'updateTime',
@@ -127,9 +120,6 @@ class aggTaskGroups extends Model
 
     public function validate()
     {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
         parent::validate();
     }
 
@@ -194,17 +184,6 @@ class aggTaskGroups extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
-        }
-
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->targetPrometheusId) {
@@ -288,17 +267,6 @@ class aggTaskGroups extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
-        }
-
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['targetPrometheusId'])) {

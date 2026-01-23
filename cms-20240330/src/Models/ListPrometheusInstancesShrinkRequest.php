@@ -52,6 +52,11 @@ class ListPrometheusInstancesShrinkRequest extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'filterRegionIds' => 'filterRegionIds',
         'maxResults' => 'maxResults',
@@ -62,6 +67,7 @@ class ListPrometheusInstancesShrinkRequest extends Model
         'resourceType' => 'resourceType',
         'tagShrink' => 'tag',
         'version' => 'version',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class ListPrometheusInstancesShrinkRequest extends Model
 
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class ListPrometheusInstancesShrinkRequest extends Model
 
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;

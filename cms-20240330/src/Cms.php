@@ -5550,6 +5550,10 @@ class Cms extends OpenApiClient
             @$query['version'] = $request->version;
         }
 
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

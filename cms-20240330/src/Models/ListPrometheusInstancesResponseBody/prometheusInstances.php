@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusInstancesResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusInstancesResponseBody\prometheusInstances\tags;
 
 class prometheusInstances extends Model
 {
@@ -52,11 +51,6 @@ class prometheusInstances extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $resourceType;
 
     /**
@@ -68,11 +62,6 @@ class prometheusInstances extends Model
      * @var string[]
      */
     public $supportAuthTypes;
-
-    /**
-     * @var tags[]
-     */
-    public $tags;
 
     /**
      * @var string
@@ -97,11 +86,9 @@ class prometheusInstances extends Model
         'prometheusInstanceId' => 'prometheusInstanceId',
         'prometheusInstanceName' => 'prometheusInstanceName',
         'regionId' => 'regionId',
-        'resourceGroupId' => 'resourceGroupId',
         'resourceType' => 'resourceType',
         'status' => 'status',
         'supportAuthTypes' => 'supportAuthTypes',
-        'tags' => 'tags',
         'userId' => 'userId',
         'version' => 'version',
         'workspace' => 'workspace',
@@ -111,9 +98,6 @@ class prometheusInstances extends Model
     {
         if (\is_array($this->supportAuthTypes)) {
             Model::validateArray($this->supportAuthTypes);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -153,10 +137,6 @@ class prometheusInstances extends Model
             $res['regionId'] = $this->regionId;
         }
 
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
-        }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -171,17 +151,6 @@ class prometheusInstances extends Model
                 $n1 = 0;
                 foreach ($this->supportAuthTypes as $item1) {
                     $res['supportAuthTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -242,10 +211,6 @@ class prometheusInstances extends Model
             $model->regionId = $map['regionId'];
         }
 
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
-        }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
@@ -260,17 +225,6 @@ class prometheusInstances extends Model
                 $n1 = 0;
                 foreach ($map['supportAuthTypes'] as $item1) {
                     $model->supportAuthTypes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = tags::fromMap($item1);
                     ++$n1;
                 }
             }
