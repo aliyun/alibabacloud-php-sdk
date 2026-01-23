@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Datahub\V20240620\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetGroupResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetProjectRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetProjectResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\GetRecordsRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\GetRecordsResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetSchemaRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetSchemaResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetSubscriptionRequest;
@@ -29,6 +31,9 @@ use AlibabaCloud\SDK\Datahub\V20240620\Models\ListSubscriptionsRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\ListSubscriptionsResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\ListTopicsResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\PutRecordsRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\PutRecordsResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\PutRecordsShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -249,6 +254,75 @@ class Datahub extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 读取Topic数据.
+     *
+     * @param request - GetRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRecordsResponse
+     *
+     * @param GetRecordsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetRecordsResponse
+     */
+    public function getRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->shardId) {
+            @$query['ShardId'] = $request->shardId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecords',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取Topic数据.
+     *
+     * @param request - GetRecordsRequest
+     *
+     * @returns GetRecordsResponse
+     *
+     * @param GetRecordsRequest $request
+     *
+     * @return GetRecordsResponse
+     */
+    public function getRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -898,5 +972,80 @@ class Datahub extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTopicsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 写入数据.
+     *
+     * @param tmpReq - PutRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutRecordsResponse
+     *
+     * @param PutRecordsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PutRecordsResponse
+     */
+    public function putRecordsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PutRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->records) {
+            $request->recordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->records, 'Records', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->recordsShrink) {
+            @$query['Records'] = $request->recordsShrink;
+        }
+
+        if (null !== $request->shardId) {
+            @$query['ShardId'] = $request->shardId;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PutRecords',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 写入数据.
+     *
+     * @param request - PutRecordsRequest
+     *
+     * @returns PutRecordsResponse
+     *
+     * @param PutRecordsRequest $request
+     *
+     * @return PutRecordsResponse
+     */
+    public function putRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putRecordsWithOptions($request, $runtime);
     }
 }
