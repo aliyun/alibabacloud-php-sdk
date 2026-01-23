@@ -11,6 +11,11 @@ class ListDatasetFileMetasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $datasetFileMetaIdsShrink;
+
+    /**
+     * @var string
+     */
     public $datasetVersion;
 
     /**
@@ -143,6 +148,7 @@ class ListDatasetFileMetasShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'datasetFileMetaIdsShrink' => 'DatasetFileMetaIds',
         'datasetVersion' => 'DatasetVersion',
         'endFileUpdateTime' => 'EndFileUpdateTime',
         'endTagUpdateTime' => 'EndTagUpdateTime',
@@ -180,6 +186,10 @@ class ListDatasetFileMetasShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->datasetFileMetaIdsShrink) {
+            $res['DatasetFileMetaIds'] = $this->datasetFileMetaIdsShrink;
+        }
+
         if (null !== $this->datasetVersion) {
             $res['DatasetVersion'] = $this->datasetVersion;
         }
@@ -299,6 +309,10 @@ class ListDatasetFileMetasShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatasetFileMetaIds'])) {
+            $model->datasetFileMetaIdsShrink = $map['DatasetFileMetaIds'];
+        }
+
         if (isset($map['DatasetVersion'])) {
             $model->datasetVersion = $map['DatasetVersion'];
         }

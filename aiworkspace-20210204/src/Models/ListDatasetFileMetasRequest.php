@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListDatasetFileMetasRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $datasetFileMetaIds;
+
+    /**
      * @var string
      */
     public $datasetVersion;
@@ -143,6 +148,7 @@ class ListDatasetFileMetasRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'datasetFileMetaIds' => 'DatasetFileMetaIds',
         'datasetVersion' => 'DatasetVersion',
         'endFileUpdateTime' => 'EndFileUpdateTime',
         'endTagUpdateTime' => 'EndTagUpdateTime',
@@ -174,6 +180,9 @@ class ListDatasetFileMetasRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->datasetFileMetaIds)) {
+            Model::validateArray($this->datasetFileMetaIds);
+        }
         if (\is_array($this->queryContentTypeIncludeAny)) {
             Model::validateArray($this->queryContentTypeIncludeAny);
         }
@@ -195,6 +204,17 @@ class ListDatasetFileMetasRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->datasetFileMetaIds) {
+            if (\is_array($this->datasetFileMetaIds)) {
+                $res['DatasetFileMetaIds'] = [];
+                $n1 = 0;
+                foreach ($this->datasetFileMetaIds as $item1) {
+                    $res['DatasetFileMetaIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->datasetVersion) {
             $res['DatasetVersion'] = $this->datasetVersion;
         }
@@ -349,6 +369,17 @@ class ListDatasetFileMetasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatasetFileMetaIds'])) {
+            if (!empty($map['DatasetFileMetaIds'])) {
+                $model->datasetFileMetaIds = [];
+                $n1 = 0;
+                foreach ($map['DatasetFileMetaIds'] as $item1) {
+                    $model->datasetFileMetaIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DatasetVersion'])) {
             $model->datasetVersion = $map['DatasetVersion'];
         }

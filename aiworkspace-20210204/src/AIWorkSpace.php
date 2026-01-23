@@ -5100,6 +5100,10 @@ class AIWorkSpace extends OpenApiClient
         $tmpReq->validate();
         $request = new ListDatasetFileMetasShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetFileMetaIds) {
+            $request->datasetFileMetaIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetFileMetaIds, 'DatasetFileMetaIds', 'simple');
+        }
+
         if (null !== $tmpReq->queryContentTypeIncludeAny) {
             $request->queryContentTypeIncludeAnyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryContentTypeIncludeAny, 'QueryContentTypeIncludeAny', 'simple');
         }
@@ -5121,6 +5125,10 @@ class AIWorkSpace extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->datasetFileMetaIdsShrink) {
+            @$query['DatasetFileMetaIds'] = $request->datasetFileMetaIdsShrink;
+        }
+
         if (null !== $request->datasetVersion) {
             @$query['DatasetVersion'] = $request->datasetVersion;
         }
