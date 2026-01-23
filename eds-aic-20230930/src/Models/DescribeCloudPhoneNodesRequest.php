@@ -44,6 +44,11 @@ class DescribeCloudPhoneNodesRequest extends Model
     public $nodeName;
 
     /**
+     * @var string[]
+     */
+    public $nodeNameList;
+
+    /**
      * @var string
      */
     public $serverType;
@@ -60,6 +65,7 @@ class DescribeCloudPhoneNodesRequest extends Model
         'nextToken' => 'NextToken',
         'nodeIds' => 'NodeIds',
         'nodeName' => 'NodeName',
+        'nodeNameList' => 'NodeNameList',
         'serverType' => 'ServerType',
         'status' => 'Status',
     ];
@@ -68,6 +74,9 @@ class DescribeCloudPhoneNodesRequest extends Model
     {
         if (\is_array($this->nodeIds)) {
             Model::validateArray($this->nodeIds);
+        }
+        if (\is_array($this->nodeNameList)) {
+            Model::validateArray($this->nodeNameList);
         }
         parent::validate();
     }
@@ -108,6 +117,17 @@ class DescribeCloudPhoneNodesRequest extends Model
 
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+
+        if (null !== $this->nodeNameList) {
+            if (\is_array($this->nodeNameList)) {
+                $res['NodeNameList'] = [];
+                $n1 = 0;
+                foreach ($this->nodeNameList as $item1) {
+                    $res['NodeNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->serverType) {
@@ -162,6 +182,17 @@ class DescribeCloudPhoneNodesRequest extends Model
 
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+
+        if (isset($map['NodeNameList'])) {
+            if (!empty($map['NodeNameList'])) {
+                $model->nodeNameList = [];
+                $n1 = 0;
+                foreach ($map['NodeNameList'] as $item1) {
+                    $model->nodeNameList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ServerType'])) {

@@ -113,6 +113,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GenerateCoordinationCodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetNetworkBlacklistRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetNetworkBlacklistResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairRequest;
@@ -174,6 +176,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendSystemPropertyTemplateRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendSystemPropertyTemplateResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetAdbSecureResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetNetworkBlacklistRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\SetNetworkBlacklistResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartInstanceAdbRequest;
@@ -2775,6 +2779,10 @@ class Edsaic extends OpenApiClient
             @$query['NodeName'] = $request->nodeName;
         }
 
+        if (null !== $request->nodeNameList) {
+            @$query['NodeNameList'] = $request->nodeNameList;
+        }
+
         if (null !== $request->serverType) {
             @$query['ServerType'] = $request->serverType;
         }
@@ -4382,6 +4390,63 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstancePropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 网络黑名单列表查询.
+     *
+     * @param request - GetNetworkBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkBlacklistResponse
+     *
+     * @param GetNetworkBlacklistRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetNetworkBlacklistResponse
+     */
+    public function getNetworkBlacklistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNetworkBlacklist',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNetworkBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 网络黑名单列表查询.
+     *
+     * @param request - GetNetworkBlacklistRequest
+     *
+     * @returns GetNetworkBlacklistResponse
+     *
+     * @param GetNetworkBlacklistRequest $request
+     *
+     * @return GetNetworkBlacklistResponse
+     */
+    public function getNetworkBlacklist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNetworkBlacklistWithOptions($request, $runtime);
     }
 
     /**
@@ -6509,6 +6574,67 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAdbSecureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置网络黑名单.
+     *
+     * @param request - SetNetworkBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetNetworkBlacklistResponse
+     *
+     * @param SetNetworkBlacklistRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetNetworkBlacklistResponse
+     */
+    public function setNetworkBlacklistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainBlacklist) {
+            @$query['DomainBlacklist'] = $request->domainBlacklist;
+        }
+
+        if (null !== $request->ipBlacklist) {
+            @$query['IpBlacklist'] = $request->ipBlacklist;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetNetworkBlacklist',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetNetworkBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置网络黑名单.
+     *
+     * @param request - SetNetworkBlacklistRequest
+     *
+     * @returns SetNetworkBlacklistResponse
+     *
+     * @param SetNetworkBlacklistRequest $request
+     *
+     * @return SetNetworkBlacklistResponse
+     */
+    public function setNetworkBlacklist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setNetworkBlacklistWithOptions($request, $runtime);
     }
 
     /**
