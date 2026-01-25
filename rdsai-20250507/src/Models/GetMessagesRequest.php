@@ -16,6 +16,11 @@ class GetMessagesRequest extends Model
     /**
      * @var string
      */
+    public $eventMode;
+
+    /**
+     * @var string
+     */
     public $firstId;
 
     /**
@@ -24,6 +29,7 @@ class GetMessagesRequest extends Model
     public $limit;
     protected $_name = [
         'conversationId' => 'ConversationId',
+        'eventMode' => 'EventMode',
         'firstId' => 'FirstId',
         'limit' => 'Limit',
     ];
@@ -38,6 +44,10 @@ class GetMessagesRequest extends Model
         $res = [];
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
+        }
+
+        if (null !== $this->eventMode) {
+            $res['EventMode'] = $this->eventMode;
         }
 
         if (null !== $this->firstId) {
@@ -61,6 +71,10 @@ class GetMessagesRequest extends Model
         $model = new self();
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
+        }
+
+        if (isset($map['EventMode'])) {
+            $model->eventMode = $map['EventMode'];
         }
 
         if (isset($map['FirstId'])) {

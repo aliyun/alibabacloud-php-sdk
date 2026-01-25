@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponseBody\data\events;
 
 class data extends Model
 {
@@ -22,6 +23,11 @@ class data extends Model
      * @var string
      */
     public $createdAt;
+
+    /**
+     * @var events[]
+     */
+    public $events;
 
     /**
      * @var string
@@ -46,6 +52,7 @@ class data extends Model
         'answer' => 'Answer',
         'conversationId' => 'ConversationId',
         'createdAt' => 'CreatedAt',
+        'events' => 'Events',
         'feedback' => 'Feedback',
         'id' => 'Id',
         'query' => 'Query',
@@ -54,6 +61,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
         if (\is_array($this->retrieverResources)) {
             Model::validateArray($this->retrieverResources);
         }
@@ -73,6 +83,17 @@ class data extends Model
 
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->events) {
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->feedback) {
@@ -119,6 +140,17 @@ class data extends Model
 
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
+        }
+
+        if (isset($map['Events'])) {
+            if (!empty($map['Events'])) {
+                $model->events = [];
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1] = events::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Feedback'])) {

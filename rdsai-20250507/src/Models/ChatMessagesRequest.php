@@ -15,6 +15,11 @@ class ChatMessagesRequest extends Model
     public $conversationId;
 
     /**
+     * @var string
+     */
+    public $eventMode;
+
+    /**
      * @var inputs
      */
     public $inputs;
@@ -30,6 +35,7 @@ class ChatMessagesRequest extends Model
     public $query;
     protected $_name = [
         'conversationId' => 'ConversationId',
+        'eventMode' => 'EventMode',
         'inputs' => 'Inputs',
         'parentMessageId' => 'ParentMessageId',
         'query' => 'Query',
@@ -48,6 +54,10 @@ class ChatMessagesRequest extends Model
         $res = [];
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
+        }
+
+        if (null !== $this->eventMode) {
+            $res['EventMode'] = $this->eventMode;
         }
 
         if (null !== $this->inputs) {
@@ -75,6 +85,10 @@ class ChatMessagesRequest extends Model
         $model = new self();
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
+        }
+
+        if (isset($map['EventMode'])) {
+            $model->eventMode = $map['EventMode'];
         }
 
         if (isset($map['Inputs'])) {

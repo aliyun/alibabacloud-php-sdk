@@ -59,6 +59,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceRAGConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceRAGConfigShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceSSLRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceSSLResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstancesSSLRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstancesSSLResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstancesSSLShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigShrinkRequest;
@@ -141,6 +144,10 @@ class RdsAi extends OpenApiClient
             @$query['ConversationId'] = $request->conversationId;
         }
 
+        if (null !== $request->eventMode) {
+            @$query['EventMode'] = $request->eventMode;
+        }
+
         if (null !== $request->inputsShrink) {
             @$query['Inputs'] = $request->inputsShrink;
         }
@@ -208,6 +215,10 @@ class RdsAi extends OpenApiClient
         $query = [];
         if (null !== $request->conversationId) {
             @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->eventMode) {
+            @$query['EventMode'] = $request->eventMode;
         }
 
         if (null !== $request->inputsShrink) {
@@ -1475,6 +1486,10 @@ class RdsAi extends OpenApiClient
             @$query['ConversationId'] = $request->conversationId;
         }
 
+        if (null !== $request->eventMode) {
+            @$query['EventMode'] = $request->eventMode;
+        }
+
         if (null !== $request->firstId) {
             @$query['FirstId'] = $request->firstId;
         }
@@ -2124,6 +2139,89 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceStorageConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量修改实例的SSL配置.
+     *
+     * @param tmpReq - ModifyInstancesSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstancesSSLResponse
+     *
+     * @param ModifyInstancesSSLRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstancesSSLResponse
+     */
+    public function modifyInstancesSSLWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyInstancesSSLShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceNames) {
+            $request->instanceNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceNames, 'InstanceNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->CAType) {
+            @$query['CAType'] = $request->CAType;
+        }
+
+        if (null !== $request->instanceNamesShrink) {
+            @$query['InstanceNames'] = $request->instanceNamesShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->SSLEnabled) {
+            @$query['SSLEnabled'] = $request->SSLEnabled;
+        }
+
+        if (null !== $request->serverCert) {
+            @$query['ServerCert'] = $request->serverCert;
+        }
+
+        if (null !== $request->serverKey) {
+            @$query['ServerKey'] = $request->serverKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstancesSSL',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstancesSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量修改实例的SSL配置.
+     *
+     * @param request - ModifyInstancesSSLRequest
+     *
+     * @returns ModifyInstancesSSLResponse
+     *
+     * @param ModifyInstancesSSLRequest $request
+     *
+     * @return ModifyInstancesSSLResponse
+     */
+    public function modifyInstancesSSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstancesSSLWithOptions($request, $runtime);
     }
 
     /**
