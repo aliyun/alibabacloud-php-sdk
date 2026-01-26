@@ -125,6 +125,9 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDirQuotasRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDirQuotasResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesetsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesetsResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsAssociatedHpnZonesRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsAssociatedHpnZonesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsAssociatedHpnZonesShrinkRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsRequest;
@@ -2311,7 +2314,7 @@ class NAS extends OpenApiClient
      * Creates a file system.
      *
      * @remarks
-     *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
+     *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
      * *   Before you create a file system, you must complete real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
      * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
      *
@@ -2431,7 +2434,7 @@ class NAS extends OpenApiClient
      * Creates a file system.
      *
      * @remarks
-     *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
+     *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.aliyun.com/price/product?#/nas/detail).
      * *   Before you create a file system, you must complete real-name verification. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/48263.html).
      * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
      *
@@ -2649,8 +2652,9 @@ class NAS extends OpenApiClient
      * Creates a lifecycle policy.
      *
      * @remarks
-     *   You can create lifecycle policies only for General-purpose NAS file systems.
-     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+     *   Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+     * *   Up to 10 Auto and 100 OnDemand lifecycle policies can be created for each CPFS for Lingjun file system.
+     * *   For general-purpose NAS file systems, up to 20 lifecycle policies can be created in each region.
      *
      * @param request - CreateLifecyclePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2728,8 +2732,9 @@ class NAS extends OpenApiClient
      * Creates a lifecycle policy.
      *
      * @remarks
-     *   You can create lifecycle policies only for General-purpose NAS file systems.
-     * *   You can create up to 20 lifecycle policies in each region within an Alibaba Cloud account.
+     *   Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
+     * *   Up to 10 Auto and 100 OnDemand lifecycle policies can be created for each CPFS for Lingjun file system.
+     * *   For general-purpose NAS file systems, up to 20 lifecycle policies can be created in each region.
      *
      * @param request - CreateLifecyclePolicyRequest
      *
@@ -3993,7 +3998,7 @@ class NAS extends OpenApiClient
      * Deletes a lifecycle policy.
      *
      * @remarks
-     * Only General-purpose NAS file systems support this operation.
+     * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
      *
      * @param request - DeleteLifecyclePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4043,7 +4048,7 @@ class NAS extends OpenApiClient
      * Deletes a lifecycle policy.
      *
      * @remarks
-     * Only General-purpose NAS file systems support this operation.
+     * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
      *
      * @param request - DeleteLifecyclePolicyRequest
      *
@@ -4550,10 +4555,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Queries the information about an access point.
+     * Queries a list of access points.
      *
      * @remarks
-     * Only General-purpose Network File System (NFS) file systems support this operation.
+     * Only General-purpose NAS file systems that use the NFS protocol support this operation.
      *
      * @param request - DescribeAccessPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4608,10 +4613,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Queries the information about an access point.
+     * Queries a list of access points.
      *
      * @remarks
-     * Only General-purpose Network File System (NFS) file systems support this operation.
+     * Only General-purpose NAS file systems that use the NFS protocol support this operation.
      *
      * @param request - DescribeAccessPointsRequest
      *
@@ -5478,6 +5483,73 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * 查询文件系统关联的 HpnZone 列表.
+     *
+     * @param tmpReq - DescribeFilesystemsAssociatedHpnZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFilesystemsAssociatedHpnZonesResponse
+     *
+     * @param DescribeFilesystemsAssociatedHpnZonesRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeFilesystemsAssociatedHpnZonesResponse
+     */
+    public function describeFilesystemsAssociatedHpnZonesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeFilesystemsAssociatedHpnZonesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filesystems) {
+            $request->filesystemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filesystems, 'Filesystems', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filesystemsShrink) {
+            @$query['Filesystems'] = $request->filesystemsShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFilesystemsAssociatedHpnZones',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFilesystemsAssociatedHpnZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询文件系统关联的 HpnZone 列表.
+     *
+     * @param request - DescribeFilesystemsAssociatedHpnZonesRequest
+     *
+     * @returns DescribeFilesystemsAssociatedHpnZonesResponse
+     *
+     * @param DescribeFilesystemsAssociatedHpnZonesRequest $request
+     *
+     * @return DescribeFilesystemsAssociatedHpnZonesResponse
+     */
+    public function describeFilesystemsAssociatedHpnZones($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFilesystemsAssociatedHpnZonesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about virtual storage channels associated with a file system.
      *
      * @remarks
@@ -5554,7 +5626,7 @@ class NAS extends OpenApiClient
      * Queries lifecycle policies.
      *
      * @remarks
-     * Only General-purpose NAS file systems support this operation.
+     * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
      *
      * @param request - DescribeLifecyclePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5592,7 +5664,7 @@ class NAS extends OpenApiClient
      * Queries lifecycle policies.
      *
      * @remarks
-     * Only General-purpose NAS file systems support this operation.
+     * Only General-purpose NAS and CPFS for Lingjun file systems support this operation.
      *
      * @param request - DescribeLifecyclePoliciesRequest
      *
@@ -6911,7 +6983,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * 查询特定智能目录.
+     * Queries the information about the created fileset.
+     *
+     * @remarks
+     * Only CPFS V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
      *
      * @param request - GetFilesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6954,7 +7029,10 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * 查询特定智能目录.
+     * Queries the information about the created fileset.
+     *
+     * @remarks
+     * Only CPFS V2.2.0 and CPFS for Lingjun V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
      *
      * @param request - GetFilesetRequest
      *
