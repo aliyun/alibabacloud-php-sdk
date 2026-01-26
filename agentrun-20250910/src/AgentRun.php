@@ -2462,6 +2462,10 @@ class AgentRun extends OpenApiClient
             @$query['agentRuntimeName'] = $request->agentRuntimeName;
         }
 
+        if (null !== $request->discoveryResourceGroupId) {
+            @$query['discoveryResourceGroupId'] = $request->discoveryResourceGroupId;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }

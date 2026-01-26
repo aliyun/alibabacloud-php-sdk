@@ -54,6 +54,11 @@ class UpdateAgentRuntimeInput extends Model
     public $executionRoleArn;
 
     /**
+     * @var string
+     */
+    public $externalAgentEndpointUrl;
+
+    /**
      * @var HealthCheckConfiguration
      */
     public $healthCheckConfiguration;
@@ -69,9 +74,19 @@ class UpdateAgentRuntimeInput extends Model
     public $memory;
 
     /**
+     * @var NASConfig
+     */
+    public $nasConfig;
+
+    /**
      * @var NetworkConfiguration
      */
     public $networkConfiguration;
+
+    /**
+     * @var OSSMountConfig
+     */
+    public $ossMountConfig;
 
     /**
      * @var int
@@ -102,10 +117,13 @@ class UpdateAgentRuntimeInput extends Model
         'description' => 'description',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
+        'externalAgentEndpointUrl' => 'externalAgentEndpointUrl',
         'healthCheckConfiguration' => 'healthCheckConfiguration',
         'logConfiguration' => 'logConfiguration',
         'memory' => 'memory',
+        'nasConfig' => 'nasConfig',
         'networkConfiguration' => 'networkConfiguration',
+        'ossMountConfig' => 'ossMountConfig',
         'port' => 'port',
         'protocolConfiguration' => 'protocolConfiguration',
         'sessionConcurrencyLimitPerInstance' => 'sessionConcurrencyLimitPerInstance',
@@ -129,8 +147,14 @@ class UpdateAgentRuntimeInput extends Model
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
         }
+        if (null !== $this->nasConfig) {
+            $this->nasConfig->validate();
+        }
         if (null !== $this->networkConfiguration) {
             $this->networkConfiguration->validate();
+        }
+        if (null !== $this->ossMountConfig) {
+            $this->ossMountConfig->validate();
         }
         if (null !== $this->protocolConfiguration) {
             $this->protocolConfiguration->validate();
@@ -182,6 +206,10 @@ class UpdateAgentRuntimeInput extends Model
             $res['executionRoleArn'] = $this->executionRoleArn;
         }
 
+        if (null !== $this->externalAgentEndpointUrl) {
+            $res['externalAgentEndpointUrl'] = $this->externalAgentEndpointUrl;
+        }
+
         if (null !== $this->healthCheckConfiguration) {
             $res['healthCheckConfiguration'] = null !== $this->healthCheckConfiguration ? $this->healthCheckConfiguration->toArray($noStream) : $this->healthCheckConfiguration;
         }
@@ -194,8 +222,16 @@ class UpdateAgentRuntimeInput extends Model
             $res['memory'] = $this->memory;
         }
 
+        if (null !== $this->nasConfig) {
+            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
+        }
+
         if (null !== $this->networkConfiguration) {
             $res['networkConfiguration'] = null !== $this->networkConfiguration ? $this->networkConfiguration->toArray($noStream) : $this->networkConfiguration;
+        }
+
+        if (null !== $this->ossMountConfig) {
+            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
         if (null !== $this->port) {
@@ -266,6 +302,10 @@ class UpdateAgentRuntimeInput extends Model
             $model->executionRoleArn = $map['executionRoleArn'];
         }
 
+        if (isset($map['externalAgentEndpointUrl'])) {
+            $model->externalAgentEndpointUrl = $map['externalAgentEndpointUrl'];
+        }
+
         if (isset($map['healthCheckConfiguration'])) {
             $model->healthCheckConfiguration = HealthCheckConfiguration::fromMap($map['healthCheckConfiguration']);
         }
@@ -278,8 +318,16 @@ class UpdateAgentRuntimeInput extends Model
             $model->memory = $map['memory'];
         }
 
+        if (isset($map['nasConfig'])) {
+            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+
         if (isset($map['networkConfiguration'])) {
             $model->networkConfiguration = NetworkConfiguration::fromMap($map['networkConfiguration']);
+        }
+
+        if (isset($map['ossMountConfig'])) {
+            $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
         }
 
         if (isset($map['port'])) {

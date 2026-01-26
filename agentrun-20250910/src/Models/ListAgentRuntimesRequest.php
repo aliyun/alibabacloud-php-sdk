@@ -14,6 +14,11 @@ class ListAgentRuntimesRequest extends Model
     public $agentRuntimeName;
 
     /**
+     * @var string
+     */
+    public $discoveryResourceGroupId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -39,6 +44,7 @@ class ListAgentRuntimesRequest extends Model
     public $status;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
+        'discoveryResourceGroupId' => 'discoveryResourceGroupId',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
@@ -56,6 +62,10 @@ class ListAgentRuntimesRequest extends Model
         $res = [];
         if (null !== $this->agentRuntimeName) {
             $res['agentRuntimeName'] = $this->agentRuntimeName;
+        }
+
+        if (null !== $this->discoveryResourceGroupId) {
+            $res['discoveryResourceGroupId'] = $this->discoveryResourceGroupId;
         }
 
         if (null !== $this->pageNumber) {
@@ -91,6 +101,10 @@ class ListAgentRuntimesRequest extends Model
         $model = new self();
         if (isset($map['agentRuntimeName'])) {
             $model->agentRuntimeName = $map['agentRuntimeName'];
+        }
+
+        if (isset($map['discoveryResourceGroupId'])) {
+            $model->discoveryResourceGroupId = $map['discoveryResourceGroupId'];
         }
 
         if (isset($map['pageNumber'])) {
