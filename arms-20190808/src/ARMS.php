@@ -2933,6 +2933,10 @@ class ARMS extends OpenApiClient
             @$body['Tags'] = $request->tags;
         }
 
+        if (null !== $request->aliyunLang) {
+            @$body['aliyunLang'] = $request->aliyunLang;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -7352,7 +7356,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 查询指定环境实例的废弃指标列表.
+     * Queries the list of discarded metrics of a specified environment instance.
      *
      * @param request - DescribeEnvDropMetricsRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7395,7 +7399,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 查询指定环境实例的废弃指标列表.
+     * Queries the list of discarded metrics of a specified environment instance.
      *
      * @param request - DescribeEnvDropMetricsRuleRequest
      *
@@ -16300,6 +16304,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * 启动报警.
+     *
      * @param request - StartAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16341,6 +16347,8 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * 启动报警.
+     *
      * @param request - StartAlertRequest
      *
      * @returns StartAlertResponse
@@ -17335,7 +17343,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 更新环境实例的废弃指标列表.
+     * Updates a discarded metric rule in the environment.
      *
      * @param request - UpdateEnvDropMetricsRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17388,7 +17396,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 更新环境实例的废弃指标列表.
+     * Updates a discarded metric rule in the environment.
      *
      * @param request - UpdateEnvDropMetricsRuleRequest
      *
@@ -17972,7 +17980,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 更新Prometheus告警规则.
+     * Updates a Prometheus alert rule.
      *
      * @param request - UpdatePrometheusAlertRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18059,7 +18067,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 更新Prometheus告警规则.
+     * Updates a Prometheus alert rule.
      *
      * @param request - UpdatePrometheusAlertRuleRequest
      *

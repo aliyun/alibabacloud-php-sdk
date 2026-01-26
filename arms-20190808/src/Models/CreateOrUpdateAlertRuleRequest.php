@@ -159,6 +159,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $aliyunLang;
     protected $_name = [
         'alertCheckType' => 'AlertCheckType',
         'alertGroup' => 'AlertGroup',
@@ -190,6 +195,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'promQL' => 'PromQL',
         'regionId' => 'RegionId',
         'tags' => 'Tags',
+        'aliyunLang' => 'aliyunLang',
     ];
 
     public function validate()
@@ -340,6 +346,10 @@ class CreateOrUpdateAlertRuleRequest extends Model
             }
         }
 
+        if (null !== $this->aliyunLang) {
+            $res['aliyunLang'] = $this->aliyunLang;
+        }
+
         return $res;
     }
 
@@ -483,6 +493,10 @@ class CreateOrUpdateAlertRuleRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['aliyunLang'])) {
+            $model->aliyunLang = $map['aliyunLang'];
         }
 
         return $model;
