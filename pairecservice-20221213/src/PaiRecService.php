@@ -9965,6 +9965,10 @@ class PaiRecService extends OpenApiClient
             @$body['Partition'] = $request->partition;
         }
 
+        if (null !== $request->partitions) {
+            @$body['Partitions'] = $request->partitions;
+        }
+
         if (null !== $request->skipThresholdCheck) {
             @$body['SkipThresholdCheck'] = $request->skipThresholdCheck;
         }
