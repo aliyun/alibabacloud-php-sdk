@@ -14,7 +14,7 @@ class condition extends Model
     public $content;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $contentList;
 
@@ -42,6 +42,9 @@ class condition extends Model
 
     public function validate()
     {
+        if (\is_array($this->contentList)) {
+            Model::validateArray($this->contentList);
+        }
         parent::validate();
     }
 
@@ -53,7 +56,14 @@ class condition extends Model
         }
 
         if (null !== $this->contentList) {
-            $res['ContentList'] = $this->contentList;
+            if (\is_array($this->contentList)) {
+                $res['ContentList'] = [];
+                $n1 = 0;
+                foreach ($this->contentList as $item1) {
+                    $res['ContentList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->field) {
@@ -84,7 +94,14 @@ class condition extends Model
         }
 
         if (isset($map['ContentList'])) {
-            $model->contentList = $map['ContentList'];
+            if (!empty($map['ContentList'])) {
+                $model->contentList = [];
+                $n1 = 0;
+                foreach ($map['ContentList'] as $item1) {
+                    $model->contentList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Field'])) {
