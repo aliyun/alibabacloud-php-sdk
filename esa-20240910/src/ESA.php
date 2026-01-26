@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCustomHostnameCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCustomHostnameCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsShrinkRequest;
@@ -62,6 +64,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomHostnameRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomHostnameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppImageSecretRequest;
@@ -180,6 +184,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomHostnameRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomHostnameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppImageSecretRequest;
@@ -343,6 +349,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCrossBorderOptimizationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCrossBorderOptimizationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCustomHostnameRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCustomHostnameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverRequest;
@@ -497,6 +505,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomHostnamesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
@@ -691,6 +701,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCrossBorderOptimizationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCrossBorderOptimizationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomHostnameRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomHostnameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateDevelopmentModeRequest;
@@ -814,6 +826,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UploadOriginClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadOriginClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadSiteOriginClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadSiteOriginClientCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\VerifyCustomHostnameRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\VerifyCustomHostnameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifySiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifySiteResponse;
 use Darabonba\OpenApi\Exceptions\ClientException;
@@ -1125,6 +1139,63 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景.
+     *
+     * @param Request - ApplyCustomHostnameCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyCustomHostnameCertificateResponse
+     *
+     * @param ApplyCustomHostnameCertificateRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ApplyCustomHostnameCertificateResponse
+     */
+    public function applyCustomHostnameCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostnameId) {
+            @$query['HostnameId'] = $request->hostnameId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyCustomHostnameCertificate',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyCustomHostnameCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为自定义主机名申请一个免费证书，适用于申请失败、证书即将过期、证书已过期场景.
+     *
+     * @param Request - ApplyCustomHostnameCertificateRequest
+     *
+     * @returns ApplyCustomHostnameCertificateResponse
+     *
+     * @param ApplyCustomHostnameCertificateRequest $request
+     *
+     * @return ApplyCustomHostnameCertificateResponse
+     */
+    public function applyCustomHostnameCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyCustomHostnameCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -2747,6 +2818,95 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建自定义主机名.
+     *
+     * @param Request - CreateCustomHostnameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomHostnameResponse
+     *
+     * @param CreateCustomHostnameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCustomHostnameResponse
+     */
+    public function createCustomHostnameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->casId) {
+            @$query['CasId'] = $request->casId;
+        }
+
+        if (null !== $request->casRegion) {
+            @$query['CasRegion'] = $request->casRegion;
+        }
+
+        if (null !== $request->certType) {
+            @$query['CertType'] = $request->certType;
+        }
+
+        if (null !== $request->certificate) {
+            @$query['Certificate'] = $request->certificate;
+        }
+
+        if (null !== $request->hostname) {
+            @$query['Hostname'] = $request->hostname;
+        }
+
+        if (null !== $request->privateKey) {
+            @$query['PrivateKey'] = $request->privateKey;
+        }
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->sslFlag) {
+            @$query['SslFlag'] = $request->sslFlag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomHostname',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomHostnameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义主机名.
+     *
+     * @param Request - CreateCustomHostnameRequest
+     *
+     * @returns CreateCustomHostnameResponse
+     *
+     * @param CreateCustomHostnameRequest $request
+     *
+     * @return CreateCustomHostnameResponse
+     */
+    public function createCustomHostname($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomHostnameWithOptions($request, $runtime);
     }
 
     /**
@@ -7048,6 +7208,63 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义主机名.
+     *
+     * @param Request - DeleteCustomHostnameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomHostnameResponse
+     *
+     * @param DeleteCustomHostnameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteCustomHostnameResponse
+     */
+    public function deleteCustomHostnameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostnameId) {
+            @$query['HostnameId'] = $request->hostnameId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomHostname',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomHostnameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义主机名.
+     *
+     * @param Request - DeleteCustomHostnameRequest
+     *
+     * @returns DeleteCustomHostnameResponse
+     *
+     * @param DeleteCustomHostnameRequest $request
+     *
+     * @return DeleteCustomHostnameResponse
+     */
+    public function deleteCustomHostname($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomHostnameWithOptions($request, $runtime);
     }
 
     /**
@@ -11990,6 +12207,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询单个自定义主机名的信息.
+     *
+     * @param Request - GetCustomHostnameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomHostnameResponse
+     *
+     * @param GetCustomHostnameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCustomHostnameResponse
+     */
+    public function getCustomHostnameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostnameId) {
+            @$query['HostnameId'] = $request->hostnameId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomHostname',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomHostnameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单个自定义主机名的信息.
+     *
+     * @param Request - GetCustomHostnameRequest
+     *
+     * @returns GetCustomHostnameResponse
+     *
+     * @param GetCustomHostnameRequest $request
+     *
+     * @return GetCustomHostnameResponse
+     */
+    public function getCustomHostname($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomHostnameWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Site Developer Mode Configuration.
      *
      * @param Request - GetDevelopmentModeRequest
@@ -16374,6 +16648,87 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCompressionRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点下的自定义主机名列表.
+     *
+     * @param Request - ListCustomHostnamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomHostnamesResponse
+     *
+     * @param ListCustomHostnamesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCustomHostnamesResponse
+     */
+    public function listCustomHostnamesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostname) {
+            @$query['Hostname'] = $request->hostname;
+        }
+
+        if (null !== $request->nameMatchType) {
+            @$query['NameMatchType'] = $request->nameMatchType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomHostnames',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点下的自定义主机名列表.
+     *
+     * @param Request - ListCustomHostnamesRequest
+     *
+     * @returns ListCustomHostnamesResponse
+     *
+     * @param ListCustomHostnamesRequest $request
+     *
+     * @return ListCustomHostnamesResponse
+     */
+    public function listCustomHostnames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomHostnamesWithOptions($request, $runtime);
     }
 
     /**
@@ -22496,6 +22851,91 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 更新自定义主机名.
+     *
+     * @param Request - UpdateCustomHostnameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomHostnameResponse
+     *
+     * @param UpdateCustomHostnameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateCustomHostnameResponse
+     */
+    public function updateCustomHostnameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->casId) {
+            @$query['CasId'] = $request->casId;
+        }
+
+        if (null !== $request->casRegion) {
+            @$query['CasRegion'] = $request->casRegion;
+        }
+
+        if (null !== $request->certType) {
+            @$query['CertType'] = $request->certType;
+        }
+
+        if (null !== $request->certificate) {
+            @$query['Certificate'] = $request->certificate;
+        }
+
+        if (null !== $request->hostnameId) {
+            @$query['HostnameId'] = $request->hostnameId;
+        }
+
+        if (null !== $request->privateKey) {
+            @$query['PrivateKey'] = $request->privateKey;
+        }
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
+        }
+
+        if (null !== $request->sslFlag) {
+            @$query['SslFlag'] = $request->sslFlag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomHostname',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomHostnameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义主机名.
+     *
+     * @param Request - UpdateCustomHostnameRequest
+     *
+     * @returns UpdateCustomHostnameResponse
+     *
+     * @param UpdateCustomHostnameRequest $request
+     *
+     * @return UpdateCustomHostnameResponse
+     */
+    public function updateCustomHostname($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomHostnameWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configurations of a custom scenario-specific policy.
      *
      * @param Request - UpdateCustomScenePolicyRequest
@@ -27031,6 +27471,63 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadSiteOriginClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 验证自定义主机名.
+     *
+     * @param Request - VerifyCustomHostnameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyCustomHostnameResponse
+     *
+     * @param VerifyCustomHostnameRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return VerifyCustomHostnameResponse
+     */
+    public function verifyCustomHostnameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostnameId) {
+            @$query['HostnameId'] = $request->hostnameId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyCustomHostname',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyCustomHostnameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证自定义主机名.
+     *
+     * @param Request - VerifyCustomHostnameRequest
+     *
+     * @returns VerifyCustomHostnameResponse
+     *
+     * @param VerifyCustomHostnameRequest $request
+     *
+     * @return VerifyCustomHostnameResponse
+     */
+    public function verifyCustomHostname($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyCustomHostnameWithOptions($request, $runtime);
     }
 
     /**
