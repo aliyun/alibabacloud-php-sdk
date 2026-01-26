@@ -113,6 +113,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterRespon
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesStatusResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeResourcesDeleteProtectionRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeResourcesDeleteProtectionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeSubaccountK8sClusterUserConfigRequest;
@@ -4986,6 +4988,75 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->describePolicyInstancesStatusWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
+     * 查询地域列表.
+     *
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['acceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->clusterType) {
+            @$query['clusterType'] = $request->clusterType;
+        }
+
+        if (null !== $request->profile) {
+            @$query['profile'] = $request->profile;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询地域列表.
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
     }
 
     /**

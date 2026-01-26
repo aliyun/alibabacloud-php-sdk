@@ -14,11 +14,17 @@ class autoRepairPolicy extends Model
     public $approvalRequired;
 
     /**
+     * @var string
+     */
+    public $autoRepairPolicyId;
+
+    /**
      * @var bool
      */
     public $restartNode;
     protected $_name = [
         'approvalRequired' => 'approval_required',
+        'autoRepairPolicyId' => 'auto_repair_policy_id',
         'restartNode' => 'restart_node',
     ];
 
@@ -32,6 +38,10 @@ class autoRepairPolicy extends Model
         $res = [];
         if (null !== $this->approvalRequired) {
             $res['approval_required'] = $this->approvalRequired;
+        }
+
+        if (null !== $this->autoRepairPolicyId) {
+            $res['auto_repair_policy_id'] = $this->autoRepairPolicyId;
         }
 
         if (null !== $this->restartNode) {
@@ -51,6 +61,10 @@ class autoRepairPolicy extends Model
         $model = new self();
         if (isset($map['approval_required'])) {
             $model->approvalRequired = $map['approval_required'];
+        }
+
+        if (isset($map['auto_repair_policy_id'])) {
+            $model->autoRepairPolicyId = $map['auto_repair_policy_id'];
         }
 
         if (isset($map['restart_node'])) {
