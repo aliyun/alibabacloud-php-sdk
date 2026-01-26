@@ -127,6 +127,11 @@ class RunVideoAnalysisRequest extends Model
      * @var string
      */
     public $videoUrl;
+
+    /**
+     * @var string[]
+     */
+    public $videoUrls;
     protected $_name = [
         'addDocumentParam' => 'addDocumentParam',
         'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
@@ -151,6 +156,7 @@ class RunVideoAnalysisRequest extends Model
         'videoRoles' => 'videoRoles',
         'videoShotFaceIdentityCount' => 'videoShotFaceIdentityCount',
         'videoUrl' => 'videoUrl',
+        'videoUrls' => 'videoUrls',
     ];
 
     public function validate()
@@ -175,6 +181,9 @@ class RunVideoAnalysisRequest extends Model
         }
         if (\is_array($this->videoRoles)) {
             Model::validateArray($this->videoRoles);
+        }
+        if (\is_array($this->videoUrls)) {
+            Model::validateArray($this->videoUrls);
         }
         parent::validate();
     }
@@ -300,6 +309,17 @@ class RunVideoAnalysisRequest extends Model
 
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
+        }
+
+        if (null !== $this->videoUrls) {
+            if (\is_array($this->videoUrls)) {
+                $res['videoUrls'] = [];
+                $n1 = 0;
+                foreach ($this->videoUrls as $item1) {
+                    $res['videoUrls'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -431,6 +451,17 @@ class RunVideoAnalysisRequest extends Model
 
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];
+        }
+
+        if (isset($map['videoUrls'])) {
+            if (!empty($map['videoUrls'])) {
+                $model->videoUrls = [];
+                $n1 = 0;
+                foreach ($map['videoUrls'] as $item1) {
+                    $model->videoUrls[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

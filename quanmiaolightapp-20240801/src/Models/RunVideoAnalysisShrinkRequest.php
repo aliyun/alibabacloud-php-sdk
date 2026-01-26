@@ -122,6 +122,11 @@ class RunVideoAnalysisShrinkRequest extends Model
      * @var string
      */
     public $videoUrl;
+
+    /**
+     * @var string
+     */
+    public $videoUrlsShrink;
     protected $_name = [
         'addDocumentParamShrink' => 'addDocumentParam',
         'autoRoleRecognitionVideoUrl' => 'autoRoleRecognitionVideoUrl',
@@ -146,6 +151,7 @@ class RunVideoAnalysisShrinkRequest extends Model
         'videoRolesShrink' => 'videoRoles',
         'videoShotFaceIdentityCount' => 'videoShotFaceIdentityCount',
         'videoUrl' => 'videoUrl',
+        'videoUrlsShrink' => 'videoUrls',
     ];
 
     public function validate()
@@ -246,6 +252,10 @@ class RunVideoAnalysisShrinkRequest extends Model
 
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
+        }
+
+        if (null !== $this->videoUrlsShrink) {
+            $res['videoUrls'] = $this->videoUrlsShrink;
         }
 
         return $res;
@@ -349,6 +359,10 @@ class RunVideoAnalysisShrinkRequest extends Model
 
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];
+        }
+
+        if (isset($map['videoUrls'])) {
+            $model->videoUrlsShrink = $map['videoUrls'];
         }
 
         return $model;

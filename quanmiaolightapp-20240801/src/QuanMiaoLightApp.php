@@ -3500,6 +3500,10 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->videoRolesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
 
+        if (null !== $tmpReq->videoUrls) {
+            $request->videoUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoUrls, 'videoUrls', 'json');
+        }
+
         $body = [];
         if (null !== $request->addDocumentParamShrink) {
             @$body['addDocumentParam'] = $request->addDocumentParamShrink;
@@ -3591,6 +3595,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->videoUrl) {
             @$body['videoUrl'] = $request->videoUrl;
+        }
+
+        if (null !== $request->videoUrlsShrink) {
+            @$body['videoUrls'] = $request->videoUrlsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -3673,6 +3681,10 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->videoRolesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
 
+        if (null !== $tmpReq->videoUrls) {
+            $request->videoUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoUrls, 'videoUrls', 'json');
+        }
+
         $body = [];
         if (null !== $request->addDocumentParamShrink) {
             @$body['addDocumentParam'] = $request->addDocumentParamShrink;
@@ -3764,6 +3776,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->videoUrl) {
             @$body['videoUrl'] = $request->videoUrl;
+        }
+
+        if (null !== $request->videoUrlsShrink) {
+            @$body['videoUrls'] = $request->videoUrlsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -4411,6 +4427,10 @@ class QuanMiaoLightApp extends OpenApiClient
             $request->videoRolesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
         }
 
+        if (null !== $tmpReq->videoUrls) {
+            $request->videoUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->videoUrls, 'videoUrls', 'json');
+        }
+
         $body = [];
         if (null !== $request->addDocumentParamShrink) {
             @$body['addDocumentParam'] = $request->addDocumentParamShrink;
@@ -4498,6 +4518,10 @@ class QuanMiaoLightApp extends OpenApiClient
 
         if (null !== $request->videoUrl) {
             @$body['videoUrl'] = $request->videoUrl;
+        }
+
+        if (null !== $request->videoUrlsShrink) {
+            @$body['videoUrls'] = $request->videoUrlsShrink;
         }
 
         $req = new OpenApiRequest([
