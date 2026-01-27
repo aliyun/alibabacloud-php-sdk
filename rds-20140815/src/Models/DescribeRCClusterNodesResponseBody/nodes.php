@@ -59,6 +59,11 @@ class nodes extends Model
     public $nodeStatus;
 
     /**
+     * @var int
+     */
+    public $podCount;
+
+    /**
      * @var string
      */
     public $runtimeVersion;
@@ -78,6 +83,7 @@ class nodes extends Model
         'nodeName' => 'NodeName',
         'nodePoolId' => 'NodePoolId',
         'nodeStatus' => 'NodeStatus',
+        'podCount' => 'PodCount',
         'runtimeVersion' => 'RuntimeVersion',
         'state' => 'State',
     ];
@@ -138,6 +144,10 @@ class nodes extends Model
 
         if (null !== $this->nodeStatus) {
             $res['NodeStatus'] = $this->nodeStatus;
+        }
+
+        if (null !== $this->podCount) {
+            $res['PodCount'] = $this->podCount;
         }
 
         if (null !== $this->runtimeVersion) {
@@ -204,6 +214,10 @@ class nodes extends Model
 
         if (isset($map['NodeStatus'])) {
             $model->nodeStatus = $map['NodeStatus'];
+        }
+
+        if (isset($map['PodCount'])) {
+            $model->podCount = $map['PodCount'];
         }
 
         if (isset($map['RuntimeVersion'])) {

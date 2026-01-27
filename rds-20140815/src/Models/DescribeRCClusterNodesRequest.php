@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DescribeRCClusterNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $nodePoolId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,6 +38,8 @@ class DescribeRCClusterNodesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'clusterId' => 'ClusterId',
+        'nodePoolId' => 'NodePoolId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -42,6 +54,14 @@ class DescribeRCClusterNodesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->nodePoolId) {
+            $res['NodePoolId'] = $this->nodePoolId;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -69,6 +89,14 @@ class DescribeRCClusterNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['NodePoolId'])) {
+            $model->nodePoolId = $map['NodePoolId'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

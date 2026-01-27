@@ -26,11 +26,17 @@ class RebootRCInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $rebootTime;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'batchOptimization' => 'BatchOptimization',
         'forceReboot' => 'ForceReboot',
         'instanceIdsShrink' => 'InstanceIds',
+        'rebootTime' => 'RebootTime',
         'regionId' => 'RegionId',
     ];
 
@@ -52,6 +58,10 @@ class RebootRCInstancesShrinkRequest extends Model
 
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
+        }
+
+        if (null !== $this->rebootTime) {
+            $res['RebootTime'] = $this->rebootTime;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +89,10 @@ class RebootRCInstancesShrinkRequest extends Model
 
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
+        }
+
+        if (isset($map['RebootTime'])) {
+            $model->rebootTime = $map['RebootTime'];
         }
 
         if (isset($map['RegionId'])) {

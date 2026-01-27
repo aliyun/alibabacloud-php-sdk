@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class StopRCInstanceRequest extends Model
+class DescribeImportTaskRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $forceStop;
-
     /**
      * @var string
      */
-    public $instanceId;
+    public $DBInstanceId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class StopRCInstanceRequest extends Model
     /**
      * @var string
      */
-    public $stoppedMode;
+    public $taskId;
     protected $_name = [
-        'forceStop' => 'ForceStop',
-        'instanceId' => 'InstanceId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
-        'stoppedMode' => 'StoppedMode',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -42,20 +42,20 @@ class StopRCInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->forceStop) {
-            $res['ForceStop'] = $this->forceStop;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
 
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->stoppedMode) {
-            $res['StoppedMode'] = $this->stoppedMode;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -69,20 +69,20 @@ class StopRCInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ForceStop'])) {
-            $model->forceStop = $map['ForceStop'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
 
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['StoppedMode'])) {
-            $model->stoppedMode = $map['StoppedMode'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

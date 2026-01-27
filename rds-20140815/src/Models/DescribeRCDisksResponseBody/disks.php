@@ -15,6 +15,11 @@ class disks extends Model
     public $attachedTime;
 
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
      * @var string
      */
     public $category;
@@ -90,6 +95,11 @@ class disks extends Model
     public $performanceLevel;
 
     /**
+     * @var bool
+     */
+    public $portable;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -145,6 +155,7 @@ class disks extends Model
     public $zoneId;
     protected $_name = [
         'attachedTime' => 'AttachedTime',
+        'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'creationTime' => 'CreationTime',
         'deleteAutoSnapshot' => 'DeleteAutoSnapshot',
@@ -160,6 +171,7 @@ class disks extends Model
         'imageId' => 'ImageId',
         'instanceId' => 'InstanceId',
         'performanceLevel' => 'PerformanceLevel',
+        'portable' => 'Portable',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'serialNumber' => 'SerialNumber',
@@ -186,6 +198,10 @@ class disks extends Model
         $res = [];
         if (null !== $this->attachedTime) {
             $res['AttachedTime'] = $this->attachedTime;
+        }
+
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
         }
 
         if (null !== $this->category) {
@@ -246,6 +262,10 @@ class disks extends Model
 
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+
+        if (null !== $this->portable) {
+            $res['Portable'] = $this->portable;
         }
 
         if (null !== $this->regionId) {
@@ -314,6 +334,10 @@ class disks extends Model
             $model->attachedTime = $map['AttachedTime'];
         }
 
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -372,6 +396,10 @@ class disks extends Model
 
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+
+        if (isset($map['Portable'])) {
+            $model->portable = $map['Portable'];
         }
 
         if (isset($map['RegionId'])) {

@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RebootRCInstanceRequest extends Model
+class CreateRCImageRequest extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $dryRun;
-
-    /**
-     * @var bool
-     */
-    public $forceStop;
+    public $imageName;
 
     /**
      * @var string
@@ -26,18 +21,17 @@ class RebootRCInstanceRequest extends Model
     /**
      * @var string
      */
-    public $rebootTime;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $snapshotId;
     protected $_name = [
-        'dryRun' => 'DryRun',
-        'forceStop' => 'ForceStop',
+        'imageName' => 'ImageName',
         'instanceId' => 'InstanceId',
-        'rebootTime' => 'RebootTime',
         'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -48,24 +42,20 @@ class RebootRCInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-
-        if (null !== $this->forceStop) {
-            $res['ForceStop'] = $this->forceStop;
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
         }
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->rebootTime) {
-            $res['RebootTime'] = $this->rebootTime;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -79,24 +69,20 @@ class RebootRCInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-
-        if (isset($map['ForceStop'])) {
-            $model->forceStop = $map['ForceStop'];
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
         }
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['RebootTime'])) {
-            $model->rebootTime = $map['RebootTime'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

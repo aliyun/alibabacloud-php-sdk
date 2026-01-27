@@ -26,11 +26,17 @@ class RebootRCInstancesRequest extends Model
     /**
      * @var string
      */
+    public $rebootTime;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'batchOptimization' => 'BatchOptimization',
         'forceReboot' => 'ForceReboot',
         'instanceIds' => 'InstanceIds',
+        'rebootTime' => 'RebootTime',
         'regionId' => 'RegionId',
     ];
 
@@ -62,6 +68,10 @@ class RebootRCInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->rebootTime) {
+            $res['RebootTime'] = $this->rebootTime;
         }
 
         if (null !== $this->regionId) {
@@ -96,6 +106,10 @@ class RebootRCInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RebootTime'])) {
+            $model->rebootTime = $map['RebootTime'];
         }
 
         if (isset($map['RegionId'])) {

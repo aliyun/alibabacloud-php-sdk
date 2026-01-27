@@ -90,6 +90,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGadInstanceMemberResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateGADInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateImportTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateImportTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMaskingRulesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMaskingRulesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateMaskingRulesShrinkRequest;
@@ -108,6 +110,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCImageRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCImageResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolShrinkRequest;
@@ -332,6 +336,10 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostGroupElasticStrategyParame
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostGroupElasticStrategyParametersResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostWebShellRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeHostWebShellResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeImportTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeImportTaskResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeImportTaskValidationRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeImportTaskValidationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceCrossBackupPolicyRequest;
@@ -512,6 +520,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\InstallRCCloudAssistantResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\InstallRCCloudAssistantShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListClassesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListClassesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ListImportTasksRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ListImportTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListRCVClustersRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListRCVClustersResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ListTagResourcesRequest;
@@ -603,6 +613,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceTDERequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceTDEResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceVectorSupportStatusRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceVectorSupportStatusResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeShrinkRequest;
@@ -626,6 +638,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHADiagnoseConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHADiagnoseConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHASwitchConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyHASwitchConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyImportTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyImportTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyInstanceCrossBackupPolicyRequest;
@@ -639,6 +653,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecRequest;
@@ -804,6 +820,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceMajorVersionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBProxyInstanceKernelVersionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ValidateImportTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ValidateImportTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -5236,6 +5254,107 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 创建数据导入任务
+     *
+     * @param request - CreateImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImportTaskResponse
+     *
+     * @param CreateImportTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateImportTaskResponse
+     */
+    public function createImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->estimatedSize) {
+            @$query['EstimatedSize'] = $request->estimatedSize;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceInstanceId) {
+            @$query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+
+        if (null !== $request->sourcePlatform) {
+            @$query['SourcePlatform'] = $request->sourcePlatform;
+        }
+
+        if (null !== $request->streamPort) {
+            @$query['StreamPort'] = $request->streamPort;
+        }
+
+        if (null !== $request->user) {
+            @$query['User'] = $request->user;
+        }
+
+        if (null !== $request->xtrabackupPath) {
+            @$query['XtrabackupPath'] = $request->xtrabackupPath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateImportTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据导入任务
+     *
+     * @param request - CreateImportTaskRequest
+     *
+     * @returns CreateImportTaskResponse
+     *
+     * @param CreateImportTaskRequest $request
+     *
+     * @return CreateImportTaskResponse
+     */
+    public function createImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建全密态规则.
      *
      * @param tmpReq - CreateMaskingRulesRequest
@@ -6143,6 +6262,97 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRCDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom image for an RDS Custom instance.
+     *
+     * @remarks
+     * ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+     * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+     * ### [](#)Usage
+     * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+     * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+     *
+     * @param request - CreateRCImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRCImageResponse
+     *
+     * @param CreateRCImageRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateRCImageResponse
+     */
+    public function createRCImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageName) {
+            @$query['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRCImage',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRCImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom image for an RDS Custom instance.
+     *
+     * @remarks
+     * ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
+     * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
+     * ### [](#)Usage
+     * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
+     * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
+     *
+     * @param request - CreateRCImageRequest
+     *
+     * @returns CreateRCImageResponse
+     *
+     * @param CreateRCImageRequest $request
+     *
+     * @return CreateRCImageResponse
+     */
+    public function createRCImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRCImageWithOptions($request, $runtime);
     }
 
     /**
@@ -16881,6 +17091,140 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 查询原生复制上云任务详情.
+     *
+     * @param request - DescribeImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImportTaskResponse
+     *
+     * @param DescribeImportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeImportTaskResponse
+     */
+    public function describeImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeImportTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询原生复制上云任务详情.
+     *
+     * @param request - DescribeImportTaskRequest
+     *
+     * @returns DescribeImportTaskResponse
+     *
+     * @param DescribeImportTaskRequest $request
+     *
+     * @return DescribeImportTaskResponse
+     */
+    public function describeImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看数据导入预检查状态
+     *
+     * @param request - DescribeImportTaskValidationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImportTaskValidationResponse
+     *
+     * @param DescribeImportTaskValidationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeImportTaskValidationResponse
+     */
+    public function describeImportTaskValidationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeImportTaskValidation',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeImportTaskValidationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看数据导入预检查状态
+     *
+     * @param request - DescribeImportTaskValidationRequest
+     *
+     * @returns DescribeImportTaskValidationResponse
+     *
+     * @param DescribeImportTaskValidationRequest $request
+     *
+     * @return DescribeImportTaskValidationResponse
+     */
+    public function describeImportTaskValidation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImportTaskValidationWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the automatic renewal status of an instance.
      *
      * @remarks
@@ -19423,6 +19767,14 @@ class Rds extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->nodePoolId) {
+            @$query['NodePoolId'] = $request->nodePoolId;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -20921,6 +21273,10 @@ class Rds extends OpenApiClient
         $query = [];
         if (null !== $request->diskId) {
             @$query['DiskId'] = $request->diskId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
 
         if (null !== $request->pageNumber) {
@@ -24728,6 +25084,79 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClassesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询上云任务列表.
+     *
+     * @param request - ListImportTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImportTasksResponse
+     *
+     * @param ListImportTasksRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListImportTasksResponse
+     */
+    public function listImportTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImportTasks',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询上云任务列表.
+     *
+     * @param request - ListImportTasksRequest
+     *
+     * @returns ListImportTasksResponse
+     *
+     * @param ListImportTasksRequest $request
+     *
+     * @return ListImportTasksResponse
+     */
+    public function listImportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImportTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -29181,6 +29610,67 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 修改实例向量支持状态
+     *
+     * @param request - ModifyDBInstanceVectorSupportStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceVectorSupportStatusResponse
+     *
+     * @param ModifyDBInstanceVectorSupportStatusRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModifyDBInstanceVectorSupportStatusResponse
+     */
+    public function modifyDBInstanceVectorSupportStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceVectorSupportStatus',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceVectorSupportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例向量支持状态
+     *
+     * @param request - ModifyDBInstanceVectorSupportStatusRequest
+     *
+     * @returns ModifyDBInstanceVectorSupportStatusResponse
+     *
+     * @param ModifyDBInstanceVectorSupportStatusRequest $request
+     *
+     * @return ModifyDBInstanceVectorSupportStatusResponse
+     */
+    public function modifyDBInstanceVectorSupportStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceVectorSupportStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
      *
      * @remarks
@@ -30527,6 +31017,79 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 修改上云任务
+     *
+     * @param request - ModifyImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyImportTaskResponse
+     *
+     * @param ModifyImportTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyImportTaskResponse
+     */
+    public function modifyImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyImportTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改上云任务
+     *
+     * @param request - ModifyImportTaskRequest
+     *
+     * @returns ModifyImportTaskResponse
+     *
+     * @param ModifyImportTaskRequest $request
+     *
+     * @return ModifyImportTaskResponse
+     */
+    public function modifyImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the auto-renewal settings of an instance.
      *
      * @remarks
@@ -31199,6 +31762,83 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 修改块存储属性.
+     *
+     * @param request - ModifyRCDiskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRCDiskAttributeResponse
+     *
+     * @param ModifyRCDiskAttributeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyRCDiskAttributeResponse
+     */
+    public function modifyRCDiskAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->burstingEnabled) {
+            @$query['BurstingEnabled'] = $request->burstingEnabled;
+        }
+
+        if (null !== $request->deleteWithInstance) {
+            @$query['DeleteWithInstance'] = $request->deleteWithInstance;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
+        }
+
+        if (null !== $request->diskName) {
+            @$query['DiskName'] = $request->diskName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRCDiskAttribute',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRCDiskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改块存储属性.
+     *
+     * @param request - ModifyRCDiskAttributeRequest
+     *
+     * @returns ModifyRCDiskAttributeResponse
+     *
+     * @param ModifyRCDiskAttributeRequest $request
+     *
+     * @return ModifyRCDiskAttributeResponse
+     */
+    public function modifyRCDiskAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCDiskAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改RDS用户磁盘付费类型.
      *
      * @param request - ModifyRCDiskChargeTypeRequest
@@ -31215,6 +31855,10 @@ class Rds extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
         }
@@ -31239,12 +31883,20 @@ class Rds extends OpenApiClient
             @$query['PayType'] = $request->payType;
         }
 
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
         if (null !== $request->promotionCode) {
             @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
 
         $req = new OpenApiRequest([
@@ -33694,6 +34346,10 @@ class Rds extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->rebootTime) {
+            @$query['RebootTime'] = $request->rebootTime;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -33771,6 +34427,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->instanceIdsShrink) {
             @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->rebootTime) {
+            @$query['RebootTime'] = $request->rebootTime;
         }
 
         if (null !== $request->regionId) {
@@ -36733,6 +37393,10 @@ class Rds extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->stoppedMode) {
+            @$query['StoppedMode'] = $request->stoppedMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -36814,6 +37478,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->stoppedMode) {
+            @$query['StoppedMode'] = $request->stoppedMode;
         }
 
         $req = new OpenApiRequest([
@@ -38834,5 +39502,106 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBProxyInstanceKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预检验数据导入任务参数.
+     *
+     * @param request - ValidateImportTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateImportTaskResponse
+     *
+     * @param ValidateImportTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ValidateImportTaskResponse
+     */
+    public function validateImportTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->estimatedSize) {
+            @$query['EstimatedSize'] = $request->estimatedSize;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceInstanceId) {
+            @$query['SourceInstanceId'] = $request->sourceInstanceId;
+        }
+
+        if (null !== $request->sourcePlatform) {
+            @$query['SourcePlatform'] = $request->sourcePlatform;
+        }
+
+        if (null !== $request->streamPort) {
+            @$query['StreamPort'] = $request->streamPort;
+        }
+
+        if (null !== $request->user) {
+            @$query['User'] = $request->user;
+        }
+
+        if (null !== $request->xtrabackupPath) {
+            @$query['XtrabackupPath'] = $request->xtrabackupPath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateImportTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateImportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预检验数据导入任务参数.
+     *
+     * @param request - ValidateImportTaskRequest
+     *
+     * @returns ValidateImportTaskResponse
+     *
+     * @param ValidateImportTaskRequest $request
+     *
+     * @return ValidateImportTaskResponse
+     */
+    public function validateImportTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateImportTaskWithOptions($request, $runtime);
     }
 }

@@ -27,11 +27,17 @@ class StopRCInstancesShrinkRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $stoppedMode;
     protected $_name = [
         'batchOptimization' => 'BatchOptimization',
         'forceStop' => 'ForceStop',
         'instanceIdsShrink' => 'InstanceIds',
         'regionId' => 'RegionId',
+        'stoppedMode' => 'StoppedMode',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class StopRCInstancesShrinkRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->stoppedMode) {
+            $res['StoppedMode'] = $this->stoppedMode;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class StopRCInstancesShrinkRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['StoppedMode'])) {
+            $model->stoppedMode = $map['StoppedMode'];
         }
 
         return $model;
