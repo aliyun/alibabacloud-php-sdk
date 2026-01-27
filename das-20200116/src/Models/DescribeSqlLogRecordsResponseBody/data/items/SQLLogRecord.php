@@ -16,7 +16,27 @@ class SQLLogRecord extends Model
     /**
      * @var string
      */
+    public $affectColumns;
+
+    /**
+     * @var string
+     */
+    public $clientIp;
+
+    /**
+     * @var int
+     */
+    public $clientPort;
+
+    /**
+     * @var string
+     */
     public $collection;
+
+    /**
+     * @var string
+     */
+    public $connectionId;
 
     /**
      * @var int
@@ -84,6 +104,11 @@ class SQLLogRecord extends Model
     public $parallelQueueTime;
 
     /**
+     * @var string
+     */
+    public $params;
+
+    /**
      * @var int
      */
     public $physicAsyncRead;
@@ -99,9 +124,19 @@ class SQLLogRecord extends Model
     public $physicSyncRead;
 
     /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
      * @var int
      */
     public $returnRows;
+
+    /**
+     * @var string
+     */
+    public $rowKey;
 
     /**
      * @var int
@@ -179,7 +214,11 @@ class SQLLogRecord extends Model
     public $writes;
     protected $_name = [
         'accountName' => 'AccountName',
+        'affectColumns' => 'AffectColumns',
+        'clientIp' => 'ClientIp',
+        'clientPort' => 'ClientPort',
         'collection' => 'Collection',
+        'connectionId' => 'ConnectionId',
         'consume' => 'Consume',
         'cpuTime' => 'CpuTime',
         'DBName' => 'DBName',
@@ -193,10 +232,13 @@ class SQLLogRecord extends Model
         'originTime' => 'OriginTime',
         'parallelDegree' => 'ParallelDegree',
         'parallelQueueTime' => 'ParallelQueueTime',
+        'params' => 'Params',
         'physicAsyncRead' => 'PhysicAsyncRead',
         'physicRead' => 'PhysicRead',
         'physicSyncRead' => 'PhysicSyncRead',
+        'protocol' => 'Protocol',
         'returnRows' => 'ReturnRows',
+        'rowKey' => 'RowKey',
         'rows' => 'Rows',
         'scanRows' => 'ScanRows',
         'scnt' => 'Scnt',
@@ -226,8 +268,24 @@ class SQLLogRecord extends Model
             $res['AccountName'] = $this->accountName;
         }
 
+        if (null !== $this->affectColumns) {
+            $res['AffectColumns'] = $this->affectColumns;
+        }
+
+        if (null !== $this->clientIp) {
+            $res['ClientIp'] = $this->clientIp;
+        }
+
+        if (null !== $this->clientPort) {
+            $res['ClientPort'] = $this->clientPort;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
+        }
+
+        if (null !== $this->connectionId) {
+            $res['ConnectionId'] = $this->connectionId;
         }
 
         if (null !== $this->consume) {
@@ -282,6 +340,10 @@ class SQLLogRecord extends Model
             $res['ParallelQueueTime'] = $this->parallelQueueTime;
         }
 
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
+        }
+
         if (null !== $this->physicAsyncRead) {
             $res['PhysicAsyncRead'] = $this->physicAsyncRead;
         }
@@ -294,8 +356,16 @@ class SQLLogRecord extends Model
             $res['PhysicSyncRead'] = $this->physicSyncRead;
         }
 
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+
         if (null !== $this->returnRows) {
             $res['ReturnRows'] = $this->returnRows;
+        }
+
+        if (null !== $this->rowKey) {
+            $res['RowKey'] = $this->rowKey;
         }
 
         if (null !== $this->rows) {
@@ -373,8 +443,24 @@ class SQLLogRecord extends Model
             $model->accountName = $map['AccountName'];
         }
 
+        if (isset($map['AffectColumns'])) {
+            $model->affectColumns = $map['AffectColumns'];
+        }
+
+        if (isset($map['ClientIp'])) {
+            $model->clientIp = $map['ClientIp'];
+        }
+
+        if (isset($map['ClientPort'])) {
+            $model->clientPort = $map['ClientPort'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
+        }
+
+        if (isset($map['ConnectionId'])) {
+            $model->connectionId = $map['ConnectionId'];
         }
 
         if (isset($map['Consume'])) {
@@ -429,6 +515,10 @@ class SQLLogRecord extends Model
             $model->parallelQueueTime = $map['ParallelQueueTime'];
         }
 
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
+        }
+
         if (isset($map['PhysicAsyncRead'])) {
             $model->physicAsyncRead = $map['PhysicAsyncRead'];
         }
@@ -441,8 +531,16 @@ class SQLLogRecord extends Model
             $model->physicSyncRead = $map['PhysicSyncRead'];
         }
 
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+
         if (isset($map['ReturnRows'])) {
             $model->returnRows = $map['ReturnRows'];
+        }
+
+        if (isset($map['RowKey'])) {
+            $model->rowKey = $map['RowKey'];
         }
 
         if (isset($map['Rows'])) {
