@@ -49,6 +49,16 @@ class entries extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $offlineDuration;
+
+    /**
+     * @var int
+     */
+    public $offlineUnchangedDuration;
+
+    /**
      * @var string
      */
     public $owner;
@@ -81,6 +91,8 @@ class entries extends Model
         'inode' => 'Inode',
         'mtime' => 'Mtime',
         'name' => 'Name',
+        'offlineDuration' => 'OfflineDuration',
+        'offlineUnchangedDuration' => 'OfflineUnchangedDuration',
         'owner' => 'Owner',
         'retrieveTime' => 'RetrieveTime',
         'size' => 'Size',
@@ -126,6 +138,14 @@ class entries extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->offlineDuration) {
+            $res['OfflineDuration'] = $this->offlineDuration;
+        }
+
+        if (null !== $this->offlineUnchangedDuration) {
+            $res['OfflineUnchangedDuration'] = $this->offlineUnchangedDuration;
         }
 
         if (null !== $this->owner) {
@@ -189,6 +209,14 @@ class entries extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OfflineDuration'])) {
+            $model->offlineDuration = $map['OfflineDuration'];
+        }
+
+        if (isset($map['OfflineUnchangedDuration'])) {
+            $model->offlineUnchangedDuration = $map['OfflineUnchangedDuration'];
         }
 
         if (isset($map['Owner'])) {

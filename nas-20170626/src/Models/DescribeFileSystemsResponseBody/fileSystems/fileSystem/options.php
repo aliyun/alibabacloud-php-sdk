@@ -11,8 +11,14 @@ class options extends Model
     /**
      * @var bool
      */
+    public $enableABE;
+
+    /**
+     * @var bool
+     */
     public $enableOplock;
     protected $_name = [
+        'enableABE' => 'EnableABE',
         'enableOplock' => 'EnableOplock',
     ];
 
@@ -24,6 +30,10 @@ class options extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableABE) {
+            $res['EnableABE'] = $this->enableABE;
+        }
+
         if (null !== $this->enableOplock) {
             $res['EnableOplock'] = $this->enableOplock;
         }
@@ -39,6 +49,10 @@ class options extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableABE'])) {
+            $model->enableABE = $map['EnableABE'];
+        }
+
         if (isset($map['EnableOplock'])) {
             $model->enableOplock = $map['EnableOplock'];
         }
