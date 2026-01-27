@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupPolicyRequest extends Model
 {
     /**
-     * @example pc-2ze3nrr64c5******
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionCode;
     protected $_name = [
         'instanceName' => 'InstanceName',
-        'regionCode'   => 'RegionCode',
+        'regionCode' => 'RegionCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
         }
@@ -43,17 +41,18 @@ class DescribeBackupPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
         }

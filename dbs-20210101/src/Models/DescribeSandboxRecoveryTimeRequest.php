@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSandboxRecoveryTimeRequest extends Model
 {
     /**
-     * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/437215.html) operation to obtain the ID of the backup schedule. If you set this parameter to the backup schedule ID obtained by calling the DescribeBackupPlanList operation, the dbs prefix must be removed. Otherwise, the call fails.
-     *
-     * This parameter is required.
-     * @example 1jyjal15l****
-     *
      * @var string
      */
     public $backupPlanId;
@@ -23,9 +18,10 @@ class DescribeSandboxRecoveryTimeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlanId) {
@@ -35,11 +31,11 @@ class DescribeSandboxRecoveryTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSandboxRecoveryTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

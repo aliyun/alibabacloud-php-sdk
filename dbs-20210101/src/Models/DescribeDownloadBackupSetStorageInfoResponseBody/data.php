@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeDownloadBackupSetStorageInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The validity period of the URL.
-     *
-     * > This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     * @example 1661329050
-     *
      * @var int
      */
     public $expirationTime;
 
     /**
-     * @description The private download URL of the backup set.
-     *
-     * @example http://dbs-137383785969****-cn-hangzhou-1iv12nblw****.oss-cn-hangzhou-internal.aliyuncs.com/dt-u7u4bufa****\/dbs_target_file_path/test_123
-     *
      * @var string
      */
     public $privateUrl;
 
     /**
-     * @description The public download URL of the backup set.
-     *
-     * @example http://dbs-137383785969****-cn-hangzhou-1iv12nblw****.oss-cn-hangzhou.aliyuncs.com/dt-u7u4bufa****\/dbs_target_file_path/test_456
-     *
      * @var string
      */
     public $publicUrl;
     protected $_name = [
         'expirationTime' => 'ExpirationTime',
-        'privateUrl'     => 'PrivateUrl',
-        'publicUrl'      => 'PublicUrl',
+        'privateUrl' => 'PrivateUrl',
+        'publicUrl' => 'PublicUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expirationTime) {
             $res['ExpirationTime'] = $this->expirationTime;
         }
+
         if (null !== $this->privateUrl) {
             $res['PrivateUrl'] = $this->privateUrl;
         }
+
         if (null !== $this->publicUrl) {
             $res['PublicUrl'] = $this->publicUrl;
         }
@@ -61,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpirationTime'])) {
             $model->expirationTime = $map['ExpirationTime'];
         }
+
         if (isset($map['PrivateUrl'])) {
             $model->privateUrl = $map['PrivateUrl'];
         }
+
         if (isset($map['PublicUrl'])) {
             $model->publicUrl = $map['PublicUrl'];
         }

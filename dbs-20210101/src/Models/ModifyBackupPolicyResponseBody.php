@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyBackupPolicyResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ModifyBackupPolicyResponseBody extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $code;
@@ -22,74 +20,74 @@ class ModifyBackupPolicyResponseBody extends Model
     public $data;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $errCode;
 
     /**
-     * @example The specified parameter %s value is not valid.
-     *
      * @var string
      */
     public $errMessage;
 
     /**
-     * @example instanceName can not be empty.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example D570F209-A166-50C6-98A3-155A20B218B7
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
-        'data'       => 'Data',
-        'errCode'    => 'ErrCode',
+        'code' => 'Code',
+        'data' => 'Data',
+        'errCode' => 'ErrCode',
         'errMessage' => 'ErrMessage',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -97,32 +95,38 @@ class ModifyBackupPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBackupPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

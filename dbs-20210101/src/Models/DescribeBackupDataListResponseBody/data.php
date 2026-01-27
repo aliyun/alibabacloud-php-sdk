@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeBackupDataListResponseBody\data\content;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,76 +15,76 @@ class data extends Model
     public $content;
 
     /**
-     * @example dbtest
-     *
      * @var string
      */
     public $extra;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalElements;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'content'       => 'Content',
-        'extra'         => 'Extra',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'content' => 'Content',
+        'extra' => 'Extra',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'totalElements' => 'TotalElements',
-        'totalPages'    => 'TotalPages',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
     {
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = [];
-            if (null !== $this->content && \is_array($this->content)) {
-                $n = 0;
-                foreach ($this->content as $item) {
-                    $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->content)) {
+                $res['Content'] = [];
+                $n1 = 0;
+                foreach ($this->content as $item1) {
+                    $res['Content'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->extra) {
             $res['Extra'] = $this->extra;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalElements) {
             $res['TotalElements'] = $this->totalElements;
         }
+
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
         }
@@ -92,35 +92,41 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n              = 0;
-                foreach ($map['Content'] as $item) {
-                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Content'] as $item1) {
+                    $model->content[$n1] = content::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Extra'])) {
             $model->extra = $map['Extra'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalElements'])) {
             $model->totalElements = $map['TotalElements'];
         }
+
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
         }
