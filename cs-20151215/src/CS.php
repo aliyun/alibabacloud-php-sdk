@@ -7932,6 +7932,10 @@ class CS extends OpenApiClient
             @$body['kubelet_config'] = $request->kubeletConfig;
         }
 
+        if (null !== $request->nodeNames) {
+            @$body['node_names'] = $request->nodeNames;
+        }
+
         if (null !== $request->osConfig) {
             @$body['os_config'] = $request->osConfig;
         }

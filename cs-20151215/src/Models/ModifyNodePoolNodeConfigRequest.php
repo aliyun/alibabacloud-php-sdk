@@ -21,6 +21,11 @@ class ModifyNodePoolNodeConfigRequest extends Model
     public $kubeletConfig;
 
     /**
+     * @var string[]
+     */
+    public $nodeNames;
+
+    /**
      * @var osConfig
      */
     public $osConfig;
@@ -32,6 +37,7 @@ class ModifyNodePoolNodeConfigRequest extends Model
     protected $_name = [
         'containerdConfig' => 'containerd_config',
         'kubeletConfig' => 'kubelet_config',
+        'nodeNames' => 'node_names',
         'osConfig' => 'os_config',
         'rollingPolicy' => 'rolling_policy',
     ];
@@ -43,6 +49,9 @@ class ModifyNodePoolNodeConfigRequest extends Model
         }
         if (null !== $this->kubeletConfig) {
             $this->kubeletConfig->validate();
+        }
+        if (\is_array($this->nodeNames)) {
+            Model::validateArray($this->nodeNames);
         }
         if (null !== $this->osConfig) {
             $this->osConfig->validate();
@@ -62,6 +71,17 @@ class ModifyNodePoolNodeConfigRequest extends Model
 
         if (null !== $this->kubeletConfig) {
             $res['kubelet_config'] = null !== $this->kubeletConfig ? $this->kubeletConfig->toArray($noStream) : $this->kubeletConfig;
+        }
+
+        if (null !== $this->nodeNames) {
+            if (\is_array($this->nodeNames)) {
+                $res['node_names'] = [];
+                $n1 = 0;
+                foreach ($this->nodeNames as $item1) {
+                    $res['node_names'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->osConfig) {
@@ -89,6 +109,17 @@ class ModifyNodePoolNodeConfigRequest extends Model
 
         if (isset($map['kubelet_config'])) {
             $model->kubeletConfig = KubeletConfig::fromMap($map['kubelet_config']);
+        }
+
+        if (isset($map['node_names'])) {
+            if (!empty($map['node_names'])) {
+                $model->nodeNames = [];
+                $n1 = 0;
+                foreach ($map['node_names'] as $item1) {
+                    $model->nodeNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['os_config'])) {
