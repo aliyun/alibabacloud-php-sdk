@@ -16,6 +16,11 @@ class DescribeApplicationsRequest extends Model
     /**
      * @var string
      */
+    public $applicationTypes;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -34,6 +39,7 @@ class DescribeApplicationsRequest extends Model
     public $regionId;
     protected $_name = [
         'applicationIds' => 'ApplicationIds',
+        'applicationTypes' => 'ApplicationTypes',
         'DBClusterId' => 'DBClusterId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -50,6 +56,10 @@ class DescribeApplicationsRequest extends Model
         $res = [];
         if (null !== $this->applicationIds) {
             $res['ApplicationIds'] = $this->applicationIds;
+        }
+
+        if (null !== $this->applicationTypes) {
+            $res['ApplicationTypes'] = $this->applicationTypes;
         }
 
         if (null !== $this->DBClusterId) {
@@ -81,6 +91,10 @@ class DescribeApplicationsRequest extends Model
         $model = new self();
         if (isset($map['ApplicationIds'])) {
             $model->applicationIds = $map['ApplicationIds'];
+        }
+
+        if (isset($map['ApplicationTypes'])) {
+            $model->applicationTypes = $map['ApplicationTypes'];
         }
 
         if (isset($map['DBClusterId'])) {

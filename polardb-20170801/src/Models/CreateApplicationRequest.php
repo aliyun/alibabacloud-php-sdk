@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\components;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\endpoints;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\memApplicationSpec;
 
 class CreateApplicationRequest extends Model
 {
@@ -61,6 +62,11 @@ class CreateApplicationRequest extends Model
     public $endpoints;
 
     /**
+     * @var memApplicationSpec
+     */
+    public $memApplicationSpec;
+
+    /**
      * @var string
      */
     public $payType;
@@ -93,6 +99,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $usedTime;
 
     /**
@@ -120,12 +131,14 @@ class CreateApplicationRequest extends Model
         'description' => 'Description',
         'dryRun' => 'DryRun',
         'endpoints' => 'Endpoints',
+        'memApplicationSpec' => 'MemApplicationSpec',
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -139,6 +152,9 @@ class CreateApplicationRequest extends Model
         }
         if (\is_array($this->endpoints)) {
             Model::validateArray($this->endpoints);
+        }
+        if (null !== $this->memApplicationSpec) {
+            $this->memApplicationSpec->validate();
         }
         parent::validate();
     }
@@ -200,6 +216,10 @@ class CreateApplicationRequest extends Model
             }
         }
 
+        if (null !== $this->memApplicationSpec) {
+            $res['MemApplicationSpec'] = null !== $this->memApplicationSpec ? $this->memApplicationSpec->toArray($noStream) : $this->memApplicationSpec;
+        }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -222,6 +242,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->usedTime) {
@@ -305,6 +329,10 @@ class CreateApplicationRequest extends Model
             }
         }
 
+        if (isset($map['MemApplicationSpec'])) {
+            $model->memApplicationSpec = memApplicationSpec::fromMap($map['MemApplicationSpec']);
+        }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
@@ -327,6 +355,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['UsedTime'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\components;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\endpoints;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\memApplicationAttribute;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityGroups;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityIPArrays;
 
@@ -76,6 +77,11 @@ class DescribeApplicationAttributeResponseBody extends Model
      * @var string
      */
     public $maintainStartTime;
+
+    /**
+     * @var memApplicationAttribute
+     */
+    public $memApplicationAttribute;
 
     /**
      * @var string
@@ -155,6 +161,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'lockMode' => 'LockMode',
         'maintainEndTime' => 'MaintainEndTime',
         'maintainStartTime' => 'MaintainStartTime',
+        'memApplicationAttribute' => 'MemApplicationAttribute',
         'payType' => 'PayType',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'regionId' => 'RegionId',
@@ -177,6 +184,9 @@ class DescribeApplicationAttributeResponseBody extends Model
         }
         if (\is_array($this->endpoints)) {
             Model::validateArray($this->endpoints);
+        }
+        if (null !== $this->memApplicationAttribute) {
+            $this->memApplicationAttribute->validate();
         }
         if (\is_array($this->securityGroups)) {
             Model::validateArray($this->securityGroups);
@@ -254,6 +264,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->maintainStartTime) {
             $res['MaintainStartTime'] = $this->maintainStartTime;
+        }
+
+        if (null !== $this->memApplicationAttribute) {
+            $res['MemApplicationAttribute'] = null !== $this->memApplicationAttribute ? $this->memApplicationAttribute->toArray($noStream) : $this->memApplicationAttribute;
         }
 
         if (null !== $this->payType) {
@@ -397,6 +411,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['MaintainStartTime'])) {
             $model->maintainStartTime = $map['MaintainStartTime'];
+        }
+
+        if (isset($map['MemApplicationAttribute'])) {
+            $model->memApplicationAttribute = memApplicationAttribute::fromMap($map['MemApplicationAttribute']);
         }
 
         if (isset($map['PayType'])) {

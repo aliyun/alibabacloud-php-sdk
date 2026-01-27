@@ -61,6 +61,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $memApplicationSpecShrink;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -87,6 +92,11 @@ class CreateApplicationShrinkRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
 
     /**
      * @var string
@@ -118,12 +128,14 @@ class CreateApplicationShrinkRequest extends Model
         'description' => 'Description',
         'dryRun' => 'DryRun',
         'endpointsShrink' => 'Endpoints',
+        'memApplicationSpecShrink' => 'MemApplicationSpec',
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -178,6 +190,10 @@ class CreateApplicationShrinkRequest extends Model
             $res['Endpoints'] = $this->endpointsShrink;
         }
 
+        if (null !== $this->memApplicationSpecShrink) {
+            $res['MemApplicationSpec'] = $this->memApplicationSpecShrink;
+        }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -200,6 +216,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->usedTime) {
@@ -269,6 +289,10 @@ class CreateApplicationShrinkRequest extends Model
             $model->endpointsShrink = $map['Endpoints'];
         }
 
+        if (isset($map['MemApplicationSpec'])) {
+            $model->memApplicationSpecShrink = $map['MemApplicationSpec'];
+        }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
@@ -291,6 +315,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['UsedTime'])) {

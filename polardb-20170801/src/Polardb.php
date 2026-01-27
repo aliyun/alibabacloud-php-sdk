@@ -2676,6 +2676,10 @@ class Polardb extends OpenApiClient
             $request->endpointsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endpoints, 'Endpoints', 'json');
         }
 
+        if (null !== $tmpReq->memApplicationSpec) {
+            $request->memApplicationSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memApplicationSpec, 'MemApplicationSpec', 'json');
+        }
+
         $query = [];
         if (null !== $request->applicationType) {
             @$query['ApplicationType'] = $request->applicationType;
@@ -2717,6 +2721,10 @@ class Polardb extends OpenApiClient
             @$query['Endpoints'] = $request->endpointsShrink;
         }
 
+        if (null !== $request->memApplicationSpecShrink) {
+            @$query['MemApplicationSpec'] = $request->memApplicationSpecShrink;
+        }
+
         if (null !== $request->payType) {
             @$query['PayType'] = $request->payType;
         }
@@ -2739,6 +2747,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
 
         if (null !== $request->usedTime) {
@@ -8352,6 +8364,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->applicationIds) {
             @$query['ApplicationIds'] = $request->applicationIds;
+        }
+
+        if (null !== $request->applicationTypes) {
+            @$query['ApplicationTypes'] = $request->applicationTypes;
         }
 
         if (null !== $request->DBClusterId) {
