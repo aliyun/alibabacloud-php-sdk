@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest
 class CreatePrivateAccessApplicationRequest extends Model
 {
     /**
+     * @var AddressGroup[]
+     */
+    public $addressGroups;
+
+    /**
      * @var string[]
      */
     public $addresses;
@@ -18,6 +23,11 @@ class CreatePrivateAccessApplicationRequest extends Model
      * @var string
      */
     public $browserAccessStatus;
+
+    /**
+     * @var string
+     */
+    public $configMode;
 
     /**
      * @var string
@@ -64,8 +74,10 @@ class CreatePrivateAccessApplicationRequest extends Model
      */
     public $tagIds;
     protected $_name = [
+        'addressGroups' => 'AddressGroups',
         'addresses' => 'Addresses',
         'browserAccessStatus' => 'BrowserAccessStatus',
+        'configMode' => 'ConfigMode',
         'description' => 'Description',
         'l7Config' => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
@@ -79,6 +91,9 @@ class CreatePrivateAccessApplicationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addressGroups)) {
+            Model::validateArray($this->addressGroups);
+        }
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
         }
@@ -97,6 +112,17 @@ class CreatePrivateAccessApplicationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addressGroups) {
+            if (\is_array($this->addressGroups)) {
+                $res['AddressGroups'] = [];
+                $n1 = 0;
+                foreach ($this->addressGroups as $item1) {
+                    $res['AddressGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->addresses) {
             if (\is_array($this->addresses)) {
                 $res['Addresses'] = [];
@@ -110,6 +136,10 @@ class CreatePrivateAccessApplicationRequest extends Model
 
         if (null !== $this->browserAccessStatus) {
             $res['BrowserAccessStatus'] = $this->browserAccessStatus;
+        }
+
+        if (null !== $this->configMode) {
+            $res['ConfigMode'] = $this->configMode;
         }
 
         if (null !== $this->description) {
@@ -173,6 +203,17 @@ class CreatePrivateAccessApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressGroups'])) {
+            if (!empty($map['AddressGroups'])) {
+                $model->addressGroups = [];
+                $n1 = 0;
+                foreach ($map['AddressGroups'] as $item1) {
+                    $model->addressGroups[$n1] = AddressGroup::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
@@ -186,6 +227,10 @@ class CreatePrivateAccessApplicationRequest extends Model
 
         if (isset($map['BrowserAccessStatus'])) {
             $model->browserAccessStatus = $map['BrowserAccessStatus'];
+        }
+
+        if (isset($map['ConfigMode'])) {
+            $model->configMode = $map['ConfigMode'];
         }
 
         if (isset($map['Description'])) {

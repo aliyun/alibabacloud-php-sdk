@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddressGroup;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsResponseBody\applications\portRanges;
 
 class applications extends Model
@@ -15,6 +16,11 @@ class applications extends Model
     public $action;
 
     /**
+     * @var AddressGroup[]
+     */
+    public $addressGroups;
+
+    /**
      * @var string[]
      */
     public $addresses;
@@ -23,6 +29,11 @@ class applications extends Model
      * @var string
      */
     public $applicationId;
+
+    /**
+     * @var string
+     */
+    public $configMode;
 
     /**
      * @var string
@@ -40,8 +51,10 @@ class applications extends Model
     public $protocol;
     protected $_name = [
         'action' => 'Action',
+        'addressGroups' => 'AddressGroups',
         'addresses' => 'Addresses',
         'applicationId' => 'ApplicationId',
+        'configMode' => 'ConfigMode',
         'name' => 'Name',
         'portRanges' => 'PortRanges',
         'protocol' => 'Protocol',
@@ -49,6 +62,9 @@ class applications extends Model
 
     public function validate()
     {
+        if (\is_array($this->addressGroups)) {
+            Model::validateArray($this->addressGroups);
+        }
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
         }
@@ -65,6 +81,17 @@ class applications extends Model
             $res['Action'] = $this->action;
         }
 
+        if (null !== $this->addressGroups) {
+            if (\is_array($this->addressGroups)) {
+                $res['AddressGroups'] = [];
+                $n1 = 0;
+                foreach ($this->addressGroups as $item1) {
+                    $res['AddressGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->addresses) {
             if (\is_array($this->addresses)) {
                 $res['Addresses'] = [];
@@ -78,6 +105,10 @@ class applications extends Model
 
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->configMode) {
+            $res['ConfigMode'] = $this->configMode;
         }
 
         if (null !== $this->name) {
@@ -114,6 +145,17 @@ class applications extends Model
             $model->action = $map['Action'];
         }
 
+        if (isset($map['AddressGroups'])) {
+            if (!empty($map['AddressGroups'])) {
+                $model->addressGroups = [];
+                $n1 = 0;
+                foreach ($map['AddressGroups'] as $item1) {
+                    $model->addressGroups[$n1] = AddressGroup::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
@@ -127,6 +169,10 @@ class applications extends Model
 
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ConfigMode'])) {
+            $model->configMode = $map['ConfigMode'];
         }
 
         if (isset($map['Name'])) {

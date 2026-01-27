@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkR
 class UpdatePrivateAccessApplicationShrinkRequest extends Model
 {
     /**
+     * @var AddressGroup[]
+     */
+    public $addressGroups;
+
+    /**
      * @var string[]
      */
     public $addresses;
@@ -18,6 +23,11 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
      * @var string
      */
     public $applicationId;
+
+    /**
+     * @var string
+     */
+    public $configMode;
 
     /**
      * @var string
@@ -50,6 +60,11 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
     public $modifyType;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var portRanges[]
      */
     public $portRanges;
@@ -69,14 +84,17 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
      */
     public $tagIds;
     protected $_name = [
+        'addressGroups' => 'AddressGroups',
         'addresses' => 'Addresses',
         'applicationId' => 'ApplicationId',
+        'configMode' => 'ConfigMode',
         'description' => 'Description',
         'l7ConfigShrink' => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
         'l7ProxyDomainCustom' => 'L7ProxyDomainCustom',
         'l7ProxyDomainPrivate' => 'L7ProxyDomainPrivate',
         'modifyType' => 'ModifyType',
+        'name' => 'Name',
         'portRanges' => 'PortRanges',
         'protocol' => 'Protocol',
         'status' => 'Status',
@@ -85,6 +103,9 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addressGroups)) {
+            Model::validateArray($this->addressGroups);
+        }
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
         }
@@ -100,6 +121,17 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addressGroups) {
+            if (\is_array($this->addressGroups)) {
+                $res['AddressGroups'] = [];
+                $n1 = 0;
+                foreach ($this->addressGroups as $item1) {
+                    $res['AddressGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->addresses) {
             if (\is_array($this->addresses)) {
                 $res['Addresses'] = [];
@@ -113,6 +145,10 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
 
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->configMode) {
+            $res['ConfigMode'] = $this->configMode;
         }
 
         if (null !== $this->description) {
@@ -137,6 +173,10 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
 
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->portRanges) {
@@ -180,6 +220,17 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressGroups'])) {
+            if (!empty($map['AddressGroups'])) {
+                $model->addressGroups = [];
+                $n1 = 0;
+                foreach ($map['AddressGroups'] as $item1) {
+                    $model->addressGroups[$n1] = AddressGroup::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
@@ -193,6 +244,10 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
 
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ConfigMode'])) {
+            $model->configMode = $map['ConfigMode'];
         }
 
         if (isset($map['Description'])) {
@@ -217,6 +272,10 @@ class UpdatePrivateAccessApplicationShrinkRequest extends Model
 
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PortRanges'])) {

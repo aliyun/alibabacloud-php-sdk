@@ -47,6 +47,11 @@ class UpdatePrivateAccessPolicyRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $policyAction;
 
     /**
@@ -121,6 +126,7 @@ class UpdatePrivateAccessPolicyRequest extends Model
         'deviceAttributeAction' => 'DeviceAttributeAction',
         'deviceAttributeId' => 'DeviceAttributeId',
         'modifyType' => 'ModifyType',
+        'name' => 'Name',
         'policyAction' => 'PolicyAction',
         'policyId' => 'PolicyId',
         'priority' => 'Priority',
@@ -203,6 +209,10 @@ class UpdatePrivateAccessPolicyRequest extends Model
 
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->policyAction) {
@@ -340,6 +350,10 @@ class UpdatePrivateAccessPolicyRequest extends Model
 
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PolicyAction'])) {

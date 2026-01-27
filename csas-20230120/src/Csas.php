@@ -907,12 +907,20 @@ class Csas extends OpenApiClient
 
         $body = [];
         $bodyFlat = [];
+        if (null !== $request->addressGroups) {
+            @$bodyFlat['AddressGroups'] = $request->addressGroups;
+        }
+
         if (null !== $request->addresses) {
             @$bodyFlat['Addresses'] = $request->addresses;
         }
 
         if (null !== $request->browserAccessStatus) {
             @$body['BrowserAccessStatus'] = $request->browserAccessStatus;
+        }
+
+        if (null !== $request->configMode) {
+            @$body['ConfigMode'] = $request->configMode;
         }
 
         if (null !== $request->description) {
@@ -6972,12 +6980,20 @@ class Csas extends OpenApiClient
 
         $body = [];
         $bodyFlat = [];
+        if (null !== $request->addressGroups) {
+            @$bodyFlat['AddressGroups'] = $request->addressGroups;
+        }
+
         if (null !== $request->addresses) {
             @$bodyFlat['Addresses'] = $request->addresses;
         }
 
         if (null !== $request->applicationId) {
             @$body['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->configMode) {
+            @$body['ConfigMode'] = $request->configMode;
         }
 
         if (null !== $request->description) {
@@ -7002,6 +7018,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->modifyType) {
             @$body['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
 
         if (null !== $request->portRanges) {
@@ -7102,6 +7122,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->modifyType) {
             @$body['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
 
         if (null !== $request->policyAction) {
