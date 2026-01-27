@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearPairDrillRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearPairDrillResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearReplicaGroupDrillRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ClearReplicaGroupDrillResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateAppRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupRequest;
@@ -26,6 +28,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyShrinkRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteAppRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
@@ -624,6 +628,95 @@ class Ebs extends OpenApiClient
     }
 
     /**
+     * 中心化角色：创建App.
+     *
+     * @param request - CreateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
+     */
+    public function createAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->appTags) {
+            @$query['AppTags'] = $request->appTags;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportSendEnabled) {
+            @$query['ReportSendEnabled'] = $request->reportSendEnabled;
+        }
+
+        if (null !== $request->subscribePeriod) {
+            @$query['SubscribePeriod'] = $request->subscribePeriod;
+        }
+
+        if (null !== $request->subscribeStatus) {
+            @$query['SubscribeStatus'] = $request->subscribeStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApp',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 中心化角色：创建App.
+     *
+     * @param request - CreateAppRequest
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
+     */
+    public function createApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
      *
      * @remarks
@@ -1113,6 +1206,75 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 中心化角色：删除App.
+     *
+     * @param request - DeleteAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApp',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 中心化角色：删除App.
+     *
+     * @param request - DeleteAppRequest
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppWithOptions($request, $runtime);
     }
 
     /**
