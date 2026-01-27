@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CleanClusterUserPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CleanUserPermissionsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CleanUserPermissionsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CleanUserPermissionsShrinkRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoRepairPolicyRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoRepairPolicyResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterDiagnosisRequest;
@@ -44,6 +46,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactShrinkRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAutoRepairPolicyResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterInspectConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
@@ -63,6 +66,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAutoRepairPolicyResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonMetadataRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonMetadataResponse;
@@ -152,6 +156,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ListAutoRepairPoliciesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstanceResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterAddonInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListClusterChecksRequest;
@@ -171,6 +176,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ListUserKubeConfigStatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListUserKubeConfigStatesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\MigrateClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyAutoRepairPolicyRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyAutoRepairPolicyResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterAddonResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest;
@@ -989,6 +996,81 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->cleanUserPermissionsWithOptions($Uid, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @param request - CreateAutoRepairPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAutoRepairPolicyResponse
+     *
+     * @param string                        $clusterId
+     * @param CreateAutoRepairPolicyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateAutoRepairPolicyResponse
+     */
+    public function createAutoRepairPolicyWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->resourceSubType) {
+            @$body['resource_sub_type'] = $request->resourceSubType;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resource_type'] = $request->resourceType;
+        }
+
+        if (null !== $request->rules) {
+            @$body['rules'] = $request->rules;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAutoRepairPolicy',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/auto_repair_policies',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAutoRepairPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @param request - CreateAutoRepairPolicyRequest
+     *
+     * @returns CreateAutoRepairPolicyResponse
+     *
+     * @param string                        $clusterId
+     * @param CreateAutoRepairPolicyRequest $request
+     *
+     * @return CreateAutoRepairPolicyResponse
+     */
+    public function createAutoRepairPolicy($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAutoRepairPolicyWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -2227,6 +2309,59 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 查询自愈规则.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAutoRepairPolicyResponse
+     *
+     * @param string         $clusterId
+     * @param string         $policyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAutoRepairPolicyResponse
+     */
+    public function deleteAutoRepairPolicyWithOptions($clusterId, $policyId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAutoRepairPolicy',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/auto_repair_policies/' . Url::percentEncode($policyId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAutoRepairPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @returns DeleteAutoRepairPolicyResponse
+     *
+     * @param string $clusterId
+     * @param string $policyId
+     *
+     * @return DeleteAutoRepairPolicyResponse
+     */
+    public function deleteAutoRepairPolicy($clusterId, $policyId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAutoRepairPolicyWithOptions($clusterId, $policyId, $headers, $runtime);
+    }
+
+    /**
      * You can call the DeleteCluster operation to delete a cluster and specify whether to delete or retain the relevant cluster resources. Before you delete a cluster, you must manually delete workloads in the cluster, such as Deployments, StatefulSets, Jobs, and CronJobs. Otherwise, you may fail to delete the cluster.
      *
      * @remarks
@@ -2995,6 +3130,59 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->describeAddonsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutoRepairPolicyResponse
+     *
+     * @param string         $clusterId
+     * @param string         $policyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeAutoRepairPolicyResponse
+     */
+    public function describeAutoRepairPolicyWithOptions($clusterId, $policyId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAutoRepairPolicy',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/auto_repair_policies/' . Url::percentEncode($policyId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAutoRepairPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @returns DescribeAutoRepairPolicyResponse
+     *
+     * @param string $clusterId
+     * @param string $policyId
+     *
+     * @return DescribeAutoRepairPolicyResponse
+     */
+    public function describeAutoRepairPolicy($clusterId, $policyId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeAutoRepairPolicyWithOptions($clusterId, $policyId, $headers, $runtime);
     }
 
     /**
@@ -6550,6 +6738,57 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 查询自愈规则.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAutoRepairPoliciesResponse
+     *
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAutoRepairPoliciesResponse
+     */
+    public function listAutoRepairPoliciesWithOptions($clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListAutoRepairPolicies',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/auto_repair_policies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAutoRepairPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @returns ListAutoRepairPoliciesResponse
+     *
+     * @param string $clusterId
+     *
+     * @return ListAutoRepairPoliciesResponse
+     */
+    public function listAutoRepairPolicies($clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAutoRepairPoliciesWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
      * 获取集群组件实例的资源列表.
      *
      * @param headers - map
@@ -7227,6 +7466,75 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->migrateClusterWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @param request - ModifyAutoRepairPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAutoRepairPolicyResponse
+     *
+     * @param string                        $clusterId
+     * @param string                        $policyId
+     * @param ModifyAutoRepairPolicyRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAutoRepairPolicyResponse
+     */
+    public function modifyAutoRepairPolicyWithOptions($clusterId, $policyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->rules) {
+            @$body['rules'] = $request->rules;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAutoRepairPolicy',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/auto_repair_policies/' . Url::percentEncode($policyId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAutoRepairPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自愈规则.
+     *
+     * @param request - ModifyAutoRepairPolicyRequest
+     *
+     * @returns ModifyAutoRepairPolicyResponse
+     *
+     * @param string                        $clusterId
+     * @param string                        $policyId
+     * @param ModifyAutoRepairPolicyRequest $request
+     *
+     * @return ModifyAutoRepairPolicyResponse
+     */
+    public function modifyAutoRepairPolicy($clusterId, $policyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyAutoRepairPolicyWithOptions($clusterId, $policyId, $request, $headers, $runtime);
     }
 
     /**
