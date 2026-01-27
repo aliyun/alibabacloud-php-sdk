@@ -88,6 +88,8 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobOutputModelsRespo
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobsShrinkRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\OperateNodeRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\OperateNodeResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ScaleQuotaRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ScaleQuotaResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\StopTrainingJobResponse;
@@ -3642,6 +3644,77 @@ class PaiStudio extends OpenApiClient
         $headers = [];
 
         return $this->listTrainingJobsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 您可以通过OperateNode对节点进行操作.
+     *
+     * @param request - OperateNodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateNodeResponse
+     *
+     * @param string             $NodeId
+     * @param OperateNodeRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return OperateNodeResponse
+     */
+    public function operateNodeWithOptions($NodeId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->operation) {
+            @$body['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->operationParameters) {
+            @$body['OperationParameters'] = $request->operationParameters;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OperateNode',
+            'version' => '2022-01-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/nodes/' . Url::percentEncode($NodeId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 您可以通过OperateNode对节点进行操作.
+     *
+     * @param request - OperateNodeRequest
+     *
+     * @returns OperateNodeResponse
+     *
+     * @param string             $NodeId
+     * @param OperateNodeRequest $request
+     *
+     * @return OperateNodeResponse
+     */
+    public function operateNode($NodeId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->operateNodeWithOptions($NodeId, $request, $headers, $runtime);
     }
 
     /**
