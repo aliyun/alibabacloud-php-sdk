@@ -108,8 +108,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCImageRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCImageResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolShrinkRequest;
@@ -605,8 +603,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceTDERequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceTDEResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceVectorSupportStatusRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceVectorSupportStatusResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBNodeShrinkRequest;
@@ -643,8 +639,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskSpecRequest;
@@ -6149,97 +6143,6 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRCDiskWithOptions($request, $runtime);
-    }
-
-    /**
-     * Creates a custom image for an RDS Custom instance.
-     *
-     * @remarks
-     * ### [](#)Supported database engines
-     * *   RDS MySQL
-     * *   RDS SQL Server
-     * ### [](#)References
-     * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
-     * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
-     * ### [](#)Usage
-     * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
-     * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
-     *
-     * @param request - CreateRCImageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRCImageResponse
-     *
-     * @param CreateRCImageRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateRCImageResponse
-     */
-    public function createRCImageWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->imageName) {
-            @$query['ImageName'] = $request->imageName;
-        }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->snapshotId) {
-            @$query['SnapshotId'] = $request->snapshotId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateRCImage',
-            'version' => '2014-08-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateRCImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Creates a custom image for an RDS Custom instance.
-     *
-     * @remarks
-     * ### [](#)Supported database engines
-     * *   RDS MySQL
-     * *   RDS SQL Server
-     * ### [](#)References
-     * *   [Introduction to RDS Custom for MySQL](https://help.aliyun.com/document_detail/2844223.html)
-     * *   [Introduction to RDS Custom for SQL Server](https://help.aliyun.com/document_detail/2864363.html)
-     * ### [](#)Usage
-     * *   Method 1: Create a custom image by using a snapshot generated from the **system disk**. In this case, specify the SnapshotId and ImageName parameters at the same time in the request.
-     * *   Method 2: Create a custom image by using an RDS Custom instance. In this case, specify the InstanceId and ImageName parameters at the same time in the request.
-     *
-     * @param request - CreateRCImageRequest
-     *
-     * @returns CreateRCImageResponse
-     *
-     * @param CreateRCImageRequest $request
-     *
-     * @return CreateRCImageResponse
-     */
-    public function createRCImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRCImageWithOptions($request, $runtime);
     }
 
     /**
@@ -21020,10 +20923,6 @@ class Rds extends OpenApiClient
             @$query['DiskId'] = $request->diskId;
         }
 
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
-        }
-
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -29282,67 +29181,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 修改实例向量支持状态
-     *
-     * @param request - ModifyDBInstanceVectorSupportStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceVectorSupportStatusResponse
-     *
-     * @param ModifyDBInstanceVectorSupportStatusRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ModifyDBInstanceVectorSupportStatusResponse
-     */
-    public function modifyDBInstanceVectorSupportStatusWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
-        }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ModifyDBInstanceVectorSupportStatus',
-            'version' => '2014-08-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ModifyDBInstanceVectorSupportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 修改实例向量支持状态
-     *
-     * @param request - ModifyDBInstanceVectorSupportStatusRequest
-     *
-     * @returns ModifyDBInstanceVectorSupportStatusResponse
-     *
-     * @param ModifyDBInstanceVectorSupportStatusRequest $request
-     *
-     * @return ModifyDBInstanceVectorSupportStatusResponse
-     */
-    public function modifyDBInstanceVectorSupportStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDBInstanceVectorSupportStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * Changes the specifications, storage type, and storage capacity of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
      *
      * @remarks
@@ -31361,83 +31199,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 修改块存储属性.
-     *
-     * @param request - ModifyRCDiskAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyRCDiskAttributeResponse
-     *
-     * @param ModifyRCDiskAttributeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyRCDiskAttributeResponse
-     */
-    public function modifyRCDiskAttributeWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->burstingEnabled) {
-            @$query['BurstingEnabled'] = $request->burstingEnabled;
-        }
-
-        if (null !== $request->deleteWithInstance) {
-            @$query['DeleteWithInstance'] = $request->deleteWithInstance;
-        }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
-        }
-
-        if (null !== $request->diskId) {
-            @$query['DiskId'] = $request->diskId;
-        }
-
-        if (null !== $request->diskName) {
-            @$query['DiskName'] = $request->diskName;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ModifyRCDiskAttribute',
-            'version' => '2014-08-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ModifyRCDiskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 修改块存储属性.
-     *
-     * @param request - ModifyRCDiskAttributeRequest
-     *
-     * @returns ModifyRCDiskAttributeResponse
-     *
-     * @param ModifyRCDiskAttributeRequest $request
-     *
-     * @return ModifyRCDiskAttributeResponse
-     */
-    public function modifyRCDiskAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyRCDiskAttributeWithOptions($request, $runtime);
-    }
-
-    /**
      * 修改RDS用户磁盘付费类型.
      *
      * @param request - ModifyRCDiskChargeTypeRequest
@@ -31454,10 +31215,6 @@ class Rds extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
-        }
-
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
         }
@@ -31482,20 +31239,12 @@ class Rds extends OpenApiClient
             @$query['PayType'] = $request->payType;
         }
 
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
-        }
-
         if (null !== $request->promotionCode) {
             @$query['PromotionCode'] = $request->promotionCode;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
         }
 
         $req = new OpenApiRequest([
@@ -36984,10 +36733,6 @@ class Rds extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
-        if (null !== $request->stoppedMode) {
-            @$query['StoppedMode'] = $request->stoppedMode;
-        }
-
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -37069,10 +36814,6 @@ class Rds extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->stoppedMode) {
-            @$query['StoppedMode'] = $request->stoppedMode;
         }
 
         $req = new OpenApiRequest([

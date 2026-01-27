@@ -21,11 +21,6 @@ class DescribeDBInstanceReplicationResponseBody extends Model
     /**
      * @var string
      */
-    public $importStatus;
-
-    /**
-     * @var string
-     */
     public $replicationDelay;
 
     /**
@@ -60,7 +55,6 @@ class DescribeDBInstanceReplicationResponseBody extends Model
     protected $_name = [
         'externalReplication' => 'ExternalReplication',
         'gtidExecuted' => 'GtidExecuted',
-        'importStatus' => 'ImportStatus',
         'replicationDelay' => 'ReplicationDelay',
         'replicationErrorMessage' => 'ReplicationErrorMessage',
         'replicationIp' => 'ReplicationIp',
@@ -84,10 +78,6 @@ class DescribeDBInstanceReplicationResponseBody extends Model
 
         if (null !== $this->gtidExecuted) {
             $res['GtidExecuted'] = $this->gtidExecuted;
-        }
-
-        if (null !== $this->importStatus) {
-            $res['ImportStatus'] = $this->importStatus;
         }
 
         if (null !== $this->replicationDelay) {
@@ -135,10 +125,6 @@ class DescribeDBInstanceReplicationResponseBody extends Model
 
         if (isset($map['GtidExecuted'])) {
             $model->gtidExecuted = $map['GtidExecuted'];
-        }
-
-        if (isset($map['ImportStatus'])) {
-            $model->importStatus = $map['ImportStatus'];
         }
 
         if (isset($map['ReplicationDelay'])) {

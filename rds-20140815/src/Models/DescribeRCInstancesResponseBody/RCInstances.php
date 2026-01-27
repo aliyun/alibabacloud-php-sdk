@@ -44,11 +44,6 @@ class RCInstances extends Model
     /**
      * @var string
      */
-    public $ecsHostName;
-
-    /**
-     * @var string
-     */
     public $expiredTime;
 
     /**
@@ -109,16 +104,6 @@ class RCInstances extends Model
     /**
      * @var string
      */
-    public $OSName;
-
-    /**
-     * @var string
-     */
-    public $OSType;
-
-    /**
-     * @var string
-     */
     public $publicIp;
 
     /**
@@ -139,17 +124,7 @@ class RCInstances extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $stoppedMode;
 
     /**
      * @var tagResources[]
@@ -182,7 +157,6 @@ class RCInstances extends Model
         'dbType' => 'DbType',
         'deploymentSetId' => 'DeploymentSetId',
         'description' => 'Description',
-        'ecsHostName' => 'EcsHostName',
         'expiredTime' => 'ExpiredTime',
         'gmtCreated' => 'GmtCreated',
         'hostIp' => 'HostIp',
@@ -195,15 +169,11 @@ class RCInstances extends Model
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'memory' => 'Memory',
         'nodeType' => 'NodeType',
-        'OSName' => 'OSName',
-        'OSType' => 'OSType',
         'publicIp' => 'PublicIp',
         'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
         'spotStrategy' => 'SpotStrategy',
-        'startTime' => 'StartTime',
         'status' => 'Status',
-        'stoppedMode' => 'StoppedMode',
         'tagResources' => 'TagResources',
         'tags' => 'Tags',
         'vpcAttributes' => 'VpcAttributes',
@@ -250,10 +220,6 @@ class RCInstances extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-
-        if (null !== $this->ecsHostName) {
-            $res['EcsHostName'] = $this->ecsHostName;
         }
 
         if (null !== $this->expiredTime) {
@@ -304,14 +270,6 @@ class RCInstances extends Model
             $res['NodeType'] = $this->nodeType;
         }
 
-        if (null !== $this->OSName) {
-            $res['OSName'] = $this->OSName;
-        }
-
-        if (null !== $this->OSType) {
-            $res['OSType'] = $this->OSType;
-        }
-
         if (null !== $this->publicIp) {
             $res['PublicIp'] = $this->publicIp;
         }
@@ -328,16 +286,8 @@ class RCInstances extends Model
             $res['SpotStrategy'] = $this->spotStrategy;
         }
 
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-
-        if (null !== $this->stoppedMode) {
-            $res['StoppedMode'] = $this->stoppedMode;
         }
 
         if (null !== $this->tagResources) {
@@ -409,10 +359,6 @@ class RCInstances extends Model
             $model->description = $map['Description'];
         }
 
-        if (isset($map['EcsHostName'])) {
-            $model->ecsHostName = $map['EcsHostName'];
-        }
-
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -461,14 +407,6 @@ class RCInstances extends Model
             $model->nodeType = $map['NodeType'];
         }
 
-        if (isset($map['OSName'])) {
-            $model->OSName = $map['OSName'];
-        }
-
-        if (isset($map['OSType'])) {
-            $model->OSType = $map['OSType'];
-        }
-
         if (isset($map['PublicIp'])) {
             $model->publicIp = $map['PublicIp'];
         }
@@ -485,16 +423,8 @@ class RCInstances extends Model
             $model->spotStrategy = $map['SpotStrategy'];
         }
 
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-
-        if (isset($map['StoppedMode'])) {
-            $model->stoppedMode = $map['StoppedMode'];
         }
 
         if (isset($map['TagResources'])) {

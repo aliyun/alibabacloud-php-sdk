@@ -42,11 +42,6 @@ class snapshots extends Model
     /**
      * @var string
      */
-    public $lastModifiedTime;
-
-    /**
-     * @var string
-     */
     public $progress;
 
     /**
@@ -115,7 +110,6 @@ class snapshots extends Model
         'description' => 'Description',
         'encrypted' => 'Encrypted',
         'instantAccess' => 'InstantAccess',
-        'lastModifiedTime' => 'LastModifiedTime',
         'progress' => 'Progress',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -164,10 +158,6 @@ class snapshots extends Model
 
         if (null !== $this->instantAccess) {
             $res['InstantAccess'] = $this->instantAccess;
-        }
-
-        if (null !== $this->lastModifiedTime) {
-            $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
 
         if (null !== $this->progress) {
@@ -262,10 +252,6 @@ class snapshots extends Model
 
         if (isset($map['InstantAccess'])) {
             $model->instantAccess = $map['InstantAccess'];
-        }
-
-        if (isset($map['LastModifiedTime'])) {
-            $model->lastModifiedTime = $map['LastModifiedTime'];
         }
 
         if (isset($map['Progress'])) {

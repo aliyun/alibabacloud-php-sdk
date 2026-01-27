@@ -15,11 +15,6 @@ class DescribeRCSnapshotsRequest extends Model
     public $diskId;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -45,7 +40,6 @@ class DescribeRCSnapshotsRequest extends Model
     public $tag;
     protected $_name = [
         'diskId' => 'DiskId',
-        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -66,10 +60,6 @@ class DescribeRCSnapshotsRequest extends Model
         $res = [];
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
-        }
-
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->pageNumber) {
@@ -112,10 +102,6 @@ class DescribeRCSnapshotsRequest extends Model
         $model = new self();
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
-        }
-
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['PageNumber'])) {
