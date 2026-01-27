@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class officeSites extends Model
 {
     /**
+     * @var int
+     */
+    public $aliUid;
+
+    /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
      * @var string
      */
     public $desktopAccessType;
@@ -38,6 +48,8 @@ class officeSites extends Model
      */
     public $ssoServiceUrl;
     protected $_name = [
+        'aliUid' => 'AliUid',
+        'bizType' => 'BizType',
         'desktopAccessType' => 'DesktopAccessType',
         'desktopVpcEndpoint' => 'DesktopVpcEndpoint',
         'officeSiteId' => 'OfficeSiteId',
@@ -54,6 +66,14 @@ class officeSites extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
+        }
+
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+
         if (null !== $this->desktopAccessType) {
             $res['DesktopAccessType'] = $this->desktopAccessType;
         }
@@ -89,6 +109,14 @@ class officeSites extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
+        }
+
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+
         if (isset($map['DesktopAccessType'])) {
             $model->desktopAccessType = $map['DesktopAccessType'];
         }

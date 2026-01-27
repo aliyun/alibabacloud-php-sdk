@@ -11,6 +11,11 @@ class GetConnectionTicketResponseBody extends Model
     /**
      * @var string
      */
+    public $desktopId;
+
+    /**
+     * @var string
+     */
     public $p2PToken;
 
     /**
@@ -43,6 +48,7 @@ class GetConnectionTicketResponseBody extends Model
      */
     public $ticket;
     protected $_name = [
+        'desktopId' => 'DesktopId',
         'p2PToken' => 'P2PToken',
         'requestId' => 'RequestId',
         'taskCode' => 'TaskCode',
@@ -60,6 +66,10 @@ class GetConnectionTicketResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
+        }
+
         if (null !== $this->p2PToken) {
             $res['P2PToken'] = $this->p2PToken;
         }
@@ -99,6 +109,10 @@ class GetConnectionTicketResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DesktopId'])) {
+            $model->desktopId = $map['DesktopId'];
+        }
+
         if (isset($map['P2PToken'])) {
             $model->p2PToken = $map['P2PToken'];
         }

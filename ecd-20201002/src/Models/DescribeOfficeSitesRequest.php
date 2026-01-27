@@ -22,10 +22,16 @@ class DescribeOfficeSitesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'clientId' => 'ClientId',
         'officeSiteId' => 'OfficeSiteId',
         'regionId' => 'RegionId',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
@@ -58,6 +64,10 @@ class DescribeOfficeSitesRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class DescribeOfficeSitesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

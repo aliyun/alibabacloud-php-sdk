@@ -85,6 +85,11 @@ class GetConnectionTicketRequest extends Model
     public $taskId;
 
     /**
+     * @var string[]
+     */
+    public $ticketBlackList;
+
+    /**
      * @var string
      */
     public $uuid;
@@ -104,6 +109,7 @@ class GetConnectionTicketRequest extends Model
         'sessionId' => 'SessionId',
         'tag' => 'Tag',
         'taskId' => 'TaskId',
+        'ticketBlackList' => 'TicketBlackList',
         'uuid' => 'Uuid',
     ];
 
@@ -111,6 +117,9 @@ class GetConnectionTicketRequest extends Model
     {
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
+        }
+        if (\is_array($this->ticketBlackList)) {
+            Model::validateArray($this->ticketBlackList);
         }
         parent::validate();
     }
@@ -183,6 +192,17 @@ class GetConnectionTicketRequest extends Model
 
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->ticketBlackList) {
+            if (\is_array($this->ticketBlackList)) {
+                $res['TicketBlackList'] = [];
+                $n1 = 0;
+                foreach ($this->ticketBlackList as $item1) {
+                    $res['TicketBlackList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->uuid) {
@@ -265,6 +285,17 @@ class GetConnectionTicketRequest extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TicketBlackList'])) {
+            if (!empty($map['TicketBlackList'])) {
+                $model->ticketBlackList = [];
+                $n1 = 0;
+                foreach ($map['TicketBlackList'] as $item1) {
+                    $model->ticketBlackList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Uuid'])) {
