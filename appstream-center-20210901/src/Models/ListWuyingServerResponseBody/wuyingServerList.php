@@ -124,6 +124,11 @@ class wuyingServerList extends Model
     /**
      * @var string
      */
+    public $virtualKubeletIp;
+
+    /**
+     * @var string
+     */
     public $virtualNodePoolId;
 
     /**
@@ -158,6 +163,7 @@ class wuyingServerList extends Model
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
+        'virtualKubeletIp' => 'VirtualKubeletIp',
         'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerId' => 'WuyingServerId',
         'wuyingServerName' => 'WuyingServerName',
@@ -292,6 +298,10 @@ class wuyingServerList extends Model
             $res['SystemDiskSize'] = $this->systemDiskSize;
         }
 
+        if (null !== $this->virtualKubeletIp) {
+            $res['VirtualKubeletIp'] = $this->virtualKubeletIp;
+        }
+
         if (null !== $this->virtualNodePoolId) {
             $res['VirtualNodePoolId'] = $this->virtualNodePoolId;
         }
@@ -422,6 +432,10 @@ class wuyingServerList extends Model
 
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+
+        if (isset($map['VirtualKubeletIp'])) {
+            $model->virtualKubeletIp = $map['VirtualKubeletIp'];
         }
 
         if (isset($map['VirtualNodePoolId'])) {
