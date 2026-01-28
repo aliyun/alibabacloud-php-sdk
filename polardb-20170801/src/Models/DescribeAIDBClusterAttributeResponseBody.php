@@ -19,6 +19,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
@@ -157,6 +162,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     public $zoneIds;
     protected $_name = [
         'aiNodeType' => 'AiNodeType',
+        'apiKey' => 'ApiKey',
         'creationTime' => 'CreationTime',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
@@ -206,6 +212,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->aiNodeType) {
             $res['AiNodeType'] = $this->aiNodeType;
+        }
+
+        if (null !== $this->apiKey) {
+            $res['ApiKey'] = $this->apiKey;
         }
 
         if (null !== $this->creationTime) {
@@ -354,6 +364,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         $model = new self();
         if (isset($map['AiNodeType'])) {
             $model->aiNodeType = $map['AiNodeType'];
+        }
+
+        if (isset($map['ApiKey'])) {
+            $model->apiKey = $map['ApiKey'];
         }
 
         if (isset($map['CreationTime'])) {
