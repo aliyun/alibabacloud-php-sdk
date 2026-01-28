@@ -7,10 +7,16 @@ namespace AlibabaCloud\SDK\Eiam\V20211201;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationAccountToUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationAccountToUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationToAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddApplicationToAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddCustomPrivacyPoliciesToBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddCustomPrivacyPoliciesToBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddGroupToAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddGroupToAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AuthorizeApplicationToGroupsRequest;
@@ -41,6 +47,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateAuthorizationResourceRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateAuthorizationResourceResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateClientPublicKeyRequest;
@@ -87,6 +97,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteAuthorizationResourceRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteAuthorizationResourceResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteClientPublicKeyRequest;
@@ -145,6 +159,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableClientPublicKeyRequest;
@@ -191,6 +207,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableClientPublicKeyRequest;
@@ -243,6 +261,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationTemplateResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationResourceRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationResourceResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetClientPublicKeyRequest;
@@ -309,6 +331,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsRe
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationRolesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationRolesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForNetworkAccessEndpointRequest;
@@ -325,6 +349,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationSupportedProvisionProt
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationSupportedProvisionProtocolTypesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationTokensResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationResourcesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationResourcesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForApplicationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForGroupRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForUserRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListClientPublicKeysRequest;
@@ -356,6 +390,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersReque
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForResourceServerRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForResourceServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserRequest;
@@ -394,6 +430,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUserAuthnSourceMappingsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForResourceServerRequest;
@@ -408,8 +446,14 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationFromAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationFromAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveCustomPrivacyPoliciesFromBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveCustomPrivacyPoliciesFromBrandResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveGroupFromAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveGroupFromAuthorizationRuleResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUsersFromGroupRequest;
@@ -490,6 +534,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationSsoFormParamsRequest
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationSsoFormParamsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationTokenExpirationTimeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleApplicationAttachmentRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleApplicationAttachmentResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleGroupAttachmentRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleGroupAttachmentResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleUserAttachmentRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleUserAttachmentResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountDescriptionRequest;
@@ -649,6 +703,85 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 将应用添加到授权规则.
+     *
+     * @param request - AddApplicationToAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddApplicationToAuthorizationRuleResponse
+     *
+     * @param AddApplicationToAuthorizationRuleRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return AddApplicationToAuthorizationRuleResponse
+     */
+    public function addApplicationToAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->validityPeriod) {
+            @$query['ValidityPeriod'] = $request->validityPeriod;
+        }
+
+        if (null !== $request->validityType) {
+            @$query['ValidityType'] = $request->validityType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddApplicationToAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddApplicationToAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将应用添加到授权规则.
+     *
+     * @param request - AddApplicationToAuthorizationRuleRequest
+     *
+     * @returns AddApplicationToAuthorizationRuleResponse
+     *
+     * @param AddApplicationToAuthorizationRuleRequest $request
+     *
+     * @return AddApplicationToAuthorizationRuleResponse
+     */
+    public function addApplicationToAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addApplicationToAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 添加条款到品牌.
      *
      * @param request - AddCustomPrivacyPoliciesToBrandRequest
@@ -711,6 +844,164 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCustomPrivacyPoliciesToBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 将组添加到授权规则.
+     *
+     * @param request - AddGroupToAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddGroupToAuthorizationRuleResponse
+     *
+     * @param AddGroupToAuthorizationRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddGroupToAuthorizationRuleResponse
+     */
+    public function addGroupToAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->validityPeriod) {
+            @$query['ValidityPeriod'] = $request->validityPeriod;
+        }
+
+        if (null !== $request->validityType) {
+            @$query['ValidityType'] = $request->validityType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddGroupToAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddGroupToAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将组添加到授权规则.
+     *
+     * @param request - AddGroupToAuthorizationRuleRequest
+     *
+     * @returns AddGroupToAuthorizationRuleResponse
+     *
+     * @param AddGroupToAuthorizationRuleRequest $request
+     *
+     * @return AddGroupToAuthorizationRuleResponse
+     */
+    public function addGroupToAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addGroupToAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 将账户添加到授权规则.
+     *
+     * @param request - AddUserToAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserToAuthorizationRuleResponse
+     *
+     * @param AddUserToAuthorizationRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddUserToAuthorizationRuleResponse
+     */
+    public function addUserToAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->validityPeriod) {
+            @$query['ValidityPeriod'] = $request->validityPeriod;
+        }
+
+        if (null !== $request->validityType) {
+            @$query['ValidityType'] = $request->validityType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddUserToAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUserToAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将账户添加到授权规则.
+     *
+     * @param request - AddUserToAuthorizationRuleRequest
+     *
+     * @returns AddUserToAuthorizationRuleResponse
+     *
+     * @param AddUserToAuthorizationRuleRequest $request
+     *
+     * @return AddUserToAuthorizationRuleResponse
+     */
+    public function addUserToAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserToAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1849,6 +2140,160 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建授权资源.
+     *
+     * @param request - CreateAuthorizationResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAuthorizationResourceResponse
+     *
+     * @param CreateAuthorizationResourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateAuthorizationResourceResponse
+     */
+    public function createAuthorizationResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationResourceEntityId) {
+            @$query['AuthorizationResourceEntityId'] = $request->authorizationResourceEntityId;
+        }
+
+        if (null !== $request->authorizationResourceEntityType) {
+            @$query['AuthorizationResourceEntityType'] = $request->authorizationResourceEntityType;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAuthorizationResource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAuthorizationResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建授权资源.
+     *
+     * @param request - CreateAuthorizationResourceRequest
+     *
+     * @returns CreateAuthorizationResourceResponse
+     *
+     * @param CreateAuthorizationResourceRequest $request
+     *
+     * @return CreateAuthorizationResourceResponse
+     */
+    public function createAuthorizationResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAuthorizationResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建授权规则.
+     *
+     * @param request - CreateAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAuthorizationRuleResponse
+     *
+     * @param CreateAuthorizationRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAuthorizationRuleResponse
+     */
+    public function createAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationResourceScope) {
+            @$query['AuthorizationResourceScope'] = $request->authorizationResourceScope;
+        }
+
+        if (null !== $request->authorizationRuleName) {
+            @$query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建授权规则.
+     *
+     * @param request - CreateAuthorizationRuleRequest
+     *
+     * @returns CreateAuthorizationRuleResponse
+     *
+     * @param CreateAuthorizationRuleRequest $request
+     *
+     * @return CreateAuthorizationRuleResponse
+     */
+    public function createAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -3596,6 +4041,132 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除授权资源.
+     *
+     * @param request - DeleteAuthorizationResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAuthorizationResourceResponse
+     *
+     * @param DeleteAuthorizationResourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteAuthorizationResourceResponse
+     */
+    public function deleteAuthorizationResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationResourceId) {
+            @$query['AuthorizationResourceId'] = $request->authorizationResourceId;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAuthorizationResource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAuthorizationResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除授权资源.
+     *
+     * @param request - DeleteAuthorizationResourceRequest
+     *
+     * @returns DeleteAuthorizationResourceResponse
+     *
+     * @param DeleteAuthorizationResourceRequest $request
+     *
+     * @return DeleteAuthorizationResourceResponse
+     */
+    public function deleteAuthorizationResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAuthorizationResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除授权规则.
+     *
+     * @param request - DeleteAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAuthorizationRuleResponse
+     *
+     * @param DeleteAuthorizationRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAuthorizationRuleResponse
+     */
+    public function deleteAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除授权规则.
+     *
+     * @param request - DeleteAuthorizationRuleRequest
+     *
+     * @returns DeleteAuthorizationRuleResponse
+     *
+     * @param DeleteAuthorizationRuleRequest $request
+     *
+     * @return DeleteAuthorizationRuleResponse
+     */
+    public function deleteAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -5414,6 +5985,73 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用授权规则.
+     *
+     * @param request - DisableAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableAuthorizationRuleResponse
+     *
+     * @param DisableAuthorizationRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DisableAuthorizationRuleResponse
+     */
+    public function disableAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用授权规则.
+     *
+     * @param request - DisableAuthorizationRuleRequest
+     *
+     * @returns DisableAuthorizationRuleResponse
+     *
+     * @param DisableAuthorizationRuleRequest $request
+     *
+     * @return DisableAuthorizationRuleResponse
+     */
+    public function disableAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 禁用品牌.
      *
      * @param request - DisableBrandRequest
@@ -6848,6 +7486,73 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用授权规则.
+     *
+     * @param request - EnableAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableAuthorizationRuleResponse
+     *
+     * @param EnableAuthorizationRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableAuthorizationRuleResponse
+     */
+    public function enableAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用授权规则.
+     *
+     * @param request - EnableAuthorizationRuleRequest
+     *
+     * @returns EnableAuthorizationRuleResponse
+     *
+     * @param EnableAuthorizationRuleRequest $request
+     *
+     * @return EnableAuthorizationRuleResponse
+     */
+    public function enableAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -8464,6 +9169,132 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取授权资源信息.
+     *
+     * @param request - GetAuthorizationResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthorizationResourceResponse
+     *
+     * @param GetAuthorizationResourceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAuthorizationResourceResponse
+     */
+    public function getAuthorizationResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationResourceId) {
+            @$query['AuthorizationResourceId'] = $request->authorizationResourceId;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuthorizationResource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuthorizationResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取授权资源信息.
+     *
+     * @param request - GetAuthorizationResourceRequest
+     *
+     * @returns GetAuthorizationResourceResponse
+     *
+     * @param GetAuthorizationResourceRequest $request
+     *
+     * @return GetAuthorizationResourceResponse
+     */
+    public function getAuthorizationResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorizationResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取授权规则信息.
+     *
+     * @param request - GetAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthorizationRuleResponse
+     *
+     * @param GetAuthorizationRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAuthorizationRuleResponse
+     */
+    public function getAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取授权规则信息.
+     *
+     * @param request - GetAuthorizationRuleRequest
+     *
+     * @returns GetAuthorizationRuleResponse
+     *
+     * @param GetAuthorizationRuleRequest $request
+     *
+     * @return GetAuthorizationRuleResponse
+     */
+    public function getAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -10747,6 +11578,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询授权规则关联的应用列表.
+     *
+     * @param request - ListApplicationsForAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationsForAuthorizationRuleResponse
+     *
+     * @param ListApplicationsForAuthorizationRuleRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListApplicationsForAuthorizationRuleResponse
+     */
+    public function listApplicationsForAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationsForAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationsForAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权规则关联的应用列表.
+     *
+     * @param request - ListApplicationsForAuthorizationRuleRequest
+     *
+     * @returns ListApplicationsForAuthorizationRuleResponse
+     *
+     * @param ListApplicationsForAuthorizationRuleRequest $request
+     *
+     * @return ListApplicationsForAuthorizationRuleResponse
+     */
+    public function listApplicationsForAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsForAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询一个EIAM组可访问的应用列表.
      *
      * @param request - ListApplicationsForGroupRequest
@@ -11115,6 +12019,355 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询授权资源信息列表.
+     *
+     * @param request - ListAuthorizationResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizationResourcesResponse
+     *
+     * @param ListAuthorizationResourcesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListAuthorizationResourcesResponse
+     */
+    public function listAuthorizationResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizationResources',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizationResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权资源信息列表.
+     *
+     * @param request - ListAuthorizationResourcesRequest
+     *
+     * @returns ListAuthorizationResourcesResponse
+     *
+     * @param ListAuthorizationResourcesRequest $request
+     *
+     * @return ListAuthorizationResourcesResponse
+     */
+    public function listAuthorizationResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizationRulesResponse
+     *
+     * @param ListAuthorizationRulesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAuthorizationRulesResponse
+     */
+    public function listAuthorizationRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizationRules',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesRequest
+     *
+     * @returns ListAuthorizationRulesResponse
+     *
+     * @param ListAuthorizationRulesRequest $request
+     *
+     * @return ListAuthorizationRulesResponse
+     */
+    public function listAuthorizationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用关联的授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesForApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizationRulesForApplicationResponse
+     *
+     * @param ListAuthorizationRulesForApplicationRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListAuthorizationRulesForApplicationResponse
+     */
+    public function listAuthorizationRulesForApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizationRulesForApplication',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizationRulesForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用关联的授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesForApplicationRequest
+     *
+     * @returns ListAuthorizationRulesForApplicationResponse
+     *
+     * @param ListAuthorizationRulesForApplicationRequest $request
+     *
+     * @return ListAuthorizationRulesForApplicationResponse
+     */
+    public function listAuthorizationRulesForApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationRulesForApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询组关联的授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesForGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizationRulesForGroupResponse
+     *
+     * @param ListAuthorizationRulesForGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAuthorizationRulesForGroupResponse
+     */
+    public function listAuthorizationRulesForGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizationRulesForGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizationRulesForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询组关联的授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesForGroupRequest
+     *
+     * @returns ListAuthorizationRulesForGroupResponse
+     *
+     * @param ListAuthorizationRulesForGroupRequest $request
+     *
+     * @return ListAuthorizationRulesForGroupResponse
+     */
+    public function listAuthorizationRulesForGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationRulesForGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户关联的授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizationRulesForUserResponse
+     *
+     * @param ListAuthorizationRulesForUserRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListAuthorizationRulesForUserResponse
+     */
+    public function listAuthorizationRulesForUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizationRulesForUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizationRulesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户关联的授权规则信息列表.
+     *
+     * @param request - ListAuthorizationRulesForUserRequest
+     *
+     * @returns ListAuthorizationRulesForUserResponse
+     *
+     * @param ListAuthorizationRulesForUserRequest $request
+     *
+     * @return ListAuthorizationRulesForUserResponse
+     */
+    public function listAuthorizationRulesForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationRulesForUserWithOptions($request, $runtime);
     }
 
     /**
@@ -12267,6 +13520,79 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupsForApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询授权规则关联的组列表.
+     *
+     * @param request - ListGroupsForAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupsForAuthorizationRuleResponse
+     *
+     * @param ListGroupsForAuthorizationRuleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListGroupsForAuthorizationRuleResponse
+     */
+    public function listGroupsForAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGroupsForAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGroupsForAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权规则关联的组列表.
+     *
+     * @param request - ListGroupsForAuthorizationRuleRequest
+     *
+     * @returns ListGroupsForAuthorizationRuleResponse
+     *
+     * @param ListGroupsForAuthorizationRuleRequest $request
+     *
+     * @return ListGroupsForAuthorizationRuleResponse
+     */
+    public function listGroupsForAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupsForAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -13712,6 +15038,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询授权规则关联的账户列表.
+     *
+     * @param request - ListUsersForAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersForAuthorizationRuleResponse
+     *
+     * @param ListUsersForAuthorizationRuleRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListUsersForAuthorizationRuleResponse
+     */
+    public function listUsersForAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUsersForAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUsersForAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权规则关联的账户列表.
+     *
+     * @param request - ListUsersForAuthorizationRuleRequest
+     *
+     * @returns ListUsersForAuthorizationRuleResponse
+     *
+     * @param ListUsersForAuthorizationRuleRequest $request
+     *
+     * @return ListUsersForAuthorizationRuleResponse
+     */
+    public function listUsersForAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersForAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
      *
      * @param request - ListUsersForGroupRequest
@@ -14122,6 +15521,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 将应用从授权规则中解除.
+     *
+     * @param request - RemoveApplicationFromAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveApplicationFromAuthorizationRuleResponse
+     *
+     * @param RemoveApplicationFromAuthorizationRuleRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return RemoveApplicationFromAuthorizationRuleResponse
+     */
+    public function removeApplicationFromAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveApplicationFromAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveApplicationFromAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将应用从授权规则中解除.
+     *
+     * @param request - RemoveApplicationFromAuthorizationRuleRequest
+     *
+     * @returns RemoveApplicationFromAuthorizationRuleResponse
+     *
+     * @param RemoveApplicationFromAuthorizationRuleRequest $request
+     *
+     * @return RemoveApplicationFromAuthorizationRuleResponse
+     */
+    public function removeApplicationFromAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeApplicationFromAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 移除品牌关联条款.
      *
      * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
@@ -14184,6 +15648,136 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeCustomPrivacyPoliciesFromBrandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 将组从授权规则中解除.
+     *
+     * @param request - RemoveGroupFromAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveGroupFromAuthorizationRuleResponse
+     *
+     * @param RemoveGroupFromAuthorizationRuleRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveGroupFromAuthorizationRuleResponse
+     */
+    public function removeGroupFromAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveGroupFromAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveGroupFromAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将组从授权规则中解除.
+     *
+     * @param request - RemoveGroupFromAuthorizationRuleRequest
+     *
+     * @returns RemoveGroupFromAuthorizationRuleResponse
+     *
+     * @param RemoveGroupFromAuthorizationRuleRequest $request
+     *
+     * @return RemoveGroupFromAuthorizationRuleResponse
+     */
+    public function removeGroupFromAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeGroupFromAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 将账户从授权规则中解除.
+     *
+     * @param request - RemoveUserFromAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserFromAuthorizationRuleResponse
+     *
+     * @param RemoveUserFromAuthorizationRuleRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RemoveUserFromAuthorizationRuleResponse
+     */
+    public function removeUserFromAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUserFromAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveUserFromAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将账户从授权规则中解除.
+     *
+     * @param request - RemoveUserFromAuthorizationRuleRequest
+     *
+     * @returns RemoveUserFromAuthorizationRuleResponse
+     *
+     * @param RemoveUserFromAuthorizationRuleRequest $request
+     *
+     * @return RemoveUserFromAuthorizationRuleResponse
+     */
+    public function removeUserFromAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUserFromAuthorizationRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -16974,6 +18568,389 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationTokenExpirationTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新授权规则信息.
+     *
+     * @param request - UpdateAuthorizationRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationRuleResponse
+     *
+     * @param UpdateAuthorizationRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAuthorizationRuleResponse
+     */
+    public function updateAuthorizationRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationResourceScope) {
+            @$query['AuthorizationResourceScope'] = $request->authorizationResourceScope;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->authorizationRuleName) {
+            @$query['AuthorizationRuleName'] = $request->authorizationRuleName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationRule',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新授权规则信息.
+     *
+     * @param request - UpdateAuthorizationRuleRequest
+     *
+     * @returns UpdateAuthorizationRuleResponse
+     *
+     * @param UpdateAuthorizationRuleRequest $request
+     *
+     * @return UpdateAuthorizationRuleResponse
+     */
+    public function updateAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新授权规则应用关联关系属性.
+     *
+     * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
+     *
+     * @param UpdateAuthorizationRuleApplicationAttachmentRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return UpdateAuthorizationRuleApplicationAttachmentResponse
+     */
+    public function updateAuthorizationRuleApplicationAttachmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->validityPeriod) {
+            @$query['ValidityPeriod'] = $request->validityPeriod;
+        }
+
+        if (null !== $request->validityType) {
+            @$query['ValidityType'] = $request->validityType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationRuleApplicationAttachment',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationRuleApplicationAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新授权规则应用关联关系属性.
+     *
+     * @param request - UpdateAuthorizationRuleApplicationAttachmentRequest
+     *
+     * @returns UpdateAuthorizationRuleApplicationAttachmentResponse
+     *
+     * @param UpdateAuthorizationRuleApplicationAttachmentRequest $request
+     *
+     * @return UpdateAuthorizationRuleApplicationAttachmentResponse
+     */
+    public function updateAuthorizationRuleApplicationAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationRuleApplicationAttachmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新授权规则描述信息.
+     *
+     * @param request - UpdateAuthorizationRuleDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationRuleDescriptionResponse
+     *
+     * @param UpdateAuthorizationRuleDescriptionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateAuthorizationRuleDescriptionResponse
+     */
+    public function updateAuthorizationRuleDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationRuleDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationRuleDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新授权规则描述信息.
+     *
+     * @param request - UpdateAuthorizationRuleDescriptionRequest
+     *
+     * @returns UpdateAuthorizationRuleDescriptionResponse
+     *
+     * @param UpdateAuthorizationRuleDescriptionRequest $request
+     *
+     * @return UpdateAuthorizationRuleDescriptionResponse
+     */
+    public function updateAuthorizationRuleDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationRuleDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新授权规则组关联关系属性.
+     *
+     * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationRuleGroupAttachmentResponse
+     *
+     * @param UpdateAuthorizationRuleGroupAttachmentRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return UpdateAuthorizationRuleGroupAttachmentResponse
+     */
+    public function updateAuthorizationRuleGroupAttachmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->validityPeriod) {
+            @$query['ValidityPeriod'] = $request->validityPeriod;
+        }
+
+        if (null !== $request->validityType) {
+            @$query['ValidityType'] = $request->validityType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationRuleGroupAttachment',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationRuleGroupAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新授权规则组关联关系属性.
+     *
+     * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
+     *
+     * @returns UpdateAuthorizationRuleGroupAttachmentResponse
+     *
+     * @param UpdateAuthorizationRuleGroupAttachmentRequest $request
+     *
+     * @return UpdateAuthorizationRuleGroupAttachmentResponse
+     */
+    public function updateAuthorizationRuleGroupAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationRuleGroupAttachmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新授权规则账户关联关系属性.
+     *
+     * @param request - UpdateAuthorizationRuleUserAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationRuleUserAttachmentResponse
+     *
+     * @param UpdateAuthorizationRuleUserAttachmentRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UpdateAuthorizationRuleUserAttachmentResponse
+     */
+    public function updateAuthorizationRuleUserAttachmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationRuleId) {
+            @$query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->validityPeriod) {
+            @$query['ValidityPeriod'] = $request->validityPeriod;
+        }
+
+        if (null !== $request->validityType) {
+            @$query['ValidityType'] = $request->validityType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationRuleUserAttachment',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationRuleUserAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新授权规则账户关联关系属性.
+     *
+     * @param request - UpdateAuthorizationRuleUserAttachmentRequest
+     *
+     * @returns UpdateAuthorizationRuleUserAttachmentResponse
+     *
+     * @param UpdateAuthorizationRuleUserAttachmentRequest $request
+     *
+     * @return UpdateAuthorizationRuleUserAttachmentResponse
+     */
+    public function updateAuthorizationRuleUserAttachment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationRuleUserAttachmentWithOptions($request, $runtime);
     }
 
     /**
