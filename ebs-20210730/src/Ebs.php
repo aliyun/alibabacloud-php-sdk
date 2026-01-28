@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReportsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListReportsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyAppRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyAppResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDedicatedBlockStorageClusterAttributeRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDedicatedBlockStorageClusterAttributeResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ModifyDiskReplicaGroupRequest;
@@ -3574,6 +3576,99 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 中心化角色：修改App.
+     *
+     * @param request - ModifyAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyAppResponse
+     */
+    public function modifyAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->appTags) {
+            @$query['AppTags'] = $request->appTags;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportSendEnabled) {
+            @$query['ReportSendEnabled'] = $request->reportSendEnabled;
+        }
+
+        if (null !== $request->subscribePeriod) {
+            @$query['SubscribePeriod'] = $request->subscribePeriod;
+        }
+
+        if (null !== $request->subscribeStatus) {
+            @$query['SubscribeStatus'] = $request->subscribeStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApp',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 中心化角色：修改App.
+     *
+     * @param request - ModifyAppRequest
+     *
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     *
+     * @return ModifyAppResponse
+     */
+    public function modifyApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppWithOptions($request, $runtime);
     }
 
     /**
