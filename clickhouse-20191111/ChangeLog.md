@@ -1,3 +1,7 @@
+2026-01-28 Version: 4.2.3
+- Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.LbKind.
+
+
 2026-01-12 Version: 4.2.2
 - Update API DescribeTransferHistory: add response parameters Body.HistoryDetails.$.SubJobMessage.
 

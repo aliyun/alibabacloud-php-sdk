@@ -168,6 +168,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $lbKind;
+
+    /**
+     * @var string
+     */
     public $lockMode;
 
     /**
@@ -321,6 +326,7 @@ class DBCluster extends Model
         'extStorageSize' => 'ExtStorageSize',
         'extStorageType' => 'ExtStorageType',
         'isExpired' => 'IsExpired',
+        'lbKind' => 'LbKind',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
         'maintainAutoType' => 'MaintainAutoType',
@@ -495,6 +501,10 @@ class DBCluster extends Model
 
         if (null !== $this->isExpired) {
             $res['IsExpired'] = $this->isExpired;
+        }
+
+        if (null !== $this->lbKind) {
+            $res['LbKind'] = $this->lbKind;
         }
 
         if (null !== $this->lockMode) {
@@ -740,6 +750,10 @@ class DBCluster extends Model
 
         if (isset($map['IsExpired'])) {
             $model->isExpired = $map['IsExpired'];
+        }
+
+        if (isset($map['LbKind'])) {
+            $model->lbKind = $map['LbKind'];
         }
 
         if (isset($map['LockMode'])) {
