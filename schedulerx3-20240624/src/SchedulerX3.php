@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterShrinkRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateDatasourceRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest;
@@ -25,6 +27,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteCalendarRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteDatasourceRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteJobsShrinkRequest;
@@ -85,6 +89,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListCalendarsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListCalendarsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListClustersRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListClustersResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListDatasourcesRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListDatasourcesResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobExecutionsRequest;
@@ -111,6 +117,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListWorkflowVersionsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListWorkflowVersionsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateBackfillWorkflowRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateBackfillWorkflowResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateConnectDatasourceRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateConnectDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateDesignateExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateDesignateExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateDesignateExecutorsShrinkRequest;
@@ -167,8 +175,12 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateCalendarRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateDatasourceRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorsResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobExecutionRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobExecutionResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobScriptRequest;
@@ -473,6 +485,83 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据源.
+     *
+     * @param request - CreateDatasourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasourceResponse
+     *
+     * @param CreateDatasourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDatasourceResponse
+     */
+    public function createDatasourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectionParams) {
+            @$body['ConnectionParams'] = $request->connectionParams;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatasource',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据源.
+     *
+     * @param request - CreateDatasourceRequest
+     *
+     * @returns CreateDatasourceResponse
+     *
+     * @param CreateDatasourceRequest $request
+     *
+     * @return CreateDatasourceResponse
+     */
+    public function createDatasource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasourceWithOptions($request, $runtime);
     }
 
     /**
@@ -997,6 +1086,67 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据源.
+     *
+     * @param request - DeleteDatasourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasourceResponse
+     *
+     * @param DeleteDatasourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDatasourceResponse
+     */
+    public function deleteDatasourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->datasourceId) {
+            @$body['DatasourceId'] = $request->datasourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDatasource',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据源.
+     *
+     * @param request - DeleteDatasourceRequest
+     *
+     * @returns DeleteDatasourceResponse
+     *
+     * @param DeleteDatasourceRequest $request
+     *
+     * @return DeleteDatasourceResponse
+     */
+    public function deleteDatasource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2748,6 +2898,87 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 获取数据源列表.
+     *
+     * @param request - ListDatasourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasourcesResponse
+     *
+     * @param ListDatasourcesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDatasourcesResponse
+     */
+    public function listDatasourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasources',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据源列表.
+     *
+     * @param request - ListDatasourcesRequest
+     *
+     * @returns ListDatasourcesResponse
+     *
+     * @param ListDatasourcesRequest $request
+     *
+     * @return ListDatasourcesResponse
+     */
+    public function listDatasources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatasourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询Executor列表.
      *
      * @param request - ListExecutorsRequest
@@ -3721,6 +3952,75 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateBackfillWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 连接数据源.
+     *
+     * @param request - OperateConnectDatasourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateConnectDatasourceResponse
+     *
+     * @param OperateConnectDatasourceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return OperateConnectDatasourceResponse
+     */
+    public function operateConnectDatasourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectionParams) {
+            @$body['ConnectionParams'] = $request->connectionParams;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OperateConnectDatasource',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateConnectDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 连接数据源.
+     *
+     * @param request - OperateConnectDatasourceRequest
+     *
+     * @returns OperateConnectDatasourceResponse
+     *
+     * @param OperateConnectDatasourceRequest $request
+     *
+     * @return OperateConnectDatasourceResponse
+     */
+    public function operateConnectDatasource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateConnectDatasourceWithOptions($request, $runtime);
     }
 
     /**
@@ -5370,17 +5670,21 @@ class SchedulerX3 extends OpenApiClient
     public function updateClusterWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+            @$body['ClusterId'] = $request->clusterId;
         }
 
         if (null !== $request->clusterName) {
-            @$query['ClusterName'] = $request->clusterName;
+            @$body['ClusterName'] = $request->clusterName;
+        }
+
+        if (null !== $request->ipWhitelist) {
+            @$body['IpWhitelist'] = $request->ipWhitelist;
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateCluster',
@@ -5413,6 +5717,83 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据源.
+     *
+     * @param request - UpdateDatasourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasourceResponse
+     *
+     * @param UpdateDatasourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDatasourceResponse
+     */
+    public function updateDatasourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectionParams) {
+            @$body['ConnectionParams'] = $request->connectionParams;
+        }
+
+        if (null !== $request->datasourceId) {
+            @$body['DatasourceId'] = $request->datasourceId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDatasource',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据源.
+     *
+     * @param request - UpdateDatasourceRequest
+     *
+     * @returns UpdateDatasourceResponse
+     *
+     * @param UpdateDatasourceRequest $request
+     *
+     * @return UpdateDatasourceResponse
+     */
+    public function updateDatasource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDatasourceWithOptions($request, $runtime);
     }
 
     /**
@@ -5645,6 +6026,75 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新任务实例.
+     *
+     * @param request - UpdateJobExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobExecutionResponse
+     *
+     * @param UpdateJobExecutionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateJobExecutionResponse
+     */
+    public function updateJobExecutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->jobExecutionId) {
+            @$body['JobExecutionId'] = $request->jobExecutionId;
+        }
+
+        if (null !== $request->scheduleTime) {
+            @$body['ScheduleTime'] = $request->scheduleTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateJobExecution',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateJobExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新任务实例.
+     *
+     * @param request - UpdateJobExecutionRequest
+     *
+     * @returns UpdateJobExecutionResponse
+     *
+     * @param UpdateJobExecutionRequest $request
+     *
+     * @return UpdateJobExecutionResponse
+     */
+    public function updateJobExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateJobExecutionWithOptions($request, $runtime);
     }
 
     /**

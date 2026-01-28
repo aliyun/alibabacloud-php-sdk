@@ -60,6 +60,11 @@ class data extends Model
     public $intranetDomain;
 
     /**
+     * @var string
+     */
+    public $ipWhitelist;
+
+    /**
      * @var int
      */
     public $jobNum;
@@ -139,6 +144,7 @@ class data extends Model
         'engineVersion' => 'EngineVersion',
         'internetDomain' => 'InternetDomain',
         'intranetDomain' => 'IntranetDomain',
+        'ipWhitelist' => 'IpWhitelist',
         'jobNum' => 'JobNum',
         'kubeConfig' => 'KubeConfig',
         'maxJobNum' => 'MaxJobNum',
@@ -210,6 +216,10 @@ class data extends Model
 
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
+        }
+
+        if (null !== $this->ipWhitelist) {
+            $res['IpWhitelist'] = $this->ipWhitelist;
         }
 
         if (null !== $this->jobNum) {
@@ -336,6 +346,10 @@ class data extends Model
 
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
+        }
+
+        if (isset($map['IpWhitelist'])) {
+            $model->ipWhitelist = $map['IpWhitelist'];
         }
 
         if (isset($map['JobNum'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateClusterRequest extends Model
+class DeleteDatasourceRequest extends Model
 {
     /**
      * @var string
@@ -14,18 +14,12 @@ class UpdateClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clusterName;
-
-    /**
-     * @var string
-     */
-    public $ipWhitelist;
+    public $datasourceId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'clusterName' => 'ClusterName',
-        'ipWhitelist' => 'IpWhitelist',
+        'datasourceId' => 'DatasourceId',
     ];
 
     public function validate()
@@ -40,12 +34,8 @@ class UpdateClusterRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
-        }
-
-        if (null !== $this->ipWhitelist) {
-            $res['IpWhitelist'] = $this->ipWhitelist;
+        if (null !== $this->datasourceId) {
+            $res['DatasourceId'] = $this->datasourceId;
         }
 
         return $res;
@@ -63,12 +53,8 @@ class UpdateClusterRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
-        }
-
-        if (isset($map['IpWhitelist'])) {
-            $model->ipWhitelist = $map['IpWhitelist'];
+        if (isset($map['DatasourceId'])) {
+            $model->datasourceId = $map['DatasourceId'];
         }
 
         return $model;

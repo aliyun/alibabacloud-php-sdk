@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateClusterRequest extends Model
+class OperateConnectDatasourceRequest extends Model
 {
     /**
      * @var string
@@ -16,16 +16,22 @@ class UpdateClusterRequest extends Model
     /**
      * @var string
      */
-    public $clusterName;
+    public $connectionParams;
 
     /**
      * @var string
      */
-    public $ipWhitelist;
+    public $password;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'clusterName' => 'ClusterName',
-        'ipWhitelist' => 'IpWhitelist',
+        'connectionParams' => 'ConnectionParams',
+        'password' => 'Password',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -40,12 +46,16 @@ class UpdateClusterRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
+        if (null !== $this->connectionParams) {
+            $res['ConnectionParams'] = $this->connectionParams;
         }
 
-        if (null !== $this->ipWhitelist) {
-            $res['IpWhitelist'] = $this->ipWhitelist;
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -63,12 +73,16 @@ class UpdateClusterRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
+        if (isset($map['ConnectionParams'])) {
+            $model->connectionParams = $map['ConnectionParams'];
         }
 
-        if (isset($map['IpWhitelist'])) {
-            $model->ipWhitelist = $map['IpWhitelist'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
