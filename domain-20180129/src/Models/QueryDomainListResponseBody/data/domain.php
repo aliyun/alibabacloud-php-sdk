@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponseBody\data\domain\dnsList;
 use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponseBody\data\domain\tag;
 
 class domain extends Model
@@ -18,6 +19,11 @@ class domain extends Model
      * @var string
      */
     public $chgholderStatus;
+
+    /**
+     * @var dnsList
+     */
+    public $dnsList;
 
     /**
      * @var string
@@ -121,6 +127,7 @@ class domain extends Model
     protected $_name = [
         'ccompany' => 'Ccompany',
         'chgholderStatus' => 'ChgholderStatus',
+        'dnsList' => 'DnsList',
         'domainAuditStatus' => 'DomainAuditStatus',
         'domainGroupId' => 'DomainGroupId',
         'domainGroupName' => 'DomainGroupName',
@@ -145,6 +152,9 @@ class domain extends Model
 
     public function validate()
     {
+        if (null !== $this->dnsList) {
+            $this->dnsList->validate();
+        }
         if (null !== $this->tag) {
             $this->tag->validate();
         }
@@ -160,6 +170,10 @@ class domain extends Model
 
         if (null !== $this->chgholderStatus) {
             $res['ChgholderStatus'] = $this->chgholderStatus;
+        }
+
+        if (null !== $this->dnsList) {
+            $res['DnsList'] = null !== $this->dnsList ? $this->dnsList->toArray($noStream) : $this->dnsList;
         }
 
         if (null !== $this->domainAuditStatus) {
@@ -259,6 +273,10 @@ class domain extends Model
 
         if (isset($map['ChgholderStatus'])) {
             $model->chgholderStatus = $map['ChgholderStatus'];
+        }
+
+        if (isset($map['DnsList'])) {
+            $model->dnsList = dnsList::fromMap($map['DnsList']);
         }
 
         if (isset($map['DomainAuditStatus'])) {

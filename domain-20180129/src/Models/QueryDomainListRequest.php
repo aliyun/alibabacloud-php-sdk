@@ -17,6 +17,11 @@ class QueryDomainListRequest extends Model
     /**
      * @var string
      */
+    public $dns;
+
+    /**
+     * @var string
+     */
     public $domainGroupId;
 
     /**
@@ -100,6 +105,7 @@ class QueryDomainListRequest extends Model
     public $userClientIp;
     protected $_name = [
         'ccompany' => 'Ccompany',
+        'dns' => 'Dns',
         'domainGroupId' => 'DomainGroupId',
         'domainName' => 'DomainName',
         'endExpirationDate' => 'EndExpirationDate',
@@ -132,6 +138,10 @@ class QueryDomainListRequest extends Model
         $res = [];
         if (null !== $this->ccompany) {
             $res['Ccompany'] = $this->ccompany;
+        }
+
+        if (null !== $this->dns) {
+            $res['Dns'] = $this->dns;
         }
 
         if (null !== $this->domainGroupId) {
@@ -222,6 +232,10 @@ class QueryDomainListRequest extends Model
         $model = new self();
         if (isset($map['Ccompany'])) {
             $model->ccompany = $map['Ccompany'];
+        }
+
+        if (isset($map['Dns'])) {
+            $model->dns = $map['Dns'];
         }
 
         if (isset($map['DomainGroupId'])) {

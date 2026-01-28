@@ -1735,7 +1735,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询国际一口价在售域名列表.
+     * Queries the list of domain names for fixed-price orders at the international site (alibabacloud.com).
      *
      * @param request - GetIntlFixPriceDomainListUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1774,7 +1774,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询国际一口价在售域名列表.
+     * Queries the list of domain names for fixed-price orders at the international site (alibabacloud.com).
      *
      * @param request - GetIntlFixPriceDomainListUrlRequest
      *
@@ -2919,6 +2919,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * 查询域名分组信息.
+     *
      * @param request - QueryDomainGroupListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2939,6 +2941,14 @@ class Domain extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->orderByType) {
+            @$query['OrderByType'] = $request->orderByType;
+        }
+
+        if (null !== $request->orderKeyType) {
+            @$query['OrderKeyType'] = $request->orderKeyType;
         }
 
         if (null !== $request->showDeletingGroup) {
@@ -2968,6 +2978,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * 查询域名分组信息.
+     *
      * @param request - QueryDomainGroupListRequest
      *
      * @returns QueryDomainGroupListResponse
@@ -3002,6 +3014,10 @@ class Domain extends OpenApiClient
         $query = [];
         if (null !== $request->ccompany) {
             @$query['Ccompany'] = $request->ccompany;
+        }
+
+        if (null !== $request->dns) {
+            @$query['Dns'] = $request->dns;
         }
 
         if (null !== $request->domainGroupId) {

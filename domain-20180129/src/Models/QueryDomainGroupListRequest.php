@@ -19,6 +19,16 @@ class QueryDomainGroupListRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $orderByType;
+
+    /**
+     * @var string
+     */
+    public $orderKeyType;
+
+    /**
      * @var bool
      */
     public $showDeletingGroup;
@@ -30,6 +40,8 @@ class QueryDomainGroupListRequest extends Model
     protected $_name = [
         'domainGroupName' => 'DomainGroupName',
         'lang' => 'Lang',
+        'orderByType' => 'OrderByType',
+        'orderKeyType' => 'OrderKeyType',
         'showDeletingGroup' => 'ShowDeletingGroup',
         'userClientIp' => 'UserClientIp',
     ];
@@ -48,6 +60,14 @@ class QueryDomainGroupListRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->orderByType) {
+            $res['OrderByType'] = $this->orderByType;
+        }
+
+        if (null !== $this->orderKeyType) {
+            $res['OrderKeyType'] = $this->orderKeyType;
         }
 
         if (null !== $this->showDeletingGroup) {
@@ -75,6 +95,14 @@ class QueryDomainGroupListRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['OrderByType'])) {
+            $model->orderByType = $map['OrderByType'];
+        }
+
+        if (isset($map['OrderKeyType'])) {
+            $model->orderKeyType = $map['OrderKeyType'];
         }
 
         if (isset($map['ShowDeletingGroup'])) {
