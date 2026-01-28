@@ -24,10 +24,22 @@ class resultInfo extends Model
      * @var int
      */
     public $score;
+
+    /**
+     * @var string
+     */
+    public $tyxmPlusCount;
+
+    /**
+     * @var string
+     */
+    public $tyxmTurboCount;
     protected $_name = [
         'handScoreIdList' => 'HandScoreIdList',
         'rules' => 'Rules',
         'score' => 'Score',
+        'tyxmPlusCount' => 'TyxmPlusCount',
+        'tyxmTurboCount' => 'TyxmTurboCount',
     ];
 
     public function validate()
@@ -56,6 +68,14 @@ class resultInfo extends Model
             $res['Score'] = $this->score;
         }
 
+        if (null !== $this->tyxmPlusCount) {
+            $res['TyxmPlusCount'] = $this->tyxmPlusCount;
+        }
+
+        if (null !== $this->tyxmTurboCount) {
+            $res['TyxmTurboCount'] = $this->tyxmTurboCount;
+        }
+
         return $res;
     }
 
@@ -77,6 +97,14 @@ class resultInfo extends Model
 
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+
+        if (isset($map['TyxmPlusCount'])) {
+            $model->tyxmPlusCount = $map['TyxmPlusCount'];
+        }
+
+        if (isset($map['TyxmTurboCount'])) {
+            $model->tyxmTurboCount = $map['TyxmTurboCount'];
         }
 
         return $model;
