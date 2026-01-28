@@ -37,6 +37,11 @@ class sessionConfig extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $userOssBucket;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
@@ -44,6 +49,7 @@ class sessionConfig extends Model
         'language' => 'Language',
         'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
+        'userOssBucket' => 'UserOssBucket',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class sessionConfig extends Model
             $res['Mode'] = $this->mode;
         }
 
+        if (null !== $this->userOssBucket) {
+            $res['UserOssBucket'] = $this->userOssBucket;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class sessionConfig extends Model
 
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['UserOssBucket'])) {
+            $model->userOssBucket = $map['UserOssBucket'];
         }
 
         return $model;
