@@ -1,3 +1,6 @@
+2026-01-28 Version: 7.0.1
+- Generated php 2017-12-07 for Cloudfw.
+
 2026-01-21 Version: 7.0.0
 - Support API DescribeRegionResourceTypeAutoEnable.
 - Support API DescribeVpcFirewallTrafficAssetList.
