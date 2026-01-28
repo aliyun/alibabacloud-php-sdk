@@ -12,6 +12,9 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchAddDocumentReques
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchAddDocumentResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchCreateAICoachTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchCreateAICoachTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchDeletePracticeTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchDeletePracticeTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchDeletePracticeTaskShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskShrinkRequest;
@@ -395,6 +398,77 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->batchCreateAICoachTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除对练任务
+     *
+     * @param tmpReq - BatchDeletePracticeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeletePracticeTaskResponse
+     *
+     * @param BatchDeletePracticeTaskRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchDeletePracticeTaskResponse
+     */
+    public function batchDeletePracticeTaskWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchDeletePracticeTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'taskIds', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->idempotentId) {
+            @$query['idempotentId'] = $request->idempotentId;
+        }
+
+        if (null !== $request->taskIdsShrink) {
+            @$query['taskIds'] = $request->taskIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeletePracticeTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/batchDeletePracticeTask',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeletePracticeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除对练任务
+     *
+     * @param request - BatchDeletePracticeTaskRequest
+     *
+     * @returns BatchDeletePracticeTaskResponse
+     *
+     * @param BatchDeletePracticeTaskRequest $request
+     *
+     * @return BatchDeletePracticeTaskResponse
+     */
+    public function batchDeletePracticeTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchDeletePracticeTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
