@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentRun\V20250910\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\VectorStoreConfig\config;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\VectorStoreConfig\mysqlConfig;
 
 class VectorStoreConfig extends Model
 {
@@ -15,11 +16,17 @@ class VectorStoreConfig extends Model
     public $config;
 
     /**
+     * @var mysqlConfig
+     */
+    public $mysqlConfig;
+
+    /**
      * @var string
      */
     public $provider;
     protected $_name = [
         'config' => 'config',
+        'mysqlConfig' => 'mysqlConfig',
         'provider' => 'provider',
     ];
 
@@ -27,6 +34,9 @@ class VectorStoreConfig extends Model
     {
         if (null !== $this->config) {
             $this->config->validate();
+        }
+        if (null !== $this->mysqlConfig) {
+            $this->mysqlConfig->validate();
         }
         parent::validate();
     }
@@ -36,6 +46,10 @@ class VectorStoreConfig extends Model
         $res = [];
         if (null !== $this->config) {
             $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+        }
+
+        if (null !== $this->mysqlConfig) {
+            $res['mysqlConfig'] = null !== $this->mysqlConfig ? $this->mysqlConfig->toArray($noStream) : $this->mysqlConfig;
         }
 
         if (null !== $this->provider) {
@@ -55,6 +69,10 @@ class VectorStoreConfig extends Model
         $model = new self();
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
+        }
+
+        if (isset($map['mysqlConfig'])) {
+            $model->mysqlConfig = mysqlConfig::fromMap($map['mysqlConfig']);
         }
 
         if (isset($map['provider'])) {
