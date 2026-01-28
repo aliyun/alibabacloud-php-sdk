@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class gpuDetails extends Model
 {
     /**
+     * @var int
+     */
+    public $allocatedUnit;
+
+    /**
      * @var string
      */
     public $gpuModel;
@@ -18,6 +23,7 @@ class gpuDetails extends Model
      */
     public $totalCount;
     protected $_name = [
+        'allocatedUnit' => 'AllocatedUnit',
         'gpuModel' => 'GpuModel',
         'totalCount' => 'TotalCount',
     ];
@@ -30,6 +36,10 @@ class gpuDetails extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allocatedUnit) {
+            $res['AllocatedUnit'] = $this->allocatedUnit;
+        }
+
         if (null !== $this->gpuModel) {
             $res['GpuModel'] = $this->gpuModel;
         }
@@ -49,6 +59,10 @@ class gpuDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocatedUnit'])) {
+            $model->allocatedUnit = $map['AllocatedUnit'];
+        }
+
         if (isset($map['GpuModel'])) {
             $model->gpuModel = $map['GpuModel'];
         }
