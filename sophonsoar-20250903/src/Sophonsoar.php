@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\DeleteComponentAssetRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\DeleteComponentAssetResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\DeletePlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\DeletePlaybookResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\ExecuteComponentRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\ExecuteComponentResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\GetPlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\GetPlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\ListComponentAssetsRequest;
@@ -374,6 +376,87 @@ class Sophonsoar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePlaybookWithOptions($request, $runtime);
+    }
+
+    /**
+     * 执行组件动作.
+     *
+     * @param request - ExecuteComponentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteComponentResponse
+     *
+     * @param ExecuteComponentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteComponentResponse
+     */
+    public function executeComponentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->componentActionName) {
+            @$body['ComponentActionName'] = $request->componentActionName;
+        }
+
+        if (null !== $request->componentAssetUuid) {
+            @$body['ComponentAssetUuid'] = $request->componentAssetUuid;
+        }
+
+        if (null !== $request->componentInput) {
+            @$body['ComponentInput'] = $request->componentInput;
+        }
+
+        if (null !== $request->componentName) {
+            @$body['ComponentName'] = $request->componentName;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->playBookNodeName) {
+            @$body['PlayBookNodeName'] = $request->playBookNodeName;
+        }
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteComponent',
+            'version' => '2025-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteComponentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行组件动作.
+     *
+     * @param request - ExecuteComponentRequest
+     *
+     * @returns ExecuteComponentResponse
+     *
+     * @param ExecuteComponentRequest $request
+     *
+     * @return ExecuteComponentResponse
+     */
+    public function executeComponent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeComponentWithOptions($request, $runtime);
     }
 
     /**
