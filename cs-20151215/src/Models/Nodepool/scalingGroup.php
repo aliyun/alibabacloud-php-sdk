@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
+use AlibabaCloud\SDK\CS\V20151215\Models\DiskInit;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstanceMetadataOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\privatePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\resourcePoolOptions;
@@ -43,6 +44,11 @@ class scalingGroup extends Model
      * @var int
      */
     public $desiredSize;
+
+    /**
+     * @var DiskInit[]
+     */
+    public $diskInit;
 
     /**
      * @var string
@@ -240,6 +246,7 @@ class scalingGroup extends Model
         'dataDisks' => 'data_disks',
         'deploymentsetId' => 'deploymentset_id',
         'desiredSize' => 'desired_size',
+        'diskInit' => 'disk_init',
         'imageId' => 'image_id',
         'imageType' => 'image_type',
         'instanceChargeType' => 'instance_charge_type',
@@ -284,6 +291,9 @@ class scalingGroup extends Model
     {
         if (\is_array($this->dataDisks)) {
             Model::validateArray($this->dataDisks);
+        }
+        if (\is_array($this->diskInit)) {
+            Model::validateArray($this->diskInit);
         }
         if (null !== $this->instanceMetadataOptions) {
             $this->instanceMetadataOptions->validate();
@@ -350,6 +360,17 @@ class scalingGroup extends Model
 
         if (null !== $this->desiredSize) {
             $res['desired_size'] = $this->desiredSize;
+        }
+
+        if (null !== $this->diskInit) {
+            if (\is_array($this->diskInit)) {
+                $res['disk_init'] = [];
+                $n1 = 0;
+                foreach ($this->diskInit as $item1) {
+                    $res['disk_init'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->imageId) {
@@ -593,6 +614,17 @@ class scalingGroup extends Model
 
         if (isset($map['desired_size'])) {
             $model->desiredSize = $map['desired_size'];
+        }
+
+        if (isset($map['disk_init'])) {
+            if (!empty($map['disk_init'])) {
+                $model->diskInit = [];
+                $n1 = 0;
+                foreach ($map['disk_init'] as $item1) {
+                    $model->diskInit[$n1] = DiskInit::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['image_id'])) {
