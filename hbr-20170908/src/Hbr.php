@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Hbr\V20170908;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\AddCrossAccountRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\AddCrossAccountResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelRestoreJobRequest;
@@ -58,6 +60,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupPlanRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupPlanResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteClientRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteClientResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteCrossAccountRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteCrossAccountResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteHanaBackupPlanRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteHanaBackupPlanResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteHanaInstanceRequest;
@@ -332,6 +336,75 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addContainerClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加跨账号信息.
+     *
+     * @param request - AddCrossAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCrossAccountResponse
+     *
+     * @param AddCrossAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddCrossAccountResponse
+     */
+    public function addCrossAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->crossAccountRoleName) {
+            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        }
+
+        if (null !== $request->crossAccountType) {
+            @$query['CrossAccountType'] = $request->crossAccountType;
+        }
+
+        if (null !== $request->crossAccountUserId) {
+            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddCrossAccount',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddCrossAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加跨账号信息.
+     *
+     * @param request - AddCrossAccountRequest
+     *
+     * @returns AddCrossAccountResponse
+     *
+     * @param AddCrossAccountRequest $request
+     *
+     * @return AddCrossAccountResponse
+     */
+    public function addCrossAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCrossAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -2414,6 +2487,71 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除跨账号信息.
+     *
+     * @param request - DeleteCrossAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCrossAccountResponse
+     *
+     * @param DeleteCrossAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCrossAccountResponse
+     */
+    public function deleteCrossAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->crossAccountRoleName) {
+            @$query['CrossAccountRoleName'] = $request->crossAccountRoleName;
+        }
+
+        if (null !== $request->crossAccountType) {
+            @$query['CrossAccountType'] = $request->crossAccountType;
+        }
+
+        if (null !== $request->crossAccountUserId) {
+            @$query['CrossAccountUserId'] = $request->crossAccountUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCrossAccount',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCrossAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除跨账号信息.
+     *
+     * @param request - DeleteCrossAccountRequest
+     *
+     * @returns DeleteCrossAccountResponse
+     *
+     * @param DeleteCrossAccountRequest $request
+     *
+     * @return DeleteCrossAccountResponse
+     */
+    public function deleteCrossAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCrossAccountWithOptions($request, $runtime);
     }
 
     /**
