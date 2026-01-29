@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\resource;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\retryPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\taskExecutor;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\volumeMount;
 
 class taskSpec extends Model
 {
@@ -25,10 +26,16 @@ class taskSpec extends Model
      * @var taskExecutor[]
      */
     public $taskExecutor;
+
+    /**
+     * @var volumeMount[]
+     */
+    public $volumeMount;
     protected $_name = [
         'resource' => 'Resource',
         'retryPolicy' => 'RetryPolicy',
         'taskExecutor' => 'TaskExecutor',
+        'volumeMount' => 'VolumeMount',
     ];
 
     public function validate()
@@ -41,6 +48,9 @@ class taskSpec extends Model
         }
         if (\is_array($this->taskExecutor)) {
             Model::validateArray($this->taskExecutor);
+        }
+        if (\is_array($this->volumeMount)) {
+            Model::validateArray($this->volumeMount);
         }
         parent::validate();
     }
@@ -62,6 +72,17 @@ class taskSpec extends Model
                 $n1 = 0;
                 foreach ($this->taskExecutor as $item1) {
                     $res['TaskExecutor'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->volumeMount) {
+            if (\is_array($this->volumeMount)) {
+                $res['VolumeMount'] = [];
+                $n1 = 0;
+                foreach ($this->volumeMount as $item1) {
+                    $res['VolumeMount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -92,6 +113,17 @@ class taskSpec extends Model
                 $n1 = 0;
                 foreach ($map['TaskExecutor'] as $item1) {
                     $model->taskExecutor[$n1] = taskExecutor::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['VolumeMount'])) {
+            if (!empty($map['VolumeMount'])) {
+                $model->volumeMount = [];
+                $n1 = 0;
+                foreach ($map['VolumeMount'] as $item1) {
+                    $model->volumeMount[$n1] = volumeMount::fromMap($item1);
                     ++$n1;
                 }
             }

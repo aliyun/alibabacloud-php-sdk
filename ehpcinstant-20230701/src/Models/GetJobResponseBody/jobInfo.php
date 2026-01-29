@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\dependencyPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\deploymentPolicy;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\securityPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks;
 
 class jobInfo extends Model
@@ -57,6 +58,11 @@ class jobInfo extends Model
     public $jobScheduler;
 
     /**
+     * @var securityPolicy
+     */
+    public $securityPolicy;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -80,6 +86,7 @@ class jobInfo extends Model
         'jobId' => 'JobId',
         'jobName' => 'JobName',
         'jobScheduler' => 'JobScheduler',
+        'securityPolicy' => 'SecurityPolicy',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'tasks' => 'Tasks',
@@ -92,6 +99,9 @@ class jobInfo extends Model
         }
         if (null !== $this->deploymentPolicy) {
             $this->deploymentPolicy->validate();
+        }
+        if (null !== $this->securityPolicy) {
+            $this->securityPolicy->validate();
         }
         if (\is_array($this->tasks)) {
             Model::validateArray($this->tasks);
@@ -136,6 +146,10 @@ class jobInfo extends Model
 
         if (null !== $this->jobScheduler) {
             $res['JobScheduler'] = $this->jobScheduler;
+        }
+
+        if (null !== $this->securityPolicy) {
+            $res['SecurityPolicy'] = null !== $this->securityPolicy ? $this->securityPolicy->toArray($noStream) : $this->securityPolicy;
         }
 
         if (null !== $this->startTime) {
@@ -202,6 +216,10 @@ class jobInfo extends Model
 
         if (isset($map['JobScheduler'])) {
             $model->jobScheduler = $map['JobScheduler'];
+        }
+
+        if (isset($map['SecurityPolicy'])) {
+            $model->securityPolicy = securityPolicy::fromMap($map['SecurityPolicy']);
         }
 
         if (isset($map['StartTime'])) {
