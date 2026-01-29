@@ -82,6 +82,16 @@ class invocationResult extends Model
     /**
      * @var string
      */
+    public $ossOutputErrorCode;
+
+    /**
+     * @var string
+     */
+    public $ossOutputErrorInfo;
+
+    /**
+     * @var string
+     */
     public $ossOutputStatus;
 
     /**
@@ -138,6 +148,8 @@ class invocationResult extends Model
         'invokeRecordStatus' => 'InvokeRecordStatus',
         'launcher' => 'Launcher',
         'ossOutputDelivery' => 'OssOutputDelivery',
+        'ossOutputErrorCode' => 'OssOutputErrorCode',
+        'ossOutputErrorInfo' => 'OssOutputErrorInfo',
         'ossOutputStatus' => 'OssOutputStatus',
         'ossOutputUri' => 'OssOutputUri',
         'output' => 'Output',
@@ -214,6 +226,14 @@ class invocationResult extends Model
 
         if (null !== $this->ossOutputDelivery) {
             $res['OssOutputDelivery'] = $this->ossOutputDelivery;
+        }
+
+        if (null !== $this->ossOutputErrorCode) {
+            $res['OssOutputErrorCode'] = $this->ossOutputErrorCode;
+        }
+
+        if (null !== $this->ossOutputErrorInfo) {
+            $res['OssOutputErrorInfo'] = $this->ossOutputErrorInfo;
         }
 
         if (null !== $this->ossOutputStatus) {
@@ -317,6 +337,14 @@ class invocationResult extends Model
 
         if (isset($map['OssOutputDelivery'])) {
             $model->ossOutputDelivery = $map['OssOutputDelivery'];
+        }
+
+        if (isset($map['OssOutputErrorCode'])) {
+            $model->ossOutputErrorCode = $map['OssOutputErrorCode'];
+        }
+
+        if (isset($map['OssOutputErrorInfo'])) {
+            $model->ossOutputErrorInfo = $map['OssOutputErrorInfo'];
         }
 
         if (isset($map['OssOutputStatus'])) {

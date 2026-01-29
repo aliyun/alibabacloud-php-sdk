@@ -11,6 +11,11 @@ class ModifyInvocationAttributeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $commandContent;
 
     /**
@@ -68,6 +73,7 @@ class ModifyInvocationAttributeShrinkRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'commandContent' => 'CommandContent',
         'contentEncoding' => 'ContentEncoding',
         'enableParameter' => 'EnableParameter',
@@ -93,6 +99,10 @@ class ModifyInvocationAttributeShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
@@ -159,6 +169,10 @@ class ModifyInvocationAttributeShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }

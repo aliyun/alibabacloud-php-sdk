@@ -11,6 +11,11 @@ class StartTerminalSessionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $commandLine;
 
     /**
@@ -73,6 +78,7 @@ class StartTerminalSessionShrinkRequest extends Model
      */
     public $username;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'commandLine' => 'CommandLine',
         'connectionType' => 'ConnectionType',
         'encryptionOptionsShrink' => 'EncryptionOptions',
@@ -99,6 +105,10 @@ class StartTerminalSessionShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->commandLine) {
             $res['CommandLine'] = $this->commandLine;
         }
@@ -169,6 +179,10 @@ class StartTerminalSessionShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['CommandLine'])) {
             $model->commandLine = $map['CommandLine'];
         }

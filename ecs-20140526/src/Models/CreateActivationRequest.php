@@ -12,6 +12,11 @@ class CreateActivationRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -69,6 +74,7 @@ class CreateActivationRequest extends Model
      */
     public $timeToLiveInHours;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'description' => 'Description',
         'instanceCount' => 'InstanceCount',
         'instanceName' => 'InstanceName',
@@ -94,6 +100,10 @@ class CreateActivationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -160,6 +170,10 @@ class CreateActivationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

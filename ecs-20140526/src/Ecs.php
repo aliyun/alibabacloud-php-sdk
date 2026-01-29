@@ -4067,6 +4067,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -4687,6 +4691,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->commandContent) {
             @$query['CommandContent'] = $request->commandContent;
         }
@@ -12587,6 +12595,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -32871,6 +32883,10 @@ class Ecs extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->commandContent) {
             @$query['CommandContent'] = $request->commandContent;
         }
@@ -39773,6 +39789,10 @@ class Ecs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->content) {
             @$query['Content'] = $request->content;
         }
@@ -40228,6 +40248,10 @@ class Ecs extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->commandLine) {
             @$query['CommandLine'] = $request->commandLine;
         }
