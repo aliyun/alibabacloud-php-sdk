@@ -287,6 +287,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineInQueueRequest;
@@ -9397,6 +9399,87 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryConversationDetailInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询通话记录接口-新.
+     *
+     * @param request - QueryConversationDetailInfoNewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConversationDetailInfoNewResponse
+     *
+     * @param QueryConversationDetailInfoNewRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryConversationDetailInfoNewResponse
+     */
+    public function queryConversationDetailInfoNewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->detailId) {
+            @$query['DetailId'] = $request->detailId;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryConversationDetailInfoNew',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryConversationDetailInfoNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询通话记录接口-新.
+     *
+     * @param request - QueryConversationDetailInfoNewRequest
+     *
+     * @returns QueryConversationDetailInfoNewResponse
+     *
+     * @param QueryConversationDetailInfoNewRequest $request
+     *
+     * @return QueryConversationDetailInfoNewResponse
+     */
+    public function queryConversationDetailInfoNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryConversationDetailInfoNewWithOptions($request, $runtime);
     }
 
     /**
