@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeTokenR
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateRayClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementRequest;
@@ -36,6 +38,7 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeReques
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GenerateTaskCodesRequest;
@@ -53,6 +56,7 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterRequest;
@@ -86,6 +90,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
@@ -108,11 +114,15 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartLivyComputeRequest
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartProcessInstanceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartProcessInstanceResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartRayClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopKyuubiServiceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopLivyComputeResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopRayClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
@@ -126,6 +136,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateLivyComputeRespon
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateRayClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateRayClusterResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -900,6 +912,93 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 创建Ray集群.
+     *
+     * @param request - CreateRayClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRayClusterResponse
+     *
+     * @param string                  $workspaceId
+     * @param CreateRayClusterRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRayClusterResponse
+     */
+    public function createRayClusterWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayReleaseVersion) {
+            @$body['displayReleaseVersion'] = $request->displayReleaseVersion;
+        }
+
+        if (null !== $request->extraParam) {
+            @$body['extraParam'] = $request->extraParam;
+        }
+
+        if (null !== $request->headSpec) {
+            @$body['headSpec'] = $request->headSpec;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->networkServiceName) {
+            @$body['networkServiceName'] = $request->networkServiceName;
+        }
+
+        if (null !== $request->workerSpec) {
+            @$body['workerSpec'] = $request->workerSpec;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Ray集群.
+     *
+     * @param request - CreateRayClusterRequest
+     *
+     * @returns CreateRayClusterResponse
+     *
+     * @param string                  $workspaceId
+     * @param CreateRayClusterRequest $request
+     *
+     * @return CreateRayClusterResponse
+     */
+    public function createRayCluster($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRayClusterWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a session.
      *
      * @param request - CreateSessionClusterRequest
@@ -1478,6 +1577,59 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->deleteLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除Ray集群.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRayClusterResponse
+     *
+     * @param string         $workspaceId
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteRayClusterResponse
+     */
+    public function deleteRayClusterWithOptions($workspaceId, $clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster/' . Url::percentEncode($clusterId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Ray集群.
+     *
+     * @returns DeleteRayClusterResponse
+     *
+     * @param string $workspaceId
+     * @param string $clusterId
+     *
+     * @return DeleteRayClusterResponse
+     */
+    public function deleteRayCluster($workspaceId, $clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRayClusterWithOptions($workspaceId, $clusterId, $headers, $runtime);
     }
 
     /**
@@ -2087,6 +2239,59 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $tokenId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取Ray集群.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRayClusterResponse
+     *
+     * @param string         $workspaceId
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRayClusterResponse
+     */
+    public function getRayClusterWithOptions($workspaceId, $clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster/' . Url::percentEncode($clusterId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Ray集群.
+     *
+     * @returns GetRayClusterResponse
+     *
+     * @param string $workspaceId
+     * @param string $clusterId
+     *
+     * @return GetRayClusterResponse
+     */
+    public function getRayCluster($workspaceId, $clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRayClusterWithOptions($workspaceId, $clusterId, $headers, $runtime);
     }
 
     /**
@@ -3290,6 +3495,73 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 列出Ray集群.
+     *
+     * @param request - ListRayClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRayClusterResponse
+     *
+     * @param string                $workspaceId
+     * @param ListRayClusterRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListRayClusterResponse
+     */
+    public function listRayClusterWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNum) {
+            @$query['pageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出Ray集群.
+     *
+     * @param request - ListRayClusterRequest
+     *
+     * @returns ListRayClusterResponse
+     *
+     * @param string                $workspaceId
+     * @param ListRayClusterRequest $request
+     *
+     * @return ListRayClusterResponse
+     */
+    public function listRayCluster($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRayClusterWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
      *
      * @param request - ListReleaseVersionsRequest
@@ -4157,6 +4429,71 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 启动Ray集群.
+     *
+     * @param request - StartRayClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartRayClusterResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $clusterId
+     * @param StartRayClusterRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StartRayClusterResponse
+     */
+    public function startRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster/' . Url::percentEncode($clusterId) . '/start',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动Ray集群.
+     *
+     * @param request - StartRayClusterRequest
+     *
+     * @returns StartRayClusterResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $clusterId
+     * @param StartRayClusterRequest $request
+     *
+     * @return StartRayClusterResponse
+     */
+    public function startRayCluster($workspaceId, $clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a session.
      *
      * @param request - StartSessionClusterRequest
@@ -4345,6 +4682,71 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->stopLivyComputeWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 停止Ray集群.
+     *
+     * @param request - StopRayClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopRayClusterResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $clusterId
+     * @param StopRayClusterRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopRayClusterResponse
+     */
+    public function stopRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster/' . Url::percentEncode($clusterId) . '/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止Ray集群.
+     *
+     * @param request - StopRayClusterRequest
+     *
+     * @returns StopRayClusterResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $clusterId
+     * @param StopRayClusterRequest $request
+     *
+     * @return StopRayClusterResponse
+     */
+    public function stopRayCluster($workspaceId, $clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4951,5 +5353,94 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->updateProcessDefinitionWithScheduleWithOptions($bizId, $code, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新Ray集群.
+     *
+     * @param request - UpdateRayClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRayClusterResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $clusterId
+     * @param UpdateRayClusterRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateRayClusterResponse
+     */
+    public function updateRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayReleaseVersion) {
+            @$body['displayReleaseVersion'] = $request->displayReleaseVersion;
+        }
+
+        if (null !== $request->extraParam) {
+            @$body['extraParam'] = $request->extraParam;
+        }
+
+        if (null !== $request->headSpec) {
+            @$body['headSpec'] = $request->headSpec;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->networkServiceName) {
+            @$body['networkServiceName'] = $request->networkServiceName;
+        }
+
+        if (null !== $request->workerSpec) {
+            @$body['workerSpec'] = $request->workerSpec;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRayCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayCluster/' . Url::percentEncode($clusterId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRayClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Ray集群.
+     *
+     * @param request - UpdateRayClusterRequest
+     *
+     * @returns UpdateRayClusterResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $clusterId
+     * @param UpdateRayClusterRequest $request
+     *
+     * @return UpdateRayClusterResponse
+     */
+    public function updateRayCluster($workspaceId, $clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime);
     }
 }
