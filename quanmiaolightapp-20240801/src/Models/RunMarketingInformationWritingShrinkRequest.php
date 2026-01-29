@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class RunMarketingInformationWritingRequest extends Model
+class RunMarketingInformationWritingShrinkRequest extends Model
 {
     /**
      * @var string
@@ -24,9 +24,9 @@ class RunMarketingInformationWritingRequest extends Model
     public $customPrompt;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $extParameters;
+    public $extParametersShrink;
 
     /**
      * @var string
@@ -86,7 +86,7 @@ class RunMarketingInformationWritingRequest extends Model
         'apiKey' => 'apiKey',
         'customLimitation' => 'customLimitation',
         'customPrompt' => 'customPrompt',
-        'extParameters' => 'extParameters',
+        'extParametersShrink' => 'extParameters',
         'generateCount' => 'generateCount',
         'inputExample' => 'inputExample',
         'keywords' => 'keywords',
@@ -102,9 +102,6 @@ class RunMarketingInformationWritingRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->extParameters)) {
-            Model::validateArray($this->extParameters);
-        }
         parent::validate();
     }
 
@@ -123,13 +120,8 @@ class RunMarketingInformationWritingRequest extends Model
             $res['customPrompt'] = $this->customPrompt;
         }
 
-        if (null !== $this->extParameters) {
-            if (\is_array($this->extParameters)) {
-                $res['extParameters'] = [];
-                foreach ($this->extParameters as $key1 => $value1) {
-                    $res['extParameters'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->extParametersShrink) {
+            $res['extParameters'] = $this->extParametersShrink;
         }
 
         if (null !== $this->generateCount) {
@@ -200,12 +192,7 @@ class RunMarketingInformationWritingRequest extends Model
         }
 
         if (isset($map['extParameters'])) {
-            if (!empty($map['extParameters'])) {
-                $model->extParameters = [];
-                foreach ($map['extParameters'] as $key1 => $value1) {
-                    $model->extParameters[$key1] = $value1;
-                }
-            }
+            $model->extParametersShrink = $map['extParameters'];
         }
 
         if (isset($map['generateCount'])) {

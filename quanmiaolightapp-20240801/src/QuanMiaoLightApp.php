@@ -52,6 +52,7 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationEx
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunNetworkContentAuditRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunNetworkContentAuditResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunNetworkContentAuditShrinkRequest;
@@ -2052,22 +2053,28 @@ class QuanMiaoLightApp extends OpenApiClient
     /**
      * 营销文案写作服务
      *
-     * @param request - RunMarketingInformationWritingRequest
+     * @param tmpReq - RunMarketingInformationWritingRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunMarketingInformationWritingResponse
      *
      * @param string                                $workspaceId
-     * @param RunMarketingInformationWritingRequest $request
+     * @param RunMarketingInformationWritingRequest $tmpReq
      * @param string[]                              $headers
      * @param RuntimeOptions                        $runtime
      *
      * @return RunMarketingInformationWritingResponse
      */
-    public function runMarketingInformationWritingWithSSE($workspaceId, $request, $headers, $runtime)
+    public function runMarketingInformationWritingWithSSE($workspaceId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RunMarketingInformationWritingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extParameters) {
+            $request->extParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extParameters, 'extParameters', 'json');
+        }
+
         $body = [];
         if (null !== $request->apiKey) {
             @$body['apiKey'] = $request->apiKey;
@@ -2081,20 +2088,48 @@ class QuanMiaoLightApp extends OpenApiClient
             @$body['customPrompt'] = $request->customPrompt;
         }
 
+        if (null !== $request->extParametersShrink) {
+            @$body['extParameters'] = $request->extParametersShrink;
+        }
+
+        if (null !== $request->generateCount) {
+            @$body['generateCount'] = $request->generateCount;
+        }
+
         if (null !== $request->inputExample) {
             @$body['inputExample'] = $request->inputExample;
+        }
+
+        if (null !== $request->keywords) {
+            @$body['keywords'] = $request->keywords;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
         }
 
         if (null !== $request->modelId) {
             @$body['modelId'] = $request->modelId;
         }
 
+        if (null !== $request->otherRequirements) {
+            @$body['otherRequirements'] = $request->otherRequirements;
+        }
+
         if (null !== $request->outputExample) {
             @$body['outputExample'] = $request->outputExample;
         }
 
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
         if (null !== $request->sourceMaterial) {
             @$body['sourceMaterial'] = $request->sourceMaterial;
+        }
+
+        if (null !== $request->wordCountRange) {
+            @$body['wordCountRange'] = $request->wordCountRange;
         }
 
         if (null !== $request->writingType) {
@@ -2135,22 +2170,28 @@ class QuanMiaoLightApp extends OpenApiClient
     /**
      * 营销文案写作服务
      *
-     * @param request - RunMarketingInformationWritingRequest
+     * @param tmpReq - RunMarketingInformationWritingRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunMarketingInformationWritingResponse
      *
      * @param string                                $workspaceId
-     * @param RunMarketingInformationWritingRequest $request
+     * @param RunMarketingInformationWritingRequest $tmpReq
      * @param string[]                              $headers
      * @param RuntimeOptions                        $runtime
      *
      * @return RunMarketingInformationWritingResponse
      */
-    public function runMarketingInformationWritingWithOptions($workspaceId, $request, $headers, $runtime)
+    public function runMarketingInformationWritingWithOptions($workspaceId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RunMarketingInformationWritingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extParameters) {
+            $request->extParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extParameters, 'extParameters', 'json');
+        }
+
         $body = [];
         if (null !== $request->apiKey) {
             @$body['apiKey'] = $request->apiKey;
@@ -2164,20 +2205,48 @@ class QuanMiaoLightApp extends OpenApiClient
             @$body['customPrompt'] = $request->customPrompt;
         }
 
+        if (null !== $request->extParametersShrink) {
+            @$body['extParameters'] = $request->extParametersShrink;
+        }
+
+        if (null !== $request->generateCount) {
+            @$body['generateCount'] = $request->generateCount;
+        }
+
         if (null !== $request->inputExample) {
             @$body['inputExample'] = $request->inputExample;
+        }
+
+        if (null !== $request->keywords) {
+            @$body['keywords'] = $request->keywords;
+        }
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
         }
 
         if (null !== $request->modelId) {
             @$body['modelId'] = $request->modelId;
         }
 
+        if (null !== $request->otherRequirements) {
+            @$body['otherRequirements'] = $request->otherRequirements;
+        }
+
         if (null !== $request->outputExample) {
             @$body['outputExample'] = $request->outputExample;
         }
 
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
         if (null !== $request->sourceMaterial) {
             @$body['sourceMaterial'] = $request->sourceMaterial;
+        }
+
+        if (null !== $request->wordCountRange) {
+            @$body['wordCountRange'] = $request->wordCountRange;
         }
 
         if (null !== $request->writingType) {
