@@ -184,6 +184,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAllSwimmingLanesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListAppEventsResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationCenterServiceInstancesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationCenterServiceInstancesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsForSwimmingLaneRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsForSwimmingLaneResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsRequest;
@@ -6565,6 +6567,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Executes a job.
+     *
      * @param request - ExecJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6641,6 +6645,8 @@ class Sae extends OpenApiClient
     }
 
     /**
+     * Executes a job.
+     *
      * @param request - ExecJobRequest
      *
      * @returns ExecJobResponse
@@ -7636,6 +7642,71 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->listAppVersionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询服务实例列表.
+     *
+     * @param request - ListApplicationCenterServiceInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationCenterServiceInstancesResponse
+     *
+     * @param ListApplicationCenterServiceInstancesRequest $request
+     * @param string[]                                     $headers
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListApplicationCenterServiceInstancesResponse
+     */
+    public function listApplicationCenterServiceInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationCenterServiceInstances',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/cas/v5/app/listApplicationCenterServiceInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationCenterServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务实例列表.
+     *
+     * @param request - ListApplicationCenterServiceInstancesRequest
+     *
+     * @returns ListApplicationCenterServiceInstancesResponse
+     *
+     * @param ListApplicationCenterServiceInstancesRequest $request
+     *
+     * @return ListApplicationCenterServiceInstancesResponse
+     */
+    public function listApplicationCenterServiceInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApplicationCenterServiceInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**

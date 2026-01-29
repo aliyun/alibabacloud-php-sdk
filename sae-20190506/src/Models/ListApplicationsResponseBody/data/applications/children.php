@@ -45,6 +45,11 @@ class children extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $enableIdle;
+
+    /**
      * @var int
      */
     public $instances;
@@ -121,6 +126,7 @@ class children extends Model
         'appType' => 'AppType',
         'baseAppId' => 'BaseAppId',
         'cpu' => 'Cpu',
+        'enableIdle' => 'EnableIdle',
         'instances' => 'Instances',
         'isStateful' => 'IsStateful',
         'mem' => 'Mem',
@@ -174,6 +180,10 @@ class children extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->enableIdle) {
+            $res['EnableIdle'] = $this->enableIdle;
         }
 
         if (null !== $this->instances) {
@@ -276,6 +286,10 @@ class children extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['EnableIdle'])) {
+            $model->enableIdle = $map['EnableIdle'];
         }
 
         if (isset($map['Instances'])) {
