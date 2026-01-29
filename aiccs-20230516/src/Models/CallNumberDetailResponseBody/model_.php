@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class model_ extends Model
 {
     /**
+     * @var int
+     */
+    public $aiBill;
+
+    /**
+     * @var int
+     */
+    public $answerTransferType;
+
+    /**
      * @var string
      */
     public $batchId;
@@ -19,6 +29,11 @@ class model_ extends Model
     public $bill;
 
     /**
+     * @var int
+     */
+    public $bridgeBill;
+
+    /**
      * @var string
      */
     public $callId;
@@ -27,6 +42,26 @@ class model_ extends Model
      * @var int
      */
     public $callType;
+
+    /**
+     * @var string
+     */
+    public $clientUrl;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var int
+     */
+    public $gatewayId;
 
     /**
      * @var int
@@ -56,7 +91,22 @@ class model_ extends Model
     /**
      * @var string
      */
+    public $params;
+
+    /**
+     * @var string
+     */
     public $personalityTag;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var int
+     */
+    public $sid;
 
     /**
      * @var int
@@ -83,16 +133,26 @@ class model_ extends Model
      */
     public $transferStatus;
     protected $_name = [
+        'aiBill' => 'AiBill',
+        'answerTransferType' => 'AnswerTransferType',
         'batchId' => 'BatchId',
         'bill' => 'Bill',
+        'bridgeBill' => 'BridgeBill',
         'callId' => 'CallId',
         'callType' => 'CallType',
+        'clientUrl' => 'ClientUrl',
+        'createTime' => 'CreateTime',
+        'duration' => 'Duration',
+        'gatewayId' => 'GatewayId',
         'id' => 'Id',
         'intentTag' => 'IntentTag',
         'keywords' => 'Keywords',
         'number' => 'Number',
         'numberMd5' => 'NumberMd5',
+        'params' => 'Params',
         'personalityTag' => 'PersonalityTag',
+        'remark' => 'Remark',
+        'sid' => 'Sid',
         'statusCode' => 'StatusCode',
         'tag' => 'Tag',
         'taskId' => 'TaskId',
@@ -108,6 +168,14 @@ class model_ extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiBill) {
+            $res['AiBill'] = $this->aiBill;
+        }
+
+        if (null !== $this->answerTransferType) {
+            $res['AnswerTransferType'] = $this->answerTransferType;
+        }
+
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
         }
@@ -116,12 +184,32 @@ class model_ extends Model
             $res['Bill'] = $this->bill;
         }
 
+        if (null !== $this->bridgeBill) {
+            $res['BridgeBill'] = $this->bridgeBill;
+        }
+
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
 
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
+        }
+
+        if (null !== $this->clientUrl) {
+            $res['ClientUrl'] = $this->clientUrl;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['GatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->id) {
@@ -144,8 +232,20 @@ class model_ extends Model
             $res['NumberMd5'] = $this->numberMd5;
         }
 
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
+        }
+
         if (null !== $this->personalityTag) {
             $res['PersonalityTag'] = $this->personalityTag;
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->sid) {
+            $res['Sid'] = $this->sid;
         }
 
         if (null !== $this->statusCode) {
@@ -179,6 +279,14 @@ class model_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiBill'])) {
+            $model->aiBill = $map['AiBill'];
+        }
+
+        if (isset($map['AnswerTransferType'])) {
+            $model->answerTransferType = $map['AnswerTransferType'];
+        }
+
         if (isset($map['BatchId'])) {
             $model->batchId = $map['BatchId'];
         }
@@ -187,12 +295,32 @@ class model_ extends Model
             $model->bill = $map['Bill'];
         }
 
+        if (isset($map['BridgeBill'])) {
+            $model->bridgeBill = $map['BridgeBill'];
+        }
+
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
 
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
+        }
+
+        if (isset($map['ClientUrl'])) {
+            $model->clientUrl = $map['ClientUrl'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['GatewayId'])) {
+            $model->gatewayId = $map['GatewayId'];
         }
 
         if (isset($map['Id'])) {
@@ -215,8 +343,20 @@ class model_ extends Model
             $model->numberMd5 = $map['NumberMd5'];
         }
 
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
+        }
+
         if (isset($map['PersonalityTag'])) {
             $model->personalityTag = $map['PersonalityTag'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['Sid'])) {
+            $model->sid = $map['Sid'];
         }
 
         if (isset($map['StatusCode'])) {
