@@ -913,6 +913,10 @@ class Bailian extends OpenApiClient
             @$query['chunkMode'] = $request->chunkMode;
         }
 
+        if (null !== $request->connectId) {
+            @$query['connectId'] = $request->connectId;
+        }
+
         if (null !== $request->database) {
             @$query['database'] = $request->database;
         }
@@ -923,6 +927,10 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->enableHeaders) {
             @$query['enableHeaders'] = $request->enableHeaders;
+        }
+
+        if (null !== $request->knowledgeScene) {
+            @$query['knowledgeScene'] = $request->knowledgeScene;
         }
 
         if (null !== $request->metaExtractColumnsShrink) {

@@ -119,6 +119,11 @@ class CreateIndexRequest extends Model
     /**
      * @var string
      */
+    public $connectId;
+
+    /**
+     * @var string
+     */
     public $database;
 
     /**
@@ -130,6 +135,11 @@ class CreateIndexRequest extends Model
      * @var bool
      */
     public $enableHeaders;
+
+    /**
+     * @var string
+     */
+    public $knowledgeScene;
 
     /**
      * @var metaExtractColumns[]
@@ -177,9 +187,11 @@ class CreateIndexRequest extends Model
         'structureType' => 'StructureType',
         'tableIds' => 'TableIds',
         'chunkMode' => 'chunkMode',
+        'connectId' => 'connectId',
         'database' => 'database',
         'datasourceCode' => 'datasourceCode',
         'enableHeaders' => 'enableHeaders',
+        'knowledgeScene' => 'knowledgeScene',
         'metaExtractColumns' => 'metaExtractColumns',
         'pipelineCommercialCu' => 'pipelineCommercialCu',
         'pipelineCommercialType' => 'pipelineCommercialType',
@@ -325,6 +337,10 @@ class CreateIndexRequest extends Model
             $res['chunkMode'] = $this->chunkMode;
         }
 
+        if (null !== $this->connectId) {
+            $res['connectId'] = $this->connectId;
+        }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
@@ -335,6 +351,10 @@ class CreateIndexRequest extends Model
 
         if (null !== $this->enableHeaders) {
             $res['enableHeaders'] = $this->enableHeaders;
+        }
+
+        if (null !== $this->knowledgeScene) {
+            $res['knowledgeScene'] = $this->knowledgeScene;
         }
 
         if (null !== $this->metaExtractColumns) {
@@ -487,6 +507,10 @@ class CreateIndexRequest extends Model
             $model->chunkMode = $map['chunkMode'];
         }
 
+        if (isset($map['connectId'])) {
+            $model->connectId = $map['connectId'];
+        }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
@@ -497,6 +521,10 @@ class CreateIndexRequest extends Model
 
         if (isset($map['enableHeaders'])) {
             $model->enableHeaders = $map['enableHeaders'];
+        }
+
+        if (isset($map['knowledgeScene'])) {
+            $model->knowledgeScene = $map['knowledgeScene'];
         }
 
         if (isset($map['metaExtractColumns'])) {

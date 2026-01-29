@@ -116,6 +116,11 @@ class CreateIndexShrinkRequest extends Model
     /**
      * @var string
      */
+    public $connectId;
+
+    /**
+     * @var string
+     */
     public $database;
 
     /**
@@ -127,6 +132,11 @@ class CreateIndexShrinkRequest extends Model
      * @var bool
      */
     public $enableHeaders;
+
+    /**
+     * @var string
+     */
+    public $knowledgeScene;
 
     /**
      * @var string
@@ -174,9 +184,11 @@ class CreateIndexShrinkRequest extends Model
         'structureType' => 'StructureType',
         'tableIdsShrink' => 'TableIds',
         'chunkMode' => 'chunkMode',
+        'connectId' => 'connectId',
         'database' => 'database',
         'datasourceCode' => 'datasourceCode',
         'enableHeaders' => 'enableHeaders',
+        'knowledgeScene' => 'knowledgeScene',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
         'pipelineCommercialCu' => 'pipelineCommercialCu',
         'pipelineCommercialType' => 'pipelineCommercialType',
@@ -276,6 +288,10 @@ class CreateIndexShrinkRequest extends Model
             $res['chunkMode'] = $this->chunkMode;
         }
 
+        if (null !== $this->connectId) {
+            $res['connectId'] = $this->connectId;
+        }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
@@ -286,6 +302,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (null !== $this->enableHeaders) {
             $res['enableHeaders'] = $this->enableHeaders;
+        }
+
+        if (null !== $this->knowledgeScene) {
+            $res['knowledgeScene'] = $this->knowledgeScene;
         }
 
         if (null !== $this->metaExtractColumnsShrink) {
@@ -403,6 +423,10 @@ class CreateIndexShrinkRequest extends Model
             $model->chunkMode = $map['chunkMode'];
         }
 
+        if (isset($map['connectId'])) {
+            $model->connectId = $map['connectId'];
+        }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
@@ -413,6 +437,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['enableHeaders'])) {
             $model->enableHeaders = $map['enableHeaders'];
+        }
+
+        if (isset($map['knowledgeScene'])) {
+            $model->knowledgeScene = $map['knowledgeScene'];
         }
 
         if (isset($map['metaExtractColumns'])) {
