@@ -33949,6 +33949,10 @@ class Rds extends OpenApiClient
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
+        if (null !== $request->targetMode) {
+            @$query['TargetMode'] = $request->targetMode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

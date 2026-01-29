@@ -27,11 +27,17 @@ class PrecheckDuckDBDependencyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $targetMode;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'targetMode' => 'TargetMode',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class PrecheckDuckDBDependencyRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->targetMode) {
+            $res['TargetMode'] = $this->targetMode;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class PrecheckDuckDBDependencyRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['TargetMode'])) {
+            $model->targetMode = $map['TargetMode'];
         }
 
         return $model;
