@@ -144,6 +144,11 @@ class result extends Model
     public $ikHotDicts;
 
     /**
+     * @var bool
+     */
+    public $inited;
+
+    /**
      * @var string
      */
     public $instanceCategory;
@@ -332,6 +337,7 @@ class result extends Model
         'haveClientNode' => 'haveClientNode',
         'haveKibana' => 'haveKibana',
         'ikHotDicts' => 'ikHotDicts',
+        'inited' => 'inited',
         'instanceCategory' => 'instanceCategory',
         'instanceId' => 'instanceId',
         'isNewDeployment' => 'isNewDeployment',
@@ -597,6 +603,10 @@ class result extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->inited) {
+            $res['inited'] = $this->inited;
         }
 
         if (null !== $this->instanceCategory) {
@@ -944,6 +954,10 @@ class result extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['inited'])) {
+            $model->inited = $map['inited'];
         }
 
         if (isset($map['instanceCategory'])) {

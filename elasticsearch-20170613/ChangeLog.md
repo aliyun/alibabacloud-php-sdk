@@ -1,3 +1,9 @@
+2026-01-29 Version: 4.0.1
+- Update API DescribeInstance: add response parameters Body.Result.inited.
+- Update API ListInstance: add response parameters Body.Result.$.zoneCount.
+- Update API ListInstance: add response parameters Body.Result.$.zoneInfos.
+
+
 2026-01-16 Version: 4.0.0
 - Support API TurnOffZone.
 - Support API TurnOnZone.

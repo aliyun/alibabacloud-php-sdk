@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\res
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\networkConfig;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\nodeSpec;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\tags;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\zoneInfos;
 
 class result extends Model
 {
@@ -174,6 +175,16 @@ class result extends Model
      * @var string
      */
     public $vpcInstanceId;
+
+    /**
+     * @var int
+     */
+    public $zoneCount;
+
+    /**
+     * @var zoneInfos[]
+     */
+    public $zoneInfos;
     protected $_name = [
         'advancedDedicateMaster' => 'advancedDedicateMaster',
         'archType' => 'archType',
@@ -207,6 +218,8 @@ class result extends Model
         'tags' => 'tags',
         'updatedAt' => 'updatedAt',
         'vpcInstanceId' => 'vpcInstanceId',
+        'zoneCount' => 'zoneCount',
+        'zoneInfos' => 'zoneInfos',
     ];
 
     public function validate()
@@ -246,6 +259,9 @@ class result extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->zoneInfos)) {
+            Model::validateArray($this->zoneInfos);
         }
         parent::validate();
     }
@@ -426,6 +442,21 @@ class result extends Model
 
         if (null !== $this->vpcInstanceId) {
             $res['vpcInstanceId'] = $this->vpcInstanceId;
+        }
+
+        if (null !== $this->zoneCount) {
+            $res['zoneCount'] = $this->zoneCount;
+        }
+
+        if (null !== $this->zoneInfos) {
+            if (\is_array($this->zoneInfos)) {
+                $res['zoneInfos'] = [];
+                $n1 = 0;
+                foreach ($this->zoneInfos as $item1) {
+                    $res['zoneInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -612,6 +643,21 @@ class result extends Model
 
         if (isset($map['vpcInstanceId'])) {
             $model->vpcInstanceId = $map['vpcInstanceId'];
+        }
+
+        if (isset($map['zoneCount'])) {
+            $model->zoneCount = $map['zoneCount'];
+        }
+
+        if (isset($map['zoneInfos'])) {
+            if (!empty($map['zoneInfos'])) {
+                $model->zoneInfos = [];
+                $n1 = 0;
+                foreach ($map['zoneInfos'] as $item1) {
+                    $model->zoneInfos[$n1] = zoneInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
