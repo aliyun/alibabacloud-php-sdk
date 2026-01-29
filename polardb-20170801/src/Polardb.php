@@ -8386,6 +8386,10 @@ class Polardb extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

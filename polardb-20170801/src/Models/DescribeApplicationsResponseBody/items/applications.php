@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponseBody\items\applications\endpoints;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponseBody\items\applications\tags;
 
 class applications extends Model
 {
@@ -75,6 +76,11 @@ class applications extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $zoneId;
@@ -92,6 +98,7 @@ class applications extends Model
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'regionId' => 'RegionId',
         'status' => 'Status',
+        'tags' => 'Tags',
         'zoneId' => 'ZoneId',
     ];
 
@@ -99,6 +106,9 @@ class applications extends Model
     {
         if (null !== $this->endpoints) {
             $this->endpoints->validate();
+        }
+        if (null !== $this->tags) {
+            $this->tags->validate();
         }
         parent::validate();
     }
@@ -156,6 +166,10 @@ class applications extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         if (null !== $this->zoneId) {
@@ -223,6 +237,10 @@ class applications extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         if (isset($map['ZoneId'])) {
