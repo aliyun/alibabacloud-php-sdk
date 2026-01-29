@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailRequest\filterParam;
 
-class DescribeSavingsPlansCoverageDetailRequest extends Model
+class DescribeSavingsPlansUsageDetailShrinkRequest extends Model
 {
     /**
      * @var int
@@ -20,9 +19,9 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
     public $endPeriod;
 
     /**
-     * @var filterParam
+     * @var string
      */
-    public $filterParam;
+    public $filterParamShrink;
 
     /**
      * @var int
@@ -46,7 +45,7 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
     protected $_name = [
         'billOwnerId' => 'BillOwnerId',
         'endPeriod' => 'EndPeriod',
-        'filterParam' => 'FilterParam',
+        'filterParamShrink' => 'FilterParam',
         'maxResults' => 'MaxResults',
         'periodType' => 'PeriodType',
         'startPeriod' => 'StartPeriod',
@@ -55,9 +54,6 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->filterParam) {
-            $this->filterParam->validate();
-        }
         parent::validate();
     }
 
@@ -72,8 +68,8 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
             $res['EndPeriod'] = $this->endPeriod;
         }
 
-        if (null !== $this->filterParam) {
-            $res['FilterParam'] = null !== $this->filterParam ? $this->filterParam->toArray($noStream) : $this->filterParam;
+        if (null !== $this->filterParamShrink) {
+            $res['FilterParam'] = $this->filterParamShrink;
         }
 
         if (null !== $this->maxResults) {
@@ -112,7 +108,7 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
         }
 
         if (isset($map['FilterParam'])) {
-            $model->filterParam = filterParam::fromMap($map['FilterParam']);
+            $model->filterParamShrink = $map['FilterParam'];
         }
 
         if (isset($map['MaxResults'])) {

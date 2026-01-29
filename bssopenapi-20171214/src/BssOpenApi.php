@@ -64,12 +64,16 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalReque
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeResourceUsageTotalResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageTotalRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageTotalResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageTotalShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageDetailRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageDetailResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageDetailShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageTotalRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageTotalResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageTotalShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSplitItemBillResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetAccountRelationRequest;
@@ -2675,19 +2679,25 @@ class BssOpenApi extends OpenApiClient
     /**
      * Queries the coverage details of savings plans.
      *
-     * @param request - DescribeSavingsPlansCoverageDetailRequest
+     * @param tmpReq - DescribeSavingsPlansCoverageDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSavingsPlansCoverageDetailResponse
      *
-     * @param DescribeSavingsPlansCoverageDetailRequest $request
+     * @param DescribeSavingsPlansCoverageDetailRequest $tmpReq
      * @param RuntimeOptions                            $runtime
      *
      * @return DescribeSavingsPlansCoverageDetailResponse
      */
-    public function describeSavingsPlansCoverageDetailWithOptions($request, $runtime)
+    public function describeSavingsPlansCoverageDetailWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeSavingsPlansCoverageDetailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterParam) {
+            $request->filterParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterParam, 'FilterParam', 'json');
+        }
+
         $query = [];
         if (null !== $request->billOwnerId) {
             @$query['BillOwnerId'] = $request->billOwnerId;
@@ -2695,6 +2705,10 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->endPeriod) {
             @$query['EndPeriod'] = $request->endPeriod;
+        }
+
+        if (null !== $request->filterParamShrink) {
+            @$query['FilterParam'] = $request->filterParamShrink;
         }
 
         if (null !== $request->maxResults) {
@@ -2752,19 +2766,25 @@ class BssOpenApi extends OpenApiClient
     /**
      * Queries the coverage summary of savings plans.
      *
-     * @param request - DescribeSavingsPlansCoverageTotalRequest
+     * @param tmpReq - DescribeSavingsPlansCoverageTotalRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSavingsPlansCoverageTotalResponse
      *
-     * @param DescribeSavingsPlansCoverageTotalRequest $request
+     * @param DescribeSavingsPlansCoverageTotalRequest $tmpReq
      * @param RuntimeOptions                           $runtime
      *
      * @return DescribeSavingsPlansCoverageTotalResponse
      */
-    public function describeSavingsPlansCoverageTotalWithOptions($request, $runtime)
+    public function describeSavingsPlansCoverageTotalWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeSavingsPlansCoverageTotalShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterParam) {
+            $request->filterParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterParam, 'FilterParam', 'json');
+        }
+
         $query = [];
         if (null !== $request->billOwnerId) {
             @$query['BillOwnerId'] = $request->billOwnerId;
@@ -2772,6 +2792,10 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->endPeriod) {
             @$query['EndPeriod'] = $request->endPeriod;
+        }
+
+        if (null !== $request->filterParamShrink) {
+            @$query['FilterParam'] = $request->filterParamShrink;
         }
 
         if (null !== $request->periodType) {
@@ -2821,19 +2845,25 @@ class BssOpenApi extends OpenApiClient
     /**
      * Queries the usage details of savings plans.
      *
-     * @param request - DescribeSavingsPlansUsageDetailRequest
+     * @param tmpReq - DescribeSavingsPlansUsageDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSavingsPlansUsageDetailResponse
      *
-     * @param DescribeSavingsPlansUsageDetailRequest $request
+     * @param DescribeSavingsPlansUsageDetailRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return DescribeSavingsPlansUsageDetailResponse
      */
-    public function describeSavingsPlansUsageDetailWithOptions($request, $runtime)
+    public function describeSavingsPlansUsageDetailWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeSavingsPlansUsageDetailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterParam) {
+            $request->filterParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterParam, 'FilterParam', 'json');
+        }
+
         $query = [];
         if (null !== $request->billOwnerId) {
             @$query['BillOwnerId'] = $request->billOwnerId;
@@ -2841,6 +2871,10 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->endPeriod) {
             @$query['EndPeriod'] = $request->endPeriod;
+        }
+
+        if (null !== $request->filterParamShrink) {
+            @$query['FilterParam'] = $request->filterParamShrink;
         }
 
         if (null !== $request->maxResults) {
@@ -2898,19 +2932,25 @@ class BssOpenApi extends OpenApiClient
     /**
      * Queries the usage summary of savings plans.
      *
-     * @param request - DescribeSavingsPlansUsageTotalRequest
+     * @param tmpReq - DescribeSavingsPlansUsageTotalRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSavingsPlansUsageTotalResponse
      *
-     * @param DescribeSavingsPlansUsageTotalRequest $request
+     * @param DescribeSavingsPlansUsageTotalRequest $tmpReq
      * @param RuntimeOptions                        $runtime
      *
      * @return DescribeSavingsPlansUsageTotalResponse
      */
-    public function describeSavingsPlansUsageTotalWithOptions($request, $runtime)
+    public function describeSavingsPlansUsageTotalWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeSavingsPlansUsageTotalShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterParam) {
+            $request->filterParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterParam, 'FilterParam', 'json');
+        }
+
         $query = [];
         if (null !== $request->billOwnerId) {
             @$query['BillOwnerId'] = $request->billOwnerId;
@@ -2918,6 +2958,10 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->endPeriod) {
             @$query['EndPeriod'] = $request->endPeriod;
+        }
+
+        if (null !== $request->filterParamShrink) {
+            @$query['FilterParam'] = $request->filterParamShrink;
         }
 
         if (null !== $request->periodType) {

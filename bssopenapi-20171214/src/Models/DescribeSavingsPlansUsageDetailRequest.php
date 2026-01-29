@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansUsageDetailRequest\filterParam;
 
 class DescribeSavingsPlansUsageDetailRequest extends Model
 {
@@ -17,6 +18,11 @@ class DescribeSavingsPlansUsageDetailRequest extends Model
      * @var string
      */
     public $endPeriod;
+
+    /**
+     * @var filterParam
+     */
+    public $filterParam;
 
     /**
      * @var int
@@ -40,6 +46,7 @@ class DescribeSavingsPlansUsageDetailRequest extends Model
     protected $_name = [
         'billOwnerId' => 'BillOwnerId',
         'endPeriod' => 'EndPeriod',
+        'filterParam' => 'FilterParam',
         'maxResults' => 'MaxResults',
         'periodType' => 'PeriodType',
         'startPeriod' => 'StartPeriod',
@@ -48,6 +55,9 @@ class DescribeSavingsPlansUsageDetailRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->filterParam) {
+            $this->filterParam->validate();
+        }
         parent::validate();
     }
 
@@ -60,6 +70,10 @@ class DescribeSavingsPlansUsageDetailRequest extends Model
 
         if (null !== $this->endPeriod) {
             $res['EndPeriod'] = $this->endPeriod;
+        }
+
+        if (null !== $this->filterParam) {
+            $res['FilterParam'] = null !== $this->filterParam ? $this->filterParam->toArray($noStream) : $this->filterParam;
         }
 
         if (null !== $this->maxResults) {
@@ -95,6 +109,10 @@ class DescribeSavingsPlansUsageDetailRequest extends Model
 
         if (isset($map['EndPeriod'])) {
             $model->endPeriod = $map['EndPeriod'];
+        }
+
+        if (isset($map['FilterParam'])) {
+            $model->filterParam = filterParam::fromMap($map['FilterParam']);
         }
 
         if (isset($map['MaxResults'])) {

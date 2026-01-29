@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\DescribeSavingsPlansCoverageDetailRequest\filterParam;
 
-class DescribeSavingsPlansCoverageDetailRequest extends Model
+class DescribeSavingsPlansCoverageTotalShrinkRequest extends Model
 {
     /**
      * @var int
@@ -20,14 +19,9 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
     public $endPeriod;
 
     /**
-     * @var filterParam
+     * @var string
      */
-    public $filterParam;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
+    public $filterParamShrink;
 
     /**
      * @var string
@@ -38,26 +32,16 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
      * @var string
      */
     public $startPeriod;
-
-    /**
-     * @var string
-     */
-    public $token;
     protected $_name = [
         'billOwnerId' => 'BillOwnerId',
         'endPeriod' => 'EndPeriod',
-        'filterParam' => 'FilterParam',
-        'maxResults' => 'MaxResults',
+        'filterParamShrink' => 'FilterParam',
         'periodType' => 'PeriodType',
         'startPeriod' => 'StartPeriod',
-        'token' => 'Token',
     ];
 
     public function validate()
     {
-        if (null !== $this->filterParam) {
-            $this->filterParam->validate();
-        }
         parent::validate();
     }
 
@@ -72,12 +56,8 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
             $res['EndPeriod'] = $this->endPeriod;
         }
 
-        if (null !== $this->filterParam) {
-            $res['FilterParam'] = null !== $this->filterParam ? $this->filterParam->toArray($noStream) : $this->filterParam;
-        }
-
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->filterParamShrink) {
+            $res['FilterParam'] = $this->filterParamShrink;
         }
 
         if (null !== $this->periodType) {
@@ -86,10 +66,6 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
 
         if (null !== $this->startPeriod) {
             $res['StartPeriod'] = $this->startPeriod;
-        }
-
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -112,11 +88,7 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
         }
 
         if (isset($map['FilterParam'])) {
-            $model->filterParam = filterParam::fromMap($map['FilterParam']);
-        }
-
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+            $model->filterParamShrink = $map['FilterParam'];
         }
 
         if (isset($map['PeriodType'])) {
@@ -125,10 +97,6 @@ class DescribeSavingsPlansCoverageDetailRequest extends Model
 
         if (isset($map['StartPeriod'])) {
             $model->startPeriod = $map['StartPeriod'];
-        }
-
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
         }
 
         return $model;
