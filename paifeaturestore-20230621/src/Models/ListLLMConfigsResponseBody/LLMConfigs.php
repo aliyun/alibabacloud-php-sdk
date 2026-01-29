@@ -24,6 +24,11 @@ class LLMConfigs extends Model
     public $batchSize;
 
     /**
+     * @var int
+     */
+    public $embeddingDimension;
+
+    /**
      * @var string
      */
     public $gmtCreateTime;
@@ -71,6 +76,7 @@ class LLMConfigs extends Model
         'apiKey' => 'ApiKey',
         'baseUrl' => 'BaseUrl',
         'batchSize' => 'BatchSize',
+        'embeddingDimension' => 'EmbeddingDimension',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'LLMConfigId' => 'LLMConfigId',
@@ -100,6 +106,10 @@ class LLMConfigs extends Model
 
         if (null !== $this->batchSize) {
             $res['BatchSize'] = $this->batchSize;
+        }
+
+        if (null !== $this->embeddingDimension) {
+            $res['EmbeddingDimension'] = $this->embeddingDimension;
         }
 
         if (null !== $this->gmtCreateTime) {
@@ -159,6 +169,10 @@ class LLMConfigs extends Model
 
         if (isset($map['BatchSize'])) {
             $model->batchSize = $map['BatchSize'];
+        }
+
+        if (isset($map['EmbeddingDimension'])) {
+            $model->embeddingDimension = $map['EmbeddingDimension'];
         }
 
         if (isset($map['GmtCreateTime'])) {

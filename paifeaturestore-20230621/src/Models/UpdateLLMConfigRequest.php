@@ -26,6 +26,11 @@ class UpdateLLMConfigRequest extends Model
     /**
      * @var int
      */
+    public $embeddingDimension;
+
+    /**
+     * @var int
+     */
     public $maxTokens;
 
     /**
@@ -46,6 +51,7 @@ class UpdateLLMConfigRequest extends Model
         'apiKey' => 'ApiKey',
         'baseUrl' => 'BaseUrl',
         'batchSize' => 'BatchSize',
+        'embeddingDimension' => 'EmbeddingDimension',
         'maxTokens' => 'MaxTokens',
         'model' => 'Model',
         'name' => 'Name',
@@ -70,6 +76,10 @@ class UpdateLLMConfigRequest extends Model
 
         if (null !== $this->batchSize) {
             $res['BatchSize'] = $this->batchSize;
+        }
+
+        if (null !== $this->embeddingDimension) {
+            $res['EmbeddingDimension'] = $this->embeddingDimension;
         }
 
         if (null !== $this->maxTokens) {
@@ -109,6 +119,10 @@ class UpdateLLMConfigRequest extends Model
 
         if (isset($map['BatchSize'])) {
             $model->batchSize = $map['BatchSize'];
+        }
+
+        if (isset($map['EmbeddingDimension'])) {
+            $model->embeddingDimension = $map['EmbeddingDimension'];
         }
 
         if (isset($map['MaxTokens'])) {

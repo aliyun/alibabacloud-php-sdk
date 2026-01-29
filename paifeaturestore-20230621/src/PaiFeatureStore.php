@@ -628,6 +628,10 @@ class PaiFeatureStore extends OpenApiClient
             @$body['BatchSize'] = $request->batchSize;
         }
 
+        if (null !== $request->embeddingDimension) {
+            @$body['EmbeddingDimension'] = $request->embeddingDimension;
+        }
+
         if (null !== $request->maxTokens) {
             @$body['MaxTokens'] = $request->maxTokens;
         }
@@ -3913,6 +3917,10 @@ class PaiFeatureStore extends OpenApiClient
 
         if (null !== $request->batchSize) {
             @$body['BatchSize'] = $request->batchSize;
+        }
+
+        if (null !== $request->embeddingDimension) {
+            @$body['EmbeddingDimension'] = $request->embeddingDimension;
         }
 
         if (null !== $request->maxTokens) {
