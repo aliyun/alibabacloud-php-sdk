@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersResponseBody\phoneNumbers;
+use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallResponseBody\model_;
 
-class QueryChatappPhoneNumbersResponseBody extends Model
+class WhatsappCallResponseBody extends Model
 {
     /**
      * @var string
@@ -22,17 +22,12 @@ class QueryChatappPhoneNumbersResponseBody extends Model
     /**
      * @var string
      */
-    public $data;
-
-    /**
-     * @var string
-     */
     public $message;
 
     /**
-     * @var phoneNumbers[]
+     * @var model_
      */
-    public $phoneNumbers;
+    public $model;
 
     /**
      * @var string
@@ -46,17 +41,16 @@ class QueryChatappPhoneNumbersResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
-        'data' => 'Data',
         'message' => 'Message',
-        'phoneNumbers' => 'PhoneNumbers',
+        'model' => 'Model',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
 
     public function validate()
     {
-        if (\is_array($this->phoneNumbers)) {
-            Model::validateArray($this->phoneNumbers);
+        if (null !== $this->model) {
+            $this->model->validate();
         }
         parent::validate();
     }
@@ -72,23 +66,12 @@ class QueryChatappPhoneNumbersResponseBody extends Model
             $res['Code'] = $this->code;
         }
 
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
 
-        if (null !== $this->phoneNumbers) {
-            if (\is_array($this->phoneNumbers)) {
-                $res['PhoneNumbers'] = [];
-                $n1 = 0;
-                foreach ($this->phoneNumbers as $item1) {
-                    $res['PhoneNumbers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->model) {
+            $res['Model'] = null !== $this->model ? $this->model->toArray($noStream) : $this->model;
         }
 
         if (null !== $this->requestId) {
@@ -118,23 +101,12 @@ class QueryChatappPhoneNumbersResponseBody extends Model
             $model->code = $map['Code'];
         }
 
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
 
-        if (isset($map['PhoneNumbers'])) {
-            if (!empty($map['PhoneNumbers'])) {
-                $model->phoneNumbers = [];
-                $n1 = 0;
-                foreach ($map['PhoneNumbers'] as $item1) {
-                    $model->phoneNumbers[$n1] = phoneNumbers::fromMap($item1);
-                    ++$n1;
-                }
-            }
+        if (isset($map['Model'])) {
+            $model->model = model_::fromMap($map['Model']);
         }
 
         if (isset($map['RequestId'])) {

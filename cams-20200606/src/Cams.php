@@ -383,6 +383,9 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdatePhoneWebhookResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateWabaMmlStatusRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateWabaMmlStatusResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -14332,5 +14335,100 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWabaMmlStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Whatsapp 语音电话.
+     *
+     * @param tmpReq - WhatsappCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WhatsappCallResponse
+     *
+     * @param WhatsappCallRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return WhatsappCallResponse
+     */
+    public function whatsappCallWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new WhatsappCallShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->session) {
+            $request->sessionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->session, 'Session', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->businessNumber) {
+            @$query['BusinessNumber'] = $request->businessNumber;
+        }
+
+        if (null !== $request->callAction) {
+            @$query['CallAction'] = $request->callAction;
+        }
+
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sessionShrink) {
+            @$query['Session'] = $request->sessionShrink;
+        }
+
+        if (null !== $request->userNumber) {
+            @$query['UserNumber'] = $request->userNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'WhatsappCall',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WhatsappCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Whatsapp 语音电话.
+     *
+     * @param request - WhatsappCallRequest
+     *
+     * @returns WhatsappCallResponse
+     *
+     * @param WhatsappCallRequest $request
+     *
+     * @return WhatsappCallResponse
+     */
+    public function whatsappCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->whatsappCallWithOptions($request, $runtime);
     }
 }

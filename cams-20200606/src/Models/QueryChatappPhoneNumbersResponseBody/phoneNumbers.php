@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cams\V20200606\Models\QueryChatappPhoneNumbersResponseBody\phoneNumbers\callingConfigure;
 
 class phoneNumbers extends Model
 {
+    /**
+     * @var callingConfigure
+     */
+    public $callingConfigure;
+
     /**
      * @var string
      */
@@ -73,6 +79,7 @@ class phoneNumbers extends Model
      */
     public $verifiedName;
     protected $_name = [
+        'callingConfigure' => 'CallingConfigure',
         'codeVerificationStatus' => 'CodeVerificationStatus',
         'isOfficial' => 'IsOfficial',
         'messagingLimitTier' => 'MessagingLimitTier',
@@ -90,12 +97,19 @@ class phoneNumbers extends Model
 
     public function validate()
     {
+        if (null !== $this->callingConfigure) {
+            $this->callingConfigure->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callingConfigure) {
+            $res['CallingConfigure'] = null !== $this->callingConfigure ? $this->callingConfigure->toArray($noStream) : $this->callingConfigure;
+        }
+
         if (null !== $this->codeVerificationStatus) {
             $res['CodeVerificationStatus'] = $this->codeVerificationStatus;
         }
@@ -159,6 +173,10 @@ class phoneNumbers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallingConfigure'])) {
+            $model->callingConfigure = callingConfigure::fromMap($map['CallingConfigure']);
+        }
+
         if (isset($map['CodeVerificationStatus'])) {
             $model->codeVerificationStatus = $map['CodeVerificationStatus'];
         }
