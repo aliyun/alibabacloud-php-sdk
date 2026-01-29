@@ -19,6 +19,11 @@ class HTTPTriggerConfig extends Model
     public $authType;
 
     /**
+     * @var CORSConfig
+     */
+    public $corsConfig;
+
+    /**
      * @var bool
      */
     public $disableURLInternet;
@@ -30,12 +35,16 @@ class HTTPTriggerConfig extends Model
     protected $_name = [
         'authConfig' => 'authConfig',
         'authType' => 'authType',
+        'corsConfig' => 'corsConfig',
         'disableURLInternet' => 'disableURLInternet',
         'methods' => 'methods',
     ];
 
     public function validate()
     {
+        if (null !== $this->corsConfig) {
+            $this->corsConfig->validate();
+        }
         if (\is_array($this->methods)) {
             Model::validateArray($this->methods);
         }
@@ -51,6 +60,10 @@ class HTTPTriggerConfig extends Model
 
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
+        }
+
+        if (null !== $this->corsConfig) {
+            $res['corsConfig'] = null !== $this->corsConfig ? $this->corsConfig->toArray($noStream) : $this->corsConfig;
         }
 
         if (null !== $this->disableURLInternet) {
@@ -85,6 +98,10 @@ class HTTPTriggerConfig extends Model
 
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
+        }
+
+        if (isset($map['corsConfig'])) {
+            $model->corsConfig = CORSConfig::fromMap($map['corsConfig']);
         }
 
         if (isset($map['disableURLInternet'])) {

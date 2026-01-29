@@ -19,6 +19,11 @@ class CreateCustomDomainInput extends Model
     public $certConfig;
 
     /**
+     * @var CORSConfig
+     */
+    public $corsConfig;
+
+    /**
      * @var string
      */
     public $domainName;
@@ -45,6 +50,7 @@ class CreateCustomDomainInput extends Model
     protected $_name = [
         'authConfig' => 'authConfig',
         'certConfig' => 'certConfig',
+        'corsConfig' => 'corsConfig',
         'domainName' => 'domainName',
         'protocol' => 'protocol',
         'routeConfig' => 'routeConfig',
@@ -59,6 +65,9 @@ class CreateCustomDomainInput extends Model
         }
         if (null !== $this->certConfig) {
             $this->certConfig->validate();
+        }
+        if (null !== $this->corsConfig) {
+            $this->corsConfig->validate();
         }
         if (null !== $this->routeConfig) {
             $this->routeConfig->validate();
@@ -81,6 +90,10 @@ class CreateCustomDomainInput extends Model
 
         if (null !== $this->certConfig) {
             $res['certConfig'] = null !== $this->certConfig ? $this->certConfig->toArray($noStream) : $this->certConfig;
+        }
+
+        if (null !== $this->corsConfig) {
+            $res['corsConfig'] = null !== $this->corsConfig ? $this->corsConfig->toArray($noStream) : $this->corsConfig;
         }
 
         if (null !== $this->domainName) {
@@ -120,6 +133,10 @@ class CreateCustomDomainInput extends Model
 
         if (isset($map['certConfig'])) {
             $model->certConfig = CertConfig::fromMap($map['certConfig']);
+        }
+
+        if (isset($map['corsConfig'])) {
+            $model->corsConfig = CORSConfig::fromMap($map['corsConfig']);
         }
 
         if (isset($map['domainName'])) {

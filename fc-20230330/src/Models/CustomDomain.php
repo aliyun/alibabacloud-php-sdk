@@ -29,6 +29,11 @@ class CustomDomain extends Model
     public $certConfig;
 
     /**
+     * @var CORSConfig
+     */
+    public $corsConfig;
+
+    /**
      * @var string
      */
     public $createdTime;
@@ -72,6 +77,7 @@ class CustomDomain extends Model
         'apiVersion' => 'apiVersion',
         'authConfig' => 'authConfig',
         'certConfig' => 'certConfig',
+        'corsConfig' => 'corsConfig',
         'createdTime' => 'createdTime',
         'domainName' => 'domainName',
         'lastModifiedTime' => 'lastModifiedTime',
@@ -89,6 +95,9 @@ class CustomDomain extends Model
         }
         if (null !== $this->certConfig) {
             $this->certConfig->validate();
+        }
+        if (null !== $this->corsConfig) {
+            $this->corsConfig->validate();
         }
         if (null !== $this->routeConfig) {
             $this->routeConfig->validate();
@@ -119,6 +128,10 @@ class CustomDomain extends Model
 
         if (null !== $this->certConfig) {
             $res['certConfig'] = null !== $this->certConfig ? $this->certConfig->toArray($noStream) : $this->certConfig;
+        }
+
+        if (null !== $this->corsConfig) {
+            $res['corsConfig'] = null !== $this->corsConfig ? $this->corsConfig->toArray($noStream) : $this->corsConfig;
         }
 
         if (null !== $this->createdTime) {
@@ -178,6 +191,10 @@ class CustomDomain extends Model
 
         if (isset($map['certConfig'])) {
             $model->certConfig = CertConfig::fromMap($map['certConfig']);
+        }
+
+        if (isset($map['corsConfig'])) {
+            $model->corsConfig = CORSConfig::fromMap($map['corsConfig']);
         }
 
         if (isset($map['createdTime'])) {
