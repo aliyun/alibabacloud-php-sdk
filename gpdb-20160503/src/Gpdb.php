@@ -2696,6 +2696,10 @@ class Gpdb extends OpenApiClient
             $request->relationshipTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->relationshipTypes, 'RelationshipTypes', 'json');
         }
 
+        if (null !== $tmpReq->sparseVectorIndexConfig) {
+            $request->sparseVectorIndexConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sparseVectorIndexConfig, 'SparseVectorIndexConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
@@ -2787,6 +2791,18 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->relationshipTypesShrink) {
             @$query['RelationshipTypes'] = $request->relationshipTypesShrink;
+        }
+
+        if (null !== $request->sparseRetrievalFields) {
+            @$query['SparseRetrievalFields'] = $request->sparseRetrievalFields;
+        }
+
+        if (null !== $request->sparseVectorIndexConfigShrink) {
+            @$query['SparseVectorIndexConfig'] = $request->sparseVectorIndexConfigShrink;
+        }
+
+        if (null !== $request->supportSparse) {
+            @$query['SupportSparse'] = $request->supportSparse;
         }
 
         $req = new OpenApiRequest([

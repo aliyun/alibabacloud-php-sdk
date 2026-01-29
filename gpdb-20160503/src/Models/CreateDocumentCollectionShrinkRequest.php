@@ -122,6 +122,21 @@ class CreateDocumentCollectionShrinkRequest extends Model
      * @var string
      */
     public $relationshipTypesShrink;
+
+    /**
+     * @var string
+     */
+    public $sparseRetrievalFields;
+
+    /**
+     * @var string
+     */
+    public $sparseVectorIndexConfigShrink;
+
+    /**
+     * @var bool
+     */
+    public $supportSparse;
     protected $_name = [
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
@@ -146,6 +161,9 @@ class CreateDocumentCollectionShrinkRequest extends Model
         'pqEnable' => 'PqEnable',
         'regionId' => 'RegionId',
         'relationshipTypesShrink' => 'RelationshipTypes',
+        'sparseRetrievalFields' => 'SparseRetrievalFields',
+        'sparseVectorIndexConfigShrink' => 'SparseVectorIndexConfig',
+        'supportSparse' => 'SupportSparse',
     ];
 
     public function validate()
@@ -246,6 +264,18 @@ class CreateDocumentCollectionShrinkRequest extends Model
 
         if (null !== $this->relationshipTypesShrink) {
             $res['RelationshipTypes'] = $this->relationshipTypesShrink;
+        }
+
+        if (null !== $this->sparseRetrievalFields) {
+            $res['SparseRetrievalFields'] = $this->sparseRetrievalFields;
+        }
+
+        if (null !== $this->sparseVectorIndexConfigShrink) {
+            $res['SparseVectorIndexConfig'] = $this->sparseVectorIndexConfigShrink;
+        }
+
+        if (null !== $this->supportSparse) {
+            $res['SupportSparse'] = $this->supportSparse;
         }
 
         return $res;
@@ -349,6 +379,18 @@ class CreateDocumentCollectionShrinkRequest extends Model
 
         if (isset($map['RelationshipTypes'])) {
             $model->relationshipTypesShrink = $map['RelationshipTypes'];
+        }
+
+        if (isset($map['SparseRetrievalFields'])) {
+            $model->sparseRetrievalFields = $map['SparseRetrievalFields'];
+        }
+
+        if (isset($map['SparseVectorIndexConfig'])) {
+            $model->sparseVectorIndexConfigShrink = $map['SparseVectorIndexConfig'];
+        }
+
+        if (isset($map['SupportSparse'])) {
+            $model->supportSparse = $map['SupportSparse'];
         }
 
         return $model;

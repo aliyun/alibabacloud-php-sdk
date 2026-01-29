@@ -42,6 +42,16 @@ class collectionList extends Model
      * @var string
      */
     public $parser;
+
+    /**
+     * @var string
+     */
+    public $sparseRetrievalFields;
+
+    /**
+     * @var bool
+     */
+    public $supportSparse;
     protected $_name = [
         'collectionName' => 'CollectionName',
         'dimension' => 'Dimension',
@@ -50,6 +60,8 @@ class collectionList extends Model
         'metadata' => 'Metadata',
         'metrics' => 'Metrics',
         'parser' => 'Parser',
+        'sparseRetrievalFields' => 'SparseRetrievalFields',
+        'supportSparse' => 'SupportSparse',
     ];
 
     public function validate()
@@ -86,6 +98,14 @@ class collectionList extends Model
 
         if (null !== $this->parser) {
             $res['Parser'] = $this->parser;
+        }
+
+        if (null !== $this->sparseRetrievalFields) {
+            $res['SparseRetrievalFields'] = $this->sparseRetrievalFields;
+        }
+
+        if (null !== $this->supportSparse) {
+            $res['SupportSparse'] = $this->supportSparse;
         }
 
         return $res;
@@ -125,6 +145,14 @@ class collectionList extends Model
 
         if (isset($map['Parser'])) {
             $model->parser = $map['Parser'];
+        }
+
+        if (isset($map['SparseRetrievalFields'])) {
+            $model->sparseRetrievalFields = $map['SparseRetrievalFields'];
+        }
+
+        if (isset($map['SupportSparse'])) {
+            $model->supportSparse = $map['SupportSparse'];
         }
 
         return $model;

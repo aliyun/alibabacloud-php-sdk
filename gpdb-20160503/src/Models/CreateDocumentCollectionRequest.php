@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionRequest\sparseVectorIndexConfig;
 
 class CreateDocumentCollectionRequest extends Model
 {
@@ -122,6 +123,21 @@ class CreateDocumentCollectionRequest extends Model
      * @var string[]
      */
     public $relationshipTypes;
+
+    /**
+     * @var string
+     */
+    public $sparseRetrievalFields;
+
+    /**
+     * @var sparseVectorIndexConfig
+     */
+    public $sparseVectorIndexConfig;
+
+    /**
+     * @var bool
+     */
+    public $supportSparse;
     protected $_name = [
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
@@ -146,6 +162,9 @@ class CreateDocumentCollectionRequest extends Model
         'pqEnable' => 'PqEnable',
         'regionId' => 'RegionId',
         'relationshipTypes' => 'RelationshipTypes',
+        'sparseRetrievalFields' => 'SparseRetrievalFields',
+        'sparseVectorIndexConfig' => 'SparseVectorIndexConfig',
+        'supportSparse' => 'SupportSparse',
     ];
 
     public function validate()
@@ -155,6 +174,9 @@ class CreateDocumentCollectionRequest extends Model
         }
         if (\is_array($this->relationshipTypes)) {
             Model::validateArray($this->relationshipTypes);
+        }
+        if (null !== $this->sparseVectorIndexConfig) {
+            $this->sparseVectorIndexConfig->validate();
         }
         parent::validate();
     }
@@ -266,6 +288,18 @@ class CreateDocumentCollectionRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sparseRetrievalFields) {
+            $res['SparseRetrievalFields'] = $this->sparseRetrievalFields;
+        }
+
+        if (null !== $this->sparseVectorIndexConfig) {
+            $res['SparseVectorIndexConfig'] = null !== $this->sparseVectorIndexConfig ? $this->sparseVectorIndexConfig->toArray($noStream) : $this->sparseVectorIndexConfig;
+        }
+
+        if (null !== $this->supportSparse) {
+            $res['SupportSparse'] = $this->supportSparse;
         }
 
         return $res;
@@ -383,6 +417,18 @@ class CreateDocumentCollectionRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SparseRetrievalFields'])) {
+            $model->sparseRetrievalFields = $map['SparseRetrievalFields'];
+        }
+
+        if (isset($map['SparseVectorIndexConfig'])) {
+            $model->sparseVectorIndexConfig = sparseVectorIndexConfig::fromMap($map['SparseVectorIndexConfig']);
+        }
+
+        if (isset($map['SupportSparse'])) {
+            $model->supportSparse = $map['SupportSparse'];
         }
 
         return $model;
