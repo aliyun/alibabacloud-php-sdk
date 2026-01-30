@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest\serviceConfigs\validationOptions;
 
 class serviceConfigs extends Model
 {
@@ -33,6 +34,11 @@ class serviceConfigs extends Model
     /**
      * @var string
      */
+    public $expressType;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
@@ -54,16 +60,23 @@ class serviceConfigs extends Model
      * @var string
      */
     public $sourceId;
+
+    /**
+     * @var validationOptions
+     */
+    public $validationOptions;
     protected $_name = [
         'addresses' => 'addresses',
         'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
         'dnsServers' => 'dnsServers',
+        'expressType' => 'expressType',
         'groupName' => 'groupName',
         'name' => 'name',
         'namespace' => 'namespace',
         'qualifier' => 'qualifier',
         'sourceId' => 'sourceId',
+        'validationOptions' => 'validationOptions',
     ];
 
     public function validate()
@@ -79,6 +92,9 @@ class serviceConfigs extends Model
         }
         if (\is_array($this->dnsServers)) {
             Model::validateArray($this->dnsServers);
+        }
+        if (null !== $this->validationOptions) {
+            $this->validationOptions->validate();
         }
         parent::validate();
     }
@@ -116,6 +132,10 @@ class serviceConfigs extends Model
             }
         }
 
+        if (null !== $this->expressType) {
+            $res['expressType'] = $this->expressType;
+        }
+
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
         }
@@ -134,6 +154,10 @@ class serviceConfigs extends Model
 
         if (null !== $this->sourceId) {
             $res['sourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->validationOptions) {
+            $res['validationOptions'] = null !== $this->validationOptions ? $this->validationOptions->toArray($noStream) : $this->validationOptions;
         }
 
         return $res;
@@ -177,6 +201,10 @@ class serviceConfigs extends Model
             }
         }
 
+        if (isset($map['expressType'])) {
+            $model->expressType = $map['expressType'];
+        }
+
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
         }
@@ -195,6 +223,10 @@ class serviceConfigs extends Model
 
         if (isset($map['sourceId'])) {
             $model->sourceId = $map['sourceId'];
+        }
+
+        if (isset($map['validationOptions'])) {
+            $model->validationOptions = validationOptions::fromMap($map['validationOptions']);
         }
 
         return $model;

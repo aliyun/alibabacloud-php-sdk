@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig\customConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig\dashScopeConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig\difyConfig;
 
@@ -14,6 +15,11 @@ class AgentServiceConfig extends Model
      * @var string
      */
     public $address;
+
+    /**
+     * @var customConfig
+     */
+    public $customConfig;
 
     /**
      * @var dashScopeConfig
@@ -31,6 +37,11 @@ class AgentServiceConfig extends Model
     public $enableHealthCheck;
 
     /**
+     * @var bool
+     */
+    public $enableOutlierDetection;
+
+    /**
      * @var string[]
      */
     public $protocols;
@@ -41,15 +52,20 @@ class AgentServiceConfig extends Model
     public $provider;
     protected $_name = [
         'address' => 'address',
+        'customConfig' => 'customConfig',
         'dashScopeConfig' => 'dashScopeConfig',
         'difyConfig' => 'difyConfig',
         'enableHealthCheck' => 'enableHealthCheck',
+        'enableOutlierDetection' => 'enableOutlierDetection',
         'protocols' => 'protocols',
         'provider' => 'provider',
     ];
 
     public function validate()
     {
+        if (null !== $this->customConfig) {
+            $this->customConfig->validate();
+        }
         if (null !== $this->dashScopeConfig) {
             $this->dashScopeConfig->validate();
         }
@@ -69,6 +85,10 @@ class AgentServiceConfig extends Model
             $res['address'] = $this->address;
         }
 
+        if (null !== $this->customConfig) {
+            $res['customConfig'] = null !== $this->customConfig ? $this->customConfig->toArray($noStream) : $this->customConfig;
+        }
+
         if (null !== $this->dashScopeConfig) {
             $res['dashScopeConfig'] = null !== $this->dashScopeConfig ? $this->dashScopeConfig->toArray($noStream) : $this->dashScopeConfig;
         }
@@ -79,6 +99,10 @@ class AgentServiceConfig extends Model
 
         if (null !== $this->enableHealthCheck) {
             $res['enableHealthCheck'] = $this->enableHealthCheck;
+        }
+
+        if (null !== $this->enableOutlierDetection) {
+            $res['enableOutlierDetection'] = $this->enableOutlierDetection;
         }
 
         if (null !== $this->protocols) {
@@ -111,6 +135,10 @@ class AgentServiceConfig extends Model
             $model->address = $map['address'];
         }
 
+        if (isset($map['customConfig'])) {
+            $model->customConfig = customConfig::fromMap($map['customConfig']);
+        }
+
         if (isset($map['dashScopeConfig'])) {
             $model->dashScopeConfig = dashScopeConfig::fromMap($map['dashScopeConfig']);
         }
@@ -121,6 +149,10 @@ class AgentServiceConfig extends Model
 
         if (isset($map['enableHealthCheck'])) {
             $model->enableHealthCheck = $map['enableHealthCheck'];
+        }
+
+        if (isset($map['enableOutlierDetection'])) {
+            $model->enableOutlierDetection = $map['enableOutlierDetection'];
         }
 
         if (isset($map['protocols'])) {

@@ -2,43 +2,31 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\APIG\V20240327\Models;
+namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest\serviceConfigs;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiFallbackConfig\serviceConfigs;
 
-class CreateServiceRequest extends Model
+class aiFallbackConfig extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $gatewayId;
+    public $onlyRedirectUpstreamCode;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $resourceGroupId;
+    public $routeEmbedded;
 
     /**
      * @var serviceConfigs[]
      */
     public $serviceConfigs;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
-        'gatewayId' => 'gatewayId',
-        'resourceGroupId' => 'resourceGroupId',
+        'onlyRedirectUpstreamCode' => 'onlyRedirectUpstreamCode',
+        'routeEmbedded' => 'routeEmbedded',
         'serviceConfigs' => 'serviceConfigs',
-        'sourceType' => 'sourceType',
-        'clientToken' => 'clientToken',
     ];
 
     public function validate()
@@ -52,12 +40,12 @@ class CreateServiceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->gatewayId) {
-            $res['gatewayId'] = $this->gatewayId;
+        if (null !== $this->onlyRedirectUpstreamCode) {
+            $res['onlyRedirectUpstreamCode'] = $this->onlyRedirectUpstreamCode;
         }
 
-        if (null !== $this->resourceGroupId) {
-            $res['resourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->routeEmbedded) {
+            $res['routeEmbedded'] = $this->routeEmbedded;
         }
 
         if (null !== $this->serviceConfigs) {
@@ -71,14 +59,6 @@ class CreateServiceRequest extends Model
             }
         }
 
-        if (null !== $this->sourceType) {
-            $res['sourceType'] = $this->sourceType;
-        }
-
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
-
         return $res;
     }
 
@@ -90,12 +70,12 @@ class CreateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['gatewayId'])) {
-            $model->gatewayId = $map['gatewayId'];
+        if (isset($map['onlyRedirectUpstreamCode'])) {
+            $model->onlyRedirectUpstreamCode = $map['onlyRedirectUpstreamCode'];
         }
 
-        if (isset($map['resourceGroupId'])) {
-            $model->resourceGroupId = $map['resourceGroupId'];
+        if (isset($map['routeEmbedded'])) {
+            $model->routeEmbedded = $map['routeEmbedded'];
         }
 
         if (isset($map['serviceConfigs'])) {
@@ -107,14 +87,6 @@ class CreateServiceRequest extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['sourceType'])) {
-            $model->sourceType = $map['sourceType'];
-        }
-
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
         }
 
         return $model;

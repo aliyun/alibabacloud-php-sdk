@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\bedrockServiceConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\paiEASServiceConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\vertexServiceConfig;
 
 class AiServiceConfig extends Model
 {
@@ -31,9 +32,24 @@ class AiServiceConfig extends Model
     public $bedrockServiceConfig;
 
     /**
+     * @var string[]
+     */
+    public $compatibleProtocols;
+
+    /**
+     * @var string
+     */
+    public $defaultModelName;
+
+    /**
      * @var bool
      */
     public $enableHealthCheck;
+
+    /**
+     * @var bool
+     */
+    public $enableOutlierDetection;
 
     /**
      * @var paiEASServiceConfig
@@ -49,15 +65,24 @@ class AiServiceConfig extends Model
      * @var string
      */
     public $provider;
+
+    /**
+     * @var vertexServiceConfig
+     */
+    public $vertexServiceConfig;
     protected $_name = [
         'apiKeyGenerateMode' => 'ApiKeyGenerateMode',
         'address' => 'address',
         'apiKeys' => 'apiKeys',
         'bedrockServiceConfig' => 'bedrockServiceConfig',
+        'compatibleProtocols' => 'compatibleProtocols',
+        'defaultModelName' => 'defaultModelName',
         'enableHealthCheck' => 'enableHealthCheck',
+        'enableOutlierDetection' => 'enableOutlierDetection',
         'paiEASServiceConfig' => 'paiEASServiceConfig',
         'protocols' => 'protocols',
         'provider' => 'provider',
+        'vertexServiceConfig' => 'vertexServiceConfig',
     ];
 
     public function validate()
@@ -68,11 +93,17 @@ class AiServiceConfig extends Model
         if (null !== $this->bedrockServiceConfig) {
             $this->bedrockServiceConfig->validate();
         }
+        if (\is_array($this->compatibleProtocols)) {
+            Model::validateArray($this->compatibleProtocols);
+        }
         if (null !== $this->paiEASServiceConfig) {
             $this->paiEASServiceConfig->validate();
         }
         if (\is_array($this->protocols)) {
             Model::validateArray($this->protocols);
+        }
+        if (null !== $this->vertexServiceConfig) {
+            $this->vertexServiceConfig->validate();
         }
         parent::validate();
     }
@@ -103,8 +134,27 @@ class AiServiceConfig extends Model
             $res['bedrockServiceConfig'] = null !== $this->bedrockServiceConfig ? $this->bedrockServiceConfig->toArray($noStream) : $this->bedrockServiceConfig;
         }
 
+        if (null !== $this->compatibleProtocols) {
+            if (\is_array($this->compatibleProtocols)) {
+                $res['compatibleProtocols'] = [];
+                $n1 = 0;
+                foreach ($this->compatibleProtocols as $item1) {
+                    $res['compatibleProtocols'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->defaultModelName) {
+            $res['defaultModelName'] = $this->defaultModelName;
+        }
+
         if (null !== $this->enableHealthCheck) {
             $res['enableHealthCheck'] = $this->enableHealthCheck;
+        }
+
+        if (null !== $this->enableOutlierDetection) {
+            $res['enableOutlierDetection'] = $this->enableOutlierDetection;
         }
 
         if (null !== $this->paiEASServiceConfig) {
@@ -124,6 +174,10 @@ class AiServiceConfig extends Model
 
         if (null !== $this->provider) {
             $res['provider'] = $this->provider;
+        }
+
+        if (null !== $this->vertexServiceConfig) {
+            $res['vertexServiceConfig'] = null !== $this->vertexServiceConfig ? $this->vertexServiceConfig->toArray($noStream) : $this->vertexServiceConfig;
         }
 
         return $res;
@@ -160,8 +214,27 @@ class AiServiceConfig extends Model
             $model->bedrockServiceConfig = bedrockServiceConfig::fromMap($map['bedrockServiceConfig']);
         }
 
+        if (isset($map['compatibleProtocols'])) {
+            if (!empty($map['compatibleProtocols'])) {
+                $model->compatibleProtocols = [];
+                $n1 = 0;
+                foreach ($map['compatibleProtocols'] as $item1) {
+                    $model->compatibleProtocols[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['defaultModelName'])) {
+            $model->defaultModelName = $map['defaultModelName'];
+        }
+
         if (isset($map['enableHealthCheck'])) {
             $model->enableHealthCheck = $map['enableHealthCheck'];
+        }
+
+        if (isset($map['enableOutlierDetection'])) {
+            $model->enableOutlierDetection = $map['enableOutlierDetection'];
         }
 
         if (isset($map['paiEASServiceConfig'])) {
@@ -181,6 +254,10 @@ class AiServiceConfig extends Model
 
         if (isset($map['provider'])) {
             $model->provider = $map['provider'];
+        }
+
+        if (isset($map['vertexServiceConfig'])) {
+            $model->vertexServiceConfig = vertexServiceConfig::fromMap($map['vertexServiceConfig']);
         }
 
         return $model;

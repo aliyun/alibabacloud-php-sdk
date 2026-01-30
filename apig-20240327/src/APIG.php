@@ -1280,6 +1280,10 @@ class APIG extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->policyConfigs) {
+            @$body['policyConfigs'] = $request->policyConfigs;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -1769,6 +1773,11 @@ class APIG extends OpenApiClient
     public function createServiceWithOptions($request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
         $body = [];
         if (null !== $request->gatewayId) {
             @$body['gatewayId'] = $request->gatewayId;
@@ -1788,6 +1797,7 @@ class APIG extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([

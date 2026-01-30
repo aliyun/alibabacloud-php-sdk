@@ -49,6 +49,11 @@ class CreateHttpApiRouteRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var HttpApiPolicyConfigs[]
+     */
+    public $policyConfigs;
     protected $_name = [
         'backendConfig' => 'backendConfig',
         'deployConfigs' => 'deployConfigs',
@@ -58,6 +63,7 @@ class CreateHttpApiRouteRequest extends Model
         'match' => 'match',
         'mcpRouteConfig' => 'mcpRouteConfig',
         'name' => 'name',
+        'policyConfigs' => 'policyConfigs',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class CreateHttpApiRouteRequest extends Model
         }
         if (null !== $this->mcpRouteConfig) {
             $this->mcpRouteConfig->validate();
+        }
+        if (\is_array($this->policyConfigs)) {
+            Model::validateArray($this->policyConfigs);
         }
         parent::validate();
     }
@@ -127,6 +136,17 @@ class CreateHttpApiRouteRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->policyConfigs) {
+            if (\is_array($this->policyConfigs)) {
+                $res['policyConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->policyConfigs as $item1) {
+                    $res['policyConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -184,6 +204,17 @@ class CreateHttpApiRouteRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['policyConfigs'])) {
+            if (!empty($map['policyConfigs'])) {
+                $model->policyConfigs = [];
+                $n1 = 0;
+                foreach ($map['policyConfigs'] as $item1) {
+                    $model->policyConfigs[$n1] = HttpApiPolicyConfigs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
