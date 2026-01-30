@@ -6824,6 +6824,10 @@ class Eas extends OpenApiClient
             @$body['NewDiskSize'] = $request->newDiskSize;
         }
 
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),

@@ -122,6 +122,16 @@ class ResourceInstance extends Model
     /**
      * @var string
      */
+    public $lastCordonOperator;
+
+    /**
+     * @var string
+     */
+    public $lastCordonReason;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -156,6 +166,8 @@ class ResourceInstance extends Model
         'instanceUsedGpuMemory' => 'InstanceUsedGpuMemory',
         'instanceUsedMemory' => 'InstanceUsedMemory',
         'labels' => 'Labels',
+        'lastCordonOperator' => 'LastCordonOperator',
+        'lastCordonReason' => 'LastCordonReason',
         'region' => 'Region',
         'resourceId' => 'ResourceId',
         'zone' => 'Zone',
@@ -265,6 +277,14 @@ class ResourceInstance extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->lastCordonOperator) {
+            $res['LastCordonOperator'] = $this->lastCordonOperator;
+        }
+
+        if (null !== $this->lastCordonReason) {
+            $res['LastCordonReason'] = $this->lastCordonReason;
         }
 
         if (null !== $this->region) {
@@ -383,6 +403,14 @@ class ResourceInstance extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['LastCordonOperator'])) {
+            $model->lastCordonOperator = $map['LastCordonOperator'];
+        }
+
+        if (isset($map['LastCordonReason'])) {
+            $model->lastCordonReason = $map['LastCordonReason'];
         }
 
         if (isset($map['Region'])) {
