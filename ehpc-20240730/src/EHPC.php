@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateNodesShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateQueueRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateQueueResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateQueueShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateReservedNodePoolRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateReservedNodePoolResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateUsersRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateUsersResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\CreateUsersShrinkRequest;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteNodesShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteQueuesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteQueuesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteQueuesShrinkRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteReservedNodePoolRequest;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteReservedNodePoolResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteUsersRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteUsersResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteUsersShrinkRequest;
@@ -773,6 +777,87 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * 创建预设节点池.
+     *
+     * @param request - CreateReservedNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReservedNodePoolResponse
+     *
+     * @param CreateReservedNodePoolRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateReservedNodePoolResponse
+     */
+    public function createReservedNodePoolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->hostPostfix) {
+            @$query['HostPostfix'] = $request->hostPostfix;
+        }
+
+        if (null !== $request->hostPrefix) {
+            @$query['HostPrefix'] = $request->hostPrefix;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateReservedNodePool',
+            'version' => '2024-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateReservedNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建预设节点池.
+     *
+     * @param request - CreateReservedNodePoolRequest
+     *
+     * @returns CreateReservedNodePoolResponse
+     *
+     * @param CreateReservedNodePoolRequest $request
+     *
+     * @return CreateReservedNodePoolResponse
+     */
+    public function createReservedNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createReservedNodePoolWithOptions($request, $runtime);
+    }
+
+    /**
      * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
      *
      * @param tmpReq - CreateUsersRequest
@@ -1054,6 +1139,67 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteQueuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除集群预设节点池.
+     *
+     * @param request - DeleteReservedNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteReservedNodePoolResponse
+     *
+     * @param DeleteReservedNodePoolRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteReservedNodePoolResponse
+     */
+    public function deleteReservedNodePoolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteReservedNodePool',
+            'version' => '2024-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteReservedNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除集群预设节点池.
+     *
+     * @param request - DeleteReservedNodePoolRequest
+     *
+     * @returns DeleteReservedNodePoolResponse
+     *
+     * @param DeleteReservedNodePoolRequest $request
+     *
+     * @return DeleteReservedNodePoolResponse
+     */
+    public function deleteReservedNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteReservedNodePoolWithOptions($request, $runtime);
     }
 
     /**
