@@ -5,37 +5,37 @@
 namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListClusterTypeResponseBody\clusterTypeDetailList;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListClusterTypeResponseBody\clusterTypeInfos;
 
 class ListClusterTypeResponseBody extends Model
 {
     /**
-     * @var clusterTypeDetailList[]
+     * @var clusterTypeInfos[]
      */
-    public $clusterTypeDetailList;
+    public $clusterTypeInfos;
 
     /**
      * @var string[]
      */
-    public $clusterTypeList;
+    public $clusterTypes;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'clusterTypeDetailList' => 'ClusterTypeDetailList',
-        'clusterTypeList' => 'ClusterTypeList',
+        'clusterTypeInfos' => 'ClusterTypeInfos',
+        'clusterTypes' => 'ClusterTypes',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->clusterTypeDetailList)) {
-            Model::validateArray($this->clusterTypeDetailList);
+        if (\is_array($this->clusterTypeInfos)) {
+            Model::validateArray($this->clusterTypeInfos);
         }
-        if (\is_array($this->clusterTypeList)) {
-            Model::validateArray($this->clusterTypeList);
+        if (\is_array($this->clusterTypes)) {
+            Model::validateArray($this->clusterTypes);
         }
         parent::validate();
     }
@@ -43,23 +43,23 @@ class ListClusterTypeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clusterTypeDetailList) {
-            if (\is_array($this->clusterTypeDetailList)) {
-                $res['ClusterTypeDetailList'] = [];
+        if (null !== $this->clusterTypeInfos) {
+            if (\is_array($this->clusterTypeInfos)) {
+                $res['ClusterTypeInfos'] = [];
                 $n1 = 0;
-                foreach ($this->clusterTypeDetailList as $item1) {
-                    $res['ClusterTypeDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->clusterTypeInfos as $item1) {
+                    $res['ClusterTypeInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (null !== $this->clusterTypeList) {
-            if (\is_array($this->clusterTypeList)) {
-                $res['ClusterTypeList'] = [];
+        if (null !== $this->clusterTypes) {
+            if (\is_array($this->clusterTypes)) {
+                $res['ClusterTypes'] = [];
                 $n1 = 0;
-                foreach ($this->clusterTypeList as $item1) {
-                    $res['ClusterTypeList'][$n1] = $item1;
+                foreach ($this->clusterTypes as $item1) {
+                    $res['ClusterTypes'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -80,23 +80,23 @@ class ListClusterTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterTypeDetailList'])) {
-            if (!empty($map['ClusterTypeDetailList'])) {
-                $model->clusterTypeDetailList = [];
+        if (isset($map['ClusterTypeInfos'])) {
+            if (!empty($map['ClusterTypeInfos'])) {
+                $model->clusterTypeInfos = [];
                 $n1 = 0;
-                foreach ($map['ClusterTypeDetailList'] as $item1) {
-                    $model->clusterTypeDetailList[$n1] = clusterTypeDetailList::fromMap($item1);
+                foreach ($map['ClusterTypeInfos'] as $item1) {
+                    $model->clusterTypeInfos[$n1] = clusterTypeInfos::fromMap($item1);
                     ++$n1;
                 }
             }
         }
 
-        if (isset($map['ClusterTypeList'])) {
-            if (!empty($map['ClusterTypeList'])) {
-                $model->clusterTypeList = [];
+        if (isset($map['ClusterTypes'])) {
+            if (!empty($map['ClusterTypes'])) {
+                $model->clusterTypes = [];
                 $n1 = 0;
-                foreach ($map['ClusterTypeList'] as $item1) {
-                    $model->clusterTypeList[$n1] = $item1;
+                foreach ($map['ClusterTypes'] as $item1) {
+                    $model->clusterTypes[$n1] = $item1;
                     ++$n1;
                 }
             }

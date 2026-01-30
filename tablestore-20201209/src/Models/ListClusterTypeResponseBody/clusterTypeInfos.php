@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models\ListClusterTypeResponseBo
 
 use AlibabaCloud\Dara\Model;
 
-class clusterTypeDetailList extends Model
+class clusterTypeInfos extends Model
 {
     /**
      * @var string
