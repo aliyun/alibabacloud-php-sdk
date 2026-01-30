@@ -24,6 +24,11 @@ class networkInterfaces extends Model
     public $networkInterfaceTrafficMode;
 
     /**
+     * @var int
+     */
+    public $secondaryPrivateIpAddressCount;
+
+    /**
      * @var string[]
      */
     public $securityGroupIds;
@@ -31,6 +36,7 @@ class networkInterfaces extends Model
         'instanceType' => 'InstanceType',
         'ipv6AddressCount' => 'Ipv6AddressCount',
         'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
+        'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
@@ -55,6 +61,10 @@ class networkInterfaces extends Model
 
         if (null !== $this->networkInterfaceTrafficMode) {
             $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
+        }
+
+        if (null !== $this->secondaryPrivateIpAddressCount) {
+            $res['SecondaryPrivateIpAddressCount'] = $this->secondaryPrivateIpAddressCount;
         }
 
         if (null !== $this->securityGroupIds) {
@@ -89,6 +99,10 @@ class networkInterfaces extends Model
 
         if (isset($map['NetworkInterfaceTrafficMode'])) {
             $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
+        }
+
+        if (isset($map['SecondaryPrivateIpAddressCount'])) {
+            $model->secondaryPrivateIpAddressCount = $map['SecondaryPrivateIpAddressCount'];
         }
 
         if (isset($map['SecurityGroupIds'])) {
