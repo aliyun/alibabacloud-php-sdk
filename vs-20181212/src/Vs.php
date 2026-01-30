@@ -280,6 +280,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingChargeTypeRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingChargeTypeResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceAttributeRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceAttributeResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthRequest;
@@ -9704,6 +9706,79 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyParentPlatformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 变配云渲染资源实例付费类型.
+     *
+     * @param request - ModifyRenderingChargeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRenderingChargeTypeResponse
+     *
+     * @param ModifyRenderingChargeTypeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyRenderingChargeTypeResponse
+     */
+    public function modifyRenderingChargeTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->instanceBillingCycle) {
+            @$query['InstanceBillingCycle'] = $request->instanceBillingCycle;
+        }
+
+        if (null !== $request->instanceChargeType) {
+            @$query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->renderingInstanceId) {
+            @$query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRenderingChargeType',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRenderingChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 变配云渲染资源实例付费类型.
+     *
+     * @param request - ModifyRenderingChargeTypeRequest
+     *
+     * @returns ModifyRenderingChargeTypeResponse
+     *
+     * @param ModifyRenderingChargeTypeRequest $request
+     *
+     * @return ModifyRenderingChargeTypeResponse
+     */
+    public function modifyRenderingChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRenderingChargeTypeWithOptions($request, $runtime);
     }
 
     /**
