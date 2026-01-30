@@ -66,6 +66,11 @@ class DescribeTasksRequest extends Model
     /**
      * @var string
      */
+    public $taskGroupId;
+
+    /**
+     * @var string
+     */
     public $taskIds;
 
     /**
@@ -84,6 +89,7 @@ class DescribeTasksRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
         'startTime' => 'StartTime',
         'taskAction' => 'TaskAction',
+        'taskGroupId' => 'TaskGroupId',
         'taskIds' => 'TaskIds',
         'taskStatus' => 'TaskStatus',
     ];
@@ -148,6 +154,10 @@ class DescribeTasksRequest extends Model
 
         if (null !== $this->taskAction) {
             $res['TaskAction'] = $this->taskAction;
+        }
+
+        if (null !== $this->taskGroupId) {
+            $res['TaskGroupId'] = $this->taskGroupId;
         }
 
         if (null !== $this->taskIds) {
@@ -218,6 +228,10 @@ class DescribeTasksRequest extends Model
 
         if (isset($map['TaskAction'])) {
             $model->taskAction = $map['TaskAction'];
+        }
+
+        if (isset($map['TaskGroupId'])) {
+            $model->taskGroupId = $map['TaskGroupId'];
         }
 
         if (isset($map['TaskIds'])) {

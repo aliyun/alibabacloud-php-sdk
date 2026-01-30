@@ -24822,6 +24822,10 @@ class Ecs extends OpenApiClient
             @$query['TaskAction'] = $request->taskAction;
         }
 
+        if (null !== $request->taskGroupId) {
+            @$query['TaskGroupId'] = $request->taskGroupId;
+        }
+
         if (null !== $request->taskIds) {
             @$query['TaskIds'] = $request->taskIds;
         }
