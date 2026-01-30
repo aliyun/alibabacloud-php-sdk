@@ -96,6 +96,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
     public $experienceCode;
 
     /**
@@ -162,6 +167,11 @@ class InitializeRequest extends Model
      * @var string
      */
     public $metaInfo;
+
+    /**
+     * @var string
+     */
+    public $mobile;
 
     /**
      * @var string
@@ -275,6 +285,7 @@ class InitializeRequest extends Model
         'docVideo' => 'DocVideo',
         'documentNumber' => 'DocumentNumber',
         'editOcrResult' => 'EditOcrResult',
+        'email' => 'Email',
         'experienceCode' => 'ExperienceCode',
         'faceGroupCodes' => 'FaceGroupCodes',
         'facePictureBase64' => 'FacePictureBase64',
@@ -289,6 +300,7 @@ class InitializeRequest extends Model
         'merchantBizId' => 'MerchantBizId',
         'merchantUserId' => 'MerchantUserId',
         'metaInfo' => 'MetaInfo',
+        'mobile' => 'Mobile',
         'model' => 'Model',
         'ocr' => 'Ocr',
         'pages' => 'Pages',
@@ -396,6 +408,10 @@ class InitializeRequest extends Model
             $res['EditOcrResult'] = $this->editOcrResult;
         }
 
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
+
         if (null !== $this->experienceCode) {
             $res['ExperienceCode'] = $this->experienceCode;
         }
@@ -450,6 +466,10 @@ class InitializeRequest extends Model
 
         if (null !== $this->metaInfo) {
             $res['MetaInfo'] = $this->metaInfo;
+        }
+
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
         }
 
         if (null !== $this->model) {
@@ -614,6 +634,10 @@ class InitializeRequest extends Model
             $model->editOcrResult = $map['EditOcrResult'];
         }
 
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
+
         if (isset($map['ExperienceCode'])) {
             $model->experienceCode = $map['ExperienceCode'];
         }
@@ -668,6 +692,10 @@ class InitializeRequest extends Model
 
         if (isset($map['MetaInfo'])) {
             $model->metaInfo = $map['MetaInfo'];
+        }
+
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
         }
 
         if (isset($map['Model'])) {

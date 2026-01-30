@@ -3016,6 +3016,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['EditOcrResult'] = $request->editOcrResult;
         }
 
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
         if (null !== $request->experienceCode) {
             @$query['ExperienceCode'] = $request->experienceCode;
         }
@@ -3066,6 +3070,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->metaInfo) {
             @$query['MetaInfo'] = $request->metaInfo;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
         }
 
         if (null !== $request->model) {
