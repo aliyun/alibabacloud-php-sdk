@@ -17,11 +17,6 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
-    public $clusterVersion;
-
-    /**
-     * @var string
-     */
     public $containerCidr;
 
     /**
@@ -80,7 +75,6 @@ class CreateClusterRequest extends Model
     public $vswitchIds;
     protected $_name = [
         'clusterType' => 'ClusterType',
-        'clusterVersion' => 'ClusterVersion',
         'containerCidr' => 'ContainerCidr',
         'controlPlaneConfig' => 'ControlPlaneConfig',
         'ensRegionId' => 'EnsRegionId',
@@ -114,10 +108,6 @@ class CreateClusterRequest extends Model
         $res = [];
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
-        }
-
-        if (null !== $this->clusterVersion) {
-            $res['ClusterVersion'] = $this->clusterVersion;
         }
 
         if (null !== $this->containerCidr) {
@@ -195,10 +185,6 @@ class CreateClusterRequest extends Model
         $model = new self();
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
-        }
-
-        if (isset($map['ClusterVersion'])) {
-            $model->clusterVersion = $map['ClusterVersion'];
         }
 
         if (isset($map['ContainerCidr'])) {

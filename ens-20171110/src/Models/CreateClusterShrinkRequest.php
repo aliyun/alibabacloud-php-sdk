@@ -16,11 +16,6 @@ class CreateClusterShrinkRequest extends Model
     /**
      * @var string
      */
-    public $clusterVersion;
-
-    /**
-     * @var string
-     */
     public $containerCidr;
 
     /**
@@ -79,7 +74,6 @@ class CreateClusterShrinkRequest extends Model
     public $vswitchIdsShrink;
     protected $_name = [
         'clusterType' => 'ClusterType',
-        'clusterVersion' => 'ClusterVersion',
         'containerCidr' => 'ContainerCidr',
         'controlPlaneConfigShrink' => 'ControlPlaneConfig',
         'ensRegionId' => 'EnsRegionId',
@@ -104,10 +98,6 @@ class CreateClusterShrinkRequest extends Model
         $res = [];
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
-        }
-
-        if (null !== $this->clusterVersion) {
-            $res['ClusterVersion'] = $this->clusterVersion;
         }
 
         if (null !== $this->containerCidr) {
@@ -171,10 +161,6 @@ class CreateClusterShrinkRequest extends Model
         $model = new self();
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
-        }
-
-        if (isset($map['ClusterVersion'])) {
-            $model->clusterVersion = $map['ClusterVersion'];
         }
 
         if (isset($map['ContainerCidr'])) {

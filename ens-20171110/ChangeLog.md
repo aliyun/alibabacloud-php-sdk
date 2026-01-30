@@ -1,3 +1,8 @@
+2026-01-30 Version: 9.0.0
+- Update API CreateCluster: delete request parameters ClusterVersion.
+- Update API DescribeClusterUserKubeconfig: add request parameters PrivateIpAddress.
+
+
 2026-01-16 Version: 8.5.0
 - Support API CreateClusterNodePool.
 - Support API DeleteClusterNodePool.

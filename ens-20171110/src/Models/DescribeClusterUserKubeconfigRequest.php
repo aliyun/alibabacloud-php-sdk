@@ -12,8 +12,14 @@ class DescribeClusterUserKubeconfigRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var bool
+     */
+    public $privateIpAddress;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'privateIpAddress' => 'PrivateIpAddress',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DescribeClusterUserKubeconfigRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DescribeClusterUserKubeconfigRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
 
         return $model;

@@ -2420,10 +2420,6 @@ class Ens extends OpenApiClient
             @$query['ClusterType'] = $request->clusterType;
         }
 
-        if (null !== $request->clusterVersion) {
-            @$query['ClusterVersion'] = $request->clusterVersion;
-        }
-
         if (null !== $request->containerCidr) {
             @$query['ContainerCidr'] = $request->containerCidr;
         }
@@ -8620,6 +8616,10 @@ class Ens extends OpenApiClient
         $query = [];
         if (null !== $request->clusterId) {
             @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->privateIpAddress) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
         }
 
         $req = new OpenApiRequest([
