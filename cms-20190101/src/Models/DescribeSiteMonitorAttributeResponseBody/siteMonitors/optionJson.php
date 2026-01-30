@@ -184,6 +184,11 @@ class optionJson extends Model
     /**
      * @var string
      */
+    public $maxTlsVersion;
+
+    /**
+     * @var string
+     */
     public $minTlsVersion;
 
     /**
@@ -272,6 +277,11 @@ class optionJson extends Model
     public $scrollEnd;
 
     /**
+     * @var string
+     */
+    public $serverName;
+
+    /**
      * @var steps
      */
     public $steps;
@@ -280,6 +290,11 @@ class optionJson extends Model
      * @var bool
      */
     public $strictMode;
+
+    /**
+     * @var string
+     */
+    public $supportedCipherSuits;
 
     /**
      * @var int
@@ -315,6 +330,11 @@ class optionJson extends Model
      * @var bool
      */
     public $usePrivateCrt;
+
+    /**
+     * @var bool
+     */
+    public $useSsl;
 
     /**
      * @var string
@@ -358,6 +378,7 @@ class optionJson extends Model
         'ipNetwork' => 'ip_network',
         'isBase64Encode' => 'isBase64Encode',
         'matchRule' => 'match_rule',
+        'maxTlsVersion' => 'max_tls_version',
         'minTlsVersion' => 'min_tls_version',
         'password' => 'password',
         'pingNum' => 'ping_num',
@@ -376,8 +397,10 @@ class optionJson extends Model
         'safeLink' => 'safe_link',
         'screenShot' => 'screen_shot',
         'scrollEnd' => 'scroll_end',
+        'serverName' => 'server_name',
         'steps' => 'steps',
         'strictMode' => 'strict_mode',
+        'supportedCipherSuits' => 'supported_cipher_suits',
         'timeOut' => 'time_out',
         'traceRegion' => 'trace_region',
         'traceType' => 'trace_type',
@@ -385,6 +408,7 @@ class optionJson extends Model
         'trafficHijackElementCount' => 'traffic_hijack_element_count',
         'trafficHijackElementWhitelist' => 'traffic_hijack_element_whitelist',
         'usePrivateCrt' => 'use_private_crt',
+        'useSsl' => 'use_ssl',
         'username' => 'username',
         'waitTimeAfterCompletion' => 'waitTime_after_completion',
     ];
@@ -564,6 +588,10 @@ class optionJson extends Model
             $res['match_rule'] = $this->matchRule;
         }
 
+        if (null !== $this->maxTlsVersion) {
+            $res['max_tls_version'] = $this->maxTlsVersion;
+        }
+
         if (null !== $this->minTlsVersion) {
             $res['min_tls_version'] = $this->minTlsVersion;
         }
@@ -636,12 +664,20 @@ class optionJson extends Model
             $res['scroll_end'] = $this->scrollEnd;
         }
 
+        if (null !== $this->serverName) {
+            $res['server_name'] = $this->serverName;
+        }
+
         if (null !== $this->steps) {
             $res['steps'] = null !== $this->steps ? $this->steps->toArray($noStream) : $this->steps;
         }
 
         if (null !== $this->strictMode) {
             $res['strict_mode'] = $this->strictMode;
+        }
+
+        if (null !== $this->supportedCipherSuits) {
+            $res['supported_cipher_suits'] = $this->supportedCipherSuits;
         }
 
         if (null !== $this->timeOut) {
@@ -670,6 +706,10 @@ class optionJson extends Model
 
         if (null !== $this->usePrivateCrt) {
             $res['use_private_crt'] = $this->usePrivateCrt;
+        }
+
+        if (null !== $this->useSsl) {
+            $res['use_ssl'] = $this->useSsl;
         }
 
         if (null !== $this->username) {
@@ -819,6 +859,10 @@ class optionJson extends Model
             $model->matchRule = $map['match_rule'];
         }
 
+        if (isset($map['max_tls_version'])) {
+            $model->maxTlsVersion = $map['max_tls_version'];
+        }
+
         if (isset($map['min_tls_version'])) {
             $model->minTlsVersion = $map['min_tls_version'];
         }
@@ -891,12 +935,20 @@ class optionJson extends Model
             $model->scrollEnd = $map['scroll_end'];
         }
 
+        if (isset($map['server_name'])) {
+            $model->serverName = $map['server_name'];
+        }
+
         if (isset($map['steps'])) {
             $model->steps = steps::fromMap($map['steps']);
         }
 
         if (isset($map['strict_mode'])) {
             $model->strictMode = $map['strict_mode'];
+        }
+
+        if (isset($map['supported_cipher_suits'])) {
+            $model->supportedCipherSuits = $map['supported_cipher_suits'];
         }
 
         if (isset($map['time_out'])) {
@@ -925,6 +977,10 @@ class optionJson extends Model
 
         if (isset($map['use_private_crt'])) {
             $model->usePrivateCrt = $map['use_private_crt'];
+        }
+
+        if (isset($map['use_ssl'])) {
+            $model->useSsl = $map['use_ssl'];
         }
 
         if (isset($map['username'])) {
