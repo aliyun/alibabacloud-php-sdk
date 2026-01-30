@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetPurchaseControlRecordRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetPurchaseControlRecordResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetShutdownPolicyRecordRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetShutdownPolicyRecordResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetTier2CouponApprovalDetailRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetTier2CouponApprovalDetailResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
@@ -66,6 +68,10 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\ListCouponUsageRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCouponUsageResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListExportTasksRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListExportTasksResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ListTier2CouponApprovalRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ListTier2CouponApprovalResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ProcessApprovalRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\ProcessApprovalResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QueryReversedDeductionHistoryRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QueryReversedDeductionHistoryResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QuotaListExportPagedRequest;
@@ -1776,6 +1782,63 @@ class Agency extends OpenApiClient
     }
 
     /**
+     * 查询T2优惠券审批详情.
+     *
+     * @param request - GetTier2CouponApprovalDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTier2CouponApprovalDetailResponse
+     *
+     * @param GetTier2CouponApprovalDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetTier2CouponApprovalDetailResponse
+     */
+    public function getTier2CouponApprovalDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationSheetId) {
+            @$query['ApplicationSheetId'] = $request->applicationSheetId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTier2CouponApprovalDetail',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTier2CouponApprovalDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询T2优惠券审批详情.
+     *
+     * @param request - GetTier2CouponApprovalDetailRequest
+     *
+     * @returns GetTier2CouponApprovalDetailResponse
+     *
+     * @param GetTier2CouponApprovalDetailRequest $request
+     *
+     * @return GetTier2CouponApprovalDetailResponse
+     */
+    public function getTier2CouponApprovalDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTier2CouponApprovalDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Query all the Unassociated Customer.
      *
      * @param request - GetUnassociatedCustomerRequest
@@ -2166,6 +2229,148 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listExportTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * T1查询T2优惠券申请列表.
+     *
+     * @param request - ListTier2CouponApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTier2CouponApprovalResponse
+     *
+     * @param ListTier2CouponApprovalRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListTier2CouponApprovalResponse
+     */
+    public function listTier2CouponApprovalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationSheetId) {
+            @$query['ApplicationSheetId'] = $request->applicationSheetId;
+        }
+
+        if (null !== $request->approvalStatus) {
+            @$query['ApprovalStatus'] = $request->approvalStatus;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->t2PartnerName) {
+            @$query['T2PartnerName'] = $request->t2PartnerName;
+        }
+
+        if (null !== $request->t2PartnerUid) {
+            @$query['T2PartnerUid'] = $request->t2PartnerUid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTier2CouponApproval',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTier2CouponApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * T1查询T2优惠券申请列表.
+     *
+     * @param request - ListTier2CouponApprovalRequest
+     *
+     * @returns ListTier2CouponApprovalResponse
+     *
+     * @param ListTier2CouponApprovalRequest $request
+     *
+     * @return ListTier2CouponApprovalResponse
+     */
+    public function listTier2CouponApproval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTier2CouponApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 审批流审批通用接口.
+     *
+     * @param request - ProcessApprovalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProcessApprovalResponse
+     *
+     * @param ProcessApprovalRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ProcessApprovalResponse
+     */
+    public function processApprovalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationSheetId) {
+            @$query['ApplicationSheetId'] = $request->applicationSheetId;
+        }
+
+        if (null !== $request->approvalAction) {
+            @$query['ApprovalAction'] = $request->approvalAction;
+        }
+
+        if (null !== $request->approvalComments) {
+            @$query['ApprovalComments'] = $request->approvalComments;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ProcessApproval',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ProcessApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 审批流审批通用接口.
+     *
+     * @param request - ProcessApprovalRequest
+     *
+     * @returns ProcessApprovalResponse
+     *
+     * @param ProcessApprovalRequest $request
+     *
+     * @return ProcessApprovalResponse
+     */
+    public function processApproval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->processApprovalWithOptions($request, $runtime);
     }
 
     /**
