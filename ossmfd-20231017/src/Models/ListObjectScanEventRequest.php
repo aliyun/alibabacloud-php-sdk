@@ -11,12 +11,22 @@ class ListObjectScanEventRequest extends Model
     /**
      * @var string
      */
+    public $batchType;
+
+    /**
+     * @var string
+     */
     public $bucketName;
 
     /**
      * @var int
      */
     public $currentPage;
+
+    /**
+     * @var int
+     */
+    public $eventId;
 
     /**
      * @var string
@@ -61,6 +71,11 @@ class ListObjectScanEventRequest extends Model
     /**
      * @var int
      */
+    public $status;
+
+    /**
+     * @var int
+     */
     public $timeEnd;
 
     /**
@@ -68,8 +83,10 @@ class ListObjectScanEventRequest extends Model
      */
     public $timeStart;
     protected $_name = [
+        'batchType' => 'BatchType',
         'bucketName' => 'BucketName',
         'currentPage' => 'CurrentPage',
+        'eventId' => 'EventId',
         'eventName' => 'EventName',
         'lang' => 'Lang',
         'md5' => 'Md5',
@@ -78,6 +95,7 @@ class ListObjectScanEventRequest extends Model
         'parentEventId' => 'ParentEventId',
         'riskLevel' => 'RiskLevel',
         'source' => 'Source',
+        'status' => 'Status',
         'timeEnd' => 'TimeEnd',
         'timeStart' => 'TimeStart',
     ];
@@ -90,12 +108,20 @@ class ListObjectScanEventRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->batchType) {
+            $res['BatchType'] = $this->batchType;
+        }
+
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->eventId) {
+            $res['EventId'] = $this->eventId;
         }
 
         if (null !== $this->eventName) {
@@ -130,6 +156,10 @@ class ListObjectScanEventRequest extends Model
             $res['Source'] = $this->source;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         if (null !== $this->timeEnd) {
             $res['TimeEnd'] = $this->timeEnd;
         }
@@ -149,12 +179,20 @@ class ListObjectScanEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchType'])) {
+            $model->batchType = $map['BatchType'];
+        }
+
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['EventId'])) {
+            $model->eventId = $map['EventId'];
         }
 
         if (isset($map['EventName'])) {
@@ -187,6 +225,10 @@ class ListObjectScanEventRequest extends Model
 
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['TimeEnd'])) {

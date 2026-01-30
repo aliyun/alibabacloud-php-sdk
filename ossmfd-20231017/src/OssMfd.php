@@ -701,12 +701,20 @@ class OssMfd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->batchType) {
+            @$query['BatchType'] = $request->batchType;
+        }
+
         if (null !== $request->bucketName) {
             @$query['BucketName'] = $request->bucketName;
         }
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
 
         if (null !== $request->eventName) {
@@ -739,6 +747,10 @@ class OssMfd extends OpenApiClient
 
         if (null !== $request->source) {
             @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         if (null !== $request->timeEnd) {
