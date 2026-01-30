@@ -212,8 +212,12 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJ
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJobScoreReportsShrinkRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJobsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListFeatureConsistencyCheckJobsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourceSchemasRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourceSchemasResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourcesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourcesResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourceTablesRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstanceResourceTablesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListLaboratoriesRequest;
@@ -8048,6 +8052,136 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->listFeatureConsistencyCheckJobsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据资源下的Schema列表。
+     *
+     * @param request - ListInstanceResourceSchemasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceResourceSchemasResponse
+     *
+     * @param string                             $InstanceId
+     * @param string                             $ResourceId
+     * @param ListInstanceResourceSchemasRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListInstanceResourceSchemasResponse
+     */
+    public function listInstanceResourceSchemasWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceResourceSchemas',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/resources/' . Url::percentEncode($ResourceId) . '/schemas',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceResourceSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据资源下的Schema列表。
+     *
+     * @param request - ListInstanceResourceSchemasRequest
+     *
+     * @returns ListInstanceResourceSchemasResponse
+     *
+     * @param string                             $InstanceId
+     * @param string                             $ResourceId
+     * @param ListInstanceResourceSchemasRequest $request
+     *
+     * @return ListInstanceResourceSchemasResponse
+     */
+    public function listInstanceResourceSchemas($InstanceId, $ResourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceResourceSchemasWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据源下数据表的列表。
+     *
+     * @param request - ListInstanceResourceTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceResourceTablesResponse
+     *
+     * @param string                            $InstanceId
+     * @param string                            $ResourceId
+     * @param ListInstanceResourceTablesRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListInstanceResourceTablesResponse
+     */
+    public function listInstanceResourceTablesWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxcomputeSchema) {
+            @$query['MaxcomputeSchema'] = $request->maxcomputeSchema;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceResourceTables',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/resources/' . Url::percentEncode($ResourceId) . '/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceResourceTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据源下数据表的列表。
+     *
+     * @param request - ListInstanceResourceTablesRequest
+     *
+     * @returns ListInstanceResourceTablesResponse
+     *
+     * @param string                            $InstanceId
+     * @param string                            $ResourceId
+     * @param ListInstanceResourceTablesRequest $request
+     *
+     * @return ListInstanceResourceTablesResponse
+     */
+    public function listInstanceResourceTables($InstanceId, $ResourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceResourceTablesWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
