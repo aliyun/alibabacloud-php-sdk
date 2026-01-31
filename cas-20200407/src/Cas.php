@@ -5,10 +5,14 @@
 namespace AlibabaCloud\SDK\Cas\V20200407;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ApplyCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ApplyCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelOrderRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelOrderRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CancelPendingCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CancelPendingCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateForPackageRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
@@ -27,6 +31,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteDeploymentJobRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteDeploymentJobResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteInstanceRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteUserCertificateRequest;
@@ -45,11 +51,21 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCsrDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCsrDetailResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceSummaryRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceSummaryResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetTaskAttributeRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetTaskAttributeResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertificatesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertificatesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertWarehouseRequest;
@@ -69,14 +85,20 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResourceRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResourceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListDeploymentJobResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListWorkerResourceRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListWorkerResourceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\MoveResourceGroupResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RefundInstanceRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RefundInstanceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrRequest;
@@ -85,6 +107,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateDeploymentJobRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateDeploymentJobResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateDeploymentJobStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateDeploymentJobStatusResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateInstanceRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateWorkerResourceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateWorkerResourceStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrRequest;
@@ -183,6 +207,63 @@ class Cas extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 申请证书.
+     *
+     * @param request - ApplyCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyCertificateResponse
+     *
+     * @param ApplyCertificateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApplyCertificateResponse
+     */
+    public function applyCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyCertificate',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请证书.
+     *
+     * @param request - ApplyCertificateRequest
+     *
+     * @returns ApplyCertificateResponse
+     *
+     * @param ApplyCertificateRequest $request
+     *
+     * @return ApplyCertificateResponse
+     */
+    public function applyCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -309,6 +390,63 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelOrderRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * 撤回证书申请.
+     *
+     * @param request - CancelPendingCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelPendingCertificateResponse
+     *
+     * @param CancelPendingCertificateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CancelPendingCertificateResponse
+     */
+    public function cancelPendingCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelPendingCertificate',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelPendingCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 撤回证书申请.
+     *
+     * @param request - CancelPendingCertificateRequest
+     *
+     * @returns CancelPendingCertificateResponse
+     *
+     * @param CancelPendingCertificateRequest $request
+     *
+     * @return CancelPendingCertificateResponse
+     */
+    public function cancelPendingCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelPendingCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -1037,6 +1175,63 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 删除实例.
+     *
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstance',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例.
+     *
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a private certificate from a certificate application repository.
      *
      * @remarks
@@ -1654,6 +1849,63 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 查询证书详情.
+     *
+     * @param request - GetCertificateDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCertificateDetailResponse
+     *
+     * @param GetCertificateDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetCertificateDetailResponse
+     */
+    public function getCertificateDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certificateId) {
+            @$query['CertificateId'] = $request->certificateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCertificateDetail',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询证书详情.
+     *
+     * @param request - GetCertificateDetailRequest
+     *
+     * @returns GetCertificateDetailResponse
+     *
+     * @param GetCertificateDetailRequest $request
+     *
+     * @return GetCertificateDetailResponse
+     */
+    public function getCertificateDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the content of a certificate signing request (CSR) file.
      *
      * @param request - GetCsrDetailRequest
@@ -1708,6 +1960,181 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCsrDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例详情.
+     *
+     * @param request - GetInstanceDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceDetailResponse
+     *
+     * @param GetInstanceDetailRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetInstanceDetailResponse
+     */
+    public function getInstanceDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceDetail',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例详情.
+     *
+     * @param request - GetInstanceDetailRequest
+     *
+     * @returns GetInstanceDetailResponse
+     *
+     * @param GetInstanceDetailRequest $request
+     *
+     * @return GetInstanceDetailResponse
+     */
+    public function getInstanceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 实例统计
+     *
+     * @param request - GetInstanceSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceSummaryResponse
+     *
+     * @param GetInstanceSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetInstanceSummaryResponse
+     */
+    public function getInstanceSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceSummary',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实例统计
+     *
+     * @param request - GetInstanceSummaryRequest
+     *
+     * @returns GetInstanceSummaryResponse
+     *
+     * @param GetInstanceSummaryRequest $request
+     *
+     * @return GetInstanceSummaryResponse
+     */
+    public function getInstanceSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询异步任务状态
+     *
+     * @param request - GetTaskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskAttributeResponse
+     *
+     * @param GetTaskAttributeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTaskAttributeResponse
+     */
+    public function getTaskAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTaskAttribute',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTaskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异步任务状态
+     *
+     * @param request - GetTaskAttributeRequest
+     *
+     * @returns GetTaskAttributeResponse
+     *
+     * @param GetTaskAttributeRequest $request
+     *
+     * @return GetTaskAttributeResponse
+     */
+    public function getTaskAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -1945,6 +2372,87 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCertWarehouseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取证书列表.
+     *
+     * @param request - ListCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCertificatesResponse
+     *
+     * @param ListCertificatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCertificatesResponse
+     */
+    public function listCertificatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certificateSource) {
+            @$query['CertificateSource'] = $request->certificateSource;
+        }
+
+        if (null !== $request->certificateStatus) {
+            @$query['CertificateStatus'] = $request->certificateStatus;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCertificates',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取证书列表.
+     *
+     * @param request - ListCertificatesRequest
+     *
+     * @returns ListCertificatesResponse
+     *
+     * @param ListCertificatesRequest $request
+     *
+     * @return ListCertificatesResponse
+     */
+    public function listCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCertificatesWithOptions($request, $runtime);
     }
 
     /**
@@ -2421,6 +2929,95 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 获取实例列表.
+     *
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->brand) {
+            @$query['Brand'] = $request->brand;
+        }
+
+        if (null !== $request->certificateStatus) {
+            @$query['CertificateStatus'] = $request->certificateStatus;
+        }
+
+        if (null !== $request->certificateType) {
+            @$query['CertificateType'] = $request->certificateType;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstances',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例列表.
+     *
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the certificates or certificate orders of users.
      *
      * @remarks
@@ -2650,6 +3247,63 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 申请证书.
+     *
+     * @param request - RefundInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefundInstanceResponse
+     *
+     * @param RefundInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RefundInstanceResponse
+     */
+    public function refundInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefundInstance',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefundInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请证书.
+     *
+     * @param request - RefundInstanceRequest
+     *
+     * @returns RefundInstanceResponse
+     *
+     * @param RefundInstanceRequest $request
+     *
+     * @return RefundInstanceResponse
+     */
+    public function refundInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refundInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits a renewal application for an issued certificate.
      *
      * @remarks
@@ -2720,6 +3374,63 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewCertificateOrderForPackageRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * 吊销证书.
+     *
+     * @param request - RevokeCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeCertificateResponse
+     *
+     * @param RevokeCertificateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RevokeCertificateResponse
+     */
+    public function revokeCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeCertificate',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 吊销证书.
+     *
+     * @param request - RevokeCertificateRequest
+     *
+     * @returns RevokeCertificateResponse
+     *
+     * @param RevokeCertificateRequest $request
+     *
+     * @return RevokeCertificateResponse
+     */
+    public function revokeCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -3006,6 +3717,119 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDeploymentJobStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateInstanceResponse
+     */
+    public function updateInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoReissue) {
+            @$query['AutoReissue'] = $request->autoReissue;
+        }
+
+        if (null !== $request->certificateName) {
+            @$query['CertificateName'] = $request->certificateName;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->companyId) {
+            @$query['CompanyId'] = $request->companyId;
+        }
+
+        if (null !== $request->contactIdList) {
+            @$query['ContactIdList'] = $request->contactIdList;
+        }
+
+        if (null !== $request->countryCode) {
+            @$query['CountryCode'] = $request->countryCode;
+        }
+
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->generateCsrMethod) {
+            @$query['GenerateCsrMethod'] = $request->generateCsrMethod;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyAlgorithm) {
+            @$query['KeyAlgorithm'] = $request->keyAlgorithm;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->validationMethod) {
+            @$query['ValidationMethod'] = $request->validationMethod;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstance',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateInstanceRequest
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param UpdateInstanceRequest $request
+     *
+     * @return UpdateInstanceResponse
+     */
+    public function updateInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceWithOptions($request, $runtime);
     }
 
     /**
