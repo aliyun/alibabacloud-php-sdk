@@ -16,6 +16,16 @@ class jobs extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $instance;
 
     /**
@@ -39,6 +49,8 @@ class jobs extends Model
     public $status;
     protected $_name = [
         'error' => 'error',
+        'errorCode' => 'errorCode',
+        'errorMessage' => 'errorMessage',
         'instance' => 'instance',
         'params' => 'params',
         'region' => 'region',
@@ -56,6 +68,14 @@ class jobs extends Model
         $res = [];
         if (null !== $this->error) {
             $res['error'] = $this->error;
+        }
+
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
         }
 
         if (null !== $this->instance) {
@@ -91,6 +111,14 @@ class jobs extends Model
         $model = new self();
         if (isset($map['error'])) {
             $model->error = $map['error'];
+        }
+
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
+        }
+
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
         }
 
         if (isset($map['instance'])) {
