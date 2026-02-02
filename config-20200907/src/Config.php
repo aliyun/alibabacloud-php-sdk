@@ -44,6 +44,9 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateReportTemplateRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateReportTemplateResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateReportTemplateShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveConfigRulesRequest;
@@ -174,6 +177,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetRemediationTemplateRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetRemediationTemplateResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetReportFromTemplateRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetReportFromTemplateResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetReportTemplateRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetReportTemplateResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceByPackRequest;
@@ -258,6 +263,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationTemplatesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListReportTemplatesRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListReportTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceRelationsRequest;
@@ -323,6 +330,9 @@ use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusReques
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateIntegratedServiceStatusResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateReportTemplateRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateReportTemplateResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateReportTemplateShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2085,6 +2095,93 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRemediationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为当前UID创建合规报告模版.
+     *
+     * @param tmpReq - CreateReportTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReportTemplateResponse
+     *
+     * @param CreateReportTemplateRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateReportTemplateResponse
+     */
+    public function createReportTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateReportTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->reportScope) {
+            $request->reportScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->reportScope, 'ReportScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->reportFileFormats) {
+            @$body['ReportFileFormats'] = $request->reportFileFormats;
+        }
+
+        if (null !== $request->reportGranularity) {
+            @$body['ReportGranularity'] = $request->reportGranularity;
+        }
+
+        if (null !== $request->reportLanguage) {
+            @$body['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->reportScopeShrink) {
+            @$body['ReportScope'] = $request->reportScopeShrink;
+        }
+
+        if (null !== $request->reportTemplateDescription) {
+            @$body['ReportTemplateDescription'] = $request->reportTemplateDescription;
+        }
+
+        if (null !== $request->reportTemplateName) {
+            @$body['ReportTemplateName'] = $request->reportTemplateName;
+        }
+
+        if (null !== $request->subscriptionFrequency) {
+            @$body['SubscriptionFrequency'] = $request->subscriptionFrequency;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateReportTemplate',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateReportTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为当前UID创建合规报告模版.
+     *
+     * @param request - CreateReportTemplateRequest
+     *
+     * @returns CreateReportTemplateResponse
+     *
+     * @param CreateReportTemplateRequest $request
+     *
+     * @return CreateReportTemplateResponse
+     */
+    public function createReportTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createReportTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -6286,6 +6383,63 @@ class Config extends OpenApiClient
     }
 
     /**
+     * 获取合规报告模版详情.
+     *
+     * @param request - GetReportTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetReportTemplateResponse
+     *
+     * @param GetReportTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetReportTemplateResponse
+     */
+    public function getReportTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->reportTemplateId) {
+            @$query['ReportTemplateId'] = $request->reportTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetReportTemplate',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetReportTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取合规报告模版详情.
+     *
+     * @param request - GetReportTemplateRequest
+     *
+     * @returns GetReportTemplateResponse
+     *
+     * @param GetReportTemplateRequest $request
+     *
+     * @return GetReportTemplateResponse
+     */
+    public function getReportTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getReportTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the compliance summary based on the compliance evaluation result of a rule.
      *
      * @remarks
@@ -9310,6 +9464,71 @@ class Config extends OpenApiClient
     }
 
     /**
+     * 批量获取合规报告模版详情.
+     *
+     * @param request - ListReportTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListReportTemplatesResponse
+     *
+     * @param ListReportTemplatesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListReportTemplatesResponse
+     */
+    public function listReportTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListReportTemplates',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListReportTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量获取合规报告模版详情.
+     *
+     * @param request - ListReportTemplatesRequest
+     *
+     * @returns ListReportTemplatesResponse
+     *
+     * @param ListReportTemplatesRequest $request
+     *
+     * @return ListReportTemplatesResponse
+     */
+    public function listReportTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listReportTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the compliance evaluation results of resources.
      *
      * @remarks
@@ -11860,5 +12079,96 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRemediationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新合规报告模版.
+     *
+     * @param tmpReq - UpdateReportTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateReportTemplateResponse
+     *
+     * @param UpdateReportTemplateRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateReportTemplateResponse
+     */
+    public function updateReportTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateReportTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->reportScope) {
+            $request->reportScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->reportScope, 'ReportScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->reportFileFormats) {
+            @$body['ReportFileFormats'] = $request->reportFileFormats;
+        }
+
+        if (null !== $request->reportGranularity) {
+            @$body['ReportGranularity'] = $request->reportGranularity;
+        }
+
+        if (null !== $request->reportLanguage) {
+            @$body['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->reportScopeShrink) {
+            @$body['ReportScope'] = $request->reportScopeShrink;
+        }
+
+        if (null !== $request->reportTemplateDescription) {
+            @$body['ReportTemplateDescription'] = $request->reportTemplateDescription;
+        }
+
+        if (null !== $request->reportTemplateId) {
+            @$body['ReportTemplateId'] = $request->reportTemplateId;
+        }
+
+        if (null !== $request->reportTemplateName) {
+            @$body['ReportTemplateName'] = $request->reportTemplateName;
+        }
+
+        if (null !== $request->subscriptionFrequency) {
+            @$body['SubscriptionFrequency'] = $request->subscriptionFrequency;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateReportTemplate',
+            'version' => '2020-09-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateReportTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新合规报告模版.
+     *
+     * @param request - UpdateReportTemplateRequest
+     *
+     * @returns UpdateReportTemplateResponse
+     *
+     * @param UpdateReportTemplateRequest $request
+     *
+     * @return UpdateReportTemplateResponse
+     */
+    public function updateReportTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateReportTemplateWithOptions($request, $runtime);
     }
 }
