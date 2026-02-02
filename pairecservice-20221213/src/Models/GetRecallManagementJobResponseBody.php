@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementJobResponseBody\recallManagementTableInfo;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetRecallManagementJobResponseBody\recallManagerTableInfo;
 
 class GetRecallManagementJobResponseBody extends Model
@@ -23,6 +24,11 @@ class GetRecallManagementJobResponseBody extends Model
      * @var string
      */
     public $recallManagementJobId;
+
+    /**
+     * @var recallManagementTableInfo
+     */
+    public $recallManagementTableInfo;
 
     /**
      * @var recallManagerTableInfo
@@ -47,6 +53,7 @@ class GetRecallManagementJobResponseBody extends Model
         'endTime' => 'EndTime',
         'log' => 'Log',
         'recallManagementJobId' => 'RecallManagementJobId',
+        'recallManagementTableInfo' => 'RecallManagementTableInfo',
         'recallManagerTableInfo' => 'RecallManagerTableInfo',
         'requestId' => 'RequestId',
         'startTime' => 'StartTime',
@@ -55,6 +62,9 @@ class GetRecallManagementJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->recallManagementTableInfo) {
+            $this->recallManagementTableInfo->validate();
+        }
         if (null !== $this->recallManagerTableInfo) {
             $this->recallManagerTableInfo->validate();
         }
@@ -74,6 +84,10 @@ class GetRecallManagementJobResponseBody extends Model
 
         if (null !== $this->recallManagementJobId) {
             $res['RecallManagementJobId'] = $this->recallManagementJobId;
+        }
+
+        if (null !== $this->recallManagementTableInfo) {
+            $res['RecallManagementTableInfo'] = null !== $this->recallManagementTableInfo ? $this->recallManagementTableInfo->toArray($noStream) : $this->recallManagementTableInfo;
         }
 
         if (null !== $this->recallManagerTableInfo) {
@@ -113,6 +127,10 @@ class GetRecallManagementJobResponseBody extends Model
 
         if (isset($map['RecallManagementJobId'])) {
             $model->recallManagementJobId = $map['RecallManagementJobId'];
+        }
+
+        if (isset($map['RecallManagementTableInfo'])) {
+            $model->recallManagementTableInfo = recallManagementTableInfo::fromMap($map['RecallManagementTableInfo']);
         }
 
         if (isset($map['RecallManagerTableInfo'])) {
