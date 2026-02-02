@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Cloudauth\V20221125;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyPRORequest;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyPROResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyV2Request;
@@ -145,6 +147,95 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->entElementVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 企业要素核验PRO.
+     *
+     * @param request - EntElementVerifyPRORequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EntElementVerifyPROResponse
+     *
+     * @param EntElementVerifyPRORequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EntElementVerifyPROResponse
+     */
+    public function entElementVerifyPROWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->entName) {
+            @$query['EntName'] = $request->entName;
+        }
+
+        if (null !== $request->infoVerifyType) {
+            @$query['InfoVerifyType'] = $request->infoVerifyType;
+        }
+
+        if (null !== $request->legalPersonCertNo) {
+            @$query['LegalPersonCertNo'] = $request->legalPersonCertNo;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->licenseNo) {
+            @$query['LicenseNo'] = $request->licenseNo;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->userAuthorization) {
+            @$query['UserAuthorization'] = $request->userAuthorization;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EntElementVerifyPRO',
+            'version' => '2022-11-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EntElementVerifyPROResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 企业要素核验PRO.
+     *
+     * @param request - EntElementVerifyPRORequest
+     *
+     * @returns EntElementVerifyPROResponse
+     *
+     * @param EntElementVerifyPRORequest $request
+     *
+     * @return EntElementVerifyPROResponse
+     */
+    public function entElementVerifyPRO($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->entElementVerifyPROWithOptions($request, $runtime);
     }
 
     /**
