@@ -17,9 +17,19 @@ class routes extends Model
     public $channels;
 
     /**
+     * @var string
+     */
+    public $digitalEmployeeName;
+
+    /**
      * @var effectTimeRange
      */
     public $effectTimeRange;
+
+    /**
+     * @var bool
+     */
+    public $enableRca;
 
     /**
      * @var FilterSetting
@@ -32,7 +42,9 @@ class routes extends Model
     public $severities;
     protected $_name = [
         'channels' => 'channels',
+        'digitalEmployeeName' => 'digitalEmployeeName',
         'effectTimeRange' => 'effectTimeRange',
+        'enableRca' => 'enableRca',
         'filterSetting' => 'filterSetting',
         'severities' => 'severities',
     ];
@@ -68,8 +80,16 @@ class routes extends Model
             }
         }
 
+        if (null !== $this->digitalEmployeeName) {
+            $res['digitalEmployeeName'] = $this->digitalEmployeeName;
+        }
+
         if (null !== $this->effectTimeRange) {
             $res['effectTimeRange'] = null !== $this->effectTimeRange ? $this->effectTimeRange->toArray($noStream) : $this->effectTimeRange;
+        }
+
+        if (null !== $this->enableRca) {
+            $res['enableRca'] = $this->enableRca;
         }
 
         if (null !== $this->filterSetting) {
@@ -109,8 +129,16 @@ class routes extends Model
             }
         }
 
+        if (isset($map['digitalEmployeeName'])) {
+            $model->digitalEmployeeName = $map['digitalEmployeeName'];
+        }
+
         if (isset($map['effectTimeRange'])) {
             $model->effectTimeRange = effectTimeRange::fromMap($map['effectTimeRange']);
+        }
+
+        if (isset($map['enableRca'])) {
+            $model->enableRca = $map['enableRca'];
         }
 
         if (isset($map['filterSetting'])) {

@@ -118,6 +118,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesShrinkRequest;
@@ -935,8 +936,16 @@ class Cms extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->roleArn) {
             @$body['roleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([
@@ -4715,21 +4724,27 @@ class Cms extends OpenApiClient
     /**
      * 列出资源DigitalEmployee.
      *
-     * @param request - ListDigitalEmployeesRequest
+     * @param tmpReq - ListDigitalEmployeesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDigitalEmployeesResponse
      *
-     * @param ListDigitalEmployeesRequest $request
+     * @param ListDigitalEmployeesRequest $tmpReq
      * @param string[]                    $headers
      * @param RuntimeOptions              $runtime
      *
      * @return ListDigitalEmployeesResponse
      */
-    public function listDigitalEmployeesWithOptions($request, $headers, $runtime)
+    public function listDigitalEmployeesWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListDigitalEmployeesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->displayName) {
             @$query['displayName'] = $request->displayName;
@@ -4749,6 +4764,14 @@ class Cms extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
         }
 
         $req = new OpenApiRequest([

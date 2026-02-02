@@ -68,6 +68,11 @@ class SubscriptionForView extends Model
      * @var string
      */
     public $workspace;
+
+    /**
+     * @var WorkspaceFilterSetting
+     */
+    public $workspaceFilterSetting;
     protected $_name = [
         'createTime' => 'createTime',
         'description' => 'description',
@@ -81,6 +86,7 @@ class SubscriptionForView extends Model
         'updateTime' => 'updateTime',
         'userId' => 'userId',
         'workspace' => 'workspace',
+        'workspaceFilterSetting' => 'workspaceFilterSetting',
     ];
 
     public function validate()
@@ -90,6 +96,9 @@ class SubscriptionForView extends Model
         }
         if (null !== $this->pushingSetting) {
             $this->pushingSetting->validate();
+        }
+        if (null !== $this->workspaceFilterSetting) {
+            $this->workspaceFilterSetting->validate();
         }
         parent::validate();
     }
@@ -143,6 +152,10 @@ class SubscriptionForView extends Model
 
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
+        }
+
+        if (null !== $this->workspaceFilterSetting) {
+            $res['workspaceFilterSetting'] = null !== $this->workspaceFilterSetting ? $this->workspaceFilterSetting->toArray($noStream) : $this->workspaceFilterSetting;
         }
 
         return $res;
@@ -202,6 +215,10 @@ class SubscriptionForView extends Model
 
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
+        }
+
+        if (isset($map['workspaceFilterSetting'])) {
+            $model->workspaceFilterSetting = WorkspaceFilterSetting::fromMap($map['workspaceFilterSetting']);
         }
 
         return $model;

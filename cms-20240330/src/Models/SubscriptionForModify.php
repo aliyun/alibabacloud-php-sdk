@@ -33,12 +33,18 @@ class SubscriptionForModify extends Model
      * @var string
      */
     public $subscriptionName;
+
+    /**
+     * @var WorkspaceFilterSetting
+     */
+    public $workspaceFilterSetting;
     protected $_name = [
         'description' => 'description',
         'filterSetting' => 'filterSetting',
         'notifyStrategyId' => 'notifyStrategyId',
         'pushingSetting' => 'pushingSetting',
         'subscriptionName' => 'subscriptionName',
+        'workspaceFilterSetting' => 'workspaceFilterSetting',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class SubscriptionForModify extends Model
         }
         if (null !== $this->pushingSetting) {
             $this->pushingSetting->validate();
+        }
+        if (null !== $this->workspaceFilterSetting) {
+            $this->workspaceFilterSetting->validate();
         }
         parent::validate();
     }
@@ -73,6 +82,10 @@ class SubscriptionForModify extends Model
 
         if (null !== $this->subscriptionName) {
             $res['subscriptionName'] = $this->subscriptionName;
+        }
+
+        if (null !== $this->workspaceFilterSetting) {
+            $res['workspaceFilterSetting'] = null !== $this->workspaceFilterSetting ? $this->workspaceFilterSetting->toArray($noStream) : $this->workspaceFilterSetting;
         }
 
         return $res;
@@ -104,6 +117,10 @@ class SubscriptionForModify extends Model
 
         if (isset($map['subscriptionName'])) {
             $model->subscriptionName = $map['subscriptionName'];
+        }
+
+        if (isset($map['workspaceFilterSetting'])) {
+            $model->workspaceFilterSetting = WorkspaceFilterSetting::fromMap($map['workspaceFilterSetting']);
         }
 
         return $model;

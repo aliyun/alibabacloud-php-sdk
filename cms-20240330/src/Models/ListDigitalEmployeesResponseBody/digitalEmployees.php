@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesResponseBody
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesResponseBody\digitalEmployees\knowledges;
+use AlibabaCloud\SDK\Cms\V20240330\Models\Tag;
 
 class digitalEmployees extends Model
 {
@@ -47,7 +48,17 @@ class digitalEmployees extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $roleArn;
+
+    /**
+     * @var Tag[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -61,7 +72,9 @@ class digitalEmployees extends Model
         'employeeType' => 'employeeType',
         'knowledges' => 'knowledges',
         'name' => 'name',
+        'resourceGroupId' => 'resourceGroupId',
         'roleArn' => 'roleArn',
+        'tags' => 'tags',
         'updateTime' => 'updateTime',
     ];
 
@@ -69,6 +82,9 @@ class digitalEmployees extends Model
     {
         if (null !== $this->knowledges) {
             $this->knowledges->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -104,8 +120,23 @@ class digitalEmployees extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->updateTime) {
@@ -151,8 +182,23 @@ class digitalEmployees extends Model
             $model->name = $map['name'];
         }
 
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['updateTime'])) {
