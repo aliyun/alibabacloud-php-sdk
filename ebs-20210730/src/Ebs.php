@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DeleteEnterpriseSnapshotPolicyResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeAppsRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersRequest;
@@ -1496,6 +1498,79 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEnterpriseSnapshotPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 中心化角色：查询App信息.
+     *
+     * @param request - DescribeAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppsResponse
+     *
+     * @param DescribeAppsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAppsResponse
+     */
+    public function describeAppsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appIds) {
+            @$query['AppIds'] = $request->appIds;
+        }
+
+        if (null !== $request->appNames) {
+            @$query['AppNames'] = $request->appNames;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApps',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 中心化角色：查询App信息.
+     *
+     * @param request - DescribeAppsRequest
+     *
+     * @returns DescribeAppsResponse
+     *
+     * @param DescribeAppsRequest $request
+     *
+     * @return DescribeAppsResponse
+     */
+    public function describeApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppsWithOptions($request, $runtime);
     }
 
     /**
