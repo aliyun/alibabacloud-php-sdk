@@ -26,11 +26,23 @@ class issue extends Model
     /**
      * @var string
      */
+    public $repairStatus;
+
+    /**
+     * @var bool
+     */
+    public $repairable;
+
+    /**
+     * @var string
+     */
     public $severity;
     protected $_name = [
         'additional' => 'Additional',
         'issueId' => 'IssueId',
         'occurrenceTime' => 'OccurrenceTime',
+        'repairStatus' => 'RepairStatus',
+        'repairable' => 'Repairable',
         'severity' => 'Severity',
     ];
 
@@ -52,6 +64,14 @@ class issue extends Model
 
         if (null !== $this->occurrenceTime) {
             $res['OccurrenceTime'] = $this->occurrenceTime;
+        }
+
+        if (null !== $this->repairStatus) {
+            $res['RepairStatus'] = $this->repairStatus;
+        }
+
+        if (null !== $this->repairable) {
+            $res['Repairable'] = $this->repairable;
         }
 
         if (null !== $this->severity) {
@@ -79,6 +99,14 @@ class issue extends Model
 
         if (isset($map['OccurrenceTime'])) {
             $model->occurrenceTime = $map['OccurrenceTime'];
+        }
+
+        if (isset($map['RepairStatus'])) {
+            $model->repairStatus = $map['RepairStatus'];
+        }
+
+        if (isset($map['Repairable'])) {
+            $model->repairable = $map['Repairable'];
         }
 
         if (isset($map['Severity'])) {

@@ -206,6 +206,11 @@ class disk extends Model
     /**
      * @var string
      */
+    public $sourceDiskId;
+
+    /**
+     * @var string
+     */
     public $sourceSnapshotId;
 
     /**
@@ -296,6 +301,7 @@ class disk extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'serialNumber' => 'SerialNumber',
         'size' => 'Size',
+        'sourceDiskId' => 'SourceDiskId',
         'sourceSnapshotId' => 'SourceSnapshotId',
         'status' => 'Status',
         'storageClusterId' => 'StorageClusterId',
@@ -482,6 +488,10 @@ class disk extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->sourceDiskId) {
+            $res['SourceDiskId'] = $this->sourceDiskId;
         }
 
         if (null !== $this->sourceSnapshotId) {
@@ -689,6 +699,10 @@ class disk extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['SourceDiskId'])) {
+            $model->sourceDiskId = $map['SourceDiskId'];
         }
 
         if (isset($map['SourceSnapshotId'])) {

@@ -114,6 +114,9 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePhysicalConnectionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePlanMaintenanceWindowRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePlanMaintenanceWindowResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePlanMaintenanceWindowShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePortRangeListRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePortRangeListResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreatePrefixListRequest;
@@ -192,6 +195,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePhysicalConnectionResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePlanMaintenanceWindowRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePlanMaintenanceWindowResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePortRangeListRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePortRangeListResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeletePrefixListRequest;
@@ -372,6 +377,9 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataReques
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePhysicalConnectionsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePhysicalConnectionsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePlanMaintenanceWindowsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePlanMaintenanceWindowsResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePlanMaintenanceWindowsShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListAssociationsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListAssociationsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListEntriesRequest;
@@ -609,6 +617,9 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPhysicalConnectionAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPhysicalConnectionAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPlanMaintenanceWindowRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPlanMaintenanceWindowResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPlanMaintenanceWindowShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPortRangeListRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPortRangeListResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyPrefixListRequest;
@@ -993,7 +1004,7 @@ class Ecs extends OpenApiClient
     /**
      * AddBandwidthPackageIps.
      *
-     * @deprecated openAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead
+     * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
      *
      * @param request - AddBandwidthPackageIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1063,7 +1074,7 @@ class Ecs extends OpenApiClient
     /**
      * AddBandwidthPackageIps.
      *
-     * @deprecated openAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead
+     * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
      *
      * @param request - AddBandwidthPackageIpsRequest
      *
@@ -7826,6 +7837,93 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * 创建运维窗口.
+     *
+     * @param tmpReq - CreatePlanMaintenanceWindowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePlanMaintenanceWindowResponse
+     *
+     * @param CreatePlanMaintenanceWindowRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreatePlanMaintenanceWindowResponse
+     */
+    public function createPlanMaintenanceWindowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePlanMaintenanceWindowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetResource) {
+            $request->targetResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetResource, 'TargetResource', 'json');
+        }
+
+        if (null !== $tmpReq->timePeriod) {
+            $request->timePeriodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timePeriod, 'TimePeriod', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->planWindowName) {
+            @$query['PlanWindowName'] = $request->planWindowName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->supportMaintenanceAction) {
+            @$query['SupportMaintenanceAction'] = $request->supportMaintenanceAction;
+        }
+
+        if (null !== $request->targetResourceShrink) {
+            @$query['TargetResource'] = $request->targetResourceShrink;
+        }
+
+        if (null !== $request->timePeriodShrink) {
+            @$query['TimePeriod'] = $request->timePeriodShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePlanMaintenanceWindow',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePlanMaintenanceWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建运维窗口.
+     *
+     * @param request - CreatePlanMaintenanceWindowRequest
+     *
+     * @returns CreatePlanMaintenanceWindowResponse
+     *
+     * @param CreatePlanMaintenanceWindowRequest $request
+     *
+     * @return CreatePlanMaintenanceWindowResponse
+     */
+    public function createPlanMaintenanceWindow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPlanMaintenanceWindowWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a port list. You can associate a port list with resources, such as security groups.
      *
      * @param request - CreatePortRangeListRequest
@@ -9707,8 +9805,6 @@ class Ecs extends OpenApiClient
     /**
      * DeleteBandwidthPackage.
      *
-     * @deprecated openAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead
-     *
      * @param request - DeleteBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9765,11 +9861,8 @@ class Ecs extends OpenApiClient
         return DeleteBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
      * DeleteBandwidthPackage.
-     *
-     * @deprecated openAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead
      *
      * @param request - DeleteBandwidthPackageRequest
      *
@@ -11628,6 +11721,67 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePhysicalConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除运维窗口.
+     *
+     * @param request - DeletePlanMaintenanceWindowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePlanMaintenanceWindowResponse
+     *
+     * @param DeletePlanMaintenanceWindowRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeletePlanMaintenanceWindowResponse
+     */
+    public function deletePlanMaintenanceWindowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->planWindowId) {
+            @$query['PlanWindowId'] = $request->planWindowId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePlanMaintenanceWindow',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePlanMaintenanceWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除运维窗口.
+     *
+     * @param request - DeletePlanMaintenanceWindowRequest
+     *
+     * @returns DeletePlanMaintenanceWindowResponse
+     *
+     * @param DeletePlanMaintenanceWindowRequest $request
+     *
+     * @return DeletePlanMaintenanceWindowResponse
+     */
+    public function deletePlanMaintenanceWindow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePlanMaintenanceWindowWithOptions($request, $runtime);
     }
 
     /**
@@ -20959,6 +21113,97 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * 查询运维窗口.
+     *
+     * @param tmpReq - DescribePlanMaintenanceWindowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlanMaintenanceWindowsResponse
+     *
+     * @param DescribePlanMaintenanceWindowsRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribePlanMaintenanceWindowsResponse
+     */
+    public function describePlanMaintenanceWindowsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribePlanMaintenanceWindowsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetResourceTags) {
+            $request->targetResourceTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetResourceTags, 'TargetResourceTags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->planWindowId) {
+            @$query['PlanWindowId'] = $request->planWindowId;
+        }
+
+        if (null !== $request->planWindowName) {
+            @$query['PlanWindowName'] = $request->planWindowName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->targetResourceGroupId) {
+            @$query['TargetResourceGroupId'] = $request->targetResourceGroupId;
+        }
+
+        if (null !== $request->targetResourceTagsShrink) {
+            @$query['TargetResourceTags'] = $request->targetResourceTagsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePlanMaintenanceWindows',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePlanMaintenanceWindowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询运维窗口.
+     *
+     * @param request - DescribePlanMaintenanceWindowsRequest
+     *
+     * @returns DescribePlanMaintenanceWindowsResponse
+     *
+     * @param DescribePlanMaintenanceWindowsRequest $request
+     *
+     * @return DescribePlanMaintenanceWindowsResponse
+     */
+    public function describePlanMaintenanceWindows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePlanMaintenanceWindowsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the resources that are associated with a port list, such as security groups.
      *
      * @param request - DescribePortRangeListAssociationsRequest
@@ -28788,7 +29033,7 @@ class Ecs extends OpenApiClient
     /**
      * ModifyBandwidthPackageSpec.
      *
-     * @deprecated openAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead
+     * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
      *
      * @param request - ModifyBandwidthPackageSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28854,7 +29099,7 @@ class Ecs extends OpenApiClient
     /**
      * ModifyBandwidthPackageSpec.
      *
-     * @deprecated openAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead
+     * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
      *
      * @param request - ModifyBandwidthPackageSpecRequest
      *
@@ -33434,6 +33679,97 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * 更新运维窗口.
+     *
+     * @param tmpReq - ModifyPlanMaintenanceWindowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPlanMaintenanceWindowResponse
+     *
+     * @param ModifyPlanMaintenanceWindowRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyPlanMaintenanceWindowResponse
+     */
+    public function modifyPlanMaintenanceWindowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyPlanMaintenanceWindowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetResource) {
+            $request->targetResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetResource, 'TargetResource', 'json');
+        }
+
+        if (null !== $tmpReq->timePeriod) {
+            $request->timePeriodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timePeriod, 'TimePeriod', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->planWindowId) {
+            @$query['PlanWindowId'] = $request->planWindowId;
+        }
+
+        if (null !== $request->planWindowName) {
+            @$query['PlanWindowName'] = $request->planWindowName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->supportMaintenanceAction) {
+            @$query['SupportMaintenanceAction'] = $request->supportMaintenanceAction;
+        }
+
+        if (null !== $request->targetResourceShrink) {
+            @$query['TargetResource'] = $request->targetResourceShrink;
+        }
+
+        if (null !== $request->timePeriodShrink) {
+            @$query['TimePeriod'] = $request->timePeriodShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPlanMaintenanceWindow',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPlanMaintenanceWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新运维窗口.
+     *
+     * @param request - ModifyPlanMaintenanceWindowRequest
+     *
+     * @returns ModifyPlanMaintenanceWindowResponse
+     *
+     * @param ModifyPlanMaintenanceWindowRequest $request
+     *
+     * @return ModifyPlanMaintenanceWindowResponse
+     */
+    public function modifyPlanMaintenanceWindow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPlanMaintenanceWindowWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the name and entries of a port list. You can call this operation to add, modify, and remove entries for a port list.
      *
      * @param request - ModifyPortRangeListRequest
@@ -37271,8 +37607,6 @@ class Ecs extends OpenApiClient
     /**
      * RemoveBandwidthPackageIps.
      *
-     * @deprecated openAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead
-     *
      * @param request - RemoveBandwidthPackageIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -37337,11 +37671,8 @@ class Ecs extends OpenApiClient
         return RemoveBandwidthPackageIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
      * RemoveBandwidthPackageIps.
-     *
-     * @deprecated openAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead
      *
      * @param request - RemoveBandwidthPackageIpsRequest
      *
