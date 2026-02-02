@@ -477,6 +477,10 @@ class RdsAi extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateCustomAgentShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->skillIds) {
+            $request->skillIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->skillIds, 'SkillIds', 'json');
+        }
+
         if (null !== $tmpReq->tools) {
             $request->toolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tools, 'Tools', 'json');
         }
@@ -488,6 +492,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->skillIdsShrink) {
+            @$query['SkillIds'] = $request->skillIdsShrink;
         }
 
         if (null !== $request->systemPrompt) {
@@ -2142,7 +2150,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 批量修改实例的SSL配置.
+     * Modifies the SSL settings of RDS Supabase instances in batches.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * RDS PostgreSQL
+     * ### [](#)References
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyInstancesSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2207,7 +2221,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 批量修改实例的SSL配置.
+     * Modifies the SSL settings of RDS Supabase instances in batches.
+     *
+     * @remarks
+     * ### [](#)Supported database engine
+     * RDS PostgreSQL
+     * ### [](#)References
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstancesSSLRequest
      *
@@ -2609,6 +2629,10 @@ class RdsAi extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateCustomAgentShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->skillIds) {
+            $request->skillIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->skillIds, 'SkillIds', 'json');
+        }
+
         if (null !== $tmpReq->tools) {
             $request->toolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tools, 'Tools', 'json');
         }
@@ -2624,6 +2648,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->skillIdsShrink) {
+            @$query['SkillIds'] = $request->skillIdsShrink;
         }
 
         if (null !== $request->systemPrompt) {

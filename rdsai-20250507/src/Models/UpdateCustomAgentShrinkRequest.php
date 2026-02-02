@@ -26,6 +26,11 @@ class UpdateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $skillIdsShrink;
+
+    /**
+     * @var string
+     */
     public $systemPrompt;
 
     /**
@@ -36,6 +41,7 @@ class UpdateCustomAgentShrinkRequest extends Model
         'customAgentId' => 'CustomAgentId',
         'enableTools' => 'EnableTools',
         'name' => 'Name',
+        'skillIdsShrink' => 'SkillIds',
         'systemPrompt' => 'SystemPrompt',
         'toolsShrink' => 'Tools',
     ];
@@ -58,6 +64,10 @@ class UpdateCustomAgentShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->skillIdsShrink) {
+            $res['SkillIds'] = $this->skillIdsShrink;
         }
 
         if (null !== $this->systemPrompt) {
@@ -89,6 +99,10 @@ class UpdateCustomAgentShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SkillIds'])) {
+            $model->skillIdsShrink = $map['SkillIds'];
         }
 
         if (isset($map['SystemPrompt'])) {

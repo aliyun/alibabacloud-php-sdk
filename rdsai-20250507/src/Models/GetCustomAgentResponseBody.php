@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentResponseBody\skills;
 
 class GetCustomAgentResponseBody extends Model
 {
@@ -34,6 +35,11 @@ class GetCustomAgentResponseBody extends Model
     public $requestId;
 
     /**
+     * @var skills[]
+     */
+    public $skills;
+
+    /**
      * @var string
      */
     public $systemPrompt;
@@ -53,6 +59,7 @@ class GetCustomAgentResponseBody extends Model
         'id' => 'Id',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'skills' => 'Skills',
         'systemPrompt' => 'SystemPrompt',
         'tools' => 'Tools',
         'updatedAt' => 'UpdatedAt',
@@ -60,6 +67,9 @@ class GetCustomAgentResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->skills)) {
+            Model::validateArray($this->skills);
+        }
         if (\is_array($this->tools)) {
             Model::validateArray($this->tools);
         }
@@ -87,6 +97,17 @@ class GetCustomAgentResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->skills) {
+            if (\is_array($this->skills)) {
+                $res['Skills'] = [];
+                $n1 = 0;
+                foreach ($this->skills as $item1) {
+                    $res['Skills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->systemPrompt) {
@@ -137,6 +158,17 @@ class GetCustomAgentResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Skills'])) {
+            if (!empty($map['Skills'])) {
+                $model->skills = [];
+                $n1 = 0;
+                foreach ($map['Skills'] as $item1) {
+                    $model->skills[$n1] = skills::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SystemPrompt'])) {

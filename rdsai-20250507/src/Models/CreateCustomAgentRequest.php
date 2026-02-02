@@ -19,6 +19,11 @@ class CreateCustomAgentRequest extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $skillIds;
+
+    /**
      * @var string
      */
     public $systemPrompt;
@@ -30,12 +35,16 @@ class CreateCustomAgentRequest extends Model
     protected $_name = [
         'enableTools' => 'EnableTools',
         'name' => 'Name',
+        'skillIds' => 'SkillIds',
         'systemPrompt' => 'SystemPrompt',
         'tools' => 'Tools',
     ];
 
     public function validate()
     {
+        if (\is_array($this->skillIds)) {
+            Model::validateArray($this->skillIds);
+        }
         if (\is_array($this->tools)) {
             Model::validateArray($this->tools);
         }
@@ -51,6 +60,17 @@ class CreateCustomAgentRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->skillIds) {
+            if (\is_array($this->skillIds)) {
+                $res['SkillIds'] = [];
+                $n1 = 0;
+                foreach ($this->skillIds as $item1) {
+                    $res['SkillIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->systemPrompt) {
@@ -85,6 +105,17 @@ class CreateCustomAgentRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SkillIds'])) {
+            if (!empty($map['SkillIds'])) {
+                $model->skillIds = [];
+                $n1 = 0;
+                foreach ($map['SkillIds'] as $item1) {
+                    $model->skillIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SystemPrompt'])) {

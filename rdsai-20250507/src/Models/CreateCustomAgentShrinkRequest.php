@@ -21,6 +21,11 @@ class CreateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $skillIdsShrink;
+
+    /**
+     * @var string
+     */
     public $systemPrompt;
 
     /**
@@ -30,6 +35,7 @@ class CreateCustomAgentShrinkRequest extends Model
     protected $_name = [
         'enableTools' => 'EnableTools',
         'name' => 'Name',
+        'skillIdsShrink' => 'SkillIds',
         'systemPrompt' => 'SystemPrompt',
         'toolsShrink' => 'Tools',
     ];
@@ -48,6 +54,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->skillIdsShrink) {
+            $res['SkillIds'] = $this->skillIdsShrink;
         }
 
         if (null !== $this->systemPrompt) {
@@ -75,6 +85,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SkillIds'])) {
+            $model->skillIdsShrink = $map['SkillIds'];
         }
 
         if (isset($map['SystemPrompt'])) {
