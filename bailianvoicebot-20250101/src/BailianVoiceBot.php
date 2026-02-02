@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PublishApplicationVersionRequest;
@@ -441,6 +443,67 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据通道凭证
+     *
+     * @param request - GetDataChannelCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataChannelCredentialResponse
+     *
+     * @param GetDataChannelCredentialRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataChannelCredentialResponse
+     */
+    public function getDataChannelCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessUnitId) {
+            @$query['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataChannelCredential',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataChannelCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据通道凭证
+     *
+     * @param request - GetDataChannelCredentialRequest
+     *
+     * @returns GetDataChannelCredentialResponse
+     *
+     * @param GetDataChannelCredentialRequest $request
+     *
+     * @return GetDataChannelCredentialResponse
+     */
+    public function getDataChannelCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataChannelCredentialWithOptions($request, $runtime);
     }
 
     /**
