@@ -115,6 +115,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateQosRuleRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateQosRuleResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRAMDirectoryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRAMDirectoryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateRouteEntryRequest;
@@ -171,6 +173,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteQosRulesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteQosRulesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteEntryRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteEntryResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteRouteTableRequest;
@@ -293,6 +297,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForRenewDesktopOversoldGr
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForRenewDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeQosRulesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeQosRulesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsRequest;
@@ -468,6 +474,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteMfaEnabledRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteMfaEnabledResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyQosEntriesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyQosEntriesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyQosRuleRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyQosRuleResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyResourceCenterPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyResourceCenterPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifySecurityGroupAttributeRequest;
@@ -6082,6 +6092,83 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 新建限速组.
+     *
+     * @param request - CreateQosRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQosRuleResponse
+     *
+     * @param CreateQosRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateQosRuleResponse
+     */
+    public function createQosRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authAndroidId) {
+            @$query['AuthAndroidId'] = $request->authAndroidId;
+        }
+
+        if (null !== $request->authDesktopId) {
+            @$query['AuthDesktopId'] = $request->authDesktopId;
+        }
+
+        if (null !== $request->download) {
+            @$query['Download'] = $request->download;
+        }
+
+        if (null !== $request->networkPackageId) {
+            @$query['NetworkPackageId'] = $request->networkPackageId;
+        }
+
+        if (null !== $request->qosRuleName) {
+            @$query['QosRuleName'] = $request->qosRuleName;
+        }
+
+        if (null !== $request->upload) {
+            @$query['Upload'] = $request->upload;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateQosRule',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建限速组.
+     *
+     * @param request - CreateQosRuleRequest
+     *
+     * @returns CreateQosRuleResponse
+     *
+     * @param CreateQosRuleRequest $request
+     *
+     * @return CreateQosRuleResponse
+     */
+    public function createQosRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createQosRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a Resource Access Management (RAM) directory.
      *
      * @remarks
@@ -8170,6 +8257,59 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolicyGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DeleteQosRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQosRulesResponse
+     *
+     * @param DeleteQosRulesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteQosRulesResponse
+     */
+    public function deleteQosRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qosRuleId) {
+            @$query['QosRuleId'] = $request->qosRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteQosRules',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteQosRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteQosRulesRequest
+     *
+     * @returns DeleteQosRulesResponse
+     *
+     * @param DeleteQosRulesRequest $request
+     *
+     * @return DeleteQosRulesResponse
+     */
+    public function deleteQosRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteQosRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -13429,6 +13569,63 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePriceForRenewDesktopOversoldGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeQosRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeQosRulesResponse
+     *
+     * @param DescribeQosRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeQosRulesResponse
+     */
+    public function describeQosRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkPackageId) {
+            @$query['NetworkPackageId'] = $request->networkPackageId;
+        }
+
+        if (null !== $request->qosRuleName) {
+            @$query['QosRuleName'] = $request->qosRuleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeQosRules',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeQosRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeQosRulesRequest
+     *
+     * @returns DescribeQosRulesResponse
+     *
+     * @param DescribeQosRulesRequest $request
+     *
+     * @return DescribeQosRulesResponse
+     */
+    public function describeQosRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeQosRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -21096,6 +21293,144 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPolicyGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改限速组资源绑定关系.
+     *
+     * @param request - ModifyQosEntriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyQosEntriesResponse
+     *
+     * @param ModifyQosEntriesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyQosEntriesResponse
+     */
+    public function modifyQosEntriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authAndroidId) {
+            @$query['AuthAndroidId'] = $request->authAndroidId;
+        }
+
+        if (null !== $request->authDesktopId) {
+            @$query['AuthDesktopId'] = $request->authDesktopId;
+        }
+
+        if (null !== $request->qosRuleId) {
+            @$query['QosRuleId'] = $request->qosRuleId;
+        }
+
+        if (null !== $request->revokeAndroidId) {
+            @$query['RevokeAndroidId'] = $request->revokeAndroidId;
+        }
+
+        if (null !== $request->revokeDesktopId) {
+            @$query['RevokeDesktopId'] = $request->revokeDesktopId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyQosEntries',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyQosEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改限速组资源绑定关系.
+     *
+     * @param request - ModifyQosEntriesRequest
+     *
+     * @returns ModifyQosEntriesResponse
+     *
+     * @param ModifyQosEntriesRequest $request
+     *
+     * @return ModifyQosEntriesResponse
+     */
+    public function modifyQosEntries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyQosEntriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - ModifyQosRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyQosRuleResponse
+     *
+     * @param ModifyQosRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyQosRuleResponse
+     */
+    public function modifyQosRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->download) {
+            @$query['Download'] = $request->download;
+        }
+
+        if (null !== $request->qosRuleId) {
+            @$query['QosRuleId'] = $request->qosRuleId;
+        }
+
+        if (null !== $request->qosRuleName) {
+            @$query['QosRuleName'] = $request->qosRuleName;
+        }
+
+        if (null !== $request->upload) {
+            @$query['Upload'] = $request->upload;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyQosRule',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - ModifyQosRuleRequest
+     *
+     * @returns ModifyQosRuleResponse
+     *
+     * @param ModifyQosRuleRequest $request
+     *
+     * @return ModifyQosRuleResponse
+     */
+    public function modifyQosRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyQosRuleWithOptions($request, $runtime);
     }
 
     /**
