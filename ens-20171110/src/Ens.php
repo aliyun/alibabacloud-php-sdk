@@ -500,6 +500,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ManageAICLoginRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ManageAICLoginResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyAICInstanceTypeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyAICInstanceTypeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterAddonRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterAddonResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyClusterAddonShrinkRequest;
@@ -17239,6 +17241,83 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->manageAICLoginWithOptions($request, $runtime);
+    }
+
+    /**
+     * aic实例变配接口.
+     *
+     * @param request - ModifyAICInstanceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAICInstanceTypeResponse
+     *
+     * @param ModifyAICInstanceTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAICInstanceTypeResponse
+     */
+    public function modifyAICInstanceTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentVar) {
+            @$query['EnvironmentVar'] = $request->environmentVar;
+        }
+
+        if (null !== $request->frequency) {
+            @$query['Frequency'] = $request->frequency;
+        }
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->resolution) {
+            @$query['Resolution'] = $request->resolution;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAICInstanceType',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAICInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * aic实例变配接口.
+     *
+     * @param request - ModifyAICInstanceTypeRequest
+     *
+     * @returns ModifyAICInstanceTypeResponse
+     *
+     * @param ModifyAICInstanceTypeRequest $request
+     *
+     * @return ModifyAICInstanceTypeResponse
+     */
+    public function modifyAICInstanceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAICInstanceTypeWithOptions($request, $runtime);
     }
 
     /**
