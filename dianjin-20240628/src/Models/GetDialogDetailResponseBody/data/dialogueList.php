@@ -51,6 +51,11 @@ class dialogueList extends Model
     /**
      * @var string
      */
+    public $recordId;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
@@ -66,6 +71,7 @@ class dialogueList extends Model
         'id' => 'id',
         'intentCode' => 'intentCode',
         'intentName' => 'intentName',
+        'recordId' => 'recordId',
         'role' => 'role',
         'type' => 'type',
     ];
@@ -108,6 +114,10 @@ class dialogueList extends Model
 
         if (null !== $this->intentName) {
             $res['intentName'] = $this->intentName;
+        }
+
+        if (null !== $this->recordId) {
+            $res['recordId'] = $this->recordId;
         }
 
         if (null !== $this->role) {
@@ -159,6 +169,10 @@ class dialogueList extends Model
 
         if (isset($map['intentName'])) {
             $model->intentName = $map['intentName'];
+        }
+
+        if (isset($map['recordId'])) {
+            $model->recordId = $map['recordId'];
         }
 
         if (isset($map['role'])) {
