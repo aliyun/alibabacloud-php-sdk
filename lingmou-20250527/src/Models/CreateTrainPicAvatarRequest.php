@@ -11,6 +11,11 @@ class CreateTrainPicAvatarRequest extends Model
     /**
      * @var string
      */
+    public $bizType;
+
+    /**
+     * @var string
+     */
     public $gender;
 
     /**
@@ -38,6 +43,7 @@ class CreateTrainPicAvatarRequest extends Model
      */
     public $transparent;
     protected $_name = [
+        'bizType' => 'bizType',
         'gender' => 'gender',
         'generateAssets' => 'generateAssets',
         'imageOssPath' => 'imageOssPath',
@@ -54,6 +60,10 @@ class CreateTrainPicAvatarRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['bizType'] = $this->bizType;
+        }
+
         if (null !== $this->gender) {
             $res['gender'] = $this->gender;
         }
@@ -89,6 +99,10 @@ class CreateTrainPicAvatarRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bizType'])) {
+            $model->bizType = $map['bizType'];
+        }
+
         if (isset($map['gender'])) {
             $model->gender = $map['gender'];
         }

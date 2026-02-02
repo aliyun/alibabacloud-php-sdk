@@ -489,7 +489,7 @@ class LingMou extends OpenApiClient
     }
 
     /**
-     * 创建数字人会话.
+     * 创建实时数字人会话。
      *
      * @param request - CreateChatSessionRequest
      * @param headers - map
@@ -540,7 +540,7 @@ class LingMou extends OpenApiClient
     }
 
     /**
-     * 创建数字人会话.
+     * 创建实时数字人会话。
      *
      * @param request - CreateChatSessionRequest
      *
@@ -736,6 +736,10 @@ class LingMou extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->bizType) {
+            @$query['bizType'] = $request->bizType;
+        }
+
         if (null !== $request->gender) {
             @$query['gender'] = $request->gender;
         }
