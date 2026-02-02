@@ -11699,6 +11699,10 @@ class Ddoscoo extends OpenApiClient
             @$query['Domain'] = $request->domain;
         }
 
+        if (null !== $request->embeddedHeaders) {
+            @$query['EmbeddedHeaders'] = $request->embeddedHeaders;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }

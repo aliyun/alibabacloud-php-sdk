@@ -17,9 +17,15 @@ class DescribeHeadersResponseBody extends Model
     /**
      * @var string
      */
+    public $embeddedHeaders;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'customHeader' => 'CustomHeader',
+        'embeddedHeaders' => 'EmbeddedHeaders',
         'requestId' => 'RequestId',
     ];
 
@@ -36,6 +42,10 @@ class DescribeHeadersResponseBody extends Model
         $res = [];
         if (null !== $this->customHeader) {
             $res['CustomHeader'] = null !== $this->customHeader ? $this->customHeader->toArray($noStream) : $this->customHeader;
+        }
+
+        if (null !== $this->embeddedHeaders) {
+            $res['EmbeddedHeaders'] = $this->embeddedHeaders;
         }
 
         if (null !== $this->requestId) {
@@ -55,6 +65,10 @@ class DescribeHeadersResponseBody extends Model
         $model = new self();
         if (isset($map['CustomHeader'])) {
             $model->customHeader = customHeader::fromMap($map['CustomHeader']);
+        }
+
+        if (isset($map['EmbeddedHeaders'])) {
+            $model->embeddedHeaders = $map['EmbeddedHeaders'];
         }
 
         if (isset($map['RequestId'])) {

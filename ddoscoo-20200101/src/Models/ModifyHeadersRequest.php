@@ -21,10 +21,16 @@ class ModifyHeadersRequest extends Model
     /**
      * @var string
      */
+    public $embeddedHeaders;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
     protected $_name = [
         'customHeaders' => 'CustomHeaders',
         'domain' => 'Domain',
+        'embeddedHeaders' => 'EmbeddedHeaders',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -42,6 +48,10 @@ class ModifyHeadersRequest extends Model
 
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->embeddedHeaders) {
+            $res['EmbeddedHeaders'] = $this->embeddedHeaders;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -65,6 +75,10 @@ class ModifyHeadersRequest extends Model
 
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['EmbeddedHeaders'])) {
+            $model->embeddedHeaders = $map['EmbeddedHeaders'];
         }
 
         if (isset($map['ResourceGroupId'])) {
