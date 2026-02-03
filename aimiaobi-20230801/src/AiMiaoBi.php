@@ -403,6 +403,7 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
@@ -7542,12 +7543,77 @@ class AiMiaoBi extends OpenApiClient
         $tmpReq->validate();
         $request = new ListDatasetDocumentsShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryUuids) {
+            $request->categoryUuidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryUuids, 'CategoryUuids', 'json');
+        }
+
+        if (null !== $tmpReq->docIds) {
+            $request->docIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        }
+
+        if (null !== $tmpReq->docUuids) {
+            $request->docUuidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docUuids, 'DocUuids', 'json');
+        }
+
         if (null !== $tmpReq->excludeFields) {
             $request->excludeFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeFields, 'ExcludeFields', 'json');
         }
 
         if (null !== $tmpReq->includeFields) {
             $request->includeFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->includeFields, 'IncludeFields', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->categoryUuidsShrink) {
+            @$query['CategoryUuids'] = $request->categoryUuidsShrink;
+        }
+
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->docIdsShrink) {
+            @$query['DocIds'] = $request->docIdsShrink;
+        }
+
+        if (null !== $request->docUuidsShrink) {
+            @$query['DocUuids'] = $request->docUuidsShrink;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->extend1) {
+            @$query['Extend1'] = $request->extend1;
+        }
+
+        if (null !== $request->extend2) {
+            @$query['Extend2'] = $request->extend2;
+        }
+
+        if (null !== $request->extend3) {
+            @$query['Extend3'] = $request->extend3;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
 
         $body = [];
@@ -7596,6 +7662,7 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -16135,19 +16202,90 @@ class AiMiaoBi extends OpenApiClient
     /**
      * 搜索数据集文档.
      *
-     * @param request - SearchDatasetDocumentsRequest
+     * @param tmpReq - SearchDatasetDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SearchDatasetDocumentsResponse
      *
-     * @param SearchDatasetDocumentsRequest $request
+     * @param SearchDatasetDocumentsRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
      * @return SearchDatasetDocumentsResponse
      */
-    public function searchDatasetDocumentsWithOptions($request, $runtime)
+    public function searchDatasetDocumentsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new SearchDatasetDocumentsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->categoryUuids) {
+            $request->categoryUuidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->categoryUuids, 'CategoryUuids', 'json');
+        }
+
+        if (null !== $tmpReq->docIds) {
+            $request->docIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        }
+
+        if (null !== $tmpReq->docTypes) {
+            $request->docTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docTypes, 'DocTypes', 'json');
+        }
+
+        if (null !== $tmpReq->docUuids) {
+            $request->docUuidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docUuids, 'DocUuids', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->categoryUuidsShrink) {
+            @$query['CategoryUuids'] = $request->categoryUuidsShrink;
+        }
+
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->docIdsShrink) {
+            @$query['DocIds'] = $request->docIdsShrink;
+        }
+
+        if (null !== $request->docTypesShrink) {
+            @$query['DocTypes'] = $request->docTypesShrink;
+        }
+
+        if (null !== $request->docUuidsShrink) {
+            @$query['DocUuids'] = $request->docUuidsShrink;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->extend2) {
+            @$query['Extend2'] = $request->extend2;
+        }
+
+        if (null !== $request->extend3) {
+            @$query['Extend3'] = $request->extend3;
+        }
+
+        if (null !== $request->searchMode) {
+            @$query['SearchMode'] = $request->searchMode;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
+        }
+
         $body = [];
         if (null !== $request->datasetId) {
             @$body['DatasetId'] = $request->datasetId;
@@ -16178,6 +16316,7 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([

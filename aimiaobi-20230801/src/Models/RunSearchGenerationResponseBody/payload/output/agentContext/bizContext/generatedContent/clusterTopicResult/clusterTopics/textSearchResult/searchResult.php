@@ -12,12 +12,32 @@ class searchResult extends Model
     /**
      * @var string
      */
+    public $categoryUuid;
+
+    /**
+     * @var string
+     */
     public $docId;
 
     /**
      * @var string
      */
     public $docUuid;
+
+    /**
+     * @var string
+     */
+    public $extend1;
+
+    /**
+     * @var string
+     */
+    public $extend2;
+
+    /**
+     * @var string
+     */
+    public $extend3;
 
     /**
      * @var multimodalMedias[]
@@ -50,6 +70,11 @@ class searchResult extends Model
     public $summary;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $title;
@@ -59,14 +84,19 @@ class searchResult extends Model
      */
     public $url;
     protected $_name = [
+        'categoryUuid' => 'CategoryUuid',
         'docId' => 'DocId',
         'docUuid' => 'DocUuid',
+        'extend1' => 'Extend1',
+        'extend2' => 'Extend2',
+        'extend3' => 'Extend3',
         'multimodalMedias' => 'MultimodalMedias',
         'pubTime' => 'PubTime',
         'searchSource' => 'SearchSource',
         'searchSourceName' => 'SearchSourceName',
         'searchSourceType' => 'SearchSourceType',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'title' => 'Title',
         'url' => 'Url',
     ];
@@ -76,18 +106,37 @@ class searchResult extends Model
         if (\is_array($this->multimodalMedias)) {
             Model::validateArray($this->multimodalMedias);
         }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
 
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
+        }
+
+        if (null !== $this->extend1) {
+            $res['Extend1'] = $this->extend1;
+        }
+
+        if (null !== $this->extend2) {
+            $res['Extend2'] = $this->extend2;
+        }
+
+        if (null !== $this->extend3) {
+            $res['Extend3'] = $this->extend3;
         }
 
         if (null !== $this->multimodalMedias) {
@@ -121,6 +170,17 @@ class searchResult extends Model
             $res['Summary'] = $this->summary;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -140,12 +200,28 @@ class searchResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
 
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
+        }
+
+        if (isset($map['Extend1'])) {
+            $model->extend1 = $map['Extend1'];
+        }
+
+        if (isset($map['Extend2'])) {
+            $model->extend2 = $map['Extend2'];
+        }
+
+        if (isset($map['Extend3'])) {
+            $model->extend3 = $map['Extend3'];
         }
 
         if (isset($map['MultimodalMedias'])) {
@@ -177,6 +253,17 @@ class searchResult extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Title'])) {

@@ -5,20 +5,30 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data\datasetConfig\searchSourceConfig;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDatasetResponseBody\data\datasetConfig\searchSourceConfigs;
 
 class datasetConfig extends Model
 {
     /**
+     * @var searchSourceConfig
+     */
+    public $searchSourceConfig;
+
+    /**
      * @var searchSourceConfigs[]
      */
     public $searchSourceConfigs;
     protected $_name = [
+        'searchSourceConfig' => 'SearchSourceConfig',
         'searchSourceConfigs' => 'SearchSourceConfigs',
     ];
 
     public function validate()
     {
+        if (null !== $this->searchSourceConfig) {
+            $this->searchSourceConfig->validate();
+        }
         if (\is_array($this->searchSourceConfigs)) {
             Model::validateArray($this->searchSourceConfigs);
         }
@@ -28,6 +38,10 @@ class datasetConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->searchSourceConfig) {
+            $res['SearchSourceConfig'] = null !== $this->searchSourceConfig ? $this->searchSourceConfig->toArray($noStream) : $this->searchSourceConfig;
+        }
+
         if (null !== $this->searchSourceConfigs) {
             if (\is_array($this->searchSourceConfigs)) {
                 $res['SearchSourceConfigs'] = [];
@@ -50,6 +64,10 @@ class datasetConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SearchSourceConfig'])) {
+            $model->searchSourceConfig = searchSourceConfig::fromMap($map['SearchSourceConfig']);
+        }
+
         if (isset($map['SearchSourceConfigs'])) {
             if (!empty($map['SearchSourceConfigs'])) {
                 $model->searchSourceConfigs = [];

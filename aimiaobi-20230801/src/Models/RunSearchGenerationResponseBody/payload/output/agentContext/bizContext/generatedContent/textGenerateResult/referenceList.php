@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class referenceList extends Model
 {
     /**
+     * @var string
+     */
+    public $categoryUuid;
+
+    /**
      * @var string[]
      */
     public $chunks;
@@ -27,6 +32,21 @@ class referenceList extends Model
      * @var string
      */
     public $docUuid;
+
+    /**
+     * @var string
+     */
+    public $extend1;
+
+    /**
+     * @var string
+     */
+    public $extend2;
+
+    /**
+     * @var string
+     */
+    public $extend3;
 
     /**
      * @var string
@@ -69,6 +89,11 @@ class referenceList extends Model
     public $summary;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $title;
@@ -83,10 +108,14 @@ class referenceList extends Model
      */
     public $url;
     protected $_name = [
+        'categoryUuid' => 'CategoryUuid',
         'chunks' => 'Chunks',
         'content' => 'Content',
         'docId' => 'DocId',
         'docUuid' => 'DocUuid',
+        'extend1' => 'Extend1',
+        'extend2' => 'Extend2',
+        'extend3' => 'Extend3',
         'pubTime' => 'PubTime',
         'score' => 'Score',
         'searchSource' => 'SearchSource',
@@ -95,6 +124,7 @@ class referenceList extends Model
         'select' => 'Select',
         'source' => 'Source',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'title' => 'Title',
         'traceabilityId' => 'TraceabilityId',
         'url' => 'Url',
@@ -105,12 +135,19 @@ class referenceList extends Model
         if (\is_array($this->chunks)) {
             Model::validateArray($this->chunks);
         }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->chunks) {
             if (\is_array($this->chunks)) {
                 $res['Chunks'] = [];
@@ -132,6 +169,18 @@ class referenceList extends Model
 
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
+        }
+
+        if (null !== $this->extend1) {
+            $res['Extend1'] = $this->extend1;
+        }
+
+        if (null !== $this->extend2) {
+            $res['Extend2'] = $this->extend2;
+        }
+
+        if (null !== $this->extend3) {
+            $res['Extend3'] = $this->extend3;
         }
 
         if (null !== $this->pubTime) {
@@ -166,6 +215,17 @@ class referenceList extends Model
             $res['Summary'] = $this->summary;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -189,6 +249,10 @@ class referenceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['Chunks'])) {
             if (!empty($map['Chunks'])) {
                 $model->chunks = [];
@@ -210,6 +274,18 @@ class referenceList extends Model
 
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
+        }
+
+        if (isset($map['Extend1'])) {
+            $model->extend1 = $map['Extend1'];
+        }
+
+        if (isset($map['Extend2'])) {
+            $model->extend2 = $map['Extend2'];
+        }
+
+        if (isset($map['Extend3'])) {
+            $model->extend3 = $map['Extend3'];
         }
 
         if (isset($map['PubTime'])) {
@@ -242,6 +318,17 @@ class referenceList extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Title'])) {

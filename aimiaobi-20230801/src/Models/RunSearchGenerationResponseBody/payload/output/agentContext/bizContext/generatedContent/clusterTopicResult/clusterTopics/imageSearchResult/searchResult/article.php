@@ -11,6 +11,11 @@ class article extends Model
     /**
      * @var string
      */
+    public $categoryUuid;
+
+    /**
+     * @var string
+     */
     public $docId;
 
     /**
@@ -21,12 +26,42 @@ class article extends Model
     /**
      * @var string
      */
+    public $extend1;
+
+    /**
+     * @var string
+     */
+    public $extend2;
+
+    /**
+     * @var string
+     */
+    public $extend3;
+
+    /**
+     * @var string
+     */
+    public $searchSource;
+
+    /**
+     * @var string
+     */
     public $searchSourceName;
 
     /**
      * @var string
      */
+    public $searchSourceType;
+
+    /**
+     * @var string
+     */
     public $summary;
+
+    /**
+     * @var string[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -38,22 +73,36 @@ class article extends Model
      */
     public $url;
     protected $_name = [
+        'categoryUuid' => 'CategoryUuid',
         'docId' => 'DocId',
         'docUuid' => 'DocUuid',
+        'extend1' => 'Extend1',
+        'extend2' => 'Extend2',
+        'extend3' => 'Extend3',
+        'searchSource' => 'SearchSource',
         'searchSourceName' => 'SearchSourceName',
+        'searchSourceType' => 'SearchSourceType',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'title' => 'Title',
         'url' => 'Url',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
@@ -62,12 +111,43 @@ class article extends Model
             $res['DocUuid'] = $this->docUuid;
         }
 
+        if (null !== $this->extend1) {
+            $res['Extend1'] = $this->extend1;
+        }
+
+        if (null !== $this->extend2) {
+            $res['Extend2'] = $this->extend2;
+        }
+
+        if (null !== $this->extend3) {
+            $res['Extend3'] = $this->extend3;
+        }
+
+        if (null !== $this->searchSource) {
+            $res['SearchSource'] = $this->searchSource;
+        }
+
         if (null !== $this->searchSourceName) {
             $res['SearchSourceName'] = $this->searchSourceName;
         }
 
+        if (null !== $this->searchSourceType) {
+            $res['SearchSourceType'] = $this->searchSourceType;
+        }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->title) {
@@ -89,6 +169,10 @@ class article extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }
@@ -97,12 +181,43 @@ class article extends Model
             $model->docUuid = $map['DocUuid'];
         }
 
+        if (isset($map['Extend1'])) {
+            $model->extend1 = $map['Extend1'];
+        }
+
+        if (isset($map['Extend2'])) {
+            $model->extend2 = $map['Extend2'];
+        }
+
+        if (isset($map['Extend3'])) {
+            $model->extend3 = $map['Extend3'];
+        }
+
+        if (isset($map['SearchSource'])) {
+            $model->searchSource = $map['SearchSource'];
+        }
+
         if (isset($map['SearchSourceName'])) {
             $model->searchSourceName = $map['SearchSourceName'];
         }
 
+        if (isset($map['SearchSourceType'])) {
+            $model->searchSourceType = $map['SearchSourceType'];
+        }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Title'])) {

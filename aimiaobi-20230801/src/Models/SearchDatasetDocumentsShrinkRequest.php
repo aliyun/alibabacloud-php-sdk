@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDatasetDocumentsShrinkRequest extends Model
+class SearchDatasetDocumentsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -22,11 +22,6 @@ class ListDatasetDocumentsShrinkRequest extends Model
      * @var int
      */
     public $createTimeStart;
-
-    /**
-     * @var string
-     */
-    public $datasetDescription;
 
     /**
      * @var int
@@ -46,7 +41,7 @@ class ListDatasetDocumentsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $docType;
+    public $docTypesShrink;
 
     /**
      * @var string
@@ -57,11 +52,6 @@ class ListDatasetDocumentsShrinkRequest extends Model
      * @var int
      */
     public $endTime;
-
-    /**
-     * @var string
-     */
-    public $excludeFieldsShrink;
 
     /**
      * @var string
@@ -79,17 +69,12 @@ class ListDatasetDocumentsShrinkRequest extends Model
     public $extend3;
 
     /**
+     * @var bool
+     */
+    public $includeContent;
+
+    /**
      * @var string
-     */
-    public $includeFieldsShrink;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
      */
     public $pageSize;
 
@@ -99,14 +84,14 @@ class ListDatasetDocumentsShrinkRequest extends Model
     public $query;
 
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
+    public $searchMode;
 
     /**
      * @var int
      */
-    public $status;
+    public $startTime;
 
     /**
      * @var string
@@ -116,35 +101,26 @@ class ListDatasetDocumentsShrinkRequest extends Model
     /**
      * @var string
      */
-    public $title;
-
-    /**
-     * @var string
-     */
     public $workspaceId;
     protected $_name = [
         'categoryUuidsShrink' => 'CategoryUuids',
         'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'datasetDescription' => 'DatasetDescription',
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
         'docIdsShrink' => 'DocIds',
-        'docType' => 'DocType',
+        'docTypesShrink' => 'DocTypes',
         'docUuidsShrink' => 'DocUuids',
         'endTime' => 'EndTime',
-        'excludeFieldsShrink' => 'ExcludeFields',
         'extend1' => 'Extend1',
         'extend2' => 'Extend2',
         'extend3' => 'Extend3',
-        'includeFieldsShrink' => 'IncludeFields',
-        'pageNumber' => 'PageNumber',
+        'includeContent' => 'IncludeContent',
         'pageSize' => 'PageSize',
         'query' => 'Query',
+        'searchMode' => 'SearchMode',
         'startTime' => 'StartTime',
-        'status' => 'Status',
         'tagsShrink' => 'Tags',
-        'title' => 'Title',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -168,10 +144,6 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $res['CreateTimeStart'] = $this->createTimeStart;
         }
 
-        if (null !== $this->datasetDescription) {
-            $res['DatasetDescription'] = $this->datasetDescription;
-        }
-
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
@@ -184,8 +156,8 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $res['DocIds'] = $this->docIdsShrink;
         }
 
-        if (null !== $this->docType) {
-            $res['DocType'] = $this->docType;
+        if (null !== $this->docTypesShrink) {
+            $res['DocTypes'] = $this->docTypesShrink;
         }
 
         if (null !== $this->docUuidsShrink) {
@@ -194,10 +166,6 @@ class ListDatasetDocumentsShrinkRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-
-        if (null !== $this->excludeFieldsShrink) {
-            $res['ExcludeFields'] = $this->excludeFieldsShrink;
         }
 
         if (null !== $this->extend1) {
@@ -212,12 +180,8 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $res['Extend3'] = $this->extend3;
         }
 
-        if (null !== $this->includeFieldsShrink) {
-            $res['IncludeFields'] = $this->includeFieldsShrink;
-        }
-
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->includeContent) {
+            $res['IncludeContent'] = $this->includeContent;
         }
 
         if (null !== $this->pageSize) {
@@ -228,20 +192,16 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $res['Query'] = $this->query;
         }
 
+        if (null !== $this->searchMode) {
+            $res['SearchMode'] = $this->searchMode;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
 
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
-        }
-
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
         }
 
         if (null !== $this->workspaceId) {
@@ -271,10 +231,6 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $model->createTimeStart = $map['CreateTimeStart'];
         }
 
-        if (isset($map['DatasetDescription'])) {
-            $model->datasetDescription = $map['DatasetDescription'];
-        }
-
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }
@@ -287,8 +243,8 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $model->docIdsShrink = $map['DocIds'];
         }
 
-        if (isset($map['DocType'])) {
-            $model->docType = $map['DocType'];
+        if (isset($map['DocTypes'])) {
+            $model->docTypesShrink = $map['DocTypes'];
         }
 
         if (isset($map['DocUuids'])) {
@@ -297,10 +253,6 @@ class ListDatasetDocumentsShrinkRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-
-        if (isset($map['ExcludeFields'])) {
-            $model->excludeFieldsShrink = $map['ExcludeFields'];
         }
 
         if (isset($map['Extend1'])) {
@@ -315,12 +267,8 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $model->extend3 = $map['Extend3'];
         }
 
-        if (isset($map['IncludeFields'])) {
-            $model->includeFieldsShrink = $map['IncludeFields'];
-        }
-
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['IncludeContent'])) {
+            $model->includeContent = $map['IncludeContent'];
         }
 
         if (isset($map['PageSize'])) {
@@ -331,20 +279,16 @@ class ListDatasetDocumentsShrinkRequest extends Model
             $model->query = $map['Query'];
         }
 
+        if (isset($map['SearchMode'])) {
+            $model->searchMode = $map['SearchMode'];
+        }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
 
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
-        }
-
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
         }
 
         if (isset($map['WorkspaceId'])) {

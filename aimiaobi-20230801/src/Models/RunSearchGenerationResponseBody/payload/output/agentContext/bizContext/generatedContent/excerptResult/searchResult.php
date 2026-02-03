@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponseBody\p
 class searchResult extends Model
 {
     /**
+     * @var string
+     */
+    public $categoryUuid;
+
+    /**
      * @var string[]
      */
     public $chunks;
@@ -34,6 +39,21 @@ class searchResult extends Model
      * @var string
      */
     public $excerpt;
+
+    /**
+     * @var string
+     */
+    public $extend1;
+
+    /**
+     * @var string
+     */
+    public $extend2;
+
+    /**
+     * @var string
+     */
+    public $extend3;
 
     /**
      * @var multimodalMedias[]
@@ -76,6 +96,11 @@ class searchResult extends Model
     public $summary;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var textGenerateMultimodalMediaList[]
      */
     public $textGenerateMultimodalMediaList;
@@ -95,11 +120,15 @@ class searchResult extends Model
      */
     public $url;
     protected $_name = [
+        'categoryUuid' => 'CategoryUuid',
         'chunks' => 'Chunks',
         'content' => 'Content',
         'docId' => 'DocId',
         'docUuid' => 'DocUuid',
         'excerpt' => 'Excerpt',
+        'extend1' => 'Extend1',
+        'extend2' => 'Extend2',
+        'extend3' => 'Extend3',
         'multimodalMedias' => 'MultimodalMedias',
         'pubTime' => 'PubTime',
         'score' => 'Score',
@@ -108,6 +137,7 @@ class searchResult extends Model
         'searchSourceType' => 'SearchSourceType',
         'select' => 'Select',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'textGenerateMultimodalMediaList' => 'TextGenerateMultimodalMediaList',
         'title' => 'Title',
         'traceabilityId' => 'TraceabilityId',
@@ -122,6 +152,9 @@ class searchResult extends Model
         if (\is_array($this->multimodalMedias)) {
             Model::validateArray($this->multimodalMedias);
         }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         if (\is_array($this->textGenerateMultimodalMediaList)) {
             Model::validateArray($this->textGenerateMultimodalMediaList);
         }
@@ -131,6 +164,10 @@ class searchResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->chunks) {
             if (\is_array($this->chunks)) {
                 $res['Chunks'] = [];
@@ -156,6 +193,18 @@ class searchResult extends Model
 
         if (null !== $this->excerpt) {
             $res['Excerpt'] = $this->excerpt;
+        }
+
+        if (null !== $this->extend1) {
+            $res['Extend1'] = $this->extend1;
+        }
+
+        if (null !== $this->extend2) {
+            $res['Extend2'] = $this->extend2;
+        }
+
+        if (null !== $this->extend3) {
+            $res['Extend3'] = $this->extend3;
         }
 
         if (null !== $this->multimodalMedias) {
@@ -197,6 +246,17 @@ class searchResult extends Model
             $res['Summary'] = $this->summary;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->textGenerateMultimodalMediaList) {
             if (\is_array($this->textGenerateMultimodalMediaList)) {
                 $res['TextGenerateMultimodalMediaList'] = [];
@@ -231,6 +291,10 @@ class searchResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['Chunks'])) {
             if (!empty($map['Chunks'])) {
                 $model->chunks = [];
@@ -256,6 +320,18 @@ class searchResult extends Model
 
         if (isset($map['Excerpt'])) {
             $model->excerpt = $map['Excerpt'];
+        }
+
+        if (isset($map['Extend1'])) {
+            $model->extend1 = $map['Extend1'];
+        }
+
+        if (isset($map['Extend2'])) {
+            $model->extend2 = $map['Extend2'];
+        }
+
+        if (isset($map['Extend3'])) {
+            $model->extend3 = $map['Extend3'];
         }
 
         if (isset($map['MultimodalMedias'])) {
@@ -295,6 +371,17 @@ class searchResult extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TextGenerateMultimodalMediaList'])) {

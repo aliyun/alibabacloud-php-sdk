@@ -5,9 +5,25 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchDatasetDocumentsResponseBody\data\documents\chunkInfos;
 
 class documents extends Model
 {
+    /**
+     * @var string
+     */
+    public $categoryUuid;
+
+    /**
+     * @var string
+     */
+    public $chunk;
+
+    /**
+     * @var chunkInfos[]
+     */
+    public $chunkInfos;
+
     /**
      * @var string
      */
@@ -21,12 +37,52 @@ class documents extends Model
     /**
      * @var string
      */
+    public $docType;
+
+    /**
+     * @var string
+     */
     public $docUuid;
 
     /**
      * @var string
      */
+    public $extend1;
+
+    /**
+     * @var string
+     */
+    public $extend2;
+
+    /**
+     * @var string
+     */
+    public $extend3;
+
+    /**
+     * @var string
+     */
     public $pubTime;
+
+    /**
+     * @var float
+     */
+    public $score;
+
+    /**
+     * @var string
+     */
+    public $searchSource;
+
+    /**
+     * @var string
+     */
+    public $searchSourceName;
+
+    /**
+     * @var string
+     */
+    public $searchSourceType;
 
     /**
      * @var string
@@ -39,6 +95,11 @@ class documents extends Model
     public $summary;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $title;
@@ -48,24 +109,61 @@ class documents extends Model
      */
     public $url;
     protected $_name = [
+        'categoryUuid' => 'CategoryUuid',
+        'chunk' => 'Chunk',
+        'chunkInfos' => 'ChunkInfos',
         'content' => 'Content',
         'docId' => 'DocId',
+        'docType' => 'DocType',
         'docUuid' => 'DocUuid',
+        'extend1' => 'Extend1',
+        'extend2' => 'Extend2',
+        'extend3' => 'Extend3',
         'pubTime' => 'PubTime',
+        'score' => 'Score',
+        'searchSource' => 'SearchSource',
+        'searchSourceName' => 'SearchSourceName',
+        'searchSourceType' => 'SearchSourceType',
         'sourceFrom' => 'SourceFrom',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'title' => 'Title',
         'url' => 'Url',
     ];
 
     public function validate()
     {
+        if (\is_array($this->chunkInfos)) {
+            Model::validateArray($this->chunkInfos);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
+        if (null !== $this->chunk) {
+            $res['Chunk'] = $this->chunk;
+        }
+
+        if (null !== $this->chunkInfos) {
+            if (\is_array($this->chunkInfos)) {
+                $res['ChunkInfos'] = [];
+                $n1 = 0;
+                foreach ($this->chunkInfos as $item1) {
+                    $res['ChunkInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -74,12 +172,44 @@ class documents extends Model
             $res['DocId'] = $this->docId;
         }
 
+        if (null !== $this->docType) {
+            $res['DocType'] = $this->docType;
+        }
+
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
 
+        if (null !== $this->extend1) {
+            $res['Extend1'] = $this->extend1;
+        }
+
+        if (null !== $this->extend2) {
+            $res['Extend2'] = $this->extend2;
+        }
+
+        if (null !== $this->extend3) {
+            $res['Extend3'] = $this->extend3;
+        }
+
         if (null !== $this->pubTime) {
             $res['PubTime'] = $this->pubTime;
+        }
+
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
+
+        if (null !== $this->searchSource) {
+            $res['SearchSource'] = $this->searchSource;
+        }
+
+        if (null !== $this->searchSourceName) {
+            $res['SearchSourceName'] = $this->searchSourceName;
+        }
+
+        if (null !== $this->searchSourceType) {
+            $res['SearchSourceType'] = $this->searchSourceType;
         }
 
         if (null !== $this->sourceFrom) {
@@ -88,6 +218,17 @@ class documents extends Model
 
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->title) {
@@ -109,6 +250,25 @@ class documents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
+        if (isset($map['Chunk'])) {
+            $model->chunk = $map['Chunk'];
+        }
+
+        if (isset($map['ChunkInfos'])) {
+            if (!empty($map['ChunkInfos'])) {
+                $model->chunkInfos = [];
+                $n1 = 0;
+                foreach ($map['ChunkInfos'] as $item1) {
+                    $model->chunkInfos[$n1] = chunkInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -117,12 +277,44 @@ class documents extends Model
             $model->docId = $map['DocId'];
         }
 
+        if (isset($map['DocType'])) {
+            $model->docType = $map['DocType'];
+        }
+
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
 
+        if (isset($map['Extend1'])) {
+            $model->extend1 = $map['Extend1'];
+        }
+
+        if (isset($map['Extend2'])) {
+            $model->extend2 = $map['Extend2'];
+        }
+
+        if (isset($map['Extend3'])) {
+            $model->extend3 = $map['Extend3'];
+        }
+
         if (isset($map['PubTime'])) {
             $model->pubTime = $map['PubTime'];
+        }
+
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
+
+        if (isset($map['SearchSource'])) {
+            $model->searchSource = $map['SearchSource'];
+        }
+
+        if (isset($map['SearchSourceName'])) {
+            $model->searchSourceName = $map['SearchSourceName'];
+        }
+
+        if (isset($map['SearchSourceType'])) {
+            $model->searchSourceType = $map['SearchSourceType'];
         }
 
         if (isset($map['SourceFrom'])) {
@@ -131,6 +323,17 @@ class documents extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Title'])) {

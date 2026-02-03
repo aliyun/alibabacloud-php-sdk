@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest\d
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest\document\metadata\asrSentences;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest\document\metadata\keyValues;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AddDatasetDocumentRequest\document\metadata\videoShots;
 
 class metadata extends Model
@@ -14,6 +15,11 @@ class metadata extends Model
      * @var asrSentences[]
      */
     public $asrSentences;
+
+    /**
+     * @var keyValues[]
+     */
+    public $keyValues;
 
     /**
      * @var string
@@ -26,6 +32,7 @@ class metadata extends Model
     public $videoShots;
     protected $_name = [
         'asrSentences' => 'AsrSentences',
+        'keyValues' => 'KeyValues',
         'text' => 'Text',
         'videoShots' => 'VideoShots',
     ];
@@ -34,6 +41,9 @@ class metadata extends Model
     {
         if (\is_array($this->asrSentences)) {
             Model::validateArray($this->asrSentences);
+        }
+        if (\is_array($this->keyValues)) {
+            Model::validateArray($this->keyValues);
         }
         if (\is_array($this->videoShots)) {
             Model::validateArray($this->videoShots);
@@ -50,6 +60,17 @@ class metadata extends Model
                 $n1 = 0;
                 foreach ($this->asrSentences as $item1) {
                     $res['AsrSentences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->keyValues) {
+            if (\is_array($this->keyValues)) {
+                $res['KeyValues'] = [];
+                $n1 = 0;
+                foreach ($this->keyValues as $item1) {
+                    $res['KeyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -87,6 +108,17 @@ class metadata extends Model
                 $n1 = 0;
                 foreach ($map['AsrSentences'] as $item1) {
                     $model->asrSentences[$n1] = asrSentences::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['KeyValues'])) {
+            if (!empty($map['KeyValues'])) {
+                $model->keyValues = [];
+                $n1 = 0;
+                foreach ($map['KeyValues'] as $item1) {
+                    $model->keyValues[$n1] = keyValues::fromMap($item1);
                     ++$n1;
                 }
             }

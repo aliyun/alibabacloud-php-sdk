@@ -13,6 +13,11 @@ class document extends Model
     /**
      * @var string
      */
+    public $categoryUuid;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -81,6 +86,11 @@ class document extends Model
     public $summary;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $title;
@@ -90,6 +100,7 @@ class document extends Model
      */
     public $url;
     protected $_name = [
+        'categoryUuid' => 'CategoryUuid',
         'content' => 'Content',
         'disableHandleMultimodalMedia' => 'DisableHandleMultimodalMedia',
         'docId' => 'DocId',
@@ -104,6 +115,7 @@ class document extends Model
         'pubTime' => 'PubTime',
         'sourceFrom' => 'SourceFrom',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'title' => 'Title',
         'url' => 'Url',
     ];
@@ -116,12 +128,19 @@ class document extends Model
         if (\is_array($this->multimodalMedias)) {
             Model::validateArray($this->multimodalMedias);
         }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -185,6 +204,17 @@ class document extends Model
             $res['Summary'] = $this->summary;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -204,6 +234,10 @@ class document extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -265,6 +299,17 @@ class document extends Model
 
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Title'])) {

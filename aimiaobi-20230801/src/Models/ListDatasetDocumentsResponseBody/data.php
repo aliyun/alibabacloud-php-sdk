@@ -25,6 +25,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $createUser;
+
+    /**
      * @var bool
      */
     public $disableHandleMultimodalMedia;
@@ -85,6 +90,11 @@ class data extends Model
     public $summary;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $title;
@@ -97,11 +107,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $updateUser;
+
+    /**
+     * @var string
+     */
     public $url;
     protected $_name = [
         'categoryUuid' => 'CategoryUuid',
         'content' => 'Content',
         'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
         'disableHandleMultimodalMedia' => 'DisableHandleMultimodalMedia',
         'docId' => 'DocId',
         'docType' => 'DocType',
@@ -114,8 +130,10 @@ class data extends Model
         'sourceFrom' => 'SourceFrom',
         'status' => 'Status',
         'summary' => 'Summary',
+        'tags' => 'Tags',
         'title' => 'Title',
         'updateTime' => 'UpdateTime',
+        'updateUser' => 'UpdateUser',
         'url' => 'Url',
     ];
 
@@ -123,6 +141,9 @@ class data extends Model
     {
         if (\is_array($this->multimodalMedias)) {
             Model::validateArray($this->multimodalMedias);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -140,6 +161,10 @@ class data extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->createUser) {
+            $res['CreateUser'] = $this->createUser;
         }
 
         if (null !== $this->disableHandleMultimodalMedia) {
@@ -197,12 +222,27 @@ class data extends Model
             $res['Summary'] = $this->summary;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->updateUser) {
+            $res['UpdateUser'] = $this->updateUser;
         }
 
         if (null !== $this->url) {
@@ -230,6 +270,10 @@ class data extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CreateUser'])) {
+            $model->createUser = $map['CreateUser'];
         }
 
         if (isset($map['DisableHandleMultimodalMedia'])) {
@@ -287,12 +331,27 @@ class data extends Model
             $model->summary = $map['Summary'];
         }
 
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['UpdateUser'])) {
+            $model->updateUser = $map['UpdateUser'];
         }
 
         if (isset($map['Url'])) {
