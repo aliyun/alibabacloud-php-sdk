@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportSummaryRequ
 use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportSummaryResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionTaskRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionTaskResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisTrafficRankingRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisTrafficRankingResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetInternetTupleRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetInternetTupleResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetInternetTupleShrinkRequest;
@@ -58,6 +60,9 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTasksRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTasksResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisInspectionTaskRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisInspectionTaskResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisTrafficRankingRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisTrafficRankingResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisTrafficRankingShrinkRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\UpdateNisInspectionTaskRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\UpdateNisInspectionTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -931,6 +936,71 @@ class Nis extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNisInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询流量分析topN异步任务结果.
+     *
+     * @param request - DescribeNisTrafficRankingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNisTrafficRankingResponse
+     *
+     * @param DescribeNisTrafficRankingRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeNisTrafficRankingResponse
+     */
+    public function describeNisTrafficRankingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nisTrafficRankingId) {
+            @$query['NisTrafficRankingId'] = $request->nisTrafficRankingId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNisTrafficRanking',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNisTrafficRankingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流量分析topN异步任务结果.
+     *
+     * @param request - DescribeNisTrafficRankingRequest
+     *
+     * @returns DescribeNisTrafficRankingResponse
+     *
+     * @param DescribeNisTrafficRankingRequest $request
+     *
+     * @return DescribeNisTrafficRankingResponse
+     */
+    public function describeNisTrafficRanking($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNisTrafficRankingWithOptions($request, $runtime);
     }
 
     /**
@@ -1965,6 +2035,133 @@ class Nis extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startNisInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取云网络流量指标排名.
+     *
+     * @param tmpReq - StartNisTrafficRankingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartNisTrafficRankingResponse
+     *
+     * @param StartNisTrafficRankingRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartNisTrafficRankingResponse
+     */
+    public function startNisTrafficRankingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartNisTrafficRankingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        if (null !== $tmpReq->groupBy) {
+            $request->groupByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupBy, 'GroupBy', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->groupByShrink) {
+            @$query['GroupBy'] = $request->groupByShrink;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->storageInterval) {
+            @$query['StorageInterval'] = $request->storageInterval;
+        }
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
+        }
+
+        if (null !== $request->trafficAnalyzerId) {
+            @$query['TrafficAnalyzerId'] = $request->trafficAnalyzerId;
+        }
+
+        if (null !== $request->trafficScenario) {
+            @$query['TrafficScenario'] = $request->trafficScenario;
+        }
+
+        if (null !== $request->tupleDimension) {
+            @$query['TupleDimension'] = $request->tupleDimension;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartNisTrafficRanking',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartNisTrafficRankingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取云网络流量指标排名.
+     *
+     * @param request - StartNisTrafficRankingRequest
+     *
+     * @returns StartNisTrafficRankingResponse
+     *
+     * @param StartNisTrafficRankingRequest $request
+     *
+     * @return StartNisTrafficRankingResponse
+     */
+    public function startNisTrafficRanking($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startNisTrafficRankingWithOptions($request, $runtime);
     }
 
     /**
