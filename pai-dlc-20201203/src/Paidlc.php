@@ -173,6 +173,10 @@ class Paidlc extends OpenApiClient
             @$body['CredentialConfig'] = $request->credentialConfig;
         }
 
+        if (null !== $request->customEnvs) {
+            @$body['CustomEnvs'] = $request->customEnvs;
+        }
+
         if (null !== $request->dataSources) {
             @$body['DataSources'] = $request->dataSources;
         }

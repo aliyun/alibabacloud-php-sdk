@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\codeSource;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\customEnvs;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\dataSources;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest\userVpc;
 
@@ -25,6 +26,11 @@ class CreateJobRequest extends Model
      * @var CredentialConfig
      */
     public $credentialConfig;
+
+    /**
+     * @var customEnvs[]
+     */
+    public $customEnvs;
 
     /**
      * @var dataSources[]
@@ -119,6 +125,7 @@ class CreateJobRequest extends Model
         'accessibility' => 'Accessibility',
         'codeSource' => 'CodeSource',
         'credentialConfig' => 'CredentialConfig',
+        'customEnvs' => 'CustomEnvs',
         'dataSources' => 'DataSources',
         'debuggerConfigContent' => 'DebuggerConfigContent',
         'displayName' => 'DisplayName',
@@ -146,6 +153,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->credentialConfig) {
             $this->credentialConfig->validate();
+        }
+        if (\is_array($this->customEnvs)) {
+            Model::validateArray($this->customEnvs);
         }
         if (\is_array($this->dataSources)) {
             Model::validateArray($this->dataSources);
@@ -184,6 +194,17 @@ class CreateJobRequest extends Model
 
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
+        }
+
+        if (null !== $this->customEnvs) {
+            if (\is_array($this->customEnvs)) {
+                $res['CustomEnvs'] = [];
+                $n1 = 0;
+                foreach ($this->customEnvs as $item1) {
+                    $res['CustomEnvs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->dataSources) {
@@ -305,6 +326,17 @@ class CreateJobRequest extends Model
 
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
+
+        if (isset($map['CustomEnvs'])) {
+            if (!empty($map['CustomEnvs'])) {
+                $model->customEnvs = [];
+                $n1 = 0;
+                foreach ($map['CustomEnvs'] as $item1) {
+                    $model->customEnvs[$n1] = customEnvs::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DataSources'])) {
