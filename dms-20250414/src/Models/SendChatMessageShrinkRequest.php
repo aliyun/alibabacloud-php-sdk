@@ -36,6 +36,11 @@ class SendChatMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $parentSessionId;
+
+    /**
+     * @var string
+     */
     public $question;
 
     /**
@@ -63,6 +68,7 @@ class SendChatMessageShrinkRequest extends Model
         'dataSourceShrink' => 'DataSource',
         'message' => 'Message',
         'messageType' => 'MessageType',
+        'parentSessionId' => 'ParentSessionId',
         'question' => 'Question',
         'quotedMessage' => 'QuotedMessage',
         'replyTo' => 'ReplyTo',
@@ -96,6 +102,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (null !== $this->messageType) {
             $res['MessageType'] = $this->messageType;
+        }
+
+        if (null !== $this->parentSessionId) {
+            $res['ParentSessionId'] = $this->parentSessionId;
         }
 
         if (null !== $this->question) {
@@ -147,6 +157,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (isset($map['MessageType'])) {
             $model->messageType = $map['MessageType'];
+        }
+
+        if (isset($map['ParentSessionId'])) {
+            $model->parentSessionId = $map['ParentSessionId'];
         }
 
         if (isset($map['Question'])) {

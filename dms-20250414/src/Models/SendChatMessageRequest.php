@@ -38,6 +38,11 @@ class SendChatMessageRequest extends Model
     /**
      * @var string
      */
+    public $parentSessionId;
+
+    /**
+     * @var string
+     */
     public $question;
 
     /**
@@ -65,6 +70,7 @@ class SendChatMessageRequest extends Model
         'dataSource' => 'DataSource',
         'message' => 'Message',
         'messageType' => 'MessageType',
+        'parentSessionId' => 'ParentSessionId',
         'question' => 'Question',
         'quotedMessage' => 'QuotedMessage',
         'replyTo' => 'ReplyTo',
@@ -104,6 +110,10 @@ class SendChatMessageRequest extends Model
 
         if (null !== $this->messageType) {
             $res['MessageType'] = $this->messageType;
+        }
+
+        if (null !== $this->parentSessionId) {
+            $res['ParentSessionId'] = $this->parentSessionId;
         }
 
         if (null !== $this->question) {
@@ -155,6 +165,10 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['MessageType'])) {
             $model->messageType = $map['MessageType'];
+        }
+
+        if (isset($map['ParentSessionId'])) {
+            $model->parentSessionId = $map['ParentSessionId'];
         }
 
         if (isset($map['Question'])) {

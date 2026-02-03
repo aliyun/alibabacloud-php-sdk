@@ -4079,6 +4079,10 @@ class Dms extends OpenApiClient
             @$query['MessageType'] = $request->messageType;
         }
 
+        if (null !== $request->parentSessionId) {
+            @$query['ParentSessionId'] = $request->parentSessionId;
+        }
+
         if (null !== $request->question) {
             @$query['Question'] = $request->question;
         }
