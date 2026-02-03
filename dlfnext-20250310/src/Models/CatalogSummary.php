@@ -76,6 +76,11 @@ class CatalogSummary extends Model
     /**
      * @var MoMValues
      */
+    public $totalMetaFileCount;
+
+    /**
+     * @var MoMValues
+     */
     public $totalMetaSizeInBytes;
     protected $_name = [
         'apiVisitCountMonthly' => 'apiVisitCountMonthly',
@@ -91,6 +96,7 @@ class CatalogSummary extends Model
         'throughputMonthly' => 'throughputMonthly',
         'totalFileCount' => 'totalFileCount',
         'totalFileSizeInBytes' => 'totalFileSizeInBytes',
+        'totalMetaFileCount' => 'totalMetaFileCount',
         'totalMetaSizeInBytes' => 'totalMetaSizeInBytes',
     ];
 
@@ -110,6 +116,9 @@ class CatalogSummary extends Model
         }
         if (null !== $this->totalFileSizeInBytes) {
             $this->totalFileSizeInBytes->validate();
+        }
+        if (null !== $this->totalMetaFileCount) {
+            $this->totalMetaFileCount->validate();
         }
         if (null !== $this->totalMetaSizeInBytes) {
             $this->totalMetaSizeInBytes->validate();
@@ -170,6 +179,10 @@ class CatalogSummary extends Model
 
         if (null !== $this->totalFileSizeInBytes) {
             $res['totalFileSizeInBytes'] = null !== $this->totalFileSizeInBytes ? $this->totalFileSizeInBytes->toArray($noStream) : $this->totalFileSizeInBytes;
+        }
+
+        if (null !== $this->totalMetaFileCount) {
+            $res['totalMetaFileCount'] = null !== $this->totalMetaFileCount ? $this->totalMetaFileCount->toArray($noStream) : $this->totalMetaFileCount;
         }
 
         if (null !== $this->totalMetaSizeInBytes) {
@@ -237,6 +250,10 @@ class CatalogSummary extends Model
 
         if (isset($map['totalFileSizeInBytes'])) {
             $model->totalFileSizeInBytes = MoMValues::fromMap($map['totalFileSizeInBytes']);
+        }
+
+        if (isset($map['totalMetaFileCount'])) {
+            $model->totalMetaFileCount = MoMValues::fromMap($map['totalMetaFileCount']);
         }
 
         if (isset($map['totalMetaSizeInBytes'])) {

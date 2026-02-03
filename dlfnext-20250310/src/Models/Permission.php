@@ -45,6 +45,11 @@ class Permission extends Model
     public $resourceType;
 
     /**
+     * @var RowFilter
+     */
+    public $rowFilter;
+
+    /**
      * @var string
      */
     public $table;
@@ -61,6 +66,7 @@ class Permission extends Model
         'function' => 'function',
         'principal' => 'principal',
         'resourceType' => 'resourceType',
+        'rowFilter' => 'rowFilter',
         'table' => 'table',
         'view' => 'view',
     ];
@@ -69,6 +75,9 @@ class Permission extends Model
     {
         if (null !== $this->columns) {
             $this->columns->validate();
+        }
+        if (null !== $this->rowFilter) {
+            $this->rowFilter->validate();
         }
         parent::validate();
     }
@@ -102,6 +111,10 @@ class Permission extends Model
 
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->rowFilter) {
+            $res['rowFilter'] = null !== $this->rowFilter ? $this->rowFilter->toArray($noStream) : $this->rowFilter;
         }
 
         if (null !== $this->table) {
@@ -149,6 +162,10 @@ class Permission extends Model
 
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
+        }
+
+        if (isset($map['rowFilter'])) {
+            $model->rowFilter = RowFilter::fromMap($map['rowFilter']);
         }
 
         if (isset($map['table'])) {

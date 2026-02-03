@@ -32,12 +32,18 @@ class TableSnapshot extends Model
      * @var Snapshot
      */
     public $snapshot;
+
+    /**
+     * @var int
+     */
+    public $totalBuckets;
     protected $_name = [
         'fileCount' => 'fileCount',
         'fileSizeInBytes' => 'fileSizeInBytes',
         'lastFileCreationTime' => 'lastFileCreationTime',
         'recordCount' => 'recordCount',
         'snapshot' => 'snapshot',
+        'totalBuckets' => 'totalBuckets',
     ];
 
     public function validate()
@@ -71,6 +77,10 @@ class TableSnapshot extends Model
             $res['snapshot'] = null !== $this->snapshot ? $this->snapshot->toArray($noStream) : $this->snapshot;
         }
 
+        if (null !== $this->totalBuckets) {
+            $res['totalBuckets'] = $this->totalBuckets;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class TableSnapshot extends Model
 
         if (isset($map['snapshot'])) {
             $model->snapshot = Snapshot::fromMap($map['snapshot']);
+        }
+
+        if (isset($map['totalBuckets'])) {
+            $model->totalBuckets = $map['totalBuckets'];
         }
 
         return $model;

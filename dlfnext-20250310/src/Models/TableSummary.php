@@ -91,7 +91,22 @@ class TableSummary extends Model
     /**
      * @var int
      */
+    public $totalMetaFileCount;
+
+    /**
+     * @var int
+     */
     public $totalMetaSizeInBytes;
+
+    /**
+     * @var int
+     */
+    public $unaccessedStdIaPartitionCount180d;
+
+    /**
+     * @var int
+     */
+    public $unaccessedStdPartitionCount30d;
 
     /**
      * @var int
@@ -114,7 +129,10 @@ class TableSummary extends Model
         'tableName' => 'tableName',
         'totalFileCount' => 'totalFileCount',
         'totalFileSizeInBytes' => 'totalFileSizeInBytes',
+        'totalMetaFileCount' => 'totalMetaFileCount',
         'totalMetaSizeInBytes' => 'totalMetaSizeInBytes',
+        'unaccessedStdIaPartitionCount180d' => 'unaccessedStdIaPartitionCount180d',
+        'unaccessedStdPartitionCount30d' => 'unaccessedStdPartitionCount30d',
         'updatedAt' => 'updatedAt',
     ];
 
@@ -198,8 +216,20 @@ class TableSummary extends Model
             $res['totalFileSizeInBytes'] = $this->totalFileSizeInBytes;
         }
 
+        if (null !== $this->totalMetaFileCount) {
+            $res['totalMetaFileCount'] = $this->totalMetaFileCount;
+        }
+
         if (null !== $this->totalMetaSizeInBytes) {
             $res['totalMetaSizeInBytes'] = $this->totalMetaSizeInBytes;
+        }
+
+        if (null !== $this->unaccessedStdIaPartitionCount180d) {
+            $res['unaccessedStdIaPartitionCount180d'] = $this->unaccessedStdIaPartitionCount180d;
+        }
+
+        if (null !== $this->unaccessedStdPartitionCount30d) {
+            $res['unaccessedStdPartitionCount30d'] = $this->unaccessedStdPartitionCount30d;
         }
 
         if (null !== $this->updatedAt) {
@@ -286,8 +316,20 @@ class TableSummary extends Model
             $model->totalFileSizeInBytes = $map['totalFileSizeInBytes'];
         }
 
+        if (isset($map['totalMetaFileCount'])) {
+            $model->totalMetaFileCount = $map['totalMetaFileCount'];
+        }
+
         if (isset($map['totalMetaSizeInBytes'])) {
             $model->totalMetaSizeInBytes = $map['totalMetaSizeInBytes'];
+        }
+
+        if (isset($map['unaccessedStdIaPartitionCount180d'])) {
+            $model->unaccessedStdIaPartitionCount180d = $map['unaccessedStdIaPartitionCount180d'];
+        }
+
+        if (isset($map['unaccessedStdPartitionCount30d'])) {
+            $model->unaccessedStdPartitionCount30d = $map['unaccessedStdPartitionCount30d'];
         }
 
         if (isset($map['updatedAt'])) {

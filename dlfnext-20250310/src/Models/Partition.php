@@ -66,6 +66,11 @@ class Partition extends Model
     /**
      * @var int
      */
+    public $totalBuckets;
+
+    /**
+     * @var int
+     */
     public $updatedAt;
 
     /**
@@ -84,6 +89,7 @@ class Partition extends Model
         'storageAction' => 'storageAction',
         'storageActionTimestamp' => 'storageActionTimestamp',
         'storageClass' => 'storageClass',
+        'totalBuckets' => 'totalBuckets',
         'updatedAt' => 'updatedAt',
         'updatedBy' => 'updatedBy',
     ];
@@ -146,6 +152,10 @@ class Partition extends Model
 
         if (null !== $this->storageClass) {
             $res['storageClass'] = $this->storageClass;
+        }
+
+        if (null !== $this->totalBuckets) {
+            $res['totalBuckets'] = $this->totalBuckets;
         }
 
         if (null !== $this->updatedAt) {
@@ -214,6 +224,10 @@ class Partition extends Model
 
         if (isset($map['storageClass'])) {
             $model->storageClass = $map['storageClass'];
+        }
+
+        if (isset($map['totalBuckets'])) {
+            $model->totalBuckets = $map['totalBuckets'];
         }
 
         if (isset($map['updatedAt'])) {

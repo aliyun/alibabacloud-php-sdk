@@ -1300,7 +1300,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据湖Catalog.
+     * 删除数据湖Catalog.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1334,7 +1334,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据湖Catalog.
+     * 删除数据湖Catalog.
      *
      * @returns DropCatalogResponse
      *
