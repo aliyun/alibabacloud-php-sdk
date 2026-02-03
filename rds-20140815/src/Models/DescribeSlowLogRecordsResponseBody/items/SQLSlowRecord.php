@@ -46,6 +46,11 @@ class SQLSlowRecord extends Model
     /**
      * @var int
      */
+    public $lockTimeMS;
+
+    /**
+     * @var int
+     */
     public $lockTimes;
 
     /**
@@ -110,6 +115,7 @@ class SQLSlowRecord extends Model
         'executionStartTime' => 'ExecutionStartTime',
         'hostAddress' => 'HostAddress',
         'lastRowsAffectedCount' => 'LastRowsAffectedCount',
+        'lockTimeMS' => 'LockTimeMS',
         'lockTimes' => 'LockTimes',
         'logicalIORead' => 'LogicalIORead',
         'parseRowCounts' => 'ParseRowCounts',
@@ -158,6 +164,10 @@ class SQLSlowRecord extends Model
 
         if (null !== $this->lastRowsAffectedCount) {
             $res['LastRowsAffectedCount'] = $this->lastRowsAffectedCount;
+        }
+
+        if (null !== $this->lockTimeMS) {
+            $res['LockTimeMS'] = $this->lockTimeMS;
         }
 
         if (null !== $this->lockTimes) {
@@ -245,6 +255,10 @@ class SQLSlowRecord extends Model
 
         if (isset($map['LastRowsAffectedCount'])) {
             $model->lastRowsAffectedCount = $map['LastRowsAffectedCount'];
+        }
+
+        if (isset($map['LockTimeMS'])) {
+            $model->lockTimeMS = $map['LockTimeMS'];
         }
 
         if (isset($map['LockTimes'])) {

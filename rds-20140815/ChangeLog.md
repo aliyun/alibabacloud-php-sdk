@@ -1,3 +1,7 @@
+2026-02-03 Version: 13.1.2
+- Update API DescribeSlowLogRecords: add response parameters Body.Items.$.LockTimeMS.
+
+
 2026-01-29 Version: 13.1.1
 - Update API PrecheckDuckDBDependency: add request parameters TargetMode.
 
