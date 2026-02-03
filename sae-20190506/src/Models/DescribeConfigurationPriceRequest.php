@@ -19,6 +19,16 @@ class DescribeConfigurationPriceRequest extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $gpuA10;
+
+    /**
+     * @var string
+     */
+    public $gpuPpu810e;
+
+    /**
      * @var int
      */
     public $memory;
@@ -40,6 +50,8 @@ class DescribeConfigurationPriceRequest extends Model
     protected $_name = [
         'bestEffortType' => 'BestEffortType',
         'cpu' => 'Cpu',
+        'gpuA10' => 'GpuA10',
+        'gpuPpu810e' => 'GpuPpu810e',
         'memory' => 'Memory',
         'newSaeVersion' => 'NewSaeVersion',
         'resourceType' => 'ResourceType',
@@ -60,6 +72,14 @@ class DescribeConfigurationPriceRequest extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->gpuA10) {
+            $res['GpuA10'] = $this->gpuA10;
+        }
+
+        if (null !== $this->gpuPpu810e) {
+            $res['GpuPpu810e'] = $this->gpuPpu810e;
         }
 
         if (null !== $this->memory) {
@@ -95,6 +115,14 @@ class DescribeConfigurationPriceRequest extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['GpuA10'])) {
+            $model->gpuA10 = $map['GpuA10'];
+        }
+
+        if (isset($map['GpuPpu810e'])) {
+            $model->gpuPpu810e = $map['GpuPpu810e'];
         }
 
         if (isset($map['Memory'])) {

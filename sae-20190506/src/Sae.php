@@ -4772,6 +4772,14 @@ class Sae extends OpenApiClient
             @$query['Cpu'] = $request->cpu;
         }
 
+        if (null !== $request->gpuA10) {
+            @$query['GpuA10'] = $request->gpuA10;
+        }
+
+        if (null !== $request->gpuPpu810e) {
+            @$query['GpuPpu810e'] = $request->gpuPpu810e;
+        }
+
         if (null !== $request->memory) {
             @$query['Memory'] = $request->memory;
         }
