@@ -90,6 +90,11 @@ class networkInterfaceSet extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var bool
+     */
+    public $vmncLearn;
     protected $_name = [
         'creationTime' => 'CreationTime',
         'description' => 'Description',
@@ -107,6 +112,7 @@ class networkInterfaceSet extends Model
         'status' => 'Status',
         'type' => 'Type',
         'vSwitchId' => 'VSwitchId',
+        'vmncLearn' => 'VmncLearn',
     ];
 
     public function validate()
@@ -190,6 +196,10 @@ class networkInterfaceSet extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
+        if (null !== $this->vmncLearn) {
+            $res['VmncLearn'] = $this->vmncLearn;
+        }
+
         return $res;
     }
 
@@ -263,6 +273,10 @@ class networkInterfaceSet extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VmncLearn'])) {
+            $model->vmncLearn = $map['VmncLearn'];
         }
 
         return $model;
