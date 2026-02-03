@@ -16,6 +16,16 @@ class GetPermissionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $callerType;
+
+    /**
+     * @var string
+     */
+    public $callerUid;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -32,12 +42,20 @@ class GetPermissionShrinkRequest extends Model
      * @var string
      */
     public $resource;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'callerType' => 'CallerType',
+        'callerUid' => 'CallerUid',
         'creator' => 'Creator',
         'labelsShrink' => 'Labels',
         'option' => 'Option',
         'resource' => 'Resource',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -50,6 +68,14 @@ class GetPermissionShrinkRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->callerType) {
+            $res['CallerType'] = $this->callerType;
+        }
+
+        if (null !== $this->callerUid) {
+            $res['CallerUid'] = $this->callerUid;
         }
 
         if (null !== $this->creator) {
@@ -68,6 +94,10 @@ class GetPermissionShrinkRequest extends Model
             $res['Resource'] = $this->resource;
         }
 
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+
         return $res;
     }
 
@@ -81,6 +111,14 @@ class GetPermissionShrinkRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['CallerType'])) {
+            $model->callerType = $map['CallerType'];
+        }
+
+        if (isset($map['CallerUid'])) {
+            $model->callerUid = $map['CallerUid'];
         }
 
         if (isset($map['Creator'])) {
@@ -97,6 +135,10 @@ class GetPermissionShrinkRequest extends Model
 
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

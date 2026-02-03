@@ -216,6 +216,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ValidateConnectionRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ValidateConnectionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -4618,6 +4620,14 @@ class AIWorkSpace extends OpenApiClient
             @$query['Accessibility'] = $request->accessibility;
         }
 
+        if (null !== $request->callerType) {
+            @$query['CallerType'] = $request->callerType;
+        }
+
+        if (null !== $request->callerUid) {
+            @$query['CallerUid'] = $request->callerUid;
+        }
+
         if (null !== $request->creator) {
             @$query['Creator'] = $request->creator;
         }
@@ -4632,6 +4642,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->resource) {
             @$query['Resource'] = $request->resource;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
 
         $req = new OpenApiRequest([
@@ -8862,5 +8876,86 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateWorkspaceResourceWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 验证连接.
+     *
+     * @param request - ValidateConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateConnectionResponse
+     *
+     * @param ValidateConnectionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ValidateConnectionResponse
+     */
+    public function validateConnectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configs) {
+            @$body['Configs'] = $request->configs;
+        }
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->connectionType) {
+            @$body['ConnectionType'] = $request->connectionType;
+        }
+
+        if (null !== $request->secrets) {
+            @$body['Secrets'] = $request->secrets;
+        }
+
+        if (null !== $request->validateType) {
+            @$body['ValidateType'] = $request->validateType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateConnection',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/connections/validate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证连接.
+     *
+     * @param request - ValidateConnectionRequest
+     *
+     * @returns ValidateConnectionResponse
+     *
+     * @param ValidateConnectionRequest $request
+     *
+     * @return ValidateConnectionResponse
+     */
+    public function validateConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->validateConnectionWithOptions($request, $headers, $runtime);
     }
 }
