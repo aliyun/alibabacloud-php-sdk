@@ -31,6 +31,11 @@ class SQLSlowRecord extends Model
     /**
      * @var int
      */
+    public $lockTimeMS;
+
+    /**
+     * @var int
+     */
     public $lockTimes;
 
     /**
@@ -67,6 +72,7 @@ class SQLSlowRecord extends Model
         'DBNodeId' => 'DBNodeId',
         'executionStartTime' => 'ExecutionStartTime',
         'hostAddress' => 'HostAddress',
+        'lockTimeMS' => 'LockTimeMS',
         'lockTimes' => 'LockTimes',
         'parseRowCounts' => 'ParseRowCounts',
         'queryTimeMS' => 'QueryTimeMS',
@@ -98,6 +104,10 @@ class SQLSlowRecord extends Model
 
         if (null !== $this->hostAddress) {
             $res['HostAddress'] = $this->hostAddress;
+        }
+
+        if (null !== $this->lockTimeMS) {
+            $res['LockTimeMS'] = $this->lockTimeMS;
         }
 
         if (null !== $this->lockTimes) {
@@ -153,6 +163,10 @@ class SQLSlowRecord extends Model
 
         if (isset($map['HostAddress'])) {
             $model->hostAddress = $map['HostAddress'];
+        }
+
+        if (isset($map['LockTimeMS'])) {
+            $model->lockTimeMS = $map['LockTimeMS'];
         }
 
         if (isset($map['LockTimes'])) {
