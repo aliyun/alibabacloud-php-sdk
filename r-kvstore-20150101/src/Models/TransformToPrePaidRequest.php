@@ -26,6 +26,11 @@ class TransformToPrePaidRequest extends Model
     /**
      * @var string
      */
+    public $couponNo;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -61,6 +66,7 @@ class TransformToPrePaidRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
+        'couponNo' => 'CouponNo',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -88,6 +94,10 @@ class TransformToPrePaidRequest extends Model
 
         if (null !== $this->autoRenewPeriod) {
             $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
+        }
+
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
         }
 
         if (null !== $this->instanceId) {
@@ -139,6 +149,10 @@ class TransformToPrePaidRequest extends Model
 
         if (isset($map['AutoRenewPeriod'])) {
             $model->autoRenewPeriod = $map['AutoRenewPeriod'];
+        }
+
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
         }
 
         if (isset($map['InstanceId'])) {

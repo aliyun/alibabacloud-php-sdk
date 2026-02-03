@@ -36,6 +36,11 @@ class DescribeIntranetAttributeResponseBody extends Model
     /**
      * @var int
      */
+    public $intranetBandWidthBurst;
+
+    /**
+     * @var int
+     */
     public $intranetBandwidth;
 
     /**
@@ -48,6 +53,7 @@ class DescribeIntranetAttributeResponseBody extends Model
         'bandwidthPrePaid' => 'BandwidthPrePaid',
         'expireTime' => 'ExpireTime',
         'hasPrePaidBandWidthOrderRunning' => 'HasPrePaidBandWidthOrderRunning',
+        'intranetBandWidthBurst' => 'IntranetBandWidthBurst',
         'intranetBandwidth' => 'IntranetBandwidth',
         'requestId' => 'RequestId',
     ];
@@ -78,6 +84,10 @@ class DescribeIntranetAttributeResponseBody extends Model
 
         if (null !== $this->hasPrePaidBandWidthOrderRunning) {
             $res['HasPrePaidBandWidthOrderRunning'] = $this->hasPrePaidBandWidthOrderRunning;
+        }
+
+        if (null !== $this->intranetBandWidthBurst) {
+            $res['IntranetBandWidthBurst'] = $this->intranetBandWidthBurst;
         }
 
         if (null !== $this->intranetBandwidth) {
@@ -117,6 +127,10 @@ class DescribeIntranetAttributeResponseBody extends Model
 
         if (isset($map['HasPrePaidBandWidthOrderRunning'])) {
             $model->hasPrePaidBandWidthOrderRunning = $map['HasPrePaidBandWidthOrderRunning'];
+        }
+
+        if (isset($map['IntranetBandWidthBurst'])) {
+            $model->intranetBandWidthBurst = $map['IntranetBandWidthBurst'];
         }
 
         if (isset($map['IntranetBandwidth'])) {

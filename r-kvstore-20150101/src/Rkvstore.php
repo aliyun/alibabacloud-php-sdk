@@ -8559,7 +8559,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairInfer实例列表.
+     * Queries the information of one or more Tair (Redis OSS-compatible) KVCache instances.
+     *
+     * @remarks
+     * You can call this operation to query the following Tair (Redis OSS-compatible) KVCache instances: inference operator instances, virtual cluster instances, and cache service instances.
      *
      * @param request - DescribeTairKVCacheInferInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8594,7 +8597,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairInfer实例列表.
+     * Queries the information of one or more Tair (Redis OSS-compatible) KVCache instances.
+     *
+     * @remarks
+     * You can call this operation to query the following Tair (Redis OSS-compatible) KVCache instances: inference operator instances, virtual cluster instances, and cache service instances.
      *
      * @param request - DescribeTairKVCacheInferInstancesRequest
      *
@@ -14810,6 +14816,10 @@ class Rkvstore extends OpenApiClient
             @$query['ChargeType'] = $request->chargeType;
         }
 
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -15019,6 +15029,10 @@ class Rkvstore extends OpenApiClient
 
         if (null !== $request->autoRenewPeriod) {
             @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
         }
 
         if (null !== $request->instanceId) {

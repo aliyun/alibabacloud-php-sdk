@@ -31,6 +31,11 @@ class TransformInstanceChargeTypeRequest extends Model
     /**
      * @var string
      */
+    public $couponNo;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -67,6 +72,7 @@ class TransformInstanceChargeTypeRequest extends Model
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
         'chargeType' => 'ChargeType',
+        'couponNo' => 'CouponNo',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -98,6 +104,10 @@ class TransformInstanceChargeTypeRequest extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
         }
 
         if (null !== $this->instanceId) {
@@ -153,6 +163,10 @@ class TransformInstanceChargeTypeRequest extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
         }
 
         if (isset($map['InstanceId'])) {
