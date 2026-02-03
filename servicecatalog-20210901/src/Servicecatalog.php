@@ -245,6 +245,10 @@ class Servicecatalog extends OpenApiClient
             @$body['PrincipalId'] = $request->principalId;
         }
 
+        if (null !== $request->principalPattern) {
+            @$body['PrincipalPattern'] = $request->principalPattern;
+        }
+
         if (null !== $request->principalType) {
             @$body['PrincipalType'] = $request->principalType;
         }
@@ -1488,6 +1492,10 @@ class Servicecatalog extends OpenApiClient
 
         if (null !== $request->principalId) {
             @$body['PrincipalId'] = $request->principalId;
+        }
+
+        if (null !== $request->principalPattern) {
+            @$body['PrincipalPattern'] = $request->principalPattern;
         }
 
         if (null !== $request->principalType) {

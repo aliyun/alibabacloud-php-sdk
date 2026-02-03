@@ -17,6 +17,16 @@ class ListTagOptionsRequest extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
@@ -35,6 +45,8 @@ class ListTagOptionsRequest extends Model
     public $sortOrder;
     protected $_name = [
         'filters' => 'Filters',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'sortBy' => 'SortBy',
@@ -54,6 +66,14 @@ class ListTagOptionsRequest extends Model
         $res = [];
         if (null !== $this->filters) {
             $res['Filters'] = null !== $this->filters ? $this->filters->toArray($noStream) : $this->filters;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNumber) {
@@ -85,6 +105,14 @@ class ListTagOptionsRequest extends Model
         $model = new self();
         if (isset($map['Filters'])) {
             $model->filters = filters::fromMap($map['Filters']);
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNumber'])) {

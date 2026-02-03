@@ -16,6 +16,16 @@ class ListTagOptionsShrinkRequest extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
@@ -34,6 +44,8 @@ class ListTagOptionsShrinkRequest extends Model
     public $sortOrder;
     protected $_name = [
         'filtersShrink' => 'Filters',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'sortBy' => 'SortBy',
@@ -50,6 +62,14 @@ class ListTagOptionsShrinkRequest extends Model
         $res = [];
         if (null !== $this->filtersShrink) {
             $res['Filters'] = $this->filtersShrink;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNumber) {
@@ -81,6 +101,14 @@ class ListTagOptionsShrinkRequest extends Model
         $model = new self();
         if (isset($map['Filters'])) {
             $model->filtersShrink = $map['Filters'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNumber'])) {

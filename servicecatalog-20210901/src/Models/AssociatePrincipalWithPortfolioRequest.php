@@ -21,10 +21,16 @@ class AssociatePrincipalWithPortfolioRequest extends Model
     /**
      * @var string
      */
+    public $principalPattern;
+
+    /**
+     * @var string
+     */
     public $principalType;
     protected $_name = [
         'portfolioId' => 'PortfolioId',
         'principalId' => 'PrincipalId',
+        'principalPattern' => 'PrincipalPattern',
         'principalType' => 'PrincipalType',
     ];
 
@@ -42,6 +48,10 @@ class AssociatePrincipalWithPortfolioRequest extends Model
 
         if (null !== $this->principalId) {
             $res['PrincipalId'] = $this->principalId;
+        }
+
+        if (null !== $this->principalPattern) {
+            $res['PrincipalPattern'] = $this->principalPattern;
         }
 
         if (null !== $this->principalType) {
@@ -65,6 +75,10 @@ class AssociatePrincipalWithPortfolioRequest extends Model
 
         if (isset($map['PrincipalId'])) {
             $model->principalId = $map['PrincipalId'];
+        }
+
+        if (isset($map['PrincipalPattern'])) {
+            $model->principalPattern = $map['PrincipalPattern'];
         }
 
         if (isset($map['PrincipalType'])) {

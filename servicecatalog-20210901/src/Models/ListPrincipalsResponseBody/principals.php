@@ -16,9 +16,15 @@ class principals extends Model
     /**
      * @var string
      */
+    public $principalPattern;
+
+    /**
+     * @var string
+     */
     public $principalType;
     protected $_name = [
         'principalId' => 'PrincipalId',
+        'principalPattern' => 'PrincipalPattern',
         'principalType' => 'PrincipalType',
     ];
 
@@ -32,6 +38,10 @@ class principals extends Model
         $res = [];
         if (null !== $this->principalId) {
             $res['PrincipalId'] = $this->principalId;
+        }
+
+        if (null !== $this->principalPattern) {
+            $res['PrincipalPattern'] = $this->principalPattern;
         }
 
         if (null !== $this->principalType) {
@@ -51,6 +61,10 @@ class principals extends Model
         $model = new self();
         if (isset($map['PrincipalId'])) {
             $model->principalId = $map['PrincipalId'];
+        }
+
+        if (isset($map['PrincipalPattern'])) {
+            $model->principalPattern = $map['PrincipalPattern'];
         }
 
         if (isset($map['PrincipalType'])) {
