@@ -81,6 +81,11 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     /**
      * @var string
      */
+    public $trAttachmentId;
+
+    /**
+     * @var string
+     */
     public $trAttachmentMasterCidr;
 
     /**
@@ -117,6 +122,7 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         'regionNo' => 'RegionNo',
         'requestId' => 'RequestId',
         'routeMode' => 'RouteMode',
+        'trAttachmentId' => 'TrAttachmentId',
         'trAttachmentMasterCidr' => 'TrAttachmentMasterCidr',
         'trAttachmentMasterZone' => 'TrAttachmentMasterZone',
         'trAttachmentSlaveCidr' => 'TrAttachmentSlaveCidr',
@@ -186,6 +192,10 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
 
         if (null !== $this->routeMode) {
             $res['RouteMode'] = $this->routeMode;
+        }
+
+        if (null !== $this->trAttachmentId) {
+            $res['TrAttachmentId'] = $this->trAttachmentId;
         }
 
         if (null !== $this->trAttachmentMasterCidr) {
@@ -273,6 +283,10 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
 
         if (isset($map['RouteMode'])) {
             $model->routeMode = $map['RouteMode'];
+        }
+
+        if (isset($map['TrAttachmentId'])) {
+            $model->trAttachmentId = $map['TrAttachmentId'];
         }
 
         if (isset($map['TrAttachmentMasterCidr'])) {
