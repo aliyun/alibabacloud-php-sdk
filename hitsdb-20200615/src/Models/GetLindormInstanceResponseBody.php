@@ -40,6 +40,11 @@ class GetLindormInstanceResponseBody extends Model
     public $autoRenew;
 
     /**
+     * @var string
+     */
+    public $backupInstance;
+
+    /**
      * @var int
      */
     public $coldStorage;
@@ -300,6 +305,7 @@ class GetLindormInstanceResponseBody extends Model
         'archVersion' => 'ArchVersion',
         'archiveStorage' => 'ArchiveStorage',
         'autoRenew' => 'AutoRenew',
+        'backupInstance' => 'BackupInstance',
         'coldStorage' => 'ColdStorage',
         'coreDiskCategory' => 'CoreDiskCategory',
         'coreNum' => 'CoreNum',
@@ -386,6 +392,10 @@ class GetLindormInstanceResponseBody extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->backupInstance) {
+            $res['BackupInstance'] = $this->backupInstance;
         }
 
         if (null !== $this->coldStorage) {
@@ -632,6 +642,10 @@ class GetLindormInstanceResponseBody extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['BackupInstance'])) {
+            $model->backupInstance = $map['BackupInstance'];
         }
 
         if (isset($map['ColdStorage'])) {
