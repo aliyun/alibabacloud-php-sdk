@@ -253,10 +253,14 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableResourceServerCustomSubjectRequ
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableResourceServerCustomSubjectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateDownloadUrlForSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateFileImportTemplateRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateFileImportTemplateResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateOauthTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateOauthTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateUploadAuthRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateUploadAuthResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigRequest;
@@ -351,10 +355,14 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetResourceServerScopeRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetResourceServerScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetRootOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetRootOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetServiceQuotaRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetServiceQuotaResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListActionTrackEventTypesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListActionTrackEventTypesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationAccountsRequest;
@@ -422,6 +430,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamInstancesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamInstancesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEiamRegionsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEventTypesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListEventTypesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationRequest;
@@ -494,6 +504,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsRequ
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUsersFromGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUsersFromGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RenewFreeLicenseEndTimeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RenewFreeLicenseEndTimeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromGroupsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromGroupsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeApplicationFromOrganizationalUnitsRequest;
@@ -528,8 +540,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderAuthnConfigurationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderAuthnConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPushConfigurationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPushConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetInstanceControlConfigurationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetInstanceControlConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetInstanceGlobalizationConfigRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetInstanceGlobalizationConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetLoginRedirectApplicationForBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetLoginRedirectApplicationForBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationRequest;
@@ -544,6 +564,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPrimaryClientPublicKeyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPrimaryClientPublicKeyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetUserPrimaryOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetUserPrimaryOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetWebAuthnConfigurationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetWebAuthnConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindTotpAuthenticatorRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindTotpAuthenticatorResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnbindUserAuthnSourceMappingResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UnlockUserRequest;
@@ -9004,6 +9028,75 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 解析IdP Metadata信息。
+     *
+     * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecIdentityProviderMetadataUrlResolutionResponse
+     *
+     * @param ExecIdentityProviderMetadataUrlResolutionRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return ExecIdentityProviderMetadataUrlResolutionResponse
+     */
+    public function execIdentityProviderMetadataUrlResolutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+
+        if (null !== $request->oidcIssuer) {
+            @$query['OidcIssuer'] = $request->oidcIssuer;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExecIdentityProviderMetadataUrlResolution',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecIdentityProviderMetadataUrlResolutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解析IdP Metadata信息。
+     *
+     * @param request - ExecIdentityProviderMetadataUrlResolutionRequest
+     *
+     * @returns ExecIdentityProviderMetadataUrlResolutionResponse
+     *
+     * @param ExecIdentityProviderMetadataUrlResolutionRequest $request
+     *
+     * @return ExecIdentityProviderMetadataUrlResolutionResponse
+     */
+    public function execIdentityProviderMetadataUrlResolution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->execIdentityProviderMetadataUrlResolutionWithOptions($request, $runtime);
+    }
+
+    /**
      * 生成文件导入结果下载地址
      *
      * @param request - GenerateDownloadUrlForSynchronizationJobRequest
@@ -9123,6 +9216,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateFileImportTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成 Oauth Token.
+     *
+     * @param request - GenerateOauthTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateOauthTokenResponse
+     *
+     * @param GenerateOauthTokenRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GenerateOauthTokenResponse
+     */
+    public function generateOauthTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->audience) {
+            @$query['Audience'] = $request->audience;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scopeValues) {
+            @$query['ScopeValues'] = $request->scopeValues;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateOauthToken',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateOauthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成 Oauth Token.
+     *
+     * @param request - GenerateOauthTokenRequest
+     *
+     * @returns GenerateOauthTokenResponse
+     *
+     * @param GenerateOauthTokenRequest $request
+     *
+     * @return GenerateOauthTokenResponse
+     */
+    public function generateOauthToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateOauthTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -11989,6 +12151,63 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 获取服务Quota.
+     *
+     * @param request - GetServiceQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceQuotaResponse
+     *
+     * @param GetServiceQuotaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetServiceQuotaResponse
+     */
+    public function getServiceQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->quotaType) {
+            @$query['QuotaType'] = $request->quotaType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceQuota',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务Quota.
+     *
+     * @param request - GetServiceQuotaRequest
+     *
+     * @returns GetServiceQuotaResponse
+     *
+     * @param GetServiceQuotaRequest $request
+     *
+     * @return GetServiceQuotaResponse
+     */
+    public function getServiceQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the information about a single synchronization job.
      *
      * @param request - GetSynchronizationJobRequest
@@ -12108,6 +12327,75 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看调用事件列表.
+     *
+     * @param request - ListActionTrackEventTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListActionTrackEventTypesResponse
+     *
+     * @param ListActionTrackEventTypesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListActionTrackEventTypesResponse
+     */
+    public function listActionTrackEventTypesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListActionTrackEventTypes',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListActionTrackEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看调用事件列表.
+     *
+     * @param request - ListActionTrackEventTypesRequest
+     *
+     * @returns ListActionTrackEventTypesResponse
+     *
+     * @param ListActionTrackEventTypesRequest $request
+     *
+     * @return ListActionTrackEventTypesResponse
+     */
+    public function listActionTrackEventTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listActionTrackEventTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -14459,6 +14747,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEiamRegionsWithOptions($runtime);
+    }
+
+    /**
+     * 查看事件列表.
+     *
+     * @param request - ListEventTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventTypesResponse
+     *
+     * @param ListEventTypesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListEventTypesResponse
+     */
+    public function listEventTypesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEventTypes',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看事件列表.
+     *
+     * @param request - ListEventTypesRequest
+     *
+     * @returns ListEventTypesResponse
+     *
+     * @param ListEventTypesRequest $request
+     *
+     * @return ListEventTypesResponse
+     */
+    public function listEventTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEventTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -17085,6 +17434,63 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 免费版续期
+     *
+     * @param request - RenewFreeLicenseEndTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewFreeLicenseEndTimeResponse
+     *
+     * @param RenewFreeLicenseEndTimeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RenewFreeLicenseEndTimeResponse
+     */
+    public function renewFreeLicenseEndTimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewFreeLicenseEndTime',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewFreeLicenseEndTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 免费版续期
+     *
+     * @param request - RenewFreeLicenseEndTimeRequest
+     *
+     * @returns RenewFreeLicenseEndTimeResponse
+     *
+     * @param RenewFreeLicenseEndTimeRequest $request
+     *
+     * @return RenewFreeLicenseEndTimeResponse
+     */
+    public function renewFreeLicenseEndTime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewFreeLicenseEndTimeWithOptions($request, $runtime);
+    }
+
+    /**
      * Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - RevokeApplicationFromGroupsRequest
@@ -18276,6 +18682,83 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 修改认证信息.
+     *
+     * @param request - SetIdentityProviderAuthnConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetIdentityProviderAuthnConfigurationResponse
+     *
+     * @param SetIdentityProviderAuthnConfigurationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return SetIdentityProviderAuthnConfigurationResponse
+     */
+    public function setIdentityProviderAuthnConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoCreateUserConfig) {
+            @$query['AutoCreateUserConfig'] = $request->autoCreateUserConfig;
+        }
+
+        if (null !== $request->autoUpdateUserConfig) {
+            @$query['AutoUpdateUserConfig'] = $request->autoUpdateUserConfig;
+        }
+
+        if (null !== $request->bindingConfig) {
+            @$query['BindingConfig'] = $request->bindingConfig;
+        }
+
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ldapAuthnConfig) {
+            @$query['LdapAuthnConfig'] = $request->ldapAuthnConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetIdentityProviderAuthnConfiguration',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetIdentityProviderAuthnConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改认证信息.
+     *
+     * @param request - SetIdentityProviderAuthnConfigurationRequest
+     *
+     * @returns SetIdentityProviderAuthnConfigurationResponse
+     *
+     * @param SetIdentityProviderAuthnConfigurationRequest $request
+     *
+     * @return SetIdentityProviderAuthnConfigurationResponse
+     */
+    public function setIdentityProviderAuthnConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setIdentityProviderAuthnConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * Update IdP synchronization configuration.
      *
      * @param request - SetIdentityProviderUdPullConfigurationRequest
@@ -18362,6 +18845,213 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setIdentityProviderUdPullConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改IdP同步出配置.
+     *
+     * @param request - SetIdentityProviderUdPushConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetIdentityProviderUdPushConfigurationResponse
+     *
+     * @param SetIdentityProviderUdPushConfigurationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SetIdentityProviderUdPushConfigurationResponse
+     */
+    public function setIdentityProviderUdPushConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
+        }
+
+        if (null !== $request->incrementalCallbackStatus) {
+            @$query['IncrementalCallbackStatus'] = $request->incrementalCallbackStatus;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ldapUdPushConfig) {
+            @$query['LdapUdPushConfig'] = $request->ldapUdPushConfig;
+        }
+
+        if (null !== $request->periodicSyncConfig) {
+            @$query['PeriodicSyncConfig'] = $request->periodicSyncConfig;
+        }
+
+        if (null !== $request->periodicSyncStatus) {
+            @$query['PeriodicSyncStatus'] = $request->periodicSyncStatus;
+        }
+
+        if (null !== $request->udSyncScopeConfigs) {
+            @$query['UdSyncScopeConfigs'] = $request->udSyncScopeConfigs;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetIdentityProviderUdPushConfiguration',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetIdentityProviderUdPushConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改IdP同步出配置.
+     *
+     * @param request - SetIdentityProviderUdPushConfigurationRequest
+     *
+     * @returns SetIdentityProviderUdPushConfigurationResponse
+     *
+     * @param SetIdentityProviderUdPushConfigurationRequest $request
+     *
+     * @return SetIdentityProviderUdPushConfigurationResponse
+     */
+    public function setIdentityProviderUdPushConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setIdentityProviderUdPushConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置实例控制项.
+     *
+     * @param request - SetInstanceControlConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetInstanceControlConfigurationResponse
+     *
+     * @param SetInstanceControlConfigurationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SetInstanceControlConfigurationResponse
+     */
+    public function setInstanceControlConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->controlElements) {
+            @$query['ControlElements'] = $request->controlElements;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetInstanceControlConfiguration',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetInstanceControlConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置实例控制项.
+     *
+     * @param request - SetInstanceControlConfigurationRequest
+     *
+     * @returns SetInstanceControlConfigurationResponse
+     *
+     * @param SetInstanceControlConfigurationRequest $request
+     *
+     * @return SetInstanceControlConfigurationResponse
+     */
+    public function setInstanceControlConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setInstanceControlConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置实例语言、时区信息.
+     *
+     * @param request - SetInstanceGlobalizationConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetInstanceGlobalizationConfigResponse
+     *
+     * @param SetInstanceGlobalizationConfigRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SetInstanceGlobalizationConfigResponse
+     */
+    public function setInstanceGlobalizationConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->timeZone) {
+            @$query['TimeZone'] = $request->timeZone;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetInstanceGlobalizationConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetInstanceGlobalizationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置实例语言、时区信息.
+     *
+     * @param request - SetInstanceGlobalizationConfigRequest
+     *
+     * @returns SetInstanceGlobalizationConfigResponse
+     *
+     * @param SetInstanceGlobalizationConfigRequest $request
+     *
+     * @return SetInstanceGlobalizationConfigResponse
+     */
+    public function setInstanceGlobalizationConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setInstanceGlobalizationConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -18853,6 +19543,140 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setUserPrimaryOrganizationalUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置WebAuthn配置.
+     *
+     * @param request - SetWebAuthnConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetWebAuthnConfigurationResponse
+     *
+     * @param SetWebAuthnConfigurationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SetWebAuthnConfigurationResponse
+     */
+    public function setWebAuthnConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aaguids) {
+            @$query['Aaguids'] = $request->aaguids;
+        }
+
+        if (null !== $request->enableAaguidVerification) {
+            @$query['EnableAaguidVerification'] = $request->enableAaguidVerification;
+        }
+
+        if (null !== $request->enableMetadataServiceVerification) {
+            @$query['EnableMetadataServiceVerification'] = $request->enableMetadataServiceVerification;
+        }
+
+        if (null !== $request->enableUserSelfRegistration) {
+            @$query['EnableUserSelfRegistration'] = $request->enableUserSelfRegistration;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetWebAuthnConfiguration',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetWebAuthnConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置WebAuthn配置.
+     *
+     * @param request - SetWebAuthnConfigurationRequest
+     *
+     * @returns SetWebAuthnConfigurationResponse
+     *
+     * @param SetWebAuthnConfigurationRequest $request
+     *
+     * @return SetWebAuthnConfigurationResponse
+     */
+    public function setWebAuthnConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setWebAuthnConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解绑指定用户TOTP.
+     *
+     * @param request - UnbindTotpAuthenticatorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindTotpAuthenticatorResponse
+     *
+     * @param UnbindTotpAuthenticatorRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UnbindTotpAuthenticatorResponse
+     */
+    public function unbindTotpAuthenticatorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindTotpAuthenticator',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindTotpAuthenticatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑指定用户TOTP.
+     *
+     * @param request - UnbindTotpAuthenticatorRequest
+     *
+     * @returns UnbindTotpAuthenticatorResponse
+     *
+     * @param UnbindTotpAuthenticatorRequest $request
+     *
+     * @return UnbindTotpAuthenticatorResponse
+     */
+    public function unbindTotpAuthenticator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindTotpAuthenticatorWithOptions($request, $runtime);
     }
 
     /**

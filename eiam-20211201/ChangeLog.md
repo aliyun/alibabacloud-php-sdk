@@ -1,3 +1,6 @@
+2026-02-04 Version: 2.9.2
+- Generated php 2021-12-01 for Eiam.
+
 2026-02-04 Version: 2.10.0
 - Support API CheckApplicationProvisioningUserPrimaryOrganizationalUnit.
 - Support API CheckInstanceForDelete.
