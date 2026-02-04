@@ -5,28 +5,28 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210218\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\GetAuthCodeResponseBody\authModel;
+use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\GetStsTokenResponseBody\stsTokenModel;
 
-class GetAuthCodeResponseBody extends Model
+class GetStsTokenResponseBody extends Model
 {
-    /**
-     * @var authModel
-     */
-    public $authModel;
-
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var stsTokenModel
+     */
+    public $stsTokenModel;
     protected $_name = [
-        'authModel' => 'AuthModel',
         'requestId' => 'RequestId',
+        'stsTokenModel' => 'StsTokenModel',
     ];
 
     public function validate()
     {
-        if (null !== $this->authModel) {
-            $this->authModel->validate();
+        if (null !== $this->stsTokenModel) {
+            $this->stsTokenModel->validate();
         }
         parent::validate();
     }
@@ -34,12 +34,12 @@ class GetAuthCodeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->authModel) {
-            $res['AuthModel'] = null !== $this->authModel ? $this->authModel->toArray($noStream) : $this->authModel;
-        }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->stsTokenModel) {
+            $res['StsTokenModel'] = null !== $this->stsTokenModel ? $this->stsTokenModel->toArray($noStream) : $this->stsTokenModel;
         }
 
         return $res;
@@ -53,12 +53,12 @@ class GetAuthCodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuthModel'])) {
-            $model->authModel = authModel::fromMap($map['AuthModel']);
-        }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['StsTokenModel'])) {
+            $model->stsTokenModel = stsTokenModel::fromMap($map['StsTokenModel']);
         }
 
         return $model;

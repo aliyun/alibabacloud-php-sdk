@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210218\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetAuthCodeResponse extends Model
+class GetStsTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetAuthCodeResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetAuthCodeResponseBody
+     * @var GetStsTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class GetAuthCodeResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetAuthCodeResponseBody::fromMap($map['body']);
+            $model->body = GetStsTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

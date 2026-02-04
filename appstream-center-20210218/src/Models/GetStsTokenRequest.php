@@ -6,32 +6,26 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210218\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetAuthCodeRequest extends Model
+class GetStsTokenRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $autoCreateUser;
-
     /**
      * @var string
      */
     public $endUserId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $externalUserId;
+    public $expiration;
 
     /**
      * @var string
      */
-    public $policy;
+    public $externalId;
     protected $_name = [
-        'autoCreateUser' => 'AutoCreateUser',
         'endUserId' => 'EndUserId',
-        'externalUserId' => 'ExternalUserId',
-        'policy' => 'Policy',
+        'expiration' => 'Expiration',
+        'externalId' => 'ExternalId',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class GetAuthCodeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->autoCreateUser) {
-            $res['AutoCreateUser'] = $this->autoCreateUser;
-        }
-
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
 
-        if (null !== $this->externalUserId) {
-            $res['ExternalUserId'] = $this->externalUserId;
+        if (null !== $this->expiration) {
+            $res['Expiration'] = $this->expiration;
         }
 
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class GetAuthCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoCreateUser'])) {
-            $model->autoCreateUser = $map['AutoCreateUser'];
-        }
-
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
 
-        if (isset($map['ExternalUserId'])) {
-            $model->externalUserId = $map['ExternalUserId'];
+        if (isset($map['Expiration'])) {
+            $model->expiration = $map['Expiration'];
         }
 
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
         }
 
         return $model;
