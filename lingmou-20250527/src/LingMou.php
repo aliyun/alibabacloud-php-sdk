@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastAudioRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastAudioResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastStickerRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastStickerResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastVideoFromTemplateRequest;
@@ -35,6 +37,9 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTTSVoiceByIdCustomRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTTSVoiceByIdCustomResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetUploadPolicyResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastAudiosByIdRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastAudiosByIdResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastAudiosByIdShrinkRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastTemplatesRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastTemplatesResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastVideosByIdRequest;
@@ -283,6 +288,71 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->createBackgroundPicWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建播报音频.
+     *
+     * @param request - CreateBroadcastAudioRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBroadcastAudioResponse
+     *
+     * @param CreateBroadcastAudioRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateBroadcastAudioResponse
+     */
+    public function createBroadcastAudioWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fileName) {
+            @$body['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->ossKey) {
+            @$body['ossKey'] = $request->ossKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBroadcastAudio',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/material/audio/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBroadcastAudioResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建播报音频.
+     *
+     * @param request - CreateBroadcastAudioRequest
+     *
+     * @returns CreateBroadcastAudioResponse
+     *
+     * @param CreateBroadcastAudioRequest $request
+     *
+     * @return CreateBroadcastAudioResponse
+     */
+    public function createBroadcastAudio($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createBroadcastAudioWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1048,6 +1118,73 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->getUploadPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据音频id批量查询播报音频（最多查询100个）.
+     *
+     * @param tmpReq - ListBroadcastAudiosByIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBroadcastAudiosByIdResponse
+     *
+     * @param ListBroadcastAudiosByIdRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListBroadcastAudiosByIdResponse
+     */
+    public function listBroadcastAudiosByIdWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListBroadcastAudiosByIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->audioIds) {
+            $request->audioIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->audioIds, 'audioIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->audioIdsShrink) {
+            @$query['audioIds'] = $request->audioIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBroadcastAudiosById',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/material/audio/batchQuery',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBroadcastAudiosByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据音频id批量查询播报音频（最多查询100个）.
+     *
+     * @param request - ListBroadcastAudiosByIdRequest
+     *
+     * @returns ListBroadcastAudiosByIdResponse
+     *
+     * @param ListBroadcastAudiosByIdRequest $request
+     *
+     * @return ListBroadcastAudiosByIdResponse
+     */
+    public function listBroadcastAudiosById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBroadcastAudiosByIdWithOptions($request, $headers, $runtime);
     }
 
     /**
