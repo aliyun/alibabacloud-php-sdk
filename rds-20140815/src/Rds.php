@@ -252,6 +252,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceByTagsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceCLSRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceCLSResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceConnectivityRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceConnectivityResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceDetailRequest;
@@ -573,6 +575,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBDescriptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceCLSRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceCLSResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringRequest;
@@ -651,6 +655,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterTimedScheduleTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterTimedScheduleTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeRequest;
@@ -12824,6 +12830,79 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceByTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询RDS实例的列加密（CLS）配置信息.
+     *
+     * @param request - DescribeDBInstanceCLSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceCLSResponse
+     *
+     * @param DescribeDBInstanceCLSRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDBInstanceCLSResponse
+     */
+    public function describeDBInstanceCLSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceCLS',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstanceCLSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询RDS实例的列加密（CLS）配置信息.
+     *
+     * @param request - DescribeDBInstanceCLSRequest
+     *
+     * @returns DescribeDBInstanceCLSResponse
+     *
+     * @param DescribeDBInstanceCLSRequest $request
+     *
+     * @return DescribeDBInstanceCLSResponse
+     */
+    public function describeDBInstanceCLS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceCLSWithOptions($request, $runtime);
     }
 
     /**
@@ -27513,6 +27592,107 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 设置RDS实例开启/修改/关闭列加密状态
+     *
+     * @param request - ModifyDBInstanceCLSRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBInstanceCLSResponse
+     *
+     * @param ModifyDBInstanceCLSRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDBInstanceCLSResponse
+     */
+    public function modifyDBInstanceCLSWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->encryptionAlgorithm) {
+            @$query['EncryptionAlgorithm'] = $request->encryptionAlgorithm;
+        }
+
+        if (null !== $request->encryptionKey) {
+            @$query['EncryptionKey'] = $request->encryptionKey;
+        }
+
+        if (null !== $request->encryptionKeyMode) {
+            @$query['EncryptionKeyMode'] = $request->encryptionKeyMode;
+        }
+
+        if (null !== $request->encryptionStatus) {
+            @$query['EncryptionStatus'] = $request->encryptionStatus;
+        }
+
+        if (null !== $request->isRotate) {
+            @$query['IsRotate'] = $request->isRotate;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->whiteListMode) {
+            @$query['WhiteListMode'] = $request->whiteListMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceCLS',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceCLSResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置RDS实例开启/修改/关闭列加密状态
+     *
+     * @param request - ModifyDBInstanceCLSRequest
+     *
+     * @returns ModifyDBInstanceCLSResponse
+     *
+     * @param ModifyDBInstanceCLSRequest $request
+     *
+     * @return ModifyDBInstanceCLSResponse
+     */
+    public function modifyDBInstanceCLS($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceCLSWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configuration item of an instance.
      *
      * @remarks
@@ -31759,6 +31939,71 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * RDS MySQL修改参数定时任务
+     *
+     * @param request - ModifyParameterTimedScheduleTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyParameterTimedScheduleTaskResponse
+     *
+     * @param ModifyParameterTimedScheduleTaskRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyParameterTimedScheduleTaskResponse
+     */
+    public function modifyParameterTimedScheduleTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyParameterTimedScheduleTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyParameterTimedScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RDS MySQL修改参数定时任务
+     *
+     * @param request - ModifyParameterTimedScheduleTaskRequest
+     *
+     * @returns ModifyParameterTimedScheduleTaskResponse
+     *
+     * @param ModifyParameterTimedScheduleTaskRequest $request
+     *
+     * @return ModifyParameterTimedScheduleTaskResponse
+     */
+    public function modifyParameterTimedScheduleTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyParameterTimedScheduleTaskWithOptions($request, $runtime);
     }
 
     /**
