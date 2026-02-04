@@ -510,6 +510,10 @@ class RocketMQ extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->aclInfo) {
+            @$body['aclInfo'] = $request->aclInfo;
+        }
+
         if (null !== $request->autoRenew) {
             @$body['autoRenew'] = $request->autoRenew;
         }

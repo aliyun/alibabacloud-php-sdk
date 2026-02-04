@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\aclInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\productInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\tags;
 
 class CreateInstanceRequest extends Model
 {
+    /**
+     * @var aclInfo
+     */
+    public $aclInfo;
+
     /**
      * @var bool
      */
@@ -91,6 +97,7 @@ class CreateInstanceRequest extends Model
      */
     public $clientToken;
     protected $_name = [
+        'aclInfo' => 'aclInfo',
         'autoRenew' => 'autoRenew',
         'autoRenewPeriod' => 'autoRenewPeriod',
         'commodityCode' => 'commodityCode',
@@ -111,6 +118,9 @@ class CreateInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->aclInfo) {
+            $this->aclInfo->validate();
+        }
         if (null !== $this->networkInfo) {
             $this->networkInfo->validate();
         }
@@ -126,6 +136,10 @@ class CreateInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aclInfo) {
+            $res['aclInfo'] = null !== $this->aclInfo ? $this->aclInfo->toArray($noStream) : $this->aclInfo;
+        }
+
         if (null !== $this->autoRenew) {
             $res['autoRenew'] = $this->autoRenew;
         }
@@ -208,6 +222,10 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aclInfo'])) {
+            $model->aclInfo = aclInfo::fromMap($map['aclInfo']);
+        }
+
         if (isset($map['autoRenew'])) {
             $model->autoRenew = $map['autoRenew'];
         }
