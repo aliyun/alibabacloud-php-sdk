@@ -44,6 +44,11 @@ class DescribeInternetDnsLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @var bool
+     */
+    public $preciseSort;
+
+    /**
      * @var string
      */
     public $queryCondition;
@@ -65,6 +70,7 @@ class DescribeInternetDnsLogsRequest extends Model
         'module' => 'Module',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'preciseSort' => 'PreciseSort',
         'queryCondition' => 'QueryCondition',
         'recursionProtocolType' => 'RecursionProtocolType',
         'startTimestamp' => 'StartTimestamp',
@@ -104,6 +110,10 @@ class DescribeInternetDnsLogsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->preciseSort) {
+            $res['PreciseSort'] = $this->preciseSort;
         }
 
         if (null !== $this->queryCondition) {
@@ -155,6 +165,10 @@ class DescribeInternetDnsLogsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['PreciseSort'])) {
+            $model->preciseSort = $map['PreciseSort'];
         }
 
         if (isset($map['QueryCondition'])) {

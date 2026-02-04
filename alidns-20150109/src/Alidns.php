@@ -8422,6 +8422,10 @@ class Alidns extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->preciseSort) {
+            @$query['PreciseSort'] = $request->preciseSort;
+        }
+
         if (null !== $request->queryCondition) {
             @$query['QueryCondition'] = $request->queryCondition;
         }
