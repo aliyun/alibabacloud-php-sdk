@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserProduceOperateLogsRespo
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserSolutionsRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserSolutionsResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserSolutionsShrinkRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\LlmSmartCallRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\LlmSmartCallResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateCallCenterForPartnerRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateCallCenterForPartnerResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\OperateProduceForPartnerRequest;
@@ -1167,6 +1169,95 @@ class Companyreg extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserSolutionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 玄坛发起智能外呼
+     *
+     * @param request - LlmSmartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LlmSmartCallResponse
+     *
+     * @param LlmSmartCallRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LlmSmartCallResponse
+     */
+    public function llmSmartCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->promptParam) {
+            @$query['PromptParam'] = $request->promptParam;
+        }
+
+        if (null !== $request->scenesCode) {
+            @$query['ScenesCode'] = $request->scenesCode;
+        }
+
+        if (null !== $request->skillType) {
+            @$query['SkillType'] = $request->skillType;
+        }
+
+        if (null !== $request->startWordParam) {
+            @$query['StartWordParam'] = $request->startWordParam;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LlmSmartCall',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LlmSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 玄坛发起智能外呼
+     *
+     * @param request - LlmSmartCallRequest
+     *
+     * @returns LlmSmartCallResponse
+     *
+     * @param LlmSmartCallRequest $request
+     *
+     * @return LlmSmartCallResponse
+     */
+    public function llmSmartCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->llmSmartCallWithOptions($request, $runtime);
     }
 
     /**
