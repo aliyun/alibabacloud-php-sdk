@@ -27,6 +27,11 @@ class physicalConnectionLOAType extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -77,6 +82,7 @@ class physicalConnectionLOAType extends Model
         'companyLocalizedName' => 'CompanyLocalizedName',
         'companyName' => 'CompanyName',
         'constructionTime' => 'ConstructionTime',
+        'description' => 'Description',
         'instanceId' => 'InstanceId',
         'lineCode' => 'LineCode',
         'lineLabel' => 'LineLabel',
@@ -110,6 +116,10 @@ class physicalConnectionLOAType extends Model
 
         if (null !== $this->constructionTime) {
             $res['ConstructionTime'] = $this->constructionTime;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->instanceId) {
@@ -173,6 +183,10 @@ class physicalConnectionLOAType extends Model
 
         if (isset($map['ConstructionTime'])) {
             $model->constructionTime = $map['ConstructionTime'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['InstanceId'])) {

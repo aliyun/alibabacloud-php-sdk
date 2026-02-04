@@ -11,6 +11,11 @@ class fullNatEntries extends Model
     /**
      * @var string
      */
+    public $accessDomain;
+
+    /**
+     * @var string
+     */
     public $accessIp;
 
     /**
@@ -22,6 +27,11 @@ class fullNatEntries extends Model
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $domainResolve;
 
     /**
      * @var string
@@ -73,9 +83,11 @@ class fullNatEntries extends Model
      */
     public $networkInterfaceType;
     protected $_name = [
+        'accessDomain' => 'AccessDomain',
         'accessIp' => 'AccessIp',
         'accessPort' => 'AccessPort',
         'creationTime' => 'CreationTime',
+        'domainResolve' => 'DomainResolve',
         'fullNatEntryDescription' => 'FullNatEntryDescription',
         'fullNatEntryId' => 'FullNatEntryId',
         'fullNatEntryName' => 'FullNatEntryName',
@@ -96,6 +108,10 @@ class fullNatEntries extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDomain) {
+            $res['AccessDomain'] = $this->accessDomain;
+        }
+
         if (null !== $this->accessIp) {
             $res['AccessIp'] = $this->accessIp;
         }
@@ -106,6 +122,10 @@ class fullNatEntries extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->domainResolve) {
+            $res['DomainResolve'] = $this->domainResolve;
         }
 
         if (null !== $this->fullNatEntryDescription) {
@@ -159,6 +179,10 @@ class fullNatEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDomain'])) {
+            $model->accessDomain = $map['AccessDomain'];
+        }
+
         if (isset($map['AccessIp'])) {
             $model->accessIp = $map['AccessIp'];
         }
@@ -169,6 +193,10 @@ class fullNatEntries extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['DomainResolve'])) {
+            $model->domainResolve = $map['DomainResolve'];
         }
 
         if (isset($map['FullNatEntryDescription'])) {

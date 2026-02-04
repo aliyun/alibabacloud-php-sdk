@@ -11,6 +11,11 @@ class CreateFullNatEntryRequest extends Model
     /**
      * @var string
      */
+    public $accessDomain;
+
+    /**
+     * @var string
+     */
     public $accessIp;
 
     /**
@@ -88,6 +93,7 @@ class CreateFullNatEntryRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'accessDomain' => 'AccessDomain',
         'accessIp' => 'AccessIp',
         'accessPort' => 'AccessPort',
         'clientToken' => 'ClientToken',
@@ -114,6 +120,10 @@ class CreateFullNatEntryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDomain) {
+            $res['AccessDomain'] = $this->accessDomain;
+        }
+
         if (null !== $this->accessIp) {
             $res['AccessIp'] = $this->accessIp;
         }
@@ -189,6 +199,10 @@ class CreateFullNatEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDomain'])) {
+            $model->accessDomain = $map['AccessDomain'];
+        }
+
         if (isset($map['AccessIp'])) {
             $model->accessIp = $map['AccessIp'];
         }

@@ -77,8 +77,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ConfirmPhysicalConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConfirmPhysicalConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConnectRouterInterfaceRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ConnectRouterInterfaceResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ConvertBandwidthPackageRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\ConvertBandwidthPackageResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CopyNetworkAclEntriesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CopyNetworkAclEntriesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateBgpGroupRequest;
@@ -476,8 +474,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DiagnoseVpnConnectionsRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DiagnoseVpnConnectionsResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DiagnoseVpnGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DiagnoseVpnGatewayResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableNatGatewayEcsMetricRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableNatGatewayEcsMetricResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableVpcClassicLinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableVpcClassicLinkResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateRouteTableFromGatewayRequest;
@@ -488,8 +484,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateVpnGatewayWithCertificateReq
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateVpnGatewayWithCertificateResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableNatGatewayEcsMetricRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableNatGatewayEcsMetricResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\EnablePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\EnablePhysicalConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\EnableVpcClassicLinkRequest;
@@ -504,10 +498,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpAttributeRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpAttributeResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpCidrAttributeRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatIpCidrAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPublicIpAddressPoolServiceStatusRequest;
@@ -4564,104 +4554,6 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Converts a NAT service plan to an Internet Shared Bandwidth instance.
-     *
-     * @remarks
-     * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-     * *   You are not charged for the conversion.
-     * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-     * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-     *
-     * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
-     *
-     * @param request - ConvertBandwidthPackageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConvertBandwidthPackageResponse
-     *
-     * @param ConvertBandwidthPackageRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ConvertBandwidthPackageResponse
-     */
-    public function convertBandwidthPackageWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->bandwidthPackageId) {
-            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
-        }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ConvertBandwidthPackage',
-            'version' => '2016-04-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ConvertBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * Converts a NAT service plan to an Internet Shared Bandwidth instance.
-     *
-     * @remarks
-     * Before you convert a NAT service plan to an Internet Shared Bandwidth instance, take note of the following limits:
-     * *   You are not charged for the conversion.
-     * *   When you convert a NAT service plan to an Internet Shared Bandwidth instance, you can continue to use the SNAT and DNAT features of the NAT gateway, and your workloads are not affected. However, we recommend that you convert your NAT service plan during off-peak hours.
-     * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
-     *
-     * @deprecated OpenAPI ConvertBandwidthPackage is deprecated
-     *
-     * @param request - ConvertBandwidthPackageRequest
-     *
-     * @returns ConvertBandwidthPackageResponse
-     *
-     * @param ConvertBandwidthPackageRequest $request
-     *
-     * @return ConvertBandwidthPackageResponse
-     */
-    public function convertBandwidthPackage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->convertBandwidthPackageWithOptions($request, $runtime);
-    }
-
-    /**
      * Copies rules of a network access control list (ACL).
      *
      * @remarks
@@ -6427,6 +6319,10 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessDomain) {
+            @$query['AccessDomain'] = $request->accessDomain;
+        }
+
         if (null !== $request->accessIp) {
             @$query['AccessIp'] = $request->accessIp;
         }
@@ -25202,80 +25098,6 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
-     *
-     * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
-     *
-     * @param request - DisableNatGatewayEcsMetricRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DisableNatGatewayEcsMetricResponse
-     *
-     * @param DisableNatGatewayEcsMetricRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DisableNatGatewayEcsMetricResponse
-     */
-    public function disableNatGatewayEcsMetricWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
-        }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DisableNatGatewayEcsMetric',
-            'version' => '2016-04-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DisableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
-     *
-     * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
-     *
-     * @param request - DisableNatGatewayEcsMetricRequest
-     *
-     * @returns DisableNatGatewayEcsMetricResponse
-     *
-     * @param DisableNatGatewayEcsMetricRequest $request
-     *
-     * @return DisableNatGatewayEcsMetricResponse
-     */
-    public function disableNatGatewayEcsMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableNatGatewayEcsMetricWithOptions($request, $runtime);
-    }
-
-    /**
      * Disables ClassicLink for a virtual private cloud (VPC).
      *
      * @param request - DisableVpcClassicLinkRequest
@@ -25706,80 +25528,6 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadVpnConnectionConfigWithOptions($request, $runtime);
-    }
-
-    /**
-     * Enables Elastic Compute Service (ECS) traffic monitoring.
-     *
-     * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
-     *
-     * @param request - EnableNatGatewayEcsMetricRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EnableNatGatewayEcsMetricResponse
-     *
-     * @param EnableNatGatewayEcsMetricRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return EnableNatGatewayEcsMetricResponse
-     */
-    public function enableNatGatewayEcsMetricWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
-        }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'EnableNatGatewayEcsMetric',
-            'version' => '2016-04-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return EnableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * Enables Elastic Compute Service (ECS) traffic monitoring.
-     *
-     * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
-     *
-     * @param request - EnableNatGatewayEcsMetricRequest
-     *
-     * @returns EnableNatGatewayEcsMetricResponse
-     *
-     * @param EnableNatGatewayEcsMetricRequest $request
-     *
-     * @return EnableNatGatewayEcsMetricResponse
-     */
-    public function enableNatGatewayEcsMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableNatGatewayEcsMetricWithOptions($request, $runtime);
     }
 
     /**
@@ -26393,188 +26141,6 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNatGatewayAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
-     *
-     * @param request - GetNatIpAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetNatIpAttributeResponse
-     *
-     * @param GetNatIpAttributeRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetNatIpAttributeResponse
-     */
-    public function getNatIpAttributeWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
-        }
-
-        if (null !== $request->natIpId) {
-            @$query['NatIpId'] = $request->natIpId;
-        }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetNatIpAttribute',
-            'version' => '2016-04-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetNatIpAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Call GetNatIpAttribute to query the VPC NAT network to obtain information on each NAT IP address.
-     *
-     * @param request - GetNatIpAttributeRequest
-     *
-     * @returns GetNatIpAttributeResponse
-     *
-     * @param GetNatIpAttributeRequest $request
-     *
-     * @return GetNatIpAttributeResponse
-     */
-    public function getNatIpAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNatIpAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
-     *
-     * @param request - GetNatIpCidrAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetNatIpCidrAttributeResponse
-     *
-     * @param GetNatIpCidrAttributeRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetNatIpCidrAttributeResponse
-     */
-    public function getNatIpCidrAttributeWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
-        }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
-        }
-
-        if (null !== $request->natIpCidr) {
-            @$query['NatIpCidr'] = $request->natIpCidr;
-        }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetNatIpCidrAttribute',
-            'version' => '2016-04-28',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetNatIpCidrAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Call GetNatIpCidrAttribute to query the VPC NAT network to obtain information on each NAT IP cidr address.
-     *
-     * @param request - GetNatIpCidrAttributeRequest
-     *
-     * @returns GetNatIpCidrAttributeResponse
-     *
-     * @param GetNatIpCidrAttributeRequest $request
-     *
-     * @return GetNatIpCidrAttributeResponse
-     */
-    public function getNatIpCidrAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNatIpCidrAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -31678,6 +31244,10 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessDomain) {
+            @$query['AccessDomain'] = $request->accessDomain;
+        }
+
         if (null !== $request->accessIp) {
             @$query['AccessIp'] = $request->accessIp;
         }

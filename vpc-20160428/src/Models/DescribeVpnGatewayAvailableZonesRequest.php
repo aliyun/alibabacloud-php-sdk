@@ -16,6 +16,11 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
     /**
      * @var string
      */
+    public $gatewayType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -44,6 +49,7 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
     public $spec;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'gatewayType' => 'GatewayType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -62,6 +68,10 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->gatewayType) {
+            $res['GatewayType'] = $this->gatewayType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -101,6 +111,10 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['GatewayType'])) {
+            $model->gatewayType = $map['GatewayType'];
         }
 
         if (isset($map['OwnerAccount'])) {

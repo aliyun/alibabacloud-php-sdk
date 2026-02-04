@@ -114,6 +114,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $vbrId;
 
     /**
+     * @var string
+     */
+    public $vbrName;
+
+    /**
      * @var int
      */
     public $vbrOwnerUid;
@@ -144,6 +149,7 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
         'terminationTime' => 'TerminationTime',
         'type' => 'Type',
         'vbrId' => 'VbrId',
+        'vbrName' => 'VbrName',
         'vbrOwnerUid' => 'VbrOwnerUid',
         'vlanId' => 'VlanId',
     ];
@@ -238,6 +244,10 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
 
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
+        }
+
+        if (null !== $this->vbrName) {
+            $res['VbrName'] = $this->vbrName;
         }
 
         if (null !== $this->vbrOwnerUid) {
@@ -341,6 +351,10 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
 
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];
+        }
+
+        if (isset($map['VbrName'])) {
+            $model->vbrName = $map['VbrName'];
         }
 
         if (isset($map['VbrOwnerUid'])) {
