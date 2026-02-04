@@ -14,6 +14,11 @@ class ImportTaskNumberDatasShrinkRequest extends Model
     public $dataType;
 
     /**
+     * @var int
+     */
+    public $encryptionType;
+
+    /**
      * @var string
      */
     public $ossFileName;
@@ -44,6 +49,7 @@ class ImportTaskNumberDatasShrinkRequest extends Model
     public $taskId;
     protected $_name = [
         'dataType' => 'DataType',
+        'encryptionType' => 'EncryptionType',
         'ossFileName' => 'OssFileName',
         'ownerId' => 'OwnerId',
         'phoneNumberListShrink' => 'PhoneNumberList',
@@ -62,6 +68,10 @@ class ImportTaskNumberDatasShrinkRequest extends Model
         $res = [];
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->ossFileName) {
@@ -101,6 +111,10 @@ class ImportTaskNumberDatasShrinkRequest extends Model
         $model = new self();
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['OssFileName'])) {

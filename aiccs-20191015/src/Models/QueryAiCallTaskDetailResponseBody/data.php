@@ -20,6 +20,16 @@ class data extends Model
     public $agentName;
 
     /**
+     * @var string
+     */
+    public $applicationCode;
+
+    /**
+     * @var string
+     */
+    public $applicationName;
+
+    /**
      * @var string[]
      */
     public $callDays;
@@ -38,6 +48,21 @@ class data extends Model
      * @var int
      */
     public $concurrentCount;
+
+    /**
+     * @var string
+     */
+    public $lineEncoding;
+
+    /**
+     * @var string
+     */
+    public $linePhoneNum;
+
+    /**
+     * @var int
+     */
+    public $phoneType;
 
     /**
      * @var int
@@ -86,10 +111,15 @@ class data extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'agentName' => 'AgentName',
+        'applicationCode' => 'ApplicationCode',
+        'applicationName' => 'ApplicationName',
         'callDays' => 'CallDays',
         'callTimes' => 'CallTimes',
         'callerNumber' => 'CallerNumber',
         'concurrentCount' => 'ConcurrentCount',
+        'lineEncoding' => 'LineEncoding',
+        'linePhoneNum' => 'LinePhoneNum',
+        'phoneType' => 'PhoneType',
         'realStartTime' => 'RealStartTime',
         'retryCount' => 'RetryCount',
         'retryEnable' => 'RetryEnable',
@@ -126,6 +156,14 @@ class data extends Model
             $res['AgentName'] = $this->agentName;
         }
 
+        if (null !== $this->applicationCode) {
+            $res['ApplicationCode'] = $this->applicationCode;
+        }
+
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
+        }
+
         if (null !== $this->callDays) {
             if (\is_array($this->callDays)) {
                 $res['CallDays'] = [];
@@ -154,6 +192,18 @@ class data extends Model
 
         if (null !== $this->concurrentCount) {
             $res['ConcurrentCount'] = $this->concurrentCount;
+        }
+
+        if (null !== $this->lineEncoding) {
+            $res['LineEncoding'] = $this->lineEncoding;
+        }
+
+        if (null !== $this->linePhoneNum) {
+            $res['LinePhoneNum'] = $this->linePhoneNum;
+        }
+
+        if (null !== $this->phoneType) {
+            $res['PhoneType'] = $this->phoneType;
         }
 
         if (null !== $this->realStartTime) {
@@ -218,6 +268,14 @@ class data extends Model
             $model->agentName = $map['AgentName'];
         }
 
+        if (isset($map['ApplicationCode'])) {
+            $model->applicationCode = $map['ApplicationCode'];
+        }
+
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
+        }
+
         if (isset($map['CallDays'])) {
             if (!empty($map['CallDays'])) {
                 $model->callDays = [];
@@ -246,6 +304,18 @@ class data extends Model
 
         if (isset($map['ConcurrentCount'])) {
             $model->concurrentCount = $map['ConcurrentCount'];
+        }
+
+        if (isset($map['LineEncoding'])) {
+            $model->lineEncoding = $map['LineEncoding'];
+        }
+
+        if (isset($map['LinePhoneNum'])) {
+            $model->linePhoneNum = $map['LinePhoneNum'];
+        }
+
+        if (isset($map['PhoneType'])) {
+            $model->phoneType = $map['PhoneType'];
         }
 
         if (isset($map['RealStartTime'])) {

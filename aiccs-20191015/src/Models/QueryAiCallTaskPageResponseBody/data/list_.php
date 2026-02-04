@@ -19,6 +19,16 @@ class list_ extends Model
     public $agentName;
 
     /**
+     * @var string
+     */
+    public $applicationCode;
+
+    /**
+     * @var string
+     */
+    public $applicationName;
+
+    /**
      * @var int
      */
     public $callingCount;
@@ -110,6 +120,8 @@ class list_ extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'agentName' => 'AgentName',
+        'applicationCode' => 'ApplicationCode',
+        'applicationName' => 'ApplicationName',
         'callingCount' => 'CallingCount',
         'completeRate' => 'CompleteRate',
         'concurrentCount' => 'ConcurrentCount',
@@ -144,6 +156,14 @@ class list_ extends Model
 
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+
+        if (null !== $this->applicationCode) {
+            $res['ApplicationCode'] = $this->applicationCode;
+        }
+
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
 
         if (null !== $this->callingCount) {
@@ -235,6 +255,14 @@ class list_ extends Model
 
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
+        }
+
+        if (isset($map['ApplicationCode'])) {
+            $model->applicationCode = $map['ApplicationCode'];
+        }
+
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
         }
 
         if (isset($map['CallingCount'])) {

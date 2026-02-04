@@ -14,6 +14,16 @@ class list_ extends Model
     public $batchId;
 
     /**
+     * @var int
+     */
+    public $branchId;
+
+    /**
+     * @var int
+     */
+    public $branchVersionId;
+
+    /**
      * @var string
      */
     public $callResult;
@@ -47,6 +57,11 @@ class list_ extends Model
      * @var string
      */
     public $detailId;
+
+    /**
+     * @var int
+     */
+    public $encryptionType;
 
     /**
      * @var string
@@ -89,6 +104,8 @@ class list_ extends Model
     public $taskId;
     protected $_name = [
         'batchId' => 'BatchId',
+        'branchId' => 'BranchId',
+        'branchVersionId' => 'BranchVersionId',
         'callResult' => 'CallResult',
         'calledNumber' => 'CalledNumber',
         'callingTime' => 'CallingTime',
@@ -96,6 +113,7 @@ class list_ extends Model
         'conversationRecord' => 'ConversationRecord',
         'conversationTurnCount' => 'ConversationTurnCount',
         'detailId' => 'DetailId',
+        'encryptionType' => 'EncryptionType',
         'failedReason' => 'FailedReason',
         'importedTime' => 'ImportedTime',
         'majorIntent' => 'MajorIntent',
@@ -116,6 +134,14 @@ class list_ extends Model
         $res = [];
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
+        }
+
+        if (null !== $this->branchId) {
+            $res['BranchId'] = $this->branchId;
+        }
+
+        if (null !== $this->branchVersionId) {
+            $res['BranchVersionId'] = $this->branchVersionId;
         }
 
         if (null !== $this->callResult) {
@@ -144,6 +170,10 @@ class list_ extends Model
 
         if (null !== $this->detailId) {
             $res['DetailId'] = $this->detailId;
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->failedReason) {
@@ -193,6 +223,14 @@ class list_ extends Model
             $model->batchId = $map['BatchId'];
         }
 
+        if (isset($map['BranchId'])) {
+            $model->branchId = $map['BranchId'];
+        }
+
+        if (isset($map['BranchVersionId'])) {
+            $model->branchVersionId = $map['BranchVersionId'];
+        }
+
         if (isset($map['CallResult'])) {
             $model->callResult = $map['CallResult'];
         }
@@ -219,6 +257,10 @@ class list_ extends Model
 
         if (isset($map['DetailId'])) {
             $model->detailId = $map['DetailId'];
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['FailedReason'])) {

@@ -1123,6 +1123,10 @@ class Aiccs extends OpenApiClient
             @$query['DetailIdList'] = $request->detailIdListShrink;
         }
 
+        if (null !== $request->encryptionType) {
+            @$query['EncryptionType'] = $request->encryptionType;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -1489,6 +1493,14 @@ class Aiccs extends OpenApiClient
             @$query['AgentId'] = $request->agentId;
         }
 
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
+        }
+
         if (null !== $request->callDayShrink) {
             @$query['CallDay'] = $request->callDayShrink;
         }
@@ -1509,6 +1521,14 @@ class Aiccs extends OpenApiClient
             @$query['CallTime'] = $request->callTimeShrink;
         }
 
+        if (null !== $request->lineEncoding) {
+            @$query['LineEncoding'] = $request->lineEncoding;
+        }
+
+        if (null !== $request->linePhoneNum) {
+            @$query['LinePhoneNum'] = $request->linePhoneNum;
+        }
+
         if (null !== $request->missCallRetry) {
             @$query['MissCallRetry'] = $request->missCallRetry;
         }
@@ -1517,12 +1537,20 @@ class Aiccs extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->phoneType) {
+            @$query['PhoneType'] = $request->phoneType;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         if (null !== $request->startType) {
@@ -7184,6 +7212,10 @@ class Aiccs extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->encryptionType) {
+            @$query['EncryptionType'] = $request->encryptionType;
+        }
+
         if (null !== $request->outId) {
             @$query['OutId'] = $request->outId;
         }
@@ -7273,6 +7305,10 @@ class Aiccs extends OpenApiClient
         $query = [];
         if (null !== $request->dataType) {
             @$query['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->encryptionType) {
+            @$query['EncryptionType'] = $request->encryptionType;
         }
 
         if (null !== $request->ossFileName) {
@@ -9001,6 +9037,10 @@ class Aiccs extends OpenApiClient
             @$query['DetailIds'] = $request->detailIdsShrink;
         }
 
+        if (null !== $request->encryptionType) {
+            @$query['EncryptionType'] = $request->encryptionType;
+        }
+
         if (null !== $request->endCallingTime) {
             @$query['EndCallingTime'] = $request->endCallingTime;
         }
@@ -9187,6 +9227,10 @@ class Aiccs extends OpenApiClient
             @$query['AgentName'] = $request->agentName;
         }
 
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -9205,6 +9249,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         if (null !== $request->status) {
@@ -12041,6 +12089,14 @@ class Aiccs extends OpenApiClient
             @$query['CallTime'] = $request->callTimeShrink;
         }
 
+        if (null !== $request->lineEncoding) {
+            @$query['LineEncoding'] = $request->lineEncoding;
+        }
+
+        if (null !== $request->linePhoneNum) {
+            @$query['LinePhoneNum'] = $request->linePhoneNum;
+        }
+
         if (null !== $request->missCallRetry) {
             @$query['MissCallRetry'] = $request->missCallRetry;
         }
@@ -12049,12 +12105,20 @@ class Aiccs extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->phoneType) {
+            @$query['PhoneType'] = $request->phoneType;
+        }
+
         if (null !== $request->resourceOwnerAccount) {
             @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         if (null !== $request->startType) {

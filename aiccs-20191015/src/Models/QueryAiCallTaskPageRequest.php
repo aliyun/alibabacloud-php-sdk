@@ -14,6 +14,11 @@ class QueryAiCallTaskPageRequest extends Model
     public $agentName;
 
     /**
+     * @var string
+     */
+    public $applicationCode;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -39,6 +44,11 @@ class QueryAiCallTaskPageRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var int
+     */
+    public $source;
+
+    /**
      * @var string
      */
     public $status;
@@ -54,11 +64,13 @@ class QueryAiCallTaskPageRequest extends Model
     public $taskName;
     protected $_name = [
         'agentName' => 'AgentName',
+        'applicationCode' => 'ApplicationCode',
         'ownerId' => 'OwnerId',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'source' => 'Source',
         'status' => 'Status',
         'taskId' => 'TaskId',
         'taskName' => 'TaskName',
@@ -74,6 +86,10 @@ class QueryAiCallTaskPageRequest extends Model
         $res = [];
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+
+        if (null !== $this->applicationCode) {
+            $res['ApplicationCode'] = $this->applicationCode;
         }
 
         if (null !== $this->ownerId) {
@@ -94,6 +110,10 @@ class QueryAiCallTaskPageRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->status) {
@@ -123,6 +143,10 @@ class QueryAiCallTaskPageRequest extends Model
             $model->agentName = $map['AgentName'];
         }
 
+        if (isset($map['ApplicationCode'])) {
+            $model->applicationCode = $map['ApplicationCode'];
+        }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -141,6 +165,10 @@ class QueryAiCallTaskPageRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['Status'])) {

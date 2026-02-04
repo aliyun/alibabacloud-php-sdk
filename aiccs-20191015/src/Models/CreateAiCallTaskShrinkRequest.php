@@ -16,6 +16,16 @@ class CreateAiCallTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $applicationCode;
+
+    /**
+     * @var string
+     */
+    public $applicationName;
+
+    /**
+     * @var string
+     */
     public $callDayShrink;
 
     /**
@@ -39,6 +49,16 @@ class CreateAiCallTaskShrinkRequest extends Model
     public $callTimeShrink;
 
     /**
+     * @var string
+     */
+    public $lineEncoding;
+
+    /**
+     * @var string
+     */
+    public $linePhoneNum;
+
+    /**
      * @var bool
      */
     public $missCallRetry;
@@ -49,6 +69,11 @@ class CreateAiCallTaskShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $phoneType;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -57,6 +82,11 @@ class CreateAiCallTaskShrinkRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $source;
 
     /**
      * @var string
@@ -84,15 +114,21 @@ class CreateAiCallTaskShrinkRequest extends Model
     public $virtualNumber;
     protected $_name = [
         'agentId' => 'AgentId',
+        'applicationCode' => 'ApplicationCode',
+        'applicationName' => 'ApplicationName',
         'callDayShrink' => 'CallDay',
         'callRetryInterval' => 'CallRetryInterval',
         'callRetryReasonShrink' => 'CallRetryReason',
         'callRetryTimes' => 'CallRetryTimes',
         'callTimeShrink' => 'CallTime',
+        'lineEncoding' => 'LineEncoding',
+        'linePhoneNum' => 'LinePhoneNum',
         'missCallRetry' => 'MissCallRetry',
         'ownerId' => 'OwnerId',
+        'phoneType' => 'PhoneType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'source' => 'Source',
         'startType' => 'StartType',
         'taskCps' => 'TaskCps',
         'taskName' => 'TaskName',
@@ -110,6 +146,14 @@ class CreateAiCallTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
+        }
+
+        if (null !== $this->applicationCode) {
+            $res['ApplicationCode'] = $this->applicationCode;
+        }
+
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
 
         if (null !== $this->callDayShrink) {
@@ -132,6 +176,14 @@ class CreateAiCallTaskShrinkRequest extends Model
             $res['CallTime'] = $this->callTimeShrink;
         }
 
+        if (null !== $this->lineEncoding) {
+            $res['LineEncoding'] = $this->lineEncoding;
+        }
+
+        if (null !== $this->linePhoneNum) {
+            $res['LinePhoneNum'] = $this->linePhoneNum;
+        }
+
         if (null !== $this->missCallRetry) {
             $res['MissCallRetry'] = $this->missCallRetry;
         }
@@ -140,12 +192,20 @@ class CreateAiCallTaskShrinkRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->phoneType) {
+            $res['PhoneType'] = $this->phoneType;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->startType) {
@@ -183,6 +243,14 @@ class CreateAiCallTaskShrinkRequest extends Model
             $model->agentId = $map['AgentId'];
         }
 
+        if (isset($map['ApplicationCode'])) {
+            $model->applicationCode = $map['ApplicationCode'];
+        }
+
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
+        }
+
         if (isset($map['CallDay'])) {
             $model->callDayShrink = $map['CallDay'];
         }
@@ -203,6 +271,14 @@ class CreateAiCallTaskShrinkRequest extends Model
             $model->callTimeShrink = $map['CallTime'];
         }
 
+        if (isset($map['LineEncoding'])) {
+            $model->lineEncoding = $map['LineEncoding'];
+        }
+
+        if (isset($map['LinePhoneNum'])) {
+            $model->linePhoneNum = $map['LinePhoneNum'];
+        }
+
         if (isset($map['MissCallRetry'])) {
             $model->missCallRetry = $map['MissCallRetry'];
         }
@@ -211,12 +287,20 @@ class CreateAiCallTaskShrinkRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['PhoneType'])) {
+            $model->phoneType = $map['PhoneType'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['StartType'])) {

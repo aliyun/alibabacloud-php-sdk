@@ -21,6 +21,11 @@ class CancelAiCallDetailsShrinkRequest extends Model
     /**
      * @var int
      */
+    public $encryptionType;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -45,6 +50,7 @@ class CancelAiCallDetailsShrinkRequest extends Model
     protected $_name = [
         'batchId' => 'BatchId',
         'detailIdListShrink' => 'DetailIdList',
+        'encryptionType' => 'EncryptionType',
         'ownerId' => 'OwnerId',
         'phoneNumbersShrink' => 'PhoneNumbers',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -66,6 +72,10 @@ class CancelAiCallDetailsShrinkRequest extends Model
 
         if (null !== $this->detailIdListShrink) {
             $res['DetailIdList'] = $this->detailIdListShrink;
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->ownerId) {
@@ -105,6 +115,10 @@ class CancelAiCallDetailsShrinkRequest extends Model
 
         if (isset($map['DetailIdList'])) {
             $model->detailIdListShrink = $map['DetailIdList'];
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['OwnerId'])) {

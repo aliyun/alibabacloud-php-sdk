@@ -56,6 +56,11 @@ class data extends Model
     public $duration;
 
     /**
+     * @var int
+     */
+    public $encryptionType;
+
+    /**
      * @var string
      */
     public $failedReason;
@@ -144,6 +149,7 @@ class data extends Model
         'conversationTurnCount' => 'ConversationTurnCount',
         'detailId' => 'DetailId',
         'duration' => 'Duration',
+        'encryptionType' => 'EncryptionType',
         'failedReason' => 'FailedReason',
         'hangupDirection' => 'HangupDirection',
         'importedTime' => 'ImportedTime',
@@ -210,6 +216,10 @@ class data extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->failedReason) {
@@ -335,6 +345,10 @@ class data extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['FailedReason'])) {

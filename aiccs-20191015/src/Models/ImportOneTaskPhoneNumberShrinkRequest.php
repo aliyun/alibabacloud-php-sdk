@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ImportOneTaskPhoneNumberShrinkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $encryptionType;
+
+    /**
      * @var string
      */
     public $outId;
@@ -43,6 +48,7 @@ class ImportOneTaskPhoneNumberShrinkRequest extends Model
      */
     public $variablesShrink;
     protected $_name = [
+        'encryptionType' => 'EncryptionType',
         'outId' => 'OutId',
         'ownerId' => 'OwnerId',
         'phoneNumber' => 'PhoneNumber',
@@ -60,6 +66,10 @@ class ImportOneTaskPhoneNumberShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
+        }
+
         if (null !== $this->outId) {
             $res['OutId'] = $this->outId;
         }
@@ -99,6 +109,10 @@ class ImportOneTaskPhoneNumberShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
+        }
+
         if (isset($map['OutId'])) {
             $model->outId = $map['OutId'];
         }

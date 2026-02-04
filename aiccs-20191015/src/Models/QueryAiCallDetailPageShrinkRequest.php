@@ -31,6 +31,11 @@ class QueryAiCallDetailPageShrinkRequest extends Model
     /**
      * @var int
      */
+    public $encryptionType;
+
+    /**
+     * @var int
+     */
     public $endCallingTime;
 
     /**
@@ -107,6 +112,7 @@ class QueryAiCallDetailPageShrinkRequest extends Model
         'callResult' => 'CallResult',
         'calledNumber' => 'CalledNumber',
         'detailIdsShrink' => 'DetailIds',
+        'encryptionType' => 'EncryptionType',
         'endCallingTime' => 'EndCallingTime',
         'endImportedTime' => 'EndImportedTime',
         'majorIntent' => 'MajorIntent',
@@ -146,6 +152,10 @@ class QueryAiCallDetailPageShrinkRequest extends Model
 
         if (null !== $this->detailIdsShrink) {
             $res['DetailIds'] = $this->detailIdsShrink;
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->endCallingTime) {
@@ -233,6 +243,10 @@ class QueryAiCallDetailPageShrinkRequest extends Model
 
         if (isset($map['DetailIds'])) {
             $model->detailIdsShrink = $map['DetailIds'];
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['EndCallingTime'])) {

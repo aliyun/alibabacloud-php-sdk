@@ -21,6 +21,11 @@ class CancelAiCallDetailsRequest extends Model
     /**
      * @var int
      */
+    public $encryptionType;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -45,6 +50,7 @@ class CancelAiCallDetailsRequest extends Model
     protected $_name = [
         'batchId' => 'BatchId',
         'detailIdList' => 'DetailIdList',
+        'encryptionType' => 'EncryptionType',
         'ownerId' => 'OwnerId',
         'phoneNumbers' => 'PhoneNumbers',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -79,6 +85,10 @@ class CancelAiCallDetailsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->ownerId) {
@@ -132,6 +142,10 @@ class CancelAiCallDetailsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['OwnerId'])) {

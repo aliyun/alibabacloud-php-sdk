@@ -31,6 +31,11 @@ class QueryAiCallDetailPageRequest extends Model
     /**
      * @var int
      */
+    public $encryptionType;
+
+    /**
+     * @var int
+     */
     public $endCallingTime;
 
     /**
@@ -107,6 +112,7 @@ class QueryAiCallDetailPageRequest extends Model
         'callResult' => 'CallResult',
         'calledNumber' => 'CalledNumber',
         'detailIds' => 'DetailIds',
+        'encryptionType' => 'EncryptionType',
         'endCallingTime' => 'EndCallingTime',
         'endImportedTime' => 'EndImportedTime',
         'majorIntent' => 'MajorIntent',
@@ -156,6 +162,10 @@ class QueryAiCallDetailPageRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->endCallingTime) {
@@ -250,6 +260,10 @@ class QueryAiCallDetailPageRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['EndCallingTime'])) {

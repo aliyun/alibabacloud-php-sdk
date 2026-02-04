@@ -34,6 +34,16 @@ class UpdateAiCallTaskShrinkRequest extends Model
     public $callTimeShrink;
 
     /**
+     * @var string
+     */
+    public $lineEncoding;
+
+    /**
+     * @var string
+     */
+    public $linePhoneNum;
+
+    /**
      * @var bool
      */
     public $missCallRetry;
@@ -44,6 +54,11 @@ class UpdateAiCallTaskShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $phoneType;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -52,6 +67,11 @@ class UpdateAiCallTaskShrinkRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var int
+     */
+    public $source;
 
     /**
      * @var string
@@ -88,10 +108,14 @@ class UpdateAiCallTaskShrinkRequest extends Model
         'callRetryReasonShrink' => 'CallRetryReason',
         'callRetryTimes' => 'CallRetryTimes',
         'callTimeShrink' => 'CallTime',
+        'lineEncoding' => 'LineEncoding',
+        'linePhoneNum' => 'LinePhoneNum',
         'missCallRetry' => 'MissCallRetry',
         'ownerId' => 'OwnerId',
+        'phoneType' => 'PhoneType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'source' => 'Source',
         'startType' => 'StartType',
         'taskCps' => 'TaskCps',
         'taskId' => 'TaskId',
@@ -128,6 +152,14 @@ class UpdateAiCallTaskShrinkRequest extends Model
             $res['CallTime'] = $this->callTimeShrink;
         }
 
+        if (null !== $this->lineEncoding) {
+            $res['LineEncoding'] = $this->lineEncoding;
+        }
+
+        if (null !== $this->linePhoneNum) {
+            $res['LinePhoneNum'] = $this->linePhoneNum;
+        }
+
         if (null !== $this->missCallRetry) {
             $res['MissCallRetry'] = $this->missCallRetry;
         }
@@ -136,12 +168,20 @@ class UpdateAiCallTaskShrinkRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->phoneType) {
+            $res['PhoneType'] = $this->phoneType;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->startType) {
@@ -199,6 +239,14 @@ class UpdateAiCallTaskShrinkRequest extends Model
             $model->callTimeShrink = $map['CallTime'];
         }
 
+        if (isset($map['LineEncoding'])) {
+            $model->lineEncoding = $map['LineEncoding'];
+        }
+
+        if (isset($map['LinePhoneNum'])) {
+            $model->linePhoneNum = $map['LinePhoneNum'];
+        }
+
         if (isset($map['MissCallRetry'])) {
             $model->missCallRetry = $map['MissCallRetry'];
         }
@@ -207,12 +255,20 @@ class UpdateAiCallTaskShrinkRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['PhoneType'])) {
+            $model->phoneType = $map['PhoneType'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['StartType'])) {
