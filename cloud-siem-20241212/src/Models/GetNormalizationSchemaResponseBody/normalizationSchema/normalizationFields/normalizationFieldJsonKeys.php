@@ -2,12 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema;
+namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema\normalizationFields;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema\normalizationFields\normalizationFieldJsonKeys;
 
-class normalizationFields extends Model
+class normalizationFieldJsonKeys extends Model
 {
     /**
      * @var int
@@ -30,16 +29,6 @@ class normalizationFields extends Model
     public $normalizationFieldFrom;
 
     /**
-     * @var bool
-     */
-    public $normalizationFieldJsonIndexAll;
-
-    /**
-     * @var normalizationFieldJsonKeys[]
-     */
-    public $normalizationFieldJsonKeys;
-
-    /**
      * @var string
      */
     public $normalizationFieldName;
@@ -48,11 +37,6 @@ class normalizationFields extends Model
      * @var bool
      */
     public $normalizationFieldRequired;
-
-    /**
-     * @var bool
-     */
-    public $normalizationFieldRequirement;
 
     /**
      * @var bool
@@ -78,11 +62,8 @@ class normalizationFields extends Model
         'normalizationFieldDescription' => 'NormalizationFieldDescription',
         'normalizationFieldExample' => 'NormalizationFieldExample',
         'normalizationFieldFrom' => 'NormalizationFieldFrom',
-        'normalizationFieldJsonIndexAll' => 'NormalizationFieldJsonIndexAll',
-        'normalizationFieldJsonKeys' => 'NormalizationFieldJsonKeys',
         'normalizationFieldName' => 'NormalizationFieldName',
         'normalizationFieldRequired' => 'NormalizationFieldRequired',
-        'normalizationFieldRequirement' => 'NormalizationFieldRequirement',
         'normalizationFieldReserved' => 'NormalizationFieldReserved',
         'normalizationFieldTokenize' => 'NormalizationFieldTokenize',
         'normalizationFieldType' => 'NormalizationFieldType',
@@ -91,9 +72,6 @@ class normalizationFields extends Model
 
     public function validate()
     {
-        if (\is_array($this->normalizationFieldJsonKeys)) {
-            Model::validateArray($this->normalizationFieldJsonKeys);
-        }
         parent::validate();
     }
 
@@ -116,31 +94,12 @@ class normalizationFields extends Model
             $res['NormalizationFieldFrom'] = $this->normalizationFieldFrom;
         }
 
-        if (null !== $this->normalizationFieldJsonIndexAll) {
-            $res['NormalizationFieldJsonIndexAll'] = $this->normalizationFieldJsonIndexAll;
-        }
-
-        if (null !== $this->normalizationFieldJsonKeys) {
-            if (\is_array($this->normalizationFieldJsonKeys)) {
-                $res['NormalizationFieldJsonKeys'] = [];
-                $n1 = 0;
-                foreach ($this->normalizationFieldJsonKeys as $item1) {
-                    $res['NormalizationFieldJsonKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->normalizationFieldName) {
             $res['NormalizationFieldName'] = $this->normalizationFieldName;
         }
 
         if (null !== $this->normalizationFieldRequired) {
             $res['NormalizationFieldRequired'] = $this->normalizationFieldRequired;
-        }
-
-        if (null !== $this->normalizationFieldRequirement) {
-            $res['NormalizationFieldRequirement'] = $this->normalizationFieldRequirement;
         }
 
         if (null !== $this->normalizationFieldReserved) {
@@ -186,31 +145,12 @@ class normalizationFields extends Model
             $model->normalizationFieldFrom = $map['NormalizationFieldFrom'];
         }
 
-        if (isset($map['NormalizationFieldJsonIndexAll'])) {
-            $model->normalizationFieldJsonIndexAll = $map['NormalizationFieldJsonIndexAll'];
-        }
-
-        if (isset($map['NormalizationFieldJsonKeys'])) {
-            if (!empty($map['NormalizationFieldJsonKeys'])) {
-                $model->normalizationFieldJsonKeys = [];
-                $n1 = 0;
-                foreach ($map['NormalizationFieldJsonKeys'] as $item1) {
-                    $model->normalizationFieldJsonKeys[$n1] = normalizationFieldJsonKeys::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['NormalizationFieldName'])) {
             $model->normalizationFieldName = $map['NormalizationFieldName'];
         }
 
         if (isset($map['NormalizationFieldRequired'])) {
             $model->normalizationFieldRequired = $map['NormalizationFieldRequired'];
-        }
-
-        if (isset($map['NormalizationFieldRequirement'])) {
-            $model->normalizationFieldRequirement = $map['NormalizationFieldRequirement'];
         }
 
         if (isset($map['NormalizationFieldReserved'])) {

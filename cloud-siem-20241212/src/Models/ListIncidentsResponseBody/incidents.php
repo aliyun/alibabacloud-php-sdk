@@ -16,6 +16,11 @@ class incidents extends Model
     /**
      * @var string
      */
+    public $detectionRuleId;
+
+    /**
+     * @var string
+     */
     public $incidentName;
 
     /**
@@ -39,6 +44,11 @@ class incidents extends Model
     public $incidentUuid;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $relateAlertCount;
@@ -59,11 +69,13 @@ class incidents extends Model
     public $updateTime;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'detectionRuleId' => 'DetectionRuleId',
         'incidentName' => 'IncidentName',
         'incidentRemark' => 'IncidentRemark',
         'incidentStatus' => 'IncidentStatus',
         'incidentTags' => 'IncidentTags',
         'incidentUuid' => 'IncidentUuid',
+        'owner' => 'Owner',
         'relateAlertCount' => 'RelateAlertCount',
         'relateAssetCount' => 'RelateAssetCount',
         'threatLevel' => 'ThreatLevel',
@@ -80,6 +92,10 @@ class incidents extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->detectionRuleId) {
+            $res['DetectionRuleId'] = $this->detectionRuleId;
         }
 
         if (null !== $this->incidentName) {
@@ -100,6 +116,10 @@ class incidents extends Model
 
         if (null !== $this->incidentUuid) {
             $res['IncidentUuid'] = $this->incidentUuid;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->relateAlertCount) {
@@ -133,6 +153,10 @@ class incidents extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DetectionRuleId'])) {
+            $model->detectionRuleId = $map['DetectionRuleId'];
+        }
+
         if (isset($map['IncidentName'])) {
             $model->incidentName = $map['IncidentName'];
         }
@@ -151,6 +175,10 @@ class incidents extends Model
 
         if (isset($map['IncidentUuid'])) {
             $model->incidentUuid = $map['IncidentUuid'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['RelateAlertCount'])) {

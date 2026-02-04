@@ -16,7 +16,17 @@ class UpdateNormalizationRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $extendFieldStoreMode;
+
+    /**
+     * @var string
+     */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $normalizationCategoryId;
 
     /**
      * @var string
@@ -89,7 +99,9 @@ class UpdateNormalizationRuleShrinkRequest extends Model
     public $vendorId;
     protected $_name = [
         'extendContentPacked' => 'ExtendContentPacked',
+        'extendFieldStoreMode' => 'ExtendFieldStoreMode',
         'lang' => 'Lang',
+        'normalizationCategoryId' => 'NormalizationCategoryId',
         'normalizationRuleDescription' => 'NormalizationRuleDescription',
         'normalizationRuleExpression' => 'NormalizationRuleExpression',
         'normalizationRuleFormat' => 'NormalizationRuleFormat',
@@ -118,8 +130,16 @@ class UpdateNormalizationRuleShrinkRequest extends Model
             $res['ExtendContentPacked'] = $this->extendContentPacked;
         }
 
+        if (null !== $this->extendFieldStoreMode) {
+            $res['ExtendFieldStoreMode'] = $this->extendFieldStoreMode;
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->normalizationCategoryId) {
+            $res['NormalizationCategoryId'] = $this->normalizationCategoryId;
         }
 
         if (null !== $this->normalizationRuleDescription) {
@@ -193,8 +213,16 @@ class UpdateNormalizationRuleShrinkRequest extends Model
             $model->extendContentPacked = $map['ExtendContentPacked'];
         }
 
+        if (isset($map['ExtendFieldStoreMode'])) {
+            $model->extendFieldStoreMode = $map['ExtendFieldStoreMode'];
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['NormalizationCategoryId'])) {
+            $model->normalizationCategoryId = $map['NormalizationCategoryId'];
         }
 
         if (isset($map['NormalizationRuleDescription'])) {

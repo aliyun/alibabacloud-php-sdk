@@ -16,6 +16,11 @@ class CreateNormalizationRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $extendFieldStoreMode;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -94,6 +99,7 @@ class CreateNormalizationRuleShrinkRequest extends Model
     public $vendorId;
     protected $_name = [
         'extendContentPacked' => 'ExtendContentPacked',
+        'extendFieldStoreMode' => 'ExtendFieldStoreMode',
         'lang' => 'Lang',
         'normalizationCategoryId' => 'NormalizationCategoryId',
         'normalizationRuleDescription' => 'NormalizationRuleDescription',
@@ -122,6 +128,10 @@ class CreateNormalizationRuleShrinkRequest extends Model
         $res = [];
         if (null !== $this->extendContentPacked) {
             $res['ExtendContentPacked'] = $this->extendContentPacked;
+        }
+
+        if (null !== $this->extendFieldStoreMode) {
+            $res['ExtendFieldStoreMode'] = $this->extendFieldStoreMode;
         }
 
         if (null !== $this->lang) {
@@ -201,6 +211,10 @@ class CreateNormalizationRuleShrinkRequest extends Model
         $model = new self();
         if (isset($map['ExtendContentPacked'])) {
             $model->extendContentPacked = $map['ExtendContentPacked'];
+        }
+
+        if (isset($map['ExtendFieldStoreMode'])) {
+            $model->extendFieldStoreMode = $map['ExtendFieldStoreMode'];
         }
 
         if (isset($map['Lang'])) {

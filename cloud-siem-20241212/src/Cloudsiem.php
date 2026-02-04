@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateLogStoreResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationRuleRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationRuleShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateProductRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateProductResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateVendorRequest;
@@ -128,6 +130,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListUpgradeItemsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListVendorsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListVendorsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListVendorsShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\RefreshDataSourceRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\RefreshDataSourceResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionRequest;
@@ -159,6 +163,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDetectionRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationRuleRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationRuleShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationSchemaRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationSchemaResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateProductRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateProductResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateVendorRequest;
@@ -580,10 +586,6 @@ class Cloudsiem extends OpenApiClient
             @$body['RoleFor'] = $request->roleFor;
         }
 
-        if (null !== $request->updateTime) {
-            @$body['UpdateTime'] = $request->updateTime;
-        }
-
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
@@ -643,8 +645,16 @@ class Cloudsiem extends OpenApiClient
             @$body['AlertAttCk'] = $request->alertAttCk;
         }
 
+        if (null !== $request->alertDescription) {
+            @$body['AlertDescription'] = $request->alertDescription;
+        }
+
         if (null !== $request->alertLevel) {
             @$body['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->alertName) {
+            @$body['AlertName'] = $request->alertName;
         }
 
         if (null !== $request->alertSchemaId) {
@@ -984,6 +994,10 @@ class Cloudsiem extends OpenApiClient
             @$body['ExtendContentPacked'] = $request->extendContentPacked;
         }
 
+        if (null !== $request->extendFieldStoreMode) {
+            @$body['ExtendFieldStoreMode'] = $request->extendFieldStoreMode;
+        }
+
         if (null !== $request->lang) {
             @$body['Lang'] = $request->lang;
         }
@@ -1082,6 +1096,99 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNormalizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建标准化结构.
+     *
+     * @param request - CreateNormalizationSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNormalizationSchemaResponse
+     *
+     * @param CreateNormalizationSchemaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateNormalizationSchemaResponse
+     */
+    public function createNormalizationSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->normalizationCategoryId) {
+            @$body['NormalizationCategoryId'] = $request->normalizationCategoryId;
+        }
+
+        if (null !== $request->normalizationFields) {
+            @$body['NormalizationFields'] = $request->normalizationFields;
+        }
+
+        if (null !== $request->normalizationSchemaDescription) {
+            @$body['NormalizationSchemaDescription'] = $request->normalizationSchemaDescription;
+        }
+
+        if (null !== $request->normalizationSchemaId) {
+            @$body['NormalizationSchemaId'] = $request->normalizationSchemaId;
+        }
+
+        if (null !== $request->normalizationSchemaName) {
+            @$body['NormalizationSchemaName'] = $request->normalizationSchemaName;
+        }
+
+        if (null !== $request->normalizationSchemaType) {
+            @$body['NormalizationSchemaType'] = $request->normalizationSchemaType;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->targetLogStore) {
+            @$body['TargetLogStore'] = $request->targetLogStore;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNormalizationSchema',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNormalizationSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建标准化结构.
+     *
+     * @param request - CreateNormalizationSchemaRequest
+     *
+     * @returns CreateNormalizationSchemaResponse
+     *
+     * @param CreateNormalizationSchemaRequest $request
+     *
+     * @return CreateNormalizationSchemaResponse
+     */
+    public function createNormalizationSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNormalizationSchemaWithOptions($request, $runtime);
     }
 
     /**
@@ -3751,6 +3858,10 @@ class Cloudsiem extends OpenApiClient
             @$body['OrderFieldName'] = $request->orderFieldName;
         }
 
+        if (null !== $request->owners) {
+            @$body['Owners'] = $request->owners;
+        }
+
         if (null !== $request->pageNumber) {
             @$body['PageNumber'] = $request->pageNumber;
         }
@@ -4928,6 +5039,75 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * 刷新数据源.
+     *
+     * @param request - RefreshDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshDataSourceResponse
+     *
+     * @param RefreshDataSourceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RefreshDataSourceResponse
+     */
+    public function refreshDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dataSourceId) {
+            @$body['DataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshDataSource',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 刷新数据源.
+     *
+     * @param request - RefreshDataSourceRequest
+     *
+     * @returns RefreshDataSourceResponse
+     *
+     * @param RefreshDataSourceRequest $request
+     *
+     * @return RefreshDataSourceResponse
+     */
+    public function refreshDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * 数据存储的清空操作，该动作会删除已有的数据，重新初始化物理存储。
      *
      * @param request - ResetDataStorageRequest
@@ -5952,8 +6132,16 @@ class Cloudsiem extends OpenApiClient
             @$body['AlertAttCk'] = $request->alertAttCk;
         }
 
+        if (null !== $request->alertDescription) {
+            @$body['AlertDescription'] = $request->alertDescription;
+        }
+
         if (null !== $request->alertLevel) {
             @$body['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->alertName) {
+            @$body['AlertName'] = $request->alertName;
         }
 
         if (null !== $request->alertSchemaId) {
@@ -6131,8 +6319,16 @@ class Cloudsiem extends OpenApiClient
             @$body['ExtendContentPacked'] = $request->extendContentPacked;
         }
 
+        if (null !== $request->extendFieldStoreMode) {
+            @$body['ExtendFieldStoreMode'] = $request->extendFieldStoreMode;
+        }
+
         if (null !== $request->lang) {
             @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->normalizationCategoryId) {
+            @$body['NormalizationCategoryId'] = $request->normalizationCategoryId;
         }
 
         if (null !== $request->normalizationRuleDescription) {
@@ -6225,6 +6421,91 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateNormalizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新标准化结构.
+     *
+     * @param request - UpdateNormalizationSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNormalizationSchemaResponse
+     *
+     * @param UpdateNormalizationSchemaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateNormalizationSchemaResponse
+     */
+    public function updateNormalizationSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->normalizationFields) {
+            @$body['NormalizationFields'] = $request->normalizationFields;
+        }
+
+        if (null !== $request->normalizationSchemaDescription) {
+            @$body['NormalizationSchemaDescription'] = $request->normalizationSchemaDescription;
+        }
+
+        if (null !== $request->normalizationSchemaId) {
+            @$body['NormalizationSchemaId'] = $request->normalizationSchemaId;
+        }
+
+        if (null !== $request->normalizationSchemaName) {
+            @$body['NormalizationSchemaName'] = $request->normalizationSchemaName;
+        }
+
+        if (null !== $request->normalizationSchemaType) {
+            @$body['NormalizationSchemaType'] = $request->normalizationSchemaType;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNormalizationSchema',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNormalizationSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新标准化结构.
+     *
+     * @param request - UpdateNormalizationSchemaRequest
+     *
+     * @returns UpdateNormalizationSchemaResponse
+     *
+     * @param UpdateNormalizationSchemaRequest $request
+     *
+     * @return UpdateNormalizationSchemaResponse
+     */
+    public function updateNormalizationSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNormalizationSchemaWithOptions($request, $runtime);
     }
 
     /**
@@ -6479,16 +6760,36 @@ class Cloudsiem extends OpenApiClient
             @$body['Data'] = $request->data;
         }
 
+        if (null !== $request->extendFieldStoreMode) {
+            @$body['ExtendFieldStoreMode'] = $request->extendFieldStoreMode;
+        }
+
         if (null !== $request->lang) {
             @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->logSample) {
+            @$body['LogSample'] = $request->logSample;
         }
 
         if (null !== $request->normalizationCategoryId) {
             @$body['NormalizationCategoryId'] = $request->normalizationCategoryId;
         }
 
+        if (null !== $request->normalizationRuleExpression) {
+            @$body['NormalizationRuleExpression'] = $request->normalizationRuleExpression;
+        }
+
+        if (null !== $request->normalizationRuleMode) {
+            @$body['NormalizationRuleMode'] = $request->normalizationRuleMode;
+        }
+
         if (null !== $request->normalizationSchemaId) {
             @$body['NormalizationSchemaId'] = $request->normalizationSchemaId;
+        }
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
 
         if (null !== $request->regionId) {
@@ -6497,6 +6798,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->roleFor) {
             @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->vendorId) {
+            @$body['VendorId'] = $request->vendorId;
         }
 
         $req = new OpenApiRequest([

@@ -59,6 +59,11 @@ class incident extends Model
     public $incidentUuid;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $relateAlertCount;
@@ -103,6 +108,7 @@ class incident extends Model
         'incidentStatus' => 'IncidentStatus',
         'incidentTags' => 'IncidentTags',
         'incidentUuid' => 'IncidentUuid',
+        'owner' => 'Owner',
         'relateAlertCount' => 'RelateAlertCount',
         'relateAssetCount' => 'RelateAssetCount',
         'relateDataSourceIds' => 'RelateDataSourceIds',
@@ -158,6 +164,10 @@ class incident extends Model
 
         if (null !== $this->incidentUuid) {
             $res['IncidentUuid'] = $this->incidentUuid;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->relateAlertCount) {
@@ -237,6 +247,10 @@ class incident extends Model
 
         if (isset($map['IncidentUuid'])) {
             $model->incidentUuid = $map['IncidentUuid'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['RelateAlertCount'])) {

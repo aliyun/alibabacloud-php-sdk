@@ -36,6 +36,11 @@ class dataSourceStores extends Model
     /**
      * @var string
      */
+    public $dataSourceStoreStatusCode;
+
+    /**
+     * @var string
+     */
     public $logProjectName;
 
     /**
@@ -58,6 +63,7 @@ class dataSourceStores extends Model
         'dataSourceStoreFrom' => 'DataSourceStoreFrom',
         'dataSourceStoreId' => 'DataSourceStoreId',
         'dataSourceStoreStatus' => 'DataSourceStoreStatus',
+        'dataSourceStoreStatusCode' => 'DataSourceStoreStatusCode',
         'logProjectName' => 'LogProjectName',
         'logRegionId' => 'LogRegionId',
         'logStoreName' => 'LogStoreName',
@@ -90,6 +96,10 @@ class dataSourceStores extends Model
 
         if (null !== $this->dataSourceStoreStatus) {
             $res['DataSourceStoreStatus'] = $this->dataSourceStoreStatus;
+        }
+
+        if (null !== $this->dataSourceStoreStatusCode) {
+            $res['DataSourceStoreStatusCode'] = $this->dataSourceStoreStatusCode;
         }
 
         if (null !== $this->logProjectName) {
@@ -137,6 +147,10 @@ class dataSourceStores extends Model
 
         if (isset($map['DataSourceStoreStatus'])) {
             $model->dataSourceStoreStatus = $map['DataSourceStoreStatus'];
+        }
+
+        if (isset($map['DataSourceStoreStatusCode'])) {
+            $model->dataSourceStoreStatusCode = $map['DataSourceStoreStatusCode'];
         }
 
         if (isset($map['LogProjectName'])) {

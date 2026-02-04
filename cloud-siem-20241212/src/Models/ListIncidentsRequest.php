@@ -64,6 +64,11 @@ class ListIncidentsRequest extends Model
     public $orderFieldName;
 
     /**
+     * @var string[]
+     */
+    public $owners;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -119,6 +124,7 @@ class ListIncidentsRequest extends Model
         'nextToken' => 'NextToken',
         'orderDirection' => 'OrderDirection',
         'orderFieldName' => 'OrderFieldName',
+        'owners' => 'Owners',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -134,6 +140,9 @@ class ListIncidentsRequest extends Model
     {
         if (\is_array($this->incidentUuids)) {
             Model::validateArray($this->incidentUuids);
+        }
+        if (\is_array($this->owners)) {
+            Model::validateArray($this->owners);
         }
         if (\is_array($this->threatLevel)) {
             Model::validateArray($this->threatLevel);
@@ -193,6 +202,17 @@ class ListIncidentsRequest extends Model
 
         if (null !== $this->orderFieldName) {
             $res['OrderFieldName'] = $this->orderFieldName;
+        }
+
+        if (null !== $this->owners) {
+            if (\is_array($this->owners)) {
+                $res['Owners'] = [];
+                $n1 = 0;
+                foreach ($this->owners as $item1) {
+                    $res['Owners'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->pageNumber) {
@@ -298,6 +318,17 @@ class ListIncidentsRequest extends Model
 
         if (isset($map['OrderFieldName'])) {
             $model->orderFieldName = $map['OrderFieldName'];
+        }
+
+        if (isset($map['Owners'])) {
+            if (!empty($map['Owners'])) {
+                $model->owners = [];
+                $n1 = 0;
+                foreach ($map['Owners'] as $item1) {
+                    $model->owners[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PageNumber'])) {

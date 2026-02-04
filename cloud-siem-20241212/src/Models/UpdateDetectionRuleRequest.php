@@ -16,7 +16,17 @@ class UpdateDetectionRuleRequest extends Model
     /**
      * @var string
      */
+    public $alertDescription;
+
+    /**
+     * @var string
+     */
     public $alertLevel;
+
+    /**
+     * @var string
+     */
+    public $alertName;
 
     /**
      * @var string
@@ -159,7 +169,9 @@ class UpdateDetectionRuleRequest extends Model
     public $scheduleWindow;
     protected $_name = [
         'alertAttCk' => 'AlertAttCk',
+        'alertDescription' => 'AlertDescription',
         'alertLevel' => 'AlertLevel',
+        'alertName' => 'AlertName',
         'alertSchemaId' => 'AlertSchemaId',
         'alertTacticId' => 'AlertTacticId',
         'alertThresholdCount' => 'AlertThresholdCount',
@@ -202,8 +214,16 @@ class UpdateDetectionRuleRequest extends Model
             $res['AlertAttCk'] = $this->alertAttCk;
         }
 
+        if (null !== $this->alertDescription) {
+            $res['AlertDescription'] = $this->alertDescription;
+        }
+
         if (null !== $this->alertLevel) {
             $res['AlertLevel'] = $this->alertLevel;
+        }
+
+        if (null !== $this->alertName) {
+            $res['AlertName'] = $this->alertName;
         }
 
         if (null !== $this->alertSchemaId) {
@@ -333,8 +353,16 @@ class UpdateDetectionRuleRequest extends Model
             $model->alertAttCk = $map['AlertAttCk'];
         }
 
+        if (isset($map['AlertDescription'])) {
+            $model->alertDescription = $map['AlertDescription'];
+        }
+
         if (isset($map['AlertLevel'])) {
             $model->alertLevel = $map['AlertLevel'];
+        }
+
+        if (isset($map['AlertName'])) {
+            $model->alertName = $map['AlertName'];
         }
 
         if (isset($map['AlertSchemaId'])) {

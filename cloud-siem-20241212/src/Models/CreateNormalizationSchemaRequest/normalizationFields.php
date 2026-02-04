@@ -2,18 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema;
+namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaRequest;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema\normalizationFields\normalizationFieldJsonKeys;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaRequest\normalizationFields\normalizationFieldJsonKeys;
 
 class normalizationFields extends Model
 {
-    /**
-     * @var int
-     */
-    public $createTime;
-
     /**
      * @var string
      */
@@ -68,13 +63,7 @@ class normalizationFields extends Model
      * @var string
      */
     public $normalizationFieldType;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
     protected $_name = [
-        'createTime' => 'CreateTime',
         'normalizationFieldDescription' => 'NormalizationFieldDescription',
         'normalizationFieldExample' => 'NormalizationFieldExample',
         'normalizationFieldFrom' => 'NormalizationFieldFrom',
@@ -86,7 +75,6 @@ class normalizationFields extends Model
         'normalizationFieldReserved' => 'NormalizationFieldReserved',
         'normalizationFieldTokenize' => 'NormalizationFieldTokenize',
         'normalizationFieldType' => 'NormalizationFieldType',
-        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -100,10 +88,6 @@ class normalizationFields extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-
         if (null !== $this->normalizationFieldDescription) {
             $res['NormalizationFieldDescription'] = $this->normalizationFieldDescription;
         }
@@ -155,10 +139,6 @@ class normalizationFields extends Model
             $res['NormalizationFieldType'] = $this->normalizationFieldType;
         }
 
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-
         return $res;
     }
 
@@ -170,10 +150,6 @@ class normalizationFields extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-
         if (isset($map['NormalizationFieldDescription'])) {
             $model->normalizationFieldDescription = $map['NormalizationFieldDescription'];
         }
@@ -223,10 +199,6 @@ class normalizationFields extends Model
 
         if (isset($map['NormalizationFieldType'])) {
             $model->normalizationFieldType = $map['NormalizationFieldType'];
-        }
-
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

@@ -2,18 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody;
+namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema\normalizationFields;
-use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponseBody\normalizationSchema\normalizationSchemaReferences;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaRequest\normalizationFields;
 
-class normalizationSchema extends Model
+class CreateNormalizationSchemaRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $lang;
 
     /**
      * @var string
@@ -33,22 +32,12 @@ class normalizationSchema extends Model
     /**
      * @var string
      */
-    public $normalizationSchemaFrom;
-
-    /**
-     * @var string
-     */
     public $normalizationSchemaId;
 
     /**
      * @var string
      */
     public $normalizationSchemaName;
-
-    /**
-     * @var normalizationSchemaReferences[]
-     */
-    public $normalizationSchemaReferences;
 
     /**
      * @var string
@@ -58,30 +47,28 @@ class normalizationSchema extends Model
     /**
      * @var string
      */
-    public $targetLogStore;
-
-    /**
-     * @var string
-     */
-    public $targetStoreView;
+    public $regionId;
 
     /**
      * @var int
      */
-    public $updateTime;
+    public $roleFor;
+
+    /**
+     * @var string
+     */
+    public $targetLogStore;
     protected $_name = [
-        'createTime' => 'CreateTime',
+        'lang' => 'Lang',
         'normalizationCategoryId' => 'NormalizationCategoryId',
         'normalizationFields' => 'NormalizationFields',
         'normalizationSchemaDescription' => 'NormalizationSchemaDescription',
-        'normalizationSchemaFrom' => 'NormalizationSchemaFrom',
         'normalizationSchemaId' => 'NormalizationSchemaId',
         'normalizationSchemaName' => 'NormalizationSchemaName',
-        'normalizationSchemaReferences' => 'NormalizationSchemaReferences',
         'normalizationSchemaType' => 'NormalizationSchemaType',
+        'regionId' => 'RegionId',
+        'roleFor' => 'RoleFor',
         'targetLogStore' => 'TargetLogStore',
-        'targetStoreView' => 'TargetStoreView',
-        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -89,17 +76,14 @@ class normalizationSchema extends Model
         if (\is_array($this->normalizationFields)) {
             Model::validateArray($this->normalizationFields);
         }
-        if (\is_array($this->normalizationSchemaReferences)) {
-            Model::validateArray($this->normalizationSchemaReferences);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         if (null !== $this->normalizationCategoryId) {
@@ -121,10 +105,6 @@ class normalizationSchema extends Model
             $res['NormalizationSchemaDescription'] = $this->normalizationSchemaDescription;
         }
 
-        if (null !== $this->normalizationSchemaFrom) {
-            $res['NormalizationSchemaFrom'] = $this->normalizationSchemaFrom;
-        }
-
         if (null !== $this->normalizationSchemaId) {
             $res['NormalizationSchemaId'] = $this->normalizationSchemaId;
         }
@@ -133,31 +113,20 @@ class normalizationSchema extends Model
             $res['NormalizationSchemaName'] = $this->normalizationSchemaName;
         }
 
-        if (null !== $this->normalizationSchemaReferences) {
-            if (\is_array($this->normalizationSchemaReferences)) {
-                $res['NormalizationSchemaReferences'] = [];
-                $n1 = 0;
-                foreach ($this->normalizationSchemaReferences as $item1) {
-                    $res['NormalizationSchemaReferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->normalizationSchemaType) {
             $res['NormalizationSchemaType'] = $this->normalizationSchemaType;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->roleFor) {
+            $res['RoleFor'] = $this->roleFor;
+        }
+
         if (null !== $this->targetLogStore) {
             $res['TargetLogStore'] = $this->targetLogStore;
-        }
-
-        if (null !== $this->targetStoreView) {
-            $res['TargetStoreView'] = $this->targetStoreView;
-        }
-
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -171,8 +140,8 @@ class normalizationSchema extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         if (isset($map['NormalizationCategoryId'])) {
@@ -194,10 +163,6 @@ class normalizationSchema extends Model
             $model->normalizationSchemaDescription = $map['NormalizationSchemaDescription'];
         }
 
-        if (isset($map['NormalizationSchemaFrom'])) {
-            $model->normalizationSchemaFrom = $map['NormalizationSchemaFrom'];
-        }
-
         if (isset($map['NormalizationSchemaId'])) {
             $model->normalizationSchemaId = $map['NormalizationSchemaId'];
         }
@@ -206,31 +171,20 @@ class normalizationSchema extends Model
             $model->normalizationSchemaName = $map['NormalizationSchemaName'];
         }
 
-        if (isset($map['NormalizationSchemaReferences'])) {
-            if (!empty($map['NormalizationSchemaReferences'])) {
-                $model->normalizationSchemaReferences = [];
-                $n1 = 0;
-                foreach ($map['NormalizationSchemaReferences'] as $item1) {
-                    $model->normalizationSchemaReferences[$n1] = normalizationSchemaReferences::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['NormalizationSchemaType'])) {
             $model->normalizationSchemaType = $map['NormalizationSchemaType'];
         }
 
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RoleFor'])) {
+            $model->roleFor = $map['RoleFor'];
+        }
+
         if (isset($map['TargetLogStore'])) {
             $model->targetLogStore = $map['TargetLogStore'];
-        }
-
-        if (isset($map['TargetStoreView'])) {
-            $model->targetStoreView = $map['TargetStoreView'];
-        }
-
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

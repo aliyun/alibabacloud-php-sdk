@@ -93,11 +93,6 @@ class CreateDataSourceRequest extends Model
      * @var int
      */
     public $roleFor;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
     protected $_name = [
         'dataSourceFrom' => 'DataSourceFrom',
         'dataSourceIds' => 'DataSourceIds',
@@ -116,7 +111,6 @@ class CreateDataSourceRequest extends Model
         'order' => 'Order',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
-        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -225,10 +219,6 @@ class CreateDataSourceRequest extends Model
             $res['RoleFor'] = $this->roleFor;
         }
 
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-
         return $res;
     }
 
@@ -327,10 +317,6 @@ class CreateDataSourceRequest extends Model
 
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
-        }
-
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

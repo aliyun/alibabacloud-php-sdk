@@ -93,11 +93,6 @@ class CreateDataSourceShrinkRequest extends Model
      * @var int
      */
     public $roleFor;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
     protected $_name = [
         'dataSourceFrom' => 'DataSourceFrom',
         'dataSourceIdsShrink' => 'DataSourceIds',
@@ -116,7 +111,6 @@ class CreateDataSourceShrinkRequest extends Model
         'order' => 'Order',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
-        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -205,10 +199,6 @@ class CreateDataSourceShrinkRequest extends Model
             $res['RoleFor'] = $this->roleFor;
         }
 
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-
         return $res;
     }
 
@@ -293,10 +283,6 @@ class CreateDataSourceShrinkRequest extends Model
 
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
-        }
-
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

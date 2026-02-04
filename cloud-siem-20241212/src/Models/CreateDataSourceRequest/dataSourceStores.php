@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class dataSourceStores extends Model
 {
     /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
      * @var string
      */
     public $dataSourceStoreFrom;
@@ -42,20 +37,13 @@ class dataSourceStores extends Model
      * @var string
      */
     public $logStoreName;
-
-    /**
-     * @var int
-     */
-    public $updateTime;
     protected $_name = [
-        'createTime' => 'CreateTime',
         'dataSourceStoreFrom' => 'DataSourceStoreFrom',
         'dataSourceStoreId' => 'DataSourceStoreId',
         'dataSourceStoreStatus' => 'DataSourceStoreStatus',
         'logProjectName' => 'LogProjectName',
         'logRegionId' => 'LogRegionId',
         'logStoreName' => 'LogStoreName',
-        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -66,10 +54,6 @@ class dataSourceStores extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-
         if (null !== $this->dataSourceStoreFrom) {
             $res['DataSourceStoreFrom'] = $this->dataSourceStoreFrom;
         }
@@ -94,10 +78,6 @@ class dataSourceStores extends Model
             $res['LogStoreName'] = $this->logStoreName;
         }
 
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-
         return $res;
     }
 
@@ -109,10 +89,6 @@ class dataSourceStores extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-
         if (isset($map['DataSourceStoreFrom'])) {
             $model->dataSourceStoreFrom = $map['DataSourceStoreFrom'];
         }
@@ -135,10 +111,6 @@ class dataSourceStores extends Model
 
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
-        }
-
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

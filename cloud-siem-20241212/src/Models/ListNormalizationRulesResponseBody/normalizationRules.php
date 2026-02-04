@@ -22,6 +22,11 @@ class normalizationRules extends Model
     /**
      * @var string
      */
+    public $extendFieldStoreMode;
+
+    /**
+     * @var string
+     */
     public $normalizationCategoryId;
 
     /**
@@ -96,6 +101,7 @@ class normalizationRules extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'extendContentPacked' => 'ExtendContentPacked',
+        'extendFieldStoreMode' => 'ExtendFieldStoreMode',
         'normalizationCategoryId' => 'NormalizationCategoryId',
         'normalizationRuleDescription' => 'NormalizationRuleDescription',
         'normalizationRuleExpression' => 'NormalizationRuleExpression',
@@ -130,6 +136,10 @@ class normalizationRules extends Model
 
         if (null !== $this->extendContentPacked) {
             $res['ExtendContentPacked'] = $this->extendContentPacked;
+        }
+
+        if (null !== $this->extendFieldStoreMode) {
+            $res['ExtendFieldStoreMode'] = $this->extendFieldStoreMode;
         }
 
         if (null !== $this->normalizationCategoryId) {
@@ -216,6 +226,10 @@ class normalizationRules extends Model
 
         if (isset($map['ExtendContentPacked'])) {
             $model->extendContentPacked = $map['ExtendContentPacked'];
+        }
+
+        if (isset($map['ExtendFieldStoreMode'])) {
+            $model->extendFieldStoreMode = $map['ExtendFieldStoreMode'];
         }
 
         if (isset($map['NormalizationCategoryId'])) {
