@@ -204,6 +204,11 @@ class DescribeDtsJobDetailResponseBody extends Model
     public $initCheckpoint;
 
     /**
+     * @var bool
+     */
+    public $insightModule;
+
+    /**
      * @var string
      */
     public $jobType;
@@ -345,6 +350,7 @@ class DescribeDtsJobDetailResponseBody extends Model
         'groupId' => 'GroupId',
         'httpStatusCode' => 'HttpStatusCode',
         'initCheckpoint' => 'InitCheckpoint',
+        'insightModule' => 'InsightModule',
         'jobType' => 'JobType',
         'lastUpdateTime' => 'LastUpdateTime',
         'maxDu' => 'MaxDu',
@@ -552,6 +558,10 @@ class DescribeDtsJobDetailResponseBody extends Model
 
         if (null !== $this->initCheckpoint) {
             $res['InitCheckpoint'] = $this->initCheckpoint;
+        }
+
+        if (null !== $this->insightModule) {
+            $res['InsightModule'] = $this->insightModule;
         }
 
         if (null !== $this->jobType) {
@@ -809,6 +819,10 @@ class DescribeDtsJobDetailResponseBody extends Model
 
         if (isset($map['InitCheckpoint'])) {
             $model->initCheckpoint = $map['InitCheckpoint'];
+        }
+
+        if (isset($map['InsightModule'])) {
+            $model->insightModule = $map['InsightModule'];
         }
 
         if (isset($map['JobType'])) {

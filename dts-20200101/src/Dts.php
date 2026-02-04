@@ -2452,6 +2452,10 @@ class Dts extends OpenApiClient
             @$query['FeeType'] = $request->feeType;
         }
 
+        if (null !== $request->insightModule) {
+            @$query['InsightModule'] = $request->insightModule;
+        }
+
         if (null !== $request->instanceClass) {
             @$query['InstanceClass'] = $request->instanceClass;
         }

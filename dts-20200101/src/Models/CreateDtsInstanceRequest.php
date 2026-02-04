@@ -54,6 +54,11 @@ class CreateDtsInstanceRequest extends Model
     public $feeType;
 
     /**
+     * @var bool
+     */
+    public $insightModule;
+
+    /**
      * @var string
      */
     public $instanceClass;
@@ -132,6 +137,7 @@ class CreateDtsInstanceRequest extends Model
         'dtsRegion' => 'DtsRegion',
         'du' => 'Du',
         'feeType' => 'FeeType',
+        'insightModule' => 'InsightModule',
         'instanceClass' => 'InstanceClass',
         'jobId' => 'JobId',
         'maxDu' => 'MaxDu',
@@ -190,6 +196,10 @@ class CreateDtsInstanceRequest extends Model
 
         if (null !== $this->feeType) {
             $res['FeeType'] = $this->feeType;
+        }
+
+        if (null !== $this->insightModule) {
+            $res['InsightModule'] = $this->insightModule;
         }
 
         if (null !== $this->instanceClass) {
@@ -293,6 +303,10 @@ class CreateDtsInstanceRequest extends Model
 
         if (isset($map['FeeType'])) {
             $model->feeType = $map['FeeType'];
+        }
+
+        if (isset($map['InsightModule'])) {
+            $model->insightModule = $map['InsightModule'];
         }
 
         if (isset($map['InstanceClass'])) {
