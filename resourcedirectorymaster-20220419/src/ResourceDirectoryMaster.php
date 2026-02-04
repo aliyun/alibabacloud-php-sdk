@@ -3081,6 +3081,14 @@ class ResourceDirectoryMaster extends OpenApiClient
             @$query['AccountId'] = $request->accountId;
         }
 
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

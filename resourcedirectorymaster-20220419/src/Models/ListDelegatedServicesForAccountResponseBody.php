@@ -15,11 +15,23 @@ class ListDelegatedServicesForAccountResponseBody extends Model
     public $delegatedServices;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'delegatedServices' => 'DelegatedServices',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
@@ -36,6 +48,14 @@ class ListDelegatedServicesForAccountResponseBody extends Model
         $res = [];
         if (null !== $this->delegatedServices) {
             $res['DelegatedServices'] = null !== $this->delegatedServices ? $this->delegatedServices->toArray($noStream) : $this->delegatedServices;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->requestId) {
@@ -55,6 +75,14 @@ class ListDelegatedServicesForAccountResponseBody extends Model
         $model = new self();
         if (isset($map['DelegatedServices'])) {
             $model->delegatedServices = delegatedServices::fromMap($map['DelegatedServices']);
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['RequestId'])) {
