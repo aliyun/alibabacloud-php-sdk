@@ -16,10 +16,16 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesRequest;
@@ -42,11 +48,21 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetInspectionReportRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetInspectionReportResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledInstancesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledInstancesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledReportsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledReportsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
@@ -67,6 +83,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceStorageConfigShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
@@ -543,6 +561,152 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 创建一个批量实例巡检任务
+     *
+     * @param request - CreateInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInspectionTaskResponse
+     *
+     * @param CreateInspectionTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateInspectionTaskResponse
+     */
+    public function createInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->inspectionItems) {
+            @$query['InspectionItems'] = $request->inspectionItems;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInspectionTask',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个批量实例巡检任务
+     *
+     * @param request - CreateInspectionTaskRequest
+     *
+     * @returns CreateInspectionTaskResponse
+     *
+     * @param CreateInspectionTaskRequest $request
+     *
+     * @return CreateInspectionTaskResponse
+     */
+    public function createInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个新的批量实例巡检任务
+     *
+     * @param request - CreateScheduledTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduledTaskResponse
+     *
+     * @param CreateScheduledTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateScheduledTaskResponse
+     */
+    public function createScheduledTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->frequency) {
+            @$query['Frequency'] = $request->frequency;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateScheduledTask',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个新的批量实例巡检任务
+     *
+     * @param request - CreateScheduledTaskRequest
+     *
+     * @returns CreateScheduledTaskResponse
+     *
+     * @param CreateScheduledTaskRequest $request
+     *
+     * @return CreateScheduledTaskResponse
+     */
+    public function createScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an RDS Supabase instance.
      *
      * @remarks
@@ -678,6 +842,63 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指定的巡检任务
+     *
+     * @param request - DeleteScheduledTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScheduledTaskResponse
+     *
+     * @param DeleteScheduledTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteScheduledTaskResponse
+     */
+    public function deleteScheduledTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteScheduledTask',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定的巡检任务
+     *
+     * @param request - DeleteScheduledTaskRequest
+     *
+     * @returns DeleteScheduledTaskResponse
+     *
+     * @param DeleteScheduledTaskRequest $request
+     *
+     * @return DeleteScheduledTaskResponse
+     */
+    public function deleteScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteScheduledTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1474,6 +1695,67 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 获取巡检任务报告结果.
+     *
+     * @param request - GetInspectionReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInspectionReportResponse
+     *
+     * @param GetInspectionReportRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetInspectionReportResponse
+     */
+    public function getInspectionReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInspectionReport',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInspectionReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取巡检任务报告结果.
+     *
+     * @param request - GetInspectionReportRequest
+     *
+     * @returns GetInspectionReportResponse
+     *
+     * @param GetInspectionReportRequest $request
+     *
+     * @return GetInspectionReportResponse
+     */
+    public function getInspectionReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInspectionReportWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries specific conversation messages.
      *
      * @param request - GetMessagesRequest
@@ -1540,6 +1822,213 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMessagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定定时任务配置中包含的所有实例ID列表，支持分页.
+     *
+     * @param request - GetScheduledInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScheduledInstancesResponse
+     *
+     * @param GetScheduledInstancesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetScheduledInstancesResponse
+     */
+    public function getScheduledInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetScheduledInstances',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScheduledInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定定时任务配置中包含的所有实例ID列表，支持分页.
+     *
+     * @param request - GetScheduledInstancesRequest
+     *
+     * @returns GetScheduledInstancesResponse
+     *
+     * @param GetScheduledInstancesRequest $request
+     *
+     * @return GetScheduledInstancesResponse
+     */
+    public function getScheduledInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScheduledInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取定时任务的所有巡检报告，支持分页.
+     *
+     * @param request - GetScheduledReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScheduledReportsResponse
+     *
+     * @param GetScheduledReportsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetScheduledReportsResponse
+     */
+    public function getScheduledReportsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetScheduledReports',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScheduledReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取定时任务的所有巡检报告，支持分页.
+     *
+     * @param request - GetScheduledReportsRequest
+     *
+     * @returns GetScheduledReportsResponse
+     *
+     * @param GetScheduledReportsRequest $request
+     *
+     * @return GetScheduledReportsResponse
+     */
+    public function getScheduledReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScheduledReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页.
+     *
+     * @param request - GetStandAloneReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStandAloneReportsResponse
+     *
+     * @param GetStandAloneReportsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetStandAloneReportsResponse
+     */
+    public function getStandAloneReportsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStandAloneReports',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStandAloneReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页.
+     *
+     * @param request - GetStandAloneReportsRequest
+     *
+     * @returns GetStandAloneReportsResponse
+     *
+     * @param GetStandAloneReportsRequest $request
+     *
+     * @return GetStandAloneReportsResponse
+     */
+    public function getStandAloneReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStandAloneReportsWithOptions($request, $runtime);
     }
 
     /**
@@ -1645,6 +2134,71 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomAgentToolsWithOptions($runtime);
+    }
+
+    /**
+     * 查询指定用户UID下所有巡检任务的基本信息列表.
+     *
+     * @param request - ListScheduledTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduledTasksResponse
+     *
+     * @param ListScheduledTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListScheduledTasksResponse
+     */
+    public function listScheduledTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListScheduledTasks',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定用户UID下所有巡检任务的基本信息列表.
+     *
+     * @param request - ListScheduledTasksRequest
+     *
+     * @returns ListScheduledTasksResponse
+     *
+     * @param ListScheduledTasksRequest $request
+     *
+     * @return ListScheduledTasksResponse
+     */
+    public function listScheduledTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScheduledTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2307,6 +2861,87 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyMessagesFeedbacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改已存在的巡检任务信息.
+     *
+     * @param request - ModifyScheduledTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyScheduledTaskResponse
+     *
+     * @param ModifyScheduledTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyScheduledTaskResponse
+     */
+    public function modifyScheduledTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->frequency) {
+            @$query['Frequency'] = $request->frequency;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyScheduledTask',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改已存在的巡检任务信息.
+     *
+     * @param request - ModifyScheduledTaskRequest
+     *
+     * @returns ModifyScheduledTaskResponse
+     *
+     * @param ModifyScheduledTaskRequest $request
+     *
+     * @return ModifyScheduledTaskResponse
+     */
+    public function modifyScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyScheduledTaskWithOptions($request, $runtime);
     }
 
     /**

@@ -26,6 +26,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $eipId;
+
+    /**
+     * @var string
+     */
     public $eipStatus;
 
     /**
@@ -42,6 +47,16 @@ class DescribeAppInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $natCreatedBy;
+
+    /**
+     * @var string
+     */
+    public $natGatewayId;
 
     /**
      * @var string
@@ -86,10 +101,13 @@ class DescribeAppInstanceAttributeResponseBody extends Model
         'appName' => 'AppName',
         'appType' => 'AppType',
         'DBInstanceName' => 'DBInstanceName',
+        'eipId' => 'EipId',
         'eipStatus' => 'EipStatus',
         'instanceClass' => 'InstanceClass',
         'instanceMinorVersion' => 'InstanceMinorVersion',
         'instanceName' => 'InstanceName',
+        'natCreatedBy' => 'NatCreatedBy',
+        'natGatewayId' => 'NatGatewayId',
         'natStatus' => 'NatStatus',
         'publicConnectionString' => 'PublicConnectionString',
         'regionId' => 'RegionId',
@@ -120,6 +138,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
+        if (null !== $this->eipId) {
+            $res['EipId'] = $this->eipId;
+        }
+
         if (null !== $this->eipStatus) {
             $res['EipStatus'] = $this->eipStatus;
         }
@@ -134,6 +156,14 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->natCreatedBy) {
+            $res['NatCreatedBy'] = $this->natCreatedBy;
+        }
+
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
         }
 
         if (null !== $this->natStatus) {
@@ -191,6 +221,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $model->DBInstanceName = $map['DBInstanceName'];
         }
 
+        if (isset($map['EipId'])) {
+            $model->eipId = $map['EipId'];
+        }
+
         if (isset($map['EipStatus'])) {
             $model->eipStatus = $map['EipStatus'];
         }
@@ -205,6 +239,14 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['NatCreatedBy'])) {
+            $model->natCreatedBy = $map['NatCreatedBy'];
+        }
+
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
         }
 
         if (isset($map['NatStatus'])) {
