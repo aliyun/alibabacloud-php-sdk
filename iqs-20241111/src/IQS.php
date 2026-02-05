@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\MultimodalSearchRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\MultimodalSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageScrapeRequest;
@@ -62,7 +64,7 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * AI搜索流式接口.
+     * AI搜索流式接口(废弃).
      *
      * @param request - AiSearchRequest
      * @param headers - map
@@ -132,7 +134,7 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * AI搜索流式接口.
+     * AI搜索流式接口(废弃).
      *
      * @param request - AiSearchRequest
      * @param headers - map
@@ -190,7 +192,7 @@ class IQS extends OpenApiClient
     }
 
     /**
-     * AI搜索流式接口.
+     * AI搜索流式接口(废弃).
      *
      * @param request - AiSearchRequest
      *
@@ -528,6 +530,62 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->globalSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 多模态搜索.
+     *
+     * @param request - MultimodalSearchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultimodalSearchResponse
+     *
+     * @param MultimodalSearchRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MultimodalSearchResponse
+     */
+    public function multimodalSearchWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'MultimodalSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/multimodal/unified',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MultimodalSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态搜索.
+     *
+     * @param request - MultimodalSearchRequest
+     *
+     * @returns MultimodalSearchResponse
+     *
+     * @param MultimodalSearchRequest $request
+     *
+     * @return MultimodalSearchResponse
+     */
+    public function multimodalSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->multimodalSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
