@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CustomerService\V20231228\Models\ListServiceApplyResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appointments extends Model
 {
@@ -33,32 +33,37 @@ class appointments extends Model
      */
     public $travelDays;
     protected $_name = [
-        'huhangId'     => 'huhangId',
+        'huhangId' => 'huhangId',
         'purchaseCode' => 'purchaseCode',
         'purchaseDesc' => 'purchaseDesc',
-        'supportDays'  => 'supportDays',
-        'travelDays'   => 'travelDays',
+        'supportDays' => 'supportDays',
+        'travelDays' => 'travelDays',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->huhangId) {
             $res['huhangId'] = $this->huhangId;
         }
+
         if (null !== $this->purchaseCode) {
             $res['purchaseCode'] = $this->purchaseCode;
         }
+
         if (null !== $this->purchaseDesc) {
             $res['purchaseDesc'] = $this->purchaseDesc;
         }
+
         if (null !== $this->supportDays) {
             $res['supportDays'] = $this->supportDays;
         }
+
         if (null !== $this->travelDays) {
             $res['travelDays'] = $this->travelDays;
         }
@@ -66,26 +71,30 @@ class appointments extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appointments
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['huhangId'])) {
             $model->huhangId = $map['huhangId'];
         }
+
         if (isset($map['purchaseCode'])) {
             $model->purchaseCode = $map['purchaseCode'];
         }
+
         if (isset($map['purchaseDesc'])) {
             $model->purchaseDesc = $map['purchaseDesc'];
         }
+
         if (isset($map['supportDays'])) {
             $model->supportDays = $map['supportDays'];
         }
+
         if (isset($map['travelDays'])) {
             $model->travelDays = $map['travelDays'];
         }

@@ -4,20 +4,7 @@
 
 namespace AlibabaCloud\SDK\CustomerService\V20231228;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetDownloadUrlRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetDownloadUrlResponse;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetEnterpriseSupportPlanDetailRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetEnterpriseSupportPlanDetailResponse;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetPreViewUrlRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetPreViewUrlResponse;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetServiceDetailRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetServiceDetailResponse;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetYunQiTaskByRecordIdRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\GetYunQiTaskByRecordIdResponse;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListDocsGroupByYearRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListDocsGroupByYearResponse;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanRequest;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponse;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanSimpleRequest;
@@ -26,13 +13,10 @@ use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListServiceApplyRequest;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListServiceApplyResponse;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListYunQiTaskByUidRequest;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListYunQiTaskByUidResponse;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\MarkFileReadedRequest;
-use AlibabaCloud\SDK\CustomerService\V20231228\Models\MarkFileReadedResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class CustomerService extends OpenApiClient
 {
@@ -57,332 +41,26 @@ class CustomerService extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param GetDownloadUrlRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * 获取我的企业支持计划.
      *
-     * @return GetDownloadUrlResponse
-     */
-    public function getDownloadUrlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $body['fileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['fileKey'] = $request->fileKey;
-        }
-        if (!Utils::isUnset($request->freeOrderApplyCode)) {
-            $body['freeOrderApplyCode'] = $request->freeOrderApplyCode;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['orderId'] = $request->orderId;
-        }
-        if (!Utils::isUnset($request->scene)) {
-            $body['scene'] = $request->scene;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDownloadUrl',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/file/getDownloadUrl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetDownloadUrlRequest $request
+     * @param request - ListEnterpriseSupportPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetDownloadUrlResponse
-     */
-    public function getDownloadUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getDownloadUrlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetEnterpriseSupportPlanDetailRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @returns ListEnterpriseSupportPlanResponse
      *
-     * @return GetEnterpriseSupportPlanDetailResponse
-     */
-    public function getEnterpriseSupportPlanDetailWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->freeOrderApplyCodes)) {
-            $body['freeOrderApplyCodes'] = $request->freeOrderApplyCodes;
-        }
-        if (!Utils::isUnset($request->orderIds)) {
-            $body['orderIds'] = $request->orderIds;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetEnterpriseSupportPlanDetail',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/enterpriseSupport/getEnterpriseSupportPlanDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetEnterpriseSupportPlanDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetEnterpriseSupportPlanDetailRequest $request
-     *
-     * @return GetEnterpriseSupportPlanDetailResponse
-     */
-    public function getEnterpriseSupportPlanDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getEnterpriseSupportPlanDetailWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetPreViewUrlRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetPreViewUrlResponse
-     */
-    public function getPreViewUrlWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->applyCode)) {
-            $body['applyCode'] = $request->applyCode;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['fileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['fileKey'] = $request->fileKey;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['orderId'] = $request->orderId;
-        }
-        if (!Utils::isUnset($request->scene)) {
-            $body['scene'] = $request->scene;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPreViewUrl',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/file/getPreViewUrl',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetPreViewUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetPreViewUrlRequest $request
-     *
-     * @return GetPreViewUrlResponse
-     */
-    public function getPreViewUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getPreViewUrlWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetServiceDetailRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetServiceDetailResponse
-     */
-    public function getServiceDetailWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->applyCode)) {
-            $body['applyCode'] = $request->applyCode;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetServiceDetail',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/expert/service/getServiceDetail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetServiceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetServiceDetailRequest $request
-     *
-     * @return GetServiceDetailResponse
-     */
-    public function getServiceDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getServiceDetailWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param GetYunQiTaskByRecordIdRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetYunQiTaskByRecordIdResponse
-     */
-    public function getYunQiTaskByRecordIdWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['recordId'] = $request->recordId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetYunQiTaskByRecordId',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/record/getYunQiTaskByRecordId',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetYunQiTaskByRecordIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetYunQiTaskByRecordIdRequest $request
-     *
-     * @return GetYunQiTaskByRecordIdResponse
-     */
-    public function getYunQiTaskByRecordId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getYunQiTaskByRecordIdWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListDocsGroupByYearRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListDocsGroupByYearResponse
-     */
-    public function listDocsGroupByYearWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->applyCodes)) {
-            $body['applyCodes'] = $request->applyCodes;
-        }
-        if (!Utils::isUnset($request->fileNameKeyword)) {
-            $body['fileNameKeyword'] = $request->fileNameKeyword;
-        }
-        if (!Utils::isUnset($request->orderIds)) {
-            $body['orderIds'] = $request->orderIds;
-        }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['productCode'] = $request->productCode;
-        }
-        if (!Utils::isUnset($request->scene)) {
-            $body['scene'] = $request->scene;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDocsGroupByYear',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/file/listDocsGroupByYear',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDocsGroupByYearResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDocsGroupByYearRequest $request
-     *
-     * @return ListDocsGroupByYearResponse
-     */
-    public function listDocsGroupByYear($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listDocsGroupByYearWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @param ListEnterpriseSupportPlanRequest $request
      * @param string[]                         $headers
      * @param RuntimeOptions                   $runtime
@@ -391,34 +69,42 @@ class CustomerService extends OpenApiClient
      */
     public function listEnterpriseSupportPlanWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['pageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$body['pageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEnterpriseSupportPlan',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/enterpriseSupport/listEnterpriseSupportPlan',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEnterpriseSupportPlan',
+            'version' => '2023-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/customerWorkbench/pop/api/enterpriseSupport/listEnterpriseSupportPlan',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListEnterpriseSupportPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取我的企业支持计划.
+     *
+     * @param request - ListEnterpriseSupportPlanRequest
+     *
+     * @returns ListEnterpriseSupportPlanResponse
+     *
      * @param ListEnterpriseSupportPlanRequest $request
      *
      * @return ListEnterpriseSupportPlanResponse
@@ -432,6 +118,14 @@ class CustomerService extends OpenApiClient
     }
 
     /**
+     * 获取我的企业支持计划(下拉).
+     *
+     * @param request - ListEnterpriseSupportPlanSimpleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnterpriseSupportPlanSimpleResponse
+     *
      * @param ListEnterpriseSupportPlanSimpleRequest $request
      * @param string[]                               $headers
      * @param RuntimeOptions                         $runtime
@@ -440,34 +134,42 @@ class CustomerService extends OpenApiClient
      */
     public function listEnterpriseSupportPlanSimpleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['pageNum'] = $request->pageNum;
+        if (null !== $request->pageNum) {
+            @$body['pageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEnterpriseSupportPlanSimple',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/enterpriseSupport/listEnterpriseSupportPlanSimple',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEnterpriseSupportPlanSimple',
+            'version' => '2023-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/customerWorkbench/pop/api/enterpriseSupport/listEnterpriseSupportPlanSimple',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListEnterpriseSupportPlanSimpleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取我的企业支持计划(下拉).
+     *
+     * @param request - ListEnterpriseSupportPlanSimpleRequest
+     *
+     * @returns ListEnterpriseSupportPlanSimpleResponse
+     *
      * @param ListEnterpriseSupportPlanSimpleRequest $request
      *
      * @return ListEnterpriseSupportPlanSimpleResponse
@@ -481,6 +183,14 @@ class CustomerService extends OpenApiClient
     }
 
     /**
+     * 获取专家服务列表.
+     *
+     * @param request - ListServiceApplyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceApplyResponse
+     *
      * @param ListServiceApplyRequest $request
      * @param string[]                $headers
      * @param RuntimeOptions          $runtime
@@ -489,49 +199,62 @@ class CustomerService extends OpenApiClient
      */
     public function listServiceApplyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->applyType)) {
-            $body['applyType'] = $request->applyType;
+        if (null !== $request->applyType) {
+            @$body['applyType'] = $request->applyType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['endDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['pageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['pageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $body['productCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$body['productCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['startDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceApply',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/expert/service/listServiceApply',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListServiceApply',
+            'version' => '2023-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/customerWorkbench/pop/api/expert/service/listServiceApply',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListServiceApplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取专家服务列表.
+     *
+     * @param request - ListServiceApplyRequest
+     *
+     * @returns ListServiceApplyResponse
+     *
      * @param ListServiceApplyRequest $request
      *
      * @return ListServiceApplyResponse
@@ -545,6 +268,14 @@ class CustomerService extends OpenApiClient
     }
 
     /**
+     * 通过UID分页获取云企任务单.
+     *
+     * @param request - ListYunQiTaskByUidRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListYunQiTaskByUidResponse
+     *
      * @param ListYunQiTaskByUidRequest $request
      * @param string[]                  $headers
      * @param RuntimeOptions            $runtime
@@ -553,52 +284,66 @@ class CustomerService extends OpenApiClient
      */
     public function listYunQiTaskByUidWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            $body['createTimeEnd'] = $request->createTimeEnd;
+        if (null !== $request->createTimeEnd) {
+            @$body['createTimeEnd'] = $request->createTimeEnd;
         }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            $body['createTimeStart'] = $request->createTimeStart;
+
+        if (null !== $request->createTimeStart) {
+            @$body['createTimeStart'] = $request->createTimeStart;
         }
-        if (!Utils::isUnset($request->freeOrderApplyCodes)) {
-            $body['freeOrderApplyCodes'] = $request->freeOrderApplyCodes;
+
+        if (null !== $request->freeOrderApplyCodes) {
+            @$body['freeOrderApplyCodes'] = $request->freeOrderApplyCodes;
         }
-        if (!Utils::isUnset($request->freeOrderApplyIds)) {
-            $body['freeOrderApplyIds'] = $request->freeOrderApplyIds;
+
+        if (null !== $request->freeOrderApplyIds) {
+            @$body['freeOrderApplyIds'] = $request->freeOrderApplyIds;
         }
-        if (!Utils::isUnset($request->orderIds)) {
-            $body['orderIds'] = $request->orderIds;
+
+        if (null !== $request->orderIds) {
+            @$body['orderIds'] = $request->orderIds;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['pageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['pageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $body['statusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$body['statusList'] = $request->statusList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListYunQiTaskByUid',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/record/listYunQiTaskByUid',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListYunQiTaskByUid',
+            'version' => '2023-12-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/customerWorkbench/pop/api/record/listYunQiTaskByUid',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListYunQiTaskByUidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 通过UID分页获取云企任务单.
+     *
+     * @param request - ListYunQiTaskByUidRequest
+     *
+     * @returns ListYunQiTaskByUidResponse
+     *
      * @param ListYunQiTaskByUidRequest $request
      *
      * @return ListYunQiTaskByUidResponse
@@ -609,60 +354,5 @@ class CustomerService extends OpenApiClient
         $headers = [];
 
         return $this->listYunQiTaskByUidWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param MarkFileReadedRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return MarkFileReadedResponse
-     */
-    public function markFileReadedWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->applyCode)) {
-            $body['applyCode'] = $request->applyCode;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['fileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['orderId'] = $request->orderId;
-        }
-        if (!Utils::isUnset($request->scene)) {
-            $body['scene'] = $request->scene;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'MarkFileReaded',
-            'version'     => '2023-12-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/customerWorkbench/pop/api/file/markFileReaded',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return MarkFileReadedResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param MarkFileReadedRequest $request
-     *
-     * @return MarkFileReadedResponse
-     */
-    public function markFileReaded($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->markFileReadedWithOptions($request, $headers, $runtime);
     }
 }

@@ -4,10 +4,11 @@
 
 namespace AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponseBody\data\docs;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponseBody\data\nodes;
 use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponseBody\data\operateInfos;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponseBody\data\tags;
 
 class data extends Model
 {
@@ -17,7 +18,7 @@ class data extends Model
     public $canApplyFreeOrder;
 
     /**
-     * @var int
+     * @var string
      */
     public $customerId;
 
@@ -60,6 +61,11 @@ class data extends Model
      * @var string
      */
     public $freeOrderExpectStartTime;
+
+    /**
+     * @var int
+     */
+    public $gtspProjectId;
 
     /**
      * @var string
@@ -112,118 +118,186 @@ class data extends Model
     public $startTime;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $taskNum;
     protected $_name = [
-        'canApplyFreeOrder'        => 'canApplyFreeOrder',
-        'customerId'               => 'customerId',
-        'docs'                     => 'docs',
-        'endTime'                  => 'endTime',
-        'firstPayTime'             => 'firstPayTime',
-        'freeOrderApplyCode'       => 'freeOrderApplyCode',
-        'freeOrderApplyId'         => 'freeOrderApplyId',
-        'freeOrderApplyTime'       => 'freeOrderApplyTime',
-        'freeOrderApprovedTime'    => 'freeOrderApprovedTime',
+        'canApplyFreeOrder' => 'canApplyFreeOrder',
+        'customerId' => 'customerId',
+        'docs' => 'docs',
+        'endTime' => 'endTime',
+        'firstPayTime' => 'firstPayTime',
+        'freeOrderApplyCode' => 'freeOrderApplyCode',
+        'freeOrderApplyId' => 'freeOrderApplyId',
+        'freeOrderApplyTime' => 'freeOrderApplyTime',
+        'freeOrderApprovedTime' => 'freeOrderApprovedTime',
         'freeOrderExpectStartTime' => 'freeOrderExpectStartTime',
-        'instanceId'               => 'instanceId',
-        'nodes'                    => 'nodes',
-        'operateInfos'             => 'operateInfos',
-        'orderIds'                 => 'orderIds',
-        'serviceName'              => 'serviceName',
-        'serviceStatus'            => 'serviceStatus',
-        'serviceStatusName'        => 'serviceStatusName',
-        'serviceType'              => 'serviceType',
-        'sortTime'                 => 'sortTime',
-        'startTime'                => 'startTime',
-        'taskNum'                  => 'taskNum',
+        'gtspProjectId' => 'gtspProjectId',
+        'instanceId' => 'instanceId',
+        'nodes' => 'nodes',
+        'operateInfos' => 'operateInfos',
+        'orderIds' => 'orderIds',
+        'serviceName' => 'serviceName',
+        'serviceStatus' => 'serviceStatus',
+        'serviceStatusName' => 'serviceStatusName',
+        'serviceType' => 'serviceType',
+        'sortTime' => 'sortTime',
+        'startTime' => 'startTime',
+        'tags' => 'tags',
+        'taskNum' => 'taskNum',
     ];
 
     public function validate()
     {
+        if (\is_array($this->docs)) {
+            Model::validateArray($this->docs);
+        }
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (\is_array($this->operateInfos)) {
+            Model::validateArray($this->operateInfos);
+        }
+        if (\is_array($this->orderIds)) {
+            Model::validateArray($this->orderIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canApplyFreeOrder) {
             $res['canApplyFreeOrder'] = $this->canApplyFreeOrder;
         }
+
         if (null !== $this->customerId) {
             $res['customerId'] = $this->customerId;
         }
+
         if (null !== $this->docs) {
-            $res['docs'] = [];
-            if (null !== $this->docs && \is_array($this->docs)) {
-                $n = 0;
-                foreach ($this->docs as $item) {
-                    $res['docs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docs)) {
+                $res['docs'] = [];
+                $n1 = 0;
+                foreach ($this->docs as $item1) {
+                    $res['docs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->firstPayTime) {
             $res['firstPayTime'] = $this->firstPayTime;
         }
+
         if (null !== $this->freeOrderApplyCode) {
             $res['freeOrderApplyCode'] = $this->freeOrderApplyCode;
         }
+
         if (null !== $this->freeOrderApplyId) {
             $res['freeOrderApplyId'] = $this->freeOrderApplyId;
         }
+
         if (null !== $this->freeOrderApplyTime) {
             $res['freeOrderApplyTime'] = $this->freeOrderApplyTime;
         }
+
         if (null !== $this->freeOrderApprovedTime) {
             $res['freeOrderApprovedTime'] = $this->freeOrderApprovedTime;
         }
+
         if (null !== $this->freeOrderExpectStartTime) {
             $res['freeOrderExpectStartTime'] = $this->freeOrderExpectStartTime;
         }
+
+        if (null !== $this->gtspProjectId) {
+            $res['gtspProjectId'] = $this->gtspProjectId;
+        }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nodes) {
-            $res['nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['nodes'] = [];
+                $n1 = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['nodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->operateInfos) {
-            $res['operateInfos'] = [];
-            if (null !== $this->operateInfos && \is_array($this->operateInfos)) {
-                $n = 0;
-                foreach ($this->operateInfos as $item) {
-                    $res['operateInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operateInfos)) {
+                $res['operateInfos'] = [];
+                $n1 = 0;
+                foreach ($this->operateInfos as $item1) {
+                    $res['operateInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->orderIds) {
-            $res['orderIds'] = $this->orderIds;
+            if (\is_array($this->orderIds)) {
+                $res['orderIds'] = [];
+                $n1 = 0;
+                foreach ($this->orderIds as $item1) {
+                    $res['orderIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->serviceName) {
             $res['serviceName'] = $this->serviceName;
         }
+
         if (null !== $this->serviceStatus) {
             $res['serviceStatus'] = $this->serviceStatus;
         }
+
         if (null !== $this->serviceStatusName) {
             $res['serviceStatusName'] = $this->serviceStatusName;
         }
+
         if (null !== $this->serviceType) {
             $res['serviceType'] = $this->serviceType;
         }
+
         if (null !== $this->sortTime) {
             $res['sortTime'] = $this->sortTime;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->taskNum) {
             $res['taskNum'] = $this->taskNum;
         }
@@ -231,94 +305,137 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['canApplyFreeOrder'])) {
             $model->canApplyFreeOrder = $map['canApplyFreeOrder'];
         }
+
         if (isset($map['customerId'])) {
             $model->customerId = $map['customerId'];
         }
+
         if (isset($map['docs'])) {
             if (!empty($map['docs'])) {
                 $model->docs = [];
-                $n           = 0;
-                foreach ($map['docs'] as $item) {
-                    $model->docs[$n++] = null !== $item ? docs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['docs'] as $item1) {
+                    $model->docs[$n1] = docs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['firstPayTime'])) {
             $model->firstPayTime = $map['firstPayTime'];
         }
+
         if (isset($map['freeOrderApplyCode'])) {
             $model->freeOrderApplyCode = $map['freeOrderApplyCode'];
         }
+
         if (isset($map['freeOrderApplyId'])) {
             $model->freeOrderApplyId = $map['freeOrderApplyId'];
         }
+
         if (isset($map['freeOrderApplyTime'])) {
             $model->freeOrderApplyTime = $map['freeOrderApplyTime'];
         }
+
         if (isset($map['freeOrderApprovedTime'])) {
             $model->freeOrderApprovedTime = $map['freeOrderApprovedTime'];
         }
+
         if (isset($map['freeOrderExpectStartTime'])) {
             $model->freeOrderExpectStartTime = $map['freeOrderExpectStartTime'];
         }
+
+        if (isset($map['gtspProjectId'])) {
+            $model->gtspProjectId = $map['gtspProjectId'];
+        }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['nodes'] as $item1) {
+                    $model->nodes[$n1] = nodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['operateInfos'])) {
             if (!empty($map['operateInfos'])) {
                 $model->operateInfos = [];
-                $n                   = 0;
-                foreach ($map['operateInfos'] as $item) {
-                    $model->operateInfos[$n++] = null !== $item ? operateInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['operateInfos'] as $item1) {
+                    $model->operateInfos[$n1] = operateInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['orderIds'])) {
             if (!empty($map['orderIds'])) {
-                $model->orderIds = $map['orderIds'];
+                $model->orderIds = [];
+                $n1 = 0;
+                foreach ($map['orderIds'] as $item1) {
+                    $model->orderIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['serviceName'])) {
             $model->serviceName = $map['serviceName'];
         }
+
         if (isset($map['serviceStatus'])) {
             $model->serviceStatus = $map['serviceStatus'];
         }
+
         if (isset($map['serviceStatusName'])) {
             $model->serviceStatusName = $map['serviceStatusName'];
         }
+
         if (isset($map['serviceType'])) {
             $model->serviceType = $map['serviceType'];
         }
+
         if (isset($map['sortTime'])) {
             $model->sortTime = $map['sortTime'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['taskNum'])) {
             $model->taskNum = $map['taskNum'];
         }

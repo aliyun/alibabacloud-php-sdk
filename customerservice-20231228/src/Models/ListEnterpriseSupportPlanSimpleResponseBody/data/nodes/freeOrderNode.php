@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanSimpleResponseBody\data\nodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class freeOrderNode extends Model
 {
@@ -14,24 +14,26 @@ class freeOrderNode extends Model
     public $applyTime;
 
     /**
-     * @var int
+     * @var string
      */
     public $uid;
     protected $_name = [
         'applyTime' => 'applyTime',
-        'uid'       => 'uid',
+        'uid' => 'uid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyTime) {
             $res['applyTime'] = $this->applyTime;
         }
+
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
         }
@@ -39,17 +41,18 @@ class freeOrderNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return freeOrderNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applyTime'])) {
             $model->applyTime = $map['applyTime'];
         }
+
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
         }

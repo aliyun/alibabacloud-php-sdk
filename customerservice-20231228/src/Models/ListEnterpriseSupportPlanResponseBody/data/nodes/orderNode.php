@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanResponseBody\data\nodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderNode extends Model
 {
@@ -14,24 +14,26 @@ class orderNode extends Model
     public $payTime;
 
     /**
-     * @var int
+     * @var string
      */
     public $uid;
     protected $_name = [
         'payTime' => 'payTime',
-        'uid'     => 'uid',
+        'uid' => 'uid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->payTime) {
             $res['payTime'] = $this->payTime;
         }
+
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
         }
@@ -39,17 +41,18 @@ class orderNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['payTime'])) {
             $model->payTime = $map['payTime'];
         }
+
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
         }

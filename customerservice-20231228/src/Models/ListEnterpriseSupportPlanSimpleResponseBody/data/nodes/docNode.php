@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CustomerService\V20231228\Models\ListEnterpriseSupportPlanSimpleResponseBody\data\nodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class docNode extends Model
 {
@@ -38,36 +38,42 @@ class docNode extends Model
      */
     public $orderId;
     protected $_name = [
-        'docId'              => 'docId',
-        'docName'            => 'docName',
-        'docSubmitTime'      => 'docSubmitTime',
-        'fileName'           => 'fileName',
+        'docId' => 'docId',
+        'docName' => 'docName',
+        'docSubmitTime' => 'docSubmitTime',
+        'fileName' => 'fileName',
         'freeOrderApplyCode' => 'freeOrderApplyCode',
-        'orderId'            => 'orderId',
+        'orderId' => 'orderId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docId) {
             $res['docId'] = $this->docId;
         }
+
         if (null !== $this->docName) {
             $res['docName'] = $this->docName;
         }
+
         if (null !== $this->docSubmitTime) {
             $res['docSubmitTime'] = $this->docSubmitTime;
         }
+
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
+
         if (null !== $this->freeOrderApplyCode) {
             $res['freeOrderApplyCode'] = $this->freeOrderApplyCode;
         }
+
         if (null !== $this->orderId) {
             $res['orderId'] = $this->orderId;
         }
@@ -75,29 +81,34 @@ class docNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return docNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['docId'])) {
             $model->docId = $map['docId'];
         }
+
         if (isset($map['docName'])) {
             $model->docName = $map['docName'];
         }
+
         if (isset($map['docSubmitTime'])) {
             $model->docSubmitTime = $map['docSubmitTime'];
         }
+
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }
+
         if (isset($map['freeOrderApplyCode'])) {
             $model->freeOrderApplyCode = $map['freeOrderApplyCode'];
         }
+
         if (isset($map['orderId'])) {
             $model->orderId = $map['orderId'];
         }
