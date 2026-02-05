@@ -21,10 +21,16 @@ class ListAIAgentVoiceprintsRequest extends Model
     /**
      * @var string
      */
+    public $registrationMode;
+
+    /**
+     * @var string
+     */
     public $voiceprintId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'registrationMode' => 'RegistrationMode',
         'voiceprintId' => 'VoiceprintId',
     ];
 
@@ -42,6 +48,10 @@ class ListAIAgentVoiceprintsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->registrationMode) {
+            $res['RegistrationMode'] = $this->registrationMode;
         }
 
         if (null !== $this->voiceprintId) {
@@ -65,6 +75,10 @@ class ListAIAgentVoiceprintsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RegistrationMode'])) {
+            $model->registrationMode = $map['RegistrationMode'];
         }
 
         if (isset($map['VoiceprintId'])) {

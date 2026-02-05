@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class voiceprintConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $registrationMode;
+
+    /**
      * @var bool
      */
     public $useVoiceprint;
@@ -18,6 +23,7 @@ class voiceprintConfig extends Model
      */
     public $voiceprintId;
     protected $_name = [
+        'registrationMode' => 'RegistrationMode',
         'useVoiceprint' => 'UseVoiceprint',
         'voiceprintId' => 'VoiceprintId',
     ];
@@ -30,6 +36,10 @@ class voiceprintConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->registrationMode) {
+            $res['RegistrationMode'] = $this->registrationMode;
+        }
+
         if (null !== $this->useVoiceprint) {
             $res['UseVoiceprint'] = $this->useVoiceprint;
         }
@@ -49,6 +59,10 @@ class voiceprintConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegistrationMode'])) {
+            $model->registrationMode = $map['RegistrationMode'];
+        }
+
         if (isset($map['UseVoiceprint'])) {
             $model->useVoiceprint = $map['UseVoiceprint'];
         }

@@ -11,8 +11,14 @@ class ClearAIAgentVoiceprintRequest extends Model
     /**
      * @var string
      */
+    public $registrationMode;
+
+    /**
+     * @var string
+     */
     public $voiceprintId;
     protected $_name = [
+        'registrationMode' => 'RegistrationMode',
         'voiceprintId' => 'VoiceprintId',
     ];
 
@@ -24,6 +30,10 @@ class ClearAIAgentVoiceprintRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->registrationMode) {
+            $res['RegistrationMode'] = $this->registrationMode;
+        }
+
         if (null !== $this->voiceprintId) {
             $res['VoiceprintId'] = $this->voiceprintId;
         }
@@ -39,6 +49,10 @@ class ClearAIAgentVoiceprintRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegistrationMode'])) {
+            $model->registrationMode = $map['RegistrationMode'];
+        }
+
         if (isset($map['VoiceprintId'])) {
             $model->voiceprintId = $map['VoiceprintId'];
         }

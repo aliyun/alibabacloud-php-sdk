@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\asrConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\autoSpeechConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\avatarConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\backChannelingConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\backChannelingConfigs;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\llmConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\ttsConfig;
@@ -53,6 +54,11 @@ class AIAgentConfig extends Model
      * @var backChannelingConfig[]
      */
     public $backChannelingConfig;
+
+    /**
+     * @var backChannelingConfigs[]
+     */
+    public $backChannelingConfigs;
 
     /**
      * @var bool
@@ -146,6 +152,7 @@ class AIAgentConfig extends Model
         'avatarUrl' => 'AvatarUrl',
         'avatarUrlType' => 'AvatarUrlType',
         'backChannelingConfig' => 'BackChannelingConfig',
+        'backChannelingConfigs' => 'BackChannelingConfigs',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
         'enablePushToTalk' => 'EnablePushToTalk',
         'experimentalConfig' => 'ExperimentalConfig',
@@ -181,6 +188,9 @@ class AIAgentConfig extends Model
         }
         if (\is_array($this->backChannelingConfig)) {
             Model::validateArray($this->backChannelingConfig);
+        }
+        if (\is_array($this->backChannelingConfigs)) {
+            Model::validateArray($this->backChannelingConfigs);
         }
         if (null !== $this->interruptConfig) {
             $this->interruptConfig->validate();
@@ -236,6 +246,17 @@ class AIAgentConfig extends Model
                 $n1 = 0;
                 foreach ($this->backChannelingConfig as $item1) {
                     $res['BackChannelingConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->backChannelingConfigs) {
+            if (\is_array($this->backChannelingConfigs)) {
+                $res['BackChannelingConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->backChannelingConfigs as $item1) {
+                    $res['BackChannelingConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -350,6 +371,17 @@ class AIAgentConfig extends Model
                 $n1 = 0;
                 foreach ($map['BackChannelingConfig'] as $item1) {
                     $model->backChannelingConfig[$n1] = backChannelingConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['BackChannelingConfigs'])) {
+            if (!empty($map['BackChannelingConfigs'])) {
+                $model->backChannelingConfigs = [];
+                $n1 = 0;
+                foreach ($map['BackChannelingConfigs'] as $item1) {
+                    $model->backChannelingConfigs[$n1] = backChannelingConfigs::fromMap($item1);
                     ++$n1;
                 }
             }

@@ -2200,6 +2200,10 @@ class ICE extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->registrationMode) {
+            @$query['RegistrationMode'] = $request->registrationMode;
+        }
+
         if (null !== $request->voiceprintId) {
             @$query['VoiceprintId'] = $request->voiceprintId;
         }
@@ -13726,6 +13730,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->registrationMode) {
+            @$query['RegistrationMode'] = $request->registrationMode;
         }
 
         if (null !== $request->voiceprintId) {
