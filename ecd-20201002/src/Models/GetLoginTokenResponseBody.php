@@ -104,6 +104,11 @@ class GetLoginTokenResponseBody extends Model
      * @var string
      */
     public $windowDisplayMode;
+
+    /**
+     * @var string
+     */
+    public $wyId;
     protected $_name = [
         'email' => 'Email',
         'endUserId' => 'EndUserId',
@@ -124,6 +129,7 @@ class GetLoginTokenResponseBody extends Model
         'sessionId' => 'SessionId',
         'tenantId' => 'TenantId',
         'windowDisplayMode' => 'WindowDisplayMode',
+        'wyId' => 'WyId',
     ];
 
     public function validate()
@@ -224,6 +230,10 @@ class GetLoginTokenResponseBody extends Model
             $res['WindowDisplayMode'] = $this->windowDisplayMode;
         }
 
+        if (null !== $this->wyId) {
+            $res['WyId'] = $this->wyId;
+        }
+
         return $res;
     }
 
@@ -314,6 +324,10 @@ class GetLoginTokenResponseBody extends Model
 
         if (isset($map['WindowDisplayMode'])) {
             $model->windowDisplayMode = $map['WindowDisplayMode'];
+        }
+
+        if (isset($map['WyId'])) {
+            $model->wyId = $map['WyId'];
         }
 
         return $model;
