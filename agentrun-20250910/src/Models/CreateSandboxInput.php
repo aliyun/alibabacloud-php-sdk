@@ -26,6 +26,11 @@ class CreateSandboxInput extends Model
     /**
      * @var int
      */
+    public $sandboxIdleTimeoutInSeconds;
+
+    /**
+     * @var int
+     */
     public $sandboxIdleTimeoutSeconds;
 
     /**
@@ -36,6 +41,7 @@ class CreateSandboxInput extends Model
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
         'sandboxId' => 'sandboxId',
+        'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxIdleTimeoutSeconds' => 'sandboxIdleTimeoutSeconds',
         'templateName' => 'templateName',
     ];
@@ -64,6 +70,10 @@ class CreateSandboxInput extends Model
 
         if (null !== $this->sandboxId) {
             $res['sandboxId'] = $this->sandboxId;
+        }
+
+        if (null !== $this->sandboxIdleTimeoutInSeconds) {
+            $res['sandboxIdleTimeoutInSeconds'] = $this->sandboxIdleTimeoutInSeconds;
         }
 
         if (null !== $this->sandboxIdleTimeoutSeconds) {
@@ -95,6 +105,10 @@ class CreateSandboxInput extends Model
 
         if (isset($map['sandboxId'])) {
             $model->sandboxId = $map['sandboxId'];
+        }
+
+        if (isset($map['sandboxIdleTimeoutInSeconds'])) {
+            $model->sandboxIdleTimeoutInSeconds = $map['sandboxIdleTimeoutInSeconds'];
         }
 
         if (isset($map['sandboxIdleTimeoutSeconds'])) {
