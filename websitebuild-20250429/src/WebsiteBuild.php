@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsRequest;
@@ -103,7 +105,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 绑定应用域名.
+     * Bind Application Domain.
      *
      * @param request - BindAppDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -154,7 +156,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 绑定应用域名.
+     * Bind Application Domain.
      *
      * @param request - BindAppDomainRequest
      *
@@ -281,7 +283,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 免登ticket.
+     * SSO ticket.
      *
      * @param request - CreateAppInstanceTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -324,7 +326,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 免登ticket.
+     * SSO ticket.
      *
      * @param request - CreateAppInstanceTicketRequest
      *
@@ -411,7 +413,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除域名的SSL证书.
+     * Delete the SSL certificate of a domain.
      *
      * @param request - DeleteAppDomainCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -454,7 +456,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除域名的SSL证书.
+     * Delete the SSL certificate of a domain.
      *
      * @param request - DeleteAppDomainCertificateRequest
      *
@@ -472,7 +474,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除域名的跳转规则.
+     * Delete the domain redirection rules.
      *
      * @param request - DeleteAppDomainRedirectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -515,7 +517,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除域名的跳转规则.
+     * Delete the domain redirection rules.
      *
      * @param request - DeleteAppDomainRedirectRequest
      *
@@ -533,7 +535,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询域名的DNS解析记录.
+     * Query the DNS resolution records of a domain.
      *
      * @param request - DescribeAppDomainDnsRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -580,7 +582,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询域名的DNS解析记录.
+     * Query the DNS resolution records of a domain.
      *
      * @param request - DescribeAppDomainDnsRecordRequest
      *
@@ -671,7 +673,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询应用实例详情.
+     * Query Application Instance Details.
      *
      * @param request - GetAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -710,7 +712,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询应用实例详情.
+     * Query Application Instance Details.
      *
      * @param request - GetAppInstanceRequest
      *
@@ -1045,7 +1047,68 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询域名的跳转规则列表.
+     * 检查AccessToken.
+     *
+     * @param request - IntrospectAppInstanceTicketForPreviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntrospectAppInstanceTicketForPreviewResponse
+     *
+     * @param IntrospectAppInstanceTicketForPreviewRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return IntrospectAppInstanceTicketForPreviewResponse
+     */
+    public function introspectAppInstanceTicketForPreviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntrospectAppInstanceTicketForPreview',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IntrospectAppInstanceTicketForPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查AccessToken.
+     *
+     * @param request - IntrospectAppInstanceTicketForPreviewRequest
+     *
+     * @returns IntrospectAppInstanceTicketForPreviewResponse
+     *
+     * @param IntrospectAppInstanceTicketForPreviewRequest $request
+     *
+     * @return IntrospectAppInstanceTicketForPreviewResponse
+     */
+    public function introspectAppInstanceTicketForPreview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->introspectAppInstanceTicketForPreviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the list of domain redirection rules.
      *
      * @param request - ListAppDomainRedirectRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1092,7 +1155,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询域名的跳转规则列表.
+     * Query the list of domain redirection rules.
      *
      * @param request - ListAppDomainRedirectRecordsRequest
      *
@@ -1110,7 +1173,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询应用实例下的所有域名列表.
+     * List all domain names under the application instance.
      *
      * @param request - ListAppInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1173,7 +1236,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询应用实例下的所有域名列表.
+     * List all domain names under the application instance.
      *
      * @param request - ListAppInstanceDomainsRequest
      *
@@ -1191,7 +1254,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 建站实例列表查询.
+     * Website Instance List Query.
      *
      * @param tmpReq - ListAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1280,7 +1343,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 建站实例列表查询.
+     * Website Instance List Query.
      *
      * @param request - ListAppInstancesRequest
      *
@@ -1298,7 +1361,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 建站实例变配.
+     * Modify the configuration of a building instance.
      *
      * @param request - ModifyAppInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1361,7 +1424,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 建站实例变配.
+     * Modify the configuration of a building instance.
      *
      * @param request - ModifyAppInstanceSpecRequest
      *
@@ -1509,7 +1572,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 刷新ticket.
+     * Refresh ticket.
      *
      * @param request - RefreshAppInstanceTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1556,7 +1619,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 刷新ticket.
+     * Refresh ticket.
      *
      * @param request - RefreshAppInstanceTicketRequest
      *
@@ -1643,7 +1706,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 建站实例续费.
+     * Renewal of website building instance.
      *
      * @param request - RenewAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1702,7 +1765,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 建站实例续费.
+     * Renewal of website building instance.
      *
      * @param request - RenewAppInstanceRequest
      *
@@ -1839,7 +1902,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 设置域名的SSL证书.
+     * Set the SSL certificate for a domain.
      *
      * @param request - SetAppDomainCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1898,7 +1961,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 设置域名的SSL证书.
+     * Set the SSL certificate for a domain.
      *
      * @param request - SetAppDomainCertificateRequest
      *
@@ -1995,7 +2058,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 解绑应用域名.
+     * Unbind Application Domain.
      *
      * @param request - UnbindAppDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2038,7 +2101,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 解绑应用域名.
+     * Unbind Application Domain.
      *
      * @param request - UnbindAppDomainRequest
      *
