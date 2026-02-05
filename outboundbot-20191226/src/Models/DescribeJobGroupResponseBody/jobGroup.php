@@ -117,6 +117,11 @@ class jobGroup extends Model
     /**
      * @var string
      */
+    public $scriptNluEngine;
+
+    /**
+     * @var string
+     */
     public $scriptVersion;
 
     /**
@@ -149,6 +154,7 @@ class jobGroup extends Model
         'scenarioId' => 'ScenarioId',
         'scriptId' => 'ScriptId',
         'scriptName' => 'ScriptName',
+        'scriptNluEngine' => 'ScriptNluEngine',
         'scriptVersion' => 'ScriptVersion',
         'status' => 'Status',
         'strategy' => 'Strategy',
@@ -280,6 +286,10 @@ class jobGroup extends Model
             $res['ScriptName'] = $this->scriptName;
         }
 
+        if (null !== $this->scriptNluEngine) {
+            $res['ScriptNluEngine'] = $this->scriptNluEngine;
+        }
+
         if (null !== $this->scriptVersion) {
             $res['ScriptVersion'] = $this->scriptVersion;
         }
@@ -395,6 +405,10 @@ class jobGroup extends Model
 
         if (isset($map['ScriptName'])) {
             $model->scriptName = $map['ScriptName'];
+        }
+
+        if (isset($map['ScriptNluEngine'])) {
+            $model->scriptNluEngine = $map['ScriptNluEngine'];
         }
 
         if (isset($map['ScriptVersion'])) {

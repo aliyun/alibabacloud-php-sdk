@@ -12,6 +12,11 @@ class executingInfo extends Model
     /**
      * @var int
      */
+    public $avgTalkTime;
+
+    /**
+     * @var int
+     */
     public $callFailedNum;
 
     /**
@@ -23,6 +28,11 @@ class executingInfo extends Model
      * @var string
      */
     public $creatorName;
+
+    /**
+     * @var string
+     */
+    public $durationDistribution;
 
     /**
      * @var int
@@ -55,6 +65,11 @@ class executingInfo extends Model
     public $startTime;
 
     /**
+     * @var string
+     */
+    public $talkTurnsDistribution;
+
+    /**
      * @var int
      */
     public $transferByIntentNum;
@@ -64,15 +79,18 @@ class executingInfo extends Model
      */
     public $transferByNoAnswer;
     protected $_name = [
+        'avgTalkTime' => 'AvgTalkTime',
         'callFailedNum' => 'CallFailedNum',
         'callNum' => 'CallNum',
         'creatorName' => 'CreatorName',
+        'durationDistribution' => 'DurationDistribution',
         'endTime' => 'EndTime',
         'finishedNum' => 'FinishedNum',
         'hangUpByClientNum' => 'HangUpByClientNum',
         'jobsProgress' => 'JobsProgress',
         'noInteractionNum' => 'NoInteractionNum',
         'startTime' => 'StartTime',
+        'talkTurnsDistribution' => 'TalkTurnsDistribution',
         'transferByIntentNum' => 'TransferByIntentNum',
         'transferByNoAnswer' => 'TransferByNoAnswer',
     ];
@@ -88,6 +106,10 @@ class executingInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->avgTalkTime) {
+            $res['AvgTalkTime'] = $this->avgTalkTime;
+        }
+
         if (null !== $this->callFailedNum) {
             $res['CallFailedNum'] = $this->callFailedNum;
         }
@@ -98,6 +120,10 @@ class executingInfo extends Model
 
         if (null !== $this->creatorName) {
             $res['CreatorName'] = $this->creatorName;
+        }
+
+        if (null !== $this->durationDistribution) {
+            $res['DurationDistribution'] = $this->durationDistribution;
         }
 
         if (null !== $this->endTime) {
@@ -124,6 +150,10 @@ class executingInfo extends Model
             $res['StartTime'] = $this->startTime;
         }
 
+        if (null !== $this->talkTurnsDistribution) {
+            $res['TalkTurnsDistribution'] = $this->talkTurnsDistribution;
+        }
+
         if (null !== $this->transferByIntentNum) {
             $res['TransferByIntentNum'] = $this->transferByIntentNum;
         }
@@ -143,6 +173,10 @@ class executingInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvgTalkTime'])) {
+            $model->avgTalkTime = $map['AvgTalkTime'];
+        }
+
         if (isset($map['CallFailedNum'])) {
             $model->callFailedNum = $map['CallFailedNum'];
         }
@@ -153,6 +187,10 @@ class executingInfo extends Model
 
         if (isset($map['CreatorName'])) {
             $model->creatorName = $map['CreatorName'];
+        }
+
+        if (isset($map['DurationDistribution'])) {
+            $model->durationDistribution = $map['DurationDistribution'];
         }
 
         if (isset($map['EndTime'])) {
@@ -177,6 +215,10 @@ class executingInfo extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TalkTurnsDistribution'])) {
+            $model->talkTurnsDistribution = $map['TalkTurnsDistribution'];
         }
 
         if (isset($map['TransferByIntentNum'])) {

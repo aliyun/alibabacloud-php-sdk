@@ -3473,6 +3473,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 任务组数据统计
+     *
      * @param request - DescribeGroupExecutingInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3514,6 +3516,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 任务组数据统计
+     *
      * @param request - DescribeGroupExecutingInfoRequest
      *
      * @returns DescribeGroupExecutingInfoResponse
