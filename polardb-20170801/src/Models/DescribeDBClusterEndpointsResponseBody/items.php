@@ -73,6 +73,11 @@ class items extends Model
      * @var string
      */
     public $sccMode;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
         'addressItems' => 'AddressItems',
         'autoAddNewNodes' => 'AutoAddNewNodes',
@@ -87,6 +92,7 @@ class items extends Model
         'polarSccWaitTimeout' => 'PolarSccWaitTimeout',
         'readWriteMode' => 'ReadWriteMode',
         'sccMode' => 'SccMode',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -159,6 +165,10 @@ class items extends Model
             $res['SccMode'] = $this->sccMode;
         }
 
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
+
         return $res;
     }
 
@@ -227,6 +237,10 @@ class items extends Model
 
         if (isset($map['SccMode'])) {
             $model->sccMode = $map['SccMode'];
+        }
+
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;
