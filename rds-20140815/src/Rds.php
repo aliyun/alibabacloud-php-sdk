@@ -194,6 +194,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActionEventPolicyResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActiveOperationMaintainConfRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActiveOperationMaintainConfResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeADInfoRequest;
@@ -479,6 +481,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogRecordsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogRecordsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLLogReportListResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLServerUpgradeVersionsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSQLServerUpgradeVersionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSupportOnlineResizeDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeSupportOnlineResizeDiskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeTagsRequest;
@@ -10181,6 +10185,79 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActionEventPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询主动操作维护配置.
+     *
+     * @param request - DescribeActiveOperationMaintainConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveOperationMaintainConfResponse
+     *
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
+     */
+    public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeActiveOperationMaintainConf',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询主动操作维护配置.
+     *
+     * @param request - DescribeActiveOperationMaintainConfRequest
+     *
+     * @returns DescribeActiveOperationMaintainConfResponse
+     *
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
+     */
+    public function describeActiveOperationMaintainConf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationMaintainConfWithOptions($request, $runtime);
     }
 
     /**
@@ -22729,6 +22806,83 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSQLLogReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询SQLServer升级版本.
+     *
+     * @param request - DescribeSQLServerUpgradeVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSQLServerUpgradeVersionsResponse
+     *
+     * @param DescribeSQLServerUpgradeVersionsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeSQLServerUpgradeVersionsResponse
+     */
+    public function describeSQLServerUpgradeVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSQLServerUpgradeVersions',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSQLServerUpgradeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SQLServer升级版本.
+     *
+     * @param request - DescribeSQLServerUpgradeVersionsRequest
+     *
+     * @returns DescribeSQLServerUpgradeVersionsResponse
+     *
+     * @param DescribeSQLServerUpgradeVersionsRequest $request
+     *
+     * @return DescribeSQLServerUpgradeVersionsResponse
+     */
+    public function describeSQLServerUpgradeVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLServerUpgradeVersionsWithOptions($request, $runtime);
     }
 
     /**

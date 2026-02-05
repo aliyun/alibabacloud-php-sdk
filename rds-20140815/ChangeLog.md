@@ -1,3 +1,8 @@
+2026-02-05 Version: 13.3.0
+- Support API DescribeActiveOperationMaintainConf.
+- Support API DescribeSQLServerUpgradeVersions.
+
+
 2026-02-04 Version: 13.2.0
 - Support API DescribeDBInstanceCLS.
 - Support API ModifyDBInstanceCLS.
