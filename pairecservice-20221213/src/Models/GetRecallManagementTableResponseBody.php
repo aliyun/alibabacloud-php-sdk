@@ -40,7 +40,7 @@ class GetRecallManagementTableResponseBody extends Model
     public $enableRowCountFluctuationThreshold;
 
     /**
-     * @var fields
+     * @var fields[]
      */
     public $fields;
 
@@ -157,8 +157,8 @@ class GetRecallManagementTableResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->fields) {
-            $this->fields->validate();
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
         }
         parent::validate();
     }
@@ -191,7 +191,14 @@ class GetRecallManagementTableResponseBody extends Model
         }
 
         if (null !== $this->fields) {
-            $res['Fields'] = null !== $this->fields ? $this->fields->toArray($noStream) : $this->fields;
+            if (\is_array($this->fields)) {
+                $res['Fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['Fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->gmtCreateTime) {
@@ -298,7 +305,14 @@ class GetRecallManagementTableResponseBody extends Model
         }
 
         if (isset($map['Fields'])) {
-            $model->fields = fields::fromMap($map['Fields']);
+            if (!empty($map['Fields'])) {
+                $model->fields = [];
+                $n1 = 0;
+                foreach ($map['Fields'] as $item1) {
+                    $model->fields[$n1] = fields::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['GmtCreateTime'])) {
