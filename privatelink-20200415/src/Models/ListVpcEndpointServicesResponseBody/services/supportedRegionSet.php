@@ -22,10 +22,16 @@ class supportedRegionSet extends Model
      * @var string
      */
     public $serviceRegionId;
+
+    /**
+     * @var string
+     */
+    public $supportedRegionId;
     protected $_name = [
         'regionBusinessStatus' => 'RegionBusinessStatus',
         'regionServiceStatus' => 'RegionServiceStatus',
         'serviceRegionId' => 'ServiceRegionId',
+        'supportedRegionId' => 'SupportedRegionId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class supportedRegionSet extends Model
 
         if (null !== $this->serviceRegionId) {
             $res['ServiceRegionId'] = $this->serviceRegionId;
+        }
+
+        if (null !== $this->supportedRegionId) {
+            $res['SupportedRegionId'] = $this->supportedRegionId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class supportedRegionSet extends Model
 
         if (isset($map['ServiceRegionId'])) {
             $model->serviceRegionId = $map['ServiceRegionId'];
+        }
+
+        if (isset($map['SupportedRegionId'])) {
+            $model->supportedRegionId = $map['SupportedRegionId'];
         }
 
         return $model;
