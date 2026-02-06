@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateApiExportRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateApiExportResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCertsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCertsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceExtensionCertRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceExtensionCertResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceShrinkRequest;
@@ -58,6 +60,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecAbnormalsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteApisecEventsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceExtensionCertRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceExtensionCertResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteDefenseResourceGroupRequest;
@@ -406,6 +410,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceCertRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceCertResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceDefaultCertRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceDefaultCertResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceShrinkRequest;
@@ -1147,6 +1153,79 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCloudResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加云产品接入的扩展证书.
+     *
+     * @param request - CreateCloudResourceExtensionCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudResourceExtensionCertResponse
+     *
+     * @param CreateCloudResourceExtensionCertRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateCloudResourceExtensionCertResponse
+     */
+    public function createCloudResourceExtensionCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloudResourceExtensionCert',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloudResourceExtensionCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加云产品接入的扩展证书.
+     *
+     * @param request - CreateCloudResourceExtensionCertRequest
+     *
+     * @returns CreateCloudResourceExtensionCertResponse
+     *
+     * @param CreateCloudResourceExtensionCertRequest $request
+     *
+     * @return CreateCloudResourceExtensionCertResponse
+     */
+    public function createCloudResourceExtensionCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudResourceExtensionCertWithOptions($request, $runtime);
     }
 
     /**
@@ -2665,6 +2744,79 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloudResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除云产品接入的扩展证书.
+     *
+     * @param request - DeleteCloudResourceExtensionCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudResourceExtensionCertResponse
+     *
+     * @param DeleteCloudResourceExtensionCertRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteCloudResourceExtensionCertResponse
+     */
+    public function deleteCloudResourceExtensionCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudResourceExtensionCert',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudResourceExtensionCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除云产品接入的扩展证书.
+     *
+     * @param request - DeleteCloudResourceExtensionCertRequest
+     *
+     * @returns DeleteCloudResourceExtensionCertResponse
+     *
+     * @param DeleteCloudResourceExtensionCertRequest $request
+     *
+     * @return DeleteCloudResourceExtensionCertResponse
+     */
+    public function deleteCloudResourceExtensionCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudResourceExtensionCertWithOptions($request, $runtime);
     }
 
     /**
@@ -16034,6 +16186,79 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCloudResourceCertWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改云产品接入的默认证书.
+     *
+     * @param request - ModifyCloudResourceDefaultCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCloudResourceDefaultCertResponse
+     *
+     * @param ModifyCloudResourceDefaultCertRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyCloudResourceDefaultCertResponse
+     */
+    public function modifyCloudResourceDefaultCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->cloudResourceId) {
+            @$query['CloudResourceId'] = $request->cloudResourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCloudResourceDefaultCert',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCloudResourceDefaultCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改云产品接入的默认证书.
+     *
+     * @param request - ModifyCloudResourceDefaultCertRequest
+     *
+     * @returns ModifyCloudResourceDefaultCertResponse
+     *
+     * @param ModifyCloudResourceDefaultCertRequest $request
+     *
+     * @return ModifyCloudResourceDefaultCertResponse
+     */
+    public function modifyCloudResourceDefaultCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCloudResourceDefaultCertWithOptions($request, $runtime);
     }
 
     /**
