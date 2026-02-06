@@ -1,3 +1,9 @@
+2026-02-06 Version: 2.40.0
+- Support API GetSkillDetail.
+- Support API GetSkills.
+- Update API AuthorizeSkill: add request parameters SourceIdOfAssistantId.
+
+
 2026-01-22 Version: 2.39.1
 - Update API CreateEvent: add response parameters Body.encryptedId.
 - Update API GetDingtalkMeetingMemberEvent: add response parameters Body.data.$.confModule.

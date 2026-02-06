@@ -6,19 +6,25 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class AuthorizeSkillShrinkRequest extends Model
+class GetSkillsShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $permissionCodesShrink;
+    public $groupIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $skillIdsShrink;
 
     /**
      * @var string
      */
     public $sourceIdOfAssistantId;
     protected $_name = [
-        'permissionCodesShrink' => 'PermissionCodes',
+        'groupIdsShrink' => 'GroupIds',
+        'skillIdsShrink' => 'SkillIds',
         'sourceIdOfAssistantId' => 'SourceIdOfAssistantId',
     ];
 
@@ -30,8 +36,12 @@ class AuthorizeSkillShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->permissionCodesShrink) {
-            $res['PermissionCodes'] = $this->permissionCodesShrink;
+        if (null !== $this->groupIdsShrink) {
+            $res['GroupIds'] = $this->groupIdsShrink;
+        }
+
+        if (null !== $this->skillIdsShrink) {
+            $res['SkillIds'] = $this->skillIdsShrink;
         }
 
         if (null !== $this->sourceIdOfAssistantId) {
@@ -49,8 +59,12 @@ class AuthorizeSkillShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PermissionCodes'])) {
-            $model->permissionCodesShrink = $map['PermissionCodes'];
+        if (isset($map['GroupIds'])) {
+            $model->groupIdsShrink = $map['GroupIds'];
+        }
+
+        if (isset($map['SkillIds'])) {
+            $model->skillIdsShrink = $map['SkillIds'];
         }
 
         if (isset($map['SourceIdOfAssistantId'])) {

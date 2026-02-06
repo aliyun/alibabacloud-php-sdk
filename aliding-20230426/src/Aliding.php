@@ -681,6 +681,15 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSheetShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillDetailHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillDetailRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillDetailResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillDetailShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSkillsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesResponse;
@@ -2626,6 +2635,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->permissionCodesShrink) {
             @$body['PermissionCodes'] = $request->permissionCodesShrink;
+        }
+
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['SourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
         }
 
         $realHeaders = [];
@@ -15478,6 +15491,184 @@ class Aliding extends OpenApiClient
         $headers = new GetSheetContentJobIdHeaders([]);
 
         return $this->getSheetContentJobIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取技能详情.
+     *
+     * @param request - GetSkillDetailRequest
+     * @param tmpHeader - GetSkillDetailHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillDetailResponse
+     *
+     * @param GetSkillDetailRequest $request
+     * @param GetSkillDetailHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetSkillDetailResponse
+     */
+    public function getSkillDetailWithOptions($request, $tmpHeader, $runtime)
+    {
+        $request->validate();
+        $headers = new GetSkillDetailShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->skillId) {
+            @$body['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['SourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkillDetail',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/getSkillDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取技能详情.
+     *
+     * @param request - GetSkillDetailRequest
+     *
+     * @returns GetSkillDetailResponse
+     *
+     * @param GetSkillDetailRequest $request
+     *
+     * @return GetSkillDetailResponse
+     */
+    public function getSkillDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetSkillDetailHeaders([]);
+
+        return $this->getSkillDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取技能列表.
+     *
+     * @param tmpReq - GetSkillsRequest
+     * @param tmpHeader - GetSkillsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillsResponse
+     *
+     * @param GetSkillsRequest $tmpReq
+     * @param GetSkillsHeaders $tmpHeader
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetSkillsResponse
+     */
+    public function getSkillsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSkillsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetSkillsShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'json');
+        }
+
+        if (null !== $tmpReq->skillIds) {
+            $request->skillIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->skillIds, 'SkillIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->groupIdsShrink) {
+            @$body['GroupIds'] = $request->groupIdsShrink;
+        }
+
+        if (null !== $request->skillIdsShrink) {
+            @$body['SkillIds'] = $request->skillIdsShrink;
+        }
+
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['SourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkills',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ai/v1/skill/getSkills',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取技能列表.
+     *
+     * @param request - GetSkillsRequest
+     *
+     * @returns GetSkillsResponse
+     *
+     * @param GetSkillsRequest $request
+     *
+     * @return GetSkillsResponse
+     */
+    public function getSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetSkillsHeaders([]);
+
+        return $this->getSkillsWithOptions($request, $headers, $runtime);
     }
 
     /**

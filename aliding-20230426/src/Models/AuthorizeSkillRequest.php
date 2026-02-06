@@ -12,8 +12,14 @@ class AuthorizeSkillRequest extends Model
      * @var string[]
      */
     public $permissionCodes;
+
+    /**
+     * @var string
+     */
+    public $sourceIdOfAssistantId;
     protected $_name = [
         'permissionCodes' => 'PermissionCodes',
+        'sourceIdOfAssistantId' => 'SourceIdOfAssistantId',
     ];
 
     public function validate()
@@ -38,6 +44,10 @@ class AuthorizeSkillRequest extends Model
             }
         }
 
+        if (null !== $this->sourceIdOfAssistantId) {
+            $res['SourceIdOfAssistantId'] = $this->sourceIdOfAssistantId;
+        }
+
         return $res;
     }
 
@@ -58,6 +68,10 @@ class AuthorizeSkillRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SourceIdOfAssistantId'])) {
+            $model->sourceIdOfAssistantId = $map['SourceIdOfAssistantId'];
         }
 
         return $model;
