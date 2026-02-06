@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $endpointUri;
+
+    /**
+     * @var string
+     */
     public $flowId;
 
     /**
@@ -24,6 +29,7 @@ class data extends Model
     public $flowName;
     protected $_name = [
         'categories' => 'Categories',
+        'endpointUri' => 'EndpointUri',
         'flowId' => 'FlowId',
         'flowName' => 'FlowName',
     ];
@@ -48,6 +54,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->endpointUri) {
+            $res['EndpointUri'] = $this->endpointUri;
         }
 
         if (null !== $this->flowId) {
@@ -78,6 +88,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EndpointUri'])) {
+            $model->endpointUri = $map['EndpointUri'];
         }
 
         if (isset($map['FlowId'])) {

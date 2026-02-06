@@ -21,6 +21,11 @@ class CreateFlowRequest extends Model
     /**
      * @var string
      */
+    public $endpointUri;
+
+    /**
+     * @var string
+     */
     public $flowName;
 
     /**
@@ -40,6 +45,7 @@ class CreateFlowRequest extends Model
     protected $_name = [
         'categories' => 'Categories',
         'custSpaceId' => 'CustSpaceId',
+        'endpointUri' => 'EndpointUri',
         'flowName' => 'FlowName',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -70,6 +76,10 @@ class CreateFlowRequest extends Model
 
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
+        }
+
+        if (null !== $this->endpointUri) {
+            $res['EndpointUri'] = $this->endpointUri;
         }
 
         if (null !== $this->flowName) {
@@ -112,6 +122,10 @@ class CreateFlowRequest extends Model
 
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
+        }
+
+        if (isset($map['EndpointUri'])) {
+            $model->endpointUri = $map['EndpointUri'];
         }
 
         if (isset($map['FlowName'])) {

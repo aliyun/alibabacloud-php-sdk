@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $endpointUri;
+
+    /**
+     * @var string
+     */
     public $flowId;
 
     /**
@@ -50,6 +55,7 @@ class data extends Model
     protected $_name = [
         'categories' => 'Categories',
         'dataApiVersion' => 'DataApiVersion',
+        'endpointUri' => 'EndpointUri',
         'flowId' => 'FlowId',
         'flowName' => 'FlowName',
         'JSONVersion' => 'JSONVersion',
@@ -82,6 +88,10 @@ class data extends Model
 
         if (null !== $this->dataApiVersion) {
             $res['DataApiVersion'] = $this->dataApiVersion;
+        }
+
+        if (null !== $this->endpointUri) {
+            $res['EndpointUri'] = $this->endpointUri;
         }
 
         if (null !== $this->flowId) {
@@ -132,6 +142,10 @@ class data extends Model
 
         if (isset($map['DataApiVersion'])) {
             $model->dataApiVersion = $map['DataApiVersion'];
+        }
+
+        if (isset($map['EndpointUri'])) {
+            $model->endpointUri = $map['EndpointUri'];
         }
 
         if (isset($map['FlowId'])) {

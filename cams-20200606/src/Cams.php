@@ -2806,6 +2806,10 @@ class Cams extends OpenApiClient
             @$query['CustSpaceId'] = $request->custSpaceId;
         }
 
+        if (null !== $request->endpointUri) {
+            @$query['EndpointUri'] = $request->endpointUri;
+        }
+
         if (null !== $request->flowName) {
             @$query['FlowName'] = $request->flowName;
         }
@@ -10530,6 +10534,10 @@ class Cams extends OpenApiClient
 
         if (null !== $request->custSpaceId) {
             @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->endpointUri) {
+            @$query['EndpointUri'] = $request->endpointUri;
         }
 
         if (null !== $request->flowId) {
