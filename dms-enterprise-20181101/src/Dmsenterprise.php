@@ -15584,6 +15584,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
         if (null !== $request->tid) {
             @$query['Tid'] = $request->tid;
         }

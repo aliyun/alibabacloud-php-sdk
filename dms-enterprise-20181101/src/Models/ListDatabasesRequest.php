@@ -24,6 +24,11 @@ class ListDatabasesRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $searchKey;
+
+    /**
      * @var int
      */
     public $tid;
@@ -31,6 +36,7 @@ class ListDatabasesRequest extends Model
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
         'tid' => 'Tid',
     ];
 
@@ -52,6 +58,10 @@ class ListDatabasesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->searchKey) {
+            $res['SearchKey'] = $this->searchKey;
         }
 
         if (null !== $this->tid) {
@@ -79,6 +89,10 @@ class ListDatabasesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SearchKey'])) {
+            $model->searchKey = $map['SearchKey'];
         }
 
         if (isset($map['Tid'])) {
