@@ -63,6 +63,21 @@ class describePolicyGroups extends Model
     public $clientCreateSnapshot;
 
     /**
+     * @var string
+     */
+    public $clientHibernate;
+
+    /**
+     * @var string
+     */
+    public $clientRestart;
+
+    /**
+     * @var string
+     */
+    public $clientShutdown;
+
+    /**
      * @var clientTypes[]
      */
     public $clientTypes;
@@ -221,6 +236,21 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $hoverConfigMsg;
+
+    /**
+     * @var string
+     */
+    public $hoverHibernate;
+
+    /**
+     * @var string
+     */
+    public $hoverRestart;
+
+    /**
+     * @var string
+     */
+    public $hoverShutdown;
 
     /**
      * @var string
@@ -676,6 +706,9 @@ class describePolicyGroups extends Model
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
         'clientCreateSnapshot' => 'ClientCreateSnapshot',
+        'clientHibernate' => 'ClientHibernate',
+        'clientRestart' => 'ClientRestart',
+        'clientShutdown' => 'ClientShutdown',
         'clientTypes' => 'ClientTypes',
         'clipboard' => 'Clipboard',
         'colorEnhancement' => 'ColorEnhancement',
@@ -708,6 +741,9 @@ class describePolicyGroups extends Model
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
         'gpuAcceleration' => 'GpuAcceleration',
         'hoverConfigMsg' => 'HoverConfigMsg',
+        'hoverHibernate' => 'HoverHibernate',
+        'hoverRestart' => 'HoverRestart',
+        'hoverShutdown' => 'HoverShutdown',
         'html5Access' => 'Html5Access',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
@@ -905,6 +941,18 @@ class describePolicyGroups extends Model
             $res['ClientCreateSnapshot'] = $this->clientCreateSnapshot;
         }
 
+        if (null !== $this->clientHibernate) {
+            $res['ClientHibernate'] = $this->clientHibernate;
+        }
+
+        if (null !== $this->clientRestart) {
+            $res['ClientRestart'] = $this->clientRestart;
+        }
+
+        if (null !== $this->clientShutdown) {
+            $res['ClientShutdown'] = $this->clientShutdown;
+        }
+
         if (null !== $this->clientTypes) {
             if (\is_array($this->clientTypes)) {
                 $res['ClientTypes'] = [];
@@ -1066,6 +1114,18 @@ class describePolicyGroups extends Model
 
         if (null !== $this->hoverConfigMsg) {
             $res['HoverConfigMsg'] = $this->hoverConfigMsg;
+        }
+
+        if (null !== $this->hoverHibernate) {
+            $res['HoverHibernate'] = $this->hoverHibernate;
+        }
+
+        if (null !== $this->hoverRestart) {
+            $res['HoverRestart'] = $this->hoverRestart;
+        }
+
+        if (null !== $this->hoverShutdown) {
+            $res['HoverShutdown'] = $this->hoverShutdown;
         }
 
         if (null !== $this->html5Access) {
@@ -1548,6 +1608,18 @@ class describePolicyGroups extends Model
             $model->clientCreateSnapshot = $map['ClientCreateSnapshot'];
         }
 
+        if (isset($map['ClientHibernate'])) {
+            $model->clientHibernate = $map['ClientHibernate'];
+        }
+
+        if (isset($map['ClientRestart'])) {
+            $model->clientRestart = $map['ClientRestart'];
+        }
+
+        if (isset($map['ClientShutdown'])) {
+            $model->clientShutdown = $map['ClientShutdown'];
+        }
+
         if (isset($map['ClientTypes'])) {
             if (!empty($map['ClientTypes'])) {
                 $model->clientTypes = [];
@@ -1709,6 +1781,18 @@ class describePolicyGroups extends Model
 
         if (isset($map['HoverConfigMsg'])) {
             $model->hoverConfigMsg = $map['HoverConfigMsg'];
+        }
+
+        if (isset($map['HoverHibernate'])) {
+            $model->hoverHibernate = $map['HoverHibernate'];
+        }
+
+        if (isset($map['HoverRestart'])) {
+            $model->hoverRestart = $map['HoverRestart'];
+        }
+
+        if (isset($map['HoverShutdown'])) {
+            $model->hoverShutdown = $map['HoverShutdown'];
         }
 
         if (isset($map['Html5Access'])) {
