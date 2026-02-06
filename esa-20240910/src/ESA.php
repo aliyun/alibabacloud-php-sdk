@@ -66,6 +66,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomHostnameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomHostnameResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomResponseCodeRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomResponseCodeRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppImageSecretRequest;
@@ -186,6 +188,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomHostnameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomHostnameResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomResponseCodeRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomResponseCodeRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppImageSecretRequest;
@@ -351,6 +355,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetCrossBorderOptimizationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCrossBorderOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCustomHostnameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCustomHostnameResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCustomResponseCodeRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCustomResponseCodeRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverRequest;
@@ -507,6 +513,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCompressionRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomHostnamesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomResponseCodeRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomResponseCodeRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
@@ -703,6 +711,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCrossBorderOptimizationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCrossBorderOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomHostnameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomHostnameResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomResponseCodeRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomResponseCodeRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateDevelopmentModeRequest;
@@ -2907,6 +2917,91 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomHostnameWithOptions($request, $runtime);
+    }
+
+    /**
+     * Add configurations for modifying the response code.
+     *
+     * @param Request - CreateCustomResponseCodeRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomResponseCodeRuleResponse
+     *
+     * @param CreateCustomResponseCodeRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateCustomResponseCodeRuleResponse
+     */
+    public function createCustomResponseCodeRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageId) {
+            @$query['PageId'] = $request->pageId;
+        }
+
+        if (null !== $request->returnCode) {
+            @$query['ReturnCode'] = $request->returnCode;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomResponseCodeRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomResponseCodeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Add configurations for modifying the response code.
+     *
+     * @param Request - CreateCustomResponseCodeRuleRequest
+     *
+     * @returns CreateCustomResponseCodeRuleResponse
+     *
+     * @param CreateCustomResponseCodeRuleRequest $request
+     *
+     * @return CreateCustomResponseCodeRuleResponse
+     */
+    public function createCustomResponseCodeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomResponseCodeRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -7265,6 +7360,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomHostnameWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the configuration of response code modification for a website.
+     *
+     * @param Request - DeleteCustomResponseCodeRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomResponseCodeRuleResponse
+     *
+     * @param DeleteCustomResponseCodeRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteCustomResponseCodeRuleResponse
+     */
+    public function deleteCustomResponseCodeRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomResponseCodeRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomResponseCodeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the configuration of response code modification for a website.
+     *
+     * @param Request - DeleteCustomResponseCodeRuleRequest
+     *
+     * @returns DeleteCustomResponseCodeRuleResponse
+     *
+     * @param DeleteCustomResponseCodeRuleRequest $request
+     *
+     * @return DeleteCustomResponseCodeRuleResponse
+     */
+    public function deleteCustomResponseCodeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomResponseCodeRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -12264,6 +12420,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询修改响应码规则详情.
+     *
+     * @param Request - GetCustomResponseCodeRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomResponseCodeRuleResponse
+     *
+     * @param GetCustomResponseCodeRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetCustomResponseCodeRuleResponse
+     */
+    public function getCustomResponseCodeRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomResponseCodeRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomResponseCodeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询修改响应码规则详情.
+     *
+     * @param Request - GetCustomResponseCodeRuleRequest
+     *
+     * @returns GetCustomResponseCodeRuleResponse
+     *
+     * @param GetCustomResponseCodeRuleRequest $request
+     *
+     * @return GetCustomResponseCodeRuleResponse
+     */
+    public function getCustomResponseCodeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomResponseCodeRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Site Developer Mode Configuration.
      *
      * @param Request - GetDevelopmentModeRequest
@@ -16729,6 +16946,87 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomHostnamesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the configuration list of an HTTP response header modification rule for a website.
+     *
+     * @param Request - ListCustomResponseCodeRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomResponseCodeRulesResponse
+     *
+     * @param ListCustomResponseCodeRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListCustomResponseCodeRulesResponse
+     */
+    public function listCustomResponseCodeRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->configType) {
+            @$query['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomResponseCodeRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomResponseCodeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration list of an HTTP response header modification rule for a website.
+     *
+     * @param Request - ListCustomResponseCodeRulesRequest
+     *
+     * @returns ListCustomResponseCodeRulesResponse
+     *
+     * @param ListCustomResponseCodeRulesRequest $request
+     *
+     * @return ListCustomResponseCodeRulesResponse
+     */
+    public function listCustomResponseCodeRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomResponseCodeRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -22933,6 +23231,91 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomHostnameWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify the response code configurations for a website.
+     *
+     * @param Request - UpdateCustomResponseCodeRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomResponseCodeRuleResponse
+     *
+     * @param UpdateCustomResponseCodeRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateCustomResponseCodeRuleResponse
+     */
+    public function updateCustomResponseCodeRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->pageId) {
+            @$query['PageId'] = $request->pageId;
+        }
+
+        if (null !== $request->returnCode) {
+            @$query['ReturnCode'] = $request->returnCode;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomResponseCodeRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomResponseCodeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modify the response code configurations for a website.
+     *
+     * @param Request - UpdateCustomResponseCodeRuleRequest
+     *
+     * @returns UpdateCustomResponseCodeRuleResponse
+     *
+     * @param UpdateCustomResponseCodeRuleRequest $request
+     *
+     * @return UpdateCustomResponseCodeRuleResponse
+     */
+    public function updateCustomResponseCodeRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomResponseCodeRuleWithOptions($request, $runtime);
     }
 
     /**
