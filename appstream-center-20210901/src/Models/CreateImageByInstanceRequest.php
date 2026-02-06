@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceRequest\tagList;
 
 class CreateImageByInstanceRequest extends Model
 {
@@ -52,6 +53,11 @@ class CreateImageByInstanceRequest extends Model
      * @var string
      */
     public $subInstanceId;
+
+    /**
+     * @var tagList[]
+     */
+    public $tagList;
     protected $_name = [
         'autoCleanUserdata' => 'AutoCleanUserdata',
         'bizType' => 'BizType',
@@ -62,10 +68,14 @@ class CreateImageByInstanceRequest extends Model
         'instanceType' => 'InstanceType',
         'productType' => 'ProductType',
         'subInstanceId' => 'SubInstanceId',
+        'tagList' => 'TagList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
+        }
         parent::validate();
     }
 
@@ -106,6 +116,17 @@ class CreateImageByInstanceRequest extends Model
 
         if (null !== $this->subInstanceId) {
             $res['SubInstanceId'] = $this->subInstanceId;
+        }
+
+        if (null !== $this->tagList) {
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1 = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -153,6 +174,17 @@ class CreateImageByInstanceRequest extends Model
 
         if (isset($map['SubInstanceId'])) {
             $model->subInstanceId = $map['SubInstanceId'];
+        }
+
+        if (isset($map['TagList'])) {
+            if (!empty($map['TagList'])) {
+                $model->tagList = [];
+                $n1 = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1] = tagList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -547,6 +547,11 @@ class Appstreamcenter extends OpenApiClient
     public function createImageByInstanceWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->tagList) {
+            @$query['TagList'] = $request->tagList;
+        }
+
         $body = [];
         if (null !== $request->autoCleanUserdata) {
             @$body['AutoCleanUserdata'] = $request->autoCleanUserdata;
@@ -585,6 +590,7 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
