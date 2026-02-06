@@ -21,6 +21,11 @@ class GetPlayInfoRequest extends Model
     /**
      * @var string
      */
+    public $codecName;
+
+    /**
+     * @var string
+     */
     public $definition;
 
     /**
@@ -75,6 +80,7 @@ class GetPlayInfoRequest extends Model
     protected $_name = [
         'additionType' => 'AdditionType',
         'authTimeout' => 'AuthTimeout',
+        'codecName' => 'CodecName',
         'definition' => 'Definition',
         'digitalWatermarkType' => 'DigitalWatermarkType',
         'formats' => 'Formats',
@@ -102,6 +108,10 @@ class GetPlayInfoRequest extends Model
 
         if (null !== $this->authTimeout) {
             $res['AuthTimeout'] = $this->authTimeout;
+        }
+
+        if (null !== $this->codecName) {
+            $res['CodecName'] = $this->codecName;
         }
 
         if (null !== $this->definition) {
@@ -165,6 +175,10 @@ class GetPlayInfoRequest extends Model
 
         if (isset($map['AuthTimeout'])) {
             $model->authTimeout = $map['AuthTimeout'];
+        }
+
+        if (isset($map['CodecName'])) {
+            $model->codecName = $map['CodecName'];
         }
 
         if (isset($map['Definition'])) {

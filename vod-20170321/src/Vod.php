@@ -9374,6 +9374,10 @@ class Vod extends OpenApiClient
             @$query['AuthTimeout'] = $request->authTimeout;
         }
 
+        if (null !== $request->codecName) {
+            @$query['CodecName'] = $request->codecName;
+        }
+
         if (null !== $request->definition) {
             @$query['Definition'] = $request->definition;
         }

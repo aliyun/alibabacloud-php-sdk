@@ -46,6 +46,11 @@ class URLUploadInfoList extends Model
     /**
      * @var string
      */
+    public $registeredMediaId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -65,6 +70,7 @@ class URLUploadInfoList extends Model
         'fileSize' => 'FileSize',
         'jobId' => 'JobId',
         'mediaId' => 'MediaId',
+        'registeredMediaId' => 'RegisteredMediaId',
         'status' => 'Status',
         'uploadURL' => 'UploadURL',
         'userData' => 'UserData',
@@ -104,6 +110,10 @@ class URLUploadInfoList extends Model
 
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+
+        if (null !== $this->registeredMediaId) {
+            $res['RegisteredMediaId'] = $this->registeredMediaId;
         }
 
         if (null !== $this->status) {
@@ -155,6 +165,10 @@ class URLUploadInfoList extends Model
 
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+
+        if (isset($map['RegisteredMediaId'])) {
+            $model->registeredMediaId = $map['RegisteredMediaId'];
         }
 
         if (isset($map['Status'])) {
