@@ -158,6 +158,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteMaskingRulesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteMaskingRulesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterTimedScheduleTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterTimedScheduleTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCClusterNodesRequest;
@@ -382,6 +384,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTemplatesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTemplatesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTimedScheduleTaskRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTimedScheduleTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePostgresExtensionsRequest;
@@ -8699,6 +8703,67 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * RDS MySQL删除修改参数运行任务
+     *
+     * @param request - DeleteParameterTimedScheduleTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteParameterTimedScheduleTaskResponse
+     *
+     * @param DeleteParameterTimedScheduleTaskRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteParameterTimedScheduleTaskResponse
+     */
+    public function deleteParameterTimedScheduleTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteParameterTimedScheduleTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteParameterTimedScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RDS MySQL删除修改参数运行任务
+     *
+     * @param request - DeleteParameterTimedScheduleTaskRequest
+     *
+     * @returns DeleteParameterTimedScheduleTaskResponse
+     *
+     * @param DeleteParameterTimedScheduleTaskRequest $request
+     *
+     * @return DeleteParameterTimedScheduleTaskResponse
+     */
+    public function deleteParameterTimedScheduleTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteParameterTimedScheduleTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -19201,6 +19266,59 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeParameterTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * RDS MySQL查询修改参数运行时间列表.
+     *
+     * @param request - DescribeParameterTimedScheduleTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeParameterTimedScheduleTaskResponse
+     *
+     * @param DescribeParameterTimedScheduleTaskRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeParameterTimedScheduleTaskResponse
+     */
+    public function describeParameterTimedScheduleTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeParameterTimedScheduleTask',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeParameterTimedScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RDS MySQL查询修改参数运行时间列表.
+     *
+     * @param request - DescribeParameterTimedScheduleTaskRequest
+     *
+     * @returns DescribeParameterTimedScheduleTaskResponse
+     *
+     * @param DescribeParameterTimedScheduleTaskRequest $request
+     *
+     * @return DescribeParameterTimedScheduleTaskResponse
+     */
+    public function describeParameterTimedScheduleTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterTimedScheduleTaskWithOptions($request, $runtime);
     }
 
     /**
