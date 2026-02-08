@@ -14,14 +14,24 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateMaterialDirectoryRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateMaterialDirectoryResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
@@ -45,10 +55,37 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyAppInstanceSpecRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyAppInstanceSpecResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialDirectoryRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialDirectoryResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialFileResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialFileStatusRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialFileStatusResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialFileStatusShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialDirectoryRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialDirectoryResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialFileResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialFileShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialDirectoryTreeRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialDirectoryTreeResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileDetailRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileDetailResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileListRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileListResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileListShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileSummaryInfoRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileSummaryInfoResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileSummaryInfoShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskDetailRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskDetailResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefundAppInstanceForPartnerRequest;
@@ -60,11 +97,15 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SetAppDomainCertificateRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SetAppDomainCertificateResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitMaterialTaskRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitMaterialTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -413,6 +454,71 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 创建素材中心文件夹.
+     *
+     * @param request - CreateMaterialDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMaterialDirectoryResponse
+     *
+     * @param CreateMaterialDirectoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateMaterialDirectoryResponse
+     */
+    public function createMaterialDirectoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->parentDirectoryId) {
+            @$query['ParentDirectoryId'] = $request->parentDirectoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMaterialDirectory',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMaterialDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建素材中心文件夹.
+     *
+     * @param request - CreateMaterialDirectoryRequest
+     *
+     * @returns CreateMaterialDirectoryResponse
+     *
+     * @param CreateMaterialDirectoryRequest $request
+     *
+     * @return CreateMaterialDirectoryResponse
+     */
+    public function createMaterialDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMaterialDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete the SSL certificate of a domain.
      *
      * @param request - DeleteAppDomainCertificateRequest
@@ -532,6 +638,130 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppDomainRedirectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除素材中心文件夹.
+     *
+     * @param request - DeleteMaterialDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaterialDirectoryResponse
+     *
+     * @param DeleteMaterialDirectoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteMaterialDirectoryResponse
+     */
+    public function deleteMaterialDirectoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMaterialDirectory',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMaterialDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除素材中心文件夹.
+     *
+     * @param request - DeleteMaterialDirectoryRequest
+     *
+     * @returns DeleteMaterialDirectoryResponse
+     *
+     * @param DeleteMaterialDirectoryRequest $request
+     *
+     * @return DeleteMaterialDirectoryResponse
+     */
+    public function deleteMaterialDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMaterialDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除素材生产任务
+     *
+     * @param tmpReq - DeleteMaterialTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaterialTaskResponse
+     *
+     * @param DeleteMaterialTaskRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteMaterialTaskResponse
+     */
+    public function deleteMaterialTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteMaterialTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->taskIdsShrink) {
+            @$query['TaskIds'] = $request->taskIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMaterialTask',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMaterialTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除素材生产任务
+     *
+     * @param request - DeleteMaterialTaskRequest
+     *
+     * @returns DeleteMaterialTaskResponse
+     *
+     * @param DeleteMaterialTaskRequest $request
+     *
+     * @return DeleteMaterialTaskResponse
+     */
+    public function deleteMaterialTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMaterialTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -670,6 +900,73 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dispatchConsoleAPIForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导出素材文件.
+     *
+     * @param tmpReq - ExportMaterialFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportMaterialFileResponse
+     *
+     * @param ExportMaterialFileRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExportMaterialFileResponse
+     */
+    public function exportMaterialFileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExportMaterialFileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileIds) {
+            $request->fileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileIds, 'FileIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->fileIdsShrink) {
+            @$query['FileIds'] = $request->fileIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExportMaterialFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportMaterialFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出素材文件.
+     *
+     * @param request - ExportMaterialFileRequest
+     *
+     * @returns ExportMaterialFileResponse
+     *
+     * @param ExportMaterialFileRequest $request
+     *
+     * @return ExportMaterialFileResponse
+     */
+    public function exportMaterialFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportMaterialFileWithOptions($request, $runtime);
     }
 
     /**
@@ -1442,6 +1739,347 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 修改素材中心文件夹.
+     *
+     * @param request - ModifyMaterialDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMaterialDirectoryResponse
+     *
+     * @param ModifyMaterialDirectoryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyMaterialDirectoryResponse
+     */
+    public function modifyMaterialDirectoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMaterialDirectory',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMaterialDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改素材中心文件夹.
+     *
+     * @param request - ModifyMaterialDirectoryRequest
+     *
+     * @returns ModifyMaterialDirectoryResponse
+     *
+     * @param ModifyMaterialDirectoryRequest $request
+     *
+     * @return ModifyMaterialDirectoryResponse
+     */
+    public function modifyMaterialDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaterialDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改素材文件.
+     *
+     * @param request - ModifyMaterialFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMaterialFileResponse
+     *
+     * @param ModifyMaterialFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyMaterialFileResponse
+     */
+    public function modifyMaterialFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMaterialFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMaterialFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改素材文件.
+     *
+     * @param request - ModifyMaterialFileRequest
+     *
+     * @returns ModifyMaterialFileResponse
+     *
+     * @param ModifyMaterialFileRequest $request
+     *
+     * @return ModifyMaterialFileResponse
+     */
+    public function modifyMaterialFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaterialFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改素材文件状态
+     *
+     * @param tmpReq - ModifyMaterialFileStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMaterialFileStatusResponse
+     *
+     * @param ModifyMaterialFileStatusRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyMaterialFileStatusResponse
+     */
+    public function modifyMaterialFileStatusWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyMaterialFileStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileIds) {
+            $request->fileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileIds, 'FileIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->fileIdsShrink) {
+            @$query['FileIds'] = $request->fileIdsShrink;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMaterialFileStatus',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMaterialFileStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改素材文件状态
+     *
+     * @param request - ModifyMaterialFileStatusRequest
+     *
+     * @returns ModifyMaterialFileStatusResponse
+     *
+     * @param ModifyMaterialFileStatusRequest $request
+     *
+     * @return ModifyMaterialFileStatusResponse
+     */
+    public function modifyMaterialFileStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMaterialFileStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移动素材中心文件夹.
+     *
+     * @param request - MoveMaterialDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveMaterialDirectoryResponse
+     *
+     * @param MoveMaterialDirectoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return MoveMaterialDirectoryResponse
+     */
+    public function moveMaterialDirectoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->parentDirectoryId) {
+            @$query['ParentDirectoryId'] = $request->parentDirectoryId;
+        }
+
+        if (null !== $request->sortNum) {
+            @$query['SortNum'] = $request->sortNum;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MoveMaterialDirectory',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveMaterialDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移动素材中心文件夹.
+     *
+     * @param request - MoveMaterialDirectoryRequest
+     *
+     * @returns MoveMaterialDirectoryResponse
+     *
+     * @param MoveMaterialDirectoryRequest $request
+     *
+     * @return MoveMaterialDirectoryResponse
+     */
+    public function moveMaterialDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveMaterialDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移动素材文件.
+     *
+     * @param tmpReq - MoveMaterialFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveMaterialFileResponse
+     *
+     * @param MoveMaterialFileRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MoveMaterialFileResponse
+     */
+    public function moveMaterialFileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MoveMaterialFileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileIds) {
+            $request->fileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileIds, 'FileIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->fileIdsShrink) {
+            @$query['FileIds'] = $request->fileIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MoveMaterialFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveMaterialFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移动素材文件.
+     *
+     * @param request - MoveMaterialFileRequest
+     *
+     * @returns MoveMaterialFileResponse
+     *
+     * @param MoveMaterialFileRequest $request
+     *
+     * @return MoveMaterialFileResponse
+     */
+    public function moveMaterialFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveMaterialFileWithOptions($request, $runtime);
+    }
+
+    /**
      * 合作伙伴操作应用.
      *
      * @param request - OperateAppInstanceForPartnerRequest
@@ -1569,6 +2207,506 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateAppServiceForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询素材中心文件夹树结构.
+     *
+     * @param request - QueryMaterialDirectoryTreeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMaterialDirectoryTreeResponse
+     *
+     * @param QueryMaterialDirectoryTreeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryMaterialDirectoryTreeResponse
+     */
+    public function queryMaterialDirectoryTreeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->hiddenPublic) {
+            @$query['HiddenPublic'] = $request->hiddenPublic;
+        }
+
+        if (null !== $request->root) {
+            @$query['Root'] = $request->root;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMaterialDirectoryTree',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMaterialDirectoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询素材中心文件夹树结构.
+     *
+     * @param request - QueryMaterialDirectoryTreeRequest
+     *
+     * @returns QueryMaterialDirectoryTreeResponse
+     *
+     * @param QueryMaterialDirectoryTreeRequest $request
+     *
+     * @return QueryMaterialDirectoryTreeResponse
+     */
+    public function queryMaterialDirectoryTree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMaterialDirectoryTreeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询素材文件详情.
+     *
+     * @param request - QueryMaterialFileDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMaterialFileDetailResponse
+     *
+     * @param QueryMaterialFileDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryMaterialFileDetailResponse
+     */
+    public function queryMaterialFileDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMaterialFileDetail',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMaterialFileDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询素材文件详情.
+     *
+     * @param request - QueryMaterialFileDetailRequest
+     *
+     * @returns QueryMaterialFileDetailResponse
+     *
+     * @param QueryMaterialFileDetailRequest $request
+     *
+     * @return QueryMaterialFileDetailResponse
+     */
+    public function queryMaterialFileDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMaterialFileDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询素材文件列表.
+     *
+     * @param tmpReq - QueryMaterialFileListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMaterialFileListResponse
+     *
+     * @param QueryMaterialFileListRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryMaterialFileListResponse
+     */
+    public function queryMaterialFileListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryMaterialFileListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        if (null !== $tmpReq->suffixList) {
+            $request->suffixListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->suffixList, 'SuffixList', 'json');
+        }
+
+        if (null !== $tmpReq->typeList) {
+            $request->typeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->typeList, 'TypeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->maxFileSize) {
+            @$query['MaxFileSize'] = $request->maxFileSize;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->minFileSize) {
+            @$query['MinFileSize'] = $request->minFileSize;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        if (null !== $request->suffixListShrink) {
+            @$query['SuffixList'] = $request->suffixListShrink;
+        }
+
+        if (null !== $request->typeListShrink) {
+            @$query['TypeList'] = $request->typeListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMaterialFileList',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMaterialFileListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询素材文件列表.
+     *
+     * @param request - QueryMaterialFileListRequest
+     *
+     * @returns QueryMaterialFileListResponse
+     *
+     * @param QueryMaterialFileListRequest $request
+     *
+     * @return QueryMaterialFileListResponse
+     */
+    public function queryMaterialFileList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMaterialFileListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询素材中心文件概要信息.
+     *
+     * @param tmpReq - QueryMaterialFileSummaryInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMaterialFileSummaryInfoResponse
+     *
+     * @param QueryMaterialFileSummaryInfoRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryMaterialFileSummaryInfoResponse
+     */
+    public function queryMaterialFileSummaryInfoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryMaterialFileSummaryInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        if (null !== $tmpReq->typeList) {
+            $request->typeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->typeList, 'TypeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        if (null !== $request->typeListShrink) {
+            @$query['TypeList'] = $request->typeListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMaterialFileSummaryInfo',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMaterialFileSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询素材中心文件概要信息.
+     *
+     * @param request - QueryMaterialFileSummaryInfoRequest
+     *
+     * @returns QueryMaterialFileSummaryInfoResponse
+     *
+     * @param QueryMaterialFileSummaryInfoRequest $request
+     *
+     * @return QueryMaterialFileSummaryInfoResponse
+     */
+    public function queryMaterialFileSummaryInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMaterialFileSummaryInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询素材生产任务详情.
+     *
+     * @param request - QueryMaterialTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMaterialTaskDetailResponse
+     *
+     * @param QueryMaterialTaskDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryMaterialTaskDetailResponse
+     */
+    public function queryMaterialTaskDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMaterialTaskDetail',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMaterialTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询素材生产任务详情.
+     *
+     * @param request - QueryMaterialTaskDetailRequest
+     *
+     * @returns QueryMaterialTaskDetailResponse
+     *
+     * @param QueryMaterialTaskDetailRequest $request
+     *
+     * @return QueryMaterialTaskDetailResponse
+     */
+    public function queryMaterialTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMaterialTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询素材生产任务列表.
+     *
+     * @param tmpReq - QueryMaterialTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMaterialTaskListResponse
+     *
+     * @param QueryMaterialTaskListRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryMaterialTaskListResponse
+     */
+    public function queryMaterialTaskListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryMaterialTaskListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        if (null !== $tmpReq->taskTypeList) {
+            $request->taskTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskTypeList, 'TaskTypeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        if (null !== $request->taskTypeListShrink) {
+            @$query['TaskTypeList'] = $request->taskTypeListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMaterialTaskList',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMaterialTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询素材生产任务列表.
+     *
+     * @param request - QueryMaterialTaskListRequest
+     *
+     * @returns QueryMaterialTaskListResponse
+     *
+     * @param QueryMaterialTaskListRequest $request
+     *
+     * @return QueryMaterialTaskListResponse
+     */
+    public function queryMaterialTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMaterialTaskListWithOptions($request, $runtime);
     }
 
     /**
@@ -1979,6 +3117,67 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 提交素材生产任务
+     *
+     * @param request - SubmitMaterialTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitMaterialTaskResponse
+     *
+     * @param SubmitMaterialTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitMaterialTaskResponse
+     */
+    public function submitMaterialTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskParam) {
+            @$query['TaskParam'] = $request->taskParam;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitMaterialTask',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitMaterialTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交素材生产任务
+     *
+     * @param request - SubmitMaterialTaskRequest
+     *
+     * @returns SubmitMaterialTaskResponse
+     *
+     * @param SubmitMaterialTaskRequest $request
+     *
+     * @return SubmitMaterialTaskResponse
+     */
+    public function submitMaterialTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitMaterialTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 合作伙伴同步应用实例.
      *
      * @param tmpReq - SyncAppInstanceForPartnerRequest
@@ -2116,5 +3315,74 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindAppDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传素材文件.
+     *
+     * @param request - UploadMaterialFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadMaterialFileResponse
+     *
+     * @param UploadMaterialFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UploadMaterialFileResponse
+     */
+    public function uploadMaterialFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadMaterialFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadMaterialFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传素材文件.
+     *
+     * @param request - UploadMaterialFileRequest
+     *
+     * @returns UploadMaterialFileResponse
+     *
+     * @param UploadMaterialFileRequest $request
+     *
+     * @return UploadMaterialFileResponse
+     */
+    public function uploadMaterialFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadMaterialFileWithOptions($request, $runtime);
     }
 }
