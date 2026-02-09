@@ -222,7 +222,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorize the security group for gateway to access services.
+     * Adds a security group that authorizes an instance to access services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -273,7 +273,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorize the security group for gateway to access services.
+     * Adds a security group that authorizes an instance to access services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      *
@@ -354,7 +354,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Resource Group Transfer.
+     * Moves a resource from one resource group to another.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -408,7 +408,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Resource Group Transfer.
+     * Moves a resource from one resource group to another.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -856,10 +856,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * CreateEnvironment.
-     *
-     * @remarks
-     * Create environment.
+     * Creates an environment.
      *
      * @deprecated OpenAPI CreateEnvironment is deprecated
      *
@@ -920,10 +917,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * CreateEnvironment.
-     *
-     * @remarks
-     * Create environment.
+     * Creates an environment.
      *
      * @deprecated OpenAPI CreateEnvironment is deprecated
      *
@@ -1522,7 +1516,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create Policy.
+     * Creates a policy.
      *
      * @param request - CreatePolicyRequest
      * @param headers - map
@@ -1576,7 +1570,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create Policy.
+     * Creates a policy.
      *
      * @param request - CreatePolicyRequest
      *
@@ -1595,7 +1589,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create policy resource mount.
+     * Creates a policy attachment.
      *
      * @param request - CreatePolicyAttachmentRequest
      * @param headers - map
@@ -1653,7 +1647,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create policy resource mount.
+     * Creates a policy attachment.
      *
      * @param request - CreatePolicyAttachmentRequest
      *
@@ -1905,7 +1899,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建服务来源.
+     * Creates a service source.
      *
      * @param request - CreateSourceRequest
      * @param headers - map
@@ -1963,7 +1957,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建服务来源.
+     * Creates a service source.
      *
      * @param request - CreateSourceRequest
      *
@@ -2086,7 +2080,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * DeleteDomain.
+     * Deletes a domain name.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2120,7 +2114,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * DeleteDomain.
+     * Deletes a domain name.
      *
      * @returns DeleteDomainResponse
      *
@@ -2137,7 +2131,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * DeleteEnvironment.
+     * Deletes an environment.
      *
      * @deprecated OpenAPI DeleteEnvironment is deprecated
      *
@@ -2174,7 +2168,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * DeleteEnvironment.
+     * Deletes an environment.
      *
      * @deprecated OpenAPI DeleteEnvironment is deprecated
      *
@@ -2193,7 +2187,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete Gateway.
+     * Deletes a Cloud-native API Gateway instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2227,7 +2221,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete Gateway.
+     * Deletes a Cloud-native API Gateway instance.
      *
      * @returns DeleteGatewayResponse
      *
@@ -2244,7 +2238,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete the security group rule of a gateway.
+     * Deletes a security group rule from a Cloud-native API Gateway instance.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -2288,7 +2282,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete the security group rule of a gateway.
+     * Deletes a security group rule from a Cloud-native API Gateway instance.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      *
@@ -2360,7 +2354,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete Operation.
+     * Deletes an operation from an HTTP API.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2395,7 +2389,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete Operation.
+     * Deletes an operation from an HTTP API.
      *
      * @returns DeleteHttpApiOperationResponse
      *
@@ -2413,7 +2407,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete the route of an HttpApi.
+     * Deletes a route in an HTTP API.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2448,7 +2442,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete the route of an HttpApi.
+     * Deletes a route in an HTTP API.
      *
      * @returns DeleteHttpApiRouteResponse
      *
@@ -2466,7 +2460,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除MCP server.
+     * Deletes an MCP server.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2500,7 +2494,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除MCP server.
+     * Deletes an MCP server.
      *
      * @returns DeleteMcpServerResponse
      *
@@ -2568,7 +2562,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete Policy.
+     * Deletes a policy.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2602,7 +2596,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete Policy.
+     * Deletes a policy.
      *
      * @returns DeletePolicyResponse
      *
@@ -2619,7 +2613,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete policy resource attachment.
+     * Deletes a policy attachment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2653,7 +2647,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete policy resource attachment.
+     * Deletes a policy attachment.
      *
      * @returns DeletePolicyAttachmentResponse
      *
@@ -2825,7 +2819,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除服务来源.
+     * Deletes a service source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2859,7 +2853,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除服务来源.
+     * Deletes a service source.
      *
      * @returns DeleteSourceResponse
      *
@@ -2998,7 +2992,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Export HTTP API.
+     * Exports an HTTP API.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3032,7 +3026,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Export HTTP API.
+     * Exports an HTTP API.
      *
      * @returns ExportHttpApiResponse
      *
@@ -3317,7 +3311,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * GetEnvironment.
+     * Queries an environment.
      *
      * @deprecated OpenAPI GetEnvironment is deprecated
      *
@@ -3367,7 +3361,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * GetEnvironment.
+     * Queries an environment.
      *
      * @deprecated OpenAPI GetEnvironment is deprecated
      *
@@ -3756,7 +3750,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Query Policy Resource Attachment.
+     * Queries a policy attachment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3790,7 +3784,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Query Policy Resource Attachment.
+     * Queries a policy attachment.
      *
      * @returns GetPolicyAttachmentResponse
      *
@@ -3970,7 +3964,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a service.
+     * Queries a service.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4004,7 +3998,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a service.
+     * Queries a service.
      *
      * @returns GetServiceResponse
      *
@@ -4072,7 +4066,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieve Tracing Configuration.
+     * Queries the tracing configurations of a Cloud-native API Gateway instance.
      *
      * @param request - GetTraceConfigRequest
      * @param headers - map
@@ -4115,7 +4109,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieve Tracing Configuration.
+     * Queries the tracing configurations of a Cloud-native API Gateway instance.
      *
      * @param request - GetTraceConfigRequest
      *
@@ -5588,7 +5582,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPolicyClasses.
+     * Queries policy templates.
      *
      * @param request - ListPolicyClassesRequest
      * @param headers - map
@@ -5654,7 +5648,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPolicyClasses.
+     * Queries policy templates.
      *
      * @param request - ListPolicyClassesRequest
      *
@@ -5898,7 +5892,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListSslCerts.
+     * Queries SSL certificates.
      *
      * @param request - ListSslCertsRequest
      * @param headers - map
@@ -5952,7 +5946,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListSslCerts.
+     * Queries SSL certificates.
      *
      * @param request - ListSslCertsRequest
      *
@@ -6171,7 +6165,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Gateway Restart.
+     * Restarts an instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6205,7 +6199,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Gateway Restart.
+     * Restarts an instance.
      *
      * @returns RestartGatewayResponse
      *
@@ -6717,6 +6711,9 @@ class APIG extends OpenApiClient
     /**
      * Updates a domain name.
      *
+     * @remarks
+     * You can update the listening Ingress only for sources whose types are **ACK**.
+     *
      * @param request - UpdateDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6796,6 +6793,9 @@ class APIG extends OpenApiClient
     /**
      * Updates a domain name.
      *
+     * @remarks
+     * You can update the listening Ingress only for sources whose types are **ACK**.
+     *
      * @param request - UpdateDomainRequest
      *
      * @returns UpdateDomainResponse
@@ -6814,7 +6814,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * UpdateEnvironment.
+     * Modifies an environment.
      *
      * @deprecated OpenAPI UpdateEnvironment is deprecated
      *
@@ -6864,7 +6864,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * UpdateEnvironment.
+     * Modifies an environment.
      *
      * @deprecated OpenAPI UpdateEnvironment is deprecated
      *
@@ -6886,7 +6886,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get the feature configuration of the gateway.
+     * Updates the configuration of an instance feature parameter.
      *
      * @param request - UpdateGatewayFeatureRequest
      * @param headers - map
@@ -6930,7 +6930,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get the feature configuration of the gateway.
+     * Updates the configuration of an instance feature parameter.
      *
      * @param request - UpdateGatewayFeatureRequest
      *
@@ -6951,7 +6951,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Change the name of a gateway instance.
+     * Changes the name of a Cloud-native API Gateway instance.
      *
      * @param request - UpdateGatewayNameRequest
      * @param headers - map
@@ -6994,7 +6994,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Change the name of a gateway instance.
+     * Changes the name of a Cloud-native API Gateway instance.
      *
      * @param request - UpdateGatewayNameRequest
      *
@@ -7125,7 +7125,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Update Operation.
+     * Updates an operation of an HTTP API.
      *
      * @param request - UpdateHttpApiOperationRequest
      * @param headers - map
@@ -7169,7 +7169,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Update Operation.
+     * Updates an operation of an HTTP API.
      *
      * @param request - UpdateHttpApiOperationRequest
      *
@@ -7471,7 +7471,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Update Policy.
+     * Updates a policy.
      *
      * @param request - UpdatePolicyRequest
      * @param headers - map
@@ -7522,7 +7522,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Update Policy.
+     * Updates a policy.
      *
      * @param request - UpdatePolicyRequest
      *
@@ -7605,7 +7605,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新服务
+     * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
      *
      * @param request - UpdateServiceRequest
      * @param headers - map
@@ -7680,7 +7680,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新服务
+     * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
      *
      * @param request - UpdateServiceRequest
      *
@@ -7765,7 +7765,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Upgrade the gateway version.
+     * Updates the version of a Cloud-native API Gateway instance.
      *
      * @param request - UpgradeGatewayRequest
      * @param headers - map
@@ -7808,7 +7808,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Upgrade the gateway version.
+     * Updates the version of a Cloud-native API Gateway instance.
      *
      * @param request - UpgradeGatewayRequest
      *

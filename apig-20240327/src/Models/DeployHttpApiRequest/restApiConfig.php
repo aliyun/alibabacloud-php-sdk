@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig\environment;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig\operationDeployments;
 
 class restApiConfig extends Model
 {
@@ -25,6 +26,11 @@ class restApiConfig extends Model
     public $gatewayId;
 
     /**
+     * @var operationDeployments[]
+     */
+    public $operationDeployments;
+
+    /**
      * @var string[]
      */
     public $operationIds;
@@ -37,6 +43,7 @@ class restApiConfig extends Model
         'description' => 'description',
         'environment' => 'environment',
         'gatewayId' => 'gatewayId',
+        'operationDeployments' => 'operationDeployments',
         'operationIds' => 'operationIds',
         'revisionId' => 'revisionId',
     ];
@@ -45,6 +52,9 @@ class restApiConfig extends Model
     {
         if (null !== $this->environment) {
             $this->environment->validate();
+        }
+        if (\is_array($this->operationDeployments)) {
+            Model::validateArray($this->operationDeployments);
         }
         if (\is_array($this->operationIds)) {
             Model::validateArray($this->operationIds);
@@ -65,6 +75,17 @@ class restApiConfig extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->operationDeployments) {
+            if (\is_array($this->operationDeployments)) {
+                $res['operationDeployments'] = [];
+                $n1 = 0;
+                foreach ($this->operationDeployments as $item1) {
+                    $res['operationDeployments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->operationIds) {
@@ -103,6 +124,17 @@ class restApiConfig extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['operationDeployments'])) {
+            if (!empty($map['operationDeployments'])) {
+                $model->operationDeployments = [];
+                $n1 = 0;
+                foreach ($map['operationDeployments'] as $item1) {
+                    $model->operationDeployments[$n1] = operationDeployments::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['operationIds'])) {
