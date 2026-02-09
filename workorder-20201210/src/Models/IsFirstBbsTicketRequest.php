@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Workorder\V20201210\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SuggestCategoryRequest extends Model
+class IsFirstBbsTicketRequest extends Model
 {
     /**
      * @var string
      */
     public $cna;
-
-    /**
-     * @var string
-     */
-    public $content;
 
     /**
      * @var string
@@ -36,31 +31,12 @@ class SuggestCategoryRequest extends Model
     /**
      * @var string
      */
-    public $ticketId;
-
-    /**
-     * @var int
-     */
-    public $topN;
-
-    /**
-     * @var bool
-     */
-    public $useHotSuggestCatchAll;
-
-    /**
-     * @var string
-     */
     public $XGatewayExtendInfo;
     protected $_name = [
         'cna' => 'Cna',
-        'content' => 'Content',
         'distributionChannel' => 'DistributionChannel',
         'referrer' => 'Referrer',
         'subDistributionChannel' => 'SubDistributionChannel',
-        'ticketId' => 'TicketId',
-        'topN' => 'TopN',
-        'useHotSuggestCatchAll' => 'UseHotSuggestCatchAll',
         'XGatewayExtendInfo' => 'XGatewayExtendInfo',
     ];
 
@@ -76,10 +52,6 @@ class SuggestCategoryRequest extends Model
             $res['Cna'] = $this->cna;
         }
 
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-
         if (null !== $this->distributionChannel) {
             $res['DistributionChannel'] = $this->distributionChannel;
         }
@@ -90,18 +62,6 @@ class SuggestCategoryRequest extends Model
 
         if (null !== $this->subDistributionChannel) {
             $res['SubDistributionChannel'] = $this->subDistributionChannel;
-        }
-
-        if (null !== $this->ticketId) {
-            $res['TicketId'] = $this->ticketId;
-        }
-
-        if (null !== $this->topN) {
-            $res['TopN'] = $this->topN;
-        }
-
-        if (null !== $this->useHotSuggestCatchAll) {
-            $res['UseHotSuggestCatchAll'] = $this->useHotSuggestCatchAll;
         }
 
         if (null !== $this->XGatewayExtendInfo) {
@@ -123,10 +83,6 @@ class SuggestCategoryRequest extends Model
             $model->cna = $map['Cna'];
         }
 
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-
         if (isset($map['DistributionChannel'])) {
             $model->distributionChannel = $map['DistributionChannel'];
         }
@@ -137,18 +93,6 @@ class SuggestCategoryRequest extends Model
 
         if (isset($map['SubDistributionChannel'])) {
             $model->subDistributionChannel = $map['SubDistributionChannel'];
-        }
-
-        if (isset($map['TicketId'])) {
-            $model->ticketId = $map['TicketId'];
-        }
-
-        if (isset($map['TopN'])) {
-            $model->topN = $map['TopN'];
-        }
-
-        if (isset($map['UseHotSuggestCatchAll'])) {
-            $model->useHotSuggestCatchAll = $map['UseHotSuggestCatchAll'];
         }
 
         if (isset($map['XGatewayExtendInfo'])) {

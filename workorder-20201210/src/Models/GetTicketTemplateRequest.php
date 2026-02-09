@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20201210\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTicketTemplateRequest extends Model
 {
@@ -12,34 +12,105 @@ class GetTicketTemplateRequest extends Model
      * @var int
      */
     public $categoryId;
+
+    /**
+     * @var string
+     */
+    public $cna;
+
+    /**
+     * @var string
+     */
+    public $distributionChannel;
+
+    /**
+     * @var string
+     */
+    public $referrer;
+
+    /**
+     * @var string
+     */
+    public $subDistributionChannel;
+
+    /**
+     * @var string
+     */
+    public $XGatewayExtendInfo;
     protected $_name = [
         'categoryId' => 'CategoryId',
+        'cna' => 'Cna',
+        'distributionChannel' => 'DistributionChannel',
+        'referrer' => 'Referrer',
+        'subDistributionChannel' => 'SubDistributionChannel',
+        'XGatewayExtendInfo' => 'XGatewayExtendInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
 
+        if (null !== $this->cna) {
+            $res['Cna'] = $this->cna;
+        }
+
+        if (null !== $this->distributionChannel) {
+            $res['DistributionChannel'] = $this->distributionChannel;
+        }
+
+        if (null !== $this->referrer) {
+            $res['Referrer'] = $this->referrer;
+        }
+
+        if (null !== $this->subDistributionChannel) {
+            $res['SubDistributionChannel'] = $this->subDistributionChannel;
+        }
+
+        if (null !== $this->XGatewayExtendInfo) {
+            $res['XGatewayExtendInfo'] = $this->XGatewayExtendInfo;
+        }
+
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTicketTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
+        }
+
+        if (isset($map['Cna'])) {
+            $model->cna = $map['Cna'];
+        }
+
+        if (isset($map['DistributionChannel'])) {
+            $model->distributionChannel = $map['DistributionChannel'];
+        }
+
+        if (isset($map['Referrer'])) {
+            $model->referrer = $map['Referrer'];
+        }
+
+        if (isset($map['SubDistributionChannel'])) {
+            $model->subDistributionChannel = $map['SubDistributionChannel'];
+        }
+
+        if (isset($map['XGatewayExtendInfo'])) {
+            $model->XGatewayExtendInfo = $map['XGatewayExtendInfo'];
         }
 
         return $model;

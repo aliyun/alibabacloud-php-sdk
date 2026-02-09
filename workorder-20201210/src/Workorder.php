@@ -4,18 +4,17 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20201210;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Workorder\V20201210\Models\GetTicketTemplateRequest;
 use AlibabaCloud\SDK\Workorder\V20201210\Models\GetTicketTemplateResponse;
+use AlibabaCloud\SDK\Workorder\V20201210\Models\IsFirstBbsTicketRequest;
 use AlibabaCloud\SDK\Workorder\V20201210\Models\IsFirstBbsTicketResponse;
 use AlibabaCloud\SDK\Workorder\V20201210\Models\SuggestCategoryRequest;
 use AlibabaCloud\SDK\Workorder\V20201210\Models\SuggestCategoryResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Workorder extends OpenApiClient
 {
@@ -23,7 +22,7 @@ class Workorder extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'ap-northeast-1' => 'workorder.ap-northeast-1.aliyuncs.com',
             'ap-southeast-1' => 'workorder.ap-southeast-1.aliyuncs.com',
         ];
@@ -44,17 +43,23 @@ class Workorder extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * @param request - GetTicketTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTicketTemplateResponse
+     *
      * @param GetTicketTemplateRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -62,30 +67,55 @@ class Workorder extends OpenApiClient
      */
     public function getTicketTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->categoryId)) {
-            $query['CategoryId'] = $request->categoryId;
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
+
+        if (null !== $request->cna) {
+            @$query['Cna'] = $request->cna;
+        }
+
+        if (null !== $request->distributionChannel) {
+            @$query['DistributionChannel'] = $request->distributionChannel;
+        }
+
+        if (null !== $request->referrer) {
+            @$query['Referrer'] = $request->referrer;
+        }
+
+        if (null !== $request->subDistributionChannel) {
+            @$query['SubDistributionChannel'] = $request->subDistributionChannel;
+        }
+
+        if (null !== $request->XGatewayExtendInfo) {
+            @$query['XGatewayExtendInfo'] = $request->XGatewayExtendInfo;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTicketTemplate',
-            'version'     => '2020-12-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTicketTemplate',
+            'version' => '2020-12-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTicketTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetTicketTemplateRequest
+     *
+     * @returns GetTicketTemplateResponse
+     *
      * @param GetTicketTemplateRequest $request
      *
      * @return GetTicketTemplateResponse
@@ -98,39 +128,84 @@ class Workorder extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * 是否首次访问BBS工单.
+     *
+     * @param request - IsFirstBbsTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IsFirstBbsTicketResponse
+     *
+     * @param IsFirstBbsTicketRequest $request
+     * @param RuntimeOptions          $runtime
      *
      * @return IsFirstBbsTicketResponse
      */
-    public function isFirstBbsTicketWithOptions($runtime)
+    public function isFirstBbsTicketWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->cna) {
+            @$query['Cna'] = $request->cna;
+        }
+
+        if (null !== $request->distributionChannel) {
+            @$query['DistributionChannel'] = $request->distributionChannel;
+        }
+
+        if (null !== $request->referrer) {
+            @$query['Referrer'] = $request->referrer;
+        }
+
+        if (null !== $request->subDistributionChannel) {
+            @$query['SubDistributionChannel'] = $request->subDistributionChannel;
+        }
+
+        if (null !== $request->XGatewayExtendInfo) {
+            @$query['XGatewayExtendInfo'] = $request->XGatewayExtendInfo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
-            'action'      => 'IsFirstBbsTicket',
-            'version'     => '2020-12-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IsFirstBbsTicket',
+            'version' => '2020-12-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IsFirstBbsTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 是否首次访问BBS工单.
+     *
+     * @param request - IsFirstBbsTicketRequest
+     *
+     * @returns IsFirstBbsTicketResponse
+     *
+     * @param IsFirstBbsTicketRequest $request
+     *
      * @return IsFirstBbsTicketResponse
      */
-    public function isFirstBbsTicket()
+    public function isFirstBbsTicket($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->isFirstBbsTicketWithOptions($runtime);
+        return $this->isFirstBbsTicketWithOptions($request, $runtime);
     }
 
     /**
+     * @param request - SuggestCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuggestCategoryResponse
+     *
      * @param SuggestCategoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -138,39 +213,67 @@ class Workorder extends OpenApiClient
      */
     public function suggestCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->cna) {
+            @$query['Cna'] = $request->cna;
         }
-        if (!Utils::isUnset($request->ticketId)) {
-            $query['TicketId'] = $request->ticketId;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->topN)) {
-            $query['TopN'] = $request->topN;
+
+        if (null !== $request->distributionChannel) {
+            @$query['DistributionChannel'] = $request->distributionChannel;
         }
-        if (!Utils::isUnset($request->useHotSuggestCatchAll)) {
-            $query['UseHotSuggestCatchAll'] = $request->useHotSuggestCatchAll;
+
+        if (null !== $request->referrer) {
+            @$query['Referrer'] = $request->referrer;
         }
+
+        if (null !== $request->subDistributionChannel) {
+            @$query['SubDistributionChannel'] = $request->subDistributionChannel;
+        }
+
+        if (null !== $request->ticketId) {
+            @$query['TicketId'] = $request->ticketId;
+        }
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
+        }
+
+        if (null !== $request->useHotSuggestCatchAll) {
+            @$query['UseHotSuggestCatchAll'] = $request->useHotSuggestCatchAll;
+        }
+
+        if (null !== $request->XGatewayExtendInfo) {
+            @$query['XGatewayExtendInfo'] = $request->XGatewayExtendInfo;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuggestCategory',
-            'version'     => '2020-12-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuggestCategory',
+            'version' => '2020-12-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SuggestCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - SuggestCategoryRequest
+     *
+     * @returns SuggestCategoryResponse
+     *
      * @param SuggestCategoryRequest $request
      *
      * @return SuggestCategoryResponse
