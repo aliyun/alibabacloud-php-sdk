@@ -140,7 +140,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and compute resources of each node on which a job runs.
      *
      * @remarks
      * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
@@ -269,7 +269,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and compute resources of each node on which a job runs.
      *
      * @remarks
      * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
@@ -749,7 +749,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
+     * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
      *
      * @param request - GetJobMetricsRequest
      * @param headers - map
@@ -808,7 +808,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate.
+     * Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
      *
      * @param request - GetJobMetricsRequest
      *

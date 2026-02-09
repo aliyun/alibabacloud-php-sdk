@@ -19,6 +19,11 @@ class JobSettings extends Model
     public $allocateAllRDMADevices;
 
     /**
+     * @var bool
+     */
+    public $allowUnschedulableNodes;
+
+    /**
      * @var string
      */
     public $businessUserId;
@@ -120,6 +125,7 @@ class JobSettings extends Model
     protected $_name = [
         'advancedSettings' => 'AdvancedSettings',
         'allocateAllRDMADevices' => 'AllocateAllRDMADevices',
+        'allowUnschedulableNodes' => 'AllowUnschedulableNodes',
         'businessUserId' => 'BusinessUserId',
         'caller' => 'Caller',
         'dataJuicerConfig' => 'DataJuicerConfig',
@@ -173,6 +179,10 @@ class JobSettings extends Model
 
         if (null !== $this->allocateAllRDMADevices) {
             $res['AllocateAllRDMADevices'] = $this->allocateAllRDMADevices;
+        }
+
+        if (null !== $this->allowUnschedulableNodes) {
+            $res['AllowUnschedulableNodes'] = $this->allowUnschedulableNodes;
         }
 
         if (null !== $this->businessUserId) {
@@ -282,6 +292,10 @@ class JobSettings extends Model
 
         if (isset($map['AllocateAllRDMADevices'])) {
             $model->allocateAllRDMADevices = $map['AllocateAllRDMADevices'];
+        }
+
+        if (isset($map['AllowUnschedulableNodes'])) {
+            $model->allowUnschedulableNodes = $map['AllowUnschedulableNodes'];
         }
 
         if (isset($map['BusinessUserId'])) {
