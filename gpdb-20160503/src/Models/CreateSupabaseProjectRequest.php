@@ -26,6 +26,16 @@ class CreateSupabaseProjectRequest extends Model
     /**
      * @var string
      */
+    public $payType;
+
+    /**
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
     public $projectName;
 
     /**
@@ -51,6 +61,11 @@ class CreateSupabaseProjectRequest extends Model
     /**
      * @var string
      */
+    public $usedTime;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -66,11 +81,14 @@ class CreateSupabaseProjectRequest extends Model
         'accountPassword' => 'AccountPassword',
         'clientToken' => 'ClientToken',
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
+        'payType' => 'PayType',
+        'period' => 'Period',
         'projectName' => 'ProjectName',
         'projectSpec' => 'ProjectSpec',
         'regionId' => 'RegionId',
         'securityIPList' => 'SecurityIPList',
         'storageSize' => 'StorageSize',
+        'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'zoneId' => 'ZoneId',
@@ -96,6 +114,14 @@ class CreateSupabaseProjectRequest extends Model
             $res['DiskPerformanceLevel'] = $this->diskPerformanceLevel;
         }
 
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -114,6 +140,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
+        }
+
+        if (null !== $this->usedTime) {
+            $res['UsedTime'] = $this->usedTime;
         }
 
         if (null !== $this->vSwitchId) {
@@ -151,6 +181,14 @@ class CreateSupabaseProjectRequest extends Model
             $model->diskPerformanceLevel = $map['DiskPerformanceLevel'];
         }
 
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
@@ -169,6 +207,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];
+        }
+
+        if (isset($map['UsedTime'])) {
+            $model->usedTime = $map['UsedTime'];
         }
 
         if (isset($map['VSwitchId'])) {

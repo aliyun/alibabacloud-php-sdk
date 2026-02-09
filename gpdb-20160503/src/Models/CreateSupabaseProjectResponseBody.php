@@ -11,6 +11,11 @@ class CreateSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $orderId;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -18,6 +23,7 @@ class CreateSupabaseProjectResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'orderId' => 'OrderId',
         'projectId' => 'ProjectId',
         'requestId' => 'RequestId',
     ];
@@ -30,6 +36,10 @@ class CreateSupabaseProjectResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,6 +59,10 @@ class CreateSupabaseProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

@@ -1,9 +1,8 @@
-2026-01-29 Version: 3.0.1
-- Update API CreateDocumentCollection: add request parameters SparseRetrievalFields.
-- Update API CreateDocumentCollection: add request parameters SparseVectorIndexConfig.
-- Update API CreateDocumentCollection: add request parameters SupportSparse.
-- Update API ListDocumentCollections: add response parameters Body.Items.$.SparseRetrievalFields.
-- Update API ListDocumentCollections: add response parameters Body.Items.$.SupportSparse.
+2026-02-09 Version: 3.0.2
+- Update API CreateSupabaseProject: add request parameters PayType.
+- Update API CreateSupabaseProject: add request parameters Period.
+- Update API CreateSupabaseProject: add request parameters UsedTime.
+- Update API CreateSupabaseProject: add response parameters Body.OrderId.
 
 
 2026-01-13 Version: 3.0.0

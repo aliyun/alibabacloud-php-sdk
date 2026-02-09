@@ -1367,16 +1367,17 @@ class Gpdb extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ChatWithKnowledgeBaseStreamResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ChatWithKnowledgeBaseStreamResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -1555,7 +1556,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Check Hadoop Cluster Network Connectivity.
+     * Checks the network connectivity of a Hadoop external data source.
      *
      * @param Request - CheckHadoopNetConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1606,7 +1607,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Check Hadoop Cluster Network Connectivity.
+     * Checks the network connectivity of a Hadoop external data source.
      *
      * @param Request - CheckHadoopNetConnectionRequest
      *
@@ -1693,7 +1694,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * Checks whether a service-linked role is created.
      *
      * @param Request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1732,7 +1733,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * Checks whether a service-linked role is created.
      *
      * @param Request - CheckServiceLinkedRoleRequest
      *
@@ -2842,7 +2843,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Install extensions.
+     * Installs extensions.
      *
      * @param Request - CreateExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2893,7 +2894,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Install extensions.
+     * Installs extensions.
      *
      * @param Request - CreateExtensionsRequest
      *
@@ -3854,7 +3855,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * Creates a real-time data source.
      *
      * @param Request - CreateStreamingDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3917,7 +3918,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create External Data Source Configuration.
+     * Creates a real-time data source.
      *
      * @param Request - CreateStreamingDataSourceRequest
      *
@@ -4125,6 +4126,14 @@ class Gpdb extends OpenApiClient
             @$query['DiskPerformanceLevel'] = $request->diskPerformanceLevel;
         }
 
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
         if (null !== $request->projectName) {
             @$query['ProjectName'] = $request->projectName;
         }
@@ -4143,6 +4152,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->storageSize) {
             @$query['StorageSize'] = $request->storageSize;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
 
         if (null !== $request->vSwitchId) {
@@ -4383,7 +4396,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除数据库账号.
+     * Deletes a database account.
      *
      * @param Request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4426,7 +4439,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除数据库账号.
+     * Deletes a database account.
      *
      * @param Request - DeleteAccountRequest
      *
@@ -5176,7 +5189,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uninstall an extension.
+     * Uninstalls extensions.
      *
      * @param Request - DeleteExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5227,7 +5240,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Uninstall an extension.
+     * Uninstalls extensions.
      *
      * @param Request - DeleteExtensionRequest
      *
@@ -5310,7 +5323,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除hadoop数据源.
+     * Deletes a Hadoop external data source.
      *
      * @param Request - DeleteHadoopDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5357,7 +5370,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除hadoop数据源.
+     * Deletes a Hadoop external data source.
      *
      * @param Request - DeleteHadoopDataSourceRequest
      *
@@ -5872,7 +5885,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service.
+     * Deletes the configurations of an external data source.
      *
      * @param Request - DeleteStreamingDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5919,7 +5932,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service.
+     * Deletes the configurations of an external data source.
      *
      * @param Request - DeleteStreamingDataServiceRequest
      *
@@ -6002,7 +6015,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service job.
+     * Deletes a real-time data synchronization job.
      *
      * @param Request - DeleteStreamingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6049,7 +6062,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time data service job.
+     * Deletes a real-time data synchronization job.
      *
      * @param Request - DeleteStreamingJobRequest
      *
@@ -8405,7 +8418,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     * Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
      *
      * @remarks
      * Data sharing is supported only for instances in Serverless mode.
@@ -8467,7 +8480,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     * Queries the status of data sharing for AnalyticDB for PostgreSQL instances.
      *
      * @remarks
      * Data sharing is supported only for instances in Serverless mode.
@@ -8632,7 +8645,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+     * Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
      * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
@@ -8676,7 +8689,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+     * Queries all databases and database accounts of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
      * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
@@ -9112,7 +9125,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get download records.
+     * Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDownloadSQLLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9151,7 +9164,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get download records.
+     * Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeDownloadSQLLogsRequest
      *
@@ -9299,7 +9312,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+     * Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
      *
      * @param Request - DescribeHadoopClustersInSameNetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9342,7 +9355,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) Hadoop clusters in a specific virtual private cloud (VPC).
+     * Queries a list of E-MapReduce (EMR) clusters in a virtual private cloud (VPC).
      *
      * @param Request - DescribeHadoopClustersInSameNetRequest
      *
@@ -10386,7 +10399,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 描述一个实例是否处于平衡状态
+     * Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeRebalanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10425,7 +10438,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 描述一个实例是否处于平衡状态
+     * Queries the rebalance status of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - DescribeRebalanceStatusRequest
      *
@@ -11129,7 +11142,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Source Configuration.
+     * Queries a real-time data synchronization job.
      *
      * @param Request - DescribeStreamingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11176,7 +11189,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Delete External Data Source Configuration.
+     * Queries a real-time data synchronization job.
      *
      * @param Request - DescribeStreamingJobRequest
      *
@@ -12402,7 +12415,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取特定的账号信息.
+     * Queries the information about a database account.
      *
      * @param Request - GetAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12445,7 +12458,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取特定的账号信息.
+     * Queries the information about a database account.
      *
      * @param Request - GetAccountRequest
      *
@@ -13892,7 +13905,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取实例外表配置列表.
+     * Queries a list of data sources.
      *
      * @param Request - ListExternalDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13943,7 +13956,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取实例外表配置列表.
+     * Queries a list of data sources.
      *
      * @param Request - ListExternalDataSourcesRequest
      *
@@ -14342,7 +14355,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Homogeneous Data Source.
+     * Queries remote AnalyticDB data sources.
      *
      * @param Request - ListRemoteADBDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14389,7 +14402,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Homogeneous Data Source.
+     * Queries remote AnalyticDB data sources.
      *
      * @param Request - ListRemoteADBDataSourcesRequest
      *
@@ -14731,7 +14744,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries real-time service data sources.
+     * Queries a list of real-time service data sources.
      *
      * @param Request - ListStreamingDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14782,7 +14795,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries real-time service data sources.
+     * Queries a list of real-time service data sources.
      *
      * @param Request - ListStreamingDataSourcesRequest
      *
@@ -15100,7 +15113,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     * Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
      *
      * @param Request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15171,7 +15184,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     * Queries a list of AnalyticDB for PostgreSQL instances that have specific tags added.
      *
      * @param Request - ListTagResourcesRequest
      *
@@ -15874,7 +15887,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 包年包月/按量付费转换改造.
+     * Switches between billing methods for an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ModifyDBInstancePayTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15925,7 +15938,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 包年包月/按量付费转换改造.
+     * Switches between billing methods for an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ModifyDBInstancePayTypeRequest
      *
@@ -16585,7 +16598,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify Homogeneous Data Source.
+     * Modifies a remote AnalyticDB data source.
      *
      * @param Request - ModifyRemoteADBDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16644,7 +16657,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modify Homogeneous Data Source.
+     * Modifies a remote AnalyticDB data source.
      *
      * @param Request - ModifyRemoteADBDataSourceRequest
      *
@@ -16818,7 +16831,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a real-time data service.
+     * Modifies the configurations of an external data source.
      *
      * @param Request - ModifyStreamingDataServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16873,7 +16886,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies a real-time data service.
+     * Modifies the configurations of an external data source.
      *
      * @param Request - ModifyStreamingDataServiceRequest
      *
@@ -17186,7 +17199,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     * Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ModifyVectorConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17233,7 +17246,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     * Modifies the vector search engine optimization configuration of an AnalyticDB for PostgreSQL instance.
      *
      * @param Request - ModifyVectorConfigurationRequest
      *
@@ -17544,7 +17557,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query.
+     * Retrieves vector data and metadata from a document collection by using natural statements.
      *
      * @param tmpReq - QueryContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17695,7 +17708,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query.
+     * Retrieves vector data and metadata from a document collection by using natural statements.
      *
      * @param Request - QueryContentRequest
      *
@@ -18030,7 +18043,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Score and re-order documents using a model.
+     * The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
      *
      * @param tmpReq - RerankRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18109,7 +18122,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Score and re-order documents using a model.
+     * The Rerank operation can resolve the issue of inaccurate ranking of vector and full-text search results. It re-scores and reranks the retrieved data through semantic understanding to significantly improve the relevance and accuracy of the results. AnalyticDB for PostgreSQL allows you to rerank search results by using Rerank models, but does not provide models.
      *
      * @param Request - RerankRequest
      *
@@ -19011,7 +19024,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+     * Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
      * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
@@ -19059,7 +19072,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+     * Releases the sample dataset from an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
      * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
@@ -19082,7 +19095,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Remove resource tags.
+     * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
      *
      * @param Request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19153,7 +19166,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Remove resource tags.
+     * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
      *
      * @param Request - UntagResourcesRequest
      *
