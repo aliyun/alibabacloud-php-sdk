@@ -27,6 +27,12 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpMaterialRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpMaterialResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpZoneRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpZoneResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeHotpatchResourceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeHotpatchResourceResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeHotpatchRollbackTaskRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeHotpatchRollbackTaskResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeHotpatchTaskRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeHotpatchTaskResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeMiniAppRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeMiniAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeMiniTaskRequest;
@@ -69,6 +75,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpCrowdRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpCrowdResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpZoneRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpZoneResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeHotpatchResourceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeHotpatchResourceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeMiniAppRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeMiniAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeNebulaAppRequest;
@@ -89,6 +97,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGameReviewByStatusRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGameReviewByStatusResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetLogUrlInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetLogUrlInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeFileTokenRequest;
@@ -118,6 +128,10 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcdpAimRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcdpAimResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeHotpatchResourcesRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeHotpatchResourcesResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeHotpatchTasksRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeHotpatchTasksResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeMiniAppsRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeMiniAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeMiniPackagesRequest;
@@ -180,6 +194,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcdpAimRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcdpAimResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcdpZoneRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcdpZoneResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeHotpatchTaskDetailRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeHotpatchTaskDetailResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeMiniPackageRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeMiniPackageResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeMiniTaskRequest;
@@ -196,6 +212,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsTestreqbodyautogenRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsTestreqbodyautogenResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMscpRiskInfoRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMscpRiskInfoResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisCoreIndexRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisCoreIndexResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisTaskDetailRequest;
@@ -216,6 +234,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaRequest
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeHotpatchTaskStatusRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeHotpatchTaskStatusResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeWhitelistResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMdsCubeResourceRequest;
@@ -1090,6 +1110,273 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMcdpZoneWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建热修复资源.
+     *
+     * @param request - CreateMcubeHotpatchResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcubeHotpatchResourceResponse
+     *
+     * @param CreateMcubeHotpatchResourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateMcubeHotpatchResourceResponse
+     */
+    public function createMcubeHotpatchResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->fixDesc) {
+            @$body['FixDesc'] = $request->fixDesc;
+        }
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
+        }
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->productVersion) {
+            @$body['ProductVersion'] = $request->productVersion;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcubeHotpatchResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcubeHotpatchResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建热修复资源.
+     *
+     * @param request - CreateMcubeHotpatchResourceRequest
+     *
+     * @returns CreateMcubeHotpatchResourceResponse
+     *
+     * @param CreateMcubeHotpatchResourceRequest $request
+     *
+     * @return CreateMcubeHotpatchResourceResponse
+     */
+    public function createMcubeHotpatchResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMcubeHotpatchResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建热修复回滚任务
+     *
+     * @param request - CreateMcubeHotpatchRollbackTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcubeHotpatchRollbackTaskResponse
+     *
+     * @param CreateMcubeHotpatchRollbackTaskRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateMcubeHotpatchRollbackTaskResponse
+     */
+    public function createMcubeHotpatchRollbackTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->productVersion) {
+            @$body['ProductVersion'] = $request->productVersion;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcubeHotpatchRollbackTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcubeHotpatchRollbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建热修复回滚任务
+     *
+     * @param request - CreateMcubeHotpatchRollbackTaskRequest
+     *
+     * @returns CreateMcubeHotpatchRollbackTaskResponse
+     *
+     * @param CreateMcubeHotpatchRollbackTaskRequest $request
+     *
+     * @return CreateMcubeHotpatchRollbackTaskResponse
+     */
+    public function createMcubeHotpatchRollbackTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMcubeHotpatchRollbackTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建热修复发布任务
+     *
+     * @param request - CreateMcubeHotpatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcubeHotpatchTaskResponse
+     *
+     * @param CreateMcubeHotpatchTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateMcubeHotpatchTaskResponse
+     */
+    public function createMcubeHotpatchTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->greyConfigInfo) {
+            @$body['GreyConfigInfo'] = $request->greyConfigInfo;
+        }
+
+        if (null !== $request->greyEndtimeData) {
+            @$body['GreyEndtimeData'] = $request->greyEndtimeData;
+        }
+
+        if (null !== $request->greyNum) {
+            @$body['GreyNum'] = $request->greyNum;
+        }
+
+        if (null !== $request->memo) {
+            @$body['Memo'] = $request->memo;
+        }
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
+        }
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->publishMode) {
+            @$body['PublishMode'] = $request->publishMode;
+        }
+
+        if (null !== $request->publishType) {
+            @$body['PublishType'] = $request->publishType;
+        }
+
+        if (null !== $request->syncMode) {
+            @$body['SyncMode'] = $request->syncMode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->whitelistIds) {
+            @$body['WhitelistIds'] = $request->whitelistIds;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcubeHotpatchTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcubeHotpatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建热修复发布任务
+     *
+     * @param request - CreateMcubeHotpatchTaskRequest
+     *
+     * @returns CreateMcubeHotpatchTaskResponse
+     *
+     * @param CreateMcubeHotpatchTaskRequest $request
+     *
+     * @return CreateMcubeHotpatchTaskResponse
+     */
+    public function createMcubeHotpatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMcubeHotpatchTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3062,6 +3349,79 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 删除热修复资源包.
+     *
+     * @param request - DeleteMcubeHotpatchResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMcubeHotpatchResourceResponse
+     *
+     * @param DeleteMcubeHotpatchResourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteMcubeHotpatchResourceResponse
+     */
+    public function deleteMcubeHotpatchResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appCode) {
+            @$body['AppCode'] = $request->appCode;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMcubeHotpatchResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMcubeHotpatchResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除热修复资源包.
+     *
+     * @param request - DeleteMcubeHotpatchResourceRequest
+     *
+     * @returns DeleteMcubeHotpatchResourceResponse
+     *
+     * @param DeleteMcubeHotpatchResourceRequest $request
+     *
+     * @return DeleteMcubeHotpatchResourceResponse
+     */
+    public function deleteMcubeHotpatchResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMcubeHotpatchResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DeleteMcubeMiniAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3733,6 +4093,91 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFileTokenForUploadToMsaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看全部审核记录.
+     *
+     * @param request - GetGameReviewByStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGameReviewByStatusResponse
+     *
+     * @param GetGameReviewByStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetGameReviewByStatusResponse
+     */
+    public function getGameReviewByStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->reviewStatus) {
+            @$body['ReviewStatus'] = $request->reviewStatus;
+        }
+
+        if (null !== $request->sortMode) {
+            @$body['SortMode'] = $request->sortMode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetGameReviewByStatus',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGameReviewByStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看全部审核记录.
+     *
+     * @param request - GetGameReviewByStatusRequest
+     *
+     * @returns GetGameReviewByStatusResponse
+     *
+     * @param GetGameReviewByStatusRequest $request
+     *
+     * @return GetGameReviewByStatusResponse
+     */
+    public function getGameReviewByStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGameReviewByStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -4758,6 +5203,148 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMcdpAimWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询热修复资源包列表.
+     *
+     * @param request - ListMcubeHotpatchResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcubeHotpatchResourcesResponse
+     *
+     * @param ListMcubeHotpatchResourcesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListMcubeHotpatchResourcesResponse
+     */
+    public function listMcubeHotpatchResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcubeHotpatchResources',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcubeHotpatchResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询热修复资源包列表.
+     *
+     * @param request - ListMcubeHotpatchResourcesRequest
+     *
+     * @returns ListMcubeHotpatchResourcesResponse
+     *
+     * @param ListMcubeHotpatchResourcesRequest $request
+     *
+     * @return ListMcubeHotpatchResourcesResponse
+     */
+    public function listMcubeHotpatchResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMcubeHotpatchResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询热修复发布任务列表.
+     *
+     * @param request - ListMcubeHotpatchTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcubeHotpatchTasksResponse
+     *
+     * @param ListMcubeHotpatchTasksRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMcubeHotpatchTasksResponse
+     */
+    public function listMcubeHotpatchTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcubeHotpatchTasks',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcubeHotpatchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询热修复发布任务列表.
+     *
+     * @param request - ListMcubeHotpatchTasksRequest
+     *
+     * @returns ListMcubeHotpatchTasksResponse
+     *
+     * @param ListMcubeHotpatchTasksRequest $request
+     *
+     * @return ListMcubeHotpatchTasksResponse
+     */
+    public function listMcubeHotpatchTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMcubeHotpatchTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -7310,6 +7897,75 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 查询热修复发布任务详情.
+     *
+     * @param request - QueryMcubeHotpatchTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMcubeHotpatchTaskDetailResponse
+     *
+     * @param QueryMcubeHotpatchTaskDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryMcubeHotpatchTaskDetailResponse
+     */
+    public function queryMcubeHotpatchTaskDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMcubeHotpatchTaskDetail',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMcubeHotpatchTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询热修复发布任务详情.
+     *
+     * @param request - QueryMcubeHotpatchTaskDetailRequest
+     *
+     * @returns QueryMcubeHotpatchTaskDetailResponse
+     *
+     * @param QueryMcubeHotpatchTaskDetailRequest $request
+     *
+     * @return QueryMcubeHotpatchTaskDetailResponse
+     */
+    public function queryMcubeHotpatchTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMcubeHotpatchTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - QueryMcubeMiniPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7903,6 +8559,79 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMpsSchedulerListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询风险信息.
+     *
+     * @param request - QueryMscpRiskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMscpRiskInfoResponse
+     *
+     * @param QueryMscpRiskInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryMscpRiskInfoResponse
+     */
+    public function queryMscpRiskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apdidToken) {
+            @$body['ApdidToken'] = $request->apdidToken;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->terminalType) {
+            @$body['TerminalType'] = $request->terminalType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMscpRiskInfo',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMscpRiskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询风险信息.
+     *
+     * @param request - QueryMscpRiskInfoRequest
+     *
+     * @returns QueryMscpRiskInfoResponse
+     *
+     * @param QueryMscpRiskInfoRequest $request
+     *
+     * @return QueryMscpRiskInfoResponse
+     */
+    public function queryMscpRiskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMscpRiskInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -8703,6 +9432,87 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新热修复发布任务状态
+     *
+     * @param request - UpdateMcubeHotpatchTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMcubeHotpatchTaskStatusResponse
+     *
+     * @param UpdateMcubeHotpatchTaskStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateMcubeHotpatchTaskStatusResponse
+     */
+    public function updateMcubeHotpatchTaskStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMcubeHotpatchTaskStatus',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMcubeHotpatchTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新热修复发布任务状态
+     *
+     * @param request - UpdateMcubeHotpatchTaskStatusRequest
+     *
+     * @returns UpdateMcubeHotpatchTaskStatusResponse
+     *
+     * @param UpdateMcubeHotpatchTaskStatusRequest $request
+     *
+     * @return UpdateMcubeHotpatchTaskStatusResponse
+     */
+    public function updateMcubeHotpatchTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMcubeHotpatchTaskStatusWithOptions($request, $runtime);
     }
 
     /**
