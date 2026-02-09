@@ -1,3 +1,6 @@
+2026-02-09 Version: 1.7.2
+- Generated php 2023-09-30 for BssOpenApi.
+
 2026-01-22 Version: 1.7.1
 - Update API QueryCostCenterResource: add response parameters Body.CostCenterResourceDtoList.$.AddStrategy.
 - Update API QueryCostCenterResource: add response parameters Body.CostCenterResourceDtoList.$.AddStrategyName.
