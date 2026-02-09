@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\colorWords;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\highDefSourceVideos;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\stickers;
 
 class AsyncCreateClipsTaskRequest extends Model
@@ -26,9 +27,29 @@ class AsyncCreateClipsTaskRequest extends Model
     public $closeVoice;
 
     /**
+     * @var string
+     */
+    public $closingCreditsUrl;
+
+    /**
      * @var colorWords[]
      */
     public $colorWords;
+
+    /**
+     * @var string
+     */
+    public $cosyVoiceAppKey;
+
+    /**
+     * @var string
+     */
+    public $cosyVoiceToken;
+
+    /**
+     * @var string
+     */
+    public $customVoiceStyle;
 
     /**
      * @var string
@@ -46,6 +67,16 @@ class AsyncCreateClipsTaskRequest extends Model
     public $height;
 
     /**
+     * @var highDefSourceVideos[]
+     */
+    public $highDefSourceVideos;
+
+    /**
+     * @var string
+     */
+    public $musicStyle;
+
+    /**
      * @var string
      */
     public $musicUrl;
@@ -54,6 +85,11 @@ class AsyncCreateClipsTaskRequest extends Model
      * @var int
      */
     public $musicVolume;
+
+    /**
+     * @var string
+     */
+    public $openingCreditsUrl;
 
     /**
      * @var stickers[]
@@ -93,12 +129,19 @@ class AsyncCreateClipsTaskRequest extends Model
         'closeMusic' => 'CloseMusic',
         'closeSubtitle' => 'CloseSubtitle',
         'closeVoice' => 'CloseVoice',
+        'closingCreditsUrl' => 'ClosingCreditsUrl',
         'colorWords' => 'ColorWords',
+        'cosyVoiceAppKey' => 'CosyVoiceAppKey',
+        'cosyVoiceToken' => 'CosyVoiceToken',
+        'customVoiceStyle' => 'CustomVoiceStyle',
         'customVoiceUrl' => 'CustomVoiceUrl',
         'customVoiceVolume' => 'CustomVoiceVolume',
         'height' => 'Height',
+        'highDefSourceVideos' => 'HighDefSourceVideos',
+        'musicStyle' => 'MusicStyle',
         'musicUrl' => 'MusicUrl',
         'musicVolume' => 'MusicVolume',
+        'openingCreditsUrl' => 'OpeningCreditsUrl',
         'stickers' => 'Stickers',
         'subtitleFontSize' => 'SubtitleFontSize',
         'taskId' => 'TaskId',
@@ -112,6 +155,9 @@ class AsyncCreateClipsTaskRequest extends Model
     {
         if (\is_array($this->colorWords)) {
             Model::validateArray($this->colorWords);
+        }
+        if (\is_array($this->highDefSourceVideos)) {
+            Model::validateArray($this->highDefSourceVideos);
         }
         if (\is_array($this->stickers)) {
             Model::validateArray($this->stickers);
@@ -134,6 +180,10 @@ class AsyncCreateClipsTaskRequest extends Model
             $res['CloseVoice'] = $this->closeVoice;
         }
 
+        if (null !== $this->closingCreditsUrl) {
+            $res['ClosingCreditsUrl'] = $this->closingCreditsUrl;
+        }
+
         if (null !== $this->colorWords) {
             if (\is_array($this->colorWords)) {
                 $res['ColorWords'] = [];
@@ -143,6 +193,18 @@ class AsyncCreateClipsTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->cosyVoiceAppKey) {
+            $res['CosyVoiceAppKey'] = $this->cosyVoiceAppKey;
+        }
+
+        if (null !== $this->cosyVoiceToken) {
+            $res['CosyVoiceToken'] = $this->cosyVoiceToken;
+        }
+
+        if (null !== $this->customVoiceStyle) {
+            $res['CustomVoiceStyle'] = $this->customVoiceStyle;
         }
 
         if (null !== $this->customVoiceUrl) {
@@ -157,12 +219,31 @@ class AsyncCreateClipsTaskRequest extends Model
             $res['Height'] = $this->height;
         }
 
+        if (null !== $this->highDefSourceVideos) {
+            if (\is_array($this->highDefSourceVideos)) {
+                $res['HighDefSourceVideos'] = [];
+                $n1 = 0;
+                foreach ($this->highDefSourceVideos as $item1) {
+                    $res['HighDefSourceVideos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->musicStyle) {
+            $res['MusicStyle'] = $this->musicStyle;
+        }
+
         if (null !== $this->musicUrl) {
             $res['MusicUrl'] = $this->musicUrl;
         }
 
         if (null !== $this->musicVolume) {
             $res['MusicVolume'] = $this->musicVolume;
+        }
+
+        if (null !== $this->openingCreditsUrl) {
+            $res['OpeningCreditsUrl'] = $this->openingCreditsUrl;
         }
 
         if (null !== $this->stickers) {
@@ -223,6 +304,10 @@ class AsyncCreateClipsTaskRequest extends Model
             $model->closeVoice = $map['CloseVoice'];
         }
 
+        if (isset($map['ClosingCreditsUrl'])) {
+            $model->closingCreditsUrl = $map['ClosingCreditsUrl'];
+        }
+
         if (isset($map['ColorWords'])) {
             if (!empty($map['ColorWords'])) {
                 $model->colorWords = [];
@@ -232,6 +317,18 @@ class AsyncCreateClipsTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['CosyVoiceAppKey'])) {
+            $model->cosyVoiceAppKey = $map['CosyVoiceAppKey'];
+        }
+
+        if (isset($map['CosyVoiceToken'])) {
+            $model->cosyVoiceToken = $map['CosyVoiceToken'];
+        }
+
+        if (isset($map['CustomVoiceStyle'])) {
+            $model->customVoiceStyle = $map['CustomVoiceStyle'];
         }
 
         if (isset($map['CustomVoiceUrl'])) {
@@ -246,12 +343,31 @@ class AsyncCreateClipsTaskRequest extends Model
             $model->height = $map['Height'];
         }
 
+        if (isset($map['HighDefSourceVideos'])) {
+            if (!empty($map['HighDefSourceVideos'])) {
+                $model->highDefSourceVideos = [];
+                $n1 = 0;
+                foreach ($map['HighDefSourceVideos'] as $item1) {
+                    $model->highDefSourceVideos[$n1] = highDefSourceVideos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['MusicStyle'])) {
+            $model->musicStyle = $map['MusicStyle'];
+        }
+
         if (isset($map['MusicUrl'])) {
             $model->musicUrl = $map['MusicUrl'];
         }
 
         if (isset($map['MusicVolume'])) {
             $model->musicVolume = $map['MusicVolume'];
+        }
+
+        if (isset($map['OpeningCreditsUrl'])) {
+            $model->openingCreditsUrl = $map['OpeningCreditsUrl'];
         }
 
         if (isset($map['Stickers'])) {

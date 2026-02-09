@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeletePptArtifactRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeletePptArtifactResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteStyleLearningResultRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteStyleLearningResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionRequest;
@@ -142,6 +144,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetBiddingRemainLimitNumRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetBiddingRemainLimitNumResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetClipsBuildInResourceRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetClipsBuildInResourceResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomSourceTopicAnalysisTaskRequest;
@@ -188,6 +192,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlReques
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
@@ -224,6 +230,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesRequest
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditContentErrorTypesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditTermsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAuditTermsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAutoClipsTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAutoClipsTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBiddingDocRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBiddingDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsRequest;
@@ -275,6 +283,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListMaterialDocumentsShrinkReques
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPptArtifactsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPptArtifactsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesRequest;
@@ -689,6 +699,10 @@ class AiMiaoBi extends OpenApiClient
             $request->colorWordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->colorWords, 'ColorWords', 'json');
         }
 
+        if (null !== $tmpReq->highDefSourceVideos) {
+            $request->highDefSourceVideosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->highDefSourceVideos, 'HighDefSourceVideos', 'json');
+        }
+
         if (null !== $tmpReq->stickers) {
             $request->stickersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stickers, 'Stickers', 'json');
         }
@@ -706,8 +720,24 @@ class AiMiaoBi extends OpenApiClient
             @$body['CloseVoice'] = $request->closeVoice;
         }
 
+        if (null !== $request->closingCreditsUrl) {
+            @$body['ClosingCreditsUrl'] = $request->closingCreditsUrl;
+        }
+
         if (null !== $request->colorWordsShrink) {
             @$body['ColorWords'] = $request->colorWordsShrink;
+        }
+
+        if (null !== $request->cosyVoiceAppKey) {
+            @$body['CosyVoiceAppKey'] = $request->cosyVoiceAppKey;
+        }
+
+        if (null !== $request->cosyVoiceToken) {
+            @$body['CosyVoiceToken'] = $request->cosyVoiceToken;
+        }
+
+        if (null !== $request->customVoiceStyle) {
+            @$body['CustomVoiceStyle'] = $request->customVoiceStyle;
         }
 
         if (null !== $request->customVoiceUrl) {
@@ -722,12 +752,24 @@ class AiMiaoBi extends OpenApiClient
             @$body['Height'] = $request->height;
         }
 
+        if (null !== $request->highDefSourceVideosShrink) {
+            @$body['HighDefSourceVideos'] = $request->highDefSourceVideosShrink;
+        }
+
+        if (null !== $request->musicStyle) {
+            @$body['MusicStyle'] = $request->musicStyle;
+        }
+
         if (null !== $request->musicUrl) {
             @$body['MusicUrl'] = $request->musicUrl;
         }
 
         if (null !== $request->musicVolume) {
             @$body['MusicVolume'] = $request->musicVolume;
+        }
+
+        if (null !== $request->openingCreditsUrl) {
+            @$body['OpeningCreditsUrl'] = $request->openingCreditsUrl;
         }
 
         if (null !== $request->stickersShrink) {
@@ -1042,6 +1084,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->adaptiveThreshold) {
+            @$body['AdaptiveThreshold'] = $request->adaptiveThreshold;
+        }
+
         if (null !== $request->anlysisPrompt) {
             @$body['AnlysisPrompt'] = $request->anlysisPrompt;
         }
@@ -1064,6 +1110,14 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->splitInterval) {
             @$body['SplitInterval'] = $request->splitInterval;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
 
         if (null !== $request->videoRolesShrink) {
@@ -2704,6 +2758,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMaterialByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PPT作品
+     *
+     * @param request - DeletePptArtifactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePptArtifactResponse
+     *
+     * @param DeletePptArtifactRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeletePptArtifactResponse
+     */
+    public function deletePptArtifactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pptArtifactId) {
+            @$body['PptArtifactId'] = $request->pptArtifactId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePptArtifact',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePptArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PPT作品
+     *
+     * @param request - DeletePptArtifactRequest
+     *
+     * @returns DeletePptArtifactResponse
+     *
+     * @param DeletePptArtifactRequest $request
+     *
+     * @return DeletePptArtifactResponse
+     */
+    public function deletePptArtifact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePptArtifactWithOptions($request, $runtime);
     }
 
     /**
@@ -4367,6 +4482,14 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->showAnalysisResults) {
+            @$body['ShowAnalysisResults'] = $request->showAnalysisResults;
+        }
+
+        if (null !== $request->showResourceInfo) {
+            @$body['ShowResourceInfo'] = $request->showResourceInfo;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
         }
@@ -4653,6 +4776,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCategoriesByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获得智能混剪内置资源.
+     *
+     * @param request - GetClipsBuildInResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClipsBuildInResourceResponse
+     *
+     * @param GetClipsBuildInResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetClipsBuildInResourceResponse
+     */
+    public function getClipsBuildInResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetClipsBuildInResource',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClipsBuildInResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获得智能混剪内置资源.
+     *
+     * @param request - GetClipsBuildInResourceRequest
+     *
+     * @returns GetClipsBuildInResourceResponse
+     *
+     * @param GetClipsBuildInResourceRequest $request
+     *
+     * @return GetClipsBuildInResourceResponse
+     */
+    public function getClipsBuildInResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClipsBuildInResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -6102,6 +6286,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 查询PPT作品信息.
+     *
+     * @param request - GetPptArtifactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPptArtifactResponse
+     *
+     * @param GetPptArtifactRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetPptArtifactResponse
+     */
+    public function getPptArtifactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pptArtifactId) {
+            @$body['PptArtifactId'] = $request->pptArtifactId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPptArtifact',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPptArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PPT作品信息.
+     *
+     * @param request - GetPptArtifactRequest
+     *
+     * @returns GetPptArtifactResponse
+     *
+     * @param GetPptArtifactRequest $request
+     *
+     * @return GetPptArtifactResponse
+     */
+    public function getPptArtifact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPptArtifactWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取PPT组件的配置.
      *
      * @param request - GetPptConfigRequest
@@ -7199,6 +7444,103 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuditTermsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出智能混剪任务列表.
+     *
+     * @param request - ListAutoClipsTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAutoClipsTaskResponse
+     *
+     * @param ListAutoClipsTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAutoClipsTaskResponse
+     */
+    public function listAutoClipsTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$body['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
+        }
+
+        if (null !== $request->skip) {
+            @$body['Skip'] = $request->skip;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAutoClipsTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAutoClipsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出智能混剪任务列表.
+     *
+     * @param request - ListAutoClipsTaskRequest
+     *
+     * @returns ListAutoClipsTaskResponse
+     *
+     * @param ListAutoClipsTaskRequest $request
+     *
+     * @return ListAutoClipsTaskResponse
+     */
+    public function listAutoClipsTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAutoClipsTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -9148,6 +9490,77 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * PPT作品-列表.
+     *
+     * @param request - ListPptArtifactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPptArtifactsResponse
+     *
+     * @param ListPptArtifactsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPptArtifactsResponse
+     */
+    public function listPptArtifactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        $body = [];
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->query) {
+            @$body['Query'] = $request->query;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPptArtifacts',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPptArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PPT作品-列表.
+     *
+     * @param request - ListPptArtifactsRequest
+     *
+     * @returns ListPptArtifactsResponse
+     *
+     * @param ListPptArtifactsRequest $request
+     *
+     * @return ListPptArtifactsResponse
+     */
+    public function listPptArtifacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPptArtifactsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询搜索生成任务对话详情中数据列表.
      *
      * @param request - ListSearchTaskDialogueDatasRequest
@@ -10045,16 +10458,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunAbbreviationContentResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunAbbreviationContentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -10191,16 +10605,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunAiHelperWritingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunAiHelperWritingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -10353,16 +10768,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunBookBrainmapResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunBookBrainmapResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -10501,16 +10917,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunBookIntroductionResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunBookIntroductionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -10633,16 +11050,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunBookSmartCardResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunBookSmartCardResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -10807,16 +11225,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunCommentGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunCommentGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -10977,16 +11396,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunContinueContentResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunContinueContentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -11113,16 +11533,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunCustomHotTopicAnalysisResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunCustomHotTopicAnalysisResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -11281,16 +11702,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunCustomHotTopicViewPointAnalysisResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunCustomHotTopicViewPointAnalysisResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -11433,16 +11855,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDeepWritingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDeepWritingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -11581,16 +12004,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocBrainmapResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocBrainmapResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -11753,16 +12177,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocIntroductionResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocIntroductionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -11939,16 +12364,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocQaResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocQaResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -12109,16 +12535,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocSmartCardResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocSmartCardResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -12257,16 +12684,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocSummaryResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocSummaryResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -12413,16 +12841,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocTranslationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocTranslationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -12577,16 +13006,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunDocWashingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunDocWashingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -12725,16 +13155,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunExpandContentResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunExpandContentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -12857,16 +13288,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunGenerateQuestionsResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunGenerateQuestionsResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13001,16 +13433,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunHotwordResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunHotwordResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13147,16 +13580,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunKeywordsExtractionGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunKeywordsExtractionGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13299,16 +13733,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunMultiDocIntroductionResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunMultiDocIntroductionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13437,16 +13872,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunPptOutlineGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunPptOutlineGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13575,16 +14011,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunQuickWritingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunQuickWritingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13747,16 +14184,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunSearchGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunSearchGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -13915,16 +14353,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunSearchSimilarArticlesResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunSearchSimilarArticlesResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14079,16 +14518,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunStepByStepWritingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunStepByStepWritingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14239,16 +14679,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunStyleFeatureAnalysisResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunStyleFeatureAnalysisResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14373,16 +14814,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunSummaryGenerateResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunSummaryGenerateResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14505,16 +14947,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunTextPolishingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunTextPolishingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14655,16 +15098,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunTitleGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunTitleGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14803,16 +15247,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunTopicSelectionMergeResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunTopicSelectionMergeResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -14943,16 +15388,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunTranslateGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunTranslateGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -15089,16 +15535,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunVideoScriptGenerateResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunVideoScriptGenerateResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -15235,16 +15682,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunWriteToneGenerationResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunWriteToneGenerationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -15395,16 +15843,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunWritingResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunWritingResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -15655,16 +16104,17 @@ class AiMiaoBi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield RunWritingV2Response::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield RunWritingV2Response::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 

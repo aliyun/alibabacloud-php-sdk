@@ -26,7 +26,27 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $closingCreditsUrl;
+
+    /**
+     * @var string
+     */
     public $colorWordsShrink;
+
+    /**
+     * @var string
+     */
+    public $cosyVoiceAppKey;
+
+    /**
+     * @var string
+     */
+    public $cosyVoiceToken;
+
+    /**
+     * @var string
+     */
+    public $customVoiceStyle;
 
     /**
      * @var string
@@ -46,12 +66,27 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $highDefSourceVideosShrink;
+
+    /**
+     * @var string
+     */
+    public $musicStyle;
+
+    /**
+     * @var string
+     */
     public $musicUrl;
 
     /**
      * @var int
      */
     public $musicVolume;
+
+    /**
+     * @var string
+     */
+    public $openingCreditsUrl;
 
     /**
      * @var string
@@ -91,12 +126,19 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
         'closeMusic' => 'CloseMusic',
         'closeSubtitle' => 'CloseSubtitle',
         'closeVoice' => 'CloseVoice',
+        'closingCreditsUrl' => 'ClosingCreditsUrl',
         'colorWordsShrink' => 'ColorWords',
+        'cosyVoiceAppKey' => 'CosyVoiceAppKey',
+        'cosyVoiceToken' => 'CosyVoiceToken',
+        'customVoiceStyle' => 'CustomVoiceStyle',
         'customVoiceUrl' => 'CustomVoiceUrl',
         'customVoiceVolume' => 'CustomVoiceVolume',
         'height' => 'Height',
+        'highDefSourceVideosShrink' => 'HighDefSourceVideos',
+        'musicStyle' => 'MusicStyle',
         'musicUrl' => 'MusicUrl',
         'musicVolume' => 'MusicVolume',
+        'openingCreditsUrl' => 'OpeningCreditsUrl',
         'stickersShrink' => 'Stickers',
         'subtitleFontSize' => 'SubtitleFontSize',
         'taskId' => 'TaskId',
@@ -126,8 +168,24 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
             $res['CloseVoice'] = $this->closeVoice;
         }
 
+        if (null !== $this->closingCreditsUrl) {
+            $res['ClosingCreditsUrl'] = $this->closingCreditsUrl;
+        }
+
         if (null !== $this->colorWordsShrink) {
             $res['ColorWords'] = $this->colorWordsShrink;
+        }
+
+        if (null !== $this->cosyVoiceAppKey) {
+            $res['CosyVoiceAppKey'] = $this->cosyVoiceAppKey;
+        }
+
+        if (null !== $this->cosyVoiceToken) {
+            $res['CosyVoiceToken'] = $this->cosyVoiceToken;
+        }
+
+        if (null !== $this->customVoiceStyle) {
+            $res['CustomVoiceStyle'] = $this->customVoiceStyle;
         }
 
         if (null !== $this->customVoiceUrl) {
@@ -142,12 +200,24 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
             $res['Height'] = $this->height;
         }
 
+        if (null !== $this->highDefSourceVideosShrink) {
+            $res['HighDefSourceVideos'] = $this->highDefSourceVideosShrink;
+        }
+
+        if (null !== $this->musicStyle) {
+            $res['MusicStyle'] = $this->musicStyle;
+        }
+
         if (null !== $this->musicUrl) {
             $res['MusicUrl'] = $this->musicUrl;
         }
 
         if (null !== $this->musicVolume) {
             $res['MusicVolume'] = $this->musicVolume;
+        }
+
+        if (null !== $this->openingCreditsUrl) {
+            $res['OpeningCreditsUrl'] = $this->openingCreditsUrl;
         }
 
         if (null !== $this->stickersShrink) {
@@ -201,8 +271,24 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
             $model->closeVoice = $map['CloseVoice'];
         }
 
+        if (isset($map['ClosingCreditsUrl'])) {
+            $model->closingCreditsUrl = $map['ClosingCreditsUrl'];
+        }
+
         if (isset($map['ColorWords'])) {
             $model->colorWordsShrink = $map['ColorWords'];
+        }
+
+        if (isset($map['CosyVoiceAppKey'])) {
+            $model->cosyVoiceAppKey = $map['CosyVoiceAppKey'];
+        }
+
+        if (isset($map['CosyVoiceToken'])) {
+            $model->cosyVoiceToken = $map['CosyVoiceToken'];
+        }
+
+        if (isset($map['CustomVoiceStyle'])) {
+            $model->customVoiceStyle = $map['CustomVoiceStyle'];
         }
 
         if (isset($map['CustomVoiceUrl'])) {
@@ -217,12 +303,24 @@ class AsyncCreateClipsTaskShrinkRequest extends Model
             $model->height = $map['Height'];
         }
 
+        if (isset($map['HighDefSourceVideos'])) {
+            $model->highDefSourceVideosShrink = $map['HighDefSourceVideos'];
+        }
+
+        if (isset($map['MusicStyle'])) {
+            $model->musicStyle = $map['MusicStyle'];
+        }
+
         if (isset($map['MusicUrl'])) {
             $model->musicUrl = $map['MusicUrl'];
         }
 
         if (isset($map['MusicVolume'])) {
             $model->musicVolume = $map['MusicVolume'];
+        }
+
+        if (isset($map['OpeningCreditsUrl'])) {
+            $model->openingCreditsUrl = $map['OpeningCreditsUrl'];
         }
 
         if (isset($map['Stickers'])) {

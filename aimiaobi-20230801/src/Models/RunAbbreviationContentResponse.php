@@ -19,12 +19,24 @@ class RunAbbreviationContentResponse extends Model
     public $statusCode;
 
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $event;
+
+    /**
      * @var RunAbbreviationContentResponseBody
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
+        'id' => 'id',
+        'event' => 'event',
         'body' => 'body',
     ];
 
@@ -55,6 +67,14 @@ class RunAbbreviationContentResponse extends Model
             $res['statusCode'] = $this->statusCode;
         }
 
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+
+        if (null !== $this->event) {
+            $res['event'] = $this->event;
+        }
+
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -81,6 +101,14 @@ class RunAbbreviationContentResponse extends Model
 
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
+
+        if (isset($map['event'])) {
+            $model->event = $map['event'];
         }
 
         if (isset($map['body'])) {

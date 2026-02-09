@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class AsyncUploadVideoShrinkRequest extends Model
 {
     /**
+     * @var float
+     */
+    public $adaptiveThreshold;
+
+    /**
      * @var string
      */
     public $anlysisPrompt;
@@ -41,6 +46,16 @@ class AsyncUploadVideoShrinkRequest extends Model
     /**
      * @var string
      */
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $taskType;
+
+    /**
+     * @var string
+     */
     public $videoRolesShrink;
 
     /**
@@ -53,12 +68,15 @@ class AsyncUploadVideoShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'adaptiveThreshold' => 'AdaptiveThreshold',
         'anlysisPrompt' => 'AnlysisPrompt',
         'faceIdentitySimilarityMinScore' => 'FaceIdentitySimilarityMinScore',
         'referenceVideoShrink' => 'ReferenceVideo',
         'removeSubtitle' => 'RemoveSubtitle',
         'sourceVideosShrink' => 'SourceVideos',
         'splitInterval' => 'SplitInterval',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
         'videoRolesShrink' => 'VideoRoles',
         'videoShotFaceIdentityCount' => 'VideoShotFaceIdentityCount',
         'workspaceId' => 'WorkspaceId',
@@ -72,6 +90,10 @@ class AsyncUploadVideoShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adaptiveThreshold) {
+            $res['AdaptiveThreshold'] = $this->adaptiveThreshold;
+        }
+
         if (null !== $this->anlysisPrompt) {
             $res['AnlysisPrompt'] = $this->anlysisPrompt;
         }
@@ -94,6 +116,14 @@ class AsyncUploadVideoShrinkRequest extends Model
 
         if (null !== $this->splitInterval) {
             $res['SplitInterval'] = $this->splitInterval;
+        }
+
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         if (null !== $this->videoRolesShrink) {
@@ -119,6 +149,10 @@ class AsyncUploadVideoShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdaptiveThreshold'])) {
+            $model->adaptiveThreshold = $map['AdaptiveThreshold'];
+        }
+
         if (isset($map['AnlysisPrompt'])) {
             $model->anlysisPrompt = $map['AnlysisPrompt'];
         }
@@ -141,6 +175,14 @@ class AsyncUploadVideoShrinkRequest extends Model
 
         if (isset($map['SplitInterval'])) {
             $model->splitInterval = $map['SplitInterval'];
+        }
+
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         if (isset($map['VideoRoles'])) {

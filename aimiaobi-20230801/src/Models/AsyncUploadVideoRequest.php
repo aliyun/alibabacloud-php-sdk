@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoRequest\videoRole
 class AsyncUploadVideoRequest extends Model
 {
     /**
+     * @var float
+     */
+    public $adaptiveThreshold;
+
+    /**
      * @var string
      */
     public $anlysisPrompt;
@@ -42,6 +47,16 @@ class AsyncUploadVideoRequest extends Model
     public $splitInterval;
 
     /**
+     * @var string
+     */
+    public $taskName;
+
+    /**
+     * @var string
+     */
+    public $taskType;
+
+    /**
      * @var videoRoles[]
      */
     public $videoRoles;
@@ -56,12 +71,15 @@ class AsyncUploadVideoRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'adaptiveThreshold' => 'AdaptiveThreshold',
         'anlysisPrompt' => 'AnlysisPrompt',
         'faceIdentitySimilarityMinScore' => 'FaceIdentitySimilarityMinScore',
         'referenceVideo' => 'ReferenceVideo',
         'removeSubtitle' => 'RemoveSubtitle',
         'sourceVideos' => 'SourceVideos',
         'splitInterval' => 'SplitInterval',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
         'videoRoles' => 'VideoRoles',
         'videoShotFaceIdentityCount' => 'VideoShotFaceIdentityCount',
         'workspaceId' => 'WorkspaceId',
@@ -84,6 +102,10 @@ class AsyncUploadVideoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adaptiveThreshold) {
+            $res['AdaptiveThreshold'] = $this->adaptiveThreshold;
+        }
+
         if (null !== $this->anlysisPrompt) {
             $res['AnlysisPrompt'] = $this->anlysisPrompt;
         }
@@ -113,6 +135,14 @@ class AsyncUploadVideoRequest extends Model
 
         if (null !== $this->splitInterval) {
             $res['SplitInterval'] = $this->splitInterval;
+        }
+
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         if (null !== $this->videoRoles) {
@@ -145,6 +175,10 @@ class AsyncUploadVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdaptiveThreshold'])) {
+            $model->adaptiveThreshold = $map['AdaptiveThreshold'];
+        }
+
         if (isset($map['AnlysisPrompt'])) {
             $model->anlysisPrompt = $map['AnlysisPrompt'];
         }
@@ -174,6 +208,14 @@ class AsyncUploadVideoRequest extends Model
 
         if (isset($map['SplitInterval'])) {
             $model->splitInterval = $map['SplitInterval'];
+        }
+
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         if (isset($map['VideoRoles'])) {

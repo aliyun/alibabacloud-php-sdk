@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetAutoClipsTaskInfoRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $showAnalysisResults;
+
+    /**
+     * @var bool
+     */
+    public $showResourceInfo;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -18,6 +28,8 @@ class GetAutoClipsTaskInfoRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'showAnalysisResults' => 'ShowAnalysisResults',
+        'showResourceInfo' => 'ShowResourceInfo',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -30,6 +42,14 @@ class GetAutoClipsTaskInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->showAnalysisResults) {
+            $res['ShowAnalysisResults'] = $this->showAnalysisResults;
+        }
+
+        if (null !== $this->showResourceInfo) {
+            $res['ShowResourceInfo'] = $this->showResourceInfo;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -49,6 +69,14 @@ class GetAutoClipsTaskInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ShowAnalysisResults'])) {
+            $model->showAnalysisResults = $map['ShowAnalysisResults'];
+        }
+
+        if (isset($map['ShowResourceInfo'])) {
+            $model->showResourceInfo = $map['ShowResourceInfo'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

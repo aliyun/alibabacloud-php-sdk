@@ -5,12 +5,20 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\analysisResults;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\colorWords;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\referenceVideo;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\sourceVideos;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\stickers;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponseBody\data\timelines;
 
 class data extends Model
 {
+    /**
+     * @var analysisResults[]
+     */
+    public $analysisResults;
+
     /**
      * @var bool
      */
@@ -27,6 +35,11 @@ class data extends Model
     public $closeVoice;
 
     /**
+     * @var string
+     */
+    public $closingCreditsUrl;
+
+    /**
      * @var colorWords[]
      */
     public $colorWords;
@@ -35,6 +48,11 @@ class data extends Model
      * @var string
      */
     public $content;
+
+    /**
+     * @var string
+     */
+    public $customVoiceStyle;
 
     /**
      * @var string
@@ -74,7 +92,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $openingCreditsUrl;
+
+    /**
+     * @var string
+     */
+    public $outputVideoFileKey;
+
+    /**
+     * @var string
+     */
     public $outputVideoUrl;
+
+    /**
+     * @var referenceVideo
+     */
+    public $referenceVideo;
+
+    /**
+     * @var sourceVideos[]
+     */
+    public $sourceVideos;
 
     /**
      * @var int
@@ -116,11 +154,14 @@ class data extends Model
      */
     public $voiceVolume;
     protected $_name = [
+        'analysisResults' => 'AnalysisResults',
         'closeMusic' => 'CloseMusic',
         'closeSubtitle' => 'CloseSubtitle',
         'closeVoice' => 'CloseVoice',
+        'closingCreditsUrl' => 'ClosingCreditsUrl',
         'colorWords' => 'ColorWords',
         'content' => 'Content',
+        'customVoiceStyle' => 'CustomVoiceStyle',
         'customVoiceUrl' => 'CustomVoiceUrl',
         'customVoiceVolume' => 'CustomVoiceVolume',
         'errorMessage' => 'ErrorMessage',
@@ -128,7 +169,11 @@ class data extends Model
         'musicStyle' => 'MusicStyle',
         'musicUrl' => 'MusicUrl',
         'musicVolume' => 'MusicVolume',
+        'openingCreditsUrl' => 'OpeningCreditsUrl',
+        'outputVideoFileKey' => 'OutputVideoFileKey',
         'outputVideoUrl' => 'OutputVideoUrl',
+        'referenceVideo' => 'ReferenceVideo',
+        'sourceVideos' => 'SourceVideos',
         'status' => 'Status',
         'step' => 'Step',
         'stickers' => 'Stickers',
@@ -141,8 +186,17 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->analysisResults)) {
+            Model::validateArray($this->analysisResults);
+        }
         if (\is_array($this->colorWords)) {
             Model::validateArray($this->colorWords);
+        }
+        if (null !== $this->referenceVideo) {
+            $this->referenceVideo->validate();
+        }
+        if (\is_array($this->sourceVideos)) {
+            Model::validateArray($this->sourceVideos);
         }
         if (\is_array($this->stickers)) {
             Model::validateArray($this->stickers);
@@ -156,6 +210,17 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analysisResults) {
+            if (\is_array($this->analysisResults)) {
+                $res['AnalysisResults'] = [];
+                $n1 = 0;
+                foreach ($this->analysisResults as $item1) {
+                    $res['AnalysisResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->closeMusic) {
             $res['CloseMusic'] = $this->closeMusic;
         }
@@ -166,6 +231,10 @@ class data extends Model
 
         if (null !== $this->closeVoice) {
             $res['CloseVoice'] = $this->closeVoice;
+        }
+
+        if (null !== $this->closingCreditsUrl) {
+            $res['ClosingCreditsUrl'] = $this->closingCreditsUrl;
         }
 
         if (null !== $this->colorWords) {
@@ -181,6 +250,10 @@ class data extends Model
 
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+
+        if (null !== $this->customVoiceStyle) {
+            $res['CustomVoiceStyle'] = $this->customVoiceStyle;
         }
 
         if (null !== $this->customVoiceUrl) {
@@ -211,8 +284,31 @@ class data extends Model
             $res['MusicVolume'] = $this->musicVolume;
         }
 
+        if (null !== $this->openingCreditsUrl) {
+            $res['OpeningCreditsUrl'] = $this->openingCreditsUrl;
+        }
+
+        if (null !== $this->outputVideoFileKey) {
+            $res['OutputVideoFileKey'] = $this->outputVideoFileKey;
+        }
+
         if (null !== $this->outputVideoUrl) {
             $res['OutputVideoUrl'] = $this->outputVideoUrl;
+        }
+
+        if (null !== $this->referenceVideo) {
+            $res['ReferenceVideo'] = null !== $this->referenceVideo ? $this->referenceVideo->toArray($noStream) : $this->referenceVideo;
+        }
+
+        if (null !== $this->sourceVideos) {
+            if (\is_array($this->sourceVideos)) {
+                $res['SourceVideos'] = [];
+                $n1 = 0;
+                foreach ($this->sourceVideos as $item1) {
+                    $res['SourceVideos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -272,6 +368,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalysisResults'])) {
+            if (!empty($map['AnalysisResults'])) {
+                $model->analysisResults = [];
+                $n1 = 0;
+                foreach ($map['AnalysisResults'] as $item1) {
+                    $model->analysisResults[$n1] = analysisResults::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CloseMusic'])) {
             $model->closeMusic = $map['CloseMusic'];
         }
@@ -282,6 +389,10 @@ class data extends Model
 
         if (isset($map['CloseVoice'])) {
             $model->closeVoice = $map['CloseVoice'];
+        }
+
+        if (isset($map['ClosingCreditsUrl'])) {
+            $model->closingCreditsUrl = $map['ClosingCreditsUrl'];
         }
 
         if (isset($map['ColorWords'])) {
@@ -297,6 +408,10 @@ class data extends Model
 
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+
+        if (isset($map['CustomVoiceStyle'])) {
+            $model->customVoiceStyle = $map['CustomVoiceStyle'];
         }
 
         if (isset($map['CustomVoiceUrl'])) {
@@ -327,8 +442,31 @@ class data extends Model
             $model->musicVolume = $map['MusicVolume'];
         }
 
+        if (isset($map['OpeningCreditsUrl'])) {
+            $model->openingCreditsUrl = $map['OpeningCreditsUrl'];
+        }
+
+        if (isset($map['OutputVideoFileKey'])) {
+            $model->outputVideoFileKey = $map['OutputVideoFileKey'];
+        }
+
         if (isset($map['OutputVideoUrl'])) {
             $model->outputVideoUrl = $map['OutputVideoUrl'];
+        }
+
+        if (isset($map['ReferenceVideo'])) {
+            $model->referenceVideo = referenceVideo::fromMap($map['ReferenceVideo']);
+        }
+
+        if (isset($map['SourceVideos'])) {
+            if (!empty($map['SourceVideos'])) {
+                $model->sourceVideos = [];
+                $n1 = 0;
+                foreach ($map['SourceVideos'] as $item1) {
+                    $model->sourceVideos[$n1] = sourceVideos::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Status'])) {
