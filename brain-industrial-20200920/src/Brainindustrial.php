@@ -913,6 +913,10 @@ class Brainindustrial extends OpenApiClient
             @$body['CurrentPage'] = $request->currentPage;
         }
 
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
+        }
+
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
         }

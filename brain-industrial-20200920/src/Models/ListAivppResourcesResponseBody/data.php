@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $connectNum;
+
+    /**
      * @var string
      */
     public $detail;
@@ -32,6 +37,11 @@ class data extends Model
      * @var string
      */
     public $leftQuantity;
+
+    /**
+     * @var int
+     */
+    public $messageTps;
 
     /**
      * @var string
@@ -63,11 +73,13 @@ class data extends Model
      */
     public $userId;
     protected $_name = [
+        'connectNum' => 'ConnectNum',
         'detail' => 'Detail',
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'leftQuantity' => 'LeftQuantity',
+        'messageTps' => 'MessageTps',
         'orderId' => 'OrderId',
         'quantity' => 'Quantity',
         'specification' => 'Specification',
@@ -84,6 +96,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->connectNum) {
+            $res['ConnectNum'] = $this->connectNum;
+        }
+
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
@@ -102,6 +118,10 @@ class data extends Model
 
         if (null !== $this->leftQuantity) {
             $res['LeftQuantity'] = $this->leftQuantity;
+        }
+
+        if (null !== $this->messageTps) {
+            $res['MessageTps'] = $this->messageTps;
         }
 
         if (null !== $this->orderId) {
@@ -139,6 +159,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectNum'])) {
+            $model->connectNum = $map['ConnectNum'];
+        }
+
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
@@ -157,6 +181,10 @@ class data extends Model
 
         if (isset($map['LeftQuantity'])) {
             $model->leftQuantity = $map['LeftQuantity'];
+        }
+
+        if (isset($map['MessageTps'])) {
+            $model->messageTps = $map['MessageTps'];
         }
 
         if (isset($map['OrderId'])) {

@@ -14,11 +14,17 @@ class ListAivppResourcesRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var int
      */
     public $maxResults;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'instanceType' => 'InstanceType',
         'maxResults' => 'MaxResults',
     ];
 
@@ -32,6 +38,10 @@ class ListAivppResourcesRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         if (null !== $this->maxResults) {
@@ -51,6 +61,10 @@ class ListAivppResourcesRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         if (isset($map['MaxResults'])) {
