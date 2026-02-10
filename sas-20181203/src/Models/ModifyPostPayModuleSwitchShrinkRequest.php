@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyPostPayModuleSwitchRequest\postPayModuleSwitchObj;
 
-class ModifyPostPayModuleSwitchRequest extends Model
+class ModifyPostPayModuleSwitchShrinkRequest extends Model
 {
     /**
      * @var int
@@ -30,22 +29,19 @@ class ModifyPostPayModuleSwitchRequest extends Model
     public $postPayModuleSwitch;
 
     /**
-     * @var postPayModuleSwitchObj
+     * @var string
      */
-    public $postPayModuleSwitchObj;
+    public $postPayModuleSwitchObjShrink;
     protected $_name = [
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
         'postPayModuleSwitch' => 'PostPayModuleSwitch',
-        'postPayModuleSwitchObj' => 'PostPayModuleSwitchObj',
+        'postPayModuleSwitchObjShrink' => 'PostPayModuleSwitchObj',
     ];
 
     public function validate()
     {
-        if (null !== $this->postPayModuleSwitchObj) {
-            $this->postPayModuleSwitchObj->validate();
-        }
         parent::validate();
     }
 
@@ -68,8 +64,8 @@ class ModifyPostPayModuleSwitchRequest extends Model
             $res['PostPayModuleSwitch'] = $this->postPayModuleSwitch;
         }
 
-        if (null !== $this->postPayModuleSwitchObj) {
-            $res['PostPayModuleSwitchObj'] = null !== $this->postPayModuleSwitchObj ? $this->postPayModuleSwitchObj->toArray($noStream) : $this->postPayModuleSwitchObj;
+        if (null !== $this->postPayModuleSwitchObjShrink) {
+            $res['PostPayModuleSwitchObj'] = $this->postPayModuleSwitchObjShrink;
         }
 
         return $res;
@@ -100,7 +96,7 @@ class ModifyPostPayModuleSwitchRequest extends Model
         }
 
         if (isset($map['PostPayModuleSwitchObj'])) {
-            $model->postPayModuleSwitchObj = postPayModuleSwitchObj::fromMap($map['PostPayModuleSwitchObj']);
+            $model->postPayModuleSwitchObjShrink = $map['PostPayModuleSwitchObj'];
         }
 
         return $model;

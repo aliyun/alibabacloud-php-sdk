@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class DescribeVersionConfigRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $resourceDirectoryAccountId;
 

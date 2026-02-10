@@ -11,12 +11,22 @@ class propertys extends Model
     /**
      * @var string
      */
+    public $agent;
+
+    /**
+     * @var string
+     */
     public $containerName;
 
     /**
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -81,6 +91,11 @@ class propertys extends Model
     /**
      * @var string
      */
+    public $mcpName;
+
+    /**
+     * @var string
+     */
     public $middlewareName;
 
     /**
@@ -139,6 +154,16 @@ class propertys extends Model
     public $size;
 
     /**
+     * @var string
+     */
+    public $skillsName;
+
+    /**
+     * @var string
+     */
+    public $transportName;
+
+    /**
      * @var int
      */
     public $usedByCount;
@@ -158,8 +183,10 @@ class propertys extends Model
      */
     public $webPath;
     protected $_name = [
+        'agent' => 'Agent',
         'containerName' => 'ContainerName',
         'createTimestamp' => 'CreateTimestamp',
+        'description' => 'Description',
         'domain' => 'Domain',
         'endPoint' => 'EndPoint',
         'file' => 'File',
@@ -172,6 +199,7 @@ class propertys extends Model
         'intranetIp' => 'IntranetIp',
         'ip' => 'Ip',
         'listenProtocol' => 'ListenProtocol',
+        'mcpName' => 'McpName',
         'middlewareName' => 'MiddlewareName',
         'middlewareVersion' => 'MiddlewareVersion',
         'modelName' => 'ModelName',
@@ -184,6 +212,8 @@ class propertys extends Model
         'regionId' => 'RegionId',
         'serverType' => 'ServerType',
         'size' => 'Size',
+        'skillsName' => 'SkillsName',
+        'transportName' => 'TransportName',
         'usedByCount' => 'UsedByCount',
         'user' => 'User',
         'uuid' => 'Uuid',
@@ -198,12 +228,20 @@ class propertys extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agent) {
+            $res['Agent'] = $this->agent;
+        }
+
         if (null !== $this->containerName) {
             $res['ContainerName'] = $this->containerName;
         }
 
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->domain) {
@@ -254,6 +292,10 @@ class propertys extends Model
             $res['ListenProtocol'] = $this->listenProtocol;
         }
 
+        if (null !== $this->mcpName) {
+            $res['McpName'] = $this->mcpName;
+        }
+
         if (null !== $this->middlewareName) {
             $res['MiddlewareName'] = $this->middlewareName;
         }
@@ -302,6 +344,14 @@ class propertys extends Model
             $res['Size'] = $this->size;
         }
 
+        if (null !== $this->skillsName) {
+            $res['SkillsName'] = $this->skillsName;
+        }
+
+        if (null !== $this->transportName) {
+            $res['TransportName'] = $this->transportName;
+        }
+
         if (null !== $this->usedByCount) {
             $res['UsedByCount'] = $this->usedByCount;
         }
@@ -329,12 +379,20 @@ class propertys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Agent'])) {
+            $model->agent = $map['Agent'];
+        }
+
         if (isset($map['ContainerName'])) {
             $model->containerName = $map['ContainerName'];
         }
 
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['Domain'])) {
@@ -385,6 +443,10 @@ class propertys extends Model
             $model->listenProtocol = $map['ListenProtocol'];
         }
 
+        if (isset($map['McpName'])) {
+            $model->mcpName = $map['McpName'];
+        }
+
         if (isset($map['MiddlewareName'])) {
             $model->middlewareName = $map['MiddlewareName'];
         }
@@ -431,6 +493,14 @@ class propertys extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['SkillsName'])) {
+            $model->skillsName = $map['SkillsName'];
+        }
+
+        if (isset($map['TransportName'])) {
+            $model->transportName = $map['TransportName'];
         }
 
         if (isset($map['UsedByCount'])) {

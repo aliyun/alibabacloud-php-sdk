@@ -49,6 +49,11 @@ class ListCheckItemWarningMachineRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $riskType;
@@ -76,6 +81,7 @@ class ListCheckItemWarningMachineRequest extends Model
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
         'remark' => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'riskType' => 'RiskType',
         'source' => 'Source',
         'status' => 'Status',
@@ -123,6 +129,10 @@ class ListCheckItemWarningMachineRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->riskType) {
@@ -189,6 +199,10 @@ class ListCheckItemWarningMachineRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RiskType'])) {

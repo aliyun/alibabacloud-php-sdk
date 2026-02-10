@@ -41,6 +41,11 @@ class DescribeCloudVendorAccountAKListRequest extends Model
     /**
      * @var string
      */
+    public $vendor;
+
+    /**
+     * @var string
+     */
     public $vendorAuthAlias;
     protected $_name = [
         'authIds' => 'AuthIds',
@@ -49,6 +54,7 @@ class DescribeCloudVendorAccountAKListRequest extends Model
         'pageSize' => 'PageSize',
         'status' => 'Status',
         'subAccountName' => 'SubAccountName',
+        'vendor' => 'Vendor',
         'vendorAuthAlias' => 'VendorAuthAlias',
     ];
 
@@ -82,6 +88,10 @@ class DescribeCloudVendorAccountAKListRequest extends Model
 
         if (null !== $this->subAccountName) {
             $res['SubAccountName'] = $this->subAccountName;
+        }
+
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         if (null !== $this->vendorAuthAlias) {
@@ -121,6 +131,10 @@ class DescribeCloudVendorAccountAKListRequest extends Model
 
         if (isset($map['SubAccountName'])) {
             $model->subAccountName = $map['SubAccountName'];
+        }
+
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         if (isset($map['VendorAuthAlias'])) {

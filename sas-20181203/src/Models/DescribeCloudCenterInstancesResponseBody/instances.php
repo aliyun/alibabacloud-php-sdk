@@ -56,6 +56,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $bindFileProtectType;
+
+    /**
+     * @var string
+     */
     public $clientStatus;
 
     /**
@@ -312,6 +317,7 @@ class instances extends Model
         'authVersion' => 'AuthVersion',
         'authVersionName' => 'AuthVersionName',
         'bind' => 'Bind',
+        'bindFileProtectType' => 'BindFileProtectType',
         'clientStatus' => 'ClientStatus',
         'clientSubStatus' => 'ClientSubStatus',
         'clusterId' => 'ClusterId',
@@ -406,6 +412,10 @@ class instances extends Model
 
         if (null !== $this->bind) {
             $res['Bind'] = $this->bind;
+        }
+
+        if (null !== $this->bindFileProtectType) {
+            $res['BindFileProtectType'] = $this->bindFileProtectType;
         }
 
         if (null !== $this->clientStatus) {
@@ -653,6 +663,10 @@ class instances extends Model
 
         if (isset($map['Bind'])) {
             $model->bind = $map['Bind'];
+        }
+
+        if (isset($map['BindFileProtectType'])) {
+            $model->bindFileProtectType = $map['BindFileProtectType'];
         }
 
         if (isset($map['ClientStatus'])) {

@@ -64,6 +64,11 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $riskType;
@@ -94,6 +99,7 @@ class ListCheckItemWarningSummaryRequest extends Model
         'groupId' => 'GroupId',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'riskType' => 'RiskType',
         'source' => 'Source',
         'startTime' => 'StartTime',
@@ -163,6 +169,10 @@ class ListCheckItemWarningSummaryRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->riskType) {
@@ -248,6 +258,10 @@ class ListCheckItemWarningSummaryRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RiskType'])) {

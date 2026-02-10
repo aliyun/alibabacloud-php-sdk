@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DescribeImageListByBuildRiskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $criteria;
+
+    /**
+     * @var string
+     */
+    public $criteriaType;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -38,6 +48,8 @@ class DescribeImageListByBuildRiskRequest extends Model
      */
     public $status;
     protected $_name = [
+        'criteria' => 'Criteria',
+        'criteriaType' => 'CriteriaType',
         'currentPage' => 'CurrentPage',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
@@ -54,6 +66,14 @@ class DescribeImageListByBuildRiskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->criteria) {
+            $res['Criteria'] = $this->criteria;
+        }
+
+        if (null !== $this->criteriaType) {
+            $res['CriteriaType'] = $this->criteriaType;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -89,6 +109,14 @@ class DescribeImageListByBuildRiskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Criteria'])) {
+            $model->criteria = $map['Criteria'];
+        }
+
+        if (isset($map['CriteriaType'])) {
+            $model->criteriaType = $map['CriteriaType'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
