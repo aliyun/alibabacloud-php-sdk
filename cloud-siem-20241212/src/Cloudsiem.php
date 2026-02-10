@@ -4838,6 +4838,10 @@ class Cloudsiem extends OpenApiClient
             @$body['TrafficStatisticType'] = $request->trafficStatisticType;
         }
 
+        if (null !== $request->trafficType) {
+            @$body['TrafficType'] = $request->trafficType;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);

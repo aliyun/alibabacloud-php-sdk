@@ -52,6 +52,11 @@ class ListTrafficStatisticsRequest extends Model
      * @var string
      */
     public $trafficStatisticType;
+
+    /**
+     * @var string
+     */
+    public $trafficType;
     protected $_name = [
         'lang' => 'Lang',
         'logUserIds' => 'LogUserIds',
@@ -62,6 +67,7 @@ class ListTrafficStatisticsRequest extends Model
         'trafficStatisticPeriod' => 'TrafficStatisticPeriod',
         'trafficStatisticPeriodType' => 'TrafficStatisticPeriodType',
         'trafficStatisticType' => 'TrafficStatisticType',
+        'trafficType' => 'TrafficType',
     ];
 
     public function validate()
@@ -118,6 +124,10 @@ class ListTrafficStatisticsRequest extends Model
             $res['TrafficStatisticType'] = $this->trafficStatisticType;
         }
 
+        if (null !== $this->trafficType) {
+            $res['TrafficType'] = $this->trafficType;
+        }
+
         return $res;
     }
 
@@ -170,6 +180,10 @@ class ListTrafficStatisticsRequest extends Model
 
         if (isset($map['TrafficStatisticType'])) {
             $model->trafficStatisticType = $map['TrafficStatisticType'];
+        }
+
+        if (isset($map['TrafficType'])) {
+            $model->trafficType = $map['TrafficType'];
         }
 
         return $model;

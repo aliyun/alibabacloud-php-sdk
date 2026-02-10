@@ -52,6 +52,11 @@ class ListTrafficStatisticsShrinkRequest extends Model
      * @var string
      */
     public $trafficStatisticType;
+
+    /**
+     * @var string
+     */
+    public $trafficType;
     protected $_name = [
         'lang' => 'Lang',
         'logUserIdsShrink' => 'LogUserIds',
@@ -62,6 +67,7 @@ class ListTrafficStatisticsShrinkRequest extends Model
         'trafficStatisticPeriod' => 'TrafficStatisticPeriod',
         'trafficStatisticPeriodType' => 'TrafficStatisticPeriodType',
         'trafficStatisticType' => 'TrafficStatisticType',
+        'trafficType' => 'TrafficType',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class ListTrafficStatisticsShrinkRequest extends Model
 
         if (null !== $this->trafficStatisticType) {
             $res['TrafficStatisticType'] = $this->trafficStatisticType;
+        }
+
+        if (null !== $this->trafficType) {
+            $res['TrafficType'] = $this->trafficType;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class ListTrafficStatisticsShrinkRequest extends Model
 
         if (isset($map['TrafficStatisticType'])) {
             $model->trafficStatisticType = $map['TrafficStatisticType'];
+        }
+
+        if (isset($map['TrafficType'])) {
+            $model->trafficType = $map['TrafficType'];
         }
 
         return $model;
