@@ -19,6 +19,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $academicProxy;
+
+    /**
+     * @var string
+     */
     public $adminAccess;
 
     /**
@@ -45,6 +50,21 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $clientControlMenu;
+
+    /**
+     * @var string
+     */
+    public $clientHibernate;
+
+    /**
+     * @var string
+     */
+    public $clientRestart;
+
+    /**
+     * @var string
+     */
+    public $clientShutdown;
 
     /**
      * @var clientTypes[]
@@ -184,6 +204,21 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $hoverHibernate;
+
+    /**
+     * @var string
+     */
+    public $hoverRestart;
+
+    /**
+     * @var string
+     */
+    public $hoverShutdown;
+
+    /**
+     * @var string
+     */
     public $html5Access;
 
     /**
@@ -249,7 +284,32 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $mobileSafeMenu;
+
+    /**
+     * @var string
+     */
     public $mobileShutdown;
+
+    /**
+     * @var string
+     */
+    public $mobileWuyingKeeper;
+
+    /**
+     * @var string
+     */
+    public $mobileWyAssistant;
+
+    /**
+     * @var string
+     */
+    public $modelLibrary;
+
+    /**
+     * @var string
+     */
+    public $multiScreen;
 
     /**
      * @var string
@@ -290,6 +350,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $policyStatus;
+
+    /**
+     * @var string
+     */
+    public $portProxy;
 
     /**
      * @var string
@@ -547,6 +612,11 @@ class describePolicyGroups extends Model
     public $watermarkSecurity;
 
     /**
+     * @var string
+     */
+    public $watermarkShadow;
+
+    /**
      * @var int
      */
     public $watermarkTransparencyValue;
@@ -561,12 +631,16 @@ class describePolicyGroups extends Model
      */
     public $wyAssistant;
     protected $_name = [
+        'academicProxy' => 'AcademicProxy',
         'adminAccess' => 'AdminAccess',
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
+        'clientHibernate' => 'ClientHibernate',
+        'clientRestart' => 'ClientRestart',
+        'clientShutdown' => 'ClientShutdown',
         'clientTypes' => 'ClientTypes',
         'clipboard' => 'Clipboard',
         'colorEnhancement' => 'ColorEnhancement',
@@ -594,6 +668,9 @@ class describePolicyGroups extends Model
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
         'gpuAcceleration' => 'GpuAcceleration',
         'hoverConfigMsg' => 'HoverConfigMsg',
+        'hoverHibernate' => 'HoverHibernate',
+        'hoverRestart' => 'HoverRestart',
+        'hoverShutdown' => 'HoverShutdown',
         'html5Access' => 'Html5Access',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
@@ -607,7 +684,12 @@ class describePolicyGroups extends Model
         'memorySampleDuration' => 'MemorySampleDuration',
         'memorySingleRateLimit' => 'MemorySingleRateLimit',
         'mobileRestart' => 'MobileRestart',
+        'mobileSafeMenu' => 'MobileSafeMenu',
         'mobileShutdown' => 'MobileShutdown',
+        'mobileWuyingKeeper' => 'MobileWuyingKeeper',
+        'mobileWyAssistant' => 'MobileWyAssistant',
+        'modelLibrary' => 'ModelLibrary',
+        'multiScreen' => 'MultiScreen',
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
@@ -616,6 +698,7 @@ class describePolicyGroups extends Model
         'policyGroupId' => 'PolicyGroupId',
         'policyGroupType' => 'PolicyGroupType',
         'policyStatus' => 'PolicyStatus',
+        'portProxy' => 'PortProxy',
         'printerRedirection' => 'PrinterRedirection',
         'qualityEnhancement' => 'QualityEnhancement',
         'recordContent' => 'RecordContent',
@@ -667,6 +750,7 @@ class describePolicyGroups extends Model
         'watermarkPower' => 'WatermarkPower',
         'watermarkRowAmount' => 'WatermarkRowAmount',
         'watermarkSecurity' => 'WatermarkSecurity',
+        'watermarkShadow' => 'WatermarkShadow',
         'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
         'watermarkType' => 'WatermarkType',
         'wyAssistant' => 'WyAssistant',
@@ -719,6 +803,10 @@ class describePolicyGroups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->academicProxy) {
+            $res['AcademicProxy'] = $this->academicProxy;
+        }
+
         if (null !== $this->adminAccess) {
             $res['AdminAccess'] = $this->adminAccess;
         }
@@ -755,6 +843,18 @@ class describePolicyGroups extends Model
 
         if (null !== $this->clientControlMenu) {
             $res['ClientControlMenu'] = $this->clientControlMenu;
+        }
+
+        if (null !== $this->clientHibernate) {
+            $res['ClientHibernate'] = $this->clientHibernate;
+        }
+
+        if (null !== $this->clientRestart) {
+            $res['ClientRestart'] = $this->clientRestart;
+        }
+
+        if (null !== $this->clientShutdown) {
+            $res['ClientShutdown'] = $this->clientShutdown;
         }
 
         if (null !== $this->clientTypes) {
@@ -900,6 +1000,18 @@ class describePolicyGroups extends Model
             $res['HoverConfigMsg'] = $this->hoverConfigMsg;
         }
 
+        if (null !== $this->hoverHibernate) {
+            $res['HoverHibernate'] = $this->hoverHibernate;
+        }
+
+        if (null !== $this->hoverRestart) {
+            $res['HoverRestart'] = $this->hoverRestart;
+        }
+
+        if (null !== $this->hoverShutdown) {
+            $res['HoverShutdown'] = $this->hoverShutdown;
+        }
+
         if (null !== $this->html5Access) {
             $res['Html5Access'] = $this->html5Access;
         }
@@ -959,8 +1071,28 @@ class describePolicyGroups extends Model
             $res['MobileRestart'] = $this->mobileRestart;
         }
 
+        if (null !== $this->mobileSafeMenu) {
+            $res['MobileSafeMenu'] = $this->mobileSafeMenu;
+        }
+
         if (null !== $this->mobileShutdown) {
             $res['MobileShutdown'] = $this->mobileShutdown;
+        }
+
+        if (null !== $this->mobileWuyingKeeper) {
+            $res['MobileWuyingKeeper'] = $this->mobileWuyingKeeper;
+        }
+
+        if (null !== $this->mobileWyAssistant) {
+            $res['MobileWyAssistant'] = $this->mobileWyAssistant;
+        }
+
+        if (null !== $this->modelLibrary) {
+            $res['ModelLibrary'] = $this->modelLibrary;
+        }
+
+        if (null !== $this->multiScreen) {
+            $res['MultiScreen'] = $this->multiScreen;
         }
 
         if (null !== $this->name) {
@@ -1000,6 +1132,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->policyStatus) {
             $res['PolicyStatus'] = $this->policyStatus;
+        }
+
+        if (null !== $this->portProxy) {
+            $res['PortProxy'] = $this->portProxy;
         }
 
         if (null !== $this->printerRedirection) {
@@ -1234,6 +1370,10 @@ class describePolicyGroups extends Model
             $res['WatermarkSecurity'] = $this->watermarkSecurity;
         }
 
+        if (null !== $this->watermarkShadow) {
+            $res['WatermarkShadow'] = $this->watermarkShadow;
+        }
+
         if (null !== $this->watermarkTransparencyValue) {
             $res['WatermarkTransparencyValue'] = $this->watermarkTransparencyValue;
         }
@@ -1257,6 +1397,10 @@ class describePolicyGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcademicProxy'])) {
+            $model->academicProxy = $map['AcademicProxy'];
+        }
+
         if (isset($map['AdminAccess'])) {
             $model->adminAccess = $map['AdminAccess'];
         }
@@ -1293,6 +1437,18 @@ class describePolicyGroups extends Model
 
         if (isset($map['ClientControlMenu'])) {
             $model->clientControlMenu = $map['ClientControlMenu'];
+        }
+
+        if (isset($map['ClientHibernate'])) {
+            $model->clientHibernate = $map['ClientHibernate'];
+        }
+
+        if (isset($map['ClientRestart'])) {
+            $model->clientRestart = $map['ClientRestart'];
+        }
+
+        if (isset($map['ClientShutdown'])) {
+            $model->clientShutdown = $map['ClientShutdown'];
         }
 
         if (isset($map['ClientTypes'])) {
@@ -1438,6 +1594,18 @@ class describePolicyGroups extends Model
             $model->hoverConfigMsg = $map['HoverConfigMsg'];
         }
 
+        if (isset($map['HoverHibernate'])) {
+            $model->hoverHibernate = $map['HoverHibernate'];
+        }
+
+        if (isset($map['HoverRestart'])) {
+            $model->hoverRestart = $map['HoverRestart'];
+        }
+
+        if (isset($map['HoverShutdown'])) {
+            $model->hoverShutdown = $map['HoverShutdown'];
+        }
+
         if (isset($map['Html5Access'])) {
             $model->html5Access = $map['Html5Access'];
         }
@@ -1497,8 +1665,28 @@ class describePolicyGroups extends Model
             $model->mobileRestart = $map['MobileRestart'];
         }
 
+        if (isset($map['MobileSafeMenu'])) {
+            $model->mobileSafeMenu = $map['MobileSafeMenu'];
+        }
+
         if (isset($map['MobileShutdown'])) {
             $model->mobileShutdown = $map['MobileShutdown'];
+        }
+
+        if (isset($map['MobileWuyingKeeper'])) {
+            $model->mobileWuyingKeeper = $map['MobileWuyingKeeper'];
+        }
+
+        if (isset($map['MobileWyAssistant'])) {
+            $model->mobileWyAssistant = $map['MobileWyAssistant'];
+        }
+
+        if (isset($map['ModelLibrary'])) {
+            $model->modelLibrary = $map['ModelLibrary'];
+        }
+
+        if (isset($map['MultiScreen'])) {
+            $model->multiScreen = $map['MultiScreen'];
         }
 
         if (isset($map['Name'])) {
@@ -1538,6 +1726,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['PolicyStatus'])) {
             $model->policyStatus = $map['PolicyStatus'];
+        }
+
+        if (isset($map['PortProxy'])) {
+            $model->portProxy = $map['PortProxy'];
         }
 
         if (isset($map['PrinterRedirection'])) {
@@ -1770,6 +1962,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['WatermarkSecurity'])) {
             $model->watermarkSecurity = $map['WatermarkSecurity'];
+        }
+
+        if (isset($map['WatermarkShadow'])) {
+            $model->watermarkShadow = $map['WatermarkShadow'];
         }
 
         if (isset($map['WatermarkTransparencyValue'])) {
