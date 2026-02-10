@@ -33,12 +33,18 @@ class ListGroupsForResourceServerRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $resourceServerScopeId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'filter' => 'Filter',
         'instanceId' => 'InstanceId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'resourceServerScopeId' => 'ResourceServerScopeId',
     ];
 
     public function validate()
@@ -79,6 +85,10 @@ class ListGroupsForResourceServerRequest extends Model
             $res['NextToken'] = $this->nextToken;
         }
 
+        if (null !== $this->resourceServerScopeId) {
+            $res['ResourceServerScopeId'] = $this->resourceServerScopeId;
+        }
+
         return $res;
     }
 
@@ -115,6 +125,10 @@ class ListGroupsForResourceServerRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['ResourceServerScopeId'])) {
+            $model->resourceServerScopeId = $map['ResourceServerScopeId'];
         }
 
         return $model;

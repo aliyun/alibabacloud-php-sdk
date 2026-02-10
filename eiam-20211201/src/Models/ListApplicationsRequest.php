@@ -14,6 +14,11 @@ class ListApplicationsRequest extends Model
     public $applicationCreationType;
 
     /**
+     * @var string
+     */
+    public $applicationIdentityType;
+
+    /**
      * @var string[]
      */
     public $applicationIds;
@@ -64,6 +69,7 @@ class ListApplicationsRequest extends Model
     public $status;
     protected $_name = [
         'applicationCreationType' => 'ApplicationCreationType',
+        'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationIds' => 'ApplicationIds',
         'applicationName' => 'ApplicationName',
         'authorizationType' => 'AuthorizationType',
@@ -89,6 +95,10 @@ class ListApplicationsRequest extends Model
         $res = [];
         if (null !== $this->applicationCreationType) {
             $res['ApplicationCreationType'] = $this->applicationCreationType;
+        }
+
+        if (null !== $this->applicationIdentityType) {
+            $res['ApplicationIdentityType'] = $this->applicationIdentityType;
         }
 
         if (null !== $this->applicationIds) {
@@ -151,6 +161,10 @@ class ListApplicationsRequest extends Model
         $model = new self();
         if (isset($map['ApplicationCreationType'])) {
             $model->applicationCreationType = $map['ApplicationCreationType'];
+        }
+
+        if (isset($map['ApplicationIdentityType'])) {
+            $model->applicationIdentityType = $map['ApplicationIdentityType'];
         }
 
         if (isset($map['ApplicationIds'])) {

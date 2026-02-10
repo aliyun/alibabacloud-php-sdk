@@ -29,6 +29,21 @@ class authorizationRules extends Model
     public $authorizationRuleName;
 
     /**
+     * @var string
+     */
+    public $authorizationRuleSubjectId;
+
+    /**
+     * @var string
+     */
+    public $authorizationRuleSubjectScope;
+
+    /**
+     * @var string
+     */
+    public $authorizationRuleSubjectType;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -62,6 +77,9 @@ class authorizationRules extends Model
         'authorizationRuleCreationType' => 'AuthorizationRuleCreationType',
         'authorizationRuleId' => 'AuthorizationRuleId',
         'authorizationRuleName' => 'AuthorizationRuleName',
+        'authorizationRuleSubjectId' => 'AuthorizationRuleSubjectId',
+        'authorizationRuleSubjectScope' => 'AuthorizationRuleSubjectScope',
+        'authorizationRuleSubjectType' => 'AuthorizationRuleSubjectType',
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
@@ -92,6 +110,18 @@ class authorizationRules extends Model
 
         if (null !== $this->authorizationRuleName) {
             $res['AuthorizationRuleName'] = $this->authorizationRuleName;
+        }
+
+        if (null !== $this->authorizationRuleSubjectId) {
+            $res['AuthorizationRuleSubjectId'] = $this->authorizationRuleSubjectId;
+        }
+
+        if (null !== $this->authorizationRuleSubjectScope) {
+            $res['AuthorizationRuleSubjectScope'] = $this->authorizationRuleSubjectScope;
+        }
+
+        if (null !== $this->authorizationRuleSubjectType) {
+            $res['AuthorizationRuleSubjectType'] = $this->authorizationRuleSubjectType;
         }
 
         if (null !== $this->createTime) {
@@ -143,6 +173,18 @@ class authorizationRules extends Model
 
         if (isset($map['AuthorizationRuleName'])) {
             $model->authorizationRuleName = $map['AuthorizationRuleName'];
+        }
+
+        if (isset($map['AuthorizationRuleSubjectId'])) {
+            $model->authorizationRuleSubjectId = $map['AuthorizationRuleSubjectId'];
+        }
+
+        if (isset($map['AuthorizationRuleSubjectScope'])) {
+            $model->authorizationRuleSubjectScope = $map['AuthorizationRuleSubjectScope'];
+        }
+
+        if (isset($map['AuthorizationRuleSubjectType'])) {
+            $model->authorizationRuleSubjectType = $map['AuthorizationRuleSubjectType'];
         }
 
         if (isset($map['CreateTime'])) {

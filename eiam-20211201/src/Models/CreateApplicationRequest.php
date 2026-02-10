@@ -11,6 +11,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $applicationIdentityType;
+
+    /**
+     * @var string
+     */
     public $applicationName;
 
     /**
@@ -43,6 +48,7 @@ class CreateApplicationRequest extends Model
      */
     public $ssoType;
     protected $_name = [
+        'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationName' => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
         'applicationTemplateId' => 'ApplicationTemplateId',
@@ -60,6 +66,10 @@ class CreateApplicationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationIdentityType) {
+            $res['ApplicationIdentityType'] = $this->applicationIdentityType;
+        }
+
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
@@ -99,6 +109,10 @@ class CreateApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationIdentityType'])) {
+            $model->applicationIdentityType = $map['ApplicationIdentityType'];
+        }
+
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }

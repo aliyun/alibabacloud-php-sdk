@@ -26,6 +26,11 @@ class application extends Model
     /**
      * @var string
      */
+    public $applicationIdentityType;
+
+    /**
+     * @var string
+     */
     public $applicationName;
 
     /**
@@ -131,6 +136,7 @@ class application extends Model
         'apiInvokeStatus' => 'ApiInvokeStatus',
         'applicationCreationType' => 'ApplicationCreationType',
         'applicationId' => 'ApplicationId',
+        'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationName' => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
         'applicationTemplateId' => 'ApplicationTemplateId',
@@ -175,6 +181,10 @@ class application extends Model
 
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->applicationIdentityType) {
+            $res['ApplicationIdentityType'] = $this->applicationIdentityType;
         }
 
         if (null !== $this->applicationName) {
@@ -289,6 +299,10 @@ class application extends Model
 
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ApplicationIdentityType'])) {
+            $model->applicationIdentityType = $map['ApplicationIdentityType'];
         }
 
         if (isset($map['ApplicationName'])) {

@@ -21,6 +21,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $applicationIdentityType;
+
+    /**
+     * @var string
+     */
     public $applicationName;
 
     /**
@@ -105,6 +110,7 @@ class applications extends Model
     protected $_name = [
         'applicationCreationType' => 'ApplicationCreationType',
         'applicationId' => 'ApplicationId',
+        'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationName' => 'ApplicationName',
         'applicationSourceType' => 'ApplicationSourceType',
         'applicationTemplateId' => 'ApplicationTemplateId',
@@ -138,6 +144,10 @@ class applications extends Model
 
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->applicationIdentityType) {
+            $res['ApplicationIdentityType'] = $this->applicationIdentityType;
         }
 
         if (null !== $this->applicationName) {
@@ -225,6 +235,10 @@ class applications extends Model
 
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ApplicationIdentityType'])) {
+            $model->applicationIdentityType = $map['ApplicationIdentityType'];
         }
 
         if (isset($map['ApplicationName'])) {

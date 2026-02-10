@@ -694,7 +694,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 在当前应用下给指定员工添加一个应用账号.
+     * 在当前应用下给指定员工添加一个应用账号。
      *
      * @param request - AddApplicationAccountToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -745,7 +745,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 在当前应用下给指定员工添加一个应用账号.
+     * 在当前应用下给指定员工添加一个应用账号。
      *
      * @param request - AddApplicationAccountToUserRequest
      *
@@ -1889,7 +1889,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 实例删除检查.
+     * 实例删除检查。
      *
      * @param request - CheckInstanceForDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1928,7 +1928,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 实例删除检查.
+     * 实例删除检查。
      *
      * @param request - CheckInstanceForDeleteRequest
      *
@@ -2034,6 +2034,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->applicationIdentityType) {
+            @$query['ApplicationIdentityType'] = $request->applicationIdentityType;
+        }
+
         if (null !== $request->applicationName) {
             @$query['ApplicationName'] = $request->applicationName;
         }
@@ -5333,7 +5337,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+     * Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
      *
      * @remarks
      * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
@@ -5375,7 +5379,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+     * Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
      *
      * @remarks
      * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
@@ -5579,7 +5583,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it.
+     * Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
      *
      * @param request - DeleteOrganizationalUnitChildrenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5622,7 +5626,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it.
+     * Deletes information about an organization and forcefully deletes all accounts and sub-organizations in the organization.
      *
      * @param request - DeleteOrganizationalUnitChildrenRequest
      *
@@ -6211,7 +6215,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - DisableApplicationProvisioningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6254,7 +6258,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - DisableApplicationProvisioningRequest
      *
@@ -7585,7 +7589,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - EnableApplicationClientSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7632,7 +7636,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Enables the client key of an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - EnableApplicationClientSecretRequest
      *
@@ -7776,7 +7780,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - EnableApplicationProvisioningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7819,7 +7823,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - EnableApplicationProvisioningRequest
      *
@@ -12094,7 +12098,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - GetRootOrganizationalUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12133,7 +12137,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - GetRootOrganizationalUnitRequest
      *
@@ -12817,7 +12821,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 应用支持账户同步类型列表.
+     * Queries the synchronization protocol types that are supported by an application.
      *
      * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12860,7 +12864,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 应用支持账户同步类型列表.
+     * Queries the synchronization protocol types that are supported by an application.
      *
      * @param request - ListApplicationSupportedProvisionProtocolTypesRequest
      *
@@ -12961,6 +12965,10 @@ class Eiam extends OpenApiClient
         $query = [];
         if (null !== $request->applicationCreationType) {
             @$query['ApplicationCreationType'] = $request->applicationCreationType;
+        }
+
+        if (null !== $request->applicationIdentityType) {
+            @$query['ApplicationIdentityType'] = $request->applicationIdentityType;
         }
 
         if (null !== $request->applicationIds) {
@@ -14969,7 +14977,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+     * Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
      *
      * @param request - ListGroupsForApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15028,7 +15036,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+     * Queries the account groups that are granted permissions to access an application and displays the results by page. The IDs of the account groups are returned. To query the detailed information about the account groups, call the GetGroup operation.
      *
      * @param request - ListGroupsForApplicationRequest
      *
@@ -15153,6 +15161,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceServerScopeId) {
+            @$query['ResourceServerScopeId'] = $request->resourceServerScopeId;
         }
 
         $req = new OpenApiRequest([
@@ -15399,7 +15411,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+     * Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15450,7 +15462,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+     * Queries the information about one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
      *
      * @param request - ListInstancesRequest
      *
@@ -15512,7 +15524,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 获取支持NAE的可用区列表.
+     * Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - ListNetworkAccessEndpointAvailableZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15551,7 +15563,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 获取支持NAE的可用区列表.
+     * Queries the zones that support dedicated network endpoints in the specified region of Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
      * @param request - ListNetworkAccessEndpointAvailableZonesRequest
      *
@@ -15569,7 +15581,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 列表查询专属网络端点。
+     * List query dedicated network endpoint.
      *
      * @param request - ListNetworkAccessEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15632,7 +15644,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 列表查询专属网络端点。
+     * List query dedicated network endpoint.
      *
      * @param request - ListNetworkAccessEndpointsRequest
      *
@@ -16039,6 +16051,10 @@ class Eiam extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->resourceServerScopeId) {
+            @$query['ResourceServerScopeId'] = $request->resourceServerScopeId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -16076,7 +16092,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the supported Alibaba Cloud regions.
+     * Queries a list of supported Alibaba Cloud regions.
      *
      * @param request - ListRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16106,7 +16122,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the supported Alibaba Cloud regions.
+     * Queries a list of supported Alibaba Cloud regions.
      *
      * @returns ListRegionsResponse
      *
@@ -16193,7 +16209,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 查询同步任务
+     * Queries a list of synchronization jobs.
      *
      * @param request - ListSynchronizationJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16276,7 +16292,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 查询同步任务
+     * Queries a list of synchronization jobs.
      *
      * @param request - ListSynchronizationJobsRequest
      *
@@ -16741,6 +16757,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceServerScopeId) {
+            @$query['ResourceServerScopeId'] = $request->resourceServerScopeId;
         }
 
         $req = new OpenApiRequest([
