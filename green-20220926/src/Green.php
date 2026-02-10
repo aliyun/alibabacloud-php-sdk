@@ -1120,7 +1120,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 在线测试.
+     * Online Test.
      *
      * @param request - CreateOnlineTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1171,7 +1171,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 在线测试.
+     * Online Test.
      *
      * @param request - CreateOnlineTestRequest
      *
@@ -1771,7 +1771,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除在线测试接口.
+     * Delete online test.
      *
      * @param request - DeleteOnlineTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1814,7 +1814,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除在线测试接口.
+     * Delete online test.
      *
      * @param request - DeleteOnlineTestRequest
      *
@@ -2757,7 +2757,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用量.
+     * Query Call Volume.
      *
      * @param request - GetCipStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2773,6 +2773,10 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2830,7 +2834,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用量.
+     * Query Call Volume.
      *
      * @param request - GetCipStatsRequest
      *
@@ -5041,16 +5045,17 @@ class Green extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield LlmStreamChatResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield LlmStreamChatResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -5272,7 +5277,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 保存特性配置.
+     * Save Feature Configuration.
      *
      * @param request - ModifyFeatureConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5337,7 +5342,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 保存特性配置.
+     * Save Feature Configuration.
      *
      * @param request - ModifyFeatureConfigRequest
      *
@@ -5430,7 +5435,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss扫描结果查询.
+     * OSS scan result query.
      *
      * @param tmpReq - OssCheckResultListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5507,7 +5512,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss扫描结果查询.
+     * OSS scan result query.
      *
      * @param request - OssCheckResultListRequest
      *
