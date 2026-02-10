@@ -27,17 +27,38 @@ class OneMetaTableIndex extends Model
      * @var string
      */
     public $indexType;
+
+    /**
+     * @var bool
+     */
+    public $primary;
+
+    /**
+     * @var string[]
+     */
+    public $realColumnNames;
+
+    /**
+     * @var bool
+     */
+    public $unique;
     protected $_name = [
         'columnNames' => 'ColumnNames',
         'description' => 'Description',
         'indexName' => 'IndexName',
         'indexType' => 'IndexType',
+        'primary' => 'Primary',
+        'realColumnNames' => 'RealColumnNames',
+        'unique' => 'Unique',
     ];
 
     public function validate()
     {
         if (\is_array($this->columnNames)) {
             Model::validateArray($this->columnNames);
+        }
+        if (\is_array($this->realColumnNames)) {
+            Model::validateArray($this->realColumnNames);
         }
         parent::validate();
     }
@@ -66,6 +87,25 @@ class OneMetaTableIndex extends Model
 
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
+        }
+
+        if (null !== $this->primary) {
+            $res['Primary'] = $this->primary;
+        }
+
+        if (null !== $this->realColumnNames) {
+            if (\is_array($this->realColumnNames)) {
+                $res['RealColumnNames'] = [];
+                $n1 = 0;
+                foreach ($this->realColumnNames as $item1) {
+                    $res['RealColumnNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->unique) {
+            $res['Unique'] = $this->unique;
         }
 
         return $res;
@@ -100,6 +140,25 @@ class OneMetaTableIndex extends Model
 
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
+        }
+
+        if (isset($map['Primary'])) {
+            $model->primary = $map['Primary'];
+        }
+
+        if (isset($map['RealColumnNames'])) {
+            if (!empty($map['RealColumnNames'])) {
+                $model->realColumnNames = [];
+                $n1 = 0;
+                foreach ($map['RealColumnNames'] as $item1) {
+                    $model->realColumnNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Unique'])) {
+            $model->unique = $map['Unique'];
         }
 
         return $model;

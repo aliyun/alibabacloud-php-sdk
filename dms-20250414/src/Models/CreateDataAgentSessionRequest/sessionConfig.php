@@ -26,6 +26,16 @@ class sessionConfig extends Model
     /**
      * @var string
      */
+    public $encryptKey;
+
+    /**
+     * @var string
+     */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -39,6 +49,16 @@ class sessionConfig extends Model
     public $mode;
 
     /**
+     * @var int
+     */
+    public $reportPageWidth;
+
+    /**
+     * @var string
+     */
+    public $reportWaterMark;
+
+    /**
      * @var string
      */
     public $userOssBucket;
@@ -46,9 +66,13 @@ class sessionConfig extends Model
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
         'enableSearch' => 'EnableSearch',
+        'encryptKey' => 'EncryptKey',
+        'encryptType' => 'EncryptType',
         'language' => 'Language',
         'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
+        'reportPageWidth' => 'ReportPageWidth',
+        'reportWaterMark' => 'ReportWaterMark',
         'userOssBucket' => 'UserOssBucket',
     ];
 
@@ -75,6 +99,14 @@ class sessionConfig extends Model
             $res['EnableSearch'] = $this->enableSearch;
         }
 
+        if (null !== $this->encryptKey) {
+            $res['EncryptKey'] = $this->encryptKey;
+        }
+
+        if (null !== $this->encryptType) {
+            $res['EncryptType'] = $this->encryptType;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -92,6 +124,14 @@ class sessionConfig extends Model
 
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->reportPageWidth) {
+            $res['ReportPageWidth'] = $this->reportPageWidth;
+        }
+
+        if (null !== $this->reportWaterMark) {
+            $res['ReportWaterMark'] = $this->reportWaterMark;
         }
 
         if (null !== $this->userOssBucket) {
@@ -121,6 +161,14 @@ class sessionConfig extends Model
             $model->enableSearch = $map['EnableSearch'];
         }
 
+        if (isset($map['EncryptKey'])) {
+            $model->encryptKey = $map['EncryptKey'];
+        }
+
+        if (isset($map['EncryptType'])) {
+            $model->encryptType = $map['EncryptType'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
@@ -138,6 +186,14 @@ class sessionConfig extends Model
 
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['ReportPageWidth'])) {
+            $model->reportPageWidth = $map['ReportPageWidth'];
+        }
+
+        if (isset($map['ReportWaterMark'])) {
+            $model->reportWaterMark = $map['ReportWaterMark'];
         }
 
         if (isset($map['UserOssBucket'])) {

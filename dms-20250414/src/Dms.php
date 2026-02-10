@@ -2027,16 +2027,17 @@ class Dms extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield GetChatContentResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield GetChatContentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
