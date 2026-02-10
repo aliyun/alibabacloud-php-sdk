@@ -47,6 +47,11 @@ class DescribeImageSensitiveFileListRequest extends Model
      * @var string[]
      */
     public $scanRange;
+
+    /**
+     * @var string[]
+     */
+    public $sensitiveKeyList;
     protected $_name = [
         'criteria' => 'Criteria',
         'criteriaType' => 'CriteriaType',
@@ -56,12 +61,16 @@ class DescribeImageSensitiveFileListRequest extends Model
         'pageSize' => 'PageSize',
         'riskLevel' => 'RiskLevel',
         'scanRange' => 'ScanRange',
+        'sensitiveKeyList' => 'SensitiveKeyList',
     ];
 
     public function validate()
     {
         if (\is_array($this->scanRange)) {
             Model::validateArray($this->scanRange);
+        }
+        if (\is_array($this->sensitiveKeyList)) {
+            Model::validateArray($this->sensitiveKeyList);
         }
         parent::validate();
     }
@@ -103,6 +112,17 @@ class DescribeImageSensitiveFileListRequest extends Model
                 $n1 = 0;
                 foreach ($this->scanRange as $item1) {
                     $res['ScanRange'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->sensitiveKeyList) {
+            if (\is_array($this->sensitiveKeyList)) {
+                $res['SensitiveKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->sensitiveKeyList as $item1) {
+                    $res['SensitiveKeyList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -153,6 +173,17 @@ class DescribeImageSensitiveFileListRequest extends Model
                 $n1 = 0;
                 foreach ($map['ScanRange'] as $item1) {
                     $model->scanRange[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['SensitiveKeyList'])) {
+            if (!empty($map['SensitiveKeyList'])) {
+                $model->sensitiveKeyList = [];
+                $n1 = 0;
+                foreach ($map['SensitiveKeyList'] as $item1) {
+                    $model->sensitiveKeyList[$n1] = $item1;
                     ++$n1;
                 }
             }

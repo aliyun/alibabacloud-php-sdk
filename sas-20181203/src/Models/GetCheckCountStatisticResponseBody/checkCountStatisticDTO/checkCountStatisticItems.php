@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class checkCountStatisticItems extends Model
 {
     /**
+     * @var string
+     */
+    public $checkShowName;
+
+    /**
      * @var int
      */
     public $cores;
@@ -81,8 +86,14 @@ class checkCountStatisticItems extends Model
     /**
      * @var string
      */
+    public $vendorShowName;
+
+    /**
+     * @var string
+     */
     public $vpcInstanceId;
     protected $_name = [
+        'checkShowName' => 'CheckShowName',
         'cores' => 'Cores',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -97,6 +108,7 @@ class checkCountStatisticItems extends Model
         'riskCount' => 'RiskCount',
         'uuid' => 'Uuid',
         'vendor' => 'Vendor',
+        'vendorShowName' => 'VendorShowName',
         'vpcInstanceId' => 'VpcInstanceId',
     ];
 
@@ -108,6 +120,10 @@ class checkCountStatisticItems extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->checkShowName) {
+            $res['CheckShowName'] = $this->checkShowName;
+        }
+
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
@@ -164,6 +180,10 @@ class checkCountStatisticItems extends Model
             $res['Vendor'] = $this->vendor;
         }
 
+        if (null !== $this->vendorShowName) {
+            $res['VendorShowName'] = $this->vendorShowName;
+        }
+
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
@@ -179,6 +199,10 @@ class checkCountStatisticItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckShowName'])) {
+            $model->checkShowName = $map['CheckShowName'];
+        }
+
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
@@ -233,6 +257,10 @@ class checkCountStatisticItems extends Model
 
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
+        }
+
+        if (isset($map['VendorShowName'])) {
+            $model->vendorShowName = $map['VendorShowName'];
         }
 
         if (isset($map['VpcInstanceId'])) {

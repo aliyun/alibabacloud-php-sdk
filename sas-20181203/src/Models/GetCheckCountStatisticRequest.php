@@ -11,6 +11,11 @@ class GetCheckCountStatisticRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $statisticType;
 
     /**
@@ -23,6 +28,7 @@ class GetCheckCountStatisticRequest extends Model
      */
     public $vendors;
     protected $_name = [
+        'lang' => 'Lang',
         'statisticType' => 'StatisticType',
         'taskSources' => 'TaskSources',
         'vendors' => 'Vendors',
@@ -42,6 +48,10 @@ class GetCheckCountStatisticRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+
         if (null !== $this->statisticType) {
             $res['StatisticType'] = $this->statisticType;
         }
@@ -79,6 +89,10 @@ class GetCheckCountStatisticRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+
         if (isset($map['StatisticType'])) {
             $model->statisticType = $map['StatisticType'];
         }

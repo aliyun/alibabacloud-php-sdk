@@ -23612,6 +23612,10 @@ class Sas extends OpenApiClient
             @$query['ScanRange'] = $request->scanRangeShrink;
         }
 
+        if (null !== $request->sensitiveKeyList) {
+            @$query['SensitiveKeyList'] = $request->sensitiveKeyList;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -26090,6 +26094,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->scaVersion) {
             @$query['ScaVersion'] = $request->scaVersion;
+        }
+
+        if (null !== $request->searchCriteriaList) {
+            @$query['SearchCriteriaList'] = $request->searchCriteriaList;
         }
 
         if (null !== $request->searchInfo) {
@@ -35078,6 +35086,10 @@ class Sas extends OpenApiClient
             @$query['VpcInstanceIds'] = $request->vpcInstanceIds;
         }
 
+        if (null !== $request->vulEntityList) {
+            @$query['VulEntityList'] = $request->vulEntityList;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -37110,6 +37122,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
         if (null !== $request->statisticType) {
             @$query['StatisticType'] = $request->statisticType;
         }

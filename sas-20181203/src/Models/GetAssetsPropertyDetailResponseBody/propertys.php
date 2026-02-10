@@ -51,6 +51,11 @@ class propertys extends Model
     /**
      * @var string
      */
+    public $imageDigest;
+
+    /**
+     * @var string
+     */
     public $imageName;
 
     /**
@@ -146,6 +151,16 @@ class propertys extends Model
     /**
      * @var string
      */
+    public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoNamespace;
+
+    /**
+     * @var string
+     */
     public $serverType;
 
     /**
@@ -157,6 +172,11 @@ class propertys extends Model
      * @var string
      */
     public $skillsName;
+
+    /**
+     * @var string
+     */
+    public $tag;
 
     /**
      * @var string
@@ -191,6 +211,7 @@ class propertys extends Model
         'endPoint' => 'EndPoint',
         'file' => 'File',
         'filepath' => 'Filepath',
+        'imageDigest' => 'ImageDigest',
         'imageName' => 'ImageName',
         'installationPath' => 'InstallationPath',
         'instanceId' => 'InstanceId',
@@ -210,9 +231,12 @@ class propertys extends Model
         'port' => 'Port',
         'processStarted' => 'ProcessStarted',
         'regionId' => 'RegionId',
+        'repoName' => 'RepoName',
+        'repoNamespace' => 'RepoNamespace',
         'serverType' => 'ServerType',
         'size' => 'Size',
         'skillsName' => 'SkillsName',
+        'tag' => 'Tag',
         'transportName' => 'TransportName',
         'usedByCount' => 'UsedByCount',
         'user' => 'User',
@@ -258,6 +282,10 @@ class propertys extends Model
 
         if (null !== $this->filepath) {
             $res['Filepath'] = $this->filepath;
+        }
+
+        if (null !== $this->imageDigest) {
+            $res['ImageDigest'] = $this->imageDigest;
         }
 
         if (null !== $this->imageName) {
@@ -336,6 +364,14 @@ class propertys extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+
+        if (null !== $this->repoNamespace) {
+            $res['RepoNamespace'] = $this->repoNamespace;
+        }
+
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
         }
@@ -346,6 +382,10 @@ class propertys extends Model
 
         if (null !== $this->skillsName) {
             $res['SkillsName'] = $this->skillsName;
+        }
+
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         if (null !== $this->transportName) {
@@ -409,6 +449,10 @@ class propertys extends Model
 
         if (isset($map['Filepath'])) {
             $model->filepath = $map['Filepath'];
+        }
+
+        if (isset($map['ImageDigest'])) {
+            $model->imageDigest = $map['ImageDigest'];
         }
 
         if (isset($map['ImageName'])) {
@@ -487,6 +531,14 @@ class propertys extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+
+        if (isset($map['RepoNamespace'])) {
+            $model->repoNamespace = $map['RepoNamespace'];
+        }
+
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];
         }
@@ -497,6 +549,10 @@ class propertys extends Model
 
         if (isset($map['SkillsName'])) {
             $model->skillsName = $map['SkillsName'];
+        }
+
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         if (isset($map['TransportName'])) {

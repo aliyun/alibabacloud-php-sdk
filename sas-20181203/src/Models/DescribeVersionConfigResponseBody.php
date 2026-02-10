@@ -79,6 +79,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $intelligentAnalysisFlow;
+
+    /**
      * @var bool
      */
     public $isNewContainerVersion;
@@ -132,6 +137,11 @@ class DescribeVersionConfigResponseBody extends Model
      * @var int
      */
     public $newThreatAnalysis;
+
+    /**
+     * @var int
+     */
+    public $onboardedAssets;
 
     /**
      * @var int
@@ -252,6 +262,7 @@ class DescribeVersionConfigResponseBody extends Model
         'imageScanCapacity' => 'ImageScanCapacity',
         'instanceBuyType' => 'InstanceBuyType',
         'instanceId' => 'InstanceId',
+        'intelligentAnalysisFlow' => 'IntelligentAnalysisFlow',
         'isNewContainerVersion' => 'IsNewContainerVersion',
         'isNewMultiVersion' => 'IsNewMultiVersion',
         'isOverBalance' => 'IsOverBalance',
@@ -263,6 +274,7 @@ class DescribeVersionConfigResponseBody extends Model
         'mergedVersion' => 'MergedVersion',
         'multiVersion' => 'MultiVersion',
         'newThreatAnalysis' => 'NewThreatAnalysis',
+        'onboardedAssets' => 'OnboardedAssets',
         'openTime' => 'OpenTime',
         'postPayHostVersion' => 'PostPayHostVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
@@ -350,6 +362,10 @@ class DescribeVersionConfigResponseBody extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->intelligentAnalysisFlow) {
+            $res['IntelligentAnalysisFlow'] = $this->intelligentAnalysisFlow;
+        }
+
         if (null !== $this->isNewContainerVersion) {
             $res['IsNewContainerVersion'] = $this->isNewContainerVersion;
         }
@@ -392,6 +408,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->newThreatAnalysis) {
             $res['NewThreatAnalysis'] = $this->newThreatAnalysis;
+        }
+
+        if (null !== $this->onboardedAssets) {
+            $res['OnboardedAssets'] = $this->onboardedAssets;
         }
 
         if (null !== $this->openTime) {
@@ -545,6 +565,10 @@ class DescribeVersionConfigResponseBody extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['IntelligentAnalysisFlow'])) {
+            $model->intelligentAnalysisFlow = $map['IntelligentAnalysisFlow'];
+        }
+
         if (isset($map['IsNewContainerVersion'])) {
             $model->isNewContainerVersion = $map['IsNewContainerVersion'];
         }
@@ -587,6 +611,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['NewThreatAnalysis'])) {
             $model->newThreatAnalysis = $map['NewThreatAnalysis'];
+        }
+
+        if (isset($map['OnboardedAssets'])) {
+            $model->onboardedAssets = $map['OnboardedAssets'];
         }
 
         if (isset($map['OpenTime'])) {

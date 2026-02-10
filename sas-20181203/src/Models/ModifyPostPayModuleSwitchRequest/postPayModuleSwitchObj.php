@@ -16,6 +16,11 @@ class postPayModuleSwitchObj extends Model
     /**
      * @var int
      */
+    public $aiDigital;
+
+    /**
+     * @var int
+     */
     public $antiRansomware;
 
     /**
@@ -69,6 +74,7 @@ class postPayModuleSwitchObj extends Model
     public $webLock;
     protected $_name = [
         'agentless' => 'Agentless',
+        'aiDigital' => 'AiDigital',
         'antiRansomware' => 'AntiRansomware',
         'basicService' => 'BasicService',
         'cspm' => 'Cspm',
@@ -92,6 +98,10 @@ class postPayModuleSwitchObj extends Model
         $res = [];
         if (null !== $this->agentless) {
             $res['Agentless'] = $this->agentless;
+        }
+
+        if (null !== $this->aiDigital) {
+            $res['AiDigital'] = $this->aiDigital;
         }
 
         if (null !== $this->antiRansomware) {
@@ -151,6 +161,10 @@ class postPayModuleSwitchObj extends Model
         $model = new self();
         if (isset($map['Agentless'])) {
             $model->agentless = $map['Agentless'];
+        }
+
+        if (isset($map['AiDigital'])) {
+            $model->aiDigital = $map['AiDigital'];
         }
 
         if (isset($map['AntiRansomware'])) {

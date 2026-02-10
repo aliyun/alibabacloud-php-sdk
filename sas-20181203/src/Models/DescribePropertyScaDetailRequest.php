@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyScaDetailRequest\searchCriteriaList;
 
 class DescribePropertyScaDetailRequest extends Model
 {
@@ -84,6 +85,11 @@ class DescribePropertyScaDetailRequest extends Model
     public $scaVersion;
 
     /**
+     * @var searchCriteriaList[]
+     */
+    public $searchCriteriaList;
+
+    /**
      * @var string
      */
     public $searchInfo;
@@ -133,6 +139,7 @@ class DescribePropertyScaDetailRequest extends Model
         'scaName' => 'ScaName',
         'scaNamePattern' => 'ScaNamePattern',
         'scaVersion' => 'ScaVersion',
+        'searchCriteriaList' => 'SearchCriteriaList',
         'searchInfo' => 'SearchInfo',
         'searchInfoSub' => 'SearchInfoSub',
         'searchItem' => 'SearchItem',
@@ -144,6 +151,9 @@ class DescribePropertyScaDetailRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->searchCriteriaList)) {
+            Model::validateArray($this->searchCriteriaList);
+        }
         parent::validate();
     }
 
@@ -208,6 +218,17 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (null !== $this->scaVersion) {
             $res['ScaVersion'] = $this->scaVersion;
+        }
+
+        if (null !== $this->searchCriteriaList) {
+            if (\is_array($this->searchCriteriaList)) {
+                $res['SearchCriteriaList'] = [];
+                $n1 = 0;
+                foreach ($this->searchCriteriaList as $item1) {
+                    $res['SearchCriteriaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->searchInfo) {
@@ -307,6 +328,17 @@ class DescribePropertyScaDetailRequest extends Model
 
         if (isset($map['ScaVersion'])) {
             $model->scaVersion = $map['ScaVersion'];
+        }
+
+        if (isset($map['SearchCriteriaList'])) {
+            if (!empty($map['SearchCriteriaList'])) {
+                $model->searchCriteriaList = [];
+                $n1 = 0;
+                foreach ($map['SearchCriteriaList'] as $item1) {
+                    $model->searchCriteriaList[$n1] = searchCriteriaList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SearchInfo'])) {

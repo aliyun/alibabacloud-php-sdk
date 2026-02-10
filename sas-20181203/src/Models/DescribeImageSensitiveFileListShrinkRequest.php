@@ -47,6 +47,11 @@ class DescribeImageSensitiveFileListShrinkRequest extends Model
      * @var string
      */
     public $scanRangeShrink;
+
+    /**
+     * @var string[]
+     */
+    public $sensitiveKeyList;
     protected $_name = [
         'criteria' => 'Criteria',
         'criteriaType' => 'CriteriaType',
@@ -56,10 +61,14 @@ class DescribeImageSensitiveFileListShrinkRequest extends Model
         'pageSize' => 'PageSize',
         'riskLevel' => 'RiskLevel',
         'scanRangeShrink' => 'ScanRange',
+        'sensitiveKeyList' => 'SensitiveKeyList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->sensitiveKeyList)) {
+            Model::validateArray($this->sensitiveKeyList);
+        }
         parent::validate();
     }
 
@@ -96,6 +105,17 @@ class DescribeImageSensitiveFileListShrinkRequest extends Model
 
         if (null !== $this->scanRangeShrink) {
             $res['ScanRange'] = $this->scanRangeShrink;
+        }
+
+        if (null !== $this->sensitiveKeyList) {
+            if (\is_array($this->sensitiveKeyList)) {
+                $res['SensitiveKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->sensitiveKeyList as $item1) {
+                    $res['SensitiveKeyList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -139,6 +159,17 @@ class DescribeImageSensitiveFileListShrinkRequest extends Model
 
         if (isset($map['ScanRange'])) {
             $model->scanRangeShrink = $map['ScanRange'];
+        }
+
+        if (isset($map['SensitiveKeyList'])) {
+            if (!empty($map['SensitiveKeyList'])) {
+                $model->sensitiveKeyList = [];
+                $n1 = 0;
+                foreach ($map['SensitiveKeyList'] as $item1) {
+                    $model->sensitiveKeyList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

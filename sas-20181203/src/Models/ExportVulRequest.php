@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ExportVulRequest\vulEntityList;
 
 class ExportVulRequest extends Model
 {
@@ -92,6 +93,11 @@ class ExportVulRequest extends Model
      * @var string
      */
     public $vpcInstanceIds;
+
+    /**
+     * @var vulEntityList[]
+     */
+    public $vulEntityList;
     protected $_name = [
         'aliasName' => 'AliasName',
         'attachTypes' => 'AttachTypes',
@@ -110,10 +116,14 @@ class ExportVulRequest extends Model
         'type' => 'Type',
         'uuids' => 'Uuids',
         'vpcInstanceIds' => 'VpcInstanceIds',
+        'vulEntityList' => 'VulEntityList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vulEntityList)) {
+            Model::validateArray($this->vulEntityList);
+        }
         parent::validate();
     }
 
@@ -186,6 +196,17 @@ class ExportVulRequest extends Model
 
         if (null !== $this->vpcInstanceIds) {
             $res['VpcInstanceIds'] = $this->vpcInstanceIds;
+        }
+
+        if (null !== $this->vulEntityList) {
+            if (\is_array($this->vulEntityList)) {
+                $res['VulEntityList'] = [];
+                $n1 = 0;
+                foreach ($this->vulEntityList as $item1) {
+                    $res['VulEntityList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -265,6 +286,17 @@ class ExportVulRequest extends Model
 
         if (isset($map['VpcInstanceIds'])) {
             $model->vpcInstanceIds = $map['VpcInstanceIds'];
+        }
+
+        if (isset($map['VulEntityList'])) {
+            if (!empty($map['VulEntityList'])) {
+                $model->vulEntityList = [];
+                $n1 = 0;
+                foreach ($map['VulEntityList'] as $item1) {
+                    $model->vulEntityList[$n1] = vulEntityList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
