@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponseBody\data\asrResult;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponseBody\data\usage;
 
 class data extends Model
 {
@@ -18,6 +19,21 @@ class data extends Model
      * @var string
      */
     public $extra;
+
+    /**
+     * @var string
+     */
+    public $ragErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $ragResult;
+
+    /**
+     * @var string
+     */
+    public $ragStatus;
 
     /**
      * @var string
@@ -38,19 +54,31 @@ class data extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var usage
+     */
+    public $usage;
     protected $_name = [
         'asrResult' => 'asrResult',
         'extra' => 'extra',
+        'ragErrorMessage' => 'ragErrorMessage',
+        'ragResult' => 'ragResult',
+        'ragStatus' => 'ragStatus',
         'taskErrorMessage' => 'taskErrorMessage',
         'taskId' => 'taskId',
         'taskStatus' => 'taskStatus',
         'text' => 'text',
+        'usage' => 'usage',
     ];
 
     public function validate()
     {
         if (\is_array($this->asrResult)) {
             Model::validateArray($this->asrResult);
+        }
+        if (null !== $this->usage) {
+            $this->usage->validate();
         }
         parent::validate();
     }
@@ -73,6 +101,18 @@ class data extends Model
             $res['extra'] = $this->extra;
         }
 
+        if (null !== $this->ragErrorMessage) {
+            $res['ragErrorMessage'] = $this->ragErrorMessage;
+        }
+
+        if (null !== $this->ragResult) {
+            $res['ragResult'] = $this->ragResult;
+        }
+
+        if (null !== $this->ragStatus) {
+            $res['ragStatus'] = $this->ragStatus;
+        }
+
         if (null !== $this->taskErrorMessage) {
             $res['taskErrorMessage'] = $this->taskErrorMessage;
         }
@@ -87,6 +127,10 @@ class data extends Model
 
         if (null !== $this->text) {
             $res['text'] = $this->text;
+        }
+
+        if (null !== $this->usage) {
+            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
@@ -115,6 +159,18 @@ class data extends Model
             $model->extra = $map['extra'];
         }
 
+        if (isset($map['ragErrorMessage'])) {
+            $model->ragErrorMessage = $map['ragErrorMessage'];
+        }
+
+        if (isset($map['ragResult'])) {
+            $model->ragResult = $map['ragResult'];
+        }
+
+        if (isset($map['ragStatus'])) {
+            $model->ragStatus = $map['ragStatus'];
+        }
+
         if (isset($map['taskErrorMessage'])) {
             $model->taskErrorMessage = $map['taskErrorMessage'];
         }
@@ -129,6 +185,10 @@ class data extends Model
 
         if (isset($map['text'])) {
             $model->text = $map['text'];
+        }
+
+        if (isset($map['usage'])) {
+            $model->usage = usage::fromMap($map['usage']);
         }
 
         return $model;

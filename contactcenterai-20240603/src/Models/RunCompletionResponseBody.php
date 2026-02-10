@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionResponseBody\usage;
 
 class RunCompletionResponseBody extends Model
 {
@@ -36,18 +37,33 @@ class RunCompletionResponseBody extends Model
     /**
      * @var string
      */
+    public $ragStatus;
+
+    /**
+     * @var string
+     */
     public $totalTokens;
+
+    /**
+     * @var usage
+     */
+    public $usage;
     protected $_name = [
         'finishReason' => 'FinishReason',
         'requestId' => 'RequestId',
         'text' => 'Text',
         'inputTokens' => 'inputTokens',
         'outputTokens' => 'outputTokens',
+        'ragStatus' => 'ragStatus',
         'totalTokens' => 'totalTokens',
+        'usage' => 'usage',
     ];
 
     public function validate()
     {
+        if (null !== $this->usage) {
+            $this->usage->validate();
+        }
         parent::validate();
     }
 
@@ -74,8 +90,16 @@ class RunCompletionResponseBody extends Model
             $res['outputTokens'] = $this->outputTokens;
         }
 
+        if (null !== $this->ragStatus) {
+            $res['ragStatus'] = $this->ragStatus;
+        }
+
         if (null !== $this->totalTokens) {
             $res['totalTokens'] = $this->totalTokens;
+        }
+
+        if (null !== $this->usage) {
+            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
@@ -109,8 +133,16 @@ class RunCompletionResponseBody extends Model
             $model->outputTokens = $map['outputTokens'];
         }
 
+        if (isset($map['ragStatus'])) {
+            $model->ragStatus = $map['ragStatus'];
+        }
+
         if (isset($map['totalTokens'])) {
             $model->totalTokens = $map['totalTokens'];
+        }
+
+        if (isset($map['usage'])) {
+            $model->usage = usage::fromMap($map['usage']);
         }
 
         return $model;
