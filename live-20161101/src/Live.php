@@ -528,6 +528,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\DescribeMixStreamListRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeMixStreamListResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudRecordingFilesRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudRecordingFilesResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudTranscodeRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudTranscodeResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcMPUEventSubRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcMPUEventSubResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRTSNativeSDKFirstFrameCostRequest;
@@ -806,6 +808,9 @@ use AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingShrinkRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudTranscodeRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudTranscodeResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudTranscodeShrinkRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopCasterRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopCasterResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopCasterSceneRequest;
@@ -826,6 +831,8 @@ use AlibabaCloud\SDK\Live\V20161101\Models\StopRtcAsrTaskRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopRtcAsrTaskResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopRtcCloudRecordingRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\StopRtcCloudRecordingResponse;
+use AlibabaCloud\SDK\Live\V20161101\Models\StopRtcCloudTranscodeRequest;
+use AlibabaCloud\SDK\Live\V20161101\Models\StopRtcCloudTranscodeResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\TagLiveResourcesRequest;
 use AlibabaCloud\SDK\Live\V20161101\Models\TagLiveResourcesResponse;
 use AlibabaCloud\SDK\Live\V20161101\Models\UnbanLiveMessageGroupRequest;
@@ -4848,7 +4855,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 根据一个或多个用户uid查询用户是否在线
+     * Queries whether users are online by UID.
      *
      * @remarks
      * ## Usage notes
@@ -4901,7 +4908,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 根据一个或多个用户uid查询用户是否在线
+     * Queries whether users are online by UID.
      *
      * @remarks
      * ## Usage notes
@@ -7313,7 +7320,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+     * Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
      *
      * @remarks
      * ### [](#)Usage notes
@@ -7361,7 +7368,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Creates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
+     * Generates a Real-Time Messaging Protocol (RTMP) ingest URL for a channel.
      *
      * @remarks
      * ### [](#)Usage notes
@@ -9978,6 +9985,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 删除直播封装配置.
+     *
      * @remarks
      * You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
      * ## [](#qps-)QPS limit
@@ -10036,6 +10045,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 删除直播封装配置.
+     *
      * @remarks
      * You can call this operation to delete a live stream encapsulation configuration. The deletion takes effect after you re-ingest the stream.
      * ## [](#qps-)QPS limit
@@ -18068,6 +18079,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 查询直播封装配置.
+     *
      * @remarks
      * Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
      * ## [](#qps-)QPS limit
@@ -18138,6 +18151,8 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 查询直播封装配置.
+     *
      * @remarks
      * Obtain the main streaming domain, and then call this operation to query live stream encapsulation configurations.
      * ## [](#qps-)QPS limit
@@ -19432,7 +19447,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Queries the time shifting configurations under a domain name.
+     * Queries the time shifting configurations of a domain name.
      *
      * @remarks
      * This operation is applicable to the streaming domains.
@@ -19484,7 +19499,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Queries the time shifting configurations under a domain name.
+     * Queries the time shifting configurations of a domain name.
      *
      * @remarks
      * This operation is applicable to the streaming domains.
@@ -21645,7 +21660,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Queries the blacklist of live stream URLs under a main streaming domain.
+     * Queries the live streams that are blacklisted under a domain name.
      *
      * @remarks
      * The stream URLs refer to the URLs for playing in particular.
@@ -21705,7 +21720,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Queries the blacklist of live stream URLs under a main streaming domain.
+     * Queries the live streams that are blacklisted under a domain name.
      *
      * @remarks
      * The stream URLs refer to the URLs for playing in particular.
@@ -23729,7 +23744,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 查询rtc云端录制文件与任务信息.
+     * Queries the information about a real-time communication (RTC) cloud-based recording task.
      *
      * @param request - DescribeRtcCloudRecordingFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23768,7 +23783,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 查询rtc云端录制文件与任务信息.
+     * Queries the information about a real-time communication (RTC) cloud-based recording task.
      *
      * @param request - DescribeRtcCloudRecordingFilesRequest
      *
@@ -23783,6 +23798,67 @@ class Live extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRtcCloudRecordingFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云端转码任务
+     *
+     * @param request - DescribeRtcCloudTranscodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRtcCloudTranscodeResponse
+     *
+     * @param DescribeRtcCloudTranscodeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRtcCloudTranscodeResponse
+     */
+    public function describeRtcCloudTranscodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRtcCloudTranscode',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRtcCloudTranscodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云端转码任务
+     *
+     * @param request - DescribeRtcCloudTranscodeRequest
+     *
+     * @returns DescribeRtcCloudTranscodeResponse
+     *
+     * @param DescribeRtcCloudTranscodeRequest $request
+     *
+     * @return DescribeRtcCloudTranscodeResponse
+     */
+    public function describeRtcCloudTranscode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRtcCloudTranscodeWithOptions($request, $runtime);
     }
 
     /**
@@ -29720,7 +29796,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a user.
+     * Modifies the information about one or more users.
      *
      * @param request - ModifyLiveMessageUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29771,7 +29847,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a user.
+     * Modifies the information about one or more users.
      *
      * @param request - ModifyLiveMessageUserInfoRequest
      *
@@ -31099,7 +31175,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Removes a specified episode from an episode list.
+     * Removes an episode from an episode list.
      *
      * @remarks
      * ## [](#)Usage notes
@@ -31164,7 +31240,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Removes a specified episode from an episode list.
+     * Removes an episode from an episode list.
      *
      * @remarks
      * ## [](#)Usage notes
@@ -34406,6 +34482,89 @@ class Live extends OpenApiClient
     }
 
     /**
+     * 创建云端转码任务
+     *
+     * @param tmpReq - StartRtcCloudTranscodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartRtcCloudTranscodeResponse
+     *
+     * @param StartRtcCloudTranscodeRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartRtcCloudTranscodeResponse
+     */
+    public function startRtcCloudTranscodeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new StartRtcCloudTranscodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inputParam) {
+            $request->inputParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inputParam, 'InputParam', 'json');
+        }
+
+        if (null !== $tmpReq->outputParams) {
+            $request->outputParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputParams, 'OutputParams', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->inputParamShrink) {
+            @$query['InputParam'] = $request->inputParamShrink;
+        }
+
+        if (null !== $request->maxIdleTime) {
+            @$query['MaxIdleTime'] = $request->maxIdleTime;
+        }
+
+        if (null !== $request->outputParamsShrink) {
+            @$query['OutputParams'] = $request->outputParamsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartRtcCloudTranscode',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartRtcCloudTranscodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建云端转码任务
+     *
+     * @param request - StartRtcCloudTranscodeRequest
+     *
+     * @returns StartRtcCloudTranscodeResponse
+     *
+     * @param StartRtcCloudTranscodeRequest $request
+     *
+     * @return StartRtcCloudTranscodeResponse
+     */
+    public function startRtcCloudTranscode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startRtcCloudTranscodeWithOptions($request, $runtime);
+    }
+
+    /**
      * Stops a production studio. This stops the PVW and PGM scenes of the production studio.
      *
      * @remarks
@@ -34481,7 +34640,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Stops a specified preview scene.
+     * Stops a specified preview (PVW) scene.
      *
      * @remarks
      * ## Usage note
@@ -34536,7 +34695,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * Stops a specified preview scene.
+     * Stops a specified preview (PVW) scene.
      *
      * @remarks
      * ## Usage note
@@ -35073,7 +35232,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 停止rtc云端录制任务
+     * Stops a real-time communication (RTC) cloud-based recording task.
      *
      * @param request - StopRtcCloudRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35112,7 +35271,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 停止rtc云端录制任务
+     * Stops a real-time communication (RTC) cloud-based recording task.
      *
      * @param request - StopRtcCloudRecordingRequest
      *
@@ -35130,7 +35289,68 @@ class Live extends OpenApiClient
     }
 
     /**
-     * The N tags that you want to add for the resource.
+     * 停止云端转码任务
+     *
+     * @param request - StopRtcCloudTranscodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopRtcCloudTranscodeResponse
+     *
+     * @param StopRtcCloudTranscodeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StopRtcCloudTranscodeResponse
+     */
+    public function stopRtcCloudTranscodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopRtcCloudTranscode',
+            'version' => '2016-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopRtcCloudTranscodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止云端转码任务
+     *
+     * @param request - StopRtcCloudTranscodeRequest
+     *
+     * @returns StopRtcCloudTranscodeResponse
+     *
+     * @param StopRtcCloudTranscodeRequest $request
+     *
+     * @return StopRtcCloudTranscodeResponse
+     */
+    public function stopRtcCloudTranscode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopRtcCloudTranscodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds tags for domain names.
      *
      * @remarks
      * The key of the tag. Valid values of N: **1 to 20**.
@@ -35188,7 +35408,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * The N tags that you want to add for the resource.
+     * Adds tags for domain names.
      *
      * @remarks
      * The key of the tag. Valid values of N: **1 to 20**.
@@ -35209,7 +35429,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 解绑标签.
+     * Deletes tags of domain names.
      *
      * @param request - UnTagLiveResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35268,7 +35488,7 @@ class Live extends OpenApiClient
     }
 
     /**
-     * 解绑标签.
+     * Deletes tags of domain names.
      *
      * @param request - UnTagLiveResourcesRequest
      *
