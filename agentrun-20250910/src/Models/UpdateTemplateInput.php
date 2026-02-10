@@ -39,6 +39,11 @@ class UpdateTemplateInput extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableAgent;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -57,6 +62,11 @@ class UpdateTemplateInput extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var NASConfig
+     */
+    public $nasConfig;
 
     /**
      * @var NetworkConfiguration
@@ -89,10 +99,12 @@ class UpdateTemplateInput extends Model
         'cpu' => 'cpu',
         'credentialConfiguration' => 'credentialConfiguration',
         'description' => 'description',
+        'enableAgent' => 'enableAgent',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'logConfiguration' => 'logConfiguration',
         'memory' => 'memory',
+        'nasConfig' => 'nasConfig',
         'networkConfiguration' => 'networkConfiguration',
         'ossConfiguration' => 'ossConfiguration',
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
@@ -116,6 +128,9 @@ class UpdateTemplateInput extends Model
         }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
+        }
+        if (null !== $this->nasConfig) {
+            $this->nasConfig->validate();
         }
         if (null !== $this->networkConfiguration) {
             $this->networkConfiguration->validate();
@@ -156,6 +171,10 @@ class UpdateTemplateInput extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->enableAgent) {
+            $res['enableAgent'] = $this->enableAgent;
+        }
+
         if (null !== $this->environmentVariables) {
             if (\is_array($this->environmentVariables)) {
                 $res['environmentVariables'] = [];
@@ -175,6 +194,10 @@ class UpdateTemplateInput extends Model
 
         if (null !== $this->memory) {
             $res['memory'] = $this->memory;
+        }
+
+        if (null !== $this->nasConfig) {
+            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
         }
 
         if (null !== $this->networkConfiguration) {
@@ -244,6 +267,10 @@ class UpdateTemplateInput extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['enableAgent'])) {
+            $model->enableAgent = $map['enableAgent'];
+        }
+
         if (isset($map['environmentVariables'])) {
             if (!empty($map['environmentVariables'])) {
                 $model->environmentVariables = [];
@@ -263,6 +290,10 @@ class UpdateTemplateInput extends Model
 
         if (isset($map['memory'])) {
             $model->memory = $map['memory'];
+        }
+
+        if (isset($map['nasConfig'])) {
+            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
         }
 
         if (isset($map['networkConfiguration'])) {

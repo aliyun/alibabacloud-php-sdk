@@ -46,6 +46,11 @@ class Template extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $enableAgent;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -79,6 +84,11 @@ class Template extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var NASConfig
+     */
+    public $nasConfig;
 
     /**
      * @var NetworkConfiguration
@@ -152,6 +162,7 @@ class Template extends Model
         'credentialConfiguration' => 'credentialConfiguration',
         'description' => 'description',
         'diskSize' => 'diskSize',
+        'enableAgent' => 'enableAgent',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'lastUpdatedAt' => 'lastUpdatedAt',
@@ -159,6 +170,7 @@ class Template extends Model
         'mcpOptions' => 'mcpOptions',
         'mcpState' => 'mcpState',
         'memory' => 'memory',
+        'nasConfig' => 'nasConfig',
         'networkConfiguration' => 'networkConfiguration',
         'ossConfiguration' => 'ossConfiguration',
         'resourceName' => 'resourceName',
@@ -193,6 +205,9 @@ class Template extends Model
         }
         if (null !== $this->mcpState) {
             $this->mcpState->validate();
+        }
+        if (null !== $this->nasConfig) {
+            $this->nasConfig->validate();
         }
         if (null !== $this->networkConfiguration) {
             $this->networkConfiguration->validate();
@@ -237,6 +252,10 @@ class Template extends Model
             $res['diskSize'] = $this->diskSize;
         }
 
+        if (null !== $this->enableAgent) {
+            $res['enableAgent'] = $this->enableAgent;
+        }
+
         if (null !== $this->environmentVariables) {
             if (\is_array($this->environmentVariables)) {
                 $res['environmentVariables'] = [];
@@ -268,6 +287,10 @@ class Template extends Model
 
         if (null !== $this->memory) {
             $res['memory'] = $this->memory;
+        }
+
+        if (null !== $this->nasConfig) {
+            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
         }
 
         if (null !== $this->networkConfiguration) {
@@ -373,6 +396,10 @@ class Template extends Model
             $model->diskSize = $map['diskSize'];
         }
 
+        if (isset($map['enableAgent'])) {
+            $model->enableAgent = $map['enableAgent'];
+        }
+
         if (isset($map['environmentVariables'])) {
             if (!empty($map['environmentVariables'])) {
                 $model->environmentVariables = [];
@@ -404,6 +431,10 @@ class Template extends Model
 
         if (isset($map['memory'])) {
             $model->memory = $map['memory'];
+        }
+
+        if (isset($map['nasConfig'])) {
+            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
         }
 
         if (isset($map['networkConfiguration'])) {
