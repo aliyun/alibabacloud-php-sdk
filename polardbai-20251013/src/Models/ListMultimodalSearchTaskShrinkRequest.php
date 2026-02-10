@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PolardbAI\V20251013\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListMultimodalSearchTaskRequest extends Model
+class ListMultimodalSearchTaskShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class ListMultimodalSearchTaskRequest extends Model
     public $DBClusterId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $datasetIds;
+    public $datasetIdsShrink;
 
     /**
      * @var string
@@ -39,7 +39,7 @@ class ListMultimodalSearchTaskRequest extends Model
     public $pageSize;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'datasetIds' => 'DatasetIds',
+        'datasetIdsShrink' => 'DatasetIds',
         'inputField' => 'InputField',
         'modelMode' => 'ModelMode',
         'pageNumber' => 'PageNumber',
@@ -48,9 +48,6 @@ class ListMultimodalSearchTaskRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->datasetIds)) {
-            Model::validateArray($this->datasetIds);
-        }
         parent::validate();
     }
 
@@ -61,15 +58,8 @@ class ListMultimodalSearchTaskRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->datasetIds) {
-            if (\is_array($this->datasetIds)) {
-                $res['DatasetIds'] = [];
-                $n1 = 0;
-                foreach ($this->datasetIds as $item1) {
-                    $res['DatasetIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->datasetIdsShrink) {
+            $res['DatasetIds'] = $this->datasetIdsShrink;
         }
 
         if (null !== $this->inputField) {
@@ -104,14 +94,7 @@ class ListMultimodalSearchTaskRequest extends Model
         }
 
         if (isset($map['DatasetIds'])) {
-            if (!empty($map['DatasetIds'])) {
-                $model->datasetIds = [];
-                $n1 = 0;
-                foreach ($map['DatasetIds'] as $item1) {
-                    $model->datasetIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->datasetIdsShrink = $map['DatasetIds'];
         }
 
         if (isset($map['InputField'])) {

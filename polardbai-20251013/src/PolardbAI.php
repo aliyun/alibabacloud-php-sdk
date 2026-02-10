@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\PolardbAI\V20251013;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\AddOSSMultimodalFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\AddOSSMultimodalFineTuneDatasetResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ChatBIConfigCreateRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ChatBIConfigCreateResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ChatBIConfigDeleteEntryRequest;
@@ -56,13 +58,27 @@ use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalDatasetEmbedding
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalDatasetEmbeddingResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalFineTuneDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalLabelStudioServiceRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalLabelStudioServiceResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalLabelStudioServiceShrinkRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalSearchTaskRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalSearchTaskResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalSearchTaskResultFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalSearchTaskResultFineTuneDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\CreateMultimodalSearchTaskShrinkRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalDatasetResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalEmbeddingRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalEmbeddingResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalFineTuneDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalLabelStudioServiceRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteMultimodalLabelStudioServiceResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteOSSMultimodalFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DeleteOSSMultimodalFineTuneDatasetResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DownloadMultimodalSearchTaskResultMetadataRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\DownloadMultimodalSearchTaskResultMetadataResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\GetUserTokenRequest;
@@ -73,14 +89,24 @@ use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelMode
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelModeResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalEmbeddingModelResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalFineTuneDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalLabelStudioServiceRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalLabelStudioServiceResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchModelRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchModelResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResultRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskResultResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ListMultimodalSearchTaskShrinkRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalFineTuneDatasetRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalFineTuneDatasetResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalLabelStudioServiceWhiteListRequest;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalLabelStudioServiceWhiteListResponse;
+use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UploadOSSMultimodalDatasetRequest;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\UploadOSSMultimodalDatasetResponse;
 use AlibabaCloud\SDK\PolardbAI\V20251013\Models\ValidateDatabaseUserTokenRequest;
@@ -124,6 +150,71 @@ class PolardbAI extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 导入OSS数据集.
+     *
+     * @param request - AddOSSMultimodalFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOSSMultimodalFineTuneDatasetResponse
+     *
+     * @param AddOSSMultimodalFineTuneDatasetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return AddOSSMultimodalFineTuneDatasetResponse
+     */
+    public function addOSSMultimodalFineTuneDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetId) {
+            @$query['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->ossUrl) {
+            @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddOSSMultimodalFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddOSSMultimodalFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入OSS数据集.
+     *
+     * @param request - AddOSSMultimodalFineTuneDatasetRequest
+     *
+     * @returns AddOSSMultimodalFineTuneDatasetResponse
+     *
+     * @param AddOSSMultimodalFineTuneDatasetRequest $request
+     *
+     * @return AddOSSMultimodalFineTuneDatasetResponse
+     */
+    public function addOSSMultimodalFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addOSSMultimodalFineTuneDatasetWithOptions($request, $runtime);
     }
 
     /**
@@ -1612,16 +1703,17 @@ class PolardbAI extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ChatBIPredictSseResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ChatBIPredictSseResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -2183,6 +2275,146 @@ class PolardbAI extends OpenApiClient
     }
 
     /**
+     * 创建多模态微调数据集.
+     *
+     * @param request - CreateMultimodalFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultimodalFineTuneDatasetResponse
+     *
+     * @param CreateMultimodalFineTuneDatasetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateMultimodalFineTuneDatasetResponse
+     */
+    public function createMultimodalFineTuneDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetDescription) {
+            @$query['DatasetDescription'] = $request->datasetDescription;
+        }
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultimodalFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultimodalFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建多模态微调数据集.
+     *
+     * @param request - CreateMultimodalFineTuneDatasetRequest
+     *
+     * @returns CreateMultimodalFineTuneDatasetResponse
+     *
+     * @param CreateMultimodalFineTuneDatasetRequest $request
+     *
+     * @return CreateMultimodalFineTuneDatasetResponse
+     */
+    public function createMultimodalFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMultimodalFineTuneDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 部署打标服务
+     *
+     * @param tmpReq - CreateMultimodalLabelStudioServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultimodalLabelStudioServiceResponse
+     *
+     * @param CreateMultimodalLabelStudioServiceRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateMultimodalLabelStudioServiceResponse
+     */
+    public function createMultimodalLabelStudioServiceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMultimodalLabelStudioServiceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetIds) {
+            $request->datasetIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetIds, 'DatasetIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetIdsShrink) {
+            @$query['DatasetIds'] = $request->datasetIdsShrink;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultimodalLabelStudioService',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultimodalLabelStudioServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 部署打标服务
+     *
+     * @param request - CreateMultimodalLabelStudioServiceRequest
+     *
+     * @returns CreateMultimodalLabelStudioServiceResponse
+     *
+     * @param CreateMultimodalLabelStudioServiceRequest $request
+     *
+     * @return CreateMultimodalLabelStudioServiceResponse
+     */
+    public function createMultimodalLabelStudioService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMultimodalLabelStudioServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建SearchTask.
      *
      * @param tmpReq - CreateMultimodalSearchTaskRequest
@@ -2267,6 +2499,93 @@ class PolardbAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMultimodalSearchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 从检索结果中创建微调数据集.
+     *
+     * @param tmpReq - CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+     *
+     * @param CreateMultimodalSearchTaskResultFineTuneDatasetRequest $tmpReq
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+     */
+    public function createMultimodalSearchTaskResultFineTuneDatasetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMultimodalSearchTaskResultFineTuneDatasetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resultIndex) {
+            $request->resultIndexShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resultIndex, 'ResultIndex', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetDescription) {
+            @$query['DatasetDescription'] = $request->datasetDescription;
+        }
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->resultIndexShrink) {
+            @$query['ResultIndex'] = $request->resultIndexShrink;
+        }
+
+        if (null !== $request->resultMode) {
+            @$query['ResultMode'] = $request->resultMode;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultimodalSearchTaskResultFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultimodalSearchTaskResultFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从检索结果中创建微调数据集.
+     *
+     * @param request - CreateMultimodalSearchTaskResultFineTuneDatasetRequest
+     *
+     * @returns CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+     *
+     * @param CreateMultimodalSearchTaskResultFineTuneDatasetRequest $request
+     *
+     * @return CreateMultimodalSearchTaskResultFineTuneDatasetResponse
+     */
+    public function createMultimodalSearchTaskResultFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMultimodalSearchTaskResultFineTuneDatasetWithOptions($request, $runtime);
     }
 
     /**
@@ -2389,6 +2708,189 @@ class PolardbAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMultimodalEmbeddingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除多模态微调数据集.
+     *
+     * @param request - DeleteMultimodalFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultimodalFineTuneDatasetResponse
+     *
+     * @param DeleteMultimodalFineTuneDatasetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteMultimodalFineTuneDatasetResponse
+     */
+    public function deleteMultimodalFineTuneDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetId) {
+            @$query['DatasetId'] = $request->datasetId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMultimodalFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMultimodalFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除多模态微调数据集.
+     *
+     * @param request - DeleteMultimodalFineTuneDatasetRequest
+     *
+     * @returns DeleteMultimodalFineTuneDatasetResponse
+     *
+     * @param DeleteMultimodalFineTuneDatasetRequest $request
+     *
+     * @return DeleteMultimodalFineTuneDatasetResponse
+     */
+    public function deleteMultimodalFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMultimodalFineTuneDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型mode可选列表.
+     *
+     * @param request - DeleteMultimodalLabelStudioServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultimodalLabelStudioServiceResponse
+     *
+     * @param DeleteMultimodalLabelStudioServiceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteMultimodalLabelStudioServiceResponse
+     */
+    public function deleteMultimodalLabelStudioServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMultimodalLabelStudioService',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMultimodalLabelStudioServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型mode可选列表.
+     *
+     * @param request - DeleteMultimodalLabelStudioServiceRequest
+     *
+     * @returns DeleteMultimodalLabelStudioServiceResponse
+     *
+     * @param DeleteMultimodalLabelStudioServiceRequest $request
+     *
+     * @return DeleteMultimodalLabelStudioServiceResponse
+     */
+    public function deleteMultimodalLabelStudioService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMultimodalLabelStudioServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 微调数据集删除导入的OSS路径.
+     *
+     * @param request - DeleteOSSMultimodalFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOSSMultimodalFineTuneDatasetResponse
+     *
+     * @param DeleteOSSMultimodalFineTuneDatasetRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DeleteOSSMultimodalFineTuneDatasetResponse
+     */
+    public function deleteOSSMultimodalFineTuneDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetId) {
+            @$query['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->ossUrl) {
+            @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOSSMultimodalFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOSSMultimodalFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 微调数据集删除导入的OSS路径.
+     *
+     * @param request - DeleteOSSMultimodalFineTuneDatasetRequest
+     *
+     * @returns DeleteOSSMultimodalFineTuneDatasetResponse
+     *
+     * @param DeleteOSSMultimodalFineTuneDatasetRequest $request
+     *
+     * @return DeleteOSSMultimodalFineTuneDatasetResponse
+     */
+    public function deleteOSSMultimodalFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOSSMultimodalFineTuneDatasetWithOptions($request, $runtime);
     }
 
     /**
@@ -2709,6 +3211,132 @@ class PolardbAI extends OpenApiClient
     }
 
     /**
+     * 查询多模态数据集列表.
+     *
+     * @param request - ListMultimodalFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultimodalFineTuneDatasetResponse
+     *
+     * @param ListMultimodalFineTuneDatasetRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListMultimodalFineTuneDatasetResponse
+     */
+    public function listMultimodalFineTuneDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->inputField) {
+            @$query['InputField'] = $request->inputField;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultimodalFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultimodalFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询多模态数据集列表.
+     *
+     * @param request - ListMultimodalFineTuneDatasetRequest
+     *
+     * @returns ListMultimodalFineTuneDatasetResponse
+     *
+     * @param ListMultimodalFineTuneDatasetRequest $request
+     *
+     * @return ListMultimodalFineTuneDatasetResponse
+     */
+    public function listMultimodalFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultimodalFineTuneDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询打标服务信息.
+     *
+     * @param request - ListMultimodalLabelStudioServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultimodalLabelStudioServiceResponse
+     *
+     * @param ListMultimodalLabelStudioServiceRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListMultimodalLabelStudioServiceResponse
+     */
+    public function listMultimodalLabelStudioServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultimodalLabelStudioService',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMultimodalLabelStudioServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询打标服务信息.
+     *
+     * @param request - ListMultimodalLabelStudioServiceRequest
+     *
+     * @returns ListMultimodalLabelStudioServiceResponse
+     *
+     * @param ListMultimodalLabelStudioServiceRequest $request
+     *
+     * @return ListMultimodalLabelStudioServiceResponse
+     */
+    public function listMultimodalLabelStudioService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultimodalLabelStudioServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询search模型列表.
      *
      * @param request - ListMultimodalSearchModelRequest
@@ -2776,22 +3404,40 @@ class PolardbAI extends OpenApiClient
     /**
      * 查询search task列表.
      *
-     * @param request - ListMultimodalSearchTaskRequest
+     * @param tmpReq - ListMultimodalSearchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMultimodalSearchTaskResponse
      *
-     * @param ListMultimodalSearchTaskRequest $request
+     * @param ListMultimodalSearchTaskRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
      * @return ListMultimodalSearchTaskResponse
      */
-    public function listMultimodalSearchTaskWithOptions($request, $runtime)
+    public function listMultimodalSearchTaskWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListMultimodalSearchTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetIds) {
+            $request->datasetIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetIds, 'DatasetIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetIdsShrink) {
+            @$query['DatasetIds'] = $request->datasetIdsShrink;
+        }
+
+        if (null !== $request->inputField) {
+            @$query['InputField'] = $request->inputField;
+        }
+
+        if (null !== $request->modelMode) {
+            @$query['ModelMode'] = $request->modelMode;
         }
 
         if (null !== $request->pageNumber) {
@@ -2974,6 +3620,142 @@ class PolardbAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMultimodalDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新微调数据集信息.
+     *
+     * @param request - UpdateMultimodalFineTuneDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultimodalFineTuneDatasetResponse
+     *
+     * @param UpdateMultimodalFineTuneDatasetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateMultimodalFineTuneDatasetResponse
+     */
+    public function updateMultimodalFineTuneDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetDescription) {
+            @$query['DatasetDescription'] = $request->datasetDescription;
+        }
+
+        if (null !== $request->datasetId) {
+            @$query['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultimodalFineTuneDataset',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultimodalFineTuneDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新微调数据集信息.
+     *
+     * @param request - UpdateMultimodalFineTuneDatasetRequest
+     *
+     * @returns UpdateMultimodalFineTuneDatasetResponse
+     *
+     * @param UpdateMultimodalFineTuneDatasetRequest $request
+     *
+     * @return UpdateMultimodalFineTuneDatasetResponse
+     */
+    public function updateMultimodalFineTuneDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMultimodalFineTuneDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为打标服务覆盖配置白名单.
+     *
+     * @param tmpReq - UpdateMultimodalLabelStudioServiceWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMultimodalLabelStudioServiceWhiteListResponse
+     *
+     * @param UpdateMultimodalLabelStudioServiceWhiteListRequest $tmpReq
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return UpdateMultimodalLabelStudioServiceWhiteListResponse
+     */
+    public function updateMultimodalLabelStudioServiceWhiteListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMultimodalLabelStudioServiceWhiteListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->whiteList) {
+            $request->whiteListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->whiteList, 'WhiteList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->whiteListShrink) {
+            @$query['WhiteList'] = $request->whiteListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMultimodalLabelStudioServiceWhiteList',
+            'version' => '2025-10-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMultimodalLabelStudioServiceWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为打标服务覆盖配置白名单.
+     *
+     * @param request - UpdateMultimodalLabelStudioServiceWhiteListRequest
+     *
+     * @returns UpdateMultimodalLabelStudioServiceWhiteListResponse
+     *
+     * @param UpdateMultimodalLabelStudioServiceWhiteListRequest $request
+     *
+     * @return UpdateMultimodalLabelStudioServiceWhiteListResponse
+     */
+    public function updateMultimodalLabelStudioServiceWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMultimodalLabelStudioServiceWhiteListWithOptions($request, $runtime);
     }
 
     /**

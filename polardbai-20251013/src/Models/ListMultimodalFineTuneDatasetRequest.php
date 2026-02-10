@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PolardbAI\V20251013\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListMultimodalSearchTaskRequest extends Model
+class ListMultimodalFineTuneDatasetRequest extends Model
 {
     /**
      * @var string
@@ -14,19 +14,9 @@ class ListMultimodalSearchTaskRequest extends Model
     public $DBClusterId;
 
     /**
-     * @var string[]
-     */
-    public $datasetIds;
-
-    /**
      * @var string
      */
     public $inputField;
-
-    /**
-     * @var string
-     */
-    public $modelMode;
 
     /**
      * @var int
@@ -39,18 +29,13 @@ class ListMultimodalSearchTaskRequest extends Model
     public $pageSize;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'datasetIds' => 'DatasetIds',
         'inputField' => 'InputField',
-        'modelMode' => 'ModelMode',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
-        if (\is_array($this->datasetIds)) {
-            Model::validateArray($this->datasetIds);
-        }
         parent::validate();
     }
 
@@ -61,23 +46,8 @@ class ListMultimodalSearchTaskRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
-        if (null !== $this->datasetIds) {
-            if (\is_array($this->datasetIds)) {
-                $res['DatasetIds'] = [];
-                $n1 = 0;
-                foreach ($this->datasetIds as $item1) {
-                    $res['DatasetIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->inputField) {
             $res['InputField'] = $this->inputField;
-        }
-
-        if (null !== $this->modelMode) {
-            $res['ModelMode'] = $this->modelMode;
         }
 
         if (null !== $this->pageNumber) {
@@ -103,23 +73,8 @@ class ListMultimodalSearchTaskRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
-        if (isset($map['DatasetIds'])) {
-            if (!empty($map['DatasetIds'])) {
-                $model->datasetIds = [];
-                $n1 = 0;
-                foreach ($map['DatasetIds'] as $item1) {
-                    $model->datasetIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['InputField'])) {
             $model->inputField = $map['InputField'];
-        }
-
-        if (isset($map['ModelMode'])) {
-            $model->modelMode = $map['ModelMode'];
         }
 
         if (isset($map['PageNumber'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PolardbAI\V20251013\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListMultimodalSearchTaskRequest extends Model
+class CreateMultimodalLabelStudioServiceRequest extends Model
 {
     /**
      * @var string
@@ -21,29 +21,17 @@ class ListMultimodalSearchTaskRequest extends Model
     /**
      * @var string
      */
-    public $inputField;
+    public $password;
 
     /**
      * @var string
      */
-    public $modelMode;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $username;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetIds' => 'DatasetIds',
-        'inputField' => 'InputField',
-        'modelMode' => 'ModelMode',
-        'pageNumber' => 'PageNumber',
-        'pageSize' => 'PageSize',
+        'password' => 'Password',
+        'username' => 'Username',
     ];
 
     public function validate()
@@ -72,20 +60,12 @@ class ListMultimodalSearchTaskRequest extends Model
             }
         }
 
-        if (null !== $this->inputField) {
-            $res['InputField'] = $this->inputField;
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
         }
 
-        if (null !== $this->modelMode) {
-            $res['ModelMode'] = $this->modelMode;
-        }
-
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->username) {
+            $res['Username'] = $this->username;
         }
 
         return $res;
@@ -114,20 +94,12 @@ class ListMultimodalSearchTaskRequest extends Model
             }
         }
 
-        if (isset($map['InputField'])) {
-            $model->inputField = $map['InputField'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
 
-        if (isset($map['ModelMode'])) {
-            $model->modelMode = $map['ModelMode'];
-        }
-
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
         return $model;
