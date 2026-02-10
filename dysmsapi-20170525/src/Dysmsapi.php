@@ -22,6 +22,11 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ConversionDataIntlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateDigitalSignOrderRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateDigitalSignOrderResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateDigitalSignOrderShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateDigitalSmsTemplateRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateDigitalSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAppIcpRecordRequest;
@@ -77,6 +82,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportRequest
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryDigitalSignByNameRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryDigitalSignByNameResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryExtCodeSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportRequest;
@@ -655,7 +662,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Checks whether a mobile phone number can receive card messages.
+     * Queries whether some mobile phone numbers support card messages.
      *
      * @remarks
      * ### QPS limit
@@ -702,7 +709,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Checks whether a mobile phone number can receive card messages.
+     * Queries whether some mobile phone numbers support card messages.
      *
      * @remarks
      * ### QPS limit
@@ -886,7 +893,199 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * 创建短链.
+     * 数字短信签名操作订单.
+     *
+     * @param tmpReq - CreateDigitalSignOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDigitalSignOrderResponse
+     *
+     * @param CreateDigitalSignOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDigitalSignOrderResponse
+     */
+    public function createDigitalSignOrderWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDigitalSignOrderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->orderContext) {
+            $request->orderContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderContext, 'OrderContext', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->extendMessage) {
+            @$query['ExtendMessage'] = $request->extendMessage;
+        }
+
+        if (null !== $request->orderContextShrink) {
+            @$query['OrderContext'] = $request->orderContextShrink;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
+        }
+
+        if (null !== $request->qualificationVersion) {
+            @$query['QualificationVersion'] = $request->qualificationVersion;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signId) {
+            @$query['SignId'] = $request->signId;
+        }
+
+        if (null !== $request->signIndustry) {
+            @$query['SignIndustry'] = $request->signIndustry;
+        }
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
+        }
+
+        if (null !== $request->signSource) {
+            @$query['SignSource'] = $request->signSource;
+        }
+
+        if (null !== $request->submitter) {
+            @$query['Submitter'] = $request->submitter;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDigitalSignOrder',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDigitalSignOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 数字短信签名操作订单.
+     *
+     * @param request - CreateDigitalSignOrderRequest
+     *
+     * @returns CreateDigitalSignOrderResponse
+     *
+     * @param CreateDigitalSignOrderRequest $request
+     *
+     * @return CreateDigitalSignOrderResponse
+     */
+    public function createDigitalSignOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDigitalSignOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数字短信模板
+     *
+     * @param request - CreateDigitalSmsTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDigitalSmsTemplateResponse
+     *
+     * @param CreateDigitalSmsTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDigitalSmsTemplateResponse
+     */
+    public function createDigitalSmsTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
+        }
+
+        if (null !== $request->templateContents) {
+            @$query['TemplateContents'] = $request->templateContents;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDigitalSmsTemplate',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDigitalSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数字短信模板
+     *
+     * @param request - CreateDigitalSmsTemplateRequest
+     *
+     * @returns CreateDigitalSmsTemplateResponse
+     *
+     * @param CreateDigitalSmsTemplateRequest $request
+     *
+     * @return CreateDigitalSmsTemplateResponse
+     */
+    public function createDigitalSmsTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDigitalSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateSmartShortUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -945,7 +1144,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * 创建短链.
+     * Creates personalized short URLs. You can specify multiple mobile numbers and source URLs in the request. The operation returns the short URLs corresponding to the specified mobile numbers. You can obtain the click information of end users based on different short URLs. The click information helps you realize secondary marketing. QPS limit You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateSmartShortUrlRequest
      *
@@ -3136,6 +3335,75 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 获取数字短信签名通过签名name.
+     *
+     * @param request - QueryDigitalSignByNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDigitalSignByNameResponse
+     *
+     * @param QueryDigitalSignByNameRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryDigitalSignByNameResponse
+     */
+    public function queryDigitalSignByNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryDigitalSignByName',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryDigitalSignByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数字短信签名通过签名name.
+     *
+     * @param request - QueryDigitalSignByNameRequest
+     *
+     * @returns QueryDigitalSignByNameResponse
+     *
+     * @param QueryDigitalSignByNameRequest $request
+     *
+     * @return QueryDigitalSignByNameResponse
+     */
+    public function queryDigitalSignByName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDigitalSignByNameWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询验证码签名.
      *
      * @param request - QueryExtCodeSignRequest
@@ -3217,7 +3485,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Checks whether a mobile phone number can receive card messages.
+     * Queries whether some mobile phone numbers support card messages.
      *
      * @param tmpReq - QueryMobilesCardSupportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3270,7 +3538,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * Checks whether a mobile phone number can receive card messages.
+     * Queries whether some mobile phone numbers support card messages.
      *
      * @param request - QueryMobilesCardSupportRequest
      *
@@ -3288,7 +3556,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * 点击明细查询.
+     * Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - QueryPageSmartShortUrlLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3359,7 +3627,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * 点击明细查询.
+     * Queries the information about clicks within a specific time range or related to a mobile number. QPS limit You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - QueryPageSmartShortUrlLogRequest
      *
