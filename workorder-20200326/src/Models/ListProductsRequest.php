@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20200326\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProductsRequest extends Model
 {
@@ -18,9 +18,10 @@ class ListProductsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->language) {
@@ -30,11 +31,11 @@ class ListProductsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProductsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

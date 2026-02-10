@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20200326\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTicketRequest extends Model
 {
     /**
      * @var string
      */
-    public $language;
-
-    /**
-     * @var string
-     */
-    public $title;
+    public $category;
 
     /**
      * @var string
@@ -26,17 +21,17 @@ class CreateTicketRequest extends Model
     /**
      * @var string
      */
-    public $secretContent;
+    public $email;
 
     /**
      * @var string
      */
-    public $productCode;
+    public $language;
 
     /**
      * @var string
      */
-    public $category;
+    public $notifyTimeRange;
 
     /**
      * @var string
@@ -46,96 +41,118 @@ class CreateTicketRequest extends Model
     /**
      * @var string
      */
-    public $email;
+    public $productCode;
 
     /**
      * @var string
      */
-    public $notifyTimeRange;
+    public $secretContent;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'language'        => 'Language',
-        'title'           => 'Title',
-        'content'         => 'Content',
-        'secretContent'   => 'SecretContent',
-        'productCode'     => 'ProductCode',
-        'category'        => 'Category',
-        'phone'           => 'Phone',
-        'email'           => 'Email',
+        'category' => 'Category',
+        'content' => 'Content',
+        'email' => 'Email',
+        'language' => 'Language',
         'notifyTimeRange' => 'NotifyTimeRange',
+        'phone' => 'Phone',
+        'productCode' => 'ProductCode',
+        'secretContent' => 'SecretContent',
+        'title' => 'Title',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->secretContent) {
-            $res['SecretContent'] = $this->secretContent;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
+
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+
         if (null !== $this->notifyTimeRange) {
             $res['NotifyTimeRange'] = $this->notifyTimeRange;
+        }
+
+        if (null !== $this->phone) {
+            $res['Phone'] = $this->phone;
+        }
+
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
+        }
+
+        if (null !== $this->secretContent) {
+            $res['SecretContent'] = $this->secretContent;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTicketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['SecretContent'])) {
-            $model->secretContent = $map['SecretContent'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
+
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+
         if (isset($map['NotifyTimeRange'])) {
             $model->notifyTimeRange = $map['NotifyTimeRange'];
+        }
+
+        if (isset($map['Phone'])) {
+            $model->phone = $map['Phone'];
+        }
+
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
+        }
+
+        if (isset($map['SecretContent'])) {
+            $model->secretContent = $map['SecretContent'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

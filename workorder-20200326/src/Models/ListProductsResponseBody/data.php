@@ -4,23 +4,23 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20200326\Models\ListProductsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListProductsResponseBody\data\consultationMore;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListProductsResponseBody\data\hotConsultation;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListProductsResponseBody\data\hotTech;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListProductsResponseBody\data\techMore;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @var hotConsultation[]
-     */
-    public $hotConsultation;
-
-    /**
      * @var consultationMore[]
      */
     public $consultationMore;
+
+    /**
+     * @var hotConsultation[]
+     */
+    public $hotConsultation;
 
     /**
      * @var hotTech[]
@@ -32,52 +32,72 @@ class data extends Model
      */
     public $techMore;
     protected $_name = [
-        'hotConsultation'  => 'HotConsultation',
         'consultationMore' => 'ConsultationMore',
-        'hotTech'          => 'HotTech',
-        'techMore'         => 'TechMore',
+        'hotConsultation' => 'HotConsultation',
+        'hotTech' => 'HotTech',
+        'techMore' => 'TechMore',
     ];
 
     public function validate()
     {
+        if (\is_array($this->consultationMore)) {
+            Model::validateArray($this->consultationMore);
+        }
+        if (\is_array($this->hotConsultation)) {
+            Model::validateArray($this->hotConsultation);
+        }
+        if (\is_array($this->hotTech)) {
+            Model::validateArray($this->hotTech);
+        }
+        if (\is_array($this->techMore)) {
+            Model::validateArray($this->techMore);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->hotConsultation) {
-            $res['HotConsultation'] = [];
-            if (null !== $this->hotConsultation && \is_array($this->hotConsultation)) {
-                $n = 0;
-                foreach ($this->hotConsultation as $item) {
-                    $res['HotConsultation'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->consultationMore) {
-            $res['ConsultationMore'] = [];
-            if (null !== $this->consultationMore && \is_array($this->consultationMore)) {
-                $n = 0;
-                foreach ($this->consultationMore as $item) {
-                    $res['ConsultationMore'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->consultationMore)) {
+                $res['ConsultationMore'] = [];
+                $n1 = 0;
+                foreach ($this->consultationMore as $item1) {
+                    $res['ConsultationMore'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->hotConsultation) {
+            if (\is_array($this->hotConsultation)) {
+                $res['HotConsultation'] = [];
+                $n1 = 0;
+                foreach ($this->hotConsultation as $item1) {
+                    $res['HotConsultation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->hotTech) {
-            $res['HotTech'] = [];
-            if (null !== $this->hotTech && \is_array($this->hotTech)) {
-                $n = 0;
-                foreach ($this->hotTech as $item) {
-                    $res['HotTech'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hotTech)) {
+                $res['HotTech'] = [];
+                $n1 = 0;
+                foreach ($this->hotTech as $item1) {
+                    $res['HotTech'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->techMore) {
-            $res['TechMore'] = [];
-            if (null !== $this->techMore && \is_array($this->techMore)) {
-                $n = 0;
-                foreach ($this->techMore as $item) {
-                    $res['TechMore'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->techMore)) {
+                $res['TechMore'] = [];
+                $n1 = 0;
+                foreach ($this->techMore as $item1) {
+                    $res['TechMore'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,47 +105,54 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HotConsultation'])) {
-            if (!empty($map['HotConsultation'])) {
-                $model->hotConsultation = [];
-                $n                      = 0;
-                foreach ($map['HotConsultation'] as $item) {
-                    $model->hotConsultation[$n++] = null !== $item ? hotConsultation::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ConsultationMore'])) {
             if (!empty($map['ConsultationMore'])) {
                 $model->consultationMore = [];
-                $n                       = 0;
-                foreach ($map['ConsultationMore'] as $item) {
-                    $model->consultationMore[$n++] = null !== $item ? consultationMore::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConsultationMore'] as $item1) {
+                    $model->consultationMore[$n1] = consultationMore::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['HotConsultation'])) {
+            if (!empty($map['HotConsultation'])) {
+                $model->hotConsultation = [];
+                $n1 = 0;
+                foreach ($map['HotConsultation'] as $item1) {
+                    $model->hotConsultation[$n1] = hotConsultation::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['HotTech'])) {
             if (!empty($map['HotTech'])) {
                 $model->hotTech = [];
-                $n              = 0;
-                foreach ($map['HotTech'] as $item) {
-                    $model->hotTech[$n++] = null !== $item ? hotTech::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HotTech'] as $item1) {
+                    $model->hotTech[$n1] = hotTech::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TechMore'])) {
             if (!empty($map['TechMore'])) {
                 $model->techMore = [];
-                $n               = 0;
-                foreach ($map['TechMore'] as $item) {
-                    $model->techMore[$n++] = null !== $item ? techMore::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TechMore'] as $item1) {
+                    $model->techMore[$n1] = techMore::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

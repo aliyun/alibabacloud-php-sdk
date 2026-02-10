@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20200326;
 
-use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\CloseTicketRequest;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\CloseTicketResponse;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\CreateTicketRequest;
@@ -17,12 +17,10 @@ use AlibabaCloud\SDK\Workorder\V20200326\Models\ListTicketNotesRequest;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListTicketNotesResponse;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListTicketsRequest;
 use AlibabaCloud\SDK\Workorder\V20200326\Models\ListTicketsResponse;
-use AlibabaCloud\SDK\Workorder\V20200326\Models\ReplyTicketRequest;
-use AlibabaCloud\SDK\Workorder\V20200326\Models\ReplyTicketResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Workorder extends OpenApiClient
 {
@@ -30,7 +28,7 @@ class Workorder extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'ap-northeast-1' => 'workorder.ap-northeast-1.aliyuncs.com',
             'ap-southeast-1' => 'workorder.ap-southeast-1.aliyuncs.com',
         ];
@@ -51,17 +49,25 @@ class Workorder extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * @deprecated openAPI CloseTicket is deprecated, please use Workorder::2021-06-10::CloseTicket instead
+     *
+     * @param request - CloseTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseTicketResponse
+     *
      * @param CloseTicketRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -69,15 +75,42 @@ class Workorder extends OpenApiClient
      */
     public function closeTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->ticketId) {
+            @$query['TicketId'] = $request->ticketId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloseTicket',
+            'version' => '2020-03-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CloseTicketResponse::fromMap($this->doRPCRequest('CloseTicket', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloseTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated openAPI CloseTicket is deprecated, please use Workorder::2021-06-10::CloseTicket instead
+     *
+     * @param request - CloseTicketRequest
+     *
+     * @returns CloseTicketResponse
+     *
      * @param CloseTicketRequest $request
      *
      * @return CloseTicketResponse
@@ -90,6 +123,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI CreateTicket is deprecated, please use Workorder::2021-06-10::CreateTicket instead
+     *
+     * @param request - CreateTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTicketResponse
+     *
      * @param CreateTicketRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -97,15 +137,70 @@ class Workorder extends OpenApiClient
      */
     public function createTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->notifyTimeRange) {
+            @$query['NotifyTimeRange'] = $request->notifyTimeRange;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->secretContent) {
+            @$query['SecretContent'] = $request->secretContent;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTicket',
+            'version' => '2020-03-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateTicketResponse::fromMap($this->doRPCRequest('CreateTicket', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated openAPI CreateTicket is deprecated, please use Workorder::2021-06-10::CreateTicket instead
+     *
+     * @param request - CreateTicketRequest
+     *
+     * @returns CreateTicketResponse
+     *
      * @param CreateTicketRequest $request
      *
      * @return CreateTicketResponse
@@ -118,6 +213,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListCategories is deprecated, please use Workorder::2021-06-10::ListCategories instead
+     *
+     * @param request - ListCategoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCategoriesResponse
+     *
      * @param ListCategoriesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -125,15 +227,42 @@ class Workorder extends OpenApiClient
      */
     public function listCategoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCategories',
+            'version' => '2020-03-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListCategoriesResponse::fromMap($this->doRPCRequest('ListCategories', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated openAPI ListCategories is deprecated, please use Workorder::2021-06-10::ListCategories instead
+     *
+     * @param request - ListCategoriesRequest
+     *
+     * @returns ListCategoriesResponse
+     *
      * @param ListCategoriesRequest $request
      *
      * @return ListCategoriesResponse
@@ -146,6 +275,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListProducts is deprecated, please use Workorder::2021-06-10::ListProducts instead
+     *
+     * @param request - ListProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsResponse
+     *
      * @param ListProductsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -153,15 +289,38 @@ class Workorder extends OpenApiClient
      */
     public function listProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProducts',
+            'version' => '2020-03-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListProductsResponse::fromMap($this->doRPCRequest('ListProducts', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated openAPI ListProducts is deprecated, please use Workorder::2021-06-10::ListProducts instead
+     *
+     * @param request - ListProductsRequest
+     *
+     * @returns ListProductsResponse
+     *
      * @param ListProductsRequest $request
      *
      * @return ListProductsResponse
@@ -174,6 +333,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListTicketNotes is deprecated, please use Workorder::2021-06-10::ListTicketNotes instead
+     *
+     * @param request - ListTicketNotesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTicketNotesResponse
+     *
      * @param ListTicketNotesRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -181,15 +347,42 @@ class Workorder extends OpenApiClient
      */
     public function listTicketNotesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->ticketId) {
+            @$query['TicketId'] = $request->ticketId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTicketNotes',
+            'version' => '2020-03-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListTicketNotesResponse::fromMap($this->doRPCRequest('ListTicketNotes', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTicketNotesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated openAPI ListTicketNotes is deprecated, please use Workorder::2021-06-10::ListTicketNotes instead
+     *
+     * @param request - ListTicketNotesRequest
+     *
+     * @returns ListTicketNotesResponse
+     *
      * @param ListTicketNotesRequest $request
      *
      * @return ListTicketNotesResponse
@@ -202,6 +395,13 @@ class Workorder extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI ListTickets is deprecated, please use Workorder::2021-06-10::ListTickets instead
+     *
+     * @param request - ListTicketsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTicketsResponse
+     *
      * @param ListTicketsRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -209,15 +409,70 @@ class Workorder extends OpenApiClient
      */
     public function listTicketsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->createdAfterTime) {
+            @$query['CreatedAfterTime'] = $request->createdAfterTime;
+        }
+
+        if (null !== $request->createdBeforeTime) {
+            @$query['CreatedBeforeTime'] = $request->createdBeforeTime;
+        }
+
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pageStart) {
+            @$query['PageStart'] = $request->pageStart;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->subUserId) {
+            @$query['SubUserId'] = $request->subUserId;
+        }
+
+        if (null !== $request->ticketStatus) {
+            @$query['TicketStatus'] = $request->ticketStatus;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTickets',
+            'version' => '2020-03-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListTicketsResponse::fromMap($this->doRPCRequest('ListTickets', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * @deprecated openAPI ListTickets is deprecated, please use Workorder::2021-06-10::ListTickets instead
+     *
+     * @param request - ListTicketsRequest
+     *
+     * @returns ListTicketsResponse
+     *
      * @param ListTicketsRequest $request
      *
      * @return ListTicketsResponse
@@ -227,33 +482,5 @@ class Workorder extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTicketsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReplyTicketRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ReplyTicketResponse
-     */
-    public function replyTicketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReplyTicketResponse::fromMap($this->doRPCRequest('ReplyTicket', '2020-03-26', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReplyTicketRequest $request
-     *
-     * @return ReplyTicketResponse
-     */
-    public function replyTicket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->replyTicketWithOptions($request, $runtime);
     }
 }

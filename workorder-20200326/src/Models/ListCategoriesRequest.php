@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Workorder\V20200326\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListCategoriesRequest extends Model
 {
@@ -18,20 +18,22 @@ class ListCategoriesRequest extends Model
      */
     public $productCode;
     protected $_name = [
-        'language'    => 'Language',
+        'language' => 'Language',
         'productCode' => 'ProductCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -39,17 +41,18 @@ class ListCategoriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCategoriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
