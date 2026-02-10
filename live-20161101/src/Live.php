@@ -17649,6 +17649,10 @@ class Live extends OpenApiClient
             @$query['BeginTs'] = $request->beginTs;
         }
 
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
         if (null !== $request->endTs) {
             @$query['EndTs'] = $request->endTs;
         }

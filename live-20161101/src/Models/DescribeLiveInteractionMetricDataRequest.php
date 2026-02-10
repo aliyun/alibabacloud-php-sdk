@@ -19,6 +19,11 @@ class DescribeLiveInteractionMetricDataRequest extends Model
     public $beginTs;
 
     /**
+     * @var string
+     */
+    public $channelId;
+
+    /**
      * @var int
      */
     public $endTs;
@@ -40,6 +45,7 @@ class DescribeLiveInteractionMetricDataRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'beginTs' => 'BeginTs',
+        'channelId' => 'ChannelId',
         'endTs' => 'EndTs',
         'metricType' => 'MetricType',
         'os' => 'Os',
@@ -60,6 +66,10 @@ class DescribeLiveInteractionMetricDataRequest extends Model
 
         if (null !== $this->beginTs) {
             $res['BeginTs'] = $this->beginTs;
+        }
+
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
 
         if (null !== $this->endTs) {
@@ -95,6 +105,10 @@ class DescribeLiveInteractionMetricDataRequest extends Model
 
         if (isset($map['BeginTs'])) {
             $model->beginTs = $map['BeginTs'];
+        }
+
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
 
         if (isset($map['EndTs'])) {
