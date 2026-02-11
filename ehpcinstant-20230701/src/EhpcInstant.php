@@ -900,7 +900,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业输出.
+     * Query job logs.
      *
      * @param request - DescribeJobResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -959,7 +959,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * 查询作业输出.
+     * Query job logs.
      *
      * @param request - DescribeJobResultsRequest
      *

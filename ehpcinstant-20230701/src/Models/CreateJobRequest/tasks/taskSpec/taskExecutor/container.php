@@ -37,6 +37,11 @@ class container extends Model
     /**
      * @var string
      */
+    public $imageRegistryOptions;
+
+    /**
+     * @var string
+     */
     public $workingDir;
     protected $_name = [
         'appId' => 'AppId',
@@ -44,6 +49,7 @@ class container extends Model
         'command' => 'Command',
         'environmentVars' => 'EnvironmentVars',
         'image' => 'Image',
+        'imageRegistryOptions' => 'ImageRegistryOptions',
         'workingDir' => 'WorkingDir',
     ];
 
@@ -105,6 +111,10 @@ class container extends Model
             $res['Image'] = $this->image;
         }
 
+        if (null !== $this->imageRegistryOptions) {
+            $res['ImageRegistryOptions'] = $this->imageRegistryOptions;
+        }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -159,6 +169,10 @@ class container extends Model
 
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+
+        if (isset($map['ImageRegistryOptions'])) {
+            $model->imageRegistryOptions = $map['ImageRegistryOptions'];
         }
 
         if (isset($map['WorkingDir'])) {
