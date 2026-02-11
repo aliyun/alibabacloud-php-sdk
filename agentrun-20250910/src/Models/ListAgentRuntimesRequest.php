@@ -42,6 +42,11 @@ class ListAgentRuntimesRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
         'discoveryResourceGroupId' => 'discoveryResourceGroupId',
@@ -50,6 +55,7 @@ class ListAgentRuntimesRequest extends Model
         'resourceGroupId' => 'resourceGroupId',
         'searchMode' => 'searchMode',
         'status' => 'status',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

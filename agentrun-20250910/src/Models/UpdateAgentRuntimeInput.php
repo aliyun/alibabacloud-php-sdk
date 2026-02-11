@@ -107,6 +107,11 @@ class UpdateAgentRuntimeInput extends Model
      * @var int
      */
     public $sessionIdleTimeoutSeconds;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
         'artifactType' => 'artifactType',
@@ -128,6 +133,7 @@ class UpdateAgentRuntimeInput extends Model
         'protocolConfiguration' => 'protocolConfiguration',
         'sessionConcurrencyLimitPerInstance' => 'sessionConcurrencyLimitPerInstance',
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -250,6 +256,10 @@ class UpdateAgentRuntimeInput extends Model
             $res['sessionIdleTimeoutSeconds'] = $this->sessionIdleTimeoutSeconds;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -344,6 +354,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (isset($map['sessionIdleTimeoutSeconds'])) {
             $model->sessionIdleTimeoutSeconds = $map['sessionIdleTimeoutSeconds'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

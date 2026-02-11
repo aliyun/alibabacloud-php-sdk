@@ -147,6 +147,11 @@ class AgentRuntime extends Model
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'agentRuntimeArn' => 'agentRuntimeArn',
         'agentRuntimeId' => 'agentRuntimeId',
@@ -176,6 +181,7 @@ class AgentRuntime extends Model
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -330,6 +336,10 @@ class AgentRuntime extends Model
             $res['statusReason'] = $this->statusReason;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -456,6 +466,10 @@ class AgentRuntime extends Model
 
         if (isset($map['statusReason'])) {
             $model->statusReason = $map['statusReason'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

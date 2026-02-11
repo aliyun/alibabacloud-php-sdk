@@ -16,6 +16,16 @@ class ProtocolSettings extends Model
     /**
      * @var string
      */
+    public $a2aAgentCard;
+
+    /**
+     * @var string
+     */
+    public $a2aAgentCardUrl;
+
+    /**
+     * @var string
+     */
     public $headers;
 
     /**
@@ -59,6 +69,8 @@ class ProtocolSettings extends Model
     public $responseContentType;
     protected $_name = [
         'a2AAgentCard' => 'A2AAgentCard',
+        'a2aAgentCard' => 'a2aAgentCard',
+        'a2aAgentCardUrl' => 'a2aAgentCardUrl',
         'headers' => 'headers',
         'inputBodyJsonSchema' => 'inputBodyJsonSchema',
         'method' => 'method',
@@ -80,6 +92,14 @@ class ProtocolSettings extends Model
         $res = [];
         if (null !== $this->a2AAgentCard) {
             $res['A2AAgentCard'] = $this->a2AAgentCard;
+        }
+
+        if (null !== $this->a2aAgentCard) {
+            $res['a2aAgentCard'] = $this->a2aAgentCard;
+        }
+
+        if (null !== $this->a2aAgentCardUrl) {
+            $res['a2aAgentCardUrl'] = $this->a2aAgentCardUrl;
         }
 
         if (null !== $this->headers) {
@@ -131,6 +151,14 @@ class ProtocolSettings extends Model
         $model = new self();
         if (isset($map['A2AAgentCard'])) {
             $model->a2AAgentCard = $map['A2AAgentCard'];
+        }
+
+        if (isset($map['a2aAgentCard'])) {
+            $model->a2aAgentCard = $map['a2aAgentCard'];
+        }
+
+        if (isset($map['a2aAgentCardUrl'])) {
+            $model->a2aAgentCardUrl = $map['a2aAgentCardUrl'];
         }
 
         if (isset($map['headers'])) {
