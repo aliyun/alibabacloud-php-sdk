@@ -53,8 +53,6 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigCo
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigCounterResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigFeatureRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigFeatureResponse;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigPlayBooksRequest;
-use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeAutomateResponseConfigPlayBooksResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemAssetsCounterRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemAssetsCounterResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeCloudSiemAssetsRequest;
@@ -1478,6 +1476,10 @@ class Cloudsiem extends OpenApiClient
             @$body['AlertName'] = $request->alertName;
         }
 
+        if (null !== $request->alertStatus) {
+            @$body['AlertStatus'] = $request->alertStatus;
+        }
+
         if (null !== $request->alertTitle) {
             @$body['AlertTitle'] = $request->alertTitle;
         }
@@ -2082,79 +2084,6 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAutomateResponseConfigFeatureWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries user-defined playbooks.
-     *
-     * @param request - DescribeAutomateResponseConfigPlayBooksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAutomateResponseConfigPlayBooksResponse
-     *
-     * @param DescribeAutomateResponseConfigPlayBooksRequest $request
-     * @param RuntimeOptions                                 $runtime
-     *
-     * @return DescribeAutomateResponseConfigPlayBooksResponse
-     */
-    public function describeAutomateResponseConfigPlayBooksWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->autoResponseType) {
-            @$body['AutoResponseType'] = $request->autoResponseType;
-        }
-
-        if (null !== $request->entityType) {
-            @$body['EntityType'] = $request->entityType;
-        }
-
-        if (null !== $request->regionId) {
-            @$body['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->roleFor) {
-            @$body['RoleFor'] = $request->roleFor;
-        }
-
-        if (null !== $request->roleType) {
-            @$body['RoleType'] = $request->roleType;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeAutomateResponseConfigPlayBooks',
-            'version' => '2022-06-16',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeAutomateResponseConfigPlayBooksResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries user-defined playbooks.
-     *
-     * @param request - DescribeAutomateResponseConfigPlayBooksRequest
-     *
-     * @returns DescribeAutomateResponseConfigPlayBooksResponse
-     *
-     * @param DescribeAutomateResponseConfigPlayBooksRequest $request
-     *
-     * @return DescribeAutomateResponseConfigPlayBooksResponse
-     */
-    public function describeAutomateResponseConfigPlayBooks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAutomateResponseConfigPlayBooksWithOptions($request, $runtime);
     }
 
     /**
@@ -5348,6 +5277,10 @@ class Cloudsiem extends OpenApiClient
             @$body['StartTime'] = $request->startTime;
         }
 
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -5385,7 +5318,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 查询实体列表.
+     * Queries entities.
      *
      * @param request - ListEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5415,6 +5348,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->entityUuid) {
             @$body['EntityUuid'] = $request->entityUuid;
+        }
+
+        if (null !== $request->entityUuids) {
+            @$body['EntityUuids'] = $request->entityUuids;
         }
 
         if (null !== $request->incidentUuid) {
@@ -5468,7 +5405,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 查询实体列表.
+     * Queries entities.
      *
      * @param request - ListEntitiesRequest
      *
@@ -6336,12 +6273,20 @@ class Cloudsiem extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->disposeStrategyIds) {
+            @$body['DisposeStrategyIds'] = $request->disposeStrategyIds;
+        }
+
         if (null !== $request->eventDispose) {
             @$body['EventDispose'] = $request->eventDispose;
         }
 
         if (null !== $request->incidentUuid) {
             @$body['IncidentUuid'] = $request->incidentUuid;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
         }
 
         if (null !== $request->receiverInfo) {
@@ -6354,6 +6299,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->remark) {
             @$body['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->responseSource) {
+            @$body['ResponseSource'] = $request->responseSource;
         }
 
         if (null !== $request->roleFor) {

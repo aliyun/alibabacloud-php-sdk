@@ -92,6 +92,11 @@ class ListDisposeStrategyRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'effectiveStatus' => 'EffectiveStatus',
@@ -110,6 +115,7 @@ class ListDisposeStrategyRequest extends Model
         'roleType' => 'RoleType',
         'sophonTaskId' => 'SophonTaskId',
         'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -186,6 +192,10 @@ class ListDisposeStrategyRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -265,6 +275,10 @@ class ListDisposeStrategyRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

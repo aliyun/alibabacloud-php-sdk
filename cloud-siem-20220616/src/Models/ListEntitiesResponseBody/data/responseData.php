@@ -9,6 +9,26 @@ use AlibabaCloud\Dara\Model;
 class responseData extends Model
 {
     /**
+     * @var string
+     */
+    public $agentConfidence;
+
+    /**
+     * @var string
+     */
+    public $agentDisposalMethod;
+
+    /**
+     * @var string
+     */
+    public $agentDisposalPlaybookUuid;
+
+    /**
+     * @var string
+     */
+    public $agentDisposalSuggestion;
+
+    /**
      * @var int
      */
     public $alertNum;
@@ -103,6 +123,10 @@ class responseData extends Model
      */
     public $tags;
     protected $_name = [
+        'agentConfidence' => 'AgentConfidence',
+        'agentDisposalMethod' => 'AgentDisposalMethod',
+        'agentDisposalPlaybookUuid' => 'AgentDisposalPlaybookUuid',
+        'agentDisposalSuggestion' => 'AgentDisposalSuggestion',
         'alertNum' => 'AlertNum',
         'alertUuid' => 'AlertUuid',
         'aliuid' => 'Aliuid',
@@ -132,6 +156,22 @@ class responseData extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfidence) {
+            $res['AgentConfidence'] = $this->agentConfidence;
+        }
+
+        if (null !== $this->agentDisposalMethod) {
+            $res['AgentDisposalMethod'] = $this->agentDisposalMethod;
+        }
+
+        if (null !== $this->agentDisposalPlaybookUuid) {
+            $res['AgentDisposalPlaybookUuid'] = $this->agentDisposalPlaybookUuid;
+        }
+
+        if (null !== $this->agentDisposalSuggestion) {
+            $res['AgentDisposalSuggestion'] = $this->agentDisposalSuggestion;
+        }
+
         if (null !== $this->alertNum) {
             $res['AlertNum'] = $this->alertNum;
         }
@@ -219,6 +259,22 @@ class responseData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentConfidence'])) {
+            $model->agentConfidence = $map['AgentConfidence'];
+        }
+
+        if (isset($map['AgentDisposalMethod'])) {
+            $model->agentDisposalMethod = $map['AgentDisposalMethod'];
+        }
+
+        if (isset($map['AgentDisposalPlaybookUuid'])) {
+            $model->agentDisposalPlaybookUuid = $map['AgentDisposalPlaybookUuid'];
+        }
+
+        if (isset($map['AgentDisposalSuggestion'])) {
+            $model->agentDisposalSuggestion = $map['AgentDisposalSuggestion'];
+        }
+
         if (isset($map['AlertNum'])) {
             $model->alertNum = $map['AlertNum'];
         }

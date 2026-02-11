@@ -14,6 +14,11 @@ class DescribeAlertsRequest extends Model
     public $alertName;
 
     /**
+     * @var string[]
+     */
+    public $alertStatus;
+
+    /**
      * @var string
      */
     public $alertTitle;
@@ -109,6 +114,7 @@ class DescribeAlertsRequest extends Model
     public $subUserId;
     protected $_name = [
         'alertName' => 'AlertName',
+        'alertStatus' => 'AlertStatus',
         'alertTitle' => 'AlertTitle',
         'alertType' => 'AlertType',
         'alertUuid' => 'AlertUuid',
@@ -132,6 +138,9 @@ class DescribeAlertsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertStatus)) {
+            Model::validateArray($this->alertStatus);
+        }
         if (\is_array($this->level)) {
             Model::validateArray($this->level);
         }
@@ -143,6 +152,17 @@ class DescribeAlertsRequest extends Model
         $res = [];
         if (null !== $this->alertName) {
             $res['AlertName'] = $this->alertName;
+        }
+
+        if (null !== $this->alertStatus) {
+            if (\is_array($this->alertStatus)) {
+                $res['AlertStatus'] = [];
+                $n1 = 0;
+                foreach ($this->alertStatus as $item1) {
+                    $res['AlertStatus'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->alertTitle) {
@@ -241,6 +261,17 @@ class DescribeAlertsRequest extends Model
         $model = new self();
         if (isset($map['AlertName'])) {
             $model->alertName = $map['AlertName'];
+        }
+
+        if (isset($map['AlertStatus'])) {
+            if (!empty($map['AlertStatus'])) {
+                $model->alertStatus = [];
+                $n1 = 0;
+                foreach ($map['AlertStatus'] as $item1) {
+                    $model->alertStatus[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['AlertTitle'])) {

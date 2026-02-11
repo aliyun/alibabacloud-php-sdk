@@ -11,12 +11,22 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     /**
      * @var string
      */
+    public $disposeStrategyIds;
+
+    /**
+     * @var string
+     */
     public $eventDispose;
 
     /**
      * @var string
      */
     public $incidentUuid;
+
+    /**
+     * @var string
+     */
+    public $owner;
 
     /**
      * @var string
@@ -32,6 +42,11 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
      * @var string
      */
     public $remark;
+
+    /**
+     * @var string
+     */
+    public $responseSource;
 
     /**
      * @var int
@@ -53,11 +68,14 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
      */
     public $threatLevel;
     protected $_name = [
+        'disposeStrategyIds' => 'DisposeStrategyIds',
         'eventDispose' => 'EventDispose',
         'incidentUuid' => 'IncidentUuid',
+        'owner' => 'Owner',
         'receiverInfo' => 'ReceiverInfo',
         'regionId' => 'RegionId',
         'remark' => 'Remark',
+        'responseSource' => 'ResponseSource',
         'roleFor' => 'RoleFor',
         'roleType' => 'RoleType',
         'status' => 'Status',
@@ -72,12 +90,20 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disposeStrategyIds) {
+            $res['DisposeStrategyIds'] = $this->disposeStrategyIds;
+        }
+
         if (null !== $this->eventDispose) {
             $res['EventDispose'] = $this->eventDispose;
         }
 
         if (null !== $this->incidentUuid) {
             $res['IncidentUuid'] = $this->incidentUuid;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->receiverInfo) {
@@ -90,6 +116,10 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->responseSource) {
+            $res['ResponseSource'] = $this->responseSource;
         }
 
         if (null !== $this->roleFor) {
@@ -119,12 +149,20 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisposeStrategyIds'])) {
+            $model->disposeStrategyIds = $map['DisposeStrategyIds'];
+        }
+
         if (isset($map['EventDispose'])) {
             $model->eventDispose = $map['EventDispose'];
         }
 
         if (isset($map['IncidentUuid'])) {
             $model->incidentUuid = $map['IncidentUuid'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ReceiverInfo'])) {
@@ -137,6 +175,10 @@ class PostEventDisposeAndWhiteruleListRequest extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResponseSource'])) {
+            $model->responseSource = $map['ResponseSource'];
         }
 
         if (isset($map['RoleFor'])) {

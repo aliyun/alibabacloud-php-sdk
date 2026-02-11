@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventCountByThreatLevelResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeEventCountByThreatLevelResponseBody\data\eventDailyNum;
 
 class data extends Model
 {
+    /**
+     * @var eventDailyNum[]
+     */
+    public $eventDailyNum;
+
     /**
      * @var int
      */
@@ -43,6 +49,7 @@ class data extends Model
      */
     public $undealEventNum;
     protected $_name = [
+        'eventDailyNum' => 'EventDailyNum',
         'eventNum' => 'EventNum',
         'highLevelEventNum' => 'HighLevelEventNum',
         'infoLevelEventNum' => 'InfoLevelEventNum',
@@ -54,12 +61,26 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->eventDailyNum)) {
+            Model::validateArray($this->eventDailyNum);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eventDailyNum) {
+            if (\is_array($this->eventDailyNum)) {
+                $res['EventDailyNum'] = [];
+                $n1 = 0;
+                foreach ($this->eventDailyNum as $item1) {
+                    $res['EventDailyNum'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->eventNum) {
             $res['EventNum'] = $this->eventNum;
         }
@@ -99,6 +120,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EventDailyNum'])) {
+            if (!empty($map['EventDailyNum'])) {
+                $model->eventDailyNum = [];
+                $n1 = 0;
+                foreach ($map['EventDailyNum'] as $item1) {
+                    $model->eventDailyNum[$n1] = eventDailyNum::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['EventNum'])) {
             $model->eventNum = $map['EventNum'];
         }
