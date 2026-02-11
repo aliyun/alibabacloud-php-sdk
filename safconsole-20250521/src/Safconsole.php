@@ -5,14 +5,24 @@
 namespace AlibabaCloud\SDK\Safconsole\V20250521;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\ApplyBastionAccountRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\ApplyBastionAccountResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\AssociatePocTaskRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\AssociatePocTaskResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\CompleteModelingProjectRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\CompleteModelingProjectResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateCustomerModuleBasicInfoRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateCustomerModuleBasicInfoResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateCustomerModuleMetaInfoRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateCustomerModuleMetaInfoResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateCustomerModuleOutputInfoRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateCustomerModuleOutputInfoResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateModelingProjectRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\CreateModelingProjectResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DeleteModelRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DeleteModelResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DeployModelFileRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DeployModelFileResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeCustomerModuleBasicInfoRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeCustomerModuleBasicInfoResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeCustomerModuleMetaInfoRequest;
@@ -22,13 +32,20 @@ use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeCustomerModuleOutputInf
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeFeatureOptionRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeFeatureOptionResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeFeatureTemplateListResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeFileDownloadUrlRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeFileDownloadUrlResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelFeatureRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelFeatureResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelingProjectDetailRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelingProjectDetailResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelingProjectListRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelingProjectListResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModelOssTokenResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModuleServiceExistRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModuleServiceExistResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModuleStatusRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeModuleStatusResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribePocTaskListResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeSafRmmpOrderResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeServiceAndSceneRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DescribeServiceAndSceneResponse;
@@ -38,6 +55,8 @@ use AlibabaCloud\SDK\Safconsole\V20250521\Models\DuplicateModelRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\DuplicateModelResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\EditModelRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\EditModelResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\GetBastionHostCertificationRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\GetBastionHostCertificationResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\IterateModelRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\IterateModelResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\OfflineModelRequest;
@@ -48,6 +67,8 @@ use AlibabaCloud\SDK\Safconsole\V20250521\Models\ParseExpressionParametersReques
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\ParseExpressionParametersResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\PrepublishModelRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\PrepublishModelResponse;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\RequestModelFileSyncRequest;
+use AlibabaCloud\SDK\Safconsole\V20250521\Models\RequestModelFileSyncResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\RollbackModelRequest;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\RollbackModelResponse;
 use AlibabaCloud\SDK\Safconsole\V20250521\Models\TestModelRequest;
@@ -99,6 +120,227 @@ class Safconsole extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Apply for Bastion Host Account.
+     *
+     * @remarks
+     * ## Request Description
+     * - This interface is used for customers to create a modeling project for the first time.
+     * - `projectName` is a required field, with a maximum length of 50 characters.
+     * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+     * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+     *
+     * @param request - ApplyBastionAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyBastionAccountResponse
+     *
+     * @param ApplyBastionAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ApplyBastionAccountResponse
+     */
+    public function applyBastionAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyBastionAccount',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyBastionAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Apply for Bastion Host Account.
+     *
+     * @remarks
+     * ## Request Description
+     * - This interface is used for customers to create a modeling project for the first time.
+     * - `projectName` is a required field, with a maximum length of 50 characters.
+     * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+     * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+     *
+     * @param request - ApplyBastionAccountRequest
+     *
+     * @returns ApplyBastionAccountResponse
+     *
+     * @param ApplyBastionAccountRequest $request
+     *
+     * @return ApplyBastionAccountResponse
+     */
+    public function applyBastionAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyBastionAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associate Retrospective Task.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - AssociatePocTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociatePocTaskResponse
+     *
+     * @param AssociatePocTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AssociatePocTaskResponse
+     */
+    public function associatePocTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssociatePocTask',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociatePocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associate Retrospective Task.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - AssociatePocTaskRequest
+     *
+     * @returns AssociatePocTaskResponse
+     *
+     * @param AssociatePocTaskRequest $request
+     *
+     * @return AssociatePocTaskResponse
+     */
+    public function associatePocTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associatePocTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Complete project and release resources.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - CompleteModelingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompleteModelingProjectResponse
+     *
+     * @param CompleteModelingProjectRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CompleteModelingProjectResponse
+     */
+    public function completeModelingProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CompleteModelingProject',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CompleteModelingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Complete project and release resources.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - CompleteModelingProjectRequest
+     *
+     * @returns CompleteModelingProjectResponse
+     *
+     * @param CompleteModelingProjectRequest $request
+     *
+     * @return CompleteModelingProjectResponse
+     */
+    public function completeModelingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->completeModelingProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -317,6 +559,85 @@ class Safconsole extends OpenApiClient
     }
 
     /**
+     * Initialize a modeling project.
+     *
+     * @remarks
+     * ## Request Description
+     * - This interface is used for customers to create a modeling project for the first time.
+     * - `projectName` is a required field, with a maximum length of 50 characters.
+     * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+     * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+     *
+     * @param request - CreateModelingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelingProjectResponse
+     *
+     * @param CreateModelingProjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateModelingProjectResponse
+     */
+    public function createModelingProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceSpec) {
+            @$query['InstanceSpec'] = $request->instanceSpec;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelingProject',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initialize a modeling project.
+     *
+     * @remarks
+     * ## Request Description
+     * - This interface is used for customers to create a modeling project for the first time.
+     * - `projectName` is a required field, with a maximum length of 50 characters.
+     * - `remark` and `instanceSpec` are optional, where `remark` has a maximum length of 200 characters.
+     * - The available values for `instanceSpec` include `SECURE_ENV_LITE` and `SECURE_ENV_PRO`.
+     *
+     * @param request - CreateModelingProjectRequest
+     *
+     * @returns CreateModelingProjectResponse
+     *
+     * @param CreateModelingProjectRequest $request
+     *
+     * @return CreateModelingProjectResponse
+     */
+    public function createModelingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelingProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes the specified customer model based on the provided customer model ID.
      *
      * @remarks
@@ -381,6 +702,81 @@ class Safconsole extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deploy Model File.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - DeployModelFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployModelFileResponse
+     *
+     * @param DeployModelFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeployModelFileResponse
+     */
+    public function deployModelFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeployModelFile',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeployModelFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deploy Model File.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - DeployModelFileRequest
+     *
+     * @returns DeployModelFileResponse
+     *
+     * @param DeployModelFileRequest $request
+     *
+     * @return DeployModelFileResponse
+     */
+    public function deployModelFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployModelFileWithOptions($request, $runtime);
     }
 
     /**
@@ -453,11 +849,11 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询模型特征信息.
+     * Query model feature information based on the customer model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+     * ## Request Description
+     * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
      *
      * @param request - DescribeCustomerModuleMetaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -496,11 +892,11 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询模型特征信息.
+     * Query model feature information based on the customer model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+     * ## Request Description
+     * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
      *
      * @param request - DescribeCustomerModuleMetaInfoRequest
      *
@@ -518,11 +914,11 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询模型出参信息.
+     * Query model output information based on the customer model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+     * ## Request Description
+     * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include but are not limited to "EDIT", "ONLINE", etc.
      *
      * @param request - DescribeCustomerModuleOutputInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -565,11 +961,11 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询模型出参信息.
+     * Query model output information based on the customer model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+     * ## Request Description
+     * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include but are not limited to "EDIT", "ONLINE", etc.
      *
      * @param request - DescribeCustomerModuleOutputInfoRequest
      *
@@ -587,13 +983,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据特征模板返回特征模板具体特征选项.
+     * Return specific feature options based on the feature template.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - DescribeFeatureOptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -632,13 +1028,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据特征模板返回特征模板具体特征选项.
+     * Return specific feature options based on the feature template.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - DescribeFeatureOptionRequest
      *
@@ -656,13 +1052,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 获取可用的特征模板列表，用于模型配置。
+     * Get the list of available feature templates for model configuration.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which consists of a label (label) and a value (value).
      *
      * @param request - DescribeFeatureTemplateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -692,13 +1088,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 获取可用的特征模板列表，用于模型配置。
+     * Get the list of available feature templates for model configuration.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which consists of a label (label) and a value (value).
      *
      * @returns DescribeFeatureTemplateListResponse
      *
@@ -712,13 +1108,88 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 渲染模型的特征配置.
+     * Get File Download Link.
      *
      * @remarks
      * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - DescribeFileDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFileDownloadUrlResponse
+     *
+     * @param DescribeFileDownloadUrlRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeFileDownloadUrlResponse
+     */
+    public function describeFileDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFileDownloadUrl',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get File Download Link.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - DescribeFileDownloadUrlRequest
+     *
+     * @returns DescribeFileDownloadUrlResponse
+     *
+     * @param DescribeFileDownloadUrlRequest $request
+     *
+     * @return DescribeFileDownloadUrlResponse
+     */
+    public function describeFileDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFileDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * Render the feature configuration of the model.
+     *
+     * @remarks
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each including a label (label) and value (value).
      *
      * @param request - DescribeModelFeatureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -761,13 +1232,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 渲染模型的特征配置.
+     * Render the feature configuration of the model.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each including a label (label) and value (value).
      *
      * @param request - DescribeModelFeatureRequest
      *
@@ -785,7 +1256,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 获取上传oss鉴权数据.
+     * Obtain OSS Authentication Data for Upload.
      *
      * @param request - DescribeModelOssTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -815,7 +1286,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 获取上传oss鉴权数据.
+     * Obtain OSS Authentication Data for Upload.
      *
      * @returns DescribeModelOssTokenResponse
      *
@@ -829,14 +1300,164 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询指定模型对应服务是否存在.
+     * Get detailed project data.
      *
      * @remarks
      * ## 请求说明
-     * 该接口用于通过提供的`customerModuleId`来检查特定的模型服务是否已经存在。如果存在，则返回`true`；反之则返回`false`。
-     * ### 注意事项
-     * - `customerModuleId`是必须提供的参数，且为字符串类型。
-     * - 此API主要用于前端页面展示或逻辑判断时使用，以确认用户所选模型是否有对应的服务被创建。
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - DescribeModelingProjectDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelingProjectDetailResponse
+     *
+     * @param DescribeModelingProjectDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeModelingProjectDetailResponse
+     */
+    public function describeModelingProjectDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelingProjectDetail',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelingProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get detailed project data.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - DescribeModelingProjectDetailRequest
+     *
+     * @returns DescribeModelingProjectDetailResponse
+     *
+     * @param DescribeModelingProjectDetailRequest $request
+     *
+     * @return DescribeModelingProjectDetailResponse
+     */
+    public function describeModelingProjectDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelingProjectDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Paginated query for the list of modeling projects under the current user.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于获取指定租户下的所有建模项目的概览信息。
+     * - 支持通过`pageSize`和`currentPage`参数进行分页查询，默认每页显示10条记录。
+     * - 可选地，使用`status`参数来过滤特定状态（如`active`, `released`等）的项目。
+     * - 返回结果中包含每个项目的ID、名称、环境状态、建模状态、开始时间及结束时间（如果有的话），以及创建该项目的登录账号。
+     *
+     * @param request - DescribeModelingProjectListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelingProjectListResponse
+     *
+     * @param DescribeModelingProjectListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeModelingProjectListResponse
+     */
+    public function describeModelingProjectListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelingProjectList',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelingProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Paginated query for the list of modeling projects under the current user.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于获取指定租户下的所有建模项目的概览信息。
+     * - 支持通过`pageSize`和`currentPage`参数进行分页查询，默认每页显示10条记录。
+     * - 可选地，使用`status`参数来过滤特定状态（如`active`, `released`等）的项目。
+     * - 返回结果中包含每个项目的ID、名称、环境状态、建模状态、开始时间及结束时间（如果有的话），以及创建该项目的登录账号。
+     *
+     * @param request - DescribeModelingProjectListRequest
+     *
+     * @returns DescribeModelingProjectListResponse
+     *
+     * @param DescribeModelingProjectListRequest $request
+     *
+     * @return DescribeModelingProjectListResponse
+     */
+    public function describeModelingProjectList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelingProjectListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Whether the Service Corresponding to a Specific Model Exists Based on Customer Model ID.
+     *
+     * @remarks
+     * ## Request Description
+     * This interface is used to check whether a specific model service exists by providing the `customerModuleId`. If it exists, it returns `true`; otherwise, it returns `false`.
+     * ### Notes
+     * - `customerModuleId` is a required parameter and must be of string type.
+     * - This API is mainly used for front-end page display or logical judgment to confirm whether the service corresponding to the user\\"s selected model has been created.
      *
      * @param request - DescribeModuleServiceExistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -875,14 +1496,14 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询指定模型对应服务是否存在.
+     * Query Whether the Service Corresponding to a Specific Model Exists Based on Customer Model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 该接口用于通过提供的`customerModuleId`来检查特定的模型服务是否已经存在。如果存在，则返回`true`；反之则返回`false`。
-     * ### 注意事项
-     * - `customerModuleId`是必须提供的参数，且为字符串类型。
-     * - 此API主要用于前端页面展示或逻辑判断时使用，以确认用户所选模型是否有对应的服务被创建。
+     * ## Request Description
+     * This interface is used to check whether a specific model service exists by providing the `customerModuleId`. If it exists, it returns `true`; otherwise, it returns `false`.
+     * ### Notes
+     * - `customerModuleId` is a required parameter and must be of string type.
+     * - This API is mainly used for front-end page display or logical judgment to confirm whether the service corresponding to the user\\"s selected model has been created.
      *
      * @param request - DescribeModuleServiceExistRequest
      *
@@ -900,11 +1521,11 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询模型当前状态
+     * Query the current status of a model based on the customer model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+     * ## Request Description
+     * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
      *
      * @param request - DescribeModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -943,11 +1564,11 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 根据客户模型ID查询模型当前状态
+     * Query the current status of a model based on the customer model ID.
      *
      * @remarks
-     * ## 请求说明
-     * 通过提供`customerModuleId`参数，可以查询指定客户模型的当前状态。状态值可能包括但不限于"EDIT"、"ONLINE"等。
+     * ## Request Description
+     * By providing the `customerModuleId` parameter, you can query the current status of a specified customer model. The status values may include, but are not limited to, "EDIT", "ONLINE", etc.
      *
      * @param request - DescribeModuleStatusRequest
      *
@@ -965,7 +1586,51 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 查询模型托管订单.
+     * Query POC task list.
+     *
+     * @param request - DescribePocTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePocTaskListResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribePocTaskListResponse
+     */
+    public function describePocTaskListWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribePocTaskList',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePocTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query POC task list.
+     *
+     * @returns DescribePocTaskListResponse
+     *
+     * @return DescribePocTaskListResponse
+     */
+    public function describePocTaskList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePocTaskListWithOptions($runtime);
+    }
+
+    /**
+     * Query Model Hosting Orders.
      *
      * @param request - DescribeSafRmmpOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -995,7 +1660,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 查询模型托管订单.
+     * Query Model Hosting Orders.
      *
      * @returns DescribeSafRmmpOrderResponse
      *
@@ -1009,7 +1674,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 查询场景和服务
+     * Query Scene and Service.
      *
      * @param request - DescribeServiceAndSceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1052,7 +1717,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 查询场景和服务
+     * Query Scene and Service.
      *
      * @param request - DescribeServiceAndSceneRequest
      *
@@ -1070,15 +1735,15 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 获取指定用户下的所有模型信息，支持分页查询.
+     * Get all model information for a specified user, supporting pagination.
      *
      * @remarks
-     * ## 请求说明
-     * 该 API 用于查询特定用户下的所有模型信息，并支持通过分页参数进行分页查询。可以通过 `name` 参数进行模糊搜索。
-     * - `regId`: 地域标识，必填。
-     * - `pageSize`: 每页显示的条目数，必填。
-     * - `currentPage`: 当前页码，从1开始计数，必填。
-     * - `userId`: 用户ID，必填。
+     * ## Request Description
+     * This API is used to query all model information under a specific user and supports pagination through page parameters. Fuzzy search can be performed using the `name` parameter.
+     * - `regId`: Region identifier, required.
+     * - `pageSize`: Number of items per page, required.
+     * - `currentPage`: Current page number, starting from 1, required.
+     * - `userId`: User ID, required.
      *
      * @param request - DescribeUserModelListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1129,15 +1794,15 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 获取指定用户下的所有模型信息，支持分页查询.
+     * Get all model information for a specified user, supporting pagination.
      *
      * @remarks
-     * ## 请求说明
-     * 该 API 用于查询特定用户下的所有模型信息，并支持通过分页参数进行分页查询。可以通过 `name` 参数进行模糊搜索。
-     * - `regId`: 地域标识，必填。
-     * - `pageSize`: 每页显示的条目数，必填。
-     * - `currentPage`: 当前页码，从1开始计数，必填。
-     * - `userId`: 用户ID，必填。
+     * ## Request Description
+     * This API is used to query all model information under a specific user and supports pagination through page parameters. Fuzzy search can be performed using the `name` parameter.
+     * - `regId`: Region identifier, required.
+     * - `pageSize`: Number of items per page, required.
+     * - `currentPage`: Current page number, starting from 1, required.
+     * - `userId`: User ID, required.
      *
      * @param request - DescribeUserModelListRequest
      *
@@ -1155,12 +1820,12 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 迭代模型.
+     * Iterate Model.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-     * - **注意**：删除操作不可逆，请谨慎使用。
+     * ## Request Description
+     * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+     * - **Note**: The deletion operation is irreversible, please use with caution.
      *
      * @param request - DuplicateModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1199,12 +1864,12 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 迭代模型.
+     * Iterate Model.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-     * - **注意**：删除操作不可逆，请谨慎使用。
+     * ## Request Description
+     * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+     * - **Note**: The deletion operation is irreversible, please use with caution.
      *
      * @param request - DuplicateModelRequest
      *
@@ -1222,7 +1887,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 编辑模型.
+     * Edit Model.
      *
      * @param request - EditModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1261,7 +1926,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 编辑模型.
+     * Edit Model.
      *
      * @param request - EditModelRequest
      *
@@ -1279,12 +1944,83 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 迭代模型.
+     * View Bastion Host Initial Password.
      *
      * @remarks
      * ## 请求说明
-     * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-     * - **注意**：删除操作不可逆，请谨慎使用。
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - GetBastionHostCertificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBastionHostCertificationResponse
+     *
+     * @param GetBastionHostCertificationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetBastionHostCertificationResponse
+     */
+    public function getBastionHostCertificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBastionHostCertification',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBastionHostCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * View Bastion Host Initial Password.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - GetBastionHostCertificationRequest
+     *
+     * @returns GetBastionHostCertificationResponse
+     *
+     * @param GetBastionHostCertificationRequest $request
+     *
+     * @return GetBastionHostCertificationResponse
+     */
+    public function getBastionHostCertification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBastionHostCertificationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Iterate Model.
+     *
+     * @remarks
+     * ## Request Description
+     * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+     * - **Note**: The deletion operation is irreversible, please use with caution.
      *
      * @param request - IterateModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,12 +2059,12 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 迭代模型.
+     * Iterate Model.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-     * - **注意**：删除操作不可逆，请谨慎使用。
+     * ## Request Description
+     * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+     * - **Note**: The deletion operation is irreversible, please use with caution.
      *
      * @param request - IterateModelRequest
      *
@@ -1346,7 +2082,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 下线模型.
+     * Offline Model.
      *
      * @param request - OfflineModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1385,7 +2121,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 下线模型.
+     * Offline Model.
      *
      * @param request - OfflineModelRequest
      *
@@ -1403,12 +2139,12 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 上线模型.
+     * Online Model.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-     * - **注意**：删除操作不可逆，请谨慎使用。
+     * ## Request Description
+     * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+     * - **Note**: Deletion is irreversible, please use with caution.
      *
      * @param request - OnlineModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1447,12 +2183,12 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 上线模型.
+     * Online Model.
      *
      * @remarks
-     * ## 请求说明
-     * 本API用于从系统中删除指定的客户模型。调用时必须提供`customerModuleId`参数，该参数标识了要删除的具体模型。
-     * - **注意**：删除操作不可逆，请谨慎使用。
+     * ## Request Description
+     * This API is used to delete a specified customer model from the system. When calling, you must provide the `customerModuleId` parameter, which identifies the specific model to be deleted.
+     * - **Note**: Deletion is irreversible, please use with caution.
      *
      * @param request - OnlineModelRequest
      *
@@ -1470,13 +2206,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 解析表达式参数.
+     * Parse Expression Parameters.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - ParseExpressionParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1515,13 +2251,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 解析表达式参数.
+     * Parse Expression Parameters.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - ParseExpressionParametersRequest
      *
@@ -1539,7 +2275,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 预发布模型.
+     * Pre-release Model.
      *
      * @param request - PrepublishModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1578,7 +2314,7 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 预发布模型.
+     * Pre-release Model.
      *
      * @param request - PrepublishModelRequest
      *
@@ -1593,6 +2329,77 @@ class Safconsole extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->prepublishModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Request to Sync Model Files.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - RequestModelFileSyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RequestModelFileSyncResponse
+     *
+     * @param RequestModelFileSyncRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RequestModelFileSyncResponse
+     */
+    public function requestModelFileSyncWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RequestModelFileSync',
+            'version' => '2025-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RequestModelFileSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Request to Sync Model Files.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 本接口用于客户首次创建建模项目。
+     * - `projectName` 是必填项，长度不超过50个字符。
+     * - `remark` 和 `instanceSpec` 为可选项，其中 `remark` 长度不超过200个字符。
+     * - `instanceSpec` 可选值包括 `SECURE_ENV_LITE` 和 `SECURE_ENV_PRO`。
+     *
+     * @param request - RequestModelFileSyncRequest
+     *
+     * @returns RequestModelFileSyncResponse
+     *
+     * @param RequestModelFileSyncRequest $request
+     *
+     * @return RequestModelFileSyncResponse
+     */
+    public function requestModelFileSync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requestModelFileSyncWithOptions($request, $runtime);
     }
 
     /**
@@ -1663,13 +2470,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 预发布测试模型.
+     * Pre-release Model Testing.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - TestModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1708,13 +2515,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 预发布测试模型.
+     * Pre-release Model Testing.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - TestModelRequest
      *
@@ -1732,13 +2539,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 预发布测试模型.
+     * Pre-release Test Model.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - TestPreModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1777,13 +2584,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 预发布测试模型.
+     * Pre-release Test Model.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - TestPreModelRequest
      *
@@ -1801,13 +2608,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 测试表达式.
+     * Test Expression.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - TestProcessExpressionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1850,13 +2657,13 @@ class Safconsole extends OpenApiClient
     }
 
     /**
-     * 测试表达式.
+     * Test Expression.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于查询系统中所有可用的特征模板。
-     * - 请求方式为 GET，无需提供额外参数。
-     * - 返回结果包含多个特征模板选项，每个选项包括标签（label）和值（value）。
+     * ## Request Description
+     * - This interface is used to query all available feature templates in the system.
+     * - The request method is GET, and no additional parameters are required.
+     * - The returned result includes multiple feature template options, each of which includes a label (label) and a value (value).
      *
      * @param request - TestProcessExpressionRequest
      *
