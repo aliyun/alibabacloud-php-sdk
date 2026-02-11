@@ -225,7 +225,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 授权用户.
+     * Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
      *
      * @param tmpReq - AuthorizeInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -305,7 +305,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 授权用户.
+     * Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
      *
      * @param request - AuthorizeInstanceGroupRequest
      *
@@ -2675,6 +2675,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['BizRegionId'] = $request->bizRegionId;
         }
 
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
         if (null !== $request->chargeType) {
             @$body['ChargeType'] = $request->chargeType;
         }
@@ -2695,12 +2699,20 @@ class Appstreamcenter extends OpenApiClient
             @$body['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
         if (null !== $request->serverInstanceType) {
             @$body['ServerInstanceType'] = $request->serverInstanceType;
         }
 
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->users) {
+            @$bodyFlat['Users'] = $request->users;
         }
 
         if (null !== $request->virtualNodePoolId) {
@@ -3353,6 +3365,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['Password'] = $request->password;
         }
 
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
         if (null !== $request->wuyingServerId) {
             @$body['WuyingServerId'] = $request->wuyingServerId;
         }
@@ -3657,6 +3673,10 @@ class Appstreamcenter extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
         $bodyFlat = [];
         if (null !== $request->wuyingServerIdList) {
             @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
@@ -3794,6 +3814,10 @@ class Appstreamcenter extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
         $bodyFlat = [];
         if (null !== $request->wuyingServerIdList) {
             @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
@@ -3858,6 +3882,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['Force'] = $request->force;
         }
 
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
         $bodyFlat = [];
         if (null !== $request->wuyingServerIdList) {
             @$bodyFlat['WuyingServerIdList'] = $request->wuyingServerIdList;
@@ -3902,7 +3930,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 为云资源创建并绑定标签.
+     * Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
      *
      * @param request - TagCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3949,7 +3977,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 为云资源创建并绑定标签.
+     * Creates and adds tags to cloud resources and updates the values of existing cloud resource tags.
      *
      * @param request - TagCloudResourcesRequest
      *

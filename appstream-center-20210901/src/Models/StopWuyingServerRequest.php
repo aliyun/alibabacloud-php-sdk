@@ -14,11 +14,17 @@ class StopWuyingServerRequest extends Model
     public $force;
 
     /**
+     * @var string
+     */
+    public $productType;
+
+    /**
      * @var string[]
      */
     public $wuyingServerIdList;
     protected $_name = [
         'force' => 'Force',
+        'productType' => 'ProductType',
         'wuyingServerIdList' => 'WuyingServerIdList',
     ];
 
@@ -35,6 +41,10 @@ class StopWuyingServerRequest extends Model
         $res = [];
         if (null !== $this->force) {
             $res['Force'] = $this->force;
+        }
+
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         if (null !== $this->wuyingServerIdList) {
@@ -61,6 +71,10 @@ class StopWuyingServerRequest extends Model
         $model = new self();
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
+        }
+
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         if (isset($map['WuyingServerIdList'])) {

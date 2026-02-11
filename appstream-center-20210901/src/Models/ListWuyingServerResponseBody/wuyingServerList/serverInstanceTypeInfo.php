@@ -24,6 +24,11 @@ class serverInstanceTypeInfo extends Model
     public $gpuMemory;
 
     /**
+     * @var string
+     */
+    public $gpuSpec;
+
+    /**
      * @var int
      */
     public $memory;
@@ -36,6 +41,7 @@ class serverInstanceTypeInfo extends Model
         'cpu' => 'Cpu',
         'gpu' => 'Gpu',
         'gpuMemory' => 'GpuMemory',
+        'gpuSpec' => 'GpuSpec',
         'memory' => 'Memory',
         'serverInstanceType' => 'ServerInstanceType',
     ];
@@ -58,6 +64,10 @@ class serverInstanceTypeInfo extends Model
 
         if (null !== $this->gpuMemory) {
             $res['GpuMemory'] = $this->gpuMemory;
+        }
+
+        if (null !== $this->gpuSpec) {
+            $res['GpuSpec'] = $this->gpuSpec;
         }
 
         if (null !== $this->memory) {
@@ -89,6 +99,10 @@ class serverInstanceTypeInfo extends Model
 
         if (isset($map['GpuMemory'])) {
             $model->gpuMemory = $map['GpuMemory'];
+        }
+
+        if (isset($map['GpuSpec'])) {
+            $model->gpuSpec = $map['GpuSpec'];
         }
 
         if (isset($map['Memory'])) {

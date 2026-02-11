@@ -16,6 +16,16 @@ class dataDisk extends Model
     /**
      * @var string
      */
+    public $dataDiskId;
+
+    /**
+     * @var string
+     */
+    public $dataDiskNo;
+
+    /**
+     * @var string
+     */
     public $dataDiskPerformanceLevel;
 
     /**
@@ -24,6 +34,8 @@ class dataDisk extends Model
     public $dataDiskSize;
     protected $_name = [
         'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskId' => 'DataDiskId',
+        'dataDiskNo' => 'DataDiskNo',
         'dataDiskPerformanceLevel' => 'DataDiskPerformanceLevel',
         'dataDiskSize' => 'DataDiskSize',
     ];
@@ -38,6 +50,14 @@ class dataDisk extends Model
         $res = [];
         if (null !== $this->dataDiskCategory) {
             $res['DataDiskCategory'] = $this->dataDiskCategory;
+        }
+
+        if (null !== $this->dataDiskId) {
+            $res['DataDiskId'] = $this->dataDiskId;
+        }
+
+        if (null !== $this->dataDiskNo) {
+            $res['DataDiskNo'] = $this->dataDiskNo;
         }
 
         if (null !== $this->dataDiskPerformanceLevel) {
@@ -61,6 +81,14 @@ class dataDisk extends Model
         $model = new self();
         if (isset($map['DataDiskCategory'])) {
             $model->dataDiskCategory = $map['DataDiskCategory'];
+        }
+
+        if (isset($map['DataDiskId'])) {
+            $model->dataDiskId = $map['DataDiskId'];
+        }
+
+        if (isset($map['DataDiskNo'])) {
+            $model->dataDiskNo = $map['DataDiskNo'];
         }
 
         if (isset($map['DataDiskPerformanceLevel'])) {

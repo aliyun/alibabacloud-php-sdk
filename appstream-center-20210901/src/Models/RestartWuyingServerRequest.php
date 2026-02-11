@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class RestartWuyingServerRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $productType;
+
+    /**
      * @var string[]
      */
     public $wuyingServerIdList;
     protected $_name = [
+        'productType' => 'ProductType',
         'wuyingServerIdList' => 'WuyingServerIdList',
     ];
 
@@ -27,6 +33,10 @@ class RestartWuyingServerRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+
         if (null !== $this->wuyingServerIdList) {
             if (\is_array($this->wuyingServerIdList)) {
                 $res['WuyingServerIdList'] = [];
@@ -49,6 +59,10 @@ class RestartWuyingServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+
         if (isset($map['WuyingServerIdList'])) {
             if (!empty($map['WuyingServerIdList'])) {
                 $model->wuyingServerIdList = [];

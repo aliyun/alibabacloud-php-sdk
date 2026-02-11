@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBod
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\appList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\imageRegionDistributeList;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\snapshotList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponseBody\data\tagList;
 
 class data extends Model
@@ -207,6 +208,11 @@ class data extends Model
     public $sessionType;
 
     /**
+     * @var snapshotList[]
+     */
+    public $snapshotList;
+
+    /**
      * @var string
      */
     public $status;
@@ -285,6 +291,7 @@ class data extends Model
         'resourceInstanceCategory' => 'ResourceInstanceCategory',
         'scene' => 'Scene',
         'sessionType' => 'SessionType',
+        'snapshotList' => 'SnapshotList',
         'status' => 'Status',
         'supportedLanguageList' => 'SupportedLanguageList',
         'systemDiskSize' => 'SystemDiskSize',
@@ -311,6 +318,9 @@ class data extends Model
         }
         if (\is_array($this->imageRegionList)) {
             Model::validateArray($this->imageRegionList);
+        }
+        if (\is_array($this->snapshotList)) {
+            Model::validateArray($this->snapshotList);
         }
         if (\is_array($this->supportedLanguageList)) {
             Model::validateArray($this->supportedLanguageList);
@@ -513,6 +523,17 @@ class data extends Model
 
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
+        }
+
+        if (null !== $this->snapshotList) {
+            if (\is_array($this->snapshotList)) {
+                $res['SnapshotList'] = [];
+                $n1 = 0;
+                foreach ($this->snapshotList as $item1) {
+                    $res['SnapshotList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -761,6 +782,17 @@ class data extends Model
 
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];
+        }
+
+        if (isset($map['SnapshotList'])) {
+            if (!empty($map['SnapshotList'])) {
+                $model->snapshotList = [];
+                $n1 = 0;
+                foreach ($map['SnapshotList'] as $item1) {
+                    $model->snapshotList[$n1] = snapshotList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Status'])) {

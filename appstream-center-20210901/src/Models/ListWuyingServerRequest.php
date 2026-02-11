@@ -19,6 +19,11 @@ class ListWuyingServerRequest extends Model
     public $bizRegionId;
 
     /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
      * @var string
      */
     public $chargeType;
@@ -46,12 +51,22 @@ class ListWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $productType;
+
+    /**
+     * @var string
+     */
     public $serverInstanceType;
 
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string[]
+     */
+    public $users;
 
     /**
      * @var string
@@ -70,13 +85,16 @@ class ListWuyingServerRequest extends Model
     protected $_name = [
         'addVirtualNodePoolStatusList' => 'AddVirtualNodePoolStatusList',
         'bizRegionId' => 'BizRegionId',
+        'bizType' => 'BizType',
         'chargeType' => 'ChargeType',
         'imageId' => 'ImageId',
         'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'productType' => 'ProductType',
         'serverInstanceType' => 'ServerInstanceType',
         'status' => 'Status',
+        'users' => 'Users',
         'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerIdList' => 'WuyingServerIdList',
         'wuyingServerNameOrId' => 'WuyingServerNameOrId',
@@ -86,6 +104,9 @@ class ListWuyingServerRequest extends Model
     {
         if (\is_array($this->addVirtualNodePoolStatusList)) {
             Model::validateArray($this->addVirtualNodePoolStatusList);
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
         }
         if (\is_array($this->wuyingServerIdList)) {
             Model::validateArray($this->wuyingServerIdList);
@@ -111,6 +132,10 @@ class ListWuyingServerRequest extends Model
             $res['BizRegionId'] = $this->bizRegionId;
         }
 
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -131,12 +156,27 @@ class ListWuyingServerRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+
         if (null !== $this->serverInstanceType) {
             $res['ServerInstanceType'] = $this->serverInstanceType;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->users) {
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->virtualNodePoolId) {
@@ -184,6 +224,10 @@ class ListWuyingServerRequest extends Model
             $model->bizRegionId = $map['BizRegionId'];
         }
 
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -204,12 +248,27 @@ class ListWuyingServerRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+
         if (isset($map['ServerInstanceType'])) {
             $model->serverInstanceType = $map['ServerInstanceType'];
         }
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Users'])) {
+            if (!empty($map['Users'])) {
+                $model->users = [];
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VirtualNodePoolId'])) {

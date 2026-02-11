@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\dataDisk;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\instanceInfoList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\serverInstanceTypeInfo;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\sessions;
 
 class wuyingServerList extends Model
 {
@@ -15,6 +16,16 @@ class wuyingServerList extends Model
      * @var string
      */
     public $addVirtualNodePoolStatus;
+
+    /**
+     * @var int
+     */
+    public $aliUid;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
 
     /**
      * @var string
@@ -40,6 +51,11 @@ class wuyingServerList extends Model
      * @var string
      */
     public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $fotaVersion;
 
     /**
      * @var string
@@ -89,12 +105,27 @@ class wuyingServerList extends Model
     /**
      * @var string[]
      */
+    public $policyGroupIdList;
+
+    /**
+     * @var string
+     */
+    public $resourceSessionStatus;
+
+    /**
+     * @var string[]
+     */
     public $securityGroupIds;
 
     /**
      * @var serverInstanceTypeInfo
      */
     public $serverInstanceTypeInfo;
+
+    /**
+     * @var sessions[]
+     */
+    public $sessions;
 
     /**
      * @var string
@@ -114,12 +145,27 @@ class wuyingServerList extends Model
     /**
      * @var string
      */
+    public $systemDiskId;
+
+    /**
+     * @var string
+     */
     public $systemDiskPerformanceLevel;
 
     /**
      * @var int
      */
     public $systemDiskSize;
+
+    /**
+     * @var string
+     */
+    public $timerGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $users;
 
     /**
      * @var string
@@ -142,11 +188,14 @@ class wuyingServerList extends Model
     public $wuyingServerName;
     protected $_name = [
         'addVirtualNodePoolStatus' => 'AddVirtualNodePoolStatus',
+        'aliUid' => 'AliUid',
+        'bandwidth' => 'Bandwidth',
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
         'dataDisk' => 'DataDisk',
         'expiredTime' => 'ExpiredTime',
+        'fotaVersion' => 'FotaVersion',
         'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'instanceInfoList' => 'InstanceInfoList',
@@ -156,13 +205,19 @@ class wuyingServerList extends Model
         'officeSiteName' => 'OfficeSiteName',
         'officeSiteType' => 'OfficeSiteType',
         'osType' => 'OsType',
+        'policyGroupIdList' => 'PolicyGroupIdList',
+        'resourceSessionStatus' => 'ResourceSessionStatus',
         'securityGroupIds' => 'SecurityGroupIds',
         'serverInstanceTypeInfo' => 'ServerInstanceTypeInfo',
+        'sessions' => 'Sessions',
         'status' => 'Status',
         'subPayType' => 'SubPayType',
         'systemDiskCategory' => 'SystemDiskCategory',
+        'systemDiskId' => 'SystemDiskId',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
         'systemDiskSize' => 'SystemDiskSize',
+        'timerGroupId' => 'TimerGroupId',
+        'users' => 'Users',
         'virtualKubeletIp' => 'VirtualKubeletIp',
         'virtualNodePoolId' => 'VirtualNodePoolId',
         'wuyingServerId' => 'WuyingServerId',
@@ -177,11 +232,20 @@ class wuyingServerList extends Model
         if (\is_array($this->instanceInfoList)) {
             Model::validateArray($this->instanceInfoList);
         }
+        if (\is_array($this->policyGroupIdList)) {
+            Model::validateArray($this->policyGroupIdList);
+        }
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
         }
         if (null !== $this->serverInstanceTypeInfo) {
             $this->serverInstanceTypeInfo->validate();
+        }
+        if (\is_array($this->sessions)) {
+            Model::validateArray($this->sessions);
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
         }
         parent::validate();
     }
@@ -191,6 +255,14 @@ class wuyingServerList extends Model
         $res = [];
         if (null !== $this->addVirtualNodePoolStatus) {
             $res['AddVirtualNodePoolStatus'] = $this->addVirtualNodePoolStatus;
+        }
+
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
+        }
+
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
 
         if (null !== $this->bizRegionId) {
@@ -218,6 +290,10 @@ class wuyingServerList extends Model
 
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+
+        if (null !== $this->fotaVersion) {
+            $res['FotaVersion'] = $this->fotaVersion;
         }
 
         if (null !== $this->imageId) {
@@ -263,6 +339,21 @@ class wuyingServerList extends Model
             $res['OsType'] = $this->osType;
         }
 
+        if (null !== $this->policyGroupIdList) {
+            if (\is_array($this->policyGroupIdList)) {
+                $res['PolicyGroupIdList'] = [];
+                $n1 = 0;
+                foreach ($this->policyGroupIdList as $item1) {
+                    $res['PolicyGroupIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceSessionStatus) {
+            $res['ResourceSessionStatus'] = $this->resourceSessionStatus;
+        }
+
         if (null !== $this->securityGroupIds) {
             if (\is_array($this->securityGroupIds)) {
                 $res['SecurityGroupIds'] = [];
@@ -278,6 +369,17 @@ class wuyingServerList extends Model
             $res['ServerInstanceTypeInfo'] = null !== $this->serverInstanceTypeInfo ? $this->serverInstanceTypeInfo->toArray($noStream) : $this->serverInstanceTypeInfo;
         }
 
+        if (null !== $this->sessions) {
+            if (\is_array($this->sessions)) {
+                $res['Sessions'] = [];
+                $n1 = 0;
+                foreach ($this->sessions as $item1) {
+                    $res['Sessions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -290,12 +392,31 @@ class wuyingServerList extends Model
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
 
+        if (null !== $this->systemDiskId) {
+            $res['SystemDiskId'] = $this->systemDiskId;
+        }
+
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['SystemDiskPerformanceLevel'] = $this->systemDiskPerformanceLevel;
         }
 
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
+
+        if (null !== $this->timerGroupId) {
+            $res['TimerGroupId'] = $this->timerGroupId;
+        }
+
+        if (null !== $this->users) {
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->virtualKubeletIp) {
@@ -329,6 +450,14 @@ class wuyingServerList extends Model
             $model->addVirtualNodePoolStatus = $map['AddVirtualNodePoolStatus'];
         }
 
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
+        }
+
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
@@ -354,6 +483,10 @@ class wuyingServerList extends Model
 
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+
+        if (isset($map['FotaVersion'])) {
+            $model->fotaVersion = $map['FotaVersion'];
         }
 
         if (isset($map['ImageId'])) {
@@ -399,6 +532,21 @@ class wuyingServerList extends Model
             $model->osType = $map['OsType'];
         }
 
+        if (isset($map['PolicyGroupIdList'])) {
+            if (!empty($map['PolicyGroupIdList'])) {
+                $model->policyGroupIdList = [];
+                $n1 = 0;
+                foreach ($map['PolicyGroupIdList'] as $item1) {
+                    $model->policyGroupIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ResourceSessionStatus'])) {
+            $model->resourceSessionStatus = $map['ResourceSessionStatus'];
+        }
+
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = [];
@@ -414,6 +562,17 @@ class wuyingServerList extends Model
             $model->serverInstanceTypeInfo = serverInstanceTypeInfo::fromMap($map['ServerInstanceTypeInfo']);
         }
 
+        if (isset($map['Sessions'])) {
+            if (!empty($map['Sessions'])) {
+                $model->sessions = [];
+                $n1 = 0;
+                foreach ($map['Sessions'] as $item1) {
+                    $model->sessions[$n1] = sessions::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -426,12 +585,31 @@ class wuyingServerList extends Model
             $model->systemDiskCategory = $map['SystemDiskCategory'];
         }
 
+        if (isset($map['SystemDiskId'])) {
+            $model->systemDiskId = $map['SystemDiskId'];
+        }
+
         if (isset($map['SystemDiskPerformanceLevel'])) {
             $model->systemDiskPerformanceLevel = $map['SystemDiskPerformanceLevel'];
         }
 
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+
+        if (isset($map['TimerGroupId'])) {
+            $model->timerGroupId = $map['TimerGroupId'];
+        }
+
+        if (isset($map['Users'])) {
+            if (!empty($map['Users'])) {
+                $model->users = [];
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VirtualKubeletIp'])) {

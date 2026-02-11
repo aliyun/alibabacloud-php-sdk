@@ -16,6 +16,11 @@ class ModifyWuyingServerAttributeRequest extends Model
     /**
      * @var string
      */
+    public $productType;
+
+    /**
+     * @var string
+     */
     public $wuyingServerId;
 
     /**
@@ -24,6 +29,7 @@ class ModifyWuyingServerAttributeRequest extends Model
     public $wuyingServerName;
     protected $_name = [
         'password' => 'Password',
+        'productType' => 'ProductType',
         'wuyingServerId' => 'WuyingServerId',
         'wuyingServerName' => 'WuyingServerName',
     ];
@@ -38,6 +44,10 @@ class ModifyWuyingServerAttributeRequest extends Model
         $res = [];
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         if (null !== $this->wuyingServerId) {
@@ -61,6 +71,10 @@ class ModifyWuyingServerAttributeRequest extends Model
         $model = new self();
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         if (isset($map['WuyingServerId'])) {
