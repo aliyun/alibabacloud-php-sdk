@@ -949,7 +949,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+     * The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
      *
      * @remarks
      * Caller must be a Partner from International Site, either Distribution or Reseller will do.
@@ -1007,7 +1007,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Export quota amount adjustment history as a Distribution Customer from International Site. Only available on International Site.
+     * The ExportCustomerQuotaRecord interface corresponds to the export function of "Quota Adjust Details" on ACPN.
      *
      * @remarks
      * Caller must be a Partner from International Site, either Distribution or Reseller will do.
@@ -1028,7 +1028,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 额度冲减明细列表导出接口.
+     * The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
      *
      * @param request - ExportReversedDeductionHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1079,7 +1079,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 额度冲减明细列表导出接口.
+     * The ExportReversedDeductionHistory interface corresponds to the export function of "Quota Offsetting Details" on ACPN.
      *
      * @param request - ExportReversedDeductionHistoryRequest
      *
@@ -2080,6 +2080,10 @@ class Agency extends OpenApiClient
     /**
      * 优惠券使用量列表查询.
      *
+     * @remarks
+     * 确保当前调用账号身份为分销伙伴
+     * <notice>仅国际提供
+     *
      * @param request - ListCouponUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2143,6 +2147,10 @@ class Agency extends OpenApiClient
     /**
      * 优惠券使用量列表查询.
      *
+     * @remarks
+     * 确保当前调用账号身份为分销伙伴
+     * <notice>仅国际提供
+     *
      * @param request - ListCouponUsageRequest
      *
      * @returns ListCouponUsageResponse
@@ -2159,7 +2167,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 通用查询导出任务列表.
+     * Query the list of exported files.
      *
      * @param request - ListExportTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2214,7 +2222,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 通用查询导出任务列表.
+     * Query the list of exported files.
      *
      * @param request - ListExportTasksRequest
      *

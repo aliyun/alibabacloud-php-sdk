@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $PAYGFreezeStatus;
+
+    /**
+     * @var string
+     */
     public $zeroCreditShutdownPolicy;
 
     /**
@@ -54,6 +59,7 @@ class data extends Model
         'consumedUndeductedValue' => 'ConsumedUndeductedValue',
         'creditLine' => 'CreditLine',
         'outstandingBalance' => 'OutstandingBalance',
+        'PAYGFreezeStatus' => 'PAYGFreezeStatus',
         'zeroCreditShutdownPolicy' => 'ZeroCreditShutdownPolicy',
         'newBuyStatus' => 'newBuyStatus',
     ];
@@ -88,6 +94,10 @@ class data extends Model
 
         if (null !== $this->outstandingBalance) {
             $res['OutstandingBalance'] = $this->outstandingBalance;
+        }
+
+        if (null !== $this->PAYGFreezeStatus) {
+            $res['PAYGFreezeStatus'] = $this->PAYGFreezeStatus;
         }
 
         if (null !== $this->zeroCreditShutdownPolicy) {
@@ -131,6 +141,10 @@ class data extends Model
 
         if (isset($map['OutstandingBalance'])) {
             $model->outstandingBalance = $map['OutstandingBalance'];
+        }
+
+        if (isset($map['PAYGFreezeStatus'])) {
+            $model->PAYGFreezeStatus = $map['PAYGFreezeStatus'];
         }
 
         if (isset($map['ZeroCreditShutdownPolicy'])) {
