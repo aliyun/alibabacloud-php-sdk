@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRetcodeShareUrlResponseBody extends Model
 {
@@ -19,19 +19,21 @@ class GetRetcodeShareUrlResponseBody extends Model
     public $url;
     protected $_name = [
         'requestId' => 'RequestId',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -39,17 +41,18 @@ class GetRetcodeShareUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRetcodeShareUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

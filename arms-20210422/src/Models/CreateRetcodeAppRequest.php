@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRetcodeAppRequest extends Model
 {
@@ -23,24 +23,27 @@ class CreateRetcodeAppRequest extends Model
      */
     public $retcodeAppType;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
         'retcodeAppName' => 'RetcodeAppName',
         'retcodeAppType' => 'RetcodeAppType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->retcodeAppName) {
             $res['RetcodeAppName'] = $this->retcodeAppName;
         }
+
         if (null !== $this->retcodeAppType) {
             $res['RetcodeAppType'] = $this->retcodeAppType;
         }
@@ -48,20 +51,22 @@ class CreateRetcodeAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRetcodeAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RetcodeAppName'])) {
             $model->retcodeAppName = $map['RetcodeAppName'];
         }
+
         if (isset($map['RetcodeAppType'])) {
             $model->retcodeAppType = $map['RetcodeAppType'];
         }

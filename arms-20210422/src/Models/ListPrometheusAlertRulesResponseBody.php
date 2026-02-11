@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\ListPrometheusAlertRulesResponseBody\prometheusAlertRules;
-use AlibabaCloud\Tea\Model;
 
 class ListPrometheusAlertRulesResponseBody extends Model
 {
@@ -20,25 +20,31 @@ class ListPrometheusAlertRulesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'prometheusAlertRules' => 'PrometheusAlertRules',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->prometheusAlertRules)) {
+            Model::validateArray($this->prometheusAlertRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prometheusAlertRules) {
-            $res['PrometheusAlertRules'] = [];
-            if (null !== $this->prometheusAlertRules && \is_array($this->prometheusAlertRules)) {
-                $n = 0;
-                foreach ($this->prometheusAlertRules as $item) {
-                    $res['PrometheusAlertRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->prometheusAlertRules)) {
+                $res['PrometheusAlertRules'] = [];
+                $n1 = 0;
+                foreach ($this->prometheusAlertRules as $item1) {
+                    $res['PrometheusAlertRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class ListPrometheusAlertRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPrometheusAlertRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrometheusAlertRules'])) {
             if (!empty($map['PrometheusAlertRules'])) {
                 $model->prometheusAlertRules = [];
-                $n                           = 0;
-                foreach ($map['PrometheusAlertRules'] as $item) {
-                    $model->prometheusAlertRules[$n++] = null !== $item ? prometheusAlertRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PrometheusAlertRules'] as $item1) {
+                    $model->prometheusAlertRules[$n1] = prometheusAlertRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

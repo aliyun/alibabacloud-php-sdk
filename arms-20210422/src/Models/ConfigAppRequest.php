@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigAppRequest extends Model
 {
@@ -23,24 +23,27 @@ class ConfigAppRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'appIds'   => 'AppIds',
-        'enable'   => 'Enable',
+        'appIds' => 'AppIds',
+        'enable' => 'Enable',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIds) {
             $res['AppIds'] = $this->appIds;
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,20 +51,22 @@ class ConfigAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIds'])) {
             $model->appIds = $map['AppIds'];
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

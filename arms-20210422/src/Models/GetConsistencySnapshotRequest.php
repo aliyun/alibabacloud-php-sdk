@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConsistencySnapshotRequest extends Model
 {
@@ -33,32 +33,37 @@ class GetConsistencySnapshotRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'appType'          => 'AppType',
+        'appType' => 'AppType',
         'currentTimestamp' => 'CurrentTimestamp',
-        'pid'              => 'Pid',
-        'proxyUserId'      => 'ProxyUserId',
-        'regionId'         => 'RegionId',
+        'pid' => 'Pid',
+        'proxyUserId' => 'ProxyUserId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->currentTimestamp) {
             $res['CurrentTimestamp'] = $this->currentTimestamp;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->proxyUserId) {
             $res['ProxyUserId'] = $this->proxyUserId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -66,26 +71,30 @@ class GetConsistencySnapshotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConsistencySnapshotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['CurrentTimestamp'])) {
             $model->currentTimestamp = $map['CurrentTimestamp'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['ProxyUserId'])) {
             $model->proxyUserId = $map['ProxyUserId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

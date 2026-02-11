@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWebhookRequest extends Model
 {
@@ -48,44 +48,52 @@ class UpdateWebhookRequest extends Model
      */
     public $url;
     protected $_name = [
-        'body'        => 'Body',
-        'contactId'   => 'ContactId',
+        'body' => 'Body',
+        'contactId' => 'ContactId',
         'contactName' => 'ContactName',
         'httpHeaders' => 'HttpHeaders',
-        'httpParams'  => 'HttpParams',
-        'method'      => 'Method',
-        'regionId'    => 'RegionId',
-        'url'         => 'Url',
+        'httpParams' => 'HttpParams',
+        'method' => 'Method',
+        'regionId' => 'RegionId',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
         }
+
         if (null !== $this->httpHeaders) {
             $res['HttpHeaders'] = $this->httpHeaders;
         }
+
         if (null !== $this->httpParams) {
             $res['HttpParams'] = $this->httpParams;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -93,35 +101,42 @@ class UpdateWebhookRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWebhookRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
         }
+
         if (isset($map['HttpHeaders'])) {
             $model->httpHeaders = $map['HttpHeaders'];
         }
+
         if (isset($map['HttpParams'])) {
             $model->httpParams = $map['HttpParams'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

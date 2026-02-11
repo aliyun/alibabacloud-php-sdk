@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchAlertContactGroupRequest extends Model
 {
@@ -38,36 +38,42 @@ class SearchAlertContactGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'contactGroupIds'  => 'ContactGroupIds',
+        'contactGroupIds' => 'ContactGroupIds',
         'contactGroupName' => 'ContactGroupName',
-        'contactId'        => 'ContactId',
-        'contactName'      => 'ContactName',
-        'isDetail'         => 'IsDetail',
-        'regionId'         => 'RegionId',
+        'contactId' => 'ContactId',
+        'contactName' => 'ContactName',
+        'isDetail' => 'IsDetail',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupIds) {
             $res['ContactGroupIds'] = $this->contactGroupIds;
         }
+
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
         }
+
         if (null !== $this->isDetail) {
             $res['IsDetail'] = $this->isDetail;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -75,29 +81,34 @@ class SearchAlertContactGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchAlertContactGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupIds'])) {
             $model->contactGroupIds = $map['ContactGroupIds'];
         }
+
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
         }
+
         if (isset($map['IsDetail'])) {
             $model->isDetail = $map['IsDetail'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

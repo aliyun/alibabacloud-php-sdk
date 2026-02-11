@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\SearchAlertHistoriesResponseBody\pageBean;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class alarmHistories extends Model
 {
@@ -63,56 +63,67 @@ class alarmHistories extends Model
      */
     public $userId;
     protected $_name = [
-        'alarmContent'      => 'AlarmContent',
+        'alarmContent' => 'AlarmContent',
         'alarmResponseCode' => 'AlarmResponseCode',
-        'alarmSources'      => 'AlarmSources',
-        'alarmTime'         => 'AlarmTime',
-        'alarmType'         => 'AlarmType',
-        'emails'            => 'Emails',
-        'id'                => 'Id',
-        'phones'            => 'Phones',
-        'strategyId'        => 'StrategyId',
-        'target'            => 'Target',
-        'userId'            => 'UserId',
+        'alarmSources' => 'AlarmSources',
+        'alarmTime' => 'AlarmTime',
+        'alarmType' => 'AlarmType',
+        'emails' => 'Emails',
+        'id' => 'Id',
+        'phones' => 'Phones',
+        'strategyId' => 'StrategyId',
+        'target' => 'Target',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmContent) {
             $res['AlarmContent'] = $this->alarmContent;
         }
+
         if (null !== $this->alarmResponseCode) {
             $res['AlarmResponseCode'] = $this->alarmResponseCode;
         }
+
         if (null !== $this->alarmSources) {
             $res['AlarmSources'] = $this->alarmSources;
         }
+
         if (null !== $this->alarmTime) {
             $res['AlarmTime'] = $this->alarmTime;
         }
+
         if (null !== $this->alarmType) {
             $res['AlarmType'] = $this->alarmType;
         }
+
         if (null !== $this->emails) {
             $res['Emails'] = $this->emails;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->phones) {
             $res['Phones'] = $this->phones;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -120,44 +131,54 @@ class alarmHistories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alarmHistories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmContent'])) {
             $model->alarmContent = $map['AlarmContent'];
         }
+
         if (isset($map['AlarmResponseCode'])) {
             $model->alarmResponseCode = $map['AlarmResponseCode'];
         }
+
         if (isset($map['AlarmSources'])) {
             $model->alarmSources = $map['AlarmSources'];
         }
+
         if (isset($map['AlarmTime'])) {
             $model->alarmTime = $map['AlarmTime'];
         }
+
         if (isset($map['AlarmType'])) {
             $model->alarmType = $map['AlarmType'];
         }
+
         if (isset($map['Emails'])) {
             $model->emails = $map['Emails'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Phones'])) {
             $model->phones = $map['Phones'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

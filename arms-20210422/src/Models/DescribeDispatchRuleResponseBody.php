@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\DescribeDispatchRuleResponseBody\dispatchRule;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDispatchRuleResponseBody extends Model
 {
@@ -20,19 +20,24 @@ class DescribeDispatchRuleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dispatchRule' => 'DispatchRule',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->dispatchRule) {
+            $this->dispatchRule->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dispatchRule) {
-            $res['DispatchRule'] = null !== $this->dispatchRule ? $this->dispatchRule->toMap() : null;
+            $res['DispatchRule'] = null !== $this->dispatchRule ? $this->dispatchRule->toArray($noStream) : $this->dispatchRule;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class DescribeDispatchRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDispatchRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DispatchRule'])) {
             $model->dispatchRule = dispatchRule::fromMap($map['DispatchRule']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

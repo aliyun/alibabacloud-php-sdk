@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\ListRetcodeAppsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class retcodeApps extends Model
 {
@@ -23,24 +23,27 @@ class retcodeApps extends Model
      */
     public $pid;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'appName' => 'AppName',
-        'pid'     => 'Pid',
+        'pid' => 'Pid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
@@ -48,20 +51,22 @@ class retcodeApps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retcodeApps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }

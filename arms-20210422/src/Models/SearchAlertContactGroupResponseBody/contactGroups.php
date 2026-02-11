@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\SearchAlertContactGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\SearchAlertContactGroupResponseBody\contactGroups\contacts;
-use AlibabaCloud\Tea\Model;
 
 class contactGroups extends Model
 {
@@ -39,42 +39,52 @@ class contactGroups extends Model
      */
     public $userId;
     protected $_name = [
-        'contactGroupId'   => 'ContactGroupId',
+        'contactGroupId' => 'ContactGroupId',
         'contactGroupName' => 'ContactGroupName',
-        'contacts'         => 'Contacts',
-        'createTime'       => 'CreateTime',
-        'updateTime'       => 'UpdateTime',
-        'userId'           => 'UserId',
+        'contacts' => 'Contacts',
+        'createTime' => 'CreateTime',
+        'updateTime' => 'UpdateTime',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contacts)) {
+            Model::validateArray($this->contacts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupId) {
             $res['ContactGroupId'] = $this->contactGroupId;
         }
+
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
+
         if (null !== $this->contacts) {
-            $res['Contacts'] = [];
-            if (null !== $this->contacts && \is_array($this->contacts)) {
-                $n = 0;
-                foreach ($this->contacts as $item) {
-                    $res['Contacts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contacts)) {
+                $res['Contacts'] = [];
+                $n1 = 0;
+                foreach ($this->contacts as $item1) {
+                    $res['Contacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -82,35 +92,41 @@ class contactGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupId'])) {
             $model->contactGroupId = $map['ContactGroupId'];
         }
+
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
+
         if (isset($map['Contacts'])) {
             if (!empty($map['Contacts'])) {
                 $model->contacts = [];
-                $n               = 0;
-                foreach ($map['Contacts'] as $item) {
-                    $model->contacts[$n++] = null !== $item ? contacts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Contacts'] as $item1) {
+                    $model->contacts[$n1] = contacts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportCustomAlertRulesRequest extends Model
 {
@@ -33,32 +33,37 @@ class ImportCustomAlertRulesRequest extends Model
      */
     public $templateAlertConfig;
     protected $_name = [
-        'contactGroupIds'     => 'ContactGroupIds',
-        'isAutoStart'         => 'IsAutoStart',
-        'regionId'            => 'RegionId',
+        'contactGroupIds' => 'ContactGroupIds',
+        'isAutoStart' => 'IsAutoStart',
+        'regionId' => 'RegionId',
         'templageAlertConfig' => 'TemplageAlertConfig',
         'templateAlertConfig' => 'TemplateAlertConfig',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupIds) {
             $res['ContactGroupIds'] = $this->contactGroupIds;
         }
+
         if (null !== $this->isAutoStart) {
             $res['IsAutoStart'] = $this->isAutoStart;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->templageAlertConfig) {
             $res['TemplageAlertConfig'] = $this->templageAlertConfig;
         }
+
         if (null !== $this->templateAlertConfig) {
             $res['TemplateAlertConfig'] = $this->templateAlertConfig;
         }
@@ -66,26 +71,30 @@ class ImportCustomAlertRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportCustomAlertRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupIds'])) {
             $model->contactGroupIds = $map['ContactGroupIds'];
         }
+
         if (isset($map['IsAutoStart'])) {
             $model->isAutoStart = $map['IsAutoStart'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TemplageAlertConfig'])) {
             $model->templageAlertConfig = $map['TemplageAlertConfig'];
         }
+
         if (isset($map['TemplateAlertConfig'])) {
             $model->templateAlertConfig = $map['TemplateAlertConfig'];
         }

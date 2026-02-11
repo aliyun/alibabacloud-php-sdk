@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\SearchEventsResponseBody\pageBean;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class event extends Model
 {
@@ -53,48 +53,67 @@ class event extends Model
      */
     public $message;
     protected $_name = [
-        'alertId'    => 'AlertId',
-        'alertName'  => 'AlertName',
-        'alertRule'  => 'AlertRule',
-        'alertType'  => 'AlertType',
+        'alertId' => 'AlertId',
+        'alertName' => 'AlertName',
+        'alertRule' => 'AlertRule',
+        'alertType' => 'AlertType',
         'eventLevel' => 'EventLevel',
-        'eventTime'  => 'EventTime',
-        'id'         => 'Id',
-        'links'      => 'Links',
-        'message'    => 'Message',
+        'eventTime' => 'EventTime',
+        'id' => 'Id',
+        'links' => 'Links',
+        'message' => 'Message',
     ];
 
     public function validate()
     {
+        if (\is_array($this->links)) {
+            Model::validateArray($this->links);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertId) {
             $res['AlertId'] = $this->alertId;
         }
+
         if (null !== $this->alertName) {
             $res['AlertName'] = $this->alertName;
         }
+
         if (null !== $this->alertRule) {
             $res['AlertRule'] = $this->alertRule;
         }
+
         if (null !== $this->alertType) {
             $res['AlertType'] = $this->alertType;
         }
+
         if (null !== $this->eventLevel) {
             $res['EventLevel'] = $this->eventLevel;
         }
+
         if (null !== $this->eventTime) {
             $res['EventTime'] = $this->eventTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->links) {
-            $res['Links'] = $this->links;
+            if (\is_array($this->links)) {
+                $res['Links'] = [];
+                $n1 = 0;
+                foreach ($this->links as $item1) {
+                    $res['Links'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -102,40 +121,53 @@ class event extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return event
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertId'])) {
             $model->alertId = $map['AlertId'];
         }
+
         if (isset($map['AlertName'])) {
             $model->alertName = $map['AlertName'];
         }
+
         if (isset($map['AlertRule'])) {
             $model->alertRule = $map['AlertRule'];
         }
+
         if (isset($map['AlertType'])) {
             $model->alertType = $map['AlertType'];
         }
+
         if (isset($map['EventLevel'])) {
             $model->eventLevel = $map['EventLevel'];
         }
+
         if (isset($map['EventTime'])) {
             $model->eventTime = $map['EventTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Links'])) {
             if (!empty($map['Links'])) {
-                $model->links = $map['Links'];
+                $model->links = [];
+                $n1 = 0;
+                foreach ($map['Links'] as $item1) {
+                    $model->links[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

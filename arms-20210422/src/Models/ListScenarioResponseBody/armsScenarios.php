@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\ListScenarioResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class armsScenarios extends Model
 {
@@ -53,48 +53,57 @@ class armsScenarios extends Model
      */
     public $userId;
     protected $_name = [
-        'appId'      => 'AppId',
+        'appId' => 'AppId',
         'createTime' => 'CreateTime',
         'extensions' => 'Extensions',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'regionId'   => 'RegionId',
-        'sign'       => 'Sign',
+        'id' => 'Id',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'sign' => 'Sign',
         'updateTime' => 'UpdateTime',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->extensions) {
             $res['Extensions'] = $this->extensions;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sign) {
             $res['Sign'] = $this->sign;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -102,38 +111,46 @@ class armsScenarios extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return armsScenarios
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Extensions'])) {
             $model->extensions = $map['Extensions'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Sign'])) {
             $model->sign = $map['Sign'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

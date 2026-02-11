@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\DescribeDispatchRuleResponseBody\dispatchRule\notifyRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifyObjects extends Model
 {
@@ -23,24 +23,27 @@ class notifyObjects extends Model
      */
     public $notifyType;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'notifyObjectId' => 'NotifyObjectId',
-        'notifyType'     => 'NotifyType',
+        'notifyType' => 'NotifyType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->notifyObjectId) {
             $res['NotifyObjectId'] = $this->notifyObjectId;
         }
+
         if (null !== $this->notifyType) {
             $res['NotifyType'] = $this->notifyType;
         }
@@ -48,20 +51,22 @@ class notifyObjects extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyObjects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NotifyObjectId'])) {
             $model->notifyObjectId = $map['NotifyObjectId'];
         }
+
         if (isset($map['NotifyType'])) {
             $model->notifyType = $map['NotifyType'];
         }

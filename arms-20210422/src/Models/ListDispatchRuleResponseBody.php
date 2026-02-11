@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\ListDispatchRuleResponseBody\dispatchRules;
-use AlibabaCloud\Tea\Model;
 
 class ListDispatchRuleResponseBody extends Model
 {
@@ -20,25 +20,31 @@ class ListDispatchRuleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dispatchRules' => 'DispatchRules',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dispatchRules)) {
+            Model::validateArray($this->dispatchRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dispatchRules) {
-            $res['DispatchRules'] = [];
-            if (null !== $this->dispatchRules && \is_array($this->dispatchRules)) {
-                $n = 0;
-                foreach ($this->dispatchRules as $item) {
-                    $res['DispatchRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dispatchRules)) {
+                $res['DispatchRules'] = [];
+                $n1 = 0;
+                foreach ($this->dispatchRules as $item1) {
+                    $res['DispatchRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class ListDispatchRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDispatchRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DispatchRules'])) {
             if (!empty($map['DispatchRules'])) {
                 $model->dispatchRules = [];
-                $n                    = 0;
-                foreach ($map['DispatchRules'] as $item) {
-                    $model->dispatchRules[$n++] = null !== $item ? dispatchRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DispatchRules'] as $item1) {
+                    $model->dispatchRules[$n1] = dispatchRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

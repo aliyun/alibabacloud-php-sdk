@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\CreateRetcodeAppResponseBody\retcodeAppDataBean;
-use AlibabaCloud\Tea\Model;
 
 class CreateRetcodeAppResponseBody extends Model
 {
@@ -19,38 +19,44 @@ class CreateRetcodeAppResponseBody extends Model
      */
     public $retcodeAppDataBean;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'retcodeAppDataBean' => 'RetcodeAppDataBean',
     ];
 
     public function validate()
     {
+        if (null !== $this->retcodeAppDataBean) {
+            $this->retcodeAppDataBean->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->retcodeAppDataBean) {
-            $res['RetcodeAppDataBean'] = null !== $this->retcodeAppDataBean ? $this->retcodeAppDataBean->toMap() : null;
+            $res['RetcodeAppDataBean'] = null !== $this->retcodeAppDataBean ? $this->retcodeAppDataBean->toArray($noStream) : $this->retcodeAppDataBean;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRetcodeAppResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RetcodeAppDataBean'])) {
             $model->retcodeAppDataBean = retcodeAppDataBean::fromMap($map['RetcodeAppDataBean']);
         }

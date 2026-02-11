@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckServiceStatusRequest extends Model
 {
@@ -19,19 +19,21 @@ class CheckServiceStatusRequest extends Model
     public $svcCode;
     protected $_name = [
         'regionId' => 'RegionId',
-        'svcCode'  => 'SvcCode',
+        'svcCode' => 'SvcCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->svcCode) {
             $res['SvcCode'] = $this->svcCode;
         }
@@ -39,17 +41,18 @@ class CheckServiceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckServiceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SvcCode'])) {
             $model->svcCode = $map['SvcCode'];
         }

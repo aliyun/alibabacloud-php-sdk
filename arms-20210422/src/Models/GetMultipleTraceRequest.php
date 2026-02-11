@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMultipleTraceRequest extends Model
 {
@@ -24,35 +24,53 @@ class GetMultipleTraceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->traceIDs)) {
+            Model::validateArray($this->traceIDs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->traceIDs) {
-            $res['TraceIDs'] = $this->traceIDs;
+            if (\is_array($this->traceIDs)) {
+                $res['TraceIDs'] = [];
+                $n1 = 0;
+                foreach ($this->traceIDs as $item1) {
+                    $res['TraceIDs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMultipleTraceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TraceIDs'])) {
             if (!empty($map['TraceIDs'])) {
-                $model->traceIDs = $map['TraceIDs'];
+                $model->traceIDs = [];
+                $n1 = 0;
+                foreach ($map['TraceIDs'] as $item1) {
+                    $model->traceIDs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

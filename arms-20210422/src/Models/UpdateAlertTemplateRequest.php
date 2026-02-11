@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAlertTemplateRequest extends Model
 {
@@ -58,52 +58,62 @@ class UpdateAlertTemplateRequest extends Model
      */
     public $type;
     protected $_name = [
-        'annotations'      => 'Annotations',
-        'id'               => 'Id',
-        'labels'           => 'Labels',
+        'annotations' => 'Annotations',
+        'id' => 'Id',
+        'labels' => 'Labels',
         'matchExpressions' => 'MatchExpressions',
-        'message'          => 'Message',
-        'name'             => 'Name',
-        'regionId'         => 'RegionId',
-        'rule'             => 'Rule',
-        'status'           => 'Status',
-        'type'             => 'Type',
+        'message' => 'Message',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'rule' => 'Rule',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotations) {
             $res['Annotations'] = $this->annotations;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+
         if (null !== $this->matchExpressions) {
             $res['MatchExpressions'] = $this->matchExpressions;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->rule) {
             $res['Rule'] = $this->rule;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -111,41 +121,50 @@ class UpdateAlertTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAlertTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Annotations'])) {
             $model->annotations = $map['Annotations'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+
         if (isset($map['MatchExpressions'])) {
             $model->matchExpressions = $map['MatchExpressions'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Rule'])) {
             $model->rule = $map['Rule'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

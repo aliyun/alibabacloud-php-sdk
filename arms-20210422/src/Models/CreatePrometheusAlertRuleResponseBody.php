@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\CreatePrometheusAlertRuleResponseBody\prometheusAlertRule;
-use AlibabaCloud\Tea\Model;
 
 class CreatePrometheusAlertRuleResponseBody extends Model
 {
@@ -20,19 +20,24 @@ class CreatePrometheusAlertRuleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'prometheusAlertRule' => 'PrometheusAlertRule',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->prometheusAlertRule) {
+            $this->prometheusAlertRule->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prometheusAlertRule) {
-            $res['PrometheusAlertRule'] = null !== $this->prometheusAlertRule ? $this->prometheusAlertRule->toMap() : null;
+            $res['PrometheusAlertRule'] = null !== $this->prometheusAlertRule ? $this->prometheusAlertRule->toArray($noStream) : $this->prometheusAlertRule;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class CreatePrometheusAlertRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePrometheusAlertRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrometheusAlertRule'])) {
             $model->prometheusAlertRule = prometheusAlertRule::fromMap($map['PrometheusAlertRule']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

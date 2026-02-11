@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\SearchTracesByPageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\SearchTracesByPageResponseBody\pageBean\traceInfos;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
@@ -30,33 +30,41 @@ class pageBean extends Model
     public $traceInfos;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'total'      => 'Total',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
         'traceInfos' => 'TraceInfos',
     ];
 
     public function validate()
     {
+        if (\is_array($this->traceInfos)) {
+            Model::validateArray($this->traceInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
+
         if (null !== $this->traceInfos) {
-            $res['TraceInfos'] = [];
-            if (null !== $this->traceInfos && \is_array($this->traceInfos)) {
-                $n = 0;
-                foreach ($this->traceInfos as $item) {
-                    $res['TraceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->traceInfos)) {
+                $res['TraceInfos'] = [];
+                $n1 = 0;
+                foreach ($this->traceInfos as $item1) {
+                    $res['TraceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,29 +72,33 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
+
         if (isset($map['TraceInfos'])) {
             if (!empty($map['TraceInfos'])) {
                 $model->traceInfos = [];
-                $n                 = 0;
-                foreach ($map['TraceInfos'] as $item) {
-                    $model->traceInfos[$n++] = null !== $item ? traceInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TraceInfos'] as $item1) {
+                    $model->traceInfos[$n1] = traceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchTraceAppByNameRequest extends Model
 {
@@ -18,20 +18,22 @@ class SearchTraceAppByNameRequest extends Model
      */
     public $traceAppName;
     protected $_name = [
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
         'traceAppName' => 'TraceAppName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->traceAppName) {
             $res['TraceAppName'] = $this->traceAppName;
         }
@@ -39,17 +41,18 @@ class SearchTraceAppByNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchTraceAppByNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TraceAppName'])) {
             $model->traceAppName = $map['TraceAppName'];
         }

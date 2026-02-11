@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStackRequest extends Model
 {
@@ -38,36 +38,42 @@ class GetStackRequest extends Model
      */
     public $traceID;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'pid'       => 'Pid',
-        'regionId'  => 'RegionId',
-        'rpcID'     => 'RpcID',
+        'endTime' => 'EndTime',
+        'pid' => 'Pid',
+        'regionId' => 'RegionId',
+        'rpcID' => 'RpcID',
         'startTime' => 'StartTime',
-        'traceID'   => 'TraceID',
+        'traceID' => 'TraceID',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->rpcID) {
             $res['RpcID'] = $this->rpcID;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->traceID) {
             $res['TraceID'] = $this->traceID;
         }
@@ -75,29 +81,34 @@ class GetStackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RpcID'])) {
             $model->rpcID = $map['RpcID'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TraceID'])) {
             $model->traceID = $map['TraceID'];
         }

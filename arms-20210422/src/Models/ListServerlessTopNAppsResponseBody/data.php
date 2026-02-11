@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\ListServerlessTopNAppsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -38,36 +38,42 @@ class data extends Model
      */
     public $rt;
     protected $_name = [
-        'count'  => 'Count',
-        'error'  => 'Error',
-        'name'   => 'Name',
-        'pid'    => 'Pid',
+        'count' => 'Count',
+        'error' => 'Error',
+        'name' => 'Name',
+        'pid' => 'Pid',
         'region' => 'Region',
-        'rt'     => 'Rt',
+        'rt' => 'Rt',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->rt) {
             $res['Rt'] = $this->rt;
         }
@@ -75,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Rt'])) {
             $model->rt = $map['Rt'];
         }

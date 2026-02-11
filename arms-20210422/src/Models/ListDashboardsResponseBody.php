@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\ListDashboardsResponseBody\dashboardVos;
-use AlibabaCloud\Tea\Model;
 
 class ListDashboardsResponseBody extends Model
 {
@@ -20,25 +20,31 @@ class ListDashboardsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dashboardVos' => 'DashboardVos',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dashboardVos)) {
+            Model::validateArray($this->dashboardVos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dashboardVos) {
-            $res['DashboardVos'] = [];
-            if (null !== $this->dashboardVos && \is_array($this->dashboardVos)) {
-                $n = 0;
-                foreach ($this->dashboardVos as $item) {
-                    $res['DashboardVos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dashboardVos)) {
+                $res['DashboardVos'] = [];
+                $n1 = 0;
+                foreach ($this->dashboardVos as $item1) {
+                    $res['DashboardVos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class ListDashboardsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDashboardsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DashboardVos'])) {
             if (!empty($map['DashboardVos'])) {
                 $model->dashboardVos = [];
-                $n                   = 0;
-                foreach ($map['DashboardVos'] as $item) {
-                    $model->dashboardVos[$n++] = null !== $item ? dashboardVos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DashboardVos'] as $item1) {
+                    $model->dashboardVos[$n1] = dashboardVos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

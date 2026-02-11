@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\SearchTraceAppByPageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\SearchTraceAppByPageResponseBody\pageBean\traceApps;
-use AlibabaCloud\Tea\Model;
 
 class pageBean extends Model
 {
@@ -30,33 +30,41 @@ class pageBean extends Model
     public $traceApps;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
-        'traceApps'  => 'TraceApps',
+        'traceApps' => 'TraceApps',
     ];
 
     public function validate()
     {
+        if (\is_array($this->traceApps)) {
+            Model::validateArray($this->traceApps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->traceApps) {
-            $res['TraceApps'] = [];
-            if (null !== $this->traceApps && \is_array($this->traceApps)) {
-                $n = 0;
-                foreach ($this->traceApps as $item) {
-                    $res['TraceApps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->traceApps)) {
+                $res['TraceApps'] = [];
+                $n1 = 0;
+                foreach ($this->traceApps as $item1) {
+                    $res['TraceApps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,29 +72,33 @@ class pageBean extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageBean
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['TraceApps'])) {
             if (!empty($map['TraceApps'])) {
                 $model->traceApps = [];
-                $n                = 0;
-                foreach ($map['TraceApps'] as $item) {
-                    $model->traceApps[$n++] = null !== $item ? traceApps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TraceApps'] as $item1) {
+                    $model->traceApps[$n1] = traceApps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

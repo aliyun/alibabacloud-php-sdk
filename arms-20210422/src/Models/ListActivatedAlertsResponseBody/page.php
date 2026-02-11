@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\ListActivatedAlertsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\ListActivatedAlertsResponseBody\page\alerts;
-use AlibabaCloud\Tea\Model;
 
 class page extends Model
 {
@@ -29,34 +29,42 @@ class page extends Model
      */
     public $total;
     protected $_name = [
-        'alerts'   => 'Alerts',
-        'page'     => 'Page',
+        'alerts' => 'Alerts',
+        'page' => 'Page',
         'pageSize' => 'PageSize',
-        'total'    => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->alerts)) {
+            Model::validateArray($this->alerts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alerts) {
-            $res['Alerts'] = [];
-            if (null !== $this->alerts && \is_array($this->alerts)) {
-                $n = 0;
-                foreach ($this->alerts as $item) {
-                    $res['Alerts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alerts)) {
+                $res['Alerts'] = [];
+                $n1 = 0;
+                foreach ($this->alerts as $item1) {
+                    $res['Alerts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -64,29 +72,33 @@ class page extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return page
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alerts'])) {
             if (!empty($map['Alerts'])) {
                 $model->alerts = [];
-                $n             = 0;
-                foreach ($map['Alerts'] as $item) {
-                    $model->alerts[$n++] = null !== $item ? alerts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Alerts'] as $item1) {
+                    $model->alerts[$n1] = alerts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

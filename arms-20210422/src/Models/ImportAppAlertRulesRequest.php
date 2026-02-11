@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportAppAlertRulesRequest extends Model
 {
@@ -38,36 +38,42 @@ class ImportAppAlertRulesRequest extends Model
      */
     public $templateAlertId;
     protected $_name = [
-        'contactGroupIds'     => 'ContactGroupIds',
-        'isAutoStart'         => 'IsAutoStart',
-        'pids'                => 'Pids',
-        'regionId'            => 'RegionId',
+        'contactGroupIds' => 'ContactGroupIds',
+        'isAutoStart' => 'IsAutoStart',
+        'pids' => 'Pids',
+        'regionId' => 'RegionId',
         'templageAlertConfig' => 'TemplageAlertConfig',
-        'templateAlertId'     => 'TemplateAlertId',
+        'templateAlertId' => 'TemplateAlertId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupIds) {
             $res['ContactGroupIds'] = $this->contactGroupIds;
         }
+
         if (null !== $this->isAutoStart) {
             $res['IsAutoStart'] = $this->isAutoStart;
         }
+
         if (null !== $this->pids) {
             $res['Pids'] = $this->pids;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->templageAlertConfig) {
             $res['TemplageAlertConfig'] = $this->templageAlertConfig;
         }
+
         if (null !== $this->templateAlertId) {
             $res['TemplateAlertId'] = $this->templateAlertId;
         }
@@ -75,29 +81,34 @@ class ImportAppAlertRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportAppAlertRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupIds'])) {
             $model->contactGroupIds = $map['ContactGroupIds'];
         }
+
         if (isset($map['IsAutoStart'])) {
             $model->isAutoStart = $map['IsAutoStart'];
         }
+
         if (isset($map['Pids'])) {
             $model->pids = $map['Pids'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TemplageAlertConfig'])) {
             $model->templageAlertConfig = $map['TemplageAlertConfig'];
         }
+
         if (isset($map['TemplateAlertId'])) {
             $model->templateAlertId = $map['TemplateAlertId'];
         }

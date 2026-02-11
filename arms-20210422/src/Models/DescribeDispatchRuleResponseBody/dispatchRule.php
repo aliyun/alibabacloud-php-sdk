@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models\DescribeDispatchRuleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\DescribeDispatchRuleResponseBody\dispatchRule\groupRules;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\DescribeDispatchRuleResponseBody\dispatchRule\labelMatchExpressionGrid;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\DescribeDispatchRuleResponseBody\dispatchRule\notifyRules;
-use AlibabaCloud\Tea\Model;
 
 class dispatchRule extends Model
 {
@@ -41,48 +41,65 @@ class dispatchRule extends Model
      */
     public $state;
     protected $_name = [
-        'groupRules'               => 'GroupRules',
+        'groupRules' => 'GroupRules',
         'labelMatchExpressionGrid' => 'LabelMatchExpressionGrid',
-        'name'                     => 'Name',
-        'notifyRules'              => 'NotifyRules',
-        'ruleId'                   => 'RuleId',
-        'state'                    => 'State',
+        'name' => 'Name',
+        'notifyRules' => 'NotifyRules',
+        'ruleId' => 'RuleId',
+        'state' => 'State',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groupRules)) {
+            Model::validateArray($this->groupRules);
+        }
+        if (null !== $this->labelMatchExpressionGrid) {
+            $this->labelMatchExpressionGrid->validate();
+        }
+        if (\is_array($this->notifyRules)) {
+            Model::validateArray($this->notifyRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupRules) {
-            $res['GroupRules'] = [];
-            if (null !== $this->groupRules && \is_array($this->groupRules)) {
-                $n = 0;
-                foreach ($this->groupRules as $item) {
-                    $res['GroupRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupRules)) {
+                $res['GroupRules'] = [];
+                $n1 = 0;
+                foreach ($this->groupRules as $item1) {
+                    $res['GroupRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->labelMatchExpressionGrid) {
-            $res['LabelMatchExpressionGrid'] = null !== $this->labelMatchExpressionGrid ? $this->labelMatchExpressionGrid->toMap() : null;
+            $res['LabelMatchExpressionGrid'] = null !== $this->labelMatchExpressionGrid ? $this->labelMatchExpressionGrid->toArray($noStream) : $this->labelMatchExpressionGrid;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->notifyRules) {
-            $res['NotifyRules'] = [];
-            if (null !== $this->notifyRules && \is_array($this->notifyRules)) {
-                $n = 0;
-                foreach ($this->notifyRules as $item) {
-                    $res['NotifyRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->notifyRules)) {
+                $res['NotifyRules'] = [];
+                $n1 = 0;
+                foreach ($this->notifyRules as $item1) {
+                    $res['NotifyRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -90,41 +107,48 @@ class dispatchRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dispatchRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupRules'])) {
             if (!empty($map['GroupRules'])) {
                 $model->groupRules = [];
-                $n                 = 0;
-                foreach ($map['GroupRules'] as $item) {
-                    $model->groupRules[$n++] = null !== $item ? groupRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupRules'] as $item1) {
+                    $model->groupRules[$n1] = groupRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['LabelMatchExpressionGrid'])) {
             $model->labelMatchExpressionGrid = labelMatchExpressionGrid::fromMap($map['LabelMatchExpressionGrid']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NotifyRules'])) {
             if (!empty($map['NotifyRules'])) {
                 $model->notifyRules = [];
-                $n                  = 0;
-                foreach ($map['NotifyRules'] as $item) {
-                    $model->notifyRules[$n++] = null !== $item ? notifyRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NotifyRules'] as $item1) {
+                    $model->notifyRules[$n1] = notifyRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

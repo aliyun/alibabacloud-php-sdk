@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20210422\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ARMS\V20210422\Models\ListAlertTemplatesResponseBody\alertTemplates;
-use AlibabaCloud\Tea\Model;
 
 class ListAlertTemplatesResponseBody extends Model
 {
@@ -20,25 +20,31 @@ class ListAlertTemplatesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'alertTemplates' => 'AlertTemplates',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->alertTemplates)) {
+            Model::validateArray($this->alertTemplates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertTemplates) {
-            $res['AlertTemplates'] = [];
-            if (null !== $this->alertTemplates && \is_array($this->alertTemplates)) {
-                $n = 0;
-                foreach ($this->alertTemplates as $item) {
-                    $res['AlertTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertTemplates)) {
+                $res['AlertTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->alertTemplates as $item1) {
+                    $res['AlertTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class ListAlertTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlertTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertTemplates'])) {
             if (!empty($map['AlertTemplates'])) {
                 $model->alertTemplates = [];
-                $n                     = 0;
-                foreach ($map['AlertTemplates'] as $item) {
-                    $model->alertTemplates[$n++] = null !== $item ? alertTemplates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertTemplates'] as $item1) {
+                    $model->alertTemplates[$n1] = alertTemplates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
