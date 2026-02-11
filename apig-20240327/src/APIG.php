@@ -1073,12 +1073,20 @@ class APIG extends OpenApiClient
             @$body['basePath'] = $request->basePath;
         }
 
+        if (null !== $request->belongGatewayId) {
+            @$body['belongGatewayId'] = $request->belongGatewayId;
+        }
+
         if (null !== $request->deployConfigs) {
             @$body['deployConfigs'] = $request->deployConfigs;
         }
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
         }
 
         if (null !== $request->enableAuth) {
@@ -1111,6 +1119,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
         }
 
         if (null !== $request->type) {

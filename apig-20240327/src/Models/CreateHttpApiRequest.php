@@ -30,6 +30,11 @@ class CreateHttpApiRequest extends Model
     public $basePath;
 
     /**
+     * @var string
+     */
+    public $belongGatewayId;
+
+    /**
      * @var HttpApiDeployConfig[]
      */
     public $deployConfigs;
@@ -38,6 +43,11 @@ class CreateHttpApiRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var bool
@@ -82,6 +92,11 @@ class CreateHttpApiRequest extends Model
     /**
      * @var string
      */
+    public $strategy;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -93,8 +108,10 @@ class CreateHttpApiRequest extends Model
         'aiProtocols' => 'aiProtocols',
         'authConfig' => 'authConfig',
         'basePath' => 'basePath',
+        'belongGatewayId' => 'belongGatewayId',
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
+        'dryRun' => 'dryRun',
         'enableAuth' => 'enableAuth',
         'firstByteTimeout' => 'firstByteTimeout',
         'ingressConfig' => 'ingressConfig',
@@ -103,6 +120,7 @@ class CreateHttpApiRequest extends Model
         'protocols' => 'protocols',
         'removeBasePathOnForward' => 'removeBasePathOnForward',
         'resourceGroupId' => 'resourceGroupId',
+        'strategy' => 'strategy',
         'type' => 'type',
         'versionConfig' => 'versionConfig',
     ];
@@ -166,6 +184,10 @@ class CreateHttpApiRequest extends Model
             $res['basePath'] = $this->basePath;
         }
 
+        if (null !== $this->belongGatewayId) {
+            $res['belongGatewayId'] = $this->belongGatewayId;
+        }
+
         if (null !== $this->deployConfigs) {
             if (\is_array($this->deployConfigs)) {
                 $res['deployConfigs'] = [];
@@ -179,6 +201,10 @@ class CreateHttpApiRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableAuth) {
@@ -218,6 +244,10 @@ class CreateHttpApiRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->strategy) {
+            $res['strategy'] = $this->strategy;
         }
 
         if (null !== $this->type) {
@@ -269,6 +299,10 @@ class CreateHttpApiRequest extends Model
             $model->basePath = $map['basePath'];
         }
 
+        if (isset($map['belongGatewayId'])) {
+            $model->belongGatewayId = $map['belongGatewayId'];
+        }
+
         if (isset($map['deployConfigs'])) {
             if (!empty($map['deployConfigs'])) {
                 $model->deployConfigs = [];
@@ -282,6 +316,10 @@ class CreateHttpApiRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         if (isset($map['enableAuth'])) {
@@ -321,6 +359,10 @@ class CreateHttpApiRequest extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['strategy'])) {
+            $model->strategy = $map['strategy'];
         }
 
         if (isset($map['type'])) {
