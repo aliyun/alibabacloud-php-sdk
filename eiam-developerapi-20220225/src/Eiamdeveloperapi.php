@@ -80,6 +80,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupResponse;
@@ -2330,6 +2333,78 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new ObtainCloudAccountRoleAccessCredentialHeaders([]);
 
         return $this->obtainCloudAccountRoleAccessCredentialWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取凭据明文。
+     *
+     * @param request - ObtainCredentialRequest
+     * @param headers - ObtainCredentialHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ObtainCredentialResponse
+     *
+     * @param string                  $instanceId
+     * @param ObtainCredentialRequest $request
+     * @param ObtainCredentialHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ObtainCredentialResponse
+     */
+    public function obtainCredentialWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialIdentifier) {
+            @$query['credentialIdentifier'] = $request->credentialIdentifier;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ObtainCredential',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/credentials/_/actions/obtain',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ObtainCredentialResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 获取凭据明文。
+     *
+     * @param request - ObtainCredentialRequest
+     *
+     * @returns ObtainCredentialResponse
+     *
+     * @param string                  $instanceId
+     * @param ObtainCredentialRequest $request
+     *
+     * @return ObtainCredentialResponse
+     */
+    public function obtainCredential($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ObtainCredentialHeaders([]);
+
+        return $this->obtainCredentialWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
