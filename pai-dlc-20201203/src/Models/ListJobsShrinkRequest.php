@@ -156,6 +156,11 @@ class ListJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
     public $timeRangeField;
 
     /**
@@ -207,6 +212,7 @@ class ListJobsShrinkRequest extends Model
         'startTime' => 'StartTime',
         'status' => 'Status',
         'tagsShrink' => 'Tags',
+        'templateId' => 'TemplateId',
         'timeRangeField' => 'TimeRangeField',
         'userCommandSearch' => 'UserCommandSearch',
         'userIdForFilter' => 'UserIdForFilter',
@@ -336,6 +342,10 @@ class ListJobsShrinkRequest extends Model
 
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         if (null !== $this->timeRangeField) {
@@ -483,6 +493,10 @@ class ListJobsShrinkRequest extends Model
 
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         if (isset($map['TimeRangeField'])) {

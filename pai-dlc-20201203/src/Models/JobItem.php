@@ -239,6 +239,16 @@ class JobItem extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -341,6 +351,8 @@ class JobItem extends Model
         'statusHistory' => 'StatusHistory',
         'subStatus' => 'SubStatus',
         'systemEnvs' => 'SystemEnvs',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
         'tenantId' => 'TenantId',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
         'thirdpartyLibs' => 'ThirdpartyLibs',
@@ -635,6 +647,14 @@ class JobItem extends Model
                     $res['SystemEnvs'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         if (null !== $this->tenantId) {
@@ -933,6 +953,14 @@ class JobItem extends Model
                     $model->systemEnvs[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         if (isset($map['TenantId'])) {

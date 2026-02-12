@@ -100,6 +100,16 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var int
+     */
+    public $templateVersion;
+
+    /**
+     * @var string
+     */
     public $thirdpartyLibDir;
 
     /**
@@ -139,6 +149,8 @@ class CreateJobRequest extends Model
         'resourceId' => 'ResourceId',
         'settings' => 'Settings',
         'successPolicy' => 'SuccessPolicy',
+        'templateId' => 'TemplateId',
+        'templateVersion' => 'TemplateVersion',
         'thirdpartyLibDir' => 'ThirdpartyLibDir',
         'thirdpartyLibs' => 'ThirdpartyLibs',
         'userCommand' => 'UserCommand',
@@ -278,6 +290,14 @@ class CreateJobRequest extends Model
             $res['SuccessPolicy'] = $this->successPolicy;
         }
 
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
+
         if (null !== $this->thirdpartyLibDir) {
             $res['ThirdpartyLibDir'] = $this->thirdpartyLibDir;
         }
@@ -408,6 +428,14 @@ class CreateJobRequest extends Model
 
         if (isset($map['SuccessPolicy'])) {
             $model->successPolicy = $map['SuccessPolicy'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         if (isset($map['ThirdpartyLibDir'])) {

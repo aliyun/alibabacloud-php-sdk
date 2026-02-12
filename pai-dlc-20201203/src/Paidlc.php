@@ -140,7 +140,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and compute resources of each node on which a job runs.
+     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
      *
      * @remarks
      * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
@@ -229,6 +229,14 @@ class Paidlc extends OpenApiClient
             @$body['SuccessPolicy'] = $request->successPolicy;
         }
 
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateVersion) {
+            @$body['TemplateVersion'] = $request->templateVersion;
+        }
+
         if (null !== $request->thirdpartyLibDir) {
             @$body['ThirdpartyLibDir'] = $request->thirdpartyLibDir;
         }
@@ -269,7 +277,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and compute resources of each node on which a job runs.
+     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
      *
      * @remarks
      * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
@@ -1688,6 +1696,10 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->tagsShrink) {
             @$query['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
 
         if (null !== $request->timeRangeField) {

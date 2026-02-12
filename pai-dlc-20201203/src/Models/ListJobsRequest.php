@@ -156,6 +156,11 @@ class ListJobsRequest extends Model
     /**
      * @var string
      */
+    public $templateId;
+
+    /**
+     * @var string
+     */
     public $timeRangeField;
 
     /**
@@ -207,6 +212,7 @@ class ListJobsRequest extends Model
         'startTime' => 'StartTime',
         'status' => 'Status',
         'tags' => 'Tags',
+        'templateId' => 'TemplateId',
         'timeRangeField' => 'TimeRangeField',
         'userCommandSearch' => 'UserCommandSearch',
         'userIdForFilter' => 'UserIdForFilter',
@@ -344,6 +350,10 @@ class ListJobsRequest extends Model
                     $res['Tags'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         if (null !== $this->timeRangeField) {
@@ -496,6 +506,10 @@ class ListJobsRequest extends Model
                     $model->tags[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         if (isset($map['TimeRangeField'])) {
