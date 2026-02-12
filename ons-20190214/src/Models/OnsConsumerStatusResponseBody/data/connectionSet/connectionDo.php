@@ -19,6 +19,11 @@ class connectionDo extends Model
     public $clientId;
 
     /**
+     * @var int
+     */
+    public $diff;
+
+    /**
      * @var string
      */
     public $language;
@@ -35,6 +40,7 @@ class connectionDo extends Model
     protected $_name = [
         'clientAddr' => 'ClientAddr',
         'clientId' => 'ClientId',
+        'diff' => 'Diff',
         'language' => 'Language',
         'remoteIP' => 'RemoteIP',
         'version' => 'Version',
@@ -54,6 +60,10 @@ class connectionDo extends Model
 
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+
+        if (null !== $this->diff) {
+            $res['Diff'] = $this->diff;
         }
 
         if (null !== $this->language) {
@@ -85,6 +95,10 @@ class connectionDo extends Model
 
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
+        }
+
+        if (isset($map['Diff'])) {
+            $model->diff = $map['Diff'];
         }
 
         if (isset($map['Language'])) {

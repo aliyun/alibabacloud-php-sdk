@@ -23,16 +23,10 @@ class OnsTopicListRequest extends Model
      * @var string
      */
     public $topic;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'tag' => 'Tag',
         'topic' => 'Topic',
-        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -65,10 +59,6 @@ class OnsTopicListRequest extends Model
             $res['Topic'] = $this->topic;
         }
 
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-
         return $res;
     }
 
@@ -97,10 +87,6 @@ class OnsTopicListRequest extends Model
 
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
-        }
-
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

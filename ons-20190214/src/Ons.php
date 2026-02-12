@@ -1229,7 +1229,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of a ApsaraMQ for RocketMQ instance and the endpoint that a client uses to connect to the ApsaraMQ for RocketMQ instance to send and receive messages.
+     * Queries the basic information of a Message Queue for Apache RocketMQ instance and the endpoint that a client uses to connect to the Message Queue for Apache RocketMQ instance to send and receive messages.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1272,7 +1272,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of a ApsaraMQ for RocketMQ instance and the endpoint that a client uses to connect to the ApsaraMQ for RocketMQ instance to send and receive messages.
+     * Queries the basic information of a Message Queue for Apache RocketMQ instance and the endpoint that a client uses to connect to the Message Queue for Apache RocketMQ instance to send and receive messages.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1294,7 +1294,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Creates a ApsaraMQ for RocketMQ instance.
+     * Creates a Message Queue for Apache RocketMQ instance.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1343,7 +1343,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Creates a ApsaraMQ for RocketMQ instance.
+     * Creates a Message Queue for Apache RocketMQ instance.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1367,7 +1367,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Deletes a ApsaraMQ for RocketMQ instance.
+     * Deletes a Message Queue for Apache RocketMQ instance.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1411,7 +1411,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Deletes a ApsaraMQ for RocketMQ instance.
+     * Deletes a Message Queue for Apache RocketMQ instance.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1501,7 +1501,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Updates the name and description of a ApsaraMQ for RocketMQ instance.
+     * Updates the name and description of a Message Queue for Apache RocketMQ instance.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1552,7 +1552,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Updates the name and description of a ApsaraMQ for RocketMQ instance.
+     * Updates the name and description of a Message Queue for Apache RocketMQ instance.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2038,7 +2038,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Queries regions where ApsaraMQ for RocketMQ is available.
+     * Queries regions where Message Queue for Apache RocketMQ is available.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2074,7 +2074,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Queries regions where ApsaraMQ for RocketMQ is available.
+     * Queries regions where Message Queue for Apache RocketMQ is available.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2270,10 +2270,6 @@ class Ons extends OpenApiClient
 
         if (null !== $request->topic) {
             @$query['Topic'] = $request->topic;
-        }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
         }
 
         $req = new OpenApiRequest([
@@ -2865,7 +2861,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about messages that are published to a topic within a specific period of time.
+     * Queries the statistics about messages that are published to a topic within a period of time.
      *
      * @remarks
      * >  API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2929,7 +2925,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about messages that are published to a topic within a specific period of time.
+     * Queries the statistics about messages that are published to a topic within a period of time.
      *
      * @remarks
      * >  API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2952,7 +2948,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Activates ApsaraMQ for RocketMQ.
+     * Activates Message Queue for Apache RocketMQ.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -2987,7 +2983,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Activates ApsaraMQ for RocketMQ.
+     * Activates Message Queue for Apache RocketMQ.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -3006,7 +3002,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Attaches tags to resources.
+     * Adds tags to a resource.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -3061,7 +3057,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Attaches tags to resources.
+     * Adds tags to a resource.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -3083,7 +3079,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Detaches and removes tags from a specific resource.
+     * Detaches tags from a specified resource and deletes the tags.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -3141,7 +3137,7 @@ class Ons extends OpenApiClient
     }
 
     /**
-     * Detaches and removes tags from a specific resource.
+     * Detaches tags from a specified resource and deletes the tags.
      *
      * @remarks
      * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.

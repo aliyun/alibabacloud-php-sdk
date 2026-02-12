@@ -62,6 +62,11 @@ class instanceBaseInfo extends Model
     /**
      * @var int
      */
+    public $supportClassic;
+
+    /**
+     * @var int
+     */
     public $topicCapacity;
 
     /**
@@ -84,6 +89,7 @@ class instanceBaseInfo extends Model
         'maxTps' => 'MaxTps',
         'releaseTime' => 'ReleaseTime',
         'remark' => 'Remark',
+        'supportClassic' => 'SupportClassic',
         'topicCapacity' => 'TopicCapacity',
         'spInstanceId' => 'spInstanceId',
         'spInstanceType' => 'spInstanceType',
@@ -138,6 +144,10 @@ class instanceBaseInfo extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->supportClassic) {
+            $res['SupportClassic'] = $this->supportClassic;
         }
 
         if (null !== $this->topicCapacity) {
@@ -201,6 +211,10 @@ class instanceBaseInfo extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['SupportClassic'])) {
+            $model->supportClassic = $map['SupportClassic'];
         }
 
         if (isset($map['TopicCapacity'])) {
