@@ -19,6 +19,16 @@ class CreateMemoryCollectionInput extends Model
     public $embedderConfig;
 
     /**
+     * @var bool
+     */
+    public $enableConversationHistory;
+
+    /**
+     * @var bool
+     */
+    public $enableConversationState;
+
+    /**
      * @var string
      */
     public $executionRoleArn;
@@ -50,6 +60,8 @@ class CreateMemoryCollectionInput extends Model
     protected $_name = [
         'description' => 'description',
         'embedderConfig' => 'embedderConfig',
+        'enableConversationHistory' => 'enableConversationHistory',
+        'enableConversationState' => 'enableConversationState',
         'executionRoleArn' => 'executionRoleArn',
         'llmConfig' => 'llmConfig',
         'memoryCollectionName' => 'memoryCollectionName',
@@ -84,6 +96,14 @@ class CreateMemoryCollectionInput extends Model
 
         if (null !== $this->embedderConfig) {
             $res['embedderConfig'] = null !== $this->embedderConfig ? $this->embedderConfig->toArray($noStream) : $this->embedderConfig;
+        }
+
+        if (null !== $this->enableConversationHistory) {
+            $res['enableConversationHistory'] = $this->enableConversationHistory;
+        }
+
+        if (null !== $this->enableConversationState) {
+            $res['enableConversationState'] = $this->enableConversationState;
         }
 
         if (null !== $this->executionRoleArn) {
@@ -127,6 +147,14 @@ class CreateMemoryCollectionInput extends Model
 
         if (isset($map['embedderConfig'])) {
             $model->embedderConfig = EmbedderConfig::fromMap($map['embedderConfig']);
+        }
+
+        if (isset($map['enableConversationHistory'])) {
+            $model->enableConversationHistory = $map['enableConversationHistory'];
+        }
+
+        if (isset($map['enableConversationState'])) {
+            $model->enableConversationState = $map['enableConversationState'];
         }
 
         if (isset($map['executionRoleArn'])) {
