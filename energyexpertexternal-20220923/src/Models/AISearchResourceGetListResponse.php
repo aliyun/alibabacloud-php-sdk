@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ChatStreamResponse extends Model
+class AISearchResourceGetListResponse extends Model
 {
     /**
      * @var string[]
@@ -19,24 +19,12 @@ class ChatStreamResponse extends Model
     public $statusCode;
 
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $event;
-
-    /**
-     * @var ChatStreamResponseBody
+     * @var AISearchResourceGetListResponseBody
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'id' => 'id',
-        'event' => 'event',
         'body' => 'body',
     ];
 
@@ -67,14 +55,6 @@ class ChatStreamResponse extends Model
             $res['statusCode'] = $this->statusCode;
         }
 
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->event) {
-            $res['event'] = $this->event;
-        }
-
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -103,16 +83,8 @@ class ChatStreamResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
 
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['event'])) {
-            $model->event = $map['event'];
-        }
-
         if (isset($map['body'])) {
-            $model->body = ChatStreamResponseBody::fromMap($map['body']);
+            $model->body = AISearchResourceGetListResponseBody::fromMap($map['body']);
         }
 
         return $model;

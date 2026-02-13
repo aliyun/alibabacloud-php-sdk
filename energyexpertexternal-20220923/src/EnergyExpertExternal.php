@@ -16,6 +16,17 @@ use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AddFolderRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AddFolderResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceAddRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceAddResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceDeleteRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceDeleteResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceGetListRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceGetListResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceGetListShrinkRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceUpdateRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchResourceUpdateResponse;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchStreamRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AISearchStreamResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeAdvanceRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeResponse;
@@ -260,6 +271,424 @@ class EnergyExpertExternal extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加AISearch项目中的结构化元素.
+     *
+     * @param Request - AISearchResourceAddRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AISearchResourceAddResponse
+     *
+     * @param AISearchResourceAddRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AISearchResourceAddResponse
+     */
+    public function aISearchResourceAddWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->data) {
+            @$body['data'] = $request->data;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AISearchResourceAdd',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiSearch/resource/add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AISearchResourceAddResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加AISearch项目中的结构化元素.
+     *
+     * @param Request - AISearchResourceAddRequest
+     *
+     * @returns AISearchResourceAddResponse
+     *
+     * @param AISearchResourceAddRequest $request
+     *
+     * @return AISearchResourceAddResponse
+     */
+    public function aISearchResourceAdd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aISearchResourceAddWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除AISearch项目中的结构化元素.
+     *
+     * @param Request - AISearchResourceDeleteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AISearchResourceDeleteResponse
+     *
+     * @param AISearchResourceDeleteRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AISearchResourceDeleteResponse
+     */
+    public function aISearchResourceDeleteWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceId) {
+            @$query['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AISearchResourceDelete',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiSearch/resource/delete',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AISearchResourceDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除AISearch项目中的结构化元素.
+     *
+     * @param Request - AISearchResourceDeleteRequest
+     *
+     * @returns AISearchResourceDeleteResponse
+     *
+     * @param AISearchResourceDeleteRequest $request
+     *
+     * @return AISearchResourceDeleteResponse
+     */
+    public function aISearchResourceDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aISearchResourceDeleteWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查找AISearch资源.
+     *
+     * @param tmpReq - AISearchResourceGetListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AISearchResourceGetListResponse
+     *
+     * @param AISearchResourceGetListRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AISearchResourceGetListResponse
+     */
+    public function aISearchResourceGetListWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AISearchResourceGetListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceIds) {
+            $request->resourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'resourceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['currentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceIdsShrink) {
+            @$query['resourceIds'] = $request->resourceIdsShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AISearchResourceGetList',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiSearch/resource/list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AISearchResourceGetListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查找AISearch资源.
+     *
+     * @param Request - AISearchResourceGetListRequest
+     *
+     * @returns AISearchResourceGetListResponse
+     *
+     * @param AISearchResourceGetListRequest $request
+     *
+     * @return AISearchResourceGetListResponse
+     */
+    public function aISearchResourceGetList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aISearchResourceGetListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 修改AISearch项目中的结构化元素.
+     *
+     * @param Request - AISearchResourceUpdateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AISearchResourceUpdateResponse
+     *
+     * @param AISearchResourceUpdateRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AISearchResourceUpdateResponse
+     */
+    public function aISearchResourceUpdateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->data) {
+            @$body['data'] = $request->data;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AISearchResourceUpdate',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiSearch/resource/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AISearchResourceUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改AISearch项目中的结构化元素.
+     *
+     * @param Request - AISearchResourceUpdateRequest
+     *
+     * @returns AISearchResourceUpdateResponse
+     *
+     * @param AISearchResourceUpdateRequest $request
+     *
+     * @return AISearchResourceUpdateResponse
+     */
+    public function aISearchResourceUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aISearchResourceUpdateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * aisearch问答接口.
+     *
+     * @param Request - AISearchStreamRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AISearchStreamResponse
+     *
+     * @param AISearchStreamRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AISearchStreamResponse
+     */
+    public function aISearchStreamWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderId) {
+            @$body['folderId'] = $request->folderId;
+        }
+
+        if (null !== $request->message) {
+            @$body['message'] = $request->message;
+        }
+
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->resourceTypeNeeded) {
+            @$body['resourceTypeNeeded'] = $request->resourceTypeNeeded;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AISearchStream',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiSearch/searchStream',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield AISearchStreamResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * aisearch问答接口.
+     *
+     * @param Request - AISearchStreamRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AISearchStreamResponse
+     *
+     * @param AISearchStreamRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AISearchStreamResponse
+     */
+    public function aISearchStreamWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->folderId) {
+            @$body['folderId'] = $request->folderId;
+        }
+
+        if (null !== $request->message) {
+            @$body['message'] = $request->message;
+        }
+
+        if (null !== $request->question) {
+            @$body['question'] = $request->question;
+        }
+
+        if (null !== $request->resourceTypeNeeded) {
+            @$body['resourceTypeNeeded'] = $request->resourceTypeNeeded;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AISearchStream',
+            'version' => '2022-09-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiSearch/searchStream',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AISearchStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * aisearch问答接口.
+     *
+     * @param Request - AISearchStreamRequest
+     *
+     * @returns AISearchStreamResponse
+     *
+     * @param AISearchStreamRequest $request
+     *
+     * @return AISearchStreamResponse
+     */
+    public function aISearchStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aISearchStreamWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -761,7 +1190,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Knowledge Base Q&A.
+     * Knowledge Base Q\\&A.
      *
      * @remarks
      * - The interface provides Q&A services within the scope of the selected directory in the session.
@@ -814,21 +1243,22 @@ class EnergyExpertExternal extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ChatStreamResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ChatStreamResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
     /**
-     * Knowledge Base Q&A.
+     * Knowledge Base Q\\&A.
      *
      * @remarks
      * - The interface provides Q&A services within the scope of the selected directory in the session.
@@ -883,7 +1313,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Knowledge Base Q&A.
+     * Knowledge Base Q\\&A.
      *
      * @remarks
      * - The interface provides Q&A services within the scope of the selected directory in the session.
@@ -907,7 +1337,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Create Q&A Window.
+     * Create Q\\&A Window.
      *
      * @param Request - CreateChatSessionRequest
      * @param headers - map
@@ -957,7 +1387,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Create Q&A Window.
+     * Create Q\\&A Window.
      *
      * @param Request - CreateChatSessionRequest
      *
@@ -1514,7 +1944,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get Q&A folder List.
+     * Get Q\\&A folder List.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1547,7 +1977,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get Q&A folder List.
+     * Get Q\\&A folder List.
      *
      * @returns GetChatFolderListResponse
      *
@@ -1641,7 +2071,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get Q&A Session List.
+     * Get Q\\&A Session List.
      *
      * @param Request - GetChatSessionListRequest
      * @param headers - map
@@ -1695,7 +2125,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * Get Q&A Session List.
+     * Get Q\\&A Session List.
      *
      * @param Request - GetChatSessionListRequest
      *
@@ -2152,7 +2582,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+     * null null.
      *
      * @param Request - GetDocumentAnalyzeResultRequest
      * @param headers - map
@@ -2194,7 +2624,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * [Important] The api is no longer maintained, please use GetDocExtractionResult, GetVLExtractionResult to get the extraction results.
+     * null null.
      *
      * @param Request - GetDocumentAnalyzeResultRequest
      *
@@ -3905,7 +4335,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * [Important] This api is no longer maintained, please use the Chat api.
+     * null null.
      *
      * @param Request - SendDocumentAskQuestionRequest
      * @param headers - map
@@ -3955,7 +4385,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * [Important] This api is no longer maintained, please use the Chat api.
+     * null null.
      *
      * @param Request - SendDocumentAskQuestionRequest
      *
@@ -4443,9 +4873,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * [Important] The api is no longer maintained, please use the following api:
-     * Document parsing using SubmitDocParsingTask.
-     * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+     * The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
      *
      * @param Request - SubmitDocumentAnalyzeJobRequest
      * @param headers - map
@@ -4503,9 +4931,7 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * [Important] The api is no longer maintained, please use the following api:
-     * Document parsing using SubmitDocParsingTask.
-     * Document extraction using SubmitVLExtractionTask, SubmitDocExtractionTask.
+     * The document parsing operation is used to extract the key content of a document and extract the key-value information from the document based on the preset key-value template. The document parsing operation is an asynchronous operation. You need to call the asynchronous submission service for document parsing and then call the GetDocumentAnalyzeResult operation to perform result polling. The asynchronous submission service supports two methods: local files and URL files. Call the SubmitDocumentAnalyzeJob operation to upload URL files. Call the SubmitDocumentAnalyzeJobAdvance operation to upload local files.
      *
      * @param Request - SubmitDocumentAnalyzeJobRequest
      *

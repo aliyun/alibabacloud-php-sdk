@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ChatStreamResponse extends Model
+class AISearchStreamResponse extends Model
 {
     /**
      * @var string[]
@@ -29,7 +29,7 @@ class ChatStreamResponse extends Model
     public $event;
 
     /**
-     * @var ChatStreamResponseBody
+     * @var AISearchStreamResponseBody
      */
     public $body;
     protected $_name = [
@@ -112,7 +112,7 @@ class ChatStreamResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ChatStreamResponseBody::fromMap($map['body']);
+            $model->body = AISearchStreamResponseBody::fromMap($map['body']);
         }
 
         return $model;
