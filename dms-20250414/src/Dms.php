@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceRequest;
@@ -2883,6 +2885,99 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListDataAgentSession.
+     *
+     * @param request - ListDataAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentSessionResponse
+     *
+     * @param ListDataAgentSessionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDataAgentSessionResponse
+     */
+    public function listDataAgentSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createEndTime) {
+            @$query['CreateEndTime'] = $request->createEndTime;
+        }
+
+        if (null !== $request->createStartTime) {
+            @$query['CreateStartTime'] = $request->createStartTime;
+        }
+
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->isSaved) {
+            @$query['IsSaved'] = $request->isSaved;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentSession',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListDataAgentSession.
+     *
+     * @param request - ListDataAgentSessionRequest
+     *
+     * @returns ListDataAgentSessionResponse
+     *
+     * @param ListDataAgentSessionRequest $request
+     *
+     * @return ListDataAgentSessionResponse
+     */
+    public function listDataAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentSessionWithOptions($request, $runtime);
     }
 
     /**
