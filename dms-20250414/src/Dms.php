@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionShrinkRequest;
@@ -38,6 +41,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataLakeTableShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeDatabaseRequest;
@@ -92,6 +97,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataCenterDatabaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataCenterDatabaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataCenterTableRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataCenterTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeDatabaseRequest;
@@ -115,6 +124,11 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
@@ -680,6 +694,121 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * CreateCustomAgent.
+     *
+     * @param tmpReq - CreateCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomAgentResponse
+     *
+     * @param CreateCustomAgentRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomAgentResponse
+     */
+    public function createCustomAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCustomAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executionConfig) {
+            $request->executionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executionConfig, 'ExecutionConfig', 'json');
+        }
+
+        if (null !== $tmpReq->knowledgeConfigList) {
+            $request->knowledgeConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeConfigList, 'KnowledgeConfigList', 'json');
+        }
+
+        if (null !== $tmpReq->scheduleTaskConfig) {
+            $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->dataJson) {
+            @$query['DataJson'] = $request->dataJson;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->executionConfigShrink) {
+            @$query['ExecutionConfig'] = $request->executionConfigShrink;
+        }
+
+        if (null !== $request->instruction) {
+            @$query['Instruction'] = $request->instruction;
+        }
+
+        if (null !== $request->knowledge) {
+            @$query['Knowledge'] = $request->knowledge;
+        }
+
+        if (null !== $request->knowledgeConfigListShrink) {
+            @$query['KnowledgeConfigList'] = $request->knowledgeConfigListShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->scheduleTaskConfigShrink) {
+            @$query['ScheduleTaskConfig'] = $request->scheduleTaskConfigShrink;
+        }
+
+        if (null !== $request->textReportConfig) {
+            @$query['TextReportConfig'] = $request->textReportConfig;
+        }
+
+        if (null !== $request->webReportConfig) {
+            @$query['WebReportConfig'] = $request->webReportConfig;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateCustomAgent.
+     *
+     * @param request - CreateCustomAgentRequest
+     *
+     * @returns CreateCustomAgentResponse
+     *
+     * @param CreateCustomAgentRequest $request
+     *
+     * @return CreateCustomAgentResponse
+     */
+    public function createCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * CreateDataAgentSession.
      *
      * @param tmpReq - CreateDataAgentSessionRequest
@@ -1228,6 +1357,67 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAirflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteCustomAgent.
+     *
+     * @param request - DeleteCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomAgentResponse
+     *
+     * @param DeleteCustomAgentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCustomAgentResponse
+     */
+    public function deleteCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteCustomAgent.
+     *
+     * @param request - DeleteCustomAgentRequest
+     *
+     * @returns DeleteCustomAgentResponse
+     *
+     * @param DeleteCustomAgentRequest $request
+     *
+     * @return DeleteCustomAgentResponse
+     */
+    public function deleteCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -3163,6 +3353,168 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * ListDataCenterDatabase.
+     *
+     * @param request - ListDataCenterDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataCenterDatabaseResponse
+     *
+     * @param ListDataCenterDatabaseRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListDataCenterDatabaseResponse
+     */
+    public function listDataCenterDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callFrom) {
+            @$query['CallFrom'] = $request->callFrom;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->importType) {
+            @$query['ImportType'] = $request->importType;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataCenterDatabase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataCenterDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListDataCenterDatabase.
+     *
+     * @param request - ListDataCenterDatabaseRequest
+     *
+     * @returns ListDataCenterDatabaseResponse
+     *
+     * @param ListDataCenterDatabaseRequest $request
+     *
+     * @return ListDataCenterDatabaseResponse
+     */
+    public function listDataCenterDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataCenterDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListDataCenterTable.
+     *
+     * @param request - ListDataCenterTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataCenterTableResponse
+     *
+     * @param ListDataCenterTableRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataCenterTableResponse
+     */
+    public function listDataCenterTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callFrom) {
+            @$query['CallFrom'] = $request->callFrom;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->importType) {
+            @$query['ImportType'] = $request->importType;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataCenterTable',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataCenterTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListDataCenterTable.
+     *
+     * @param request - ListDataCenterTableRequest
+     *
+     * @returns ListDataCenterTableResponse
+     *
+     * @param ListDataCenterTableRequest $request
+     *
+     * @return ListDataCenterTableResponse
+     */
+    public function listDataCenterTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataCenterTableWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取uc的数据库目录列表.
      *
      * @param request - ListDataLakeCatalogRequest
@@ -4061,6 +4413,190 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFileUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyCustomAgent.
+     *
+     * @param tmpReq - ModifyCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCustomAgentResponse
+     *
+     * @param ModifyCustomAgentRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyCustomAgentResponse
+     */
+    public function modifyCustomAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyCustomAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executionConfig) {
+            $request->executionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executionConfig, 'ExecutionConfig', 'json');
+        }
+
+        if (null !== $tmpReq->knowledgeConfigList) {
+            $request->knowledgeConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeConfigList, 'KnowledgeConfigList', 'json');
+        }
+
+        if (null !== $tmpReq->scheduleTaskConfig) {
+            $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->dataJson) {
+            @$query['DataJson'] = $request->dataJson;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->executionConfigShrink) {
+            @$query['ExecutionConfig'] = $request->executionConfigShrink;
+        }
+
+        if (null !== $request->instruction) {
+            @$query['Instruction'] = $request->instruction;
+        }
+
+        if (null !== $request->knowledge) {
+            @$query['Knowledge'] = $request->knowledge;
+        }
+
+        if (null !== $request->knowledgeConfigListShrink) {
+            @$query['KnowledgeConfigList'] = $request->knowledgeConfigListShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->scheduleTaskConfigShrink) {
+            @$query['ScheduleTaskConfig'] = $request->scheduleTaskConfigShrink;
+        }
+
+        if (null !== $request->textReportConfig) {
+            @$query['TextReportConfig'] = $request->textReportConfig;
+        }
+
+        if (null !== $request->webReportConfig) {
+            @$query['WebReportConfig'] = $request->webReportConfig;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCustomAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyCustomAgent.
+     *
+     * @param request - ModifyCustomAgentRequest
+     *
+     * @returns ModifyCustomAgentResponse
+     *
+     * @param ModifyCustomAgentRequest $request
+     *
+     * @return ModifyCustomAgentResponse
+     */
+    public function modifyCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * OperateCustomAgent.
+     *
+     * @param request - OperateCustomAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateCustomAgentResponse
+     *
+     * @param OperateCustomAgentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OperateCustomAgentResponse
+     */
+    public function operateCustomAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OperateCustomAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * OperateCustomAgent.
+     *
+     * @param request - OperateCustomAgentRequest
+     *
+     * @returns OperateCustomAgentResponse
+     *
+     * @param OperateCustomAgentRequest $request
+     *
+     * @return OperateCustomAgentResponse
+     */
+    public function operateCustomAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateCustomAgentWithOptions($request, $runtime);
     }
 
     /**
