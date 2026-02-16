@@ -17,8 +17,12 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\LockEmbodiedAIPlatformRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\LockEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\ResetEmbodiedAIPlatformPasswordRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\ResetEmbodiedAIPlatformPasswordResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\UnlockEmbodiedAIPlatformRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\UnlockEmbodiedAIPlatformResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -444,6 +448,71 @@ class ADBAI extends OpenApiClient
     }
 
     /**
+     * 解锁具身智能平台.
+     *
+     * @param request - LockEmbodiedAIPlatformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LockEmbodiedAIPlatformResponse
+     *
+     * @param LockEmbodiedAIPlatformRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return LockEmbodiedAIPlatformResponse
+     */
+    public function lockEmbodiedAIPlatformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->platformName) {
+            @$query['PlatformName'] = $request->platformName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LockEmbodiedAIPlatform',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LockEmbodiedAIPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解锁具身智能平台.
+     *
+     * @param request - LockEmbodiedAIPlatformRequest
+     *
+     * @returns LockEmbodiedAIPlatformResponse
+     *
+     * @param LockEmbodiedAIPlatformRequest $request
+     *
+     * @return LockEmbodiedAIPlatformResponse
+     */
+    public function lockEmbodiedAIPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lockEmbodiedAIPlatformWithOptions($request, $runtime);
+    }
+
+    /**
      * 重置具身智能平台密码
      *
      * @param request - ResetEmbodiedAIPlatformPasswordRequest
@@ -510,5 +579,70 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetEmbodiedAIPlatformPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解锁具身智能平台.
+     *
+     * @param request - UnlockEmbodiedAIPlatformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnlockEmbodiedAIPlatformResponse
+     *
+     * @param UnlockEmbodiedAIPlatformRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UnlockEmbodiedAIPlatformResponse
+     */
+    public function unlockEmbodiedAIPlatformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->platformName) {
+            @$query['PlatformName'] = $request->platformName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnlockEmbodiedAIPlatform',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnlockEmbodiedAIPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解锁具身智能平台.
+     *
+     * @param request - UnlockEmbodiedAIPlatformRequest
+     *
+     * @returns UnlockEmbodiedAIPlatformResponse
+     *
+     * @param UnlockEmbodiedAIPlatformRequest $request
+     *
+     * @return UnlockEmbodiedAIPlatformResponse
+     */
+    public function unlockEmbodiedAIPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unlockEmbodiedAIPlatformWithOptions($request, $runtime);
     }
 }
