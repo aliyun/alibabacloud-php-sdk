@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateChatResponse extends Model
+class CreateDigitalEmployeeSkillResponse extends Model
 {
     /**
      * @var string[]
@@ -19,24 +19,12 @@ class CreateChatResponse extends Model
     public $statusCode;
 
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $event;
-
-    /**
-     * @var CreateChatResponseBody
+     * @var CreateDigitalEmployeeSkillResponseBody
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'id' => 'id',
-        'event' => 'event',
         'body' => 'body',
     ];
 
@@ -67,14 +55,6 @@ class CreateChatResponse extends Model
             $res['statusCode'] = $this->statusCode;
         }
 
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->event) {
-            $res['event'] = $this->event;
-        }
-
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -103,16 +83,8 @@ class CreateChatResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
 
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['event'])) {
-            $model->event = $map['event'];
-        }
-
         if (isset($map['body'])) {
-            $model->body = CreateChatResponseBody::fromMap($map['body']);
+            $model->body = CreateDigitalEmployeeSkillResponseBody::fromMap($map['body']);
         }
 
         return $model;

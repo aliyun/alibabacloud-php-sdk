@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeSkillRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
@@ -48,6 +50,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
@@ -78,6 +81,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeSkillRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataHeaders;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponse;
@@ -116,6 +121,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillVersionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesShrinkRequest;
@@ -176,6 +184,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeSkillRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
@@ -759,16 +769,17 @@ class Cms extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield CreateChatResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield CreateChatResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -984,6 +995,89 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createDigitalEmployeeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建技能.
+     *
+     * @param request - CreateDigitalEmployeeSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDigitalEmployeeSkillResponse
+     *
+     * @param string                            $name
+     * @param CreateDigitalEmployeeSkillRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDigitalEmployeeSkillResponse
+     */
+    public function createDigitalEmployeeSkillWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        if (null !== $request->skillName) {
+            @$body['skillName'] = $request->skillName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDigitalEmployeeSkill',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/skill',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDigitalEmployeeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建技能.
+     *
+     * @param request - CreateDigitalEmployeeSkillRequest
+     *
+     * @returns CreateDigitalEmployeeSkillResponse
+     *
+     * @param string                            $name
+     * @param CreateDigitalEmployeeSkillRequest $request
+     *
+     * @return CreateDigitalEmployeeSkillResponse
+     */
+    public function createDigitalEmployeeSkill($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDigitalEmployeeSkillWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -2087,6 +2181,59 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteDigitalEmployeeWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 删除技能.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDigitalEmployeeSkillResponse
+     *
+     * @param string         $name
+     * @param string         $skillName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDigitalEmployeeSkillResponse
+     */
+    public function deleteDigitalEmployeeSkillWithOptions($name, $skillName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDigitalEmployeeSkill',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDigitalEmployeeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除技能.
+     *
+     * @returns DeleteDigitalEmployeeSkillResponse
+     *
+     * @param string $name
+     * @param string $skillName
+     *
+     * @return DeleteDigitalEmployeeSkillResponse
+     */
+    public function deleteDigitalEmployeeSkill($name, $skillName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDigitalEmployeeSkillWithOptions($name, $skillName, $headers, $runtime);
     }
 
     /**
@@ -3329,6 +3476,71 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getDigitalEmployeeWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 获取技能详情.
+     *
+     * @param request - GetDigitalEmployeeSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDigitalEmployeeSkillResponse
+     *
+     * @param string                         $name
+     * @param string                         $skillName
+     * @param GetDigitalEmployeeSkillRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDigitalEmployeeSkillResponse
+     */
+    public function getDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDigitalEmployeeSkill',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDigitalEmployeeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取技能详情.
+     *
+     * @param request - GetDigitalEmployeeSkillRequest
+     *
+     * @returns GetDigitalEmployeeSkillResponse
+     *
+     * @param string                         $name
+     * @param string                         $skillName
+     * @param GetDigitalEmployeeSkillRequest $request
+     *
+     * @return GetDigitalEmployeeSkillResponse
+     */
+    public function getDigitalEmployeeSkill($name, $skillName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime);
     }
 
     /**
@@ -4719,6 +4931,130 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listBizTracesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出技能版本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDigitalEmployeeSkillVersionsResponse
+     *
+     * @param string         $name
+     * @param string         $skillName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDigitalEmployeeSkillVersionsResponse
+     */
+    public function listDigitalEmployeeSkillVersionsWithOptions($name, $skillName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListDigitalEmployeeSkillVersions',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDigitalEmployeeSkillVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出技能版本.
+     *
+     * @returns ListDigitalEmployeeSkillVersionsResponse
+     *
+     * @param string $name
+     * @param string $skillName
+     *
+     * @return ListDigitalEmployeeSkillVersionsResponse
+     */
+    public function listDigitalEmployeeSkillVersions($name, $skillName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDigitalEmployeeSkillVersionsWithOptions($name, $skillName, $headers, $runtime);
+    }
+
+    /**
+     * 列出技能.
+     *
+     * @param request - ListDigitalEmployeeSkillsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDigitalEmployeeSkillsResponse
+     *
+     * @param string                           $name
+     * @param ListDigitalEmployeeSkillsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDigitalEmployeeSkillsResponse
+     */
+    public function listDigitalEmployeeSkillsWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['skillName'] = $request->skillName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDigitalEmployeeSkills',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/skills',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDigitalEmployeeSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出技能.
+     *
+     * @param request - ListDigitalEmployeeSkillsRequest
+     *
+     * @returns ListDigitalEmployeeSkillsResponse
+     *
+     * @param string                           $name
+     * @param ListDigitalEmployeeSkillsRequest $request
+     *
+     * @return ListDigitalEmployeeSkillsResponse
+     */
+    public function listDigitalEmployeeSkills($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDigitalEmployeeSkillsWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -6629,7 +6965,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新Webhook.
+     * 修改已存在的告警 Webhook 通知配置。
      *
      * @param request - UpdateAlertWebhookRequest
      * @param headers - map
@@ -6692,7 +7028,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新Webhook.
+     * 修改已存在的告警 Webhook 通知配置。
      *
      * @param request - UpdateAlertWebhookRequest
      *
@@ -6866,6 +7202,87 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 更新技能.
+     *
+     * @param request - UpdateDigitalEmployeeSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDigitalEmployeeSkillResponse
+     *
+     * @param string                            $name
+     * @param string                            $skillName
+     * @param UpdateDigitalEmployeeSkillRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateDigitalEmployeeSkillResponse
+     */
+    public function updateDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDigitalEmployeeSkill',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDigitalEmployeeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新技能.
+     *
+     * @param request - UpdateDigitalEmployeeSkillRequest
+     *
+     * @returns UpdateDigitalEmployeeSkillResponse
+     *
+     * @param string                            $name
+     * @param string                            $skillName
+     * @param UpdateDigitalEmployeeSkillRequest $request
+     *
+     * @return UpdateDigitalEmployeeSkillResponse
+     */
+    public function updateDigitalEmployeeSkill($name, $skillName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
      * Update the specified policy.
      *
      * @param request - UpdateIntegrationPolicyRequest
@@ -6941,7 +7358,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新通知策略.
+     * 修改已存在的告警通知策略.
      *
      * @param request - UpdateNotifyStrategyRequest
      * @param headers - map
@@ -6985,7 +7402,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新通知策略.
+     * 修改已存在的告警通知策略.
      *
      * @param request - UpdateNotifyStrategyRequest
      *
@@ -7347,7 +7764,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新订阅.
+     * 更新一个已存在的订阅配置.
      *
      * @param request - UpdateSubscriptionRequest
      * @param headers - map
@@ -7391,7 +7808,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新订阅.
+     * 更新一个已存在的订阅配置.
      *
      * @param request - UpdateSubscriptionRequest
      *

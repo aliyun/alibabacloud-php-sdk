@@ -24,6 +24,11 @@ class AlertRuleSend extends Model
     public $notifyStrategies;
 
     /**
+     * @var AlertRuleRcaConfig
+     */
+    public $rcaConfig;
+
+    /**
      * @var bool
      */
     public $sendToArms;
@@ -31,6 +36,7 @@ class AlertRuleSend extends Model
         'action' => 'action',
         'notification' => 'notification',
         'notifyStrategies' => 'notifyStrategies',
+        'rcaConfig' => 'rcaConfig',
         'sendToArms' => 'sendToArms',
     ];
 
@@ -44,6 +50,9 @@ class AlertRuleSend extends Model
         }
         if (\is_array($this->notifyStrategies)) {
             Model::validateArray($this->notifyStrategies);
+        }
+        if (null !== $this->rcaConfig) {
+            $this->rcaConfig->validate();
         }
         parent::validate();
     }
@@ -68,6 +77,10 @@ class AlertRuleSend extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->rcaConfig) {
+            $res['rcaConfig'] = null !== $this->rcaConfig ? $this->rcaConfig->toArray($noStream) : $this->rcaConfig;
         }
 
         if (null !== $this->sendToArms) {
@@ -102,6 +115,10 @@ class AlertRuleSend extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['rcaConfig'])) {
+            $model->rcaConfig = AlertRuleRcaConfig::fromMap($map['rcaConfig']);
         }
 
         if (isset($map['sendToArms'])) {
