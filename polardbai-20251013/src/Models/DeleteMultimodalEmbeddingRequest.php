@@ -17,9 +17,15 @@ class DeleteMultimodalEmbeddingRequest extends Model
      * @var string
      */
     public $embedding;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'embedding' => 'Embedding',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DeleteMultimodalEmbeddingRequest extends Model
 
         if (null !== $this->embedding) {
             $res['Embedding'] = $this->embedding;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DeleteMultimodalEmbeddingRequest extends Model
 
         if (isset($map['Embedding'])) {
             $model->embedding = $map['Embedding'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

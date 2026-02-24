@@ -51,6 +51,11 @@ class ChatBIConfigUpdateEntryRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $sqlCondition;
 
     /**
@@ -71,6 +76,7 @@ class ChatBIConfigUpdateEntryRequest extends Model
         'instanceName' => 'InstanceName',
         'isFunctional' => 'IsFunctional',
         'queryFunction' => 'QueryFunction',
+        'sourceRegionId' => 'SourceRegionId',
         'sqlCondition' => 'SqlCondition',
         'sqlFunction' => 'SqlFunction',
         'textCondition' => 'TextCondition',
@@ -114,6 +120,10 @@ class ChatBIConfigUpdateEntryRequest extends Model
 
         if (null !== $this->queryFunction) {
             $res['QueryFunction'] = $this->queryFunction;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->sqlCondition) {
@@ -169,6 +179,10 @@ class ChatBIConfigUpdateEntryRequest extends Model
 
         if (isset($map['QueryFunction'])) {
             $model->queryFunction = $map['QueryFunction'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['SqlCondition'])) {

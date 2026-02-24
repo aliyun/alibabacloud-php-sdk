@@ -41,6 +41,11 @@ class ChatBIFileUploadCallbackRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableName;
 
     /**
@@ -54,6 +59,7 @@ class ChatBIFileUploadCallbackRequest extends Model
         'dbName' => 'DbName',
         'fileName' => 'FileName',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
         'tableName' => 'TableName',
         'tableType' => 'TableType',
     ];
@@ -88,6 +94,10 @@ class ChatBIFileUploadCallbackRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableName) {
@@ -131,6 +141,10 @@ class ChatBIFileUploadCallbackRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableName'])) {

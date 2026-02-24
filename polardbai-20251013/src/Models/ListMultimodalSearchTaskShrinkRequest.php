@@ -37,6 +37,11 @@ class ListMultimodalSearchTaskShrinkRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetIdsShrink' => 'DatasetIds',
@@ -44,6 +49,7 @@ class ListMultimodalSearchTaskShrinkRequest extends Model
         'modelMode' => 'ModelMode',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ListMultimodalSearchTaskShrinkRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class ListMultimodalSearchTaskShrinkRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

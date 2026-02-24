@@ -17,9 +17,15 @@ class DeleteMultimodalFineTuneDatasetRequest extends Model
      * @var string
      */
     public $datasetId;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetId' => 'DatasetId',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DeleteMultimodalFineTuneDatasetRequest extends Model
 
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DeleteMultimodalFineTuneDatasetRequest extends Model
 
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

@@ -26,11 +26,17 @@ class ListMultimodalSearchTaskResultRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sourceRegionId' => 'SourceRegionId',
         'taskId' => 'TaskId',
     ];
 
@@ -52,6 +58,10 @@ class ListMultimodalSearchTaskResultRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->taskId) {
@@ -79,6 +89,10 @@ class ListMultimodalSearchTaskResultRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TaskId'])) {

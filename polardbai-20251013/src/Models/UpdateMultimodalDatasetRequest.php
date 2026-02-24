@@ -27,11 +27,17 @@ class UpdateMultimodalDatasetRequest extends Model
      * @var string
      */
     public $datasetName;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetDescription' => 'DatasetDescription',
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class UpdateMultimodalDatasetRequest extends Model
 
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class UpdateMultimodalDatasetRequest extends Model
 
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

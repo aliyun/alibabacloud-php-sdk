@@ -26,11 +26,17 @@ class ChatBIFileTemplateDownloadRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableType;
     protected $_name = [
         'authMessage' => 'AuthMessage',
         'authType' => 'AuthType',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
         'tableType' => 'TableType',
     ];
 
@@ -52,6 +58,10 @@ class ChatBIFileTemplateDownloadRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableType) {
@@ -79,6 +89,10 @@ class ChatBIFileTemplateDownloadRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableType'])) {

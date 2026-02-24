@@ -31,6 +31,11 @@ class ChatBIUpdateTableValidationColumnsRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableName;
 
     /**
@@ -42,6 +47,7 @@ class ChatBIUpdateTableValidationColumnsRequest extends Model
         'authType' => 'AuthType',
         'dbName' => 'DbName',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
         'tableName' => 'TableName',
         'tableType' => 'TableType',
     ];
@@ -68,6 +74,10 @@ class ChatBIUpdateTableValidationColumnsRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableName) {
@@ -103,6 +113,10 @@ class ChatBIUpdateTableValidationColumnsRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableName'])) {

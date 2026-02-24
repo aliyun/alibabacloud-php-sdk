@@ -37,6 +37,11 @@ class ListMultimodalSearchTaskRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetIds' => 'DatasetIds',
@@ -44,6 +49,7 @@ class ListMultimodalSearchTaskRequest extends Model
         'modelMode' => 'ModelMode',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class ListMultimodalSearchTaskRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class ListMultimodalSearchTaskRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

@@ -32,12 +32,18 @@ class ChatBIConfigDeleteEntryRequest extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'authMessage' => 'AuthMessage',
         'authType' => 'AuthType',
         'dbName' => 'DbName',
         'id' => 'Id',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ChatBIConfigDeleteEntryRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ChatBIConfigDeleteEntryRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

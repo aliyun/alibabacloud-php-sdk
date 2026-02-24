@@ -36,6 +36,11 @@ class ChatBISchemaIndexCreateRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableNameSuffix;
 
     /**
@@ -53,6 +58,7 @@ class ChatBISchemaIndexCreateRequest extends Model
         'columnsExcluded' => 'ColumnsExcluded',
         'dbName' => 'DbName',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
         'tableNameSuffix' => 'TableNameSuffix',
         'tablesIncluded' => 'TablesIncluded',
         'toSample' => 'ToSample',
@@ -84,6 +90,10 @@ class ChatBISchemaIndexCreateRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableNameSuffix) {
@@ -127,6 +137,10 @@ class ChatBISchemaIndexCreateRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableNameSuffix'])) {

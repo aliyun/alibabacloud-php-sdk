@@ -36,6 +36,11 @@ class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -48,6 +53,7 @@ class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends Model
         'datasetName' => 'DatasetName',
         'resultIndex' => 'ResultIndex',
         'resultMode' => 'ResultMode',
+        'sourceRegionId' => 'SourceRegionId',
         'taskId' => 'TaskId',
         'topN' => 'TopN',
     ];
@@ -88,6 +94,10 @@ class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends Model
 
         if (null !== $this->resultMode) {
             $res['ResultMode'] = $this->resultMode;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->taskId) {
@@ -134,6 +144,10 @@ class CreateMultimodalSearchTaskResultFineTuneDatasetRequest extends Model
 
         if (isset($map['ResultMode'])) {
             $model->resultMode = $map['ResultMode'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TaskId'])) {

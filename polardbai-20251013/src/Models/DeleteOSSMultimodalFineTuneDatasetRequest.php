@@ -22,10 +22,16 @@ class DeleteOSSMultimodalFineTuneDatasetRequest extends Model
      * @var string
      */
     public $ossUrl;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetId' => 'DatasetId',
         'ossUrl' => 'OssUrl',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DeleteOSSMultimodalFineTuneDatasetRequest extends Model
 
         if (null !== $this->ossUrl) {
             $res['OssUrl'] = $this->ossUrl;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DeleteOSSMultimodalFineTuneDatasetRequest extends Model
 
         if (isset($map['OssUrl'])) {
             $model->ossUrl = $map['OssUrl'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

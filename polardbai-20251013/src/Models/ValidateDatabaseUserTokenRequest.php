@@ -27,11 +27,17 @@ class ValidateDatabaseUserTokenRequest extends Model
      * @var string
      */
     public $DBName;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'authMessage' => 'AuthMessage',
         'authType' => 'AuthType',
         'DBClusterId' => 'DBClusterId',
         'DBName' => 'DBName',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ValidateDatabaseUserTokenRequest extends Model
 
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ValidateDatabaseUserTokenRequest extends Model
 
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

@@ -16,9 +16,15 @@ class DownloadMultimodalSearchTaskResultMetadataRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'sourceRegionId' => 'SourceRegionId',
         'taskId' => 'TaskId',
     ];
 
@@ -32,6 +38,10 @@ class DownloadMultimodalSearchTaskResultMetadataRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->taskId) {
@@ -51,6 +61,10 @@ class DownloadMultimodalSearchTaskResultMetadataRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TaskId'])) {

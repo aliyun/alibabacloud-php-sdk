@@ -42,6 +42,11 @@ class ChatBIPatternIndexQueryTablesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'authMessage' => 'AuthMessage',
         'authType' => 'AuthType',
@@ -50,6 +55,7 @@ class ChatBIPatternIndexQueryTablesRequest extends Model
         'instanceName' => 'InstanceName',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ChatBIPatternIndexQueryTablesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ChatBIPatternIndexQueryTablesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

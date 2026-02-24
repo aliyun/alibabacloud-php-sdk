@@ -14,11 +14,17 @@ class UpdateMultimodalLabelStudioServiceWhiteListRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var string
+     */
+    public $sourceRegionId;
+
+    /**
      * @var string[]
      */
     public $whiteList;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'sourceRegionId' => 'SourceRegionId',
         'whiteList' => 'WhiteList',
     ];
 
@@ -35,6 +41,10 @@ class UpdateMultimodalLabelStudioServiceWhiteListRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->whiteList) {
@@ -61,6 +71,10 @@ class UpdateMultimodalLabelStudioServiceWhiteListRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['WhiteList'])) {

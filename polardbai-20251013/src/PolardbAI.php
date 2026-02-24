@@ -181,6 +181,10 @@ class PolardbAI extends OpenApiClient
             @$query['OssUrl'] = $request->ossUrl;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -250,6 +254,10 @@ class PolardbAI extends OpenApiClient
             @$query['InstanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -317,6 +325,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -390,6 +402,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -473,6 +489,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -544,6 +564,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -631,6 +655,10 @@ class PolardbAI extends OpenApiClient
             @$query['QueryFunction'] = $request->queryFunction;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->sqlCondition) {
             @$query['SqlCondition'] = $request->sqlCondition;
         }
@@ -708,6 +736,10 @@ class PolardbAI extends OpenApiClient
             @$query['InstanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->tableType) {
             @$query['TableType'] = $request->tableType;
         }
@@ -779,6 +811,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -858,6 +894,10 @@ class PolardbAI extends OpenApiClient
             @$query['InstanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->tableName) {
             @$query['TableName'] = $request->tableName;
         }
@@ -935,6 +975,10 @@ class PolardbAI extends OpenApiClient
             @$query['InstanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->tableNameSuffix) {
             @$query['TableNameSuffix'] = $request->tableNameSuffix;
         }
@@ -1006,6 +1050,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableName) {
@@ -1085,6 +1133,10 @@ class PolardbAI extends OpenApiClient
             @$query['InstanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->tableName) {
             @$query['TableName'] = $request->tableName;
         }
@@ -1162,6 +1214,10 @@ class PolardbAI extends OpenApiClient
             @$query['PatternTableName'] = $request->patternTableName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->tableNameSuffix) {
             @$query['TableNameSuffix'] = $request->tableNameSuffix;
         }
@@ -1233,6 +1289,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableName) {
@@ -1320,6 +1380,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1399,6 +1463,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableName) {
@@ -1484,6 +1552,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -1573,6 +1645,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->patternSql) {
             @$query['PatternSql'] = $request->patternSql;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableName) {
@@ -1682,6 +1758,10 @@ class PolardbAI extends OpenApiClient
             @$query['SelectData'] = $request->selectData;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->thinkingMode) {
             @$query['ThinkingMode'] = $request->thinkingMode;
         }
@@ -1784,6 +1864,10 @@ class PolardbAI extends OpenApiClient
             @$query['SelectData'] = $request->selectData;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->thinkingMode) {
             @$query['ThinkingMode'] = $request->thinkingMode;
         }
@@ -1859,6 +1943,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableNameSuffix) {
@@ -1940,6 +2028,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableName) {
@@ -2027,6 +2119,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2094,6 +2190,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->tableName) {
@@ -2169,6 +2269,10 @@ class PolardbAI extends OpenApiClient
             @$query['DatasetName'] = $request->datasetName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2238,6 +2342,10 @@ class PolardbAI extends OpenApiClient
             @$query['ModelMode'] = $request->modelMode;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2301,6 +2409,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->datasetName) {
             @$query['DatasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -2372,6 +2484,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->password) {
             @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->username) {
@@ -2461,6 +2577,10 @@ class PolardbAI extends OpenApiClient
             @$query['SearchModel'] = $request->searchModel;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->topK) {
             @$query['TopK'] = $request->topK;
         }
@@ -2544,6 +2664,10 @@ class PolardbAI extends OpenApiClient
             @$query['ResultMode'] = $request->resultMode;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         if (null !== $request->taskId) {
             @$query['TaskId'] = $request->taskId;
         }
@@ -2613,6 +2737,10 @@ class PolardbAI extends OpenApiClient
             @$query['DatasetId'] = $request->datasetId;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2672,6 +2800,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->embedding) {
             @$query['Embedding'] = $request->embedding;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -2735,6 +2867,10 @@ class PolardbAI extends OpenApiClient
             @$query['DatasetId'] = $request->datasetId;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2790,6 +2926,10 @@ class PolardbAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -2857,6 +2997,10 @@ class PolardbAI extends OpenApiClient
             @$query['OssUrl'] = $request->ossUrl;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2912,6 +3056,10 @@ class PolardbAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->taskId) {
@@ -2977,6 +3125,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->password) {
             @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->username) {
@@ -3052,6 +3204,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3117,6 +3273,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3172,6 +3332,10 @@ class PolardbAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -3243,6 +3407,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3298,6 +3466,10 @@ class PolardbAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -3363,6 +3535,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([
@@ -3448,6 +3624,10 @@ class PolardbAI extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3511,6 +3691,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->taskId) {
@@ -3586,6 +3770,10 @@ class PolardbAI extends OpenApiClient
             @$query['DatasetName'] = $request->datasetName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3655,6 +3843,10 @@ class PolardbAI extends OpenApiClient
             @$query['DatasetName'] = $request->datasetName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3716,6 +3908,10 @@ class PolardbAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         if (null !== $request->whiteListShrink) {
@@ -3787,6 +3983,10 @@ class PolardbAI extends OpenApiClient
             @$query['OssUrl'] = $request->ossUrl;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3856,6 +4056,10 @@ class PolardbAI extends OpenApiClient
             @$query['DBName'] = $request->DBName;
         }
 
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3919,6 +4123,10 @@ class PolardbAI extends OpenApiClient
 
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->sourceRegionId) {
+            @$query['SourceRegionId'] = $request->sourceRegionId;
         }
 
         $req = new OpenApiRequest([

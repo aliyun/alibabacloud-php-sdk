@@ -65,6 +65,11 @@ class ChatBIPredictSseRequest extends Model
     public $selectData;
 
     /**
+     * @var string
+     */
+    public $sourceRegionId;
+
+    /**
      * @var bool
      */
     public $thinkingMode;
@@ -80,6 +85,7 @@ class ChatBIPredictSseRequest extends Model
         'question' => 'Question',
         'schemaIndexTableName' => 'SchemaIndexTableName',
         'selectData' => 'SelectData',
+        'sourceRegionId' => 'SourceRegionId',
         'thinkingMode' => 'ThinkingMode',
     ];
 
@@ -136,6 +142,10 @@ class ChatBIPredictSseRequest extends Model
 
         if (null !== $this->selectData) {
             $res['SelectData'] = $this->selectData;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->thinkingMode) {
@@ -195,6 +205,10 @@ class ChatBIPredictSseRequest extends Model
 
         if (isset($map['SelectData'])) {
             $model->selectData = $map['SelectData'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['ThinkingMode'])) {

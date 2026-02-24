@@ -27,11 +27,17 @@ class ChatBIFileUploadRequest extends Model
      * @var string
      */
     public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'authMessage' => 'AuthMessage',
         'authType' => 'AuthType',
         'fileName' => 'FileName',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ChatBIFileUploadRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ChatBIFileUploadRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

@@ -27,11 +27,17 @@ class CreateMultimodalDatasetEmbeddingRequest extends Model
      * @var string
      */
     public $modelMode;
+
+    /**
+     * @var string
+     */
+    public $sourceRegionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetId' => 'DatasetId',
         'model' => 'Model',
         'modelMode' => 'ModelMode',
+        'sourceRegionId' => 'SourceRegionId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class CreateMultimodalDatasetEmbeddingRequest extends Model
 
         if (null !== $this->modelMode) {
             $res['ModelMode'] = $this->modelMode;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class CreateMultimodalDatasetEmbeddingRequest extends Model
 
         if (isset($map['ModelMode'])) {
             $model->modelMode = $map['ModelMode'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         return $model;

@@ -26,11 +26,17 @@ class CreateMultimodalLabelStudioServiceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'datasetIdsShrink' => 'DatasetIds',
         'password' => 'Password',
+        'sourceRegionId' => 'SourceRegionId',
         'username' => 'Username',
     ];
 
@@ -52,6 +58,10 @@ class CreateMultimodalLabelStudioServiceShrinkRequest extends Model
 
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->username) {
@@ -79,6 +89,10 @@ class CreateMultimodalLabelStudioServiceShrinkRequest extends Model
 
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['Username'])) {

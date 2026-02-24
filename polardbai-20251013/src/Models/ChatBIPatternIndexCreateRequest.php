@@ -36,6 +36,11 @@ class ChatBIPatternIndexCreateRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableNameSuffix;
     protected $_name = [
         'authMessage' => 'AuthMessage',
@@ -43,6 +48,7 @@ class ChatBIPatternIndexCreateRequest extends Model
         'dbName' => 'DbName',
         'instanceName' => 'InstanceName',
         'patternTableName' => 'PatternTableName',
+        'sourceRegionId' => 'SourceRegionId',
         'tableNameSuffix' => 'TableNameSuffix',
     ];
 
@@ -72,6 +78,10 @@ class ChatBIPatternIndexCreateRequest extends Model
 
         if (null !== $this->patternTableName) {
             $res['PatternTableName'] = $this->patternTableName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableNameSuffix) {
@@ -107,6 +117,10 @@ class ChatBIPatternIndexCreateRequest extends Model
 
         if (isset($map['PatternTableName'])) {
             $model->patternTableName = $map['PatternTableName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableNameSuffix'])) {

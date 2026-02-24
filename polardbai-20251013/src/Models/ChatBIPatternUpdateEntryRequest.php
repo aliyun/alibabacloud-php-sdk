@@ -56,6 +56,11 @@ class ChatBIPatternUpdateEntryRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'authMessage' => 'AuthMessage',
@@ -67,6 +72,7 @@ class ChatBIPatternUpdateEntryRequest extends Model
         'patternParams' => 'PatternParams',
         'patternQuestion' => 'PatternQuestion',
         'patternSql' => 'PatternSql',
+        'sourceRegionId' => 'SourceRegionId',
         'tableName' => 'TableName',
     ];
 
@@ -112,6 +118,10 @@ class ChatBIPatternUpdateEntryRequest extends Model
 
         if (null !== $this->patternSql) {
             $res['PatternSql'] = $this->patternSql;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableName) {
@@ -163,6 +173,10 @@ class ChatBIPatternUpdateEntryRequest extends Model
 
         if (isset($map['PatternSql'])) {
             $model->patternSql = $map['PatternSql'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableName'])) {

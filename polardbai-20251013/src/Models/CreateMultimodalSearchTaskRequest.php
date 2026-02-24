@@ -39,6 +39,11 @@ class CreateMultimodalSearchTaskRequest extends Model
     public $searchModel;
 
     /**
+     * @var string
+     */
+    public $sourceRegionId;
+
+    /**
      * @var int
      */
     public $topK;
@@ -49,6 +54,7 @@ class CreateMultimodalSearchTaskRequest extends Model
         'modelMode' => 'ModelMode',
         'query' => 'Query',
         'searchModel' => 'SearchModel',
+        'sourceRegionId' => 'SourceRegionId',
         'topK' => 'TopK',
     ];
 
@@ -92,6 +98,10 @@ class CreateMultimodalSearchTaskRequest extends Model
 
         if (null !== $this->searchModel) {
             $res['SearchModel'] = $this->searchModel;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->topK) {
@@ -138,6 +148,10 @@ class CreateMultimodalSearchTaskRequest extends Model
 
         if (isset($map['SearchModel'])) {
             $model->searchModel = $map['SearchModel'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TopK'])) {

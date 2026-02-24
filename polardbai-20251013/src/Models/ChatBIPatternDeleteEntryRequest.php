@@ -36,6 +36,11 @@ class ChatBIPatternDeleteEntryRequest extends Model
     /**
      * @var string
      */
+    public $sourceRegionId;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'authMessage' => 'AuthMessage',
@@ -43,6 +48,7 @@ class ChatBIPatternDeleteEntryRequest extends Model
         'dbName' => 'DbName',
         'id' => 'Id',
         'instanceName' => 'InstanceName',
+        'sourceRegionId' => 'SourceRegionId',
         'tableName' => 'TableName',
     ];
 
@@ -72,6 +78,10 @@ class ChatBIPatternDeleteEntryRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->sourceRegionId) {
+            $res['SourceRegionId'] = $this->sourceRegionId;
         }
 
         if (null !== $this->tableName) {
@@ -107,6 +117,10 @@ class ChatBIPatternDeleteEntryRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['SourceRegionId'])) {
+            $model->sourceRegionId = $map['SourceRegionId'];
         }
 
         if (isset($map['TableName'])) {
