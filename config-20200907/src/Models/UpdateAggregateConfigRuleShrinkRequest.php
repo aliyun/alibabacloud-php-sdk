@@ -28,6 +28,11 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $conditions;
+
+    /**
+     * @var string
+     */
     public $configRuleId;
 
     /**
@@ -148,6 +153,7 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
         'accountIdsScope' => 'AccountIdsScope',
         'aggregatorId' => 'AggregatorId',
         'clientToken' => 'ClientToken',
+        'conditions' => 'Conditions',
         'configRuleId' => 'ConfigRuleId',
         'configRuleName' => 'ConfigRuleName',
         'configRuleTriggerTypes' => 'ConfigRuleTriggerTypes',
@@ -198,6 +204,10 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->conditions) {
+            $res['Conditions'] = $this->conditions;
         }
 
         if (null !== $this->configRuleId) {
@@ -331,6 +341,10 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Conditions'])) {
+            $model->conditions = $map['Conditions'];
         }
 
         if (isset($map['ConfigRuleId'])) {

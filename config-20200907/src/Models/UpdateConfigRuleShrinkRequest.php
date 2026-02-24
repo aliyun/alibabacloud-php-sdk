@@ -18,6 +18,11 @@ class UpdateConfigRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $conditions;
+
+    /**
+     * @var string
+     */
     public $configRuleId;
 
     /**
@@ -126,6 +131,7 @@ class UpdateConfigRuleShrinkRequest extends Model
     public $tagsScope;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'conditions' => 'Conditions',
         'configRuleId' => 'ConfigRuleId',
         'configRuleName' => 'ConfigRuleName',
         'configRuleTriggerTypes' => 'ConfigRuleTriggerTypes',
@@ -166,6 +172,10 @@ class UpdateConfigRuleShrinkRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->conditions) {
+            $res['Conditions'] = $this->conditions;
         }
 
         if (null !== $this->configRuleId) {
@@ -283,6 +293,10 @@ class UpdateConfigRuleShrinkRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Conditions'])) {
+            $model->conditions = $map['Conditions'];
         }
 
         if (isset($map['ConfigRuleId'])) {

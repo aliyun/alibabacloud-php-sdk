@@ -19,6 +19,11 @@ class CreateConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $conditions;
+
+    /**
+     * @var string
+     */
     public $configRuleName;
 
     /**
@@ -132,6 +137,7 @@ class CreateConfigRuleRequest extends Model
     public $tagsScope;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'conditions' => 'Conditions',
         'configRuleName' => 'ConfigRuleName',
         'configRuleTriggerTypes' => 'ConfigRuleTriggerTypes',
         'description' => 'Description',
@@ -182,6 +188,10 @@ class CreateConfigRuleRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->conditions) {
+            $res['Conditions'] = $this->conditions;
         }
 
         if (null !== $this->configRuleName) {
@@ -322,6 +332,10 @@ class CreateConfigRuleRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Conditions'])) {
+            $model->conditions = $map['Conditions'];
         }
 
         if (isset($map['ConfigRuleName'])) {
