@@ -5,16 +5,32 @@
 namespace AlibabaCloud\SDK\Starrocks\V20221019;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\AddGatewayRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\AddGatewayResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateInstanceV1Request;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateInstanceV1Response;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DeleteGatewayRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesShrinkRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeNodeGroupsResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DisableSSLConnectionRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DisableSSLConnectionResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\EnableSSLConnectionRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\EnableSSLConnectionResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\GetInstanceFeatureGateRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\GetInstanceFeatureGateResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\IsolateLeaderRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\IsolateLeaderResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListGatewayRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListGatewayResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyChargeTypeRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyChargeTypeResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuPreCheckRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuPreCheckResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuRequest;
@@ -25,6 +41,8 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskPerformanceLevelReques
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskPerformanceLevelResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskSizeRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskSizeResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskTypeRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskTypeResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberPreCheckRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberPreCheckResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberRequest;
@@ -35,11 +53,23 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestartNodeGroupRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestartNodeGroupResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestartNodesRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestartNodesResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestoreInstanceRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestoreInstanceResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ResumeInstanceRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ResumeInstanceResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\TogglePublicSlbRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\TogglePublicSlbResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\UnTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\UpdateGatewayRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\UpdateGatewayResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\UpgradeVersionRequest;
@@ -84,7 +114,76 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * 新建网关.
+     *
+     * @param request - AddGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddGatewayResponse
+     *
+     * @param AddGatewayRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AddGatewayResponse
+     */
+    public function addGatewayWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->feNodeNumber) {
+            @$query['FeNodeNumber'] = $request->feNodeNumber;
+        }
+
+        if (null !== $request->gatewayName) {
+            @$query['GatewayName'] = $request->gatewayName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddGateway',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/gateway/add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新建网关.
+     *
+     * @param request - AddGatewayRequest
+     *
+     * @returns AddGatewayResponse
+     *
+     * @param AddGatewayRequest $request
+     *
+     * @return AddGatewayResponse
+     */
+    public function addGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * This interface is used to modify the resource group of a Serverless StarRocks instance.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -138,7 +237,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * This interface is used to modify the resource group of a Serverless StarRocks instance.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -338,7 +437,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 为用户创建AliyunServiceRoleForEMRStarRocks.
+     * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -371,7 +470,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 为用户创建AliyunServiceRoleForEMRStarRocks.
+     * This interface is used to create the AliyunServiceRoleForEMRStarRocks role for users.
      *
      * @returns CreateServiceLinkedRoleResponse
      *
@@ -386,7 +485,72 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 根据集群ID或者名称等信息过滤集群.
+     * 删除网关.
+     *
+     * @param request - DeleteGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayResponse
+     *
+     * @param DeleteGatewayRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteGatewayResponse
+     */
+    public function deleteGatewayWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGateway',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/gateway/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关.
+     *
+     * @param request - DeleteGatewayRequest
+     *
+     * @returns DeleteGatewayResponse
+     *
+     * @param DeleteGatewayRequest $request
+     *
+     * @return DeleteGatewayResponse
+     */
+    public function deleteGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
      *
      * @param tmpReq - DescribeInstancesRequest
      * @param headers - map
@@ -462,7 +626,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 根据集群ID或者名称等信息过滤集群.
+     * This operation is used to query Serverless StarRocks instances, supporting filtering based on instance name or tags and other information.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -569,6 +733,416 @@ class Starrocks extends OpenApiClient
         $headers = [];
 
         return $this->describeNodeGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * StarRocks关闭SSL.
+     *
+     * @param request - DisableSSLConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSSLConnectionResponse
+     *
+     * @param DisableSSLConnectionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DisableSSLConnectionResponse
+     */
+    public function disableSSLConnectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSSLConnection',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/starrocks/disableSSLConnection',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSSLConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * StarRocks关闭SSL.
+     *
+     * @param request - DisableSSLConnectionRequest
+     *
+     * @returns DisableSSLConnectionResponse
+     *
+     * @param DisableSSLConnectionRequest $request
+     *
+     * @return DisableSSLConnectionResponse
+     */
+    public function disableSSLConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableSSLConnectionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * StarRocks开启SSL.
+     *
+     * @param request - EnableSSLConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSSLConnectionResponse
+     *
+     * @param EnableSSLConnectionRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EnableSSLConnectionResponse
+     */
+    public function enableSSLConnectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->customSSLCertificate) {
+            @$body['CustomSSLCertificate'] = $request->customSSLCertificate;
+        }
+
+        if (null !== $request->enableCustom) {
+            @$body['EnableCustom'] = $request->enableCustom;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->renewal) {
+            @$body['Renewal'] = $request->renewal;
+        }
+
+        if (null !== $request->sslKeyPassword) {
+            @$body['SslKeyPassword'] = $request->sslKeyPassword;
+        }
+
+        if (null !== $request->sslKeystorePassword) {
+            @$body['SslKeystorePassword'] = $request->sslKeystorePassword;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSSLConnection',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/starrocks/enableSSLConnection',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSSLConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * StarRocks开启SSL.
+     *
+     * @param request - EnableSSLConnectionRequest
+     *
+     * @returns EnableSSLConnectionResponse
+     *
+     * @param EnableSSLConnectionRequest $request
+     *
+     * @return EnableSSLConnectionResponse
+     */
+    public function enableSSLConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableSSLConnectionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取StarRocks集群实例的特性开关.
+     *
+     * @param request - GetInstanceFeatureGateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceFeatureGateResponse
+     *
+     * @param GetInstanceFeatureGateRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetInstanceFeatureGateResponse
+     */
+    public function getInstanceFeatureGateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceFeatureGate',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/features/featureGate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceFeatureGateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取StarRocks集群实例的特性开关.
+     *
+     * @param request - GetInstanceFeatureGateRequest
+     *
+     * @returns GetInstanceFeatureGateResponse
+     *
+     * @param GetInstanceFeatureGateRequest $request
+     *
+     * @return GetInstanceFeatureGateResponse
+     */
+    public function getInstanceFeatureGate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceFeatureGateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 默认网关开启内网SLB.
+     *
+     * @param request - IsolateLeaderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IsolateLeaderResponse
+     *
+     * @param IsolateLeaderRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return IsolateLeaderResponse
+     */
+    public function isolateLeaderWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isolateLeader) {
+            @$query['IsolateLeader'] = $request->isolateLeader;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IsolateLeader',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/gateway/isolateLeader',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IsolateLeaderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 默认网关开启内网SLB.
+     *
+     * @param request - IsolateLeaderRequest
+     *
+     * @returns IsolateLeaderResponse
+     *
+     * @param IsolateLeaderRequest $request
+     *
+     * @return IsolateLeaderResponse
+     */
+    public function isolateLeader($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->isolateLeaderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取网关列表.
+     *
+     * @param request - ListGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayResponse
+     *
+     * @param ListGatewayRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListGatewayResponse
+     */
+    public function listGatewayWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGateway',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/gateway/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网关列表.
+     *
+     * @param request - ListGatewayRequest
+     *
+     * @returns ListGatewayResponse
+     *
+     * @param ListGatewayRequest $request
+     *
+     * @return ListGatewayResponse
+     */
+    public function listGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 修改实例的付费类型.
+     *
+     * @param request - ModifyChargeTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyChargeTypeResponse
+     *
+     * @param ModifyChargeTypeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyChargeTypeResponse
+     */
+    public function modifyChargeTypeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->billingInstanceIds) {
+            @$query['BillingInstanceIds'] = $request->billingInstanceIds;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->promotionOptionNo) {
+            @$query['PromotionOptionNo'] = $request->promotionOptionNo;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyChargeType',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/cluster/modifyChargeType',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例的付费类型.
+     *
+     * @param request - ModifyChargeTypeRequest
+     *
+     * @returns ModifyChargeTypeResponse
+     *
+     * @param ModifyChargeTypeRequest $request
+     *
+     * @return ModifyChargeTypeResponse
+     */
+    public function modifyChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyChargeTypeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1025,6 +1599,83 @@ class Starrocks extends OpenApiClient
     }
 
     /**
+     * 修改计算组的节点磁盘类型.
+     *
+     * @param request - ModifyDiskTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDiskTypeResponse
+     *
+     * @param ModifyDiskTypeRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyDiskTypeResponse
+     */
+    public function modifyDiskTypeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$query['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->promotionOptionNo) {
+            @$query['PromotionOptionNo'] = $request->promotionOptionNo;
+        }
+
+        if (null !== $request->targetDiskType) {
+            @$query['TargetDiskType'] = $request->targetDiskType;
+        }
+
+        if (null !== $request->targetPerformanceLevel) {
+            @$query['TargetPerformanceLevel'] = $request->targetPerformanceLevel;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDiskType',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/resourceChange/modifyDiskType',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDiskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改计算组的节点磁盘类型.
+     *
+     * @param request - ModifyDiskTypeRequest
+     *
+     * @returns ModifyDiskTypeResponse
+     *
+     * @param ModifyDiskTypeRequest $request
+     *
+     * @return ModifyDiskTypeResponse
+     */
+    public function modifyDiskType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyDiskTypeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
      *
      * @remarks
@@ -1398,7 +2049,309 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 打标.
+     * 重启指定的node group.
+     *
+     * @param request - RestartNodeGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartNodeGroupResponse
+     *
+     * @param RestartNodeGroupRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RestartNodeGroupResponse
+     */
+    public function restartNodeGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fastMode) {
+            @$query['FastMode'] = $request->fastMode;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$query['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartNodeGroup',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/nodegroup/restart',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启指定的node group.
+     *
+     * @param request - RestartNodeGroupRequest
+     *
+     * @returns RestartNodeGroupResponse
+     *
+     * @param RestartNodeGroupRequest $request
+     *
+     * @return RestartNodeGroupResponse
+     */
+    public function restartNodeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->restartNodeGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 重启集群中的节点.
+     *
+     * @param request - RestartNodesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartNodesResponse
+     *
+     * @param RestartNodesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RestartNodesResponse
+     */
+    public function restartNodesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->restartNodeGroups) {
+            @$body['RestartNodeGroups'] = $request->restartNodeGroups;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RestartNodes',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/restart/restart',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重启集群中的节点.
+     *
+     * @param request - RestartNodesRequest
+     *
+     * @returns RestartNodesResponse
+     *
+     * @param RestartNodesRequest $request
+     *
+     * @return RestartNodesResponse
+     */
+    public function restartNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->restartNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 从备份中恢复实例.
+     *
+     * @param request - RestoreInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreInstanceResponse
+     *
+     * @param RestoreInstanceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestoreInstanceResponse
+     */
+    public function restoreInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adminPassword) {
+            @$body['AdminPassword'] = $request->adminPassword;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->backupTaskId) {
+            @$body['BackupTaskId'] = $request->backupTaskId;
+        }
+
+        if (null !== $request->duration) {
+            @$body['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->payType) {
+            @$body['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$body['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->vSwitches) {
+            @$body['VSwitches'] = $request->vSwitches;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RestoreInstance',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/restore/restoreInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RestoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从备份中恢复实例.
+     *
+     * @param request - RestoreInstanceRequest
+     *
+     * @returns RestoreInstanceResponse
+     *
+     * @param RestoreInstanceRequest $request
+     *
+     * @return RestoreInstanceResponse
+     */
+    public function restoreInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->restoreInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 该接口用于恢复来自openlake自动停机的实例。
+     *
+     * @param request - ResumeInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeInstanceResponse
+     *
+     * @param ResumeInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumeInstanceResponse
+     */
+    public function resumeInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeInstance',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/lifecycle/resumeInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 该接口用于恢复来自openlake自动停机的实例。
+     *
+     * @param request - ResumeInstanceRequest
+     *
+     * @returns ResumeInstanceResponse
+     *
+     * @param ResumeInstanceRequest $request
+     *
+     * @return ResumeInstanceResponse
+     */
+    public function resumeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Adds a tag to a resource.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -1452,7 +2405,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 打标.
+     * Adds a tag to a resource.
      *
      * @param request - TagResourcesRequest
      *
@@ -1471,7 +2424,76 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除标签.
+     * 公网SLB开关.
+     *
+     * @param request - TogglePublicSlbRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TogglePublicSlbResponse
+     *
+     * @param TogglePublicSlbRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TogglePublicSlbResponse
+     */
+    public function togglePublicSlbWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enablePublicSlb) {
+            @$query['EnablePublicSlb'] = $request->enablePublicSlb;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TogglePublicSlb',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/gateway/togglePublicSlb',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TogglePublicSlbResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 公网SLB开关.
+     *
+     * @param request - TogglePublicSlbRequest
+     *
+     * @returns TogglePublicSlbResponse
+     *
+     * @param TogglePublicSlbRequest $request
+     *
+     * @return TogglePublicSlbResponse
+     */
+    public function togglePublicSlb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->togglePublicSlbWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Removes tags from specified resources.
      *
      * @param tmpReq - UnTagResourcesRequest
      * @param headers - map
@@ -1539,7 +2561,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 删除标签.
+     * Removes tags from specified resources.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -1555,6 +2577,79 @@ class Starrocks extends OpenApiClient
         $headers = [];
 
         return $this->unTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新网关.
+     *
+     * @param request - UpdateGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayResponse
+     *
+     * @param UpdateGatewayRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateGatewayResponse
+     */
+    public function updateGatewayWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->feNodeNumber) {
+            @$query['FeNodeNumber'] = $request->feNodeNumber;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->gatewayName) {
+            @$query['GatewayName'] = $request->gatewayName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGateway',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/gateway/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关.
+     *
+     * @param request - UpdateGatewayRequest
+     *
+     * @returns UpdateGatewayResponse
+     *
+     * @param UpdateGatewayRequest $request
+     *
+     * @return UpdateGatewayResponse
+     */
+    public function updateGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayWithOptions($request, $headers, $runtime);
     }
 
     /**
