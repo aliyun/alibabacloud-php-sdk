@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\AddSharedAccountsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AddSharedAccountsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateGroupResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateParameterSetRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CancelResourceExportTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CancelResourceExportTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateGroupRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateModuleVersionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateModuleVersionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateParameterSetRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateRegistryModuleRequest;
@@ -32,6 +36,7 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteModuleResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryModuleVersionResponse;
@@ -40,6 +45,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteResourceExportTaskRespons
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateGroupResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateParameterSetRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteRegistryModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteRegistryModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteResourceExportTaskRequest;
@@ -58,6 +65,7 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleVersionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleVersionResponse;
@@ -83,6 +91,10 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ListModulesResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListModulesShrinkRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListModuleVersionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListModuleVersionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListParameterSetRelationRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListParameterSetRelationResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListParameterSetsRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListParameterSetsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListProductsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListProductsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListProjectRequest;
@@ -121,6 +133,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateModuleAttributeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateModuleAttributeResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateParameterSetAttributeRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateParameterSetAttributeResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateRegistryModuleAttributeRequest;
@@ -314,6 +328,75 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->associateGroupWithOptions($groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 将参数集关联资源.
+     *
+     * @param request - AssociateParameterSetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateParameterSetResponse
+     *
+     * @param AssociateParameterSetRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AssociateParameterSetResponse
+     */
+    public function associateParameterSetWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->parameterSetIds) {
+            @$body['parameterSetIds'] = $request->parameterSetIds;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateParameterSet',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets/operations/associate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateParameterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将参数集关联资源.
+     *
+     * @param request - AssociateParameterSetRequest
+     *
+     * @returns AssociateParameterSetResponse
+     *
+     * @param AssociateParameterSetRequest $request
+     *
+     * @return AssociateParameterSetResponse
+     */
+    public function associateParameterSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->associateParameterSetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -572,7 +655,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建模板
+     * Create Module.
      *
      * @param request - CreateModuleRequest
      * @param headers - map
@@ -646,7 +729,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建模板
+     * Create Module.
      *
      * @param request - CreateModuleRequest
      *
@@ -733,6 +816,79 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->createModuleVersionWithOptions($moduleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建参数集.
+     *
+     * @param request - CreateParameterSetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateParameterSetResponse
+     *
+     * @param CreateParameterSetRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateParameterSetResponse
+     */
+    public function createParameterSetWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateParameterSet',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateParameterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建参数集.
+     *
+     * @param request - CreateParameterSetRequest
+     *
+     * @returns CreateParameterSetResponse
+     *
+     * @param CreateParameterSetRequest $request
+     *
+     * @return CreateParameterSetResponse
+     */
+    public function createParameterSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createParameterSetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1287,6 +1443,57 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 删除参数集.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteParameterSetResponse
+     *
+     * @param string         $parameterSetId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteParameterSetResponse
+     */
+    public function deleteParameterSetWithOptions($parameterSetId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteParameterSet',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets/' . Url::percentEncode($parameterSetId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteParameterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除参数集.
+     *
+     * @returns DeleteParameterSetResponse
+     *
+     * @param string $parameterSetId
+     *
+     * @return DeleteParameterSetResponse
+     */
+    public function deleteParameterSet($parameterSetId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteParameterSetWithOptions($parameterSetId, $headers, $runtime);
+    }
+
+    /**
      * 删除项目.
      *
      * @param headers - map
@@ -1669,6 +1876,75 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->dissociateGroupWithOptions($projectId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 解除参数集关联资源关系.
+     *
+     * @param request - DissociateParameterSetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DissociateParameterSetResponse
+     *
+     * @param DissociateParameterSetRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DissociateParameterSetResponse
+     */
+    public function dissociateParameterSetWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->parameterSetIds) {
+            @$body['parameterSetIds'] = $request->parameterSetIds;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DissociateParameterSet',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets/operations/dissociate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DissociateParameterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除参数集关联资源关系.
+     *
+     * @param request - DissociateParameterSetRequest
+     *
+     * @returns DissociateParameterSetResponse
+     *
+     * @param DissociateParameterSetRequest $request
+     *
+     * @return DissociateParameterSetResponse
+     */
+    public function dissociateParameterSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->dissociateParameterSetWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2259,7 +2535,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取模板详情.
+     * Get Module Details.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2293,7 +2569,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 获取模板详情.
+     * Get Module Details.
      *
      * @returns GetModuleResponse
      *
@@ -2360,6 +2636,57 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->getModuleVersionWithOptions($moduleId, $moduleVersion, $headers, $runtime);
+    }
+
+    /**
+     * 参数集详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetParameterSetResponse
+     *
+     * @param string         $parameterSetId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetParameterSetResponse
+     */
+    public function getParameterSetWithOptions($parameterSetId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetParameterSet',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets/' . Url::percentEncode($parameterSetId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetParameterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 参数集详情.
+     *
+     * @returns GetParameterSetResponse
+     *
+     * @param string $parameterSetId
+     *
+     * @return GetParameterSetResponse
+     */
+    public function getParameterSet($parameterSetId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getParameterSetWithOptions($parameterSetId, $headers, $runtime);
     }
 
     /**
@@ -3322,6 +3649,140 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->listModulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 关联到资源的参数集列表.
+     *
+     * @param request - ListParameterSetRelationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListParameterSetRelationResponse
+     *
+     * @param ListParameterSetRelationRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListParameterSetRelationResponse
+     */
+    public function listParameterSetRelationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceId) {
+            @$query['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListParameterSetRelation',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets/operations/relation',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListParameterSetRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关联到资源的参数集列表.
+     *
+     * @param request - ListParameterSetRelationRequest
+     *
+     * @returns ListParameterSetRelationResponse
+     *
+     * @param ListParameterSetRelationRequest $request
+     *
+     * @return ListParameterSetRelationResponse
+     */
+    public function listParameterSetRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listParameterSetRelationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 参数集列表.
+     *
+     * @param request - ListParameterSetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListParameterSetsResponse
+     *
+     * @param ListParameterSetsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListParameterSetsResponse
+     */
+    public function listParameterSetsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListParameterSets',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListParameterSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 参数集列表.
+     *
+     * @param request - ListParameterSetsRequest
+     *
+     * @returns ListParameterSetsResponse
+     *
+     * @param ListParameterSetsRequest $request
+     *
+     * @return ListParameterSetsResponse
+     */
+    public function listParameterSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listParameterSetsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4633,7 +5094,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新模板
+     * Update Module.
      *
      * @param request - UpdateModuleAttributeRequest
      * @param headers - map
@@ -4704,7 +5165,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 更新模板
+     * Update Module.
      *
      * @param request - UpdateModuleAttributeRequest
      *
@@ -4721,6 +5182,77 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->updateModuleAttributeWithOptions($moduleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新参数集.
+     *
+     * @param request - UpdateParameterSetAttributeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateParameterSetAttributeResponse
+     *
+     * @param string                             $parameterSetId
+     * @param UpdateParameterSetAttributeRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateParameterSetAttributeResponse
+     */
+    public function updateParameterSetAttributeWithOptions($parameterSetId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateParameterSetAttribute',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/parameterSets/' . Url::percentEncode($parameterSetId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateParameterSetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新参数集.
+     *
+     * @param request - UpdateParameterSetAttributeRequest
+     *
+     * @returns UpdateParameterSetAttributeResponse
+     *
+     * @param string                             $parameterSetId
+     * @param UpdateParameterSetAttributeRequest $request
+     *
+     * @return UpdateParameterSetAttributeResponse
+     */
+    public function updateParameterSetAttribute($parameterSetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateParameterSetAttributeWithOptions($parameterSetId, $request, $headers, $runtime);
     }
 
     /**
@@ -5209,16 +5741,17 @@ class IaCService extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ValidateModuleResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ValidateModuleResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 

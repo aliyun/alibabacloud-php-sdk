@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ValidateModuleResponse extends Model
+class GetParameterSetResponse extends Model
 {
     /**
      * @var string[]
@@ -19,24 +19,12 @@ class ValidateModuleResponse extends Model
     public $statusCode;
 
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $event;
-
-    /**
-     * @var ValidateModuleResponseBody
+     * @var GetParameterSetResponseBody
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'id' => 'id',
-        'event' => 'event',
         'body' => 'body',
     ];
 
@@ -67,14 +55,6 @@ class ValidateModuleResponse extends Model
             $res['statusCode'] = $this->statusCode;
         }
 
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->event) {
-            $res['event'] = $this->event;
-        }
-
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -103,16 +83,8 @@ class ValidateModuleResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
 
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['event'])) {
-            $model->event = $map['event'];
-        }
-
         if (isset($map['body'])) {
-            $model->body = ValidateModuleResponseBody::fromMap($map['body']);
+            $model->body = GetParameterSetResponseBody::fromMap($map['body']);
         }
 
         return $model;
