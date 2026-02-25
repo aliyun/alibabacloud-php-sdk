@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class zones extends Model
 {
     /**
+     * @var bool
+     */
+    public $supportRtc;
+
+    /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'supportRtc' => 'SupportRtc',
         'zoneId' => 'ZoneId',
     ];
 
@@ -24,6 +30,10 @@ class zones extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->supportRtc) {
+            $res['SupportRtc'] = $this->supportRtc;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -39,6 +49,10 @@ class zones extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SupportRtc'])) {
+            $model->supportRtc = $map['SupportRtc'];
+        }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
