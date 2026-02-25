@@ -756,7 +756,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 添加labelVersion、knowledgeConfig配置.
+     * Adds an analysis template of a smart tagging job.
      *
      * @param request - AddSmarttagTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -871,7 +871,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 添加labelVersion、knowledgeConfig配置.
+     * Adds an analysis template of a smart tagging job.
      *
      * @param request - AddSmarttagTemplateRequest
      *
@@ -1166,7 +1166,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * Binds an output media bucket to the media library.
+     * Binds an output media bucket. Media buckets are Object Storage Service (OSS) buckets that are used by ApsaraVideo Media Processing (MPS) to store media resources. After you bind an OSS bucket to MPS as an input media bucket or output media bucket, MPS has the permissions to listen to the messages of the bucket, which indicate that files are uploaded to the bucket. This way, MPS can trigger workflows and return files that are processed. You can all this operation to bind an output media bucket to the media library.
      *
      * @remarks
      * Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
@@ -1226,7 +1226,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * Binds an output media bucket to the media library.
+     * Binds an output media bucket. Media buckets are Object Storage Service (OSS) buckets that are used by ApsaraVideo Media Processing (MPS) to store media resources. After you bind an OSS bucket to MPS as an input media bucket or output media bucket, MPS has the permissions to listen to the messages of the bucket, which indicate that files are uploaded to the bucket. This way, MPS can trigger workflows and return files that are processed. You can all this operation to bind an output media bucket to the media library.
      *
      * @remarks
      * Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
@@ -1334,6 +1334,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Creates a custom entity in a custom library.
+     *
      * @param request - CreateCustomEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1399,6 +1401,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Creates a custom entity in a custom library.
+     *
      * @param request - CreateCustomEntityRequest
      *
      * @returns CreateCustomEntityResponse
@@ -1415,6 +1419,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Creates a custom library.
+     *
      * @param request - CreateCustomGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1476,6 +1482,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Creates a custom library.
+     *
      * @param request - CreateCustomGroupRequest
      *
      * @returns CreateCustomGroupResponse
@@ -1838,6 +1846,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Deletes an image of a custom entity in a custom library.
+     *
      * @param request - DeleteCustomViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1903,6 +1913,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Deletes an image of a custom entity in a custom library.
+     *
      * @param request - DeleteCustomViewRequest
      *
      * @returns DeleteCustomViewResponse
@@ -2870,6 +2882,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Queries a list of custom libraries.
+     *
      * @param request - ListCustomGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2931,6 +2945,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Queries a list of custom libraries.
+     *
      * @param request - ListCustomGroupsRequest
      *
      * @returns ListCustomGroupsResponse
@@ -3034,6 +3050,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Queries a list of images of an entity in a custom library.
+     *
      * @param request - ListCustomViewsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3103,6 +3121,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Queries a list of images of an entity in a custom library.
+     *
      * @param request - ListCustomViewsRequest
      *
      * @returns ListCustomViewsResponse
@@ -3677,7 +3697,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询版权水印提取任务
+     * Queries jobs for extracting copyright watermarks.
      *
      * @param request - QueryCopyrightExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3716,7 +3736,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询版权水印提取任务
+     * Queries jobs for extracting copyright watermarks.
      *
      * @param request - QueryCopyrightExtractJobRequest
      *
@@ -3734,7 +3754,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询视频版权水印任务
+     * Queries jobs for adding copyright watermarks to videos.
      *
      * @param request - QueryCopyrightJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3793,7 +3813,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询视频版权水印任务
+     * Queries jobs for adding copyright watermarks to videos.
      *
      * @param request - QueryCopyrightJobRequest
      *
@@ -4086,6 +4106,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Queries the information about a smart production job.
+     *
      * @param request - QueryIProductionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4139,6 +4161,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Queries the information about a smart production job.
+     *
      * @param request - QueryIProductionJobRequest
      *
      * @returns QueryIProductionJobResponse
@@ -4982,7 +5006,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询智能标签任务
+     * Queries a smart tagging job.
      *
      * @param request - QuerySmarttagJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5041,7 +5065,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询智能标签任务
+     * Queries a smart tagging job.
      *
      * @param request - QuerySmarttagJobRequest
      *
@@ -5332,7 +5356,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印ab流任务
+     * Queries jobs for adding tracing watermarks to AB video streams.
      *
      * @param request - QueryTraceAbJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5375,7 +5399,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印ab流任务
+     * Queries jobs for adding tracing watermarks to AB video streams.
      *
      * @param request - QueryTraceAbJobRequest
      *
@@ -5393,7 +5417,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询溯源水印提取任务
+     * Queries jobs for extracting tracing watermarks.
      *
      * @param request - QueryTraceExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5432,7 +5456,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询溯源水印提取任务
+     * Queries jobs for extracting tracing watermarks.
      *
      * @param request - QueryTraceExtractJobRequest
      *
@@ -5450,7 +5474,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印m3u8任务
+     * Queries jobs for adding tracing watermarks to M3U8 videos.
      *
      * @param request - QueryTraceM3u8JobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5505,7 +5529,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 查询视频溯源水印m3u8任务
+     * Queries jobs for adding tracing watermarks to M3U8 videos.
      *
      * @param request - QueryTraceM3u8JobRequest
      *
@@ -5703,7 +5727,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 注册自定义实体项.
+     * Registers an image of a custom entity.
      *
      * @param request - RegisterCustomViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5774,7 +5798,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 注册自定义实体项.
+     * Registers an image of a custom entity.
      *
      * @param request - RegisterCustomViewRequest
      *
@@ -6253,7 +6277,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交版权水印提取任务
+     * Submits a job for extracting a copyright watermark.
      *
      * @param request - SubmitCopyrightExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6308,7 +6332,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交版权水印提取任务
+     * Submits a job for extracting a copyright watermark.
      *
      * @param request - SubmitCopyrightExtractJobRequest
      *
@@ -6326,7 +6350,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交视频版权水印.
+     * Submits a job for adding a copyright watermark to a video.
      *
      * @param request - SubmitCopyrightJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6405,7 +6429,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交视频版权水印.
+     * Submits a job for adding a copyright watermark to a video.
      *
      * @param request - SubmitCopyrightJobRequest
      *
@@ -6728,6 +6752,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Submits a smart production job.
+     *
      * @remarks
      *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
      * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
@@ -6819,6 +6845,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Submits a smart production job.
+     *
      * @remarks
      *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
      * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
@@ -6841,7 +6869,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交图片版权水印任务
+     * Generates a transparent image watermark.
      *
      * @param request - SubmitImageCopyrightRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6888,7 +6916,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交图片版权水印任务
+     * Generates a transparent image watermark.
      *
      * @param request - SubmitImageCopyrightRequest
      *
@@ -7233,6 +7261,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Submits a smart tagging job.
+     *
      * @param request - SubmitSmarttagJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7326,6 +7356,8 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * Submits a smart tagging job.
+     *
      * @param request - SubmitSmarttagJobRequest
      *
      * @returns SubmitSmarttagJobResponse
@@ -7441,7 +7473,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印ab流任务
+     * Submits a job for adding a tracing watermark to an AB video stream.
      *
      * @param request - SubmitTraceAbJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7512,7 +7544,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印ab流任务
+     * Submits a job for adding a tracing watermark to an AB video stream.
      *
      * @param request - SubmitTraceAbJobRequest
      *
@@ -7530,7 +7562,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交溯源水印提取任务
+     * Submits a job for extracting a tracing watermark.
      *
      * @param request - SubmitTraceExtractJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7585,7 +7617,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交溯源水印提取任务
+     * Submits a job for extracting a tracing watermark.
      *
      * @param request - SubmitTraceExtractJobRequest
      *
@@ -7603,7 +7635,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印m3u8文件任务
+     * Submits a job for adding a tracing watermark to an M3U8 video.
      *
      * @param request - SubmitTraceM3u8JobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7658,7 +7690,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 提交视频溯源水印m3u8文件任务
+     * Submits a job for adding a tracing watermark to an M3U8 video.
      *
      * @param request - SubmitTraceM3u8JobRequest
      *
@@ -7676,7 +7708,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * The description of the figure. The description can be up to 512 characters in length.
+     * Adds tags to a custom figure library or a figure.
      *
      * @remarks
      * The response parameters.
@@ -7754,7 +7786,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * The description of the figure. The description can be up to 512 characters in length.
+     * Adds tags to a custom figure library or a figure.
      *
      * @remarks
      * The response parameters.
@@ -7865,8 +7897,8 @@ class Mts extends OpenApiClient
 
     /**
      * You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
-     * ## QPS limit
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     * \\## QPS limit
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits]\\(https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
      *
      * @remarks
      * The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
@@ -7925,8 +7957,8 @@ class Mts extends OpenApiClient
 
     /**
      * You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
-     * ## QPS limit
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     * \\## QPS limit
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits]\\(https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
      *
      * @remarks
      * The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
@@ -8693,7 +8725,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 更新智能标签模板接口支持cpv.
+     * Updates the analysis template of a smart tagging job.
      *
      * @param request - UpdateSmarttagTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8804,7 +8836,7 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * 更新智能标签模板接口支持cpv.
+     * Updates the analysis template of a smart tagging job.
      *
      * @param request - UpdateSmarttagTemplateRequest
      *

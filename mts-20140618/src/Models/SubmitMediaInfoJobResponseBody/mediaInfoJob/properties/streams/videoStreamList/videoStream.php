@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaInfoJobResponseBody\mediaInfoJob\properties\streams\videoStreamList;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaInfoJobResponseBody\mediaInfoJob\properties\streams\videoStreamList\videoStream\dolbyVision;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaInfoJobResponseBody\mediaInfoJob\properties\streams\videoStreamList\videoStream\networkCost;
 
 class videoStream extends Model
@@ -63,6 +64,11 @@ class videoStream extends Model
      * @var string
      */
     public $dar;
+
+    /**
+     * @var dolbyVision
+     */
+    public $dolbyVision;
 
     /**
      * @var string
@@ -160,6 +166,7 @@ class videoStream extends Model
         'colorRange' => 'ColorRange',
         'colorTransfer' => 'ColorTransfer',
         'dar' => 'Dar',
+        'dolbyVision' => 'DolbyVision',
         'duration' => 'Duration',
         'durationInaccurate' => 'DurationInaccurate',
         'fps' => 'Fps',
@@ -181,6 +188,9 @@ class videoStream extends Model
 
     public function validate()
     {
+        if (null !== $this->dolbyVision) {
+            $this->dolbyVision->validate();
+        }
         if (null !== $this->networkCost) {
             $this->networkCost->validate();
         }
@@ -232,6 +242,10 @@ class videoStream extends Model
 
         if (null !== $this->dar) {
             $res['Dar'] = $this->dar;
+        }
+
+        if (null !== $this->dolbyVision) {
+            $res['DolbyVision'] = null !== $this->dolbyVision ? $this->dolbyVision->toArray($noStream) : $this->dolbyVision;
         }
 
         if (null !== $this->duration) {
@@ -355,6 +369,10 @@ class videoStream extends Model
 
         if (isset($map['Dar'])) {
             $model->dar = $map['Dar'];
+        }
+
+        if (isset($map['DolbyVision'])) {
+            $model->dolbyVision = dolbyVision::fromMap($map['DolbyVision']);
         }
 
         if (isset($map['Duration'])) {

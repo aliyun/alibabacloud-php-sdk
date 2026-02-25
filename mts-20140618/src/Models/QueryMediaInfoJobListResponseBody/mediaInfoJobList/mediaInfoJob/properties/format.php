@@ -47,6 +47,11 @@ class format extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var mixed[]
+     */
+    public $tags;
     protected $_name = [
         'bitrate' => 'Bitrate',
         'duration' => 'Duration',
@@ -56,10 +61,14 @@ class format extends Model
         'numStreams' => 'NumStreams',
         'size' => 'Size',
         'startTime' => 'StartTime',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -96,6 +105,15 @@ class format extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
@@ -139,6 +157,15 @@ class format extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         return $model;
