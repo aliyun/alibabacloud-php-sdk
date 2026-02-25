@@ -242,6 +242,11 @@ class data extends Model
     public $kafkaConfigs;
 
     /**
+     * @var string[]
+     */
+    public $labels;
+
+    /**
      * @var string
      */
     public $liveness;
@@ -566,6 +571,7 @@ class data extends Model
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
         'kafkaConfigs' => 'KafkaConfigs',
+        'labels' => 'Labels',
         'liveness' => 'Liveness',
         'lokiConfigs' => 'LokiConfigs',
         'maxSurgeInstanceRatio' => 'MaxSurgeInstanceRatio',
@@ -634,6 +640,9 @@ class data extends Model
         }
         if (\is_array($this->initContainersConfig)) {
             Model::validateArray($this->initContainersConfig);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
         }
         if (\is_array($this->mountDesc)) {
             Model::validateArray($this->mountDesc);
@@ -858,6 +867,15 @@ class data extends Model
 
         if (null !== $this->kafkaConfigs) {
             $res['KafkaConfigs'] = $this->kafkaConfigs;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->liveness) {
@@ -1334,6 +1352,15 @@ class data extends Model
 
         if (isset($map['KafkaConfigs'])) {
             $model->kafkaConfigs = $map['KafkaConfigs'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['Liveness'])) {

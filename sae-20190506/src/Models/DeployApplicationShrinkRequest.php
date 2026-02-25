@@ -191,6 +191,11 @@ class DeployApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $labelsShrink;
+
+    /**
+     * @var string
+     */
     public $liveness;
 
     /**
@@ -464,6 +469,7 @@ class DeployApplicationShrinkRequest extends Model
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
         'kafkaConfigs' => 'KafkaConfigs',
+        'labelsShrink' => 'Labels',
         'liveness' => 'Liveness',
         'lokiConfigs' => 'LokiConfigs',
         'maxSurgeInstanceRatio' => 'MaxSurgeInstanceRatio',
@@ -664,6 +670,10 @@ class DeployApplicationShrinkRequest extends Model
 
         if (null !== $this->kafkaConfigs) {
             $res['KafkaConfigs'] = $this->kafkaConfigs;
+        }
+
+        if (null !== $this->labelsShrink) {
+            $res['Labels'] = $this->labelsShrink;
         }
 
         if (null !== $this->liveness) {
@@ -1011,6 +1021,10 @@ class DeployApplicationShrinkRequest extends Model
 
         if (isset($map['KafkaConfigs'])) {
             $model->kafkaConfigs = $map['KafkaConfigs'];
+        }
+
+        if (isset($map['Labels'])) {
+            $model->labelsShrink = $map['Labels'];
         }
 
         if (isset($map['Liveness'])) {
