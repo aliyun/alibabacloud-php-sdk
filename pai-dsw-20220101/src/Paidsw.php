@@ -1512,6 +1512,8 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * 获取资源组统计
+     *
      * @param request - GetResourceGroupStatisticsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1564,6 +1566,8 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * 获取资源组统计
+     *
      * @param request - GetResourceGroupStatisticsRequest
      *
      * @returns GetResourceGroupStatisticsResponse
@@ -1719,7 +1723,7 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * 获取自定义用户命令.
+     * Get the user defined command.
      *
      * @param request - GetUserCommandRequest
      * @param headers - map
@@ -1766,7 +1770,7 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * 获取自定义用户命令.
+     * Get the user defined command.
      *
      * @param request - GetUserCommandRequest
      *
