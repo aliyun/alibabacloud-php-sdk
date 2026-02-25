@@ -63,6 +63,8 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmVersionsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesShrinkRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaActiveUserUsagesRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaActiveUserUsagesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaWorkloadsRequest;
@@ -2514,6 +2516,97 @@ class PaiStudio extends OpenApiClient
         $headers = [];
 
         return $this->listNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取当前资源配额用户列表和其所使用的资源.
+     *
+     * @param request - ListQuotaActiveUserUsagesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaActiveUserUsagesResponse
+     *
+     * @param string                           $QuotaId
+     * @param ListQuotaActiveUserUsagesRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListQuotaActiveUserUsagesResponse
+     */
+    public function listQuotaActiveUserUsagesWithOptions($QuotaId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->selfOnly) {
+            @$query['SelfOnly'] = $request->selfOnly;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListQuotaActiveUserUsages',
+            'version' => '2022-01-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/quotas/' . Url::percentEncode($QuotaId) . '/activeuserusages',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQuotaActiveUserUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取当前资源配额用户列表和其所使用的资源.
+     *
+     * @param request - ListQuotaActiveUserUsagesRequest
+     *
+     * @returns ListQuotaActiveUserUsagesResponse
+     *
+     * @param string                           $QuotaId
+     * @param ListQuotaActiveUserUsagesRequest $request
+     *
+     * @return ListQuotaActiveUserUsagesResponse
+     */
+    public function listQuotaActiveUserUsages($QuotaId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listQuotaActiveUserUsagesWithOptions($QuotaId, $request, $headers, $runtime);
     }
 
     /**

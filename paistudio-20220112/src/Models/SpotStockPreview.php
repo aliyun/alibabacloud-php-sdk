@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class SpotStockPreview extends Model
 {
     /**
+     * @var int
+     */
+    public $availableQuantity;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @var string
      */
     public $instanceType;
@@ -23,6 +33,8 @@ class SpotStockPreview extends Model
      */
     public $stockStatus;
     protected $_name = [
+        'availableQuantity' => 'AvailableQuantity',
+        'clusterId' => 'ClusterId',
         'instanceType' => 'InstanceType',
         'spotDiscount' => 'SpotDiscount',
         'stockStatus' => 'StockStatus',
@@ -36,6 +48,14 @@ class SpotStockPreview extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->availableQuantity) {
+            $res['AvailableQuantity'] = $this->availableQuantity;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -59,6 +79,14 @@ class SpotStockPreview extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableQuantity'])) {
+            $model->availableQuantity = $map['AvailableQuantity'];
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

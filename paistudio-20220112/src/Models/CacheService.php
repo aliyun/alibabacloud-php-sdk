@@ -31,12 +31,22 @@ class CacheService extends Model
     /**
      * @var string
      */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $quotaId;
 
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $supportRDMA;
 
     /**
      * @var string[]
@@ -62,8 +72,10 @@ class CacheService extends Model
         'cacheServiceId' => 'CacheServiceId',
         'createdBy' => 'CreatedBy',
         'gmtCreated' => 'GmtCreated',
+        'networkType' => 'NetworkType',
         'quotaId' => 'QuotaId',
         'status' => 'Status',
+        'supportRDMA' => 'SupportRDMA',
         'supportedClientQuotaIds' => 'SupportedClientQuotaIds',
         'tenantId' => 'TenantId',
         'userId' => 'UserId',
@@ -110,12 +122,20 @@ class CacheService extends Model
             $res['GmtCreated'] = $this->gmtCreated;
         }
 
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->supportRDMA) {
+            $res['SupportRDMA'] = $this->supportRDMA;
         }
 
         if (null !== $this->supportedClientQuotaIds) {
@@ -175,12 +195,20 @@ class CacheService extends Model
             $model->gmtCreated = $map['GmtCreated'];
         }
 
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SupportRDMA'])) {
+            $model->supportRDMA = $map['SupportRDMA'];
         }
 
         if (isset($map['SupportedClientQuotaIds'])) {
