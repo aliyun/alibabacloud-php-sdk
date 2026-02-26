@@ -12,8 +12,26 @@ class StartRemediationRequest extends Model
      * @var string
      */
     public $configRuleId;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceRegionId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'configRuleId' => 'ConfigRuleId',
+        'resourceId' => 'ResourceId',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -26,6 +44,18 @@ class StartRemediationRequest extends Model
         $res = [];
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceRegionId) {
+            $res['ResourceRegionId'] = $this->resourceRegionId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -41,6 +71,18 @@ class StartRemediationRequest extends Model
         $model = new self();
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceRegionId'])) {
+            $model->resourceRegionId = $map['ResourceRegionId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;
