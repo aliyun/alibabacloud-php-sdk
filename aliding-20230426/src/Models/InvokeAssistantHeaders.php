@@ -17,9 +17,15 @@ class InvokeAssistantHeaders extends Model
      * @var string
      */
     public $accountId;
+
+    /**
+     * @var string
+     */
+    public $alidingSsoTicket;
     protected $_name = [
         'commonHeaders' => 'commonHeaders',
         'accountId' => 'accountId',
+        'alidingSsoTicket' => 'alidingSsoTicket',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class InvokeAssistantHeaders extends Model
             $res['accountId'] = $this->accountId;
         }
 
+        if (null !== $this->alidingSsoTicket) {
+            $res['alidingSsoTicket'] = $this->alidingSsoTicket;
+        }
+
         return $res;
     }
 
@@ -68,6 +78,10 @@ class InvokeAssistantHeaders extends Model
 
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+
+        if (isset($map['alidingSsoTicket'])) {
+            $model->alidingSsoTicket = $map['alidingSsoTicket'];
         }
 
         return $model;

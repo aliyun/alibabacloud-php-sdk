@@ -16,9 +16,15 @@ class accountContext extends Model
     /**
      * @var string
      */
+    public $alidingSsoTicket;
+
+    /**
+     * @var string
+     */
     public $ssoTicket;
     protected $_name = [
         'accountId' => 'accountId',
+        'alidingSsoTicket' => 'alidingSsoTicket',
         'ssoTicket' => 'ssoTicket',
     ];
 
@@ -32,6 +38,10 @@ class accountContext extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
+        }
+
+        if (null !== $this->alidingSsoTicket) {
+            $res['alidingSsoTicket'] = $this->alidingSsoTicket;
         }
 
         if (null !== $this->ssoTicket) {
@@ -51,6 +61,10 @@ class accountContext extends Model
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+
+        if (isset($map['alidingSsoTicket'])) {
+            $model->alidingSsoTicket = $map['alidingSsoTicket'];
         }
 
         if (isset($map['ssoTicket'])) {
