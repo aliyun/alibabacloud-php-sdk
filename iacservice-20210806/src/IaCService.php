@@ -110,6 +110,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTasksResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTaskVersionsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceExportTaskVersionsResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourcesRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceTypesResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceTypesShrinkRequest;
@@ -4433,6 +4435,83 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->listResourceTypesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 资源列表.
+     *
+     * @param request - ListResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListResourcesResponse
+     */
+    public function listResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->sourceValue) {
+            @$query['sourceValue'] = $request->sourceValue;
+        }
+
+        if (null !== $request->specType) {
+            @$query['specType'] = $request->specType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResources',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resources/stateparser',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 资源列表.
+     *
+     * @param request - ListResourcesRequest
+     *
+     * @returns ListResourcesResponse
+     *
+     * @param ListResourcesRequest $request
+     *
+     * @return ListResourcesResponse
+     */
+    public function listResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
