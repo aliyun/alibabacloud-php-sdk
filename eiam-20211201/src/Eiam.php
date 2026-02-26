@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCloudAccountRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCustomFieldRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCustomFieldResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateCustomPrivacyPolicyRequest;
@@ -121,6 +123,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCloudAccountRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCustomFieldRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCustomFieldResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteCustomPrivacyPolicyRequest;
@@ -181,6 +185,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCloudAccountRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCustomFieldRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCustomFieldResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableCustomPrivacyPolicyRequest;
@@ -231,6 +237,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCloudAccountRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCustomFieldRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCustomFieldResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableCustomPrivacyPolicyRequest;
@@ -297,6 +305,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRoleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCustomFieldRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCustomFieldResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCustomPrivacyPolicyRequest;
@@ -419,6 +429,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForUserR
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCredentialsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCredentialsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesForBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesForBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCustomPrivacyPoliciesRequest;
@@ -488,6 +500,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveApplicationAccountFromUserRequest;
@@ -616,6 +630,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescript
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateConditionalAccessPolicyResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCredentialDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCredentialDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCredentialRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCredentialResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCustomPrivacyPolicyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCustomPrivacyPolicyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateDomainBrandRequest;
@@ -2943,6 +2961,99 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 创建凭据.
+     *
+     * @param request - CreateCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCredentialResponse
+     *
+     * @param CreateCredentialRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCredentialResponse
+     */
+    public function createCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->credentialContent) {
+            @$query['CredentialContent'] = $request->credentialContent;
+        }
+
+        if (null !== $request->credentialIdentifier) {
+            @$query['CredentialIdentifier'] = $request->credentialIdentifier;
+        }
+
+        if (null !== $request->credentialName) {
+            @$query['CredentialName'] = $request->credentialName;
+        }
+
+        if (null !== $request->credentialScenarioLabel) {
+            @$query['CredentialScenarioLabel'] = $request->credentialScenarioLabel;
+        }
+
+        if (null !== $request->credentialSubjectId) {
+            @$query['CredentialSubjectId'] = $request->credentialSubjectId;
+        }
+
+        if (null !== $request->credentialSubjectType) {
+            @$query['CredentialSubjectType'] = $request->credentialSubjectType;
+        }
+
+        if (null !== $request->credentialType) {
+            @$query['CredentialType'] = $request->credentialType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建凭据.
+     *
+     * @param request - CreateCredentialRequest
+     *
+     * @returns CreateCredentialResponse
+     *
+     * @param CreateCredentialRequest $request
+     *
+     * @return CreateCredentialResponse
+     */
+    public function createCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建扩展字段.
      *
      * @param request - CreateCustomFieldRequest
@@ -4906,6 +5017,67 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 删除凭据.
+     *
+     * @param request - DeleteCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCredentialResponse
+     *
+     * @param DeleteCredentialRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCredentialResponse
+     */
+    public function deleteCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除凭据.
+     *
+     * @param request - DeleteCredentialRequest
+     *
+     * @returns DeleteCredentialResponse
+     *
+     * @param DeleteCredentialRequest $request
+     *
+     * @return DeleteCredentialResponse
+     */
+    public function deleteCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除扩展字段.
      *
      * @param request - DeleteCustomFieldRequest
@@ -6796,6 +6968,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 禁用凭据.
+     *
+     * @param request - DisableCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableCredentialResponse
+     *
+     * @param DisableCredentialRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableCredentialResponse
+     */
+    public function disableCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用凭据.
+     *
+     * @param request - DisableCredentialRequest
+     *
+     * @returns DisableCredentialResponse
+     *
+     * @param DisableCredentialRequest $request
+     *
+     * @return DisableCredentialResponse
+     */
+    public function disableCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * 禁用字段.
      *
      * @param request - DisableCustomFieldRequest
@@ -8358,6 +8595,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableConditionalAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用凭据.
+     *
+     * @param request - EnableCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableCredentialResponse
+     *
+     * @param EnableCredentialRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableCredentialResponse
+     */
+    public function enableCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用凭据.
+     *
+     * @param request - EnableCredentialRequest
+     *
+     * @returns EnableCredentialResponse
+     *
+     * @param EnableCredentialRequest $request
+     *
+     * @return EnableCredentialResponse
+     */
+    public function enableCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -10413,6 +10715,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getConditionalAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取凭据.
+     *
+     * @param request - GetCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCredentialResponse
+     *
+     * @param GetCredentialRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCredentialResponse
+     */
+    public function getCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取凭据.
+     *
+     * @param request - GetCredentialRequest
+     *
+     * @returns GetCredentialResponse
+     *
+     * @param GetCredentialRequest $request
+     *
+     * @return GetCredentialResponse
+     */
+    public function getCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -14385,6 +14748,83 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 查询凭据列表.
+     *
+     * @param request - ListCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCredentialsResponse
+     *
+     * @param ListCredentialsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCredentialsResponse
+     */
+    public function listCredentialsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialIds) {
+            @$query['CredentialIds'] = $request->credentialIds;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->statuses) {
+            @$query['Statuses'] = $request->statuses;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCredentials',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询凭据列表.
+     *
+     * @param request - ListCredentialsRequest
+     *
+     * @returns ListCredentialsResponse
+     *
+     * @param ListCredentialsRequest $request
+     *
+     * @return ListCredentialsResponse
+     */
+    public function listCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
      * 自定义条款列表查询。
      *
      * @param request - ListCustomPrivacyPoliciesRequest
@@ -16927,6 +17367,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->obtainApplicationTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取凭据.
+     *
+     * @param request - ObtainCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ObtainCredentialResponse
+     *
+     * @param ObtainCredentialRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ObtainCredentialResponse
+     */
+    public function obtainCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ObtainCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ObtainCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取凭据.
+     *
+     * @param request - ObtainCredentialRequest
+     *
+     * @returns ObtainCredentialResponse
+     *
+     * @param ObtainCredentialRequest $request
+     *
+     * @return ObtainCredentialResponse
+     */
+    public function obtainCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->obtainCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -21411,6 +21912,148 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConditionalAccessPolicyDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新凭据.
+     *
+     * @param request - UpdateCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCredentialResponse
+     *
+     * @param UpdateCredentialRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCredentialResponse
+     */
+    public function updateCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->credentialContent) {
+            @$query['CredentialContent'] = $request->credentialContent;
+        }
+
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->credentialName) {
+            @$query['CredentialName'] = $request->credentialName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCredential',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新凭据.
+     *
+     * @param request - UpdateCredentialRequest
+     *
+     * @returns UpdateCredentialResponse
+     *
+     * @param UpdateCredentialRequest $request
+     *
+     * @return UpdateCredentialResponse
+     */
+    public function updateCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新凭据描述.
+     *
+     * @param request - UpdateCredentialDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCredentialDescriptionResponse
+     *
+     * @param UpdateCredentialDescriptionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateCredentialDescriptionResponse
+     */
+    public function updateCredentialDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->credentialId) {
+            @$query['CredentialId'] = $request->credentialId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCredentialDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCredentialDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新凭据描述.
+     *
+     * @param request - UpdateCredentialDescriptionRequest
+     *
+     * @returns UpdateCredentialDescriptionResponse
+     *
+     * @param UpdateCredentialDescriptionRequest $request
+     *
+     * @return UpdateCredentialDescriptionResponse
+     */
+    public function updateCredentialDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCredentialDescriptionWithOptions($request, $runtime);
     }
 
     /**
