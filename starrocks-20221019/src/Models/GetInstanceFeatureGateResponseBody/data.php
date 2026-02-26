@@ -102,6 +102,11 @@ class data extends Model
      * @var bool
      */
     public $useComputeNode;
+
+    /**
+     * @var bool
+     */
+    public $supportCompactionService;
     protected $_name = [
         'consoleControlRestart' => 'ConsoleControlRestart',
         'enableManageMv' => 'EnableManageMv',
@@ -122,6 +127,7 @@ class data extends Model
         'supportModifyTimezone' => 'SupportModifyTimezone',
         'supportMultiAZ' => 'SupportMultiAZ',
         'useComputeNode' => 'UseComputeNode',
+        'supportCompactionService' => 'supportCompactionService',
     ];
 
     public function validate()
@@ -218,6 +224,10 @@ class data extends Model
             $res['UseComputeNode'] = $this->useComputeNode;
         }
 
+        if (null !== $this->supportCompactionService) {
+            $res['supportCompactionService'] = $this->supportCompactionService;
+        }
+
         return $res;
     }
 
@@ -310,6 +320,10 @@ class data extends Model
 
         if (isset($map['UseComputeNode'])) {
             $model->useComputeNode = $map['UseComputeNode'];
+        }
+
+        if (isset($map['supportCompactionService'])) {
+            $model->supportCompactionService = $map['supportCompactionService'];
         }
 
         return $model;
