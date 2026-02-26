@@ -83,6 +83,11 @@ class redirect extends Model
     public $maxBodySize;
 
     /**
+     * @var bool
+     */
+    public $proxyProtocol;
+
+    /**
      * @var int
      */
     public $readTimeout;
@@ -151,6 +156,7 @@ class redirect extends Model
         'keepaliveTimeout' => 'KeepaliveTimeout',
         'loadbalance' => 'Loadbalance',
         'maxBodySize' => 'MaxBodySize',
+        'proxyProtocol' => 'ProxyProtocol',
         'readTimeout' => 'ReadTimeout',
         'requestHeaders' => 'RequestHeaders',
         'retry' => 'Retry',
@@ -279,6 +285,10 @@ class redirect extends Model
 
         if (null !== $this->maxBodySize) {
             $res['MaxBodySize'] = $this->maxBodySize;
+        }
+
+        if (null !== $this->proxyProtocol) {
+            $res['ProxyProtocol'] = $this->proxyProtocol;
         }
 
         if (null !== $this->readTimeout) {
@@ -432,6 +442,10 @@ class redirect extends Model
 
         if (isset($map['MaxBodySize'])) {
             $model->maxBodySize = $map['MaxBodySize'];
+        }
+
+        if (isset($map['ProxyProtocol'])) {
+            $model->proxyProtocol = $map['ProxyProtocol'];
         }
 
         if (isset($map['ReadTimeout'])) {

@@ -41,6 +41,21 @@ class listen extends Model
     /**
      * @var bool
      */
+    public $hstsIncludeSubDomain;
+
+    /**
+     * @var int
+     */
+    public $hstsMaxAge;
+
+    /**
+     * @var bool
+     */
+    public $hstsPreload;
+
+    /**
+     * @var bool
+     */
     public $http2Enabled;
 
     /**
@@ -99,6 +114,9 @@ class listen extends Model
         'enableTLSv3' => 'EnableTLSv3',
         'exclusiveIp' => 'ExclusiveIp',
         'focusHttps' => 'FocusHttps',
+        'hstsIncludeSubDomain' => 'HstsIncludeSubDomain',
+        'hstsMaxAge' => 'HstsMaxAge',
+        'hstsPreload' => 'HstsPreload',
         'http2Enabled' => 'Http2Enabled',
         'httpPorts' => 'HttpPorts',
         'httpsPorts' => 'HttpsPorts',
@@ -161,6 +179,18 @@ class listen extends Model
 
         if (null !== $this->focusHttps) {
             $res['FocusHttps'] = $this->focusHttps;
+        }
+
+        if (null !== $this->hstsIncludeSubDomain) {
+            $res['HstsIncludeSubDomain'] = $this->hstsIncludeSubDomain;
+        }
+
+        if (null !== $this->hstsMaxAge) {
+            $res['HstsMaxAge'] = $this->hstsMaxAge;
+        }
+
+        if (null !== $this->hstsPreload) {
+            $res['HstsPreload'] = $this->hstsPreload;
         }
 
         if (null !== $this->http2Enabled) {
@@ -268,6 +298,18 @@ class listen extends Model
 
         if (isset($map['FocusHttps'])) {
             $model->focusHttps = $map['FocusHttps'];
+        }
+
+        if (isset($map['HstsIncludeSubDomain'])) {
+            $model->hstsIncludeSubDomain = $map['HstsIncludeSubDomain'];
+        }
+
+        if (isset($map['HstsMaxAge'])) {
+            $model->hstsMaxAge = $map['HstsMaxAge'];
+        }
+
+        if (isset($map['HstsPreload'])) {
+            $model->hstsPreload = $map['HstsPreload'];
         }
 
         if (isset($map['Http2Enabled'])) {
