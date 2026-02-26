@@ -74,6 +74,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceEndpointShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceForRebuildRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceForRebuildResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceReplicationRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceReplicationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateDBInstanceSecurityGroupRuleRequest;
@@ -143,6 +145,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointAddressRequest
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointAddressResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceEndpointResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceReplicationRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceReplicationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteDBInstanceSecurityGroupRuleRequest;
@@ -820,6 +824,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateDBInstanceReplicationRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateDBInstanceReplicationResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpdatePostgresExtensionsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpdatePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateUserBackupFileRequest;
@@ -1926,7 +1932,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Cancels O\\&M tasks that are not started.
+     * Cancels O\\\\\\&M tasks that are not started.
      *
      * @remarks
      * ### [](#)Supported database engines
@@ -2003,7 +2009,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Cancels O\\&M tasks that are not started.
+     * Cancels O\\\\\\&M tasks that are not started.
      *
      * @remarks
      * ### [](#)Supported database engines
@@ -4432,6 +4438,91 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBInstanceForRebuildWithOptions($request, $runtime);
+    }
+
+    /**
+     * 原生复制实例创建复制通道.
+     *
+     * @param request - CreateDBInstanceReplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDBInstanceReplicationResponse
+     *
+     * @param CreateDBInstanceReplicationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateDBInstanceReplicationResponse
+     */
+    public function createDBInstanceReplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->masterHost) {
+            @$query['MasterHost'] = $request->masterHost;
+        }
+
+        if (null !== $request->masterPassword) {
+            @$query['MasterPassword'] = $request->masterPassword;
+        }
+
+        if (null !== $request->masterPort) {
+            @$query['MasterPort'] = $request->masterPort;
+        }
+
+        if (null !== $request->masterUser) {
+            @$query['MasterUser'] = $request->masterUser;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDBInstanceReplication',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDBInstanceReplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 原生复制实例创建复制通道.
+     *
+     * @param request - CreateDBInstanceReplicationRequest
+     *
+     * @returns CreateDBInstanceReplicationResponse
+     *
+     * @param CreateDBInstanceReplicationRequest $request
+     *
+     * @return CreateDBInstanceReplicationResponse
+     */
+    public function createDBInstanceReplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBInstanceReplicationWithOptions($request, $runtime);
     }
 
     /**
@@ -8063,6 +8154,75 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 原生复制实例删除复制通道.
+     *
+     * @param request - DeleteDBInstanceReplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDBInstanceReplicationResponse
+     *
+     * @param DeleteDBInstanceReplicationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteDBInstanceReplicationResponse
+     */
+    public function deleteDBInstanceReplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDBInstanceReplication',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDBInstanceReplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 原生复制实例删除复制通道.
+     *
+     * @param request - DeleteDBInstanceReplicationRequest
+     *
+     * @returns DeleteDBInstanceReplicationResponse
+     *
+     * @param DeleteDBInstanceReplicationRequest $request
+     *
+     * @return DeleteDBInstanceReplicationResponse
+     */
+    public function deleteDBInstanceReplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBInstanceReplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a security group rule that is configured for an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
@@ -9994,7 +10154,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 查询全密态用户权限.
+     * Query the encryption or data masking permission configuration of an account in a specified instance.
      *
      * @param request - DescribeAccountMaskingPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10057,7 +10217,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 查询全密态用户权限.
+     * Query the encryption or data masking permission configuration of an account in a specified instance.
      *
      * @param request - DescribeAccountMaskingPrivilegeRequest
      *
@@ -14293,7 +14453,19 @@ class Rds extends OpenApiClient
     public function describeDBInstanceReplicationWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -14302,7 +14474,7 @@ class Rds extends OpenApiClient
             'version' => '2014-08-15',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -25268,7 +25440,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 为实例安装云助手Agent.
+     * Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
      *
      * @param tmpReq - InstallRCCloudAssistantRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25317,7 +25489,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 为实例安装云助手Agent.
+     * Installs Cloud Assistant Agent on one or more RDS Custom instances. After you install Cloud Assistant Agent on RDS Custom instances, restart the instances for the installation to take effect.
      *
      * @param request - InstallRCCloudAssistantRequest
      *
@@ -26988,7 +27160,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+     * Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
      *
      * @remarks
      * ### [](#)Supported database engines
@@ -27068,7 +27240,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+     * Changes the switching time of scheduled O\\\\\\\\\\\\&M tasks for an instance.
      *
      * @remarks
      * ### [](#)Supported database engines
@@ -39274,6 +39446,95 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 原生复制实例更新复制通道.
+     *
+     * @param request - UpdateDBInstanceReplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDBInstanceReplicationResponse
+     *
+     * @param UpdateDBInstanceReplicationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateDBInstanceReplicationResponse
+     */
+    public function updateDBInstanceReplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelName) {
+            @$query['ChannelName'] = $request->channelName;
+        }
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
+        }
+
+        if (null !== $request->masterHost) {
+            @$query['MasterHost'] = $request->masterHost;
+        }
+
+        if (null !== $request->masterPassword) {
+            @$query['MasterPassword'] = $request->masterPassword;
+        }
+
+        if (null !== $request->masterPort) {
+            @$query['MasterPort'] = $request->masterPort;
+        }
+
+        if (null !== $request->masterUser) {
+            @$query['MasterUser'] = $request->masterUser;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDBInstanceReplication',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDBInstanceReplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 原生复制实例更新复制通道.
+     *
+     * @param request - UpdateDBInstanceReplicationRequest
+     *
+     * @returns UpdateDBInstanceReplicationResponse
+     *
+     * @param UpdateDBInstanceReplicationRequest $request
+     *
+     * @return UpdateDBInstanceReplicationResponse
+     */
+    public function updateDBInstanceReplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDBInstanceReplicationWithOptions($request, $runtime);
     }
 
     /**

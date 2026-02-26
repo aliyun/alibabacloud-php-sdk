@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceReplicationResponseBody\slaveStatusList;
 
 class DescribeDBInstanceReplicationResponseBody extends Model
 {
@@ -57,6 +58,11 @@ class DescribeDBInstanceReplicationResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var slaveStatusList[]
+     */
+    public $slaveStatusList;
     protected $_name = [
         'externalReplication' => 'ExternalReplication',
         'gtidExecuted' => 'GtidExecuted',
@@ -68,10 +74,14 @@ class DescribeDBInstanceReplicationResponseBody extends Model
         'replicationSource' => 'ReplicationSource',
         'replicationState' => 'ReplicationState',
         'requestId' => 'RequestId',
+        'slaveStatusList' => 'SlaveStatusList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->slaveStatusList)) {
+            Model::validateArray($this->slaveStatusList);
+        }
         parent::validate();
     }
 
@@ -116,6 +126,17 @@ class DescribeDBInstanceReplicationResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->slaveStatusList) {
+            if (\is_array($this->slaveStatusList)) {
+                $res['SlaveStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->slaveStatusList as $item1) {
+                    $res['SlaveStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -167,6 +188,17 @@ class DescribeDBInstanceReplicationResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SlaveStatusList'])) {
+            if (!empty($map['SlaveStatusList'])) {
+                $model->slaveStatusList = [];
+                $n1 = 0;
+                foreach ($map['SlaveStatusList'] as $item1) {
+                    $model->slaveStatusList[$n1] = slaveStatusList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
