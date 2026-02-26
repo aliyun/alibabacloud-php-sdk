@@ -42,7 +42,8 @@ class SkuSaleInfoListResult extends Model
                 $res['skuSaleInfos'] = [];
                 $n1 = 0;
                 foreach ($this->skuSaleInfos as $item1) {
-                    $res['skuSaleInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['skuSaleInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class SkuSaleInfoListResult extends Model
                 $model->skuSaleInfos = [];
                 $n1 = 0;
                 foreach ($map['skuSaleInfos'] as $item1) {
-                    $model->skuSaleInfos[$n1++] = SkuSaleInfo::fromMap($item1);
+                    $model->skuSaleInfos[$n1] = SkuSaleInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

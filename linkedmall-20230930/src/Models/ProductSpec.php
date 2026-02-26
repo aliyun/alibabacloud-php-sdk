@@ -52,7 +52,8 @@ class ProductSpec extends Model
                 $res['values'] = [];
                 $n1 = 0;
                 foreach ($this->values as $item1) {
-                    $res['values'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['values'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class ProductSpec extends Model
                 $model->values = [];
                 $n1 = 0;
                 foreach ($map['values'] as $item1) {
-                    $model->values[$n1++] = ProductSpecValue::fromMap($item1);
+                    $model->values[$n1] = ProductSpecValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

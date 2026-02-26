@@ -48,7 +48,8 @@ class ShopPageResult extends Model
                 $res['shopList'] = [];
                 $n1 = 0;
                 foreach ($this->shopList as $item1) {
-                    $res['shopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['shopList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class ShopPageResult extends Model
                 $model->shopList = [];
                 $n1 = 0;
                 foreach ($map['shopList'] as $item1) {
-                    $model->shopList[$n1++] = ShopPageDataResult::fromMap($item1);
+                    $model->shopList[$n1] = ShopPageDataResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

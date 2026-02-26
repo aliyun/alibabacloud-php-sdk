@@ -73,7 +73,8 @@ class PurchaseOrderRenderQuery extends Model
                 $res['productList'] = [];
                 $n1 = 0;
                 foreach ($this->productList as $item1) {
-                    $res['productList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['productList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class PurchaseOrderRenderQuery extends Model
                 $model->productList = [];
                 $n1 = 0;
                 foreach ($map['productList'] as $item1) {
-                    $model->productList[$n1++] = OrderRenderProductDTO::fromMap($item1);
+                    $model->productList[$n1] = OrderRenderProductDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

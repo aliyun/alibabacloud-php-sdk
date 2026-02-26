@@ -134,7 +134,8 @@ class DistributionProduct extends Model
                 $res['skus'] = [];
                 $n1 = 0;
                 foreach ($this->skus as $item1) {
-                    $res['skus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['skus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -199,7 +200,8 @@ class DistributionProduct extends Model
                 $model->skus = [];
                 $n1 = 0;
                 foreach ($map['skus'] as $item1) {
-                    $model->skus[$n1++] = DistributionSku::fromMap($item1);
+                    $model->skus[$n1] = DistributionSku::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

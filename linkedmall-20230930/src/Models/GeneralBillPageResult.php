@@ -56,7 +56,8 @@ class GeneralBillPageResult extends Model
                 $res['generalBills'] = [];
                 $n1 = 0;
                 foreach ($this->generalBills as $item1) {
-                    $res['generalBills'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['generalBills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class GeneralBillPageResult extends Model
                 $model->generalBills = [];
                 $n1 = 0;
                 foreach ($map['generalBills'] as $item1) {
-                    $model->generalBills[$n1++] = GeneralBill::fromMap($item1);
+                    $model->generalBills[$n1] = GeneralBill::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

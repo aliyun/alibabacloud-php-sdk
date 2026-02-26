@@ -210,7 +210,8 @@ class SearchProductsRequest extends Model
                 $res['categoryIds'] = [];
                 $n1 = 0;
                 foreach ($this->categoryIds as $item1) {
-                    $res['categoryIds'][$n1++] = $item1;
+                    $res['categoryIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -347,7 +348,8 @@ class SearchProductsRequest extends Model
                 $model->categoryIds = [];
                 $n1 = 0;
                 foreach ($map['categoryIds'] as $item1) {
-                    $model->categoryIds[$n1++] = $item1;
+                    $model->categoryIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -60,7 +60,8 @@ class DistributeProductCommand extends Model
                 $res['products'] = [];
                 $n1 = 0;
                 foreach ($this->products as $item1) {
-                    $res['products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['products'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class DistributeProductCommand extends Model
                 $model->products = [];
                 $n1 = 0;
                 foreach ($map['products'] as $item1) {
-                    $model->products[$n1++] = DistributionProduct::fromMap($item1);
+                    $model->products[$n1] = DistributionProduct::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -113,7 +113,8 @@ class ProductSaleInfo extends Model
                 $res['limitRules'] = [];
                 $n1 = 0;
                 foreach ($this->limitRules as $item1) {
-                    $res['limitRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['limitRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class ProductSaleInfo extends Model
                 $res['skus'] = [];
                 $n1 = 0;
                 foreach ($this->skus as $item1) {
-                    $res['skus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['skus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -184,7 +186,8 @@ class ProductSaleInfo extends Model
                 $model->limitRules = [];
                 $n1 = 0;
                 foreach ($map['limitRules'] as $item1) {
-                    $model->limitRules[$n1++] = LimitRule::fromMap($item1);
+                    $model->limitRules[$n1] = LimitRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -218,7 +221,8 @@ class ProductSaleInfo extends Model
                 $model->skus = [];
                 $n1 = 0;
                 foreach ($map['skus'] as $item1) {
-                    $model->skus[$n1++] = SkuSaleInfo::fromMap($item1);
+                    $model->skus[$n1] = SkuSaleInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -66,7 +66,8 @@ class OrderRenderResult extends Model
                 $res['deliveryInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->deliveryInfoList as $item1) {
-                    $res['deliveryInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['deliveryInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class OrderRenderResult extends Model
                 $res['productList'] = [];
                 $n1 = 0;
                 foreach ($this->productList as $item1) {
-                    $res['productList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['productList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +116,8 @@ class OrderRenderResult extends Model
                 $model->deliveryInfoList = [];
                 $n1 = 0;
                 foreach ($map['deliveryInfoList'] as $item1) {
-                    $model->deliveryInfoList[$n1++] = DeliveryInfo::fromMap($item1);
+                    $model->deliveryInfoList[$n1] = DeliveryInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +140,8 @@ class OrderRenderResult extends Model
                 $model->productList = [];
                 $n1 = 0;
                 foreach ($map['productList'] as $item1) {
-                    $model->productList[$n1++] = OrderProductResult::fromMap($item1);
+                    $model->productList[$n1] = OrderProductResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

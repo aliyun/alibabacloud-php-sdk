@@ -38,7 +38,8 @@ class CategoryListResult extends Model
                 $res['categories'] = [];
                 $n1 = 0;
                 foreach ($this->categories as $item1) {
-                    $res['categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['categories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class CategoryListResult extends Model
                 $model->categories = [];
                 $n1 = 0;
                 foreach ($map['categories'] as $item1) {
-                    $model->categories[$n1++] = Category::fromMap($item1);
+                    $model->categories[$n1] = Category::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

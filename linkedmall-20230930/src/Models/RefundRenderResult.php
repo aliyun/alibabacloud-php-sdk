@@ -71,7 +71,8 @@ class RefundRenderResult extends Model
                 $res['refundReasonList'] = [];
                 $n1 = 0;
                 foreach ($this->refundReasonList as $item1) {
-                    $res['refundReasonList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['refundReasonList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,7 +109,8 @@ class RefundRenderResult extends Model
                 $model->refundReasonList = [];
                 $n1 = 0;
                 foreach ($map['refundReasonList'] as $item1) {
-                    $model->refundReasonList[$n1++] = RefundReason::fromMap($item1);
+                    $model->refundReasonList[$n1] = RefundReason::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class DivisionPageResult extends Model
                 $res['divisionList'] = [];
                 $n1 = 0;
                 foreach ($this->divisionList as $item1) {
-                    $res['divisionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['divisionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DivisionPageResult extends Model
                 $model->divisionList = [];
                 $n1 = 0;
                 foreach ($map['divisionList'] as $item1) {
-                    $model->divisionList[$n1++] = Division::fromMap($item1);
+                    $model->divisionList[$n1] = Division::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -97,7 +97,8 @@ class GeneralBill extends Model
                 $res['downloadUrl'] = [];
                 $n1 = 0;
                 foreach ($this->downloadUrl as $item1) {
-                    $res['downloadUrl'][$n1++] = $item1;
+                    $res['downloadUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +155,8 @@ class GeneralBill extends Model
                 $model->downloadUrl = [];
                 $n1 = 0;
                 foreach ($map['downloadUrl'] as $item1) {
-                    $model->downloadUrl[$n1++] = $item1;
+                    $model->downloadUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

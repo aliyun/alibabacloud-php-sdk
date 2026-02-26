@@ -79,7 +79,8 @@ class LogisticsOrderResult extends Model
                 $res['goods'] = [];
                 $n1 = 0;
                 foreach ($this->goods as $item1) {
-                    $res['goods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['goods'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class LogisticsOrderResult extends Model
                 $res['logisticsDetailList'] = [];
                 $n1 = 0;
                 foreach ($this->logisticsDetailList as $item1) {
-                    $res['logisticsDetailList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['logisticsDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +132,8 @@ class LogisticsOrderResult extends Model
                 $model->goods = [];
                 $n1 = 0;
                 foreach ($map['goods'] as $item1) {
-                    $model->goods[$n1++] = Good::fromMap($item1);
+                    $model->goods[$n1] = Good::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class LogisticsOrderResult extends Model
                 $model->logisticsDetailList = [];
                 $n1 = 0;
                 foreach ($map['logisticsDetailList'] as $item1) {
-                    $model->logisticsDetailList[$n1++] = LogisticsDetail::fromMap($item1);
+                    $model->logisticsDetailList[$n1] = LogisticsDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

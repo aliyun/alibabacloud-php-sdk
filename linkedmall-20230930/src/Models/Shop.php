@@ -86,7 +86,8 @@ class Shop extends Model
                 $res['cooperationShops'] = [];
                 $n1 = 0;
                 foreach ($this->cooperationShops as $item1) {
-                    $res['cooperationShops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['cooperationShops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -143,7 +144,8 @@ class Shop extends Model
                 $model->cooperationShops = [];
                 $n1 = 0;
                 foreach ($map['cooperationShops'] as $item1) {
-                    $model->cooperationShops[$n1++] = CooperationShop::fromMap($item1);
+                    $model->cooperationShops[$n1] = CooperationShop::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

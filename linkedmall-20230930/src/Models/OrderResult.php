@@ -104,7 +104,8 @@ class OrderResult extends Model
                 $res['orderLineList'] = [];
                 $n1 = 0;
                 foreach ($this->orderLineList as $item1) {
-                    $res['orderLineList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['orderLineList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -157,7 +158,8 @@ class OrderResult extends Model
                 $model->orderLineList = [];
                 $n1 = 0;
                 foreach ($map['orderLineList'] as $item1) {
-                    $model->orderLineList[$n1++] = OrderLineResult::fromMap($item1);
+                    $model->orderLineList[$n1] = OrderLineResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

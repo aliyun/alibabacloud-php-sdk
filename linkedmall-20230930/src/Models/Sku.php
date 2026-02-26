@@ -206,7 +206,8 @@ class Sku extends Model
                 $res['skuSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->skuSpecs as $item1) {
-                    $res['skuSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['skuSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -303,7 +304,8 @@ class Sku extends Model
                 $model->skuSpecs = [];
                 $n1 = 0;
                 foreach ($map['skuSpecs'] as $item1) {
-                    $model->skuSpecs[$n1++] = SkuSpec::fromMap($item1);
+                    $model->skuSpecs[$n1] = SkuSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

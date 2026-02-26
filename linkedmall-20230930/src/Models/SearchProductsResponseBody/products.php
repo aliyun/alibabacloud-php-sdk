@@ -198,7 +198,8 @@ class products extends Model
                 $res['categoryChain'] = [];
                 $n1 = 0;
                 foreach ($this->categoryChain as $item1) {
-                    $res['categoryChain'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['categoryChain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +209,8 @@ class products extends Model
                 $res['credit'] = [];
                 $n1 = 0;
                 foreach ($this->credit as $item1) {
-                    $res['credit'][$n1++] = $item1;
+                    $res['credit'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -325,7 +327,8 @@ class products extends Model
                 $model->categoryChain = [];
                 $n1 = 0;
                 foreach ($map['categoryChain'] as $item1) {
-                    $model->categoryChain[$n1++] = categoryChain::fromMap($item1);
+                    $model->categoryChain[$n1] = categoryChain::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -335,7 +338,8 @@ class products extends Model
                 $model->credit = [];
                 $n1 = 0;
                 foreach ($map['credit'] as $item1) {
-                    $model->credit[$n1++] = $item1;
+                    $model->credit[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

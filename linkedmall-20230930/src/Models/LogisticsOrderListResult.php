@@ -38,7 +38,8 @@ class LogisticsOrderListResult extends Model
                 $res['logisticsOrderList'] = [];
                 $n1 = 0;
                 foreach ($this->logisticsOrderList as $item1) {
-                    $res['logisticsOrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['logisticsOrderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class LogisticsOrderListResult extends Model
                 $model->logisticsOrderList = [];
                 $n1 = 0;
                 foreach ($map['logisticsOrderList'] as $item1) {
-                    $model->logisticsOrderList[$n1++] = LogisticsOrderResult::fromMap($item1);
+                    $model->logisticsOrderList[$n1] = LogisticsOrderResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -77,7 +77,8 @@ class PurchaseOrderRenderResult extends Model
                 $res['addressList'] = [];
                 $n1 = 0;
                 foreach ($this->addressList as $item1) {
-                    $res['addressList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['addressList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,7 +105,8 @@ class PurchaseOrderRenderResult extends Model
                 $res['orderList'] = [];
                 $n1 = 0;
                 foreach ($this->orderList as $item1) {
-                    $res['orderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['orderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +120,8 @@ class PurchaseOrderRenderResult extends Model
                 $res['unsellableOrderList'] = [];
                 $n1 = 0;
                 foreach ($this->unsellableOrderList as $item1) {
-                    $res['unsellableOrderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['unsellableOrderList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,7 +142,8 @@ class PurchaseOrderRenderResult extends Model
                 $model->addressList = [];
                 $n1 = 0;
                 foreach ($map['addressList'] as $item1) {
-                    $model->addressList[$n1++] = AddressInfo::fromMap($item1);
+                    $model->addressList[$n1] = AddressInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +170,8 @@ class PurchaseOrderRenderResult extends Model
                 $model->orderList = [];
                 $n1 = 0;
                 foreach ($map['orderList'] as $item1) {
-                    $model->orderList[$n1++] = OrderRenderResult::fromMap($item1);
+                    $model->orderList[$n1] = OrderRenderResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +185,8 @@ class PurchaseOrderRenderResult extends Model
                 $model->unsellableOrderList = [];
                 $n1 = 0;
                 foreach ($map['unsellableOrderList'] as $item1) {
-                    $model->unsellableOrderList[$n1++] = OrderRenderResult::fromMap($item1);
+                    $model->unsellableOrderList[$n1] = OrderRenderResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

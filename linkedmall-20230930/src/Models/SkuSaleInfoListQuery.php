@@ -52,7 +52,8 @@ class SkuSaleInfoListQuery extends Model
                 $res['skuQueryParams'] = [];
                 $n1 = 0;
                 foreach ($this->skuQueryParams as $item1) {
-                    $res['skuQueryParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['skuQueryParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class SkuSaleInfoListQuery extends Model
                 $model->skuQueryParams = [];
                 $n1 = 0;
                 foreach ($map['skuQueryParams'] as $item1) {
-                    $model->skuQueryParams[$n1++] = SkuQueryParam::fromMap($item1);
+                    $model->skuQueryParams[$n1] = SkuQueryParam::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class MemberAccountResult extends Model
                 $res['accountNo'] = [];
                 $n1 = 0;
                 foreach ($this->accountNo as $item1) {
-                    $res['accountNo'][$n1++] = $item1;
+                    $res['accountNo'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class MemberAccountResult extends Model
                 $model->accountNo = [];
                 $n1 = 0;
                 foreach ($map['accountNo'] as $item1) {
-                    $model->accountNo[$n1++] = $item1;
+                    $model->accountNo[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

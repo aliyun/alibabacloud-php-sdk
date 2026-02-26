@@ -108,7 +108,8 @@ class RefundOrderCmd extends Model
                 $res['leavePictureLists'] = [];
                 $n1 = 0;
                 foreach ($this->leavePictureLists as $item1) {
-                    $res['leavePictureLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['leavePictureLists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,7 +162,8 @@ class RefundOrderCmd extends Model
                 $model->leavePictureLists = [];
                 $n1 = 0;
                 foreach ($map['leavePictureLists'] as $item1) {
-                    $model->leavePictureLists[$n1++] = LeavePictureList::fromMap($item1);
+                    $model->leavePictureLists[$n1] = LeavePictureList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

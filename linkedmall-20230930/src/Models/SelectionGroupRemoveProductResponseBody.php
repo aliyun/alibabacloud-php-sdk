@@ -32,7 +32,8 @@ class SelectionGroupRemoveProductResponseBody extends Model
                 $res['productIds'] = [];
                 $n1 = 0;
                 foreach ($this->productIds as $item1) {
-                    $res['productIds'][$n1++] = $item1;
+                    $res['productIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class SelectionGroupRemoveProductResponseBody extends Model
                 $model->productIds = [];
                 $n1 = 0;
                 foreach ($map['productIds'] as $item1) {
-                    $model->productIds[$n1++] = $item1;
+                    $model->productIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

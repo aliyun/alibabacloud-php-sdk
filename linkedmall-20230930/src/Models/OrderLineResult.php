@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class OrderLineResult extends Model
 {
     /**
+     * @var EticketInfo[]
+     */
+    public $eticketInfos;
+
+    /**
      * @var string
      */
     public $logisticsStatus;
@@ -63,6 +68,7 @@ class OrderLineResult extends Model
      */
     public $skuTitle;
     protected $_name = [
+        'eticketInfos' => 'eticketInfos',
         'logisticsStatus' => 'logisticsStatus',
         'number' => 'number',
         'orderId' => 'orderId',
@@ -78,12 +84,26 @@ class OrderLineResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->eticketInfos)) {
+            Model::validateArray($this->eticketInfos);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->eticketInfos) {
+            if (\is_array($this->eticketInfos)) {
+                $res['eticketInfos'] = [];
+                $n1 = 0;
+                foreach ($this->eticketInfos as $item1) {
+                    $res['eticketInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->logisticsStatus) {
             $res['logisticsStatus'] = $this->logisticsStatus;
         }
@@ -139,6 +159,17 @@ class OrderLineResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['eticketInfos'])) {
+            if (!empty($map['eticketInfos'])) {
+                $model->eticketInfos = [];
+                $n1 = 0;
+                foreach ($map['eticketInfos'] as $item1) {
+                    $model->eticketInfos[$n1] = EticketInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['logisticsStatus'])) {
             $model->logisticsStatus = $map['logisticsStatus'];
         }

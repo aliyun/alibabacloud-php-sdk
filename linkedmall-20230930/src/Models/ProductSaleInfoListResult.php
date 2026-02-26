@@ -38,7 +38,8 @@ class ProductSaleInfoListResult extends Model
                 $res['productSaleInfos'] = [];
                 $n1 = 0;
                 foreach ($this->productSaleInfos as $item1) {
-                    $res['productSaleInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['productSaleInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ProductSaleInfoListResult extends Model
                 $model->productSaleInfos = [];
                 $n1 = 0;
                 foreach ($map['productSaleInfos'] as $item1) {
-                    $model->productSaleInfos[$n1++] = ProductSaleInfo::fromMap($item1);
+                    $model->productSaleInfos[$n1] = ProductSaleInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

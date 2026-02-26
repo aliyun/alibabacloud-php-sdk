@@ -217,7 +217,8 @@ class Product extends Model
                 $res['categoryChain'] = [];
                 $n1 = 0;
                 foreach ($this->categoryChain as $item1) {
-                    $res['categoryChain'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['categoryChain'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -239,7 +240,8 @@ class Product extends Model
                 $res['extendProperties'] = [];
                 $n1 = 0;
                 foreach ($this->extendProperties as $item1) {
-                    $res['extendProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['extendProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -253,7 +255,8 @@ class Product extends Model
                 $res['images'] = [];
                 $n1 = 0;
                 foreach ($this->images as $item1) {
-                    $res['images'][$n1++] = $item1;
+                    $res['images'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -267,7 +270,8 @@ class Product extends Model
                 $res['limitRules'] = [];
                 $n1 = 0;
                 foreach ($this->limitRules as $item1) {
-                    $res['limitRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['limitRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -289,7 +293,8 @@ class Product extends Model
                 $res['productSpecs'] = [];
                 $n1 = 0;
                 foreach ($this->productSpecs as $item1) {
-                    $res['productSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['productSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -307,7 +312,8 @@ class Product extends Model
                 $res['properties'] = [];
                 $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -325,7 +331,8 @@ class Product extends Model
                 $res['servicePromises'] = [];
                 $n1 = 0;
                 foreach ($this->servicePromises as $item1) {
-                    $res['servicePromises'][$n1++] = $item1;
+                    $res['servicePromises'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -339,7 +346,8 @@ class Product extends Model
                 $res['skus'] = [];
                 $n1 = 0;
                 foreach ($this->skus as $item1) {
-                    $res['skus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['skus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -384,7 +392,8 @@ class Product extends Model
                 $model->categoryChain = [];
                 $n1 = 0;
                 foreach ($map['categoryChain'] as $item1) {
-                    $model->categoryChain[$n1++] = Category::fromMap($item1);
+                    $model->categoryChain[$n1] = Category::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -406,7 +415,8 @@ class Product extends Model
                 $model->extendProperties = [];
                 $n1 = 0;
                 foreach ($map['extendProperties'] as $item1) {
-                    $model->extendProperties[$n1++] = ProductExtendProperty::fromMap($item1);
+                    $model->extendProperties[$n1] = ProductExtendProperty::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -420,7 +430,8 @@ class Product extends Model
                 $model->images = [];
                 $n1 = 0;
                 foreach ($map['images'] as $item1) {
-                    $model->images[$n1++] = $item1;
+                    $model->images[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -434,7 +445,8 @@ class Product extends Model
                 $model->limitRules = [];
                 $n1 = 0;
                 foreach ($map['limitRules'] as $item1) {
-                    $model->limitRules[$n1++] = LimitRule::fromMap($item1);
+                    $model->limitRules[$n1] = LimitRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -456,7 +468,8 @@ class Product extends Model
                 $model->productSpecs = [];
                 $n1 = 0;
                 foreach ($map['productSpecs'] as $item1) {
-                    $model->productSpecs[$n1++] = ProductSpec::fromMap($item1);
+                    $model->productSpecs[$n1] = ProductSpec::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -474,7 +487,8 @@ class Product extends Model
                 $model->properties = [];
                 $n1 = 0;
                 foreach ($map['properties'] as $item1) {
-                    $model->properties[$n1++] = ProductProperty::fromMap($item1);
+                    $model->properties[$n1] = ProductProperty::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -492,7 +506,8 @@ class Product extends Model
                 $model->servicePromises = [];
                 $n1 = 0;
                 foreach ($map['servicePromises'] as $item1) {
-                    $model->servicePromises[$n1++] = $item1;
+                    $model->servicePromises[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -506,7 +521,8 @@ class Product extends Model
                 $model->skus = [];
                 $n1 = 0;
                 foreach ($map['skus'] as $item1) {
-                    $model->skus[$n1++] = Sku::fromMap($item1);
+                    $model->skus[$n1] = Sku::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

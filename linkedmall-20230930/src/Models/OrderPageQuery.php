@@ -50,7 +50,8 @@ class OrderPageQuery extends Model
                 $res['orderIdList'] = [];
                 $n1 = 0;
                 foreach ($this->orderIdList as $item1) {
-                    $res['orderIdList'][$n1++] = $item1;
+                    $res['orderIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class OrderPageQuery extends Model
                 $model->orderIdList = [];
                 $n1 = 0;
                 foreach ($map['orderIdList'] as $item1) {
-                    $model->orderIdList[$n1++] = $item1;
+                    $model->orderIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
