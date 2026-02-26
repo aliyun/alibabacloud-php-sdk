@@ -44,6 +44,11 @@ class UpdateAgentRuntimeInput extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $diskSize;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -120,6 +125,7 @@ class UpdateAgentRuntimeInput extends Model
         'cpu' => 'cpu',
         'credentialName' => 'credentialName',
         'description' => 'description',
+        'diskSize' => 'diskSize',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'externalAgentEndpointUrl' => 'externalAgentEndpointUrl',
@@ -197,6 +203,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->diskSize) {
+            $res['diskSize'] = $this->diskSize;
         }
 
         if (null !== $this->environmentVariables) {
@@ -297,6 +307,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['diskSize'])) {
+            $model->diskSize = $map['diskSize'];
         }
 
         if (isset($map['environmentVariables'])) {

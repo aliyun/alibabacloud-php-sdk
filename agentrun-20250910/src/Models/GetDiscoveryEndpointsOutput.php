@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetDiscoveryEndpointsOutput extends Model
 {
     /**
+     * @var string
+     */
+    public $credentialName;
+
+    /**
      * @var DiscoveryEndpoint[]
      */
     public $discoveryEndpoints;
     protected $_name = [
+        'credentialName' => 'credentialName',
         'discoveryEndpoints' => 'discoveryEndpoints',
     ];
 
@@ -27,6 +33,10 @@ class GetDiscoveryEndpointsOutput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
+        }
+
         if (null !== $this->discoveryEndpoints) {
             if (\is_array($this->discoveryEndpoints)) {
                 $res['discoveryEndpoints'] = [];
@@ -49,6 +59,10 @@ class GetDiscoveryEndpointsOutput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
+        }
+
         if (isset($map['discoveryEndpoints'])) {
             if (!empty($map['discoveryEndpoints'])) {
                 $model->discoveryEndpoints = [];

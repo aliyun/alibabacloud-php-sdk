@@ -92,6 +92,11 @@ class UpdateTemplateInput extends Model
      * @var mixed[]
      */
     public $templateConfiguration;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'allowAnonymousManage' => 'allowAnonymousManage',
         'armsConfiguration' => 'armsConfiguration',
@@ -110,6 +115,7 @@ class UpdateTemplateInput extends Model
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxTTLInSeconds' => 'sandboxTTLInSeconds',
         'templateConfiguration' => 'templateConfiguration',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -232,6 +238,10 @@ class UpdateTemplateInput extends Model
             }
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -326,6 +336,10 @@ class UpdateTemplateInput extends Model
                     $model->templateConfiguration[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

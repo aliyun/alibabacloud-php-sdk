@@ -107,6 +107,11 @@ class CreateTemplateInput extends Model
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'allowAnonymousManage' => 'allowAnonymousManage',
         'armsConfiguration' => 'armsConfiguration',
@@ -128,6 +133,7 @@ class CreateTemplateInput extends Model
         'templateConfiguration' => 'templateConfiguration',
         'templateName' => 'templateName',
         'templateType' => 'templateType',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -262,6 +268,10 @@ class CreateTemplateInput extends Model
             $res['templateType'] = $this->templateType;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -368,6 +378,10 @@ class CreateTemplateInput extends Model
 
         if (isset($map['templateType'])) {
             $model->templateType = $map['templateType'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

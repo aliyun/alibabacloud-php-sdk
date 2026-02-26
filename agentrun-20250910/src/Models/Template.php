@@ -154,6 +154,11 @@ class Template extends Model
      * @var string
      */
     public $templateVersion;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'allowAnonymousManage' => 'allowAnonymousManage',
         'containerConfiguration' => 'containerConfiguration',
@@ -184,6 +189,7 @@ class Template extends Model
         'templateName' => 'templateName',
         'templateType' => 'templateType',
         'templateVersion' => 'templateVersion',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -357,6 +363,10 @@ class Template extends Model
             $res['templateVersion'] = $this->templateVersion;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -499,6 +509,10 @@ class Template extends Model
 
         if (isset($map['templateVersion'])) {
             $model->templateVersion = $map['templateVersion'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

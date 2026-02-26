@@ -3345,6 +3345,10 @@ class AgentRun extends OpenApiClient
             @$query['templateType'] = $request->templateType;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

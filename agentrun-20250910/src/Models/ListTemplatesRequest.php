@@ -32,12 +32,18 @@ class ListTemplatesRequest extends Model
      * @var string
      */
     public $templateType;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'status' => 'status',
         'templateName' => 'templateName',
         'templateType' => 'templateType',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListTemplatesRequest extends Model
 
         if (null !== $this->templateType) {
             $res['templateType'] = $this->templateType;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListTemplatesRequest extends Model
 
         if (isset($map['templateType'])) {
             $model->templateType = $map['templateType'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;
