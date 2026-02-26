@@ -49,6 +49,11 @@ class UpdateBackupPolicyRequest extends Model
     public $crossRegionDataBackupRetention;
 
     /**
+     * @var string
+     */
+    public $crossRegionFilterValue;
+
+    /**
      * @var int
      */
     public $crossRegionLogBackupRetention;
@@ -116,6 +121,7 @@ class UpdateBackupPolicyRequest extends Model
         'coldDataBackupInterval' => 'ColdDataBackupInterval',
         'coldDataBackupRetention' => 'ColdDataBackupRetention',
         'crossRegionDataBackupRetention' => 'CrossRegionDataBackupRetention',
+        'crossRegionFilterValue' => 'CrossRegionFilterValue',
         'crossRegionLogBackupRetention' => 'CrossRegionLogBackupRetention',
         'DBInstanceName' => 'DBInstanceName',
         'destCrossRegion' => 'DestCrossRegion',
@@ -168,6 +174,10 @@ class UpdateBackupPolicyRequest extends Model
 
         if (null !== $this->crossRegionDataBackupRetention) {
             $res['CrossRegionDataBackupRetention'] = $this->crossRegionDataBackupRetention;
+        }
+
+        if (null !== $this->crossRegionFilterValue) {
+            $res['CrossRegionFilterValue'] = $this->crossRegionFilterValue;
         }
 
         if (null !== $this->crossRegionLogBackupRetention) {
@@ -259,6 +269,10 @@ class UpdateBackupPolicyRequest extends Model
 
         if (isset($map['CrossRegionDataBackupRetention'])) {
             $model->crossRegionDataBackupRetention = $map['CrossRegionDataBackupRetention'];
+        }
+
+        if (isset($map['CrossRegionFilterValue'])) {
+            $model->crossRegionFilterValue = $map['CrossRegionFilterValue'];
         }
 
         if (isset($map['CrossRegionLogBackupRetention'])) {
