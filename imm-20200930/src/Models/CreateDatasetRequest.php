@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateDatasetRequest extends Model
 {
     /**
+     * @var DatasetConfig
+     */
+    public $datasetConfig;
+
+    /**
      * @var int
      */
     public $datasetMaxBindCount;
@@ -58,6 +63,7 @@ class CreateDatasetRequest extends Model
      */
     public $workflowParameters;
     protected $_name = [
+        'datasetConfig' => 'DatasetConfig',
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
         'datasetMaxFileCount' => 'DatasetMaxFileCount',
@@ -72,6 +78,9 @@ class CreateDatasetRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->datasetConfig) {
+            $this->datasetConfig->validate();
+        }
         if (\is_array($this->workflowParameters)) {
             Model::validateArray($this->workflowParameters);
         }
@@ -81,6 +90,10 @@ class CreateDatasetRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->datasetConfig) {
+            $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toArray($noStream) : $this->datasetConfig;
+        }
+
         if (null !== $this->datasetMaxBindCount) {
             $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
@@ -139,6 +152,10 @@ class CreateDatasetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatasetConfig'])) {
+            $model->datasetConfig = DatasetConfig::fromMap($map['DatasetConfig']);
+        }
+
         if (isset($map['DatasetMaxBindCount'])) {
             $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }

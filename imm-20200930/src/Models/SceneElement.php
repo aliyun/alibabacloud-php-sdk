@@ -14,18 +14,33 @@ class SceneElement extends Model
     public $frameTimes;
 
     /**
+     * @var Label[]
+     */
+    public $labels;
+
+    /**
      * @var int[]
      */
     public $timeRange;
+
+    /**
+     * @var int
+     */
+    public $videoStreamIndex;
     protected $_name = [
         'frameTimes' => 'FrameTimes',
+        'labels' => 'Labels',
         'timeRange' => 'TimeRange',
+        'videoStreamIndex' => 'VideoStreamIndex',
     ];
 
     public function validate()
     {
         if (\is_array($this->frameTimes)) {
             Model::validateArray($this->frameTimes);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
         }
         if (\is_array($this->timeRange)) {
             Model::validateArray($this->timeRange);
@@ -47,6 +62,17 @@ class SceneElement extends Model
             }
         }
 
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->timeRange) {
             if (\is_array($this->timeRange)) {
                 $res['TimeRange'] = [];
@@ -56,6 +82,10 @@ class SceneElement extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->videoStreamIndex) {
+            $res['VideoStreamIndex'] = $this->videoStreamIndex;
         }
 
         return $res;
@@ -80,6 +110,17 @@ class SceneElement extends Model
             }
         }
 
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = Label::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TimeRange'])) {
             if (!empty($map['TimeRange'])) {
                 $model->timeRange = [];
@@ -89,6 +130,10 @@ class SceneElement extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VideoStreamIndex'])) {
+            $model->videoStreamIndex = $map['VideoStreamIndex'];
         }
 
         return $model;

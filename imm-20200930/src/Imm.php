@@ -1075,7 +1075,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Phase II of AI Assistant, Q\\&A API.
+     * Phase II of AI Assistant, Q\\\\\\&A API.
      *
      * @remarks
      * ### Precautions
@@ -1141,21 +1141,22 @@ class Imm extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ContextualAnswerResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ContextualAnswerResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
     /**
-     * Phase II of AI Assistant, Q\\&A API.
+     * Phase II of AI Assistant, Q\\\\\\&A API.
      *
      * @remarks
      * ### Precautions
@@ -1223,7 +1224,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Phase II of AI Assistant, Q\\&A API.
+     * Phase II of AI Assistant, Q\\\\\\&A API.
      *
      * @remarks
      * ### Precautions
@@ -1890,7 +1891,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Create Dataset.
+     * Creates a dataset.
      *
      * @remarks
      * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -1913,11 +1914,19 @@ class Imm extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateDatasetShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetConfig) {
+            $request->datasetConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetConfig, 'DatasetConfig', 'json');
+        }
+
         if (null !== $tmpReq->workflowParameters) {
             $request->workflowParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workflowParameters, 'WorkflowParameters', 'json');
         }
 
         $query = [];
+        if (null !== $request->datasetConfigShrink) {
+            @$query['DatasetConfig'] = $request->datasetConfigShrink;
+        }
+
         if (null !== $request->datasetMaxBindCount) {
             @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
         }
@@ -1977,7 +1986,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Create Dataset.
+     * Creates a dataset.
      *
      * @remarks
      * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -3185,7 +3194,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Create Transcoding Service.
+     * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
      *
      * @remarks
      * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/88317.html) of the Intelligent Media Management product before using this interface.**
@@ -3282,7 +3291,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Create Transcoding Service.
+     * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
      *
      * @remarks
      * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/88317.html) of the Intelligent Media Management product before using this interface.**
@@ -6138,7 +6147,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Generates an access token for document preview or editing.
+     * Obtain Document Preview and Edit Token.
      *
      * @remarks
      * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -6276,7 +6285,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * Generates an access token for document preview or editing.
+     * Obtain Document Preview and Edit Token.
      *
      * @remarks
      * - **Please ensure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/477042.html) of the Intelligent Media Management product before using this interface.**
@@ -6445,7 +6454,7 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * drmlicense获取.
+     * Obtains a Digital Rights Management (DRM) license for encrypted video playback.
      *
      * @deprecated OpenAPI GetDRMLicense is deprecated
      *
@@ -6503,7 +6512,7 @@ class Imm extends OpenApiClient
 
     // Deprecated
     /**
-     * drmlicense获取.
+     * Obtains a Digital Rights Management (DRM) license for encrypted video playback.
      *
      * @deprecated OpenAPI GetDRMLicense is deprecated
      *
@@ -9681,11 +9690,19 @@ class Imm extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateDatasetShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetConfig) {
+            $request->datasetConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetConfig, 'DatasetConfig', 'json');
+        }
+
         if (null !== $tmpReq->workflowParameters) {
             $request->workflowParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workflowParameters, 'WorkflowParameters', 'json');
         }
 
         $query = [];
+        if (null !== $request->datasetConfigShrink) {
+            @$query['DatasetConfig'] = $request->datasetConfigShrink;
+        }
+
         if (null !== $request->datasetMaxBindCount) {
             @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
         }

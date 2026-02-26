@@ -14,6 +14,16 @@ class Label extends Model
     public $centricScore;
 
     /**
+     * @var Clip[]
+     */
+    public $clips;
+
+    /**
+     * @var string
+     */
+    public $labelAlias;
+
+    /**
      * @var float
      */
     public $labelConfidence;
@@ -39,6 +49,8 @@ class Label extends Model
     public $parentLabelName;
     protected $_name = [
         'centricScore' => 'CentricScore',
+        'clips' => 'Clips',
+        'labelAlias' => 'LabelAlias',
         'labelConfidence' => 'LabelConfidence',
         'labelLevel' => 'LabelLevel',
         'labelName' => 'LabelName',
@@ -48,6 +60,9 @@ class Label extends Model
 
     public function validate()
     {
+        if (\is_array($this->clips)) {
+            Model::validateArray($this->clips);
+        }
         parent::validate();
     }
 
@@ -56,6 +71,21 @@ class Label extends Model
         $res = [];
         if (null !== $this->centricScore) {
             $res['CentricScore'] = $this->centricScore;
+        }
+
+        if (null !== $this->clips) {
+            if (\is_array($this->clips)) {
+                $res['Clips'] = [];
+                $n1 = 0;
+                foreach ($this->clips as $item1) {
+                    $res['Clips'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->labelAlias) {
+            $res['LabelAlias'] = $this->labelAlias;
         }
 
         if (null !== $this->labelConfidence) {
@@ -91,6 +121,21 @@ class Label extends Model
         $model = new self();
         if (isset($map['CentricScore'])) {
             $model->centricScore = $map['CentricScore'];
+        }
+
+        if (isset($map['Clips'])) {
+            if (!empty($map['Clips'])) {
+                $model->clips = [];
+                $n1 = 0;
+                foreach ($map['Clips'] as $item1) {
+                    $model->clips[$n1] = Clip::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['LabelAlias'])) {
+            $model->labelAlias = $map['LabelAlias'];
         }
 
         if (isset($map['LabelConfidence'])) {
