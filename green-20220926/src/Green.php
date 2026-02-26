@@ -104,6 +104,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetPromptTestResultRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetPromptTestResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanResultRequest;
@@ -3669,6 +3671,79 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOssCheckTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 测试特性配置.
+     *
+     * @param request - GetPromptTestResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPromptTestResultResponse
+     *
+     * @param GetPromptTestResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPromptTestResultResponse
+     */
+    public function getPromptTestResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
+        }
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPromptTestResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPromptTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 测试特性配置.
+     *
+     * @param request - GetPromptTestResultRequest
+     *
+     * @returns GetPromptTestResultResponse
+     *
+     * @param GetPromptTestResultRequest $request
+     *
+     * @return GetPromptTestResultResponse
+     */
+    public function getPromptTestResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPromptTestResultWithOptions($request, $runtime);
     }
 
     /**
