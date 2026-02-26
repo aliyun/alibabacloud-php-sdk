@@ -376,10 +376,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterDynamoDBRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterDynamoDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterOrcaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterOrcaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDynamoDBRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDynamoDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterOrcaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterOrcaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterServerlessRequest;
@@ -1122,7 +1126,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels O\\&M events at a time.
+     * Cancels O\\\\\\&M events at a time.
      *
      * @param request - CancelActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1185,7 +1189,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels O\\&M events at a time.
+     * Cancels O\\\\\\&M events at a time.
      *
      * @param request - CancelActiveOperationTasksRequest
      *
@@ -2034,7 +2038,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭DB4AI.
+     * Disables the PolarDB for AI feature for a cluster.
      *
      * @param request - CloseAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,7 +2097,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭DB4AI.
+     * Disables the PolarDB for AI feature for a cluster.
      *
      * @param request - CloseAITaskRequest
      *
@@ -4391,7 +4395,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建全球数据网络.
+     * Creates a global data network (GDN).
      *
      * @param request - CreateGlobalDataNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4466,7 +4470,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建全球数据网络.
+     * Creates a global data network (GDN).
      *
      * @param request - CreateGlobalDataNetworkRequest
      *
@@ -6523,7 +6527,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * DeleteGlobalDataNetwork.
+     * Deletes a global data network (GDN).
      *
      * @param request - DeleteGlobalDataNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6562,7 +6566,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * DeleteGlobalDataNetwork.
+     * Deletes a global data network (GDN).
      *
      * @param request - DeleteGlobalDataNetworkRequest
      *
@@ -6914,7 +6918,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template of a PolarDB cluster.
+     * Deletes a parameter template from a PolarDB cluster.
      *
      * @remarks
      * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
@@ -6981,7 +6985,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template of a PolarDB cluster.
+     * Deletes a parameter template from a PolarDB cluster.
      *
      * @remarks
      * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
@@ -8052,7 +8056,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用户侧查询运维任务
+     * Queries the O\\\\\\&M event details of an instance.
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8147,7 +8151,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用户侧查询运维任务
+     * Queries the O\\\\\\&M event details of an instance.
      *
      * @param request - DescribeActiveOperationTasksRequest
      *
@@ -8832,7 +8836,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup tasks of a PolarDB cluster.
+     * Queries the details of backup tasks of a cluster.
      *
      * @param request - DescribeBackupTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8895,7 +8899,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup tasks of a PolarDB cluster.
+     * Queries the details of backup tasks of a cluster.
      *
      * @param request - DescribeBackupTasksRequest
      *
@@ -11623,7 +11627,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * Queries the database links of a PolarDB for Oracle cluster.
      *
      * @remarks
      * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
@@ -11685,7 +11689,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * Queries the database links of a PolarDB for Oracle cluster.
      *
      * @remarks
      * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
@@ -11706,7 +11710,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询实例日志.
+     * Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
      *
      * @param request - DescribeDBLogFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11801,7 +11805,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询实例日志.
+     * Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
      *
      * @param request - DescribeDBLogFilesRequest
      *
@@ -12910,7 +12914,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * DescribeGlobalDataNetworkList.
+     * Queries the PolarFS global data network (GDN) details in all regions.
      *
      * @param request - DescribeGlobalDataNetworkListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12953,7 +12957,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * DescribeGlobalDataNetworkList.
+     * Queries the PolarFS global data network (GDN) details in all regions.
      *
      * @param request - DescribeGlobalDataNetworkListRequest
      *
@@ -13323,7 +13327,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询实例高可用相关日志.
+     * Queries the HA logs of a cluster.
      *
      * @param request - DescribeHALogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13386,7 +13390,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询实例高可用相关日志.
+     * Queries the HA logs of a cluster.
      *
      * @param request - DescribeHALogsRequest
      *
@@ -13517,7 +13521,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务列表.
+     * Queries historical tasks.
      *
      * @param request - DescribeHistoryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13620,7 +13624,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务列表.
+     * Queries historical tasks.
      *
      * @param request - DescribeHistoryTasksRequest
      *
@@ -15384,7 +15388,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the regions and zones available for PolarDB.
+     * Queries the regions and zones that are supported by PolarDB.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15435,7 +15439,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the regions and zones available for PolarDB.
+     * Queries the regions and zones that are supported by PolarDB.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -16578,6 +16582,63 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 关闭DynamoDB兼容性能力.
+     *
+     * @param request - DisableDBClusterDynamoDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableDBClusterDynamoDBResponse
+     *
+     * @param DisableDBClusterDynamoDBRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DisableDBClusterDynamoDBResponse
+     */
+    public function disableDBClusterDynamoDBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableDBClusterDynamoDB',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableDBClusterDynamoDBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭DynamoDB兼容性能力.
+     *
+     * @param request - DisableDBClusterDynamoDBRequest
+     *
+     * @returns DisableDBClusterDynamoDBResponse
+     *
+     * @param DisableDBClusterDynamoDBRequest $request
+     *
+     * @return DisableDBClusterDynamoDBResponse
+     */
+    public function disableDBClusterDynamoDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDBClusterDynamoDBWithOptions($request, $runtime);
+    }
+
+    /**
      * 关闭集群的关系性.
      *
      * @param request - DisableDBClusterOrcaRequest
@@ -16725,6 +16786,63 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableDBClusterServerlessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开启DynamoDB兼容性能力.
+     *
+     * @param request - EnableDBClusterDynamoDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableDBClusterDynamoDBResponse
+     *
+     * @param EnableDBClusterDynamoDBRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableDBClusterDynamoDBResponse
+     */
+    public function enableDBClusterDynamoDBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableDBClusterDynamoDB',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableDBClusterDynamoDBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启DynamoDB兼容性能力.
+     *
+     * @param request - EnableDBClusterDynamoDBRequest
+     *
+     * @returns EnableDBClusterDynamoDBResponse
+     *
+     * @param EnableDBClusterDynamoDBRequest $request
+     *
+     * @return EnableDBClusterDynamoDBResponse
+     */
+    public function enableDBClusterDynamoDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDBClusterDynamoDBWithOptions($request, $runtime);
     }
 
     /**
@@ -17554,16 +17672,17 @@ class Polardb extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield GetPolarAgentResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield GetPolarAgentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -18764,7 +18883,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\&M events for an instance.
+     * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
      *
      * @param request - ModifyActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18835,7 +18954,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\&M events for an instance.
+     * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
      *
      * @param request - ModifyActiveOperationTasksRequest
      *
@@ -21317,7 +21436,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改存储性能.
+     * Changes the storage performance of a PolarDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterStoragePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21388,7 +21507,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改存储性能.
+     * Changes the storage performance of a PolarDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterStoragePerformanceRequest
      *
@@ -24947,6 +25066,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Switches over the primary and secondary clusters in a global database network (GDN).
+     *
      * @param request - SwitchOverGlobalDatabaseNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -25020,6 +25141,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Switches over the primary and secondary clusters in a global database network (GDN).
+     *
      * @param request - SwitchOverGlobalDatabaseNetworkRequest
      *
      * @returns SwitchOverGlobalDatabaseNetworkResponse
