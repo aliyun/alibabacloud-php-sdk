@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskDetailRespon
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseInstanceInfoForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseInstanceInfoForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefundAppInstanceForPartnerRequest;
@@ -2707,6 +2709,71 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMaterialTaskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Supabase实例信息.
+     *
+     * @param request - QuerySupabaseInstanceInfoForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySupabaseInstanceInfoForAdminResponse
+     *
+     * @param QuerySupabaseInstanceInfoForAdminRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QuerySupabaseInstanceInfoForAdminResponse
+     */
+    public function querySupabaseInstanceInfoForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySupabaseInstanceInfoForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySupabaseInstanceInfoForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase实例信息.
+     *
+     * @param request - QuerySupabaseInstanceInfoForAdminRequest
+     *
+     * @returns QuerySupabaseInstanceInfoForAdminResponse
+     *
+     * @param QuerySupabaseInstanceInfoForAdminRequest $request
+     *
+     * @return QuerySupabaseInstanceInfoForAdminResponse
+     */
+    public function querySupabaseInstanceInfoForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySupabaseInstanceInfoForAdminWithOptions($request, $runtime);
     }
 
     /**
