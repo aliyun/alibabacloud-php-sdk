@@ -16,7 +16,7 @@ class intervention extends Model
     public $approvedLabel;
 
     /**
-     * @var string
+     * @var bool
      */
     public $enable;
 
