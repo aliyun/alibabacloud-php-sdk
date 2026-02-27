@@ -150,6 +150,11 @@ class RunRCInstancesRequest extends Model
     /**
      * @var string
      */
+    public $privateIpAddress;
+
+    /**
+     * @var string
+     */
     public $promotionCode;
 
     /**
@@ -176,6 +181,11 @@ class RunRCInstancesRequest extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $securityGroupIds;
 
     /**
      * @var string
@@ -244,12 +254,14 @@ class RunRCInstancesRequest extends Model
         'passwordInherit' => 'PasswordInherit',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'privateIpAddress' => 'PrivateIpAddress',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'scheduledRule' => 'ScheduledRule',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
+        'securityGroupIds' => 'SecurityGroupIds',
         'spotStrategy' => 'SpotStrategy',
         'supportCase' => 'SupportCase',
         'systemDisk' => 'SystemDisk',
@@ -267,6 +279,9 @@ class RunRCInstancesRequest extends Model
         }
         if (\is_array($this->dataDisk)) {
             Model::validateArray($this->dataDisk);
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
         }
         if (null !== $this->systemDisk) {
             $this->systemDisk->validate();
@@ -395,6 +410,10 @@ class RunRCInstancesRequest extends Model
             $res['PeriodUnit'] = $this->periodUnit;
         }
 
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+
         if (null !== $this->promotionCode) {
             $res['PromotionCode'] = $this->promotionCode;
         }
@@ -417,6 +436,17 @@ class RunRCInstancesRequest extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->securityGroupIds) {
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->spotStrategy) {
@@ -584,6 +614,10 @@ class RunRCInstancesRequest extends Model
             $model->periodUnit = $map['PeriodUnit'];
         }
 
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+
         if (isset($map['PromotionCode'])) {
             $model->promotionCode = $map['PromotionCode'];
         }
@@ -606,6 +640,17 @@ class RunRCInstancesRequest extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SpotStrategy'])) {

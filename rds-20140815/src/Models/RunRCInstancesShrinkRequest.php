@@ -147,6 +147,11 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $privateIpAddress;
+
+    /**
+     * @var string
+     */
     public $promotionCode;
 
     /**
@@ -173,6 +178,11 @@ class RunRCInstancesShrinkRequest extends Model
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupIdsShrink;
 
     /**
      * @var string
@@ -241,12 +251,14 @@ class RunRCInstancesShrinkRequest extends Model
         'passwordInherit' => 'PasswordInherit',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'privateIpAddress' => 'PrivateIpAddress',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'scheduledRule' => 'ScheduledRule',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
+        'securityGroupIdsShrink' => 'SecurityGroupIds',
         'spotStrategy' => 'SpotStrategy',
         'supportCase' => 'SupportCase',
         'systemDiskShrink' => 'SystemDisk',
@@ -376,6 +388,10 @@ class RunRCInstancesShrinkRequest extends Model
             $res['PeriodUnit'] = $this->periodUnit;
         }
 
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+
         if (null !== $this->promotionCode) {
             $res['PromotionCode'] = $this->promotionCode;
         }
@@ -398,6 +414,10 @@ class RunRCInstancesShrinkRequest extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->securityGroupIdsShrink) {
+            $res['SecurityGroupIds'] = $this->securityGroupIdsShrink;
         }
 
         if (null !== $this->spotStrategy) {
@@ -558,6 +578,10 @@ class RunRCInstancesShrinkRequest extends Model
             $model->periodUnit = $map['PeriodUnit'];
         }
 
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+
         if (isset($map['PromotionCode'])) {
             $model->promotionCode = $map['PromotionCode'];
         }
@@ -580,6 +604,10 @@ class RunRCInstancesShrinkRequest extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SecurityGroupIds'])) {
+            $model->securityGroupIdsShrink = $map['SecurityGroupIds'];
         }
 
         if (isset($map['SpotStrategy'])) {

@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInst
 class RCInstances extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
      * @var string
      */
     public $clusterName;
@@ -176,6 +181,7 @@ class RCInstances extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoRenew' => 'AutoRenew',
         'clusterName' => 'ClusterName',
         'cpu' => 'Cpu',
         'createMode' => 'CreateMode',
@@ -228,6 +234,10 @@ class RCInstances extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -385,6 +395,10 @@ class RCInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }

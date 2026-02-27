@@ -37477,6 +37477,10 @@ class Rds extends OpenApiClient
             $request->dataDiskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataDisk, 'DataDisk', 'json');
         }
 
+        if (null !== $tmpReq->securityGroupIds) {
+            $request->securityGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityGroupIds, 'SecurityGroupIds', 'json');
+        }
+
         if (null !== $tmpReq->systemDisk) {
             $request->systemDiskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->systemDisk, 'SystemDisk', 'json');
         }
@@ -37590,6 +37594,10 @@ class Rds extends OpenApiClient
             @$query['PeriodUnit'] = $request->periodUnit;
         }
 
+        if (null !== $request->privateIpAddress) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+
         if (null !== $request->promotionCode) {
             @$query['PromotionCode'] = $request->promotionCode;
         }
@@ -37612,6 +37620,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->securityGroupId) {
             @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->securityGroupIdsShrink) {
+            @$query['SecurityGroupIds'] = $request->securityGroupIdsShrink;
         }
 
         if (null !== $request->spotStrategy) {
