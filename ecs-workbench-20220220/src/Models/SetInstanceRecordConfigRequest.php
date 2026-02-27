@@ -32,12 +32,18 @@ class SetInstanceRecordConfigRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceRegionId;
     protected $_name = [
         'enabled' => 'Enabled',
         'expirationDays' => 'ExpirationDays',
         'instanceId' => 'InstanceId',
         'recordStorageTarget' => 'RecordStorageTarget',
         'regionId' => 'RegionId',
+        'resourceRegionId' => 'ResourceRegionId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class SetInstanceRecordConfigRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceRegionId) {
+            $res['ResourceRegionId'] = $this->resourceRegionId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class SetInstanceRecordConfigRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceRegionId'])) {
+            $model->resourceRegionId = $map['ResourceRegionId'];
         }
 
         return $model;

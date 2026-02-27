@@ -357,6 +357,10 @@ class Ecsworkbench extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceRegionId) {
+            @$body['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
