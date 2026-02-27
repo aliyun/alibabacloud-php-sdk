@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\AddTerminalsRequest\addTerminalParams;
-use AlibabaCloud\Tea\Model;
 
 class AddTerminalsRequest extends Model
 {
@@ -23,20 +23,28 @@ class AddTerminalsRequest extends Model
         'mainBizType' => 'MainBizType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addTerminalParams)) {
+            Model::validateArray($this->addTerminalParams);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addTerminalParams) {
-            $res['AddTerminalParams'] = [];
-            if (null !== $this->addTerminalParams && \is_array($this->addTerminalParams)) {
-                $n = 0;
-                foreach ($this->addTerminalParams as $item) {
-                    $res['AddTerminalParams'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addTerminalParams)) {
+                $res['AddTerminalParams'] = [];
+                $n1 = 0;
+                foreach ($this->addTerminalParams as $item1) {
+                    $res['AddTerminalParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->mainBizType) {
             $res['MainBizType'] = $this->mainBizType;
         }
@@ -44,23 +52,25 @@ class AddTerminalsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddTerminalsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddTerminalParams'])) {
             if (!empty($map['AddTerminalParams'])) {
                 $model->addTerminalParams = [];
-                $n = 0;
-                foreach ($map['AddTerminalParams'] as $item) {
-                    $model->addTerminalParams[$n++] = null !== $item ? addTerminalParams::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AddTerminalParams'] as $item1) {
+                    $model->addTerminalParams[$n1] = addTerminalParams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MainBizType'])) {
             $model->mainBizType = $map['MainBizType'];
         }
