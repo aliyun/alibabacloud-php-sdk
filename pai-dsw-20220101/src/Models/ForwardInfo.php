@@ -51,6 +51,11 @@ class ForwardInfo extends Model
     /**
      * @var string
      */
+    public $nlbGatewayId;
+
+    /**
+     * @var string
+     */
     public $SSHPublicKey;
     protected $_name = [
         'accessType' => 'AccessType',
@@ -61,6 +66,7 @@ class ForwardInfo extends Model
         'forwardPort' => 'ForwardPort',
         'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
+        'nlbGatewayId' => 'NlbGatewayId',
         'SSHPublicKey' => 'SSHPublicKey',
     ];
 
@@ -112,6 +118,10 @@ class ForwardInfo extends Model
 
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+
+        if (null !== $this->nlbGatewayId) {
+            $res['NlbGatewayId'] = $this->nlbGatewayId;
         }
 
         if (null !== $this->SSHPublicKey) {
@@ -166,6 +176,10 @@ class ForwardInfo extends Model
 
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+
+        if (isset($map['NlbGatewayId'])) {
+            $model->nlbGatewayId = $map['NlbGatewayId'];
         }
 
         if (isset($map['SSHPublicKey'])) {
