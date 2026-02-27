@@ -20,12 +20,17 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteSkillRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesRequest;
@@ -56,6 +61,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledInstancesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledInstancesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledReportsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledReportsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetSkillRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
@@ -63,6 +70,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListSkillRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
@@ -96,6 +105,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -195,16 +207,17 @@ class RdsAi extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ChatMessagesResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ChatMessagesResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -707,6 +720,85 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 创建Skill.
+     *
+     * @param tmpReq - CreateSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSkillResponse
+     *
+     * @param CreateSkillRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateSkillResponse
+     */
+    public function createSkillWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSkillShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        if (null !== $tmpReq->dbtypes) {
+            $request->dbtypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dbtypes, 'Dbtypes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->dbtypesShrink) {
+            @$query['Dbtypes'] = $request->dbtypesShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkill',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Skill.
+     *
+     * @param request - CreateSkillRequest
+     *
+     * @returns CreateSkillResponse
+     *
+     * @param CreateSkillRequest $request
+     *
+     * @return CreateSkillResponse
+     */
+    public function createSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an RDS Supabase instance.
      *
      * @remarks
@@ -899,6 +991,63 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Skill.
+     *
+     * @param request - DeleteSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSkillResponse
+     *
+     * @param DeleteSkillRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteSkillResponse
+     */
+    public function deleteSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSkill',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Skill.
+     *
+     * @param request - DeleteSkillRequest
+     *
+     * @returns DeleteSkillResponse
+     *
+     * @param DeleteSkillRequest $request
+     *
+     * @return DeleteSkillResponse
+     */
+    public function deleteSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSkillWithOptions($request, $runtime);
     }
 
     /**
@@ -1963,6 +2112,67 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 获取Skill详情.
+     *
+     * @param request - GetSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillResponse
+     *
+     * @param GetSkillRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetSkillResponse
+     */
+    public function getSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkill',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Skill详情.
+     *
+     * @param request - GetSkillRequest
+     *
+     * @returns GetSkillResponse
+     *
+     * @param GetSkillRequest $request
+     *
+     * @return GetSkillResponse
+     */
+    public function getSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询指定用户下所有非定时任务的单独巡检报告列表，支持分页.
      *
      * @param request - GetStandAloneReportsRequest
@@ -2199,6 +2409,71 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listScheduledTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Skill列表.
+     *
+     * @param request - ListSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillResponse
+     *
+     * @param ListSkillRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListSkillResponse
+     */
+    public function listSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkill',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Skill列表.
+     *
+     * @param request - ListSkillRequest
+     *
+     * @returns ListSkillResponse
+     *
+     * @param ListSkillRequest $request
+     *
+     * @return ListSkillResponse
+     */
+    public function listSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillWithOptions($request, $runtime);
     }
 
     /**
@@ -3331,5 +3606,88 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Skill.
+     *
+     * @param tmpReq - UpdateSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSkillResponse
+     *
+     * @param UpdateSkillRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateSkillResponse
+     */
+    public function updateSkillWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSkillShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        if (null !== $tmpReq->dbtypes) {
+            $request->dbtypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dbtypes, 'Dbtypes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->dbtypesShrink) {
+            @$query['Dbtypes'] = $request->dbtypesShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSkill',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Skill.
+     *
+     * @param request - UpdateSkillRequest
+     *
+     * @returns UpdateSkillResponse
+     *
+     * @param UpdateSkillRequest $request
+     *
+     * @return UpdateSkillResponse
+     */
+    public function updateSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSkillWithOptions($request, $runtime);
     }
 }
