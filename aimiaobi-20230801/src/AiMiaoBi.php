@@ -310,6 +310,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAuditTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryVideoAuditResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryVideoAuditResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAiHelperWritingRequest;
@@ -456,6 +458,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitVideoAuditRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitVideoAuditResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateCustomTextRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetDocumentRequest;
@@ -10413,6 +10417,73 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 查询视频审校结果.
+     *
+     * @remarks
+     * 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+     *
+     * @param request - QueryVideoAuditResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryVideoAuditResultResponse
+     *
+     * @param QueryVideoAuditResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryVideoAuditResultResponse
+     */
+    public function queryVideoAuditResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryVideoAuditResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryVideoAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询视频审校结果.
+     *
+     * @remarks
+     * 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+     *
+     * @param request - QueryVideoAuditResultRequest
+     *
+     * @returns QueryVideoAuditResultResponse
+     *
+     * @param QueryVideoAuditResultRequest $request
+     *
+     * @return QueryVideoAuditResultResponse
+     */
+    public function queryVideoAuditResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVideoAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
      * 内容缩写.
      *
      * @param request - RunAbbreviationContentRequest
@@ -18084,6 +18155,85 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitTopicSelectionPerspectiveAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交视频审校
+     *
+     * @remarks
+     * 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+     *
+     * @param request - SubmitVideoAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoAuditResponse
+     *
+     * @param SubmitVideoAuditRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitVideoAuditResponse
+     */
+    public function submitVideoAuditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->ext) {
+            @$body['Ext'] = $request->ext;
+        }
+
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
+        }
+
+        if (null !== $request->snapshotInterval) {
+            @$body['SnapshotInterval'] = $request->snapshotInterval;
+        }
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoAudit',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交视频审校
+     *
+     * @remarks
+     * 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+     *
+     * @param request - SubmitVideoAuditRequest
+     *
+     * @returns SubmitVideoAuditResponse
+     *
+     * @param SubmitVideoAuditRequest $request
+     *
+     * @return SubmitVideoAuditResponse
+     */
+    public function submitVideoAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoAuditWithOptions($request, $runtime);
     }
 
     /**
