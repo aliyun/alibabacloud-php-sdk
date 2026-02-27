@@ -1,3 +1,15 @@
+2026-02-27 Version: 2.10.0
+- Support API CreateCredential.
+- Support API DeleteCredential.
+- Support API DisableCredential.
+- Support API EnableCredential.
+- Support API GetCredential.
+- Support API ListCredentials.
+- Support API ObtainCredential.
+- Support API UpdateCredential.
+- Support API UpdateCredentialDescription.
+
+
 2026-02-26 Version: 2.10.0
 - Support API CreateCredential.
 - Support API DeleteCredential.
