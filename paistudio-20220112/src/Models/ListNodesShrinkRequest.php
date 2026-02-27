@@ -26,6 +26,11 @@ class ListNodesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $diskPL;
+
+    /**
+     * @var string
+     */
     public $filterByQuotaId;
 
     /**
@@ -114,6 +119,11 @@ class ListNodesShrinkRequest extends Model
     public $paymentType;
 
     /**
+     * @var int
+     */
+    public $podNum;
+
+    /**
      * @var string
      */
     public $quotaId;
@@ -131,12 +141,22 @@ class ListNodesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupName;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
      * @var bool
      */
     public $verbose;
+
+    /**
+     * @var int
+     */
+    public $workloadNum;
 
     /**
      * @var string
@@ -146,6 +166,7 @@ class ListNodesShrinkRequest extends Model
         'acceleratorType' => 'AcceleratorType',
         'availabilityZone' => 'AvailabilityZone',
         'cliqueID' => 'CliqueID',
+        'diskPL' => 'DiskPL',
         'filterByQuotaId' => 'FilterByQuotaId',
         'filterByResourceGroupIds' => 'FilterByResourceGroupIds',
         'GPUType' => 'GPUType',
@@ -164,11 +185,14 @@ class ListNodesShrinkRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'paymentType' => 'PaymentType',
+        'podNum' => 'PodNum',
         'quotaId' => 'QuotaId',
         'reasonCodes' => 'ReasonCodes',
         'resourceGroupIds' => 'ResourceGroupIds',
+        'resourceGroupName' => 'ResourceGroupName',
         'sortBy' => 'SortBy',
         'verbose' => 'Verbose',
+        'workloadNum' => 'WorkloadNum',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -190,6 +214,10 @@ class ListNodesShrinkRequest extends Model
 
         if (null !== $this->cliqueID) {
             $res['CliqueID'] = $this->cliqueID;
+        }
+
+        if (null !== $this->diskPL) {
+            $res['DiskPL'] = $this->diskPL;
         }
 
         if (null !== $this->filterByQuotaId) {
@@ -264,6 +292,10 @@ class ListNodesShrinkRequest extends Model
             $res['PaymentType'] = $this->paymentType;
         }
 
+        if (null !== $this->podNum) {
+            $res['PodNum'] = $this->podNum;
+        }
+
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
@@ -276,12 +308,20 @@ class ListNodesShrinkRequest extends Model
             $res['ResourceGroupIds'] = $this->resourceGroupIds;
         }
 
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
+        }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
 
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
+        }
+
+        if (null !== $this->workloadNum) {
+            $res['WorkloadNum'] = $this->workloadNum;
         }
 
         if (null !== $this->workspaceId) {
@@ -309,6 +349,10 @@ class ListNodesShrinkRequest extends Model
 
         if (isset($map['CliqueID'])) {
             $model->cliqueID = $map['CliqueID'];
+        }
+
+        if (isset($map['DiskPL'])) {
+            $model->diskPL = $map['DiskPL'];
         }
 
         if (isset($map['FilterByQuotaId'])) {
@@ -383,6 +427,10 @@ class ListNodesShrinkRequest extends Model
             $model->paymentType = $map['PaymentType'];
         }
 
+        if (isset($map['PodNum'])) {
+            $model->podNum = $map['PodNum'];
+        }
+
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }
@@ -395,12 +443,20 @@ class ListNodesShrinkRequest extends Model
             $model->resourceGroupIds = $map['ResourceGroupIds'];
         }
 
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
 
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
+        }
+
+        if (isset($map['WorkloadNum'])) {
+            $model->workloadNum = $map['WorkloadNum'];
         }
 
         if (isset($map['WorkspaceId'])) {

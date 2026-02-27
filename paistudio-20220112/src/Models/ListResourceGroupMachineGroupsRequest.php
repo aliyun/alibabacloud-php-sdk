@@ -16,6 +16,11 @@ class ListResourceGroupMachineGroupsRequest extends Model
     /**
      * @var string
      */
+    public $diskPL;
+
+    /**
+     * @var string
+     */
     public $ecsSpec;
 
     /**
@@ -74,6 +79,7 @@ class ListResourceGroupMachineGroupsRequest extends Model
     public $status;
     protected $_name = [
         'creatorID' => 'CreatorID',
+        'diskPL' => 'DiskPL',
         'ecsSpec' => 'EcsSpec',
         'machineGroupIDs' => 'MachineGroupIDs',
         'name' => 'Name',
@@ -98,6 +104,10 @@ class ListResourceGroupMachineGroupsRequest extends Model
         $res = [];
         if (null !== $this->creatorID) {
             $res['CreatorID'] = $this->creatorID;
+        }
+
+        if (null !== $this->diskPL) {
+            $res['DiskPL'] = $this->diskPL;
         }
 
         if (null !== $this->ecsSpec) {
@@ -161,6 +171,10 @@ class ListResourceGroupMachineGroupsRequest extends Model
         $model = new self();
         if (isset($map['CreatorID'])) {
             $model->creatorID = $map['CreatorID'];
+        }
+
+        if (isset($map['DiskPL'])) {
+            $model->diskPL = $map['DiskPL'];
         }
 
         if (isset($map['EcsSpec'])) {

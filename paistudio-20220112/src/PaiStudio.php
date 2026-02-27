@@ -2384,6 +2384,10 @@ class PaiStudio extends OpenApiClient
             @$query['CliqueID'] = $request->cliqueID;
         }
 
+        if (null !== $request->diskPL) {
+            @$query['DiskPL'] = $request->diskPL;
+        }
+
         if (null !== $request->filterByQuotaId) {
             @$query['FilterByQuotaId'] = $request->filterByQuotaId;
         }
@@ -2456,6 +2460,10 @@ class PaiStudio extends OpenApiClient
             @$query['PaymentType'] = $request->paymentType;
         }
 
+        if (null !== $request->podNum) {
+            @$query['PodNum'] = $request->podNum;
+        }
+
         if (null !== $request->quotaId) {
             @$query['QuotaId'] = $request->quotaId;
         }
@@ -2468,12 +2476,20 @@ class PaiStudio extends OpenApiClient
             @$query['ResourceGroupIds'] = $request->resourceGroupIds;
         }
 
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
         if (null !== $request->sortBy) {
             @$query['SortBy'] = $request->sortBy;
         }
 
         if (null !== $request->verbose) {
             @$query['Verbose'] = $request->verbose;
+        }
+
+        if (null !== $request->workloadNum) {
+            @$query['WorkloadNum'] = $request->workloadNum;
         }
 
         if (null !== $request->workspaceId) {
@@ -2566,6 +2582,10 @@ class PaiStudio extends OpenApiClient
             @$query['Username'] = $request->username;
         }
 
+        if (null !== $request->workloadCount) {
+            @$query['WorkloadCount'] = $request->workloadCount;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -2645,6 +2665,10 @@ class PaiStudio extends OpenApiClient
             @$query['GmtPositionModifiedTimeRange'] = $request->gmtPositionModifiedTimeRange;
         }
 
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->nodeName) {
             @$query['NodeName'] = $request->nodeName;
         }
@@ -2659,6 +2683,14 @@ class PaiStudio extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->position) {
+            @$query['Position'] = $request->position;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
 
         if (null !== $request->showOwn) {
@@ -2677,6 +2709,10 @@ class PaiStudio extends OpenApiClient
             @$query['SubQuotaIds'] = $request->subQuotaIds;
         }
 
+        if (null !== $request->useOversoldResource) {
+            @$query['UseOversoldResource'] = $request->useOversoldResource;
+        }
+
         if (null !== $request->userIds) {
             @$query['UserIds'] = $request->userIds;
         }
@@ -2691,6 +2727,10 @@ class PaiStudio extends OpenApiClient
 
         if (null !== $request->workloadIds) {
             @$query['WorkloadIds'] = $request->workloadIds;
+        }
+
+        if (null !== $request->workloadNames) {
+            @$query['WorkloadNames'] = $request->workloadNames;
         }
 
         if (null !== $request->workloadStatuses) {
@@ -2765,6 +2805,10 @@ class PaiStudio extends OpenApiClient
         $query = [];
         if (null !== $request->clusterType) {
             @$query['ClusterType'] = $request->clusterType;
+        }
+
+        if (null !== $request->GPUType) {
+            @$query['GPUType'] = $request->GPUType;
         }
 
         if (null !== $request->hasResource) {
@@ -2891,6 +2935,10 @@ class PaiStudio extends OpenApiClient
         $query = [];
         if (null !== $request->creatorID) {
             @$query['CreatorID'] = $request->creatorID;
+        }
+
+        if (null !== $request->diskPL) {
+            @$query['DiskPL'] = $request->diskPL;
         }
 
         if (null !== $request->ecsSpec) {

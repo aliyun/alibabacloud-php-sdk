@@ -44,6 +44,11 @@ class ListQuotaActiveUserUsagesRequest extends Model
     public $username;
 
     /**
+     * @var int
+     */
+    public $workloadCount;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -55,6 +60,7 @@ class ListQuotaActiveUserUsagesRequest extends Model
         'sortBy' => 'SortBy',
         'userId' => 'UserId',
         'username' => 'Username',
+        'workloadCount' => 'WorkloadCount',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -92,6 +98,10 @@ class ListQuotaActiveUserUsagesRequest extends Model
 
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+
+        if (null !== $this->workloadCount) {
+            $res['WorkloadCount'] = $this->workloadCount;
         }
 
         if (null !== $this->workspaceId) {
@@ -135,6 +145,10 @@ class ListQuotaActiveUserUsagesRequest extends Model
 
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+
+        if (isset($map['WorkloadCount'])) {
+            $model->workloadCount = $map['WorkloadCount'];
         }
 
         if (isset($map['WorkspaceId'])) {

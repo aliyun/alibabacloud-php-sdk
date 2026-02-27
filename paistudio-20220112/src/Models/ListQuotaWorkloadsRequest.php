@@ -31,6 +31,11 @@ class ListQuotaWorkloadsRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $nodeName;
 
     /**
@@ -47,6 +52,16 @@ class ListQuotaWorkloadsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $position;
+
+    /**
+     * @var int
+     */
+    public $priority;
 
     /**
      * @var bool
@@ -67,6 +82,11 @@ class ListQuotaWorkloadsRequest extends Model
      * @var string
      */
     public $subQuotaIds;
+
+    /**
+     * @var bool
+     */
+    public $useOversoldResource;
 
     /**
      * @var string
@@ -91,6 +111,11 @@ class ListQuotaWorkloadsRequest extends Model
     /**
      * @var string
      */
+    public $workloadNames;
+
+    /**
+     * @var string
+     */
     public $workloadStatuses;
 
     /**
@@ -107,18 +132,23 @@ class ListQuotaWorkloadsRequest extends Model
         'gmtDequeuedTimeRange' => 'GmtDequeuedTimeRange',
         'gmtEnqueuedTimeRange' => 'GmtEnqueuedTimeRange',
         'gmtPositionModifiedTimeRange' => 'GmtPositionModifiedTimeRange',
+        'instanceId' => 'InstanceId',
         'nodeName' => 'NodeName',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'position' => 'Position',
+        'priority' => 'Priority',
         'showOwn' => 'ShowOwn',
         'sortBy' => 'SortBy',
         'status' => 'Status',
         'subQuotaIds' => 'SubQuotaIds',
+        'useOversoldResource' => 'UseOversoldResource',
         'userIds' => 'UserIds',
         'withHistoricalData' => 'WithHistoricalData',
         'workloadCreatedTimeRange' => 'WorkloadCreatedTimeRange',
         'workloadIds' => 'WorkloadIds',
+        'workloadNames' => 'WorkloadNames',
         'workloadStatuses' => 'WorkloadStatuses',
         'workloadType' => 'WorkloadType',
         'workspaceIds' => 'WorkspaceIds',
@@ -160,6 +190,10 @@ class ListQuotaWorkloadsRequest extends Model
             $res['GmtPositionModifiedTimeRange'] = null !== $this->gmtPositionModifiedTimeRange ? $this->gmtPositionModifiedTimeRange->toArray($noStream) : $this->gmtPositionModifiedTimeRange;
         }
 
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
@@ -174,6 +208,14 @@ class ListQuotaWorkloadsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         if (null !== $this->showOwn) {
@@ -192,6 +234,10 @@ class ListQuotaWorkloadsRequest extends Model
             $res['SubQuotaIds'] = $this->subQuotaIds;
         }
 
+        if (null !== $this->useOversoldResource) {
+            $res['UseOversoldResource'] = $this->useOversoldResource;
+        }
+
         if (null !== $this->userIds) {
             $res['UserIds'] = $this->userIds;
         }
@@ -206,6 +252,10 @@ class ListQuotaWorkloadsRequest extends Model
 
         if (null !== $this->workloadIds) {
             $res['WorkloadIds'] = $this->workloadIds;
+        }
+
+        if (null !== $this->workloadNames) {
+            $res['WorkloadNames'] = $this->workloadNames;
         }
 
         if (null !== $this->workloadStatuses) {
@@ -247,6 +297,10 @@ class ListQuotaWorkloadsRequest extends Model
             $model->gmtPositionModifiedTimeRange = TimeRangeFilter::fromMap($map['GmtPositionModifiedTimeRange']);
         }
 
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
@@ -261,6 +315,14 @@ class ListQuotaWorkloadsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         if (isset($map['ShowOwn'])) {
@@ -279,6 +341,10 @@ class ListQuotaWorkloadsRequest extends Model
             $model->subQuotaIds = $map['SubQuotaIds'];
         }
 
+        if (isset($map['UseOversoldResource'])) {
+            $model->useOversoldResource = $map['UseOversoldResource'];
+        }
+
         if (isset($map['UserIds'])) {
             $model->userIds = $map['UserIds'];
         }
@@ -293,6 +359,10 @@ class ListQuotaWorkloadsRequest extends Model
 
         if (isset($map['WorkloadIds'])) {
             $model->workloadIds = $map['WorkloadIds'];
+        }
+
+        if (isset($map['WorkloadNames'])) {
+            $model->workloadNames = $map['WorkloadNames'];
         }
 
         if (isset($map['WorkloadStatuses'])) {

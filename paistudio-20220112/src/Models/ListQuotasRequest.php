@@ -16,6 +16,11 @@ class ListQuotasRequest extends Model
     /**
      * @var string
      */
+    public $GPUType;
+
+    /**
+     * @var string
+     */
     public $hasResource;
 
     /**
@@ -94,6 +99,7 @@ class ListQuotasRequest extends Model
     public $workspaceName;
     protected $_name = [
         'clusterType' => 'ClusterType',
+        'GPUType' => 'GPUType',
         'hasResource' => 'HasResource',
         'labels' => 'Labels',
         'layoutMode' => 'LayoutMode',
@@ -122,6 +128,10 @@ class ListQuotasRequest extends Model
         $res = [];
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+
+        if (null !== $this->GPUType) {
+            $res['GPUType'] = $this->GPUType;
         }
 
         if (null !== $this->hasResource) {
@@ -201,6 +211,10 @@ class ListQuotasRequest extends Model
         $model = new self();
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+
+        if (isset($map['GPUType'])) {
+            $model->GPUType = $map['GPUType'];
         }
 
         if (isset($map['HasResource'])) {
