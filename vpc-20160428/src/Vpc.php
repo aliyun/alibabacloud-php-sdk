@@ -1142,14 +1142,7 @@ class Vpc extends OpenApiClient
      * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-     *     *   The EIP uses the pay-as-you-go billing method.
-     *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-     * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
-     *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+     * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
      *
      * @param request - AddCommonBandwidthPackageIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1223,14 +1216,7 @@ class Vpc extends OpenApiClient
      * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   When you call this operation to associate an EIP with an Internet Shared Bandwidth instance, make sure that the EIP meets the following requirements:
-     *     *   The EIP uses the pay-as-you-go billing method.
-     *     *   The EIP and the Internet Shared Bandwidth instance belong to the same region.
-     *     *   The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
-     * *   **AddCommonBandwidthPackageIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) operation to query the status of the operation.
-     *     *   If the Internet Shared Bandwidth instance is in the **BINDING** state, the EIP is being associated with the Internet Shared Bandwidth instance. In this state, you can only query the Internet Shared Bandwidth instance and cannot perform other operations.
-     *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
+     * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
      *
      * @param request - AddCommonBandwidthPackageIpRequest
      *
@@ -3694,7 +3680,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 将DHCP选项集与VPC关联.
+     * Associates a DHCP options set with a virtual private cloud (VPC).
      *
      * @remarks
      *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
@@ -3771,7 +3757,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 将DHCP选项集与VPC关联.
+     * Associates a DHCP options set with a virtual private cloud (VPC).
      *
      * @remarks
      *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
@@ -7199,7 +7185,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 创建IPv4网关。
+     * Creates an IPv4 gateway.
      *
      * @remarks
      *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
@@ -7292,7 +7278,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 创建IPv4网关。
+     * Creates an IPv4 gateway.
      *
      * @remarks
      *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
@@ -8931,7 +8917,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Create Route Target Group.
+     * Creates a route target group instance.
      *
      * @remarks
      * - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
@@ -9010,7 +8996,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Create Route Target Group.
+     * Creates a route target group instance.
      *
      * @remarks
      * - The **CreateRouteTargetGroup** interface is an asynchronous interface, meaning the system will return an instance ID, but the route target group instance has not yet been fully created, and the system\\"s background creation task is still in progress. You can call **ListRouteTargetGroup** to query the creation status of the route target group:
@@ -9955,7 +9941,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 创建交换机。
+     * Creates a vSwitch.
      *
      * @remarks
      * When you call this operation, take note of the following limits:
@@ -10059,7 +10045,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 创建交换机。
+     * Creates a vSwitch.
      *
      * @remarks
      * When you call this operation, take note of the following limits:
@@ -10325,13 +10311,7 @@ class Vpc extends OpenApiClient
      * Adds a destination-based route for an IPsec-VPN connection.
      *
      * @remarks
-     *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
-     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-     * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
-     *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-     *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-     * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+     * Adds a destination-based route for an IPsec-VPN connection.
      *
      * @param request - CreateVcoRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10417,13 +10397,7 @@ class Vpc extends OpenApiClient
      * Adds a destination-based route for an IPsec-VPN connection.
      *
      * @remarks
-     *   The IPsec-VPN connection must be associated with a transit router. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
-     * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     * *   Do not add a destination-based route whose destination CIDR block is 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10 or belongs to 100.64.0.0/10. Such a route will make the console fail to display the status of the IPsec-VPN connection or cause IPsec negotiation failures.
-     * *   **CreateVcoRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the status of the task.
-     *     *   If the IPsec-VPN connection is in the **updating** state, the destination-based route is being created.
-     *     *   If the IPsec-VPN connection is in the **attached** state, the destination-based route is created.
-     * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
+     * Adds a destination-based route for an IPsec-VPN connection.
      *
      * @param request - CreateVcoRouteEntryRequest
      *
@@ -11685,12 +11659,7 @@ class Vpc extends OpenApiClient
      * Creates a policy-based route for a VPN gateway.
      *
      * @remarks
-     *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
-     * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
-     * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
-     *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-     *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-     * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+     * Creates a policy-based route for a VPN gateway.
      *
      * @param request - CreateVpnPbrRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11792,12 +11761,7 @@ class Vpc extends OpenApiClient
      * Creates a policy-based route for a VPN gateway.
      *
      * @remarks
-     *   Before you call this operation, make sure that you are familiar with the match rules of and limits on policy-based routes. For more information, see [Manage policy-based routes](https://help.aliyun.com/document_detail/110777.html).
-     * *   Before you create a policy-based route, make sure that an IPsec-VPN connection is created. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
-     * *   **CreateVpnPbrRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway.
-     *     *   If the VPN gateway is in the **updating** state, the policy-based route is being created.
-     *     *   If the VPN gateway is in the **active** state, the policy-based route is created.
-     * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
+     * Creates a policy-based route for a VPN gateway.
      *
      * @param request - CreateVpnPbrRouteEntryRequest
      *
@@ -11936,7 +11900,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 冻结路由器接口.
+     * Deactivates a router interface.
      *
      * @param request - DeactivateRouterInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11991,7 +11955,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 冻结路由器接口.
+     * Deactivates a router interface.
      *
      * @param request - DeactivateRouterInterfaceRequest
      *
@@ -13338,7 +13302,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Deletes a Global Accelerator (GA) instance.
+     * Deletes a GA instance.
      *
      * @remarks
      * When you call this operation, take note of the following items:
@@ -13403,7 +13367,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Deletes a Global Accelerator (GA) instance.
+     * Deletes a GA instance.
      *
      * @remarks
      * When you call this operation, take note of the following items:
@@ -15288,7 +15252,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Delete Route Target Group.
+     * Deletes a route target group.
      *
      * @remarks
      * - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
@@ -15344,7 +15308,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Delete Route Target Group.
+     * Deletes a route target group.
      *
      * @remarks
      * - The **DeleteRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been successfully deleted as the deletion task is still in progress in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
@@ -15656,7 +15620,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Deletes an SSL server.
+     * Deletes an SSL server. The system automatically deletes all SSL client certificates that are associated with the SSL server. In this case, the SSL-VPN connections of the clients on which the SSL client certificates are installed are automatically disconnected.
      *
      * @remarks
      *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
@@ -15725,7 +15689,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Deletes an SSL server.
+     * Deletes an SSL server. The system automatically deletes all SSL client certificates that are associated with the SSL server. In this case, the SSL-VPN connections of the clients on which the SSL client certificates are installed are automatically disconnected.
      *
      * @remarks
      *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
@@ -17299,7 +17263,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 设置实例删除保护功能。
+     * Set the deletion protection feature for an instance.
      *
      * @remarks
      * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
@@ -17373,7 +17337,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 设置实例删除保护功能。
+     * Set the deletion protection feature for an instance.
      *
      * @remarks
      * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
@@ -17560,7 +17524,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries Border Gateway Protocol (BGP) groups in a region.
+     * Queries BGP groups in a specified region.
      *
      * @param request - DescribeBgpGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17635,7 +17599,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries Border Gateway Protocol (BGP) groups in a region.
+     * Queries BGP groups in a specified region.
      *
      * @param request - DescribeBgpGroupsRequest
      *
@@ -18433,7 +18397,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
      *
      * @remarks
      * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
@@ -18507,7 +18471,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
      *
      * @remarks
      * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
@@ -19316,7 +19280,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries Global Accelerator (GA) instances.
+     * Queries created GA instances.
      *
      * @param request - DescribeGlobalAccelerationInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19411,7 +19375,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries Global Accelerator (GA) instances.
+     * Queries created GA instances.
      *
      * @param request - DescribeGlobalAccelerationInstancesRequest
      *
@@ -19429,7 +19393,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息.
+     * Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
      *
      * @param request - DescribeGrantRulesToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19508,7 +19472,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息.
+     * Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
      *
      * @param request - DescribeGrantRulesToCenRequest
      *
@@ -21078,7 +21042,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询物理专线LOA信息.
+     * Queries the LOA information about an Express Connect circuit.
      *
      * @param request - DescribePhysicalConnectionLOARequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21141,7 +21105,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询物理专线LOA信息.
+     * Queries the LOA information about an Express Connect circuit.
      *
      * @param request - DescribePhysicalConnectionLOARequest
      *
@@ -21962,7 +21926,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries Global Accelerator (GA) instances that are associated with a backend server.
+     * Queries the GA instances that are associated with a specified backend server.
      *
      * @remarks
      * > You can call this operation to query only dedicated-bandwidth GA instances.
@@ -22028,7 +21992,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries Global Accelerator (GA) instances that are associated with a backend server.
+     * Queries the GA instances that are associated with a specified backend server.
      *
      * @remarks
      * > You can call this operation to query only dedicated-bandwidth GA instances.
@@ -24645,7 +24609,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the log entries of an SSL server.
+     * Queries the log of an SSL server.
      *
      * @param request - DescribeVpnSslServerLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24728,7 +24692,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the log entries of an SSL server.
+     * Queries the log of an SSL server.
      *
      * @param request - DescribeVpnSslServerLogsRequest
      *
@@ -24827,7 +24791,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Disassociates a DHCP options set from a virtual private cloud (VPC).
+     * Disassociates a DHCP options set from a VPC.
      *
      * @remarks
      * ## [](#)Description
@@ -24905,7 +24869,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Disassociates a DHCP options set from a virtual private cloud (VPC).
+     * Disassociates a DHCP options set from a VPC.
      *
      * @remarks
      * ## [](#)Description
@@ -25098,7 +25062,9 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Disables ClassicLink for a virtual private cloud (VPC).
+     * Disables ClassicLink for a VPC.
+     *
+     * @deprecated OpenAPI DisableVpcClassicLink is deprecated
      *
      * @param request - DisableVpcClassicLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25160,8 +25126,11 @@ class Vpc extends OpenApiClient
         return DisableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Disables ClassicLink for a virtual private cloud (VPC).
+     * Disables ClassicLink for a VPC.
+     *
+     * @deprecated OpenAPI DisableVpcClassicLink is deprecated
      *
      * @param request - DisableVpcClassicLinkRequest
      *
@@ -25632,6 +25601,8 @@ class Vpc extends OpenApiClient
     /**
      * Enables ClassicLink for a VPC.
      *
+     * @deprecated OpenAPI EnableVpcClassicLink is deprecated
+     *
      * @param request - EnableVpcClassicLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -25692,8 +25663,11 @@ class Vpc extends OpenApiClient
         return EnableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Enables ClassicLink for a VPC.
+     *
+     * @deprecated OpenAPI EnableVpcClassicLink is deprecated
      *
      * @param request - EnableVpcClassicLinkRequest
      *
@@ -26144,7 +26118,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询是否开通了出云流量服务
+     * Checks whether outbound data transfer billing is enabled for the current account.
      *
      * @remarks
      * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
@@ -26202,7 +26176,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询是否开通了出云流量服务
+     * Checks whether outbound data transfer billing is enabled for the current account.
      *
      * @remarks
      * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
@@ -26304,7 +26278,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Get the route target group.
+     * Gets the information of a route target group.
      *
      * @remarks
      * Get the information of the route target group instance.
@@ -26358,7 +26332,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Get the route target group.
+     * Gets the information of a route target group.
      *
      * @remarks
      * Get the information of the route target group instance.
@@ -26792,7 +26766,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询路由类型的明细。
+     * Queries route types.
      *
      * @param request - GetVpcRouteEntrySummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26859,7 +26833,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询路由类型的明细。
+     * Queries route types.
      *
      * @param request - GetVpcRouteEntrySummaryRequest
      *
@@ -26952,7 +26926,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Grants permissions to a Cloud Enterprise Network (CEN) instance.
+     * Grants permissions to a CEN instance.
      *
      * @remarks
      *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
@@ -27032,7 +27006,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Grants permissions to a Cloud Enterprise Network (CEN) instance.
+     * Grants permissions to a CEN instance.
      *
      * @remarks
      *   Before you can attach a network instance that belongs to another Alibaba Cloud account to your CEN instance, you must grant permissions to your CEN instance.
@@ -27207,7 +27181,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Query the list of regions available for an Express Connect circuit.
+     * Queries the list of regions available for an Express Connect circuit.
      *
      * @param request - ListBusinessRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27246,7 +27220,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Query the list of regions available for an Express Connect circuit.
+     * Queries the list of regions available for an Express Connect circuit.
      *
      * @param request - ListBusinessRegionsRequest
      *
@@ -28211,7 +28185,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Querying the connection features supported by a Express Connect circuit.
+     * Queries he connection features supported by a Express Connect circuit.
      *
      * @param request - ListPhysicalConnectionFeaturesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28274,7 +28248,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Querying the connection features supported by a Express Connect circuit.
+     * Queries he connection features supported by a Express Connect circuit.
      *
      * @param request - ListPhysicalConnectionFeaturesRequest
      *
@@ -28389,7 +28363,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询IP地址池中的IP地址网段信息.
+     * Queries CIDR blocks in an IP address pool.
      *
      * @param request - ListPublicIpAddressPoolCidrBlocksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28464,7 +28438,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查询IP地址池中的IP地址网段信息.
+     * Queries CIDR blocks in an IP address pool.
      *
      * @param request - ListPublicIpAddressPoolCidrBlocksRequest
      *
@@ -28595,7 +28569,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Batch query for route target groups.
+     * Queries the list of route target groups.
      *
      * @remarks
      * Lists the route target groups.
@@ -28669,7 +28643,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Batch query for route target groups.
+     * Queries the list of route target groups.
      *
      * @remarks
      * Lists the route target groups.
@@ -29514,7 +29488,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries advertised routes.
+     * Query the route publishing status.
      *
      * @param request - ListVpcPublishedRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29597,7 +29571,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries advertised routes.
+     * Query the route publishing status.
      *
      * @param request - ListVpcPublishedRouteEntriesRequest
      *
@@ -34014,7 +33988,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改VSwitch属性.
+     * Modifies the name and description of a vSwitch.
      *
      * @remarks
      *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
@@ -34099,7 +34073,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改VSwitch属性.
+     * Modifies the name and description of a vSwitch.
      *
      * @remarks
      *   **ModifyVSwitchAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
@@ -34123,7 +34097,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改交换机预留网段的名称和描述信息。
+     * Modifies the name and description of a CIDR block reserved for a vSwitch.
      *
      * @remarks
      * ## [](#)Usage notes
@@ -34202,7 +34176,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改交换机预留网段的名称和描述信息。
+     * Modifies the name and description of a CIDR block reserved for a vSwitch.
      *
      * @remarks
      * ## [](#)Usage notes
@@ -34504,7 +34478,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a virtual private cloud (VPC).
+     * Modifies the configurations of a specified VPC.
      *
      * @remarks
      * ## [](#)Description
@@ -34595,7 +34569,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a virtual private cloud (VPC).
+     * Modifies the configurations of a specified VPC.
      *
      * @remarks
      * ## [](#)Description
@@ -35062,7 +35036,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a VPN gateway.
+     * Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
      *
      * @remarks
      *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
@@ -35143,7 +35117,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a VPN gateway.
+     * Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
      *
      * @remarks
      *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
@@ -36151,7 +36125,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Advertises VPC routes to an external component.
+     * Publish VPC Routes.
      *
      * @param request - PublishVpcRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36226,7 +36200,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Advertises VPC routes to an external component.
+     * Publish VPC Routes.
      *
      * @param request - PublishVpcRouteEntriesRequest
      *
@@ -36877,6 +36851,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Disassociates an EIP from a shared-bandwidth GA instance.
+     *
      * @param request - RemoveGlobalAccelerationInstanceIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -36938,6 +36914,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Disassociates an EIP from a shared-bandwidth GA instance.
+     *
      * @param request - RemoveGlobalAccelerationInstanceIpRequest
      *
      * @returns RemoveGlobalAccelerationInstanceIpResponse
@@ -37140,7 +37118,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 更改DHCP选项集与VPC的关联。
+     * Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
      *
      * @remarks
      *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
@@ -37217,7 +37195,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 更改DHCP选项集与VPC的关联。
+     * Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
      *
      * @remarks
      *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
@@ -37912,7 +37890,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Switch Active and Standby For RouteTargetGroup.
+     * Performs primary and secondary switchover for the route target group.
      *
      * @remarks
      * Switch Active and Standby For RouteTargetGroup.
@@ -37966,7 +37944,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Switch Active and Standby For RouteTargetGroup.
+     * Performs primary and secondary switchover for the route target group.
      *
      * @remarks
      * Switch Active and Standby For RouteTargetGroup.
@@ -39325,7 +39303,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改Dhcp选项集信息.
+     * Modifies the configuration of a DHCP options set.
      *
      * @param request - UpdateDhcpOptionsSetAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39416,7 +39394,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改Dhcp选项集信息.
+     * Modifies the configuration of a DHCP options set.
      *
      * @param request - UpdateDhcpOptionsSetAttributeRequest
      *
@@ -40206,7 +40184,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Update Route Target Group.
+     * Updates the information about a routing target group instance, including the name, description, and members that are not enabled.
      *
      * @remarks
      * - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
@@ -40270,7 +40248,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Update Route Target Group.
+     * Updates the information about a routing target group instance, including the name, description, and members that are not enabled.
      *
      * @remarks
      * - The **UpdateRouteTargetGroup** interface is an asynchronous API, meaning the system will return a request ID, but the route target group has not yet been fully updated, and the system\\"s background update task is still in progress. You can call ListRouteTargetGroup to query the update status of the route target group:
@@ -40392,7 +40370,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+     * Modifies the configuration of an inbound or outbound rule for traffic mirror.
      *
      * @remarks
      *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
@@ -40493,7 +40471,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of an inbound or outbound rule for traffic mirroring.
+     * Modifies the configuration of an inbound or outbound rule for traffic mirror.
      *
      * @remarks
      *   The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
@@ -40923,7 +40901,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查看eni quota.
+     * Queries the quota of endpoints that can be created in the reversely accessed VPC NAT gateway.
      *
      * @remarks
      * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
@@ -40993,7 +40971,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 查看eni quota.
+     * Queries the quota of endpoints that can be created in the reversely accessed VPC NAT gateway.
      *
      * @remarks
      * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
