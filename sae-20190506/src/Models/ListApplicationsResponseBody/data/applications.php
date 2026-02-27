@@ -76,6 +76,11 @@ class applications extends Model
     public $isStateful;
 
     /**
+     * @var string[]
+     */
+    public $labels;
+
+    /**
      * @var int
      */
     public $mem;
@@ -153,6 +158,7 @@ class applications extends Model
         'imageUrl' => 'ImageUrl',
         'instances' => 'Instances',
         'isStateful' => 'IsStateful',
+        'labels' => 'Labels',
         'mem' => 'Mem',
         'mseEnabled' => 'MseEnabled',
         'mseNamespaceId' => 'MseNamespaceId',
@@ -172,6 +178,9 @@ class applications extends Model
     {
         if (\is_array($this->children)) {
             Model::validateArray($this->children);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -239,6 +248,15 @@ class applications extends Model
 
         if (null !== $this->isStateful) {
             $res['IsStateful'] = $this->isStateful;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                foreach ($this->labels as $key1 => $value1) {
+                    $res['Labels'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->mem) {
@@ -368,6 +386,15 @@ class applications extends Model
 
         if (isset($map['IsStateful'])) {
             $model->isStateful = $map['IsStateful'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                foreach ($map['Labels'] as $key1 => $value1) {
+                    $model->labels[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['Mem'])) {
