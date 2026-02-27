@@ -696,6 +696,10 @@ class Starrocks extends OpenApiClient
             @$body['status'] = $request->status;
         }
 
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
