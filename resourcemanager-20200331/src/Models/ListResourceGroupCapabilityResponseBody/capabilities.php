@@ -11,6 +11,11 @@ class capabilities extends Model
     /**
      * @var string
      */
+    public $resourceCenterResourceType;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -23,6 +28,7 @@ class capabilities extends Model
      */
     public $supportResourceGroupEvent;
     protected $_name = [
+        'resourceCenterResourceType' => 'ResourceCenterResourceType',
         'resourceType' => 'ResourceType',
         'service' => 'Service',
         'supportResourceGroupEvent' => 'SupportResourceGroupEvent',
@@ -36,6 +42,10 @@ class capabilities extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->resourceCenterResourceType) {
+            $res['ResourceCenterResourceType'] = $this->resourceCenterResourceType;
+        }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -59,6 +69,10 @@ class capabilities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceCenterResourceType'])) {
+            $model->resourceCenterResourceType = $map['ResourceCenterResourceType'];
+        }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

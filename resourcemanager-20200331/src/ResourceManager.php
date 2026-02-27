@@ -323,6 +323,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Attaches an access control policy.
+     *
      * @remarks
      * After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
      * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
@@ -371,6 +373,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Attaches an access control policy.
+     *
      * @remarks
      * After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
      * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
@@ -473,7 +477,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 设置安全手机号.
+     * Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
      *
      * @remarks
      * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
@@ -525,7 +529,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 设置安全手机号.
+     * Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
      *
      * @remarks
      * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
@@ -548,7 +552,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 取消修改邮箱.
+     * Cancels the email address change of a member.
      *
      * @param request - CancelChangeAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -587,7 +591,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 取消修改邮箱.
+     * Cancels the email address change of a member.
      *
      * @param request - CancelChangeAccountEmailRequest
      *
@@ -605,7 +609,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 取消创建云账号类型的成员.
+     * Cancels the creation of a cloud account.
      *
      * @param request - CancelCreateCloudAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -644,7 +648,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 取消创建云账号类型的成员.
+     * Cancels the creation of a cloud account.
      *
      * @param request - CancelCreateCloudAccountRequest
      *
@@ -725,7 +729,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 取消升级资源账号.
+     * Cancels the upgrade from a resource account to a cloud account.
      *
      * @param request - CancelPromoteResourceAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -764,7 +768,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 取消升级资源账号.
+     * Cancels the upgrade from a resource account to a cloud account.
      *
      * @param request - CancelPromoteResourceAccountRequest
      *
@@ -782,7 +786,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 成员账号设置安全邮箱.
+     * Changes the email address that is bound to a member.
      *
      * @param request - ChangeAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -825,7 +829,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 成员账号设置安全邮箱.
+     * Changes the email address that is bound to a member.
      *
      * @param request - ChangeAccountEmailRequest
      *
@@ -1015,7 +1019,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 创建云账号.
+     * Creates a cloud account.
      *
      * @remarks
      * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
@@ -1072,7 +1076,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 创建云账号.
+     * Creates a cloud account.
      *
      * @remarks
      * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
@@ -1096,6 +1100,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Creates a custom access control policy.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
      *
@@ -1148,6 +1154,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Creates a custom access control policy.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
      *
@@ -1167,6 +1175,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Creates a folder.
+     *
      * @remarks
      * >  A maximum of five levels of folders can be created under the root folder.
      * In this example, a folder named `rdFolder` is created under the root folder.
@@ -1212,6 +1222,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Creates a folder.
+     *
      * @remarks
      * >  A maximum of five levels of folders can be created under the root folder.
      * In this example, a folder named `rdFolder` is created under the root folder.
@@ -1707,10 +1719,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 账号一键删除.
+     * Deletes a member of the resource account type.
      *
      * @remarks
-     * The ID of the member that you want to delete.
+     * Before you delete a member, we recommend that you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+     * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
      *
      * @param tmpReq - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1759,10 +1772,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 账号一键删除.
+     * Deletes a member of the resource account type.
      *
      * @remarks
-     * The ID of the member that you want to delete.
+     * Before you delete a member, we recommend that you call the [CheckAccountDelete](https://help.aliyun.com/document_detail/448542.html) and [GetAccountDeletionCheckResult](https://help.aliyun.com/document_detail/448775.html) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+     * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](https://help.aliyun.com/document_detail/449001.html) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
      *
      * @param request - DeleteAccountRequest
      *
@@ -1837,7 +1851,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 删除管控策略.
+     * Deletes a custom control policy.
      *
      * @remarks
      * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
@@ -1880,7 +1894,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 删除管控策略.
+     * Deletes a custom control policy.
      *
      * @remarks
      * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](https://help.aliyun.com/document_detail/208331.html) operation to detach the policy before you delete it.
@@ -1902,6 +1916,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Deletes a folder.
+     *
      * @remarks
      * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
      *
@@ -1942,6 +1958,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Deletes a folder.
+     *
      * @remarks
      * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
      *
@@ -2274,7 +2292,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 注销代理管理员.
+     * Removes a delegated administrator account for a trusted service.
      *
      * @remarks
      * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
@@ -2321,7 +2339,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 注销代理管理员.
+     * Removes a delegated administrator account for a trusted service.
      *
      * @remarks
      * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
@@ -2343,6 +2361,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Disables a resource directory. This operation cannot be undone. Therefore, exercise caution when you perform it.
+     *
      * @remarks
      * Before you disable a resource directory, make sure that the following requirements are met:
      * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
@@ -2376,6 +2396,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Disables a resource directory. This operation cannot be undone. Therefore, exercise caution when you perform it.
+     *
      * @remarks
      * Before you disable a resource directory, make sure that the following requirements are met:
      * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](https://help.aliyun.com/document_detail/159431.html).
@@ -2393,7 +2415,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 解绑管控策略.
+     * Detaches an access control policy.
      *
      * @remarks
      * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
@@ -2441,7 +2463,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 解绑管控策略.
+     * Detaches an access control policy.
      *
      * @remarks
      * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
@@ -2625,7 +2647,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 禁用管控策略.
+     * Disables the Control Policy feature.
      *
      * @remarks
      * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
@@ -2659,7 +2681,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 禁用管控策略.
+     * Disables the Control Policy feature.
      *
      * @remarks
      * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
@@ -2859,7 +2881,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 开启RD.
+     * Enables a resource directory.
      *
      * @remarks
      * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
@@ -2914,7 +2936,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 开启RD.
+     * Enables a resource directory.
      *
      * @remarks
      * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
@@ -2980,6 +3002,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a member.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
      *
@@ -3024,6 +3048,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a member.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
      *
@@ -3272,6 +3298,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the details of an access control policy.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
      *
@@ -3316,6 +3344,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the details of an access control policy.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
      *
@@ -3379,6 +3409,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a folder.
+     *
      * @remarks
      * In this example, the information of the folder `fd-Jyl5U7****` is queried.
      *
@@ -3419,6 +3451,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a folder.
+     *
      * @remarks
      * In this example, the information of the folder `fd-Jyl5U7****` is queried.
      *
@@ -3501,6 +3535,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a settlement account.
+     *
      * @param request - GetPayerForAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3538,6 +3574,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of a settlement account.
+     *
      * @param request - GetPayerForAccountRequest
      *
      * @returns GetPayerForAccountResponse
@@ -4351,6 +4389,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of all the parent folders of a specified folder. The system returns the information of the folders based on their top-down hierarchy.
+     *
      * @param request - ListAncestorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4388,6 +4428,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of all the parent folders of a specified folder. The system returns the information of the folders based on their top-down hierarchy.
+     *
      * @param request - ListAncestorsRequest
      *
      * @returns ListAncestorsResponse
@@ -4685,6 +4727,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the access control policies that are attached to a folder or member.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
      *
@@ -4729,6 +4773,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the access control policies that are attached to a folder or member.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
      *
@@ -4748,7 +4794,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出所有的代理管理员.
+     * Queries delegated administrator accounts.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
@@ -4798,7 +4844,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出所有的代理管理员.
+     * Queries delegated administrator accounts.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
@@ -4819,7 +4865,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查看指定账号被设置为哪些可信服务的委派管理员.
+     * Queries the trusted services for which a member is specified as a delegated administrator account.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
@@ -4861,7 +4907,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查看指定账号被设置为哪些可信服务的委派管理员.
+     * Queries the trusted services for which a member is specified as a delegated administrator account.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
@@ -4882,6 +4928,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of all subfolders of a folder.
+     *
      * @remarks
      * >  You can view the information of only the first-level subfolders of a folder.
      *
@@ -4934,6 +4982,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the information of all subfolders of a folder.
+     *
      * @remarks
      * >  You can view the information of only the first-level subfolders of a folder.
      *
@@ -5308,7 +5358,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出资源组能力项.
+     * Queries whether a specific resource type or a given cloud service supports resource group events.
      *
      * @param request - ListResourceGroupCapabilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5355,7 +5405,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出资源组能力项.
+     * Queries whether a specific resource type or a given cloud service supports resource group events.
      *
      * @param request - ListResourceGroupCapabilityRequest
      *
@@ -5373,6 +5423,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries resource groups.
+     *
      * @remarks
      * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
      * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
@@ -5446,6 +5498,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries resource groups.
+     *
      * @remarks
      * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
      * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
@@ -5466,7 +5520,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出资源组与用户授权信息.
+     * Queries resource groups and their user authorization information.
      *
      * @param request - ListResourceGroupsWithAuthDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5541,7 +5595,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出资源组与用户授权信息.
+     * Queries resource groups and their user authorization information.
      *
      * @param request - ListResourceGroupsWithAuthDetailsRequest
      *
@@ -5717,7 +5771,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出所有的Tag key.
+     * Queries tag keys.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
@@ -5771,7 +5825,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出所有的Tag key.
+     * Queries tag keys.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
@@ -5871,7 +5925,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出所有的Tag values.
+     * Queries the tag values of a tag key.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
@@ -5929,7 +5983,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 列出所有的Tag values.
+     * Queries the tag values of a tag key.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
@@ -6021,6 +6075,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the trusted services that are enabled within an enterprise management account or delegated administrator account.
+     *
      * @remarks
      * >  Only an enterprise management account or delegated administrator account can be used to call this operation.
      * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
@@ -6070,6 +6126,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Queries the trusted services that are enabled within an enterprise management account or delegated administrator account.
+     *
      * @remarks
      * >  Only an enterprise management account or delegated administrator account can be used to call this operation.
      * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
@@ -6090,7 +6148,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查询资源组事件.
+     * Queries the events of resource groups.
      *
      * @param request - LookupResourceGroupEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6157,7 +6215,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 查询资源组事件.
+     * Queries the events of resource groups.
      *
      * @param request - LookupResourceGroupEventsRequest
      *
@@ -6175,7 +6233,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 移动账号.
+     * Moves a member account from a folder to another.
      *
      * @param request - MoveAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6218,7 +6276,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 移动账号.
+     * Moves a member account from a folder to another.
      *
      * @param request - MoveAccountRequest
      *
@@ -6305,7 +6363,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 升级资源账号.
+     * Upgrades a resource account to a cloud account.
      *
      * @param request - PromoteResourceAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6348,7 +6406,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 升级资源账号.
+     * Upgrades a resource account to a cloud account.
      *
      * @param request - PromoteResourceAccountRequest
      *
@@ -6366,6 +6424,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+     *
      * @remarks
      * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
      * When you call this operation, you must take note of the following limits:
@@ -6415,6 +6475,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+     *
      * @remarks
      * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
      * When you call this operation, you must take note of the following limits:
@@ -6439,6 +6501,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Removes a member of the cloud account type. After you remove a member of the cloud account type, the member is no longer managed by the management account of the resource directory to which the member belonged.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
      *
@@ -6479,6 +6543,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Removes a member of the cloud account type. After you remove a member of the cloud account type, the member is no longer managed by the management account of the resource directory to which the member belonged.
+     *
      * @remarks
      * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
      *
@@ -6498,7 +6564,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 重新发送创建云账号的邮箱验证
+     * Resends an email that is used to confirm the creation of a cloud account.
      *
      * @param request - ResendCreateCloudAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6537,7 +6603,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 重新发送创建云账号的邮箱验证
+     * Resends an email that is used to confirm the creation of a cloud account.
      *
      * @param request - ResendCreateCloudAccountEmailRequest
      *
@@ -6555,7 +6621,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 重新发送升级资源账号的邮箱验证
+     * Resends an email that is used to confirm the upgrade from a resource account to a cloud account.
      *
      * @param request - ResendPromoteResourceAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6594,7 +6660,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 重新发送升级资源账号的邮箱验证
+     * Resends an email that is used to confirm the upgrade from a resource account to a cloud account.
      *
      * @param request - ResendPromoteResourceAccountEmailRequest
      *
@@ -6612,7 +6678,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 重新发送确认邮件.
+     * Resends a verification email for the email address change of a member.
      *
      * @param request - RetryChangeAccountEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6651,7 +6717,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 重新发送确认邮件.
+     * Resends a verification email for the email address change of a member.
      *
      * @param request - RetryChangeAccountEmailRequest
      *
@@ -6669,7 +6735,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 发送绑定安全手机验证码
+     * Sends a verification code to the mobile phone number that you want to bind to a resource account in a resource directory for security purposes.
      *
      * @remarks
      * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
@@ -6716,7 +6782,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 发送绑定安全手机验证码
+     * Sends a verification code to the mobile phone number that you want to bind to a resource account in a resource directory for security purposes.
      *
      * @remarks
      * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
@@ -6738,7 +6804,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 发送开启资源目录短信
+     * Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
      *
      * @remarks
      * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
@@ -6780,7 +6846,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 发送开启资源目录短信
+     * Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
      *
      * @remarks
      * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
@@ -6862,7 +6928,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 开启或关闭成员删除许可.
+     * Enables or disables the member deletion feature.
      *
      * @remarks
      * Members of the resource account type can be deleted only after the member deletion feature is enabled.
@@ -6904,7 +6970,7 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * 开启或关闭成员删除许可.
+     * Enables or disables the member deletion feature.
      *
      * @remarks
      * Members of the resource account type can be deleted only after the member deletion feature is enabled.
@@ -7071,6 +7137,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Changes the display name of a member, or switches the type of a member.
+     *
      * @remarks
      *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
      * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
@@ -7122,6 +7190,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Changes the display name of a member, or switches the type of a member.
+     *
      * @remarks
      *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
      * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
@@ -7369,6 +7439,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Updates a custom access control policy.
+     *
      * @remarks
      * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
      *
@@ -7421,6 +7493,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Updates a custom access control policy.
+     *
      * @remarks
      * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
      *
@@ -7440,6 +7514,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Changes the name of a folder.
+     *
      * @param request - UpdateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7481,6 +7557,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Changes the name of a folder.
+     *
      * @param request - UpdateFolderRequest
      *
      * @returns UpdateFolderResponse
@@ -7497,6 +7575,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Updates the basic information of a resource group.
+     *
      * @remarks
      * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
      *
@@ -7541,6 +7621,8 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
+     * Updates the basic information of a resource group.
+     *
      * @remarks
      * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
      *
