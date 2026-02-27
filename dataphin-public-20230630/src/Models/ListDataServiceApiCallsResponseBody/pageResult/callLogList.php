@@ -26,6 +26,11 @@ class callLogList extends Model
     /**
      * @var string
      */
+    public $appKeyStr;
+
+    /**
+     * @var string
+     */
     public $appName;
 
     /**
@@ -146,6 +151,7 @@ class callLogList extends Model
         'apiId' => 'ApiId',
         'apiName' => 'ApiName',
         'appKey' => 'AppKey',
+        'appKeyStr' => 'AppKeyStr',
         'appName' => 'AppName',
         'bizCode' => 'BizCode',
         'bizCodeDescription' => 'BizCodeDescription',
@@ -190,6 +196,10 @@ class callLogList extends Model
 
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+
+        if (null !== $this->appKeyStr) {
+            $res['AppKeyStr'] = $this->appKeyStr;
         }
 
         if (null !== $this->appName) {
@@ -309,6 +319,10 @@ class callLogList extends Model
 
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+
+        if (isset($map['AppKeyStr'])) {
+            $model->appKeyStr = $map['AppKeyStr'];
         }
 
         if (isset($map['AppName'])) {

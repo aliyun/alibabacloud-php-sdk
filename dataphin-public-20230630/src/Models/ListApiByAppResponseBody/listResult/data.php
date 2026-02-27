@@ -28,6 +28,11 @@ class data extends Model
     public $appName;
 
     /**
+     * @var string[]
+     */
+    public $authTypes;
+
+    /**
      * @var string
      */
     public $bizModuleEnName;
@@ -225,6 +230,7 @@ class data extends Model
         'apiNo' => 'ApiNo',
         'apiTimeout' => 'ApiTimeout',
         'appName' => 'AppName',
+        'authTypes' => 'AuthTypes',
         'bizModuleEnName' => 'BizModuleEnName',
         'cacheSwitch' => 'CacheSwitch',
         'cacheTime' => 'CacheTime',
@@ -268,6 +274,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->authTypes)) {
+            Model::validateArray($this->authTypes);
+        }
         if (\is_array($this->publicParamList)) {
             Model::validateArray($this->publicParamList);
         }
@@ -296,6 +305,17 @@ class data extends Model
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->authTypes) {
+            if (\is_array($this->authTypes)) {
+                $res['AuthTypes'] = [];
+                $n1 = 0;
+                foreach ($this->authTypes as $item1) {
+                    $res['AuthTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->bizModuleEnName) {
@@ -496,6 +516,17 @@ class data extends Model
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['AuthTypes'])) {
+            if (!empty($map['AuthTypes'])) {
+                $model->authTypes = [];
+                $n1 = 0;
+                foreach ($map['AuthTypes'] as $item1) {
+                    $model->authTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['BizModuleEnName'])) {

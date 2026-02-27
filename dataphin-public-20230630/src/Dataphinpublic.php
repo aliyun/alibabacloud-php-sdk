@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceAppMemberRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceAppMemberResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceAppMemberShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddDataServiceProjectMemberShrinkRequest;
@@ -71,6 +74,11 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainShrinkReque
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppGroupRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppGroupResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceShrinkRequest;
@@ -153,6 +161,10 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteComputeSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataDomainRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataDomainResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppGroupRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppGroupResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
@@ -279,6 +291,10 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppAuthorized
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppAuthorizedUsersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppGroupsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppGroupsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppMembersRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppMembersResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppsByGroupIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAppsByGroupIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceAuthorizedAppsByGroupIdRequest;
@@ -370,6 +386,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceByVersionRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetRowPermissionByTableGuidsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetRowPermissionByTableGuidsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetRowPermissionByTableGuidsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityClassifyRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityClassifyResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSecurityIdentifyResultRequest;
@@ -471,6 +490,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceApiCallStati
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceApiImpactsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceApiImpactsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceApiImpactsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceAppsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceAppsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceAppsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceAuthorizedAppsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceAuthorizedAppsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceAuthorizedAppsShrinkRequest;
@@ -592,6 +614,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListShrinkRequ
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveDataServiceAppMemberRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveDataServiceAppMemberResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveDataServiceAppMemberShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberShrinkRequest;
@@ -607,6 +632,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveUserGroupMemberShrink
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReplaceProjectWhiteListsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResetDataServiceAppSecretRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResetDataServiceAppSecretResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResetDataServiceAppSecretShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeShrinkRequest;
@@ -663,6 +691,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateComputeSourceShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppGroupRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppGroupResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppGroupShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppMemberRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppMemberResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppMemberShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoShrinkRequest;
@@ -790,6 +827,75 @@ class Dataphinpublic extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 新增数据服务应用的普通成员。
+     *
+     * @param tmpReq - AddDataServiceAppMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataServiceAppMemberResponse
+     *
+     * @param AddDataServiceAppMemberRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddDataServiceAppMemberResponse
+     */
+    public function addDataServiceAppMemberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddDataServiceAppMemberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddDataServiceAppMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDataServiceAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增数据服务应用的普通成员。
+     *
+     * @param request - AddDataServiceAppMemberRequest
+     *
+     * @returns AddDataServiceAppMemberResponse
+     *
+     * @param AddDataServiceAppMemberRequest $request
+     *
+     * @return AddDataServiceAppMemberResponse
+     */
+    public function addDataServiceAppMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataServiceAppMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -2369,6 +2475,136 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据服务应用。
+     *
+     * @param tmpReq - CreateDataServiceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataServiceAppResponse
+     *
+     * @param CreateDataServiceAppRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataServiceAppResponse
+     */
+    public function createDataServiceAppWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDataServiceAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataServiceApp',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataServiceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据服务应用。
+     *
+     * @param request - CreateDataServiceAppRequest
+     *
+     * @returns CreateDataServiceAppResponse
+     *
+     * @param CreateDataServiceAppRequest $request
+     *
+     * @return CreateDataServiceAppResponse
+     */
+    public function createDataServiceApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据服务应用分组。
+     *
+     * @param request - CreateDataServiceAppGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataServiceAppGroupResponse
+     *
+     * @param CreateDataServiceAppGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateDataServiceAppGroupResponse
+     */
+    public function createDataServiceAppGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataServiceAppGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataServiceAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据服务应用分组。
+     *
+     * @param request - CreateDataServiceAppGroupRequest
+     *
+     * @returns CreateDataServiceAppGroupResponse
+     *
+     * @param CreateDataServiceAppGroupRequest $request
+     *
+     * @return CreateDataServiceAppGroupResponse
+     */
+    public function createDataServiceAppGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceAppGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -4366,6 +4602,128 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据服务应用。
+     *
+     * @param request - DeleteDataServiceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataServiceAppResponse
+     *
+     * @param DeleteDataServiceAppRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDataServiceAppResponse
+     */
+    public function deleteDataServiceAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataServiceApp',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataServiceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据服务应用。
+     *
+     * @param request - DeleteDataServiceAppRequest
+     *
+     * @returns DeleteDataServiceAppResponse
+     *
+     * @param DeleteDataServiceAppRequest $request
+     *
+     * @return DeleteDataServiceAppResponse
+     */
+    public function deleteDataServiceApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataServiceAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除数据服务应用分组。
+     *
+     * @param request - DeleteDataServiceAppGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataServiceAppGroupResponse
+     *
+     * @param DeleteDataServiceAppGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteDataServiceAppGroupResponse
+     */
+    public function deleteDataServiceAppGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataServiceAppGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataServiceAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据服务应用分组。
+     *
+     * @param request - DeleteDataServiceAppGroupRequest
+     *
+     * @returns DeleteDataServiceAppGroupResponse
+     *
+     * @param DeleteDataServiceAppGroupRequest $request
+     *
+     * @return DeleteDataServiceAppGroupResponse
+     */
+    public function deleteDataServiceAppGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataServiceAppGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -7739,6 +8097,67 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 查询数据服务应用详情。
+     *
+     * @param request - GetDataServiceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAppResponse
+     *
+     * @param GetDataServiceAppRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDataServiceAppResponse
+     */
+    public function getDataServiceAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataServiceApp',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataServiceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据服务应用详情。
+     *
+     * @param request - GetDataServiceAppRequest
+     *
+     * @returns GetDataServiceAppResponse
+     *
+     * @param GetDataServiceAppRequest $request
+     *
+     * @return GetDataServiceAppResponse
+     */
+    public function getDataServiceApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataServiceAppWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取应用有权限的用户列表。
      *
      * @param request - GetDataServiceAppAuthorizedUsersRequest
@@ -7862,6 +8281,67 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataServiceAppGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据服务应用的成员列表。
+     *
+     * @param request - GetDataServiceAppMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataServiceAppMembersResponse
+     *
+     * @param GetDataServiceAppMembersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataServiceAppMembersResponse
+     */
+    public function getDataServiceAppMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataServiceAppMembers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataServiceAppMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据服务应用的成员列表。
+     *
+     * @param request - GetDataServiceAppMembersRequest
+     *
+     * @returns GetDataServiceAppMembersResponse
+     *
+     * @param GetDataServiceAppMembersRequest $request
+     *
+     * @return GetDataServiceAppMembersResponse
+     */
+    public function getDataServiceAppMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataServiceAppMembersWithOptions($request, $runtime);
     }
 
     /**
@@ -10631,6 +11111,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 根据表Guid检索行级权限.
+     *
+     * @param tmpReq - GetRowPermissionByTableGuidsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRowPermissionByTableGuidsResponse
+     *
+     * @param GetRowPermissionByTableGuidsRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetRowPermissionByTableGuidsResponse
+     */
+    public function getRowPermissionByTableGuidsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetRowPermissionByTableGuidsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->getRowPermissionByTableGuidsQuery) {
+            $request->getRowPermissionByTableGuidsQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->getRowPermissionByTableGuidsQuery, 'GetRowPermissionByTableGuidsQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->getRowPermissionByTableGuidsQueryShrink) {
+            @$body['GetRowPermissionByTableGuidsQuery'] = $request->getRowPermissionByTableGuidsQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRowPermissionByTableGuids',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRowPermissionByTableGuidsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据表Guid检索行级权限.
+     *
+     * @param request - GetRowPermissionByTableGuidsRequest
+     *
+     * @returns GetRowPermissionByTableGuidsResponse
+     *
+     * @param GetRowPermissionByTableGuidsRequest $request
+     *
+     * @return GetRowPermissionByTableGuidsResponse
+     */
+    public function getRowPermissionByTableGuids($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRowPermissionByTableGuidsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取数据分类详情。
      *
      * @param request - GetSecurityClassifyRequest
@@ -13304,6 +13853,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataServiceApiImpactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询租户下所有的应用列表。
+     *
+     * @param tmpReq - ListDataServiceAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataServiceAppsResponse
+     *
+     * @param ListDataServiceAppsRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataServiceAppsResponse
+     */
+    public function listDataServiceAppsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDataServiceAppsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataServiceApps',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataServiceAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询租户下所有的应用列表。
+     *
+     * @param request - ListDataServiceAppsRequest
+     *
+     * @returns ListDataServiceAppsResponse
+     *
+     * @param ListDataServiceAppsRequest $request
+     *
+     * @return ListDataServiceAppsResponse
+     */
+    public function listDataServiceApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataServiceAppsWithOptions($request, $runtime);
     }
 
     /**
@@ -16192,6 +16810,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 删除数据服务应用的普通成员。
+     *
+     * @param tmpReq - RemoveDataServiceAppMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveDataServiceAppMemberResponse
+     *
+     * @param RemoveDataServiceAppMemberRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RemoveDataServiceAppMemberResponse
+     */
+    public function removeDataServiceAppMemberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RemoveDataServiceAppMemberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDataServiceAppMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDataServiceAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据服务应用的普通成员。
+     *
+     * @param request - RemoveDataServiceAppMemberRequest
+     *
+     * @returns RemoveDataServiceAppMemberResponse
+     *
+     * @param RemoveDataServiceAppMemberRequest $request
+     *
+     * @return RemoveDataServiceAppMemberResponse
+     */
+    public function removeDataServiceAppMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDataServiceAppMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除项目成员。
      *
      * @param tmpReq - RemoveProjectMemberRequest
@@ -16542,6 +17229,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->replaceProjectWhiteListsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重置数据服务应用密钥。
+     *
+     * @param tmpReq - ResetDataServiceAppSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetDataServiceAppSecretResponse
+     *
+     * @param ResetDataServiceAppSecretRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ResetDataServiceAppSecretResponse
+     */
+    public function resetDataServiceAppSecretWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ResetDataServiceAppSecretShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResetDataServiceAppSecret',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetDataServiceAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置数据服务应用密钥。
+     *
+     * @param request - ResetDataServiceAppSecretRequest
+     *
+     * @returns ResetDataServiceAppSecretResponse
+     *
+     * @param ResetDataServiceAppSecretRequest $request
+     *
+     * @return ResetDataServiceAppSecretResponse
+     */
+    public function resetDataServiceAppSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetDataServiceAppSecretWithOptions($request, $runtime);
     }
 
     /**
@@ -17857,6 +18613,213 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据服务应用。
+     *
+     * @param tmpReq - UpdateDataServiceAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataServiceAppResponse
+     *
+     * @param UpdateDataServiceAppRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDataServiceAppResponse
+     */
+    public function updateDataServiceAppWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDataServiceAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataServiceApp',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataServiceAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据服务应用。
+     *
+     * @param request - UpdateDataServiceAppRequest
+     *
+     * @returns UpdateDataServiceAppResponse
+     *
+     * @param UpdateDataServiceAppRequest $request
+     *
+     * @return UpdateDataServiceAppResponse
+     */
+    public function updateDataServiceApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataServiceAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据服务应用分组。
+     *
+     * @param tmpReq - UpdateDataServiceAppGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataServiceAppGroupResponse
+     *
+     * @param UpdateDataServiceAppGroupRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateDataServiceAppGroupResponse
+     */
+    public function updateDataServiceAppGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDataServiceAppGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataServiceAppGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataServiceAppGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据服务应用分组。
+     *
+     * @param request - UpdateDataServiceAppGroupRequest
+     *
+     * @returns UpdateDataServiceAppGroupResponse
+     *
+     * @param UpdateDataServiceAppGroupRequest $request
+     *
+     * @return UpdateDataServiceAppGroupResponse
+     */
+    public function updateDataServiceAppGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataServiceAppGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新数据服务应用的普通成员。
+     *
+     * @param tmpReq - UpdateDataServiceAppMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataServiceAppMemberResponse
+     *
+     * @param UpdateDataServiceAppMemberRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateDataServiceAppMemberResponse
+     */
+    public function updateDataServiceAppMemberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDataServiceAppMemberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataServiceAppMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataServiceAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据服务应用的普通成员。
+     *
+     * @param request - UpdateDataServiceAppMemberRequest
+     *
+     * @returns UpdateDataServiceAppMemberResponse
+     *
+     * @param UpdateDataServiceAppMemberRequest $request
+     *
+     * @return UpdateDataServiceAppMemberResponse
+     */
+    public function updateDataServiceAppMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataServiceAppMemberWithOptions($request, $runtime);
     }
 
     /**

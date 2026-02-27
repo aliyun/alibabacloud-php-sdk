@@ -14,6 +14,11 @@ class listQuery extends Model
     public $appKey;
 
     /**
+     * @var string
+     */
+    public $appKeyStr;
+
+    /**
      * @var int
      */
     public $page;
@@ -24,6 +29,7 @@ class listQuery extends Model
     public $pageSize;
     protected $_name = [
         'appKey' => 'AppKey',
+        'appKeyStr' => 'AppKeyStr',
         'page' => 'Page',
         'pageSize' => 'PageSize',
     ];
@@ -38,6 +44,10 @@ class listQuery extends Model
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+
+        if (null !== $this->appKeyStr) {
+            $res['AppKeyStr'] = $this->appKeyStr;
         }
 
         if (null !== $this->page) {
@@ -61,6 +71,10 @@ class listQuery extends Model
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+
+        if (isset($map['AppKeyStr'])) {
+            $model->appKeyStr = $map['AppKeyStr'];
         }
 
         if (isset($map['Page'])) {

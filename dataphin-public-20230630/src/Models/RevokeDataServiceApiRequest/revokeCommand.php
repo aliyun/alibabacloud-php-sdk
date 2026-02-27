@@ -21,11 +21,35 @@ class revokeCommand extends Model
     /**
      * @var string
      */
+    public $authType;
+
+    /**
+     * @var string
+     */
+    public $env;
+
+    /**
+     * @var string
+     */
+    public $granteeType;
+
+    /**
+     * @var string
+     */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'apiId' => 'ApiId',
         'appId' => 'AppId',
+        'authType' => 'AuthType',
+        'env' => 'Env',
+        'granteeType' => 'GranteeType',
         'reason' => 'Reason',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -44,8 +68,24 @@ class revokeCommand extends Model
             $res['AppId'] = $this->appId;
         }
 
+        if (null !== $this->authType) {
+            $res['AuthType'] = $this->authType;
+        }
+
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
+        }
+
+        if (null !== $this->granteeType) {
+            $res['GranteeType'] = $this->granteeType;
+        }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -67,8 +107,24 @@ class revokeCommand extends Model
             $model->appId = $map['AppId'];
         }
 
+        if (isset($map['AuthType'])) {
+            $model->authType = $map['AuthType'];
+        }
+
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
+        }
+
+        if (isset($map['GranteeType'])) {
+            $model->granteeType = $map['GranteeType'];
+        }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

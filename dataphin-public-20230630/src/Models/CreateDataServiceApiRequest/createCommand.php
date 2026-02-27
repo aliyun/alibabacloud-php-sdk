@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiRequest\createCommand\dmlConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiRequest\createCommand\scriptDetails;
 
 class createCommand extends Model
@@ -55,6 +56,11 @@ class createCommand extends Model
     public $description;
 
     /**
+     * @var dmlConfig
+     */
+    public $dmlConfig;
+
+    /**
      * @var int
      */
     public $executionTimeout;
@@ -73,6 +79,16 @@ class createCommand extends Model
      * @var int
      */
     public $requestType;
+
+    /**
+     * @var bool
+     */
+    public $returnSqlSwitch;
+
+    /**
+     * @var int[]
+     */
+    public $rowPermissionIds;
 
     /**
      * @var scriptDetails
@@ -103,10 +119,13 @@ class createCommand extends Model
         'callMode' => 'CallMode',
         'customUpdateRate' => 'CustomUpdateRate',
         'description' => 'Description',
+        'dmlConfig' => 'DmlConfig',
         'executionTimeout' => 'ExecutionTimeout',
         'mode' => 'Mode',
         'projectId' => 'ProjectId',
         'requestType' => 'RequestType',
+        'returnSqlSwitch' => 'ReturnSqlSwitch',
+        'rowPermissionIds' => 'RowPermissionIds',
         'scriptDetails' => 'ScriptDetails',
         'timeout' => 'Timeout',
         'updateRate' => 'UpdateRate',
@@ -117,6 +136,12 @@ class createCommand extends Model
     {
         if (\is_array($this->bizProtocol)) {
             Model::validateArray($this->bizProtocol);
+        }
+        if (null !== $this->dmlConfig) {
+            $this->dmlConfig->validate();
+        }
+        if (\is_array($this->rowPermissionIds)) {
+            Model::validateArray($this->rowPermissionIds);
         }
         if (null !== $this->scriptDetails) {
             $this->scriptDetails->validate();
@@ -170,6 +195,10 @@ class createCommand extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->dmlConfig) {
+            $res['DmlConfig'] = null !== $this->dmlConfig ? $this->dmlConfig->toArray($noStream) : $this->dmlConfig;
+        }
+
         if (null !== $this->executionTimeout) {
             $res['ExecutionTimeout'] = $this->executionTimeout;
         }
@@ -184,6 +213,21 @@ class createCommand extends Model
 
         if (null !== $this->requestType) {
             $res['RequestType'] = $this->requestType;
+        }
+
+        if (null !== $this->returnSqlSwitch) {
+            $res['ReturnSqlSwitch'] = $this->returnSqlSwitch;
+        }
+
+        if (null !== $this->rowPermissionIds) {
+            if (\is_array($this->rowPermissionIds)) {
+                $res['RowPermissionIds'] = [];
+                $n1 = 0;
+                foreach ($this->rowPermissionIds as $item1) {
+                    $res['RowPermissionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->scriptDetails) {
@@ -256,6 +300,10 @@ class createCommand extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['DmlConfig'])) {
+            $model->dmlConfig = dmlConfig::fromMap($map['DmlConfig']);
+        }
+
         if (isset($map['ExecutionTimeout'])) {
             $model->executionTimeout = $map['ExecutionTimeout'];
         }
@@ -270,6 +318,21 @@ class createCommand extends Model
 
         if (isset($map['RequestType'])) {
             $model->requestType = $map['RequestType'];
+        }
+
+        if (isset($map['ReturnSqlSwitch'])) {
+            $model->returnSqlSwitch = $map['ReturnSqlSwitch'];
+        }
+
+        if (isset($map['RowPermissionIds'])) {
+            if (!empty($map['RowPermissionIds'])) {
+                $model->rowPermissionIds = [];
+                $n1 = 0;
+                foreach ($map['RowPermissionIds'] as $item1) {
+                    $model->rowPermissionIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ScriptDetails'])) {

@@ -31,6 +31,11 @@ class grantCommand extends Model
     public $applyProd;
 
     /**
+     * @var string[]
+     */
+    public $authTypes;
+
+    /**
      * @var devFieldList[]
      */
     public $devFieldList;
@@ -41,6 +46,11 @@ class grantCommand extends Model
     public $expireDate;
 
     /**
+     * @var string
+     */
+    public $granteeType;
+
+    /**
      * @var prodFieldList[]
      */
     public $prodFieldList;
@@ -49,19 +59,30 @@ class grantCommand extends Model
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'apiId' => 'ApiId',
         'appId' => 'AppId',
         'applyDev' => 'ApplyDev',
         'applyProd' => 'ApplyProd',
+        'authTypes' => 'AuthTypes',
         'devFieldList' => 'DevFieldList',
         'expireDate' => 'ExpireDate',
+        'granteeType' => 'GranteeType',
         'prodFieldList' => 'ProdFieldList',
         'reason' => 'Reason',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->authTypes)) {
+            Model::validateArray($this->authTypes);
+        }
         if (\is_array($this->devFieldList)) {
             Model::validateArray($this->devFieldList);
         }
@@ -90,6 +111,17 @@ class grantCommand extends Model
             $res['ApplyProd'] = $this->applyProd;
         }
 
+        if (null !== $this->authTypes) {
+            if (\is_array($this->authTypes)) {
+                $res['AuthTypes'] = [];
+                $n1 = 0;
+                foreach ($this->authTypes as $item1) {
+                    $res['AuthTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->devFieldList) {
             if (\is_array($this->devFieldList)) {
                 $res['DevFieldList'] = [];
@@ -105,6 +137,10 @@ class grantCommand extends Model
             $res['ExpireDate'] = $this->expireDate;
         }
 
+        if (null !== $this->granteeType) {
+            $res['GranteeType'] = $this->granteeType;
+        }
+
         if (null !== $this->prodFieldList) {
             if (\is_array($this->prodFieldList)) {
                 $res['ProdFieldList'] = [];
@@ -118,6 +154,10 @@ class grantCommand extends Model
 
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -147,6 +187,17 @@ class grantCommand extends Model
             $model->applyProd = $map['ApplyProd'];
         }
 
+        if (isset($map['AuthTypes'])) {
+            if (!empty($map['AuthTypes'])) {
+                $model->authTypes = [];
+                $n1 = 0;
+                foreach ($map['AuthTypes'] as $item1) {
+                    $model->authTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DevFieldList'])) {
             if (!empty($map['DevFieldList'])) {
                 $model->devFieldList = [];
@@ -162,6 +213,10 @@ class grantCommand extends Model
             $model->expireDate = $map['ExpireDate'];
         }
 
+        if (isset($map['GranteeType'])) {
+            $model->granteeType = $map['GranteeType'];
+        }
+
         if (isset($map['ProdFieldList'])) {
             if (!empty($map['ProdFieldList'])) {
                 $model->prodFieldList = [];
@@ -175,6 +230,10 @@ class grantCommand extends Model
 
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

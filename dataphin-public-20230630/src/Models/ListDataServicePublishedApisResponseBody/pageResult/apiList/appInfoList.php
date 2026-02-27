@@ -21,10 +21,16 @@ class appInfoList extends Model
     /**
      * @var string
      */
+    public $appKeyStr;
+
+    /**
+     * @var string
+     */
     public $appName;
     protected $_name = [
         'appId' => 'AppId',
         'appKey' => 'AppKey',
+        'appKeyStr' => 'AppKeyStr',
         'appName' => 'AppName',
     ];
 
@@ -42,6 +48,10 @@ class appInfoList extends Model
 
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+
+        if (null !== $this->appKeyStr) {
+            $res['AppKeyStr'] = $this->appKeyStr;
         }
 
         if (null !== $this->appName) {
@@ -65,6 +75,10 @@ class appInfoList extends Model
 
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+
+        if (isset($map['AppKeyStr'])) {
+            $model->appKeyStr = $map['AppKeyStr'];
         }
 
         if (isset($map['AppName'])) {

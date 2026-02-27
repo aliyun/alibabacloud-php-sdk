@@ -16,6 +16,11 @@ class pageQuery extends Model
     /**
      * @var string
      */
+    public $appKeyStr;
+
+    /**
+     * @var string
+     */
     public $keyword;
 
     /**
@@ -29,6 +34,7 @@ class pageQuery extends Model
     public $pageSize;
     protected $_name = [
         'appKey' => 'AppKey',
+        'appKeyStr' => 'AppKeyStr',
         'keyword' => 'Keyword',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
@@ -44,6 +50,10 @@ class pageQuery extends Model
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+
+        if (null !== $this->appKeyStr) {
+            $res['AppKeyStr'] = $this->appKeyStr;
         }
 
         if (null !== $this->keyword) {
@@ -71,6 +81,10 @@ class pageQuery extends Model
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+
+        if (isset($map['AppKeyStr'])) {
+            $model->appKeyStr = $map['AppKeyStr'];
         }
 
         if (isset($map['Keyword'])) {

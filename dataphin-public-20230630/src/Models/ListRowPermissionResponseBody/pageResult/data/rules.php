@@ -16,6 +16,11 @@ class rules extends Model
     public $expressions;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var bool
      */
     public $isDelete;
@@ -41,6 +46,7 @@ class rules extends Model
     public $userMappingList;
     protected $_name = [
         'expressions' => 'Expressions',
+        'id' => 'Id',
         'isDelete' => 'IsDelete',
         'ruleName' => 'RuleName',
         'scopeType' => 'ScopeType',
@@ -71,6 +77,10 @@ class rules extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         if (null !== $this->isDelete) {
@@ -120,6 +130,10 @@ class rules extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         if (isset($map['IsDelete'])) {

@@ -26,11 +26,17 @@ class scriptResponseParameters extends Model
     /**
      * @var string
      */
+    public $parameterLocation;
+
+    /**
+     * @var string
+     */
     public $parameterName;
     protected $_name = [
         'exampleValue' => 'ExampleValue',
         'parameterDataType' => 'ParameterDataType',
         'parameterDescription' => 'ParameterDescription',
+        'parameterLocation' => 'ParameterLocation',
         'parameterName' => 'ParameterName',
     ];
 
@@ -52,6 +58,10 @@ class scriptResponseParameters extends Model
 
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
+        }
+
+        if (null !== $this->parameterLocation) {
+            $res['ParameterLocation'] = $this->parameterLocation;
         }
 
         if (null !== $this->parameterName) {
@@ -79,6 +89,10 @@ class scriptResponseParameters extends Model
 
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
+        }
+
+        if (isset($map['ParameterLocation'])) {
+            $model->parameterLocation = $map['ParameterLocation'];
         }
 
         if (isset($map['ParameterName'])) {

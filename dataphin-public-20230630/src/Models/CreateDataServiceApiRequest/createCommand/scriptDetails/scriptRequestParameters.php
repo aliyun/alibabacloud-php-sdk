@@ -11,6 +11,11 @@ class scriptRequestParameters extends Model
     /**
      * @var string
      */
+    public $defaultValue;
+
+    /**
+     * @var string
+     */
     public $exampleValue;
 
     /**
@@ -38,6 +43,7 @@ class scriptRequestParameters extends Model
      */
     public $parameterValueType;
     protected $_name = [
+        'defaultValue' => 'DefaultValue',
         'exampleValue' => 'ExampleValue',
         'isRequiredParameter' => 'IsRequiredParameter',
         'parameterDataType' => 'ParameterDataType',
@@ -54,6 +60,10 @@ class scriptRequestParameters extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->defaultValue) {
+            $res['DefaultValue'] = $this->defaultValue;
+        }
+
         if (null !== $this->exampleValue) {
             $res['ExampleValue'] = $this->exampleValue;
         }
@@ -89,6 +99,10 @@ class scriptRequestParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultValue'])) {
+            $model->defaultValue = $map['DefaultValue'];
+        }
+
         if (isset($map['ExampleValue'])) {
             $model->exampleValue = $map['ExampleValue'];
         }

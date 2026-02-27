@@ -21,6 +21,26 @@ class applyCommand extends Model
     public $appId;
 
     /**
+     * @var bool
+     */
+    public $applyDev;
+
+    /**
+     * @var bool
+     */
+    public $applyProd;
+
+    /**
+     * @var string
+     */
+    public $applyType;
+
+    /**
+     * @var string[]
+     */
+    public $authTypes;
+
+    /**
      * @var devFieldList[]
      */
     public $devFieldList;
@@ -42,6 +62,10 @@ class applyCommand extends Model
     protected $_name = [
         'apiId' => 'ApiId',
         'appId' => 'AppId',
+        'applyDev' => 'ApplyDev',
+        'applyProd' => 'ApplyProd',
+        'applyType' => 'ApplyType',
+        'authTypes' => 'AuthTypes',
         'devFieldList' => 'DevFieldList',
         'expireDate' => 'ExpireDate',
         'prodFieldList' => 'ProdFieldList',
@@ -50,6 +74,9 @@ class applyCommand extends Model
 
     public function validate()
     {
+        if (\is_array($this->authTypes)) {
+            Model::validateArray($this->authTypes);
+        }
         if (\is_array($this->devFieldList)) {
             Model::validateArray($this->devFieldList);
         }
@@ -68,6 +95,29 @@ class applyCommand extends Model
 
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->applyDev) {
+            $res['ApplyDev'] = $this->applyDev;
+        }
+
+        if (null !== $this->applyProd) {
+            $res['ApplyProd'] = $this->applyProd;
+        }
+
+        if (null !== $this->applyType) {
+            $res['ApplyType'] = $this->applyType;
+        }
+
+        if (null !== $this->authTypes) {
+            if (\is_array($this->authTypes)) {
+                $res['AuthTypes'] = [];
+                $n1 = 0;
+                foreach ($this->authTypes as $item1) {
+                    $res['AuthTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->devFieldList) {
@@ -117,6 +167,29 @@ class applyCommand extends Model
 
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['ApplyDev'])) {
+            $model->applyDev = $map['ApplyDev'];
+        }
+
+        if (isset($map['ApplyProd'])) {
+            $model->applyProd = $map['ApplyProd'];
+        }
+
+        if (isset($map['ApplyType'])) {
+            $model->applyType = $map['ApplyType'];
+        }
+
+        if (isset($map['AuthTypes'])) {
+            if (!empty($map['AuthTypes'])) {
+                $model->authTypes = [];
+                $n1 = 0;
+                foreach ($map['AuthTypes'] as $item1) {
+                    $model->authTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DevFieldList'])) {
