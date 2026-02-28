@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\ports;
+use AlibabaCloud\SDK\APIG\V20240327\Models\Service\versions;
 
 class Service extends Model
 {
@@ -113,6 +114,11 @@ class Service extends Model
      * @var int
      */
     public $updateTimestamp;
+
+    /**
+     * @var versions[]
+     */
+    public $versions;
     protected $_name = [
         'addresses' => 'addresses',
         'agentServiceConfig' => 'agentServiceConfig',
@@ -135,6 +141,7 @@ class Service extends Model
         'sourceType' => 'sourceType',
         'unhealthyEndpoints' => 'unhealthyEndpoints',
         'updateTimestamp' => 'updateTimestamp',
+        'versions' => 'versions',
     ];
 
     public function validate()
@@ -162,6 +169,9 @@ class Service extends Model
         }
         if (\is_array($this->unhealthyEndpoints)) {
             Model::validateArray($this->unhealthyEndpoints);
+        }
+        if (\is_array($this->versions)) {
+            Model::validateArray($this->versions);
         }
         parent::validate();
     }
@@ -286,6 +296,17 @@ class Service extends Model
 
         if (null !== $this->updateTimestamp) {
             $res['updateTimestamp'] = $this->updateTimestamp;
+        }
+
+        if (null !== $this->versions) {
+            if (\is_array($this->versions)) {
+                $res['versions'] = [];
+                $n1 = 0;
+                foreach ($this->versions as $item1) {
+                    $res['versions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -416,6 +437,17 @@ class Service extends Model
 
         if (isset($map['updateTimestamp'])) {
             $model->updateTimestamp = $map['updateTimestamp'];
+        }
+
+        if (isset($map['versions'])) {
+            if (!empty($map['versions'])) {
+                $model->versions = [];
+                $n1 = 0;
+                foreach ($map['versions'] as $item1) {
+                    $model->versions[$n1] = versions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

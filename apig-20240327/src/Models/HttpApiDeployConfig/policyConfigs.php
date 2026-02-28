@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiFallbackConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiSecurityGuardConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiStatisticsConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs\aiTokenRateLimitConfig;
 
 class policyConfigs extends Model
@@ -20,6 +21,11 @@ class policyConfigs extends Model
      * @var aiSecurityGuardConfig
      */
     public $aiSecurityGuardConfig;
+
+    /**
+     * @var aiStatisticsConfig
+     */
+    public $aiStatisticsConfig;
 
     /**
      * @var aiTokenRateLimitConfig
@@ -38,6 +44,7 @@ class policyConfigs extends Model
     protected $_name = [
         'aiFallbackConfig' => 'aiFallbackConfig',
         'aiSecurityGuardConfig' => 'aiSecurityGuardConfig',
+        'aiStatisticsConfig' => 'aiStatisticsConfig',
         'aiTokenRateLimitConfig' => 'aiTokenRateLimitConfig',
         'enable' => 'enable',
         'type' => 'type',
@@ -50,6 +57,9 @@ class policyConfigs extends Model
         }
         if (null !== $this->aiSecurityGuardConfig) {
             $this->aiSecurityGuardConfig->validate();
+        }
+        if (null !== $this->aiStatisticsConfig) {
+            $this->aiStatisticsConfig->validate();
         }
         if (null !== $this->aiTokenRateLimitConfig) {
             $this->aiTokenRateLimitConfig->validate();
@@ -66,6 +76,10 @@ class policyConfigs extends Model
 
         if (null !== $this->aiSecurityGuardConfig) {
             $res['aiSecurityGuardConfig'] = null !== $this->aiSecurityGuardConfig ? $this->aiSecurityGuardConfig->toArray($noStream) : $this->aiSecurityGuardConfig;
+        }
+
+        if (null !== $this->aiStatisticsConfig) {
+            $res['aiStatisticsConfig'] = null !== $this->aiStatisticsConfig ? $this->aiStatisticsConfig->toArray($noStream) : $this->aiStatisticsConfig;
         }
 
         if (null !== $this->aiTokenRateLimitConfig) {
@@ -97,6 +111,10 @@ class policyConfigs extends Model
 
         if (isset($map['aiSecurityGuardConfig'])) {
             $model->aiSecurityGuardConfig = aiSecurityGuardConfig::fromMap($map['aiSecurityGuardConfig']);
+        }
+
+        if (isset($map['aiStatisticsConfig'])) {
+            $model->aiStatisticsConfig = aiStatisticsConfig::fromMap($map['aiStatisticsConfig']);
         }
 
         if (isset($map['aiTokenRateLimitConfig'])) {
