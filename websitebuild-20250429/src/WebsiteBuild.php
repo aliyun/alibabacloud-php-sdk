@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerRequest;
@@ -1026,6 +1028,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生码-获取插件配置信息.
+     *
+     * @param request - GetAppPluginConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppPluginConfigResponse
+     *
+     * @param GetAppPluginConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAppPluginConfigResponse
+     */
+    public function getAppPluginConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->pluginId) {
+            @$body['PluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppPluginConfig',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppPluginConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生码-获取插件配置信息.
+     *
+     * @param request - GetAppPluginConfigRequest
+     *
+     * @returns GetAppPluginConfigResponse
+     *
+     * @param GetAppPluginConfigRequest $request
+     *
+     * @return GetAppPluginConfigResponse
+     */
+    public function getAppPluginConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppPluginConfigWithOptions($request, $runtime);
     }
 
     /**
