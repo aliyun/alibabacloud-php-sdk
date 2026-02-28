@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RetrySoundCodeLabelBatchResponseBody extends Model
 {
     /**
-     * @example iot.soundcodeservice.NotSigned
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example sound code service has not been signed
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example 66FF51D3-***-49F1-B1A2-***
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -65,23 +61,26 @@ class RetrySoundCodeLabelBatchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RetrySoundCodeLabelBatchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListResponseBody\data\list_;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechListResponseBody\data\list_\items\speechList;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @example wav
-     *
      * @var string
      */
     public $audioFormat;
 
     /**
-     * @example identifying
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $speechCode;
@@ -36,60 +30,64 @@ class items extends Model
     public $speechList;
 
     /**
-     * @example custom
-     *
      * @var string
      */
     public $speechType;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @example Siyue
-     *
      * @var string
      */
     public $voice;
     protected $_name = [
         'audioFormat' => 'AudioFormat',
-        'bizCode'     => 'BizCode',
-        'speechCode'  => 'SpeechCode',
-        'speechList'  => 'SpeechList',
-        'speechType'  => 'SpeechType',
-        'text'        => 'Text',
-        'voice'       => 'Voice',
+        'bizCode' => 'BizCode',
+        'speechCode' => 'SpeechCode',
+        'speechList' => 'SpeechList',
+        'speechType' => 'SpeechType',
+        'text' => 'Text',
+        'voice' => 'Voice',
     ];
 
     public function validate()
     {
+        if (null !== $this->speechList) {
+            $this->speechList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioFormat) {
             $res['AudioFormat'] = $this->audioFormat;
         }
+
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->speechCode) {
             $res['SpeechCode'] = $this->speechCode;
         }
+
         if (null !== $this->speechList) {
-            $res['SpeechList'] = null !== $this->speechList ? $this->speechList->toMap() : null;
+            $res['SpeechList'] = null !== $this->speechList ? $this->speechList->toArray($noStream) : $this->speechList;
         }
+
         if (null !== $this->speechType) {
             $res['SpeechType'] = $this->speechType;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->voice) {
             $res['Voice'] = $this->voice;
         }
@@ -97,32 +95,38 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioFormat'])) {
             $model->audioFormat = $map['AudioFormat'];
         }
+
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['SpeechCode'])) {
             $model->speechCode = $map['SpeechCode'];
         }
+
         if (isset($map['SpeechList'])) {
             $model->speechList = speechList::fromMap($map['SpeechList']);
         }
+
         if (isset($map['SpeechType'])) {
             $model->speechType = $map['SpeechType'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['Voice'])) {
             $model->voice = $map['Voice'];
         }

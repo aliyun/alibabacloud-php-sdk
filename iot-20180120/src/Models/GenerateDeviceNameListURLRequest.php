@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateDeviceNameListURLRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to configure this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -26,9 +18,10 @@ class GenerateDeviceNameListURLRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
@@ -38,11 +31,11 @@ class GenerateDeviceNameListURLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateDeviceNameListURLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

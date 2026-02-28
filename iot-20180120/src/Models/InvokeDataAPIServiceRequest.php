@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\InvokeDataAPIServiceRequest\param;
-use AlibabaCloud\Tea\Model;
 
 class InvokeDataAPIServiceRequest extends Model
 {
     /**
-     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
-     *
      * @var string
      */
     public $apiSrn;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -28,30 +24,37 @@ class InvokeDataAPIServiceRequest extends Model
      */
     public $param;
     protected $_name = [
-        'apiSrn'        => 'ApiSrn',
+        'apiSrn' => 'ApiSrn',
         'iotInstanceId' => 'IotInstanceId',
-        'param'         => 'Param',
+        'param' => 'Param',
     ];
 
     public function validate()
     {
+        if (\is_array($this->param)) {
+            Model::validateArray($this->param);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiSrn) {
             $res['ApiSrn'] = $this->apiSrn;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->param) {
-            $res['Param'] = [];
-            if (null !== $this->param && \is_array($this->param)) {
-                $n = 0;
-                foreach ($this->param as $item) {
-                    $res['Param'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->param)) {
+                $res['Param'] = [];
+                $n1 = 0;
+                foreach ($this->param as $item1) {
+                    $res['Param'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,26 +62,29 @@ class InvokeDataAPIServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokeDataAPIServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiSrn'])) {
             $model->apiSrn = $map['ApiSrn'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['Param'])) {
             if (!empty($map['Param'])) {
                 $model->param = [];
-                $n            = 0;
-                foreach ($map['Param'] as $item) {
-                    $model->param[$n++] = null !== $item ? param::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Param'] as $item1) {
+                    $model->param[$n1] = param::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

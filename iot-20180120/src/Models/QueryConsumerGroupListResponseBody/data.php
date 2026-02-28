@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryConsumerGroupListResponseBody\data\consumerGroupDTO;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->consumerGroupDTO)) {
+            Model::validateArray($this->consumerGroupDTO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerGroupDTO) {
-            $res['ConsumerGroupDTO'] = [];
-            if (null !== $this->consumerGroupDTO && \is_array($this->consumerGroupDTO)) {
-                $n = 0;
-                foreach ($this->consumerGroupDTO as $item) {
-                    $res['ConsumerGroupDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->consumerGroupDTO)) {
+                $res['ConsumerGroupDTO'] = [];
+                $n1 = 0;
+                foreach ($this->consumerGroupDTO as $item1) {
+                    $res['ConsumerGroupDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsumerGroupDTO'])) {
             if (!empty($map['ConsumerGroupDTO'])) {
                 $model->consumerGroupDTO = [];
-                $n                       = 0;
-                foreach ($map['ConsumerGroupDTO'] as $item) {
-                    $model->consumerGroupDTO[$n++] = null !== $item ? consumerGroupDTO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConsumerGroupDTO'] as $item1) {
+                    $model->consumerGroupDTO[$n1] = consumerGroupDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

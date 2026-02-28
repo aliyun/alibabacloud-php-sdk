@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class soundCodeConfig extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $additionalDuration;
 
     /**
-     * @example www.taobao.com
-     *
      * @var string
      */
     public $soundCodeContent;
     protected $_name = [
         'additionalDuration' => 'AdditionalDuration',
-        'soundCodeContent'   => 'SoundCodeContent',
+        'soundCodeContent' => 'SoundCodeContent',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalDuration) {
             $res['AdditionalDuration'] = $this->additionalDuration;
         }
+
         if (null !== $this->soundCodeContent) {
             $res['SoundCodeContent'] = $this->soundCodeContent;
         }
@@ -43,17 +41,18 @@ class soundCodeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return soundCodeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalDuration'])) {
             $model->additionalDuration = $map['AdditionalDuration'];
         }
+
         if (isset($map['SoundCodeContent'])) {
             $model->soundCodeContent = $map['SoundCodeContent'];
         }

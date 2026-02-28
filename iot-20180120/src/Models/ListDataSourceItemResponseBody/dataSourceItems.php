@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListDataSourceItemResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListDataSourceItemResponseBody\dataSourceItems\dataSourceItem;
-use AlibabaCloud\Tea\Model;
 
 class dataSourceItems extends Model
 {
@@ -19,17 +19,22 @@ class dataSourceItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataSourceItem)) {
+            Model::validateArray($this->dataSourceItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceItem) {
-            $res['dataSourceItem'] = [];
-            if (null !== $this->dataSourceItem && \is_array($this->dataSourceItem)) {
-                $n = 0;
-                foreach ($this->dataSourceItem as $item) {
-                    $res['dataSourceItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSourceItem)) {
+                $res['dataSourceItem'] = [];
+                $n1 = 0;
+                foreach ($this->dataSourceItem as $item1) {
+                    $res['dataSourceItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class dataSourceItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSourceItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSourceItem'])) {
             if (!empty($map['dataSourceItem'])) {
                 $model->dataSourceItem = [];
-                $n                     = 0;
-                foreach ($map['dataSourceItem'] as $item) {
-                    $model->dataSourceItem[$n++] = null !== $item ? dataSourceItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dataSourceItem'] as $item1) {
+                    $model->dataSourceItem[$n1] = dataSourceItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

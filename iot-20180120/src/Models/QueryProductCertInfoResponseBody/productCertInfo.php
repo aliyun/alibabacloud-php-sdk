@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryProductCertInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class productCertInfo extends Model
 {
     /**
-     * @description The source from which the X.509 certificate is issued.
-     *
-     *   **1**: The X.509 certificate is issued by IoT Platform.
-     *   **3**: The X.509 certificate is issued by a third-party platform.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $issueModel;
@@ -25,9 +18,10 @@ class productCertInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->issueModel) {
@@ -37,11 +31,11 @@ class productCertInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productCertInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

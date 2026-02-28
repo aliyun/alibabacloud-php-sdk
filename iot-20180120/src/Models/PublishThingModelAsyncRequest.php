@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishThingModelAsyncRequest extends Model
 {
@@ -28,28 +28,32 @@ class PublishThingModelAsyncRequest extends Model
      */
     public $thingModelVersion;
     protected $_name = [
-        'description'       => 'Description',
-        'iotInstanceId'     => 'IotInstanceId',
-        'productKey'        => 'ProductKey',
+        'description' => 'Description',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey' => 'ProductKey',
         'thingModelVersion' => 'ThingModelVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+
         if (null !== $this->thingModelVersion) {
             $res['ThingModelVersion'] = $this->thingModelVersion;
         }
@@ -57,23 +61,26 @@ class PublishThingModelAsyncRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishThingModelAsyncRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
+
         if (isset($map['ThingModelVersion'])) {
             $model->thingModelVersion = $map['ThingModelVersion'];
         }

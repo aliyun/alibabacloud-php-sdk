@@ -4,104 +4,106 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SyncSpeechByCombinationRequest extends Model
 {
     /**
-     * @example wav
-     *
      * @var string
      */
     public $audioFormat;
 
     /**
-     * @example ZFBDZ
-     *
      * @var string[]
      */
     public $combinationList;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $enforceFlag;
 
     /**
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example 42000011392021112380********
-     *
      * @var string
      */
     public $speechId;
     protected $_name = [
-        'audioFormat'     => 'AudioFormat',
+        'audioFormat' => 'AudioFormat',
         'combinationList' => 'CombinationList',
-        'deviceName'      => 'DeviceName',
-        'enforceFlag'     => 'EnforceFlag',
-        'iotId'           => 'IotId',
-        'iotInstanceId'   => 'IotInstanceId',
-        'productKey'      => 'ProductKey',
-        'speechId'        => 'SpeechId',
+        'deviceName' => 'DeviceName',
+        'enforceFlag' => 'EnforceFlag',
+        'iotId' => 'IotId',
+        'iotInstanceId' => 'IotInstanceId',
+        'productKey' => 'ProductKey',
+        'speechId' => 'SpeechId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->combinationList)) {
+            Model::validateArray($this->combinationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioFormat) {
             $res['AudioFormat'] = $this->audioFormat;
         }
+
         if (null !== $this->combinationList) {
-            $res['CombinationList'] = $this->combinationList;
+            if (\is_array($this->combinationList)) {
+                $res['CombinationList'] = [];
+                $n1 = 0;
+                foreach ($this->combinationList as $item1) {
+                    $res['CombinationList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->enforceFlag) {
             $res['EnforceFlag'] = $this->enforceFlag;
         }
+
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+
         if (null !== $this->speechId) {
             $res['SpeechId'] = $this->speechId;
         }
@@ -109,37 +111,49 @@ class SyncSpeechByCombinationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SyncSpeechByCombinationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioFormat'])) {
             $model->audioFormat = $map['AudioFormat'];
         }
+
         if (isset($map['CombinationList'])) {
             if (!empty($map['CombinationList'])) {
-                $model->combinationList = $map['CombinationList'];
+                $model->combinationList = [];
+                $n1 = 0;
+                foreach ($map['CombinationList'] as $item1) {
+                    $model->combinationList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['EnforceFlag'])) {
             $model->enforceFlag = $map['EnforceFlag'];
         }
+
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
+
         if (isset($map['SpeechId'])) {
             $model->speechId = $map['SpeechId'];
         }

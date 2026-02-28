@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDeviceDistributeDetailRequest extends Model
 {
     /**
-     * @description The ID of the distribution task. The ID globally identifies the task.
-     *
-     * @example UbmsMHmkqv0PiAG****010001
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +18,10 @@ class QueryDeviceDistributeDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class QueryDeviceDistributeDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDeviceDistributeDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

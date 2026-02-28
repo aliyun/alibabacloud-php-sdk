@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceSpeechResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example wav
-     *
      * @var string
      */
     public $audioFormat;
 
     /**
-     * @example ZFDZ
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @example 16
-     *
      * @var float
      */
     public $size;
     protected $_name = [
         'audioFormat' => 'AudioFormat',
-        'bizCode'     => 'BizCode',
-        'size'        => 'Size',
+        'bizCode' => 'BizCode',
+        'size' => 'Size',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioFormat) {
             $res['AudioFormat'] = $this->audioFormat;
         }
+
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -54,20 +51,22 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioFormat'])) {
             $model->audioFormat = $map['AudioFormat'];
         }
+
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

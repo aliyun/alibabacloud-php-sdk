@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetEdgeInstanceDriverConfigsRequest\configs;
-use AlibabaCloud\Tea\Model;
 
 class SetEdgeInstanceDriverConfigsRequest extends Model
 {
@@ -15,54 +15,56 @@ class SetEdgeInstanceDriverConfigsRequest extends Model
     public $configs;
 
     /**
-     * @example 021d154d2a2f4dd7a489773d9e04****
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example F3APY0tPLhmgGtx0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'configs'       => 'Configs',
-        'driverId'      => 'DriverId',
-        'instanceId'    => 'InstanceId',
+        'configs' => 'Configs',
+        'driverId' => 'DriverId',
+        'instanceId' => 'InstanceId',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->configs)) {
+            Model::validateArray($this->configs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configs) {
-            $res['Configs'] = [];
-            if (null !== $this->configs && \is_array($this->configs)) {
-                $n = 0;
-                foreach ($this->configs as $item) {
-                    $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configs)) {
+                $res['Configs'] = [];
+                $n1 = 0;
+                foreach ($this->configs as $item1) {
+                    $res['Configs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->driverId) {
             $res['DriverId'] = $this->driverId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -70,29 +72,33 @@ class SetEdgeInstanceDriverConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetEdgeInstanceDriverConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configs'])) {
             if (!empty($map['Configs'])) {
                 $model->configs = [];
-                $n              = 0;
-                foreach ($map['Configs'] as $item) {
-                    $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Configs'] as $item1) {
+                    $model->configs[$n1] = configs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DriverId'])) {
             $model->driverId = $map['DriverId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

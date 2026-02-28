@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupByTagsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceGroup extends Model
 {
     /**
-     * @description The ID of the group.
-     *
-     * @example Z0ElGF5aqc0t****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the group.
-     *
-     * @example test11
-     *
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -47,17 +41,18 @@ class deviceGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

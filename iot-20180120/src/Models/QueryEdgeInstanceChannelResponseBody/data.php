@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceChannelResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceChannelResponseBody\data\channelList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,48 +15,49 @@ class data extends Model
     public $channelList;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'channelList' => 'ChannelList',
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'total'       => 'Total',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (null !== $this->channelList) {
+            $this->channelList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelList) {
-            $res['ChannelList'] = null !== $this->channelList ? $this->channelList->toMap() : null;
+            $res['ChannelList'] = null !== $this->channelList ? $this->channelList->toArray($noStream) : $this->channelList;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -64,23 +65,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelList'])) {
             $model->channelList = channelList::fromMap($map['ChannelList']);
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

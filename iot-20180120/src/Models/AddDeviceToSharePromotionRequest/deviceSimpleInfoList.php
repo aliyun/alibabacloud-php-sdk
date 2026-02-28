@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\AddDeviceToSharePromotionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceSimpleInfoList extends Model
 {
     /**
-     * @example device01
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example a2YwD2****
-     *
      * @var string
      */
     public $productKey;
@@ -28,14 +24,16 @@ class deviceSimpleInfoList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -43,17 +41,18 @@ class deviceSimpleInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceSimpleInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

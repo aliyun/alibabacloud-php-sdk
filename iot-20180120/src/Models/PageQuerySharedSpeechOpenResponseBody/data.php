@@ -4,67 +4,60 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\PageQuerySharedSpeechOpenResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\PageQuerySharedSpeechOpenResponseBody\data\resultData;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageId;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The information about shared speeches.
-     *
      * @var resultData
      */
     public $resultData;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'pageId'     => 'PageId',
-        'pageSize'   => 'PageSize',
+        'pageId' => 'PageId',
+        'pageSize' => 'PageSize',
         'resultData' => 'ResultData',
-        'total'      => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (null !== $this->resultData) {
+            $this->resultData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageId) {
             $res['PageId'] = $this->pageId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resultData) {
-            $res['ResultData'] = null !== $this->resultData ? $this->resultData->toMap() : null;
+            $res['ResultData'] = null !== $this->resultData ? $this->resultData->toArray($noStream) : $this->resultData;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -72,23 +65,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageId'])) {
             $model->pageId = $map['PageId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResultData'])) {
             $model->resultData = resultData::fromMap($map['ResultData']);
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

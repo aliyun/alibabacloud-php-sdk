@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListAnalyticsDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $hasNext;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $pageSize;
@@ -41,32 +33,37 @@ class data extends Model
      */
     public $resultJson;
     protected $_name = [
-        'count'      => 'Count',
-        'hasNext'    => 'HasNext',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
+        'count' => 'Count',
+        'hasNext' => 'HasNext',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'resultJson' => 'ResultJson',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->hasNext) {
             $res['HasNext'] = $this->hasNext;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resultJson) {
             $res['ResultJson'] = $this->resultJson;
         }
@@ -74,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['HasNext'])) {
             $model->hasNext = $map['HasNext'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResultJson'])) {
             $model->resultJson = $map['ResultJson'];
         }

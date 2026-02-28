@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSoundCodeAudioRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string[]
      */
     public $soundCodeList;
@@ -28,35 +24,53 @@ class GetSoundCodeAudioRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->soundCodeList)) {
+            Model::validateArray($this->soundCodeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->soundCodeList) {
-            $res['SoundCodeList'] = $this->soundCodeList;
+            if (\is_array($this->soundCodeList)) {
+                $res['SoundCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->soundCodeList as $item1) {
+                    $res['SoundCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSoundCodeAudioRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['SoundCodeList'])) {
             if (!empty($map['SoundCodeList'])) {
-                $model->soundCodeList = $map['SoundCodeList'];
+                $model->soundCodeList = [];
+                $n1 = 0;
+                foreach ($map['SoundCodeList'] as $item1) {
+                    $model->soundCodeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

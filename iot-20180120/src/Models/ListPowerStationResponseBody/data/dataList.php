@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListPowerStationResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataList extends Model
 {
@@ -34,31 +34,36 @@ class dataList extends Model
     public $ratedPower;
     protected $_name = [
         'algoInstanceUid' => 'AlgoInstanceUid',
-        'description'     => 'Description',
-        'name'            => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'powerStationUid' => 'PowerStationUid',
-        'ratedPower'      => 'RatedPower',
+        'ratedPower' => 'RatedPower',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algoInstanceUid) {
             $res['AlgoInstanceUid'] = $this->algoInstanceUid;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->powerStationUid) {
             $res['PowerStationUid'] = $this->powerStationUid;
         }
+
         if (null !== $this->ratedPower) {
             $res['RatedPower'] = $this->ratedPower;
         }
@@ -66,26 +71,30 @@ class dataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgoInstanceUid'])) {
             $model->algoInstanceUid = $map['AlgoInstanceUid'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PowerStationUid'])) {
             $model->powerStationUid = $map['PowerStationUid'];
         }
+
         if (isset($map['RatedPower'])) {
             $model->ratedPower = $map['RatedPower'];
         }

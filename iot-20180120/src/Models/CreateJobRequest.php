@@ -4,126 +4,148 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateJobRequest extends Model
 {
     /**
-     * @example jobDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example { "serviceIdentifier": "test_service", "params": { "key1": "value1", "key2": "value2" } }
-     *
      * @var string
      */
     public $jobDocument;
 
     /**
-     * @example {   "fileKey":"5cc34***f9/tazJ***s",   "signMethod":"Sha256",   "sign":"***" }
-     *
      * @var mixed[]
      */
     public $jobFile;
 
     /**
-     * @example oneJob
-     *
      * @var string
      */
     public $jobName;
 
     /**
-     * @example {"maximumPerMinute": 1000}
-     *
      * @var mixed[]
      */
     public $rolloutConfig;
 
     /**
-     * @example 1557062301656
-     *
      * @var int
      */
     public $scheduledTime;
 
     /**
-     * @example {"targetType":"PRODUCT_KEY","targetProduct":"a1j***3d"}
-     *
      * @var mixed[]
      */
     public $targetConfig;
 
     /**
-     * @example {"inProgressTimeoutInMinutes": 60}
-     *
      * @var mixed[]
      */
     public $timeoutConfig;
 
     /**
-     * @example INVOKE_SERVICE
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'iotInstanceId' => 'IotInstanceId',
-        'jobDocument'   => 'JobDocument',
-        'jobFile'       => 'JobFile',
-        'jobName'       => 'JobName',
+        'jobDocument' => 'JobDocument',
+        'jobFile' => 'JobFile',
+        'jobName' => 'JobName',
         'rolloutConfig' => 'RolloutConfig',
         'scheduledTime' => 'ScheduledTime',
-        'targetConfig'  => 'TargetConfig',
+        'targetConfig' => 'TargetConfig',
         'timeoutConfig' => 'TimeoutConfig',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->jobFile)) {
+            Model::validateArray($this->jobFile);
+        }
+        if (\is_array($this->rolloutConfig)) {
+            Model::validateArray($this->rolloutConfig);
+        }
+        if (\is_array($this->targetConfig)) {
+            Model::validateArray($this->targetConfig);
+        }
+        if (\is_array($this->timeoutConfig)) {
+            Model::validateArray($this->timeoutConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->jobDocument) {
             $res['JobDocument'] = $this->jobDocument;
         }
+
         if (null !== $this->jobFile) {
-            $res['JobFile'] = $this->jobFile;
+            if (\is_array($this->jobFile)) {
+                $res['JobFile'] = [];
+                foreach ($this->jobFile as $key1 => $value1) {
+                    $res['JobFile'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->rolloutConfig) {
-            $res['RolloutConfig'] = $this->rolloutConfig;
+            if (\is_array($this->rolloutConfig)) {
+                $res['RolloutConfig'] = [];
+                foreach ($this->rolloutConfig as $key1 => $value1) {
+                    $res['RolloutConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->scheduledTime) {
             $res['ScheduledTime'] = $this->scheduledTime;
         }
+
         if (null !== $this->targetConfig) {
-            $res['TargetConfig'] = $this->targetConfig;
+            if (\is_array($this->targetConfig)) {
+                $res['TargetConfig'] = [];
+                foreach ($this->targetConfig as $key1 => $value1) {
+                    $res['TargetConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->timeoutConfig) {
-            $res['TimeoutConfig'] = $this->timeoutConfig;
+            if (\is_array($this->timeoutConfig)) {
+                $res['TimeoutConfig'] = [];
+                foreach ($this->timeoutConfig as $key1 => $value1) {
+                    $res['TimeoutConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -131,41 +153,70 @@ class CreateJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['JobDocument'])) {
             $model->jobDocument = $map['JobDocument'];
         }
+
         if (isset($map['JobFile'])) {
-            $model->jobFile = $map['JobFile'];
+            if (!empty($map['JobFile'])) {
+                $model->jobFile = [];
+                foreach ($map['JobFile'] as $key1 => $value1) {
+                    $model->jobFile[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['RolloutConfig'])) {
-            $model->rolloutConfig = $map['RolloutConfig'];
+            if (!empty($map['RolloutConfig'])) {
+                $model->rolloutConfig = [];
+                foreach ($map['RolloutConfig'] as $key1 => $value1) {
+                    $model->rolloutConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ScheduledTime'])) {
             $model->scheduledTime = $map['ScheduledTime'];
         }
+
         if (isset($map['TargetConfig'])) {
-            $model->targetConfig = $map['TargetConfig'];
+            if (!empty($map['TargetConfig'])) {
+                $model->targetConfig = [];
+                foreach ($map['TargetConfig'] as $key1 => $value1) {
+                    $model->targetConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TimeoutConfig'])) {
-            $model->timeoutConfig = $map['TimeoutConfig'];
+            if (!empty($map['TimeoutConfig'])) {
+                $model->timeoutConfig = [];
+                foreach ($map['TimeoutConfig'] as $key1 => $value1) {
+                    $model->timeoutConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

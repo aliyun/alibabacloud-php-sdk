@@ -4,107 +4,76 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDeviceByStatusRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     *
-     **Important**
-     *
-     *   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     *   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ProductKey of the product to which the device belongs.
-     *
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @description The ID of the resource group to which the product belongs. You can view the resource group ID in the IoT Platform console.
-     *
-     * >  If you specify this parameter, the system returns devices of the specified status in the resource group. If you do not specify this parameter, the system returns all devices of the specified status in the current account.
-     * @example rg-acfm4l5tcwd***
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The status of the devices. Valid values:
-     *
-     *   **0**: inactive
-     *   **1**: online
-     *   **3**: offline
-     *   **8**: disabled
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'iotInstanceId'   => 'IotInstanceId',
-        'pageSize'        => 'PageSize',
-        'productKey'      => 'ProductKey',
+        'currentPage' => 'CurrentPage',
+        'iotInstanceId' => 'IotInstanceId',
+        'pageSize' => 'PageSize',
+        'productKey' => 'ProductKey',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -112,29 +81,34 @@ class QueryDeviceByStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDeviceByStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetParserDataSourceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataSource extends Model
 {
     /**
-     * @example 11111111000000111
-     *
      * @var int
      */
     public $createUserId;
 
     /**
-     * @example 1001
-     *
      * @var int
      */
     public $dataSourceId;
@@ -28,45 +24,46 @@ class dataSource extends Model
     public $description;
 
     /**
-     * @example DataSource
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 2022-03-27T12:45:43.000Z
-     *
      * @var string
      */
     public $utcCreated;
     protected $_name = [
         'createUserId' => 'CreateUserId',
         'dataSourceId' => 'DataSourceId',
-        'description'  => 'Description',
-        'name'         => 'Name',
-        'utcCreated'   => 'UtcCreated',
+        'description' => 'Description',
+        'name' => 'Name',
+        'utcCreated' => 'UtcCreated',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
         }
+
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->utcCreated) {
             $res['UtcCreated'] = $this->utcCreated;
         }
@@ -74,26 +71,30 @@ class dataSource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
         }
+
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UtcCreated'])) {
             $model->utcCreated = $map['UtcCreated'];
         }

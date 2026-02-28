@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioProjectListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioProjectListResponseBody\data\list_\projectInfo;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->projectInfo)) {
+            Model::validateArray($this->projectInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectInfo) {
-            $res['ProjectInfo'] = [];
-            if (null !== $this->projectInfo && \is_array($this->projectInfo)) {
-                $n = 0;
-                foreach ($this->projectInfo as $item) {
-                    $res['ProjectInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projectInfo)) {
+                $res['ProjectInfo'] = [];
+                $n1 = 0;
+                foreach ($this->projectInfo as $item1) {
+                    $res['ProjectInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectInfo'])) {
             if (!empty($map['ProjectInfo'])) {
                 $model->projectInfo = [];
-                $n                  = 0;
-                foreach ($map['ProjectInfo'] as $item) {
-                    $model->projectInfo[$n++] = null !== $item ? projectInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProjectInfo'] as $item1) {
+                    $model->projectInfo[$n1] = projectInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

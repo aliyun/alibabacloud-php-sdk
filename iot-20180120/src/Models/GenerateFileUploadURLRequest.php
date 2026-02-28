@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateFileUploadURLRequest extends Model
 {
     /**
-     * @example DEVICE_JOB_FILE
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @example file1
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example bin
-     *
      * @var string
      */
     public $fileSuffix;
 
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'bizCode'       => 'BizCode',
-        'fileName'      => 'FileName',
-        'fileSuffix'    => 'FileSuffix',
+        'bizCode' => 'BizCode',
+        'fileName' => 'FileName',
+        'fileSuffix' => 'FileSuffix',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileSuffix) {
             $res['FileSuffix'] = $this->fileSuffix;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -65,23 +61,26 @@ class GenerateFileUploadURLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateFileUploadURLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileSuffix'])) {
             $model->fileSuffix = $map['FileSuffix'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

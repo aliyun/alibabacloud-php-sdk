@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserDefineTableDataByPrimaryKeyShrinkRequest extends Model
 {
@@ -24,23 +24,26 @@ class DeleteUserDefineTableDataByPrimaryKeyShrinkRequest extends Model
     public $tableIdentifier;
     protected $_name = [
         'conditionsShrink' => 'Conditions',
-        'iotInstanceId'    => 'IotInstanceId',
-        'tableIdentifier'  => 'TableIdentifier',
+        'iotInstanceId' => 'IotInstanceId',
+        'tableIdentifier' => 'TableIdentifier',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionsShrink) {
             $res['Conditions'] = $this->conditionsShrink;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->tableIdentifier) {
             $res['TableIdentifier'] = $this->tableIdentifier;
         }
@@ -48,20 +51,22 @@ class DeleteUserDefineTableDataByPrimaryKeyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserDefineTableDataByPrimaryKeyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
             $model->conditionsShrink = $map['Conditions'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['TableIdentifier'])) {
             $model->tableIdentifier = $map['TableIdentifier'];
         }

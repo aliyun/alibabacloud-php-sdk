@@ -4,82 +4,76 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDownloadDataJobShrinkRequest extends Model
 {
     /**
-     * @example TABLE
-     *
      * @var string
      */
     public $downloadDataType;
 
     /**
-     * @example 1658406464534
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example {"fileName":"fileName01"}
-     *
      * @var string
      */
     public $fileConfigShrink;
 
     /**
-     * @example iot-cn-npk1u******
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1658332800000
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @example product_info
-     *
      * @var string
      */
     public $tableName;
     protected $_name = [
         'downloadDataType' => 'DownloadDataType',
-        'endTime'          => 'EndTime',
+        'endTime' => 'EndTime',
         'fileConfigShrink' => 'FileConfig',
-        'iotInstanceId'    => 'IotInstanceId',
-        'startTime'        => 'StartTime',
-        'tableName'        => 'TableName',
+        'iotInstanceId' => 'IotInstanceId',
+        'startTime' => 'StartTime',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadDataType) {
             $res['DownloadDataType'] = $this->downloadDataType;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->fileConfigShrink) {
             $res['FileConfig'] = $this->fileConfigShrink;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -87,29 +81,34 @@ class CreateDownloadDataJobShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDownloadDataJobShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadDataType'])) {
             $model->downloadDataType = $map['DownloadDataType'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['FileConfig'])) {
             $model->fileConfigShrink = $map['FileConfig'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

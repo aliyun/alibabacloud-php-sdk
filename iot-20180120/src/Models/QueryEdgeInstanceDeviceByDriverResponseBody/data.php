@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceDeviceByDriverResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceDeviceByDriverResponseBody\data\deviceList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
@@ -22,47 +20,51 @@ class data extends Model
     public $deviceList;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'deviceList'  => 'DeviceList',
-        'pageSize'    => 'PageSize',
-        'total'       => 'Total',
+        'deviceList' => 'DeviceList',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deviceList)) {
+            Model::validateArray($this->deviceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->deviceList) {
-            $res['DeviceList'] = [];
-            if (null !== $this->deviceList && \is_array($this->deviceList)) {
-                $n = 0;
-                foreach ($this->deviceList as $item) {
-                    $res['DeviceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceList)) {
+                $res['DeviceList'] = [];
+                $n1 = 0;
+                foreach ($this->deviceList as $item1) {
+                    $res['DeviceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -70,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DeviceList'])) {
             if (!empty($map['DeviceList'])) {
                 $model->deviceList = [];
-                $n                 = 0;
-                foreach ($map['DeviceList'] as $item) {
-                    $model->deviceList[$n++] = null !== $item ? deviceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceList'] as $item1) {
+                    $model->deviceList[$n1] = deviceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

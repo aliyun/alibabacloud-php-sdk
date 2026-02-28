@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDataSourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserDataSourceResponseBody\data\dataSource;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataSource)) {
+            Model::validateArray($this->dataSource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSource) {
-            $res['DataSource'] = [];
-            if (null !== $this->dataSource && \is_array($this->dataSource)) {
-                $n = 0;
-                foreach ($this->dataSource as $item) {
-                    $res['DataSource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSource)) {
+                $res['DataSource'] = [];
+                $n1 = 0;
+                foreach ($this->dataSource as $item1) {
+                    $res['DataSource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSource'])) {
             if (!empty($map['DataSource'])) {
                 $model->dataSource = [];
-                $n                 = 0;
-                foreach ($map['DataSource'] as $item) {
-                    $model->dataSource[$n++] = null !== $item ? dataSource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataSource'] as $item1) {
+                    $model->dataSource[$n1] = dataSource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

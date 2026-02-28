@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data\targetConfig\targetDevices;
-use AlibabaCloud\Tea\Model;
 
 class targetConfig extends Model
 {
@@ -15,48 +15,49 @@ class targetConfig extends Model
     public $targetDevices;
 
     /**
-     * @example 1234
-     *
      * @var string
      */
     public $targetGroup;
 
     /**
-     * @example nCwfSBzc***
-     *
      * @var string
      */
     public $targetProduct;
 
     /**
-     * @example DEVICE_LIST
-     *
      * @var string
      */
     public $targetType;
     protected $_name = [
         'targetDevices' => 'TargetDevices',
-        'targetGroup'   => 'TargetGroup',
+        'targetGroup' => 'TargetGroup',
         'targetProduct' => 'TargetProduct',
-        'targetType'    => 'TargetType',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
     {
+        if (null !== $this->targetDevices) {
+            $this->targetDevices->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetDevices) {
-            $res['TargetDevices'] = null !== $this->targetDevices ? $this->targetDevices->toMap() : null;
+            $res['TargetDevices'] = null !== $this->targetDevices ? $this->targetDevices->toArray($noStream) : $this->targetDevices;
         }
+
         if (null !== $this->targetGroup) {
             $res['TargetGroup'] = $this->targetGroup;
         }
+
         if (null !== $this->targetProduct) {
             $res['TargetProduct'] = $this->targetProduct;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -64,23 +65,26 @@ class targetConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetDevices'])) {
             $model->targetDevices = targetDevices::fromMap($map['TargetDevices']);
         }
+
         if (isset($map['TargetGroup'])) {
             $model->targetGroup = $map['TargetGroup'];
         }
+
         if (isset($map['TargetProduct'])) {
             $model->targetProduct = $map['TargetProduct'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

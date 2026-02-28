@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListParserRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example iot-n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example DataParser
-     *
      * @var string
      */
     public $searchName;
     protected $_name = [
-        'currentPage'   => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'iotInstanceId' => 'IotInstanceId',
-        'pageSize'      => 'PageSize',
-        'searchName'    => 'SearchName',
+        'pageSize' => 'PageSize',
+        'searchName' => 'SearchName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->searchName) {
             $res['SearchName'] = $this->searchName;
         }
@@ -65,23 +61,26 @@ class ListParserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListParserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SearchName'])) {
             $model->searchName = $map['SearchName'];
         }

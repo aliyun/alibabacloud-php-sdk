@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryClientIdsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryClientIdsResponseBody\data\dynamicRegClientIds;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of ClientIDs.
-     *
      * @var dynamicRegClientIds[]
      */
     public $dynamicRegClientIds;
 
     /**
-     * @description The ID of the device.
-     *
-     * @example y4u2weAI********HMle1234
-     *
      * @var string
      */
     public $iotId;
     protected $_name = [
         'dynamicRegClientIds' => 'DynamicRegClientIds',
-        'iotId'               => 'IotId',
+        'iotId' => 'IotId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dynamicRegClientIds)) {
+            Model::validateArray($this->dynamicRegClientIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dynamicRegClientIds) {
-            $res['DynamicRegClientIds'] = [];
-            if (null !== $this->dynamicRegClientIds && \is_array($this->dynamicRegClientIds)) {
-                $n = 0;
-                foreach ($this->dynamicRegClientIds as $item) {
-                    $res['DynamicRegClientIds'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dynamicRegClientIds)) {
+                $res['DynamicRegClientIds'] = [];
+                $n1 = 0;
+                foreach ($this->dynamicRegClientIds as $item1) {
+                    $res['DynamicRegClientIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
@@ -52,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicRegClientIds'])) {
             if (!empty($map['DynamicRegClientIds'])) {
                 $model->dynamicRegClientIds = [];
-                $n                          = 0;
-                foreach ($map['DynamicRegClientIds'] as $item) {
-                    $model->dynamicRegClientIds[$n++] = null !== $item ? dynamicRegClientIds::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DynamicRegClientIds'] as $item1) {
+                    $model->dynamicRegClientIds[$n1] = dynamicRegClientIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }

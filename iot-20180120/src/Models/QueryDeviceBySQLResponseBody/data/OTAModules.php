@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceBySQLResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OTAModules extends Model
 {
     /**
-     * @description The version number of each OTA module.
-     *
-     * @example a1-dads2-dad2
-     *
      * @var string
      */
     public $firmwareVersion;
 
     /**
-     * @description The name of the OTA module.
-     *
-     * @example SomeSampleModule
-     *
      * @var string
      */
     public $moduleName;
     protected $_name = [
         'firmwareVersion' => 'FirmwareVersion',
-        'moduleName'      => 'ModuleName',
+        'moduleName' => 'ModuleName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->firmwareVersion) {
             $res['FirmwareVersion'] = $this->firmwareVersion;
         }
+
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -47,17 +41,18 @@ class OTAModules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OTAModules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirmwareVersion'])) {
             $model->firmwareVersion = $map['FirmwareVersion'];
         }
+
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

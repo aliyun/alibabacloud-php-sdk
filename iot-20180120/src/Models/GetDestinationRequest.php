@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDestinationRequest extends Model
 {
     /**
-     * @example 1004
-     *
      * @var int
      */
     public $destinationId;
 
     /**
-     * @example iot-2w****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -28,14 +24,16 @@ class GetDestinationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationId) {
             $res['DestinationId'] = $this->destinationId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -43,17 +41,18 @@ class GetDestinationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDestinationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationId'])) {
             $model->destinationId = $map['DestinationId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\StartPTDetectionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -33,32 +33,37 @@ class data extends Model
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
-        'errMsg'    => 'ErrMsg',
+        'data' => 'Data',
+        'errMsg' => 'ErrMsg',
         'inputData' => 'InputData',
-        'status'    => 'Status',
-        'success'   => 'Success',
+        'status' => 'Status',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
+
         if (null !== $this->inputData) {
             $res['InputData'] = $this->inputData;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -66,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
+
         if (isset($map['InputData'])) {
             $model->inputData = $map['InputData'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

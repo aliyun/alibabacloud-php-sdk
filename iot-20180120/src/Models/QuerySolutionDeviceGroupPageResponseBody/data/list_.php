@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageResponseBody\data\list_\itemName;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->itemName)) {
+            Model::validateArray($this->itemName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemName) {
-            $res['itemName'] = [];
-            if (null !== $this->itemName && \is_array($this->itemName)) {
-                $n = 0;
-                foreach ($this->itemName as $item) {
-                    $res['itemName'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->itemName)) {
+                $res['itemName'] = [];
+                $n1 = 0;
+                foreach ($this->itemName as $item1) {
+                    $res['itemName'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['itemName'])) {
             if (!empty($map['itemName'])) {
                 $model->itemName = [];
-                $n               = 0;
-                foreach ($map['itemName'] as $item) {
-                    $model->itemName[$n++] = null !== $item ? itemName::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['itemName'] as $item1) {
+                    $model->itemName[$n1] = itemName::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

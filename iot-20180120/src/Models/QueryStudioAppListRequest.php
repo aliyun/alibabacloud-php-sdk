@@ -4,115 +4,129 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryStudioAppListRequest extends Model
 {
     /**
-     * @example test1
-     *
      * @var string
      */
     public $fuzzyName;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example a123********
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @example ["webApp", "mobileApp"]
-     *
      * @var string[]
      */
     public $types;
     protected $_name = [
-        'fuzzyName'     => 'FuzzyName',
+        'fuzzyName' => 'FuzzyName',
         'iotInstanceId' => 'IotInstanceId',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'projectId'     => 'ProjectId',
-        'types'         => 'Types',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'types' => 'Types',
     ];
 
     public function validate()
     {
+        if (\is_array($this->types)) {
+            Model::validateArray($this->types);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fuzzyName) {
             $res['FuzzyName'] = $this->fuzzyName;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->types) {
-            $res['Types'] = $this->types;
+            if (\is_array($this->types)) {
+                $res['Types'] = [];
+                $n1 = 0;
+                foreach ($this->types as $item1) {
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryStudioAppListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FuzzyName'])) {
             $model->fuzzyName = $map['FuzzyName'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = $map['Types'];
+                $model->types = [];
+                $n1 = 0;
+                foreach ($map['Types'] as $item1) {
+                    $model->types[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

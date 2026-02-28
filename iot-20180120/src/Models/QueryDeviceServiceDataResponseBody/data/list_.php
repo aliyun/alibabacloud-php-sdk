@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceServiceDataResponseBody\data\list_\serviceInfo;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->serviceInfo)) {
+            Model::validateArray($this->serviceInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceInfo) {
-            $res['ServiceInfo'] = [];
-            if (null !== $this->serviceInfo && \is_array($this->serviceInfo)) {
-                $n = 0;
-                foreach ($this->serviceInfo as $item) {
-                    $res['ServiceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceInfo)) {
+                $res['ServiceInfo'] = [];
+                $n1 = 0;
+                foreach ($this->serviceInfo as $item1) {
+                    $res['ServiceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceInfo'])) {
             if (!empty($map['ServiceInfo'])) {
                 $model->serviceInfo = [];
-                $n                  = 0;
-                foreach ($map['ServiceInfo'] as $item) {
-                    $model->serviceInfo[$n++] = null !== $item ? serviceInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceInfo'] as $item1) {
+                    $model->serviceInfo[$n1] = serviceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,71 +4,66 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListAnalyticsDataRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class condition extends Model
 {
     /**
-     * @example 5
-     *
      * @var string
      */
     public $betweenEnd;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $betweenStart;
 
     /**
-     * @example testCode
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @example =
-     *
      * @var string
      */
     public $operate;
 
     /**
-     * @example 4
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'betweenEnd'   => 'BetweenEnd',
+        'betweenEnd' => 'BetweenEnd',
         'betweenStart' => 'BetweenStart',
-        'fieldName'    => 'FieldName',
-        'operate'      => 'Operate',
-        'value'        => 'Value',
+        'fieldName' => 'FieldName',
+        'operate' => 'Operate',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->betweenEnd) {
             $res['BetweenEnd'] = $this->betweenEnd;
         }
+
         if (null !== $this->betweenStart) {
             $res['BetweenStart'] = $this->betweenStart;
         }
+
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
+
         if (null !== $this->operate) {
             $res['Operate'] = $this->operate;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -76,26 +71,30 @@ class condition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return condition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BetweenEnd'])) {
             $model->betweenEnd = $map['BetweenEnd'];
         }
+
         if (isset($map['BetweenStart'])) {
             $model->betweenStart = $map['BetweenStart'];
         }
+
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
+
         if (isset($map['Operate'])) {
             $model->operate = $map['Operate'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

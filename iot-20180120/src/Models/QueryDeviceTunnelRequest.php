@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDeviceTunnelRequest extends Model
 {
     /**
-     * @example iot-***-v6***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example d4098041-a560-***
-     *
      * @var string
      */
     public $tunnelId;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'tunnelId'      => 'TunnelId',
+        'tunnelId' => 'TunnelId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->tunnelId) {
             $res['TunnelId'] = $this->tunnelId;
         }
@@ -43,17 +41,18 @@ class QueryDeviceTunnelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDeviceTunnelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['TunnelId'])) {
             $model->tunnelId = $map['TunnelId'];
         }

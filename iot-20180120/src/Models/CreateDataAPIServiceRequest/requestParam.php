@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\CreateDataAPIServiceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class requestParam extends Model
 {
@@ -14,59 +14,56 @@ class requestParam extends Model
     public $desc;
 
     /**
-     * @example dksiaiek23s
-     *
      * @var string
      */
     public $example;
 
     /**
-     * @example status
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $required;
 
     /**
-     * @example VARCHAR
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'desc'     => 'Desc',
-        'example'  => 'Example',
-        'name'     => 'Name',
+        'desc' => 'Desc',
+        'example' => 'Example',
+        'name' => 'Name',
         'required' => 'Required',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->example) {
             $res['Example'] = $this->example;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->required) {
             $res['Required'] = $this->required;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -74,26 +71,30 @@ class requestParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requestParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['Example'])) {
             $model->example = $map['Example'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

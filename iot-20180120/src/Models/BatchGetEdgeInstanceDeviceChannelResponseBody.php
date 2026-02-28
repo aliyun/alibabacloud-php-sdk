@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDeviceChannelResponseBody\deviceChannelList;
-use AlibabaCloud\Tea\Model;
 
 class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $code;
@@ -22,58 +20,61 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
     public $deviceChannelList;
 
     /**
-     * @example request parameter error
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example 029BC40B-8353-48B3-94C3-7ABF296F0AE5
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'              => 'Code',
+        'code' => 'Code',
         'deviceChannelList' => 'DeviceChannelList',
-        'errorMessage'      => 'ErrorMessage',
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
+        'errorMessage' => 'ErrorMessage',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deviceChannelList)) {
+            Model::validateArray($this->deviceChannelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->deviceChannelList) {
-            $res['DeviceChannelList'] = [];
-            if (null !== $this->deviceChannelList && \is_array($this->deviceChannelList)) {
-                $n = 0;
-                foreach ($this->deviceChannelList as $item) {
-                    $res['DeviceChannelList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceChannelList)) {
+                $res['DeviceChannelList'] = [];
+                $n1 = 0;
+                foreach ($this->deviceChannelList as $item1) {
+                    $res['DeviceChannelList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -81,32 +82,37 @@ class BatchGetEdgeInstanceDeviceChannelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetEdgeInstanceDeviceChannelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DeviceChannelList'])) {
             if (!empty($map['DeviceChannelList'])) {
                 $model->deviceChannelList = [];
-                $n                        = 0;
-                foreach ($map['DeviceChannelList'] as $item) {
-                    $model->deviceChannelList[$n++] = null !== $item ? deviceChannelList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceChannelList'] as $item1) {
+                    $model->deviceChannelList[$n1] = deviceChannelList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

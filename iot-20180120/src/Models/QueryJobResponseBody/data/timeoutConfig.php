@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryJobResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timeoutConfig extends Model
 {
     /**
-     * @example 5
-     *
      * @var int
      */
     public $inProgressTimeoutInMinutes;
@@ -20,9 +18,10 @@ class timeoutConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inProgressTimeoutInMinutes) {
@@ -32,11 +31,11 @@ class timeoutConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeoutConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

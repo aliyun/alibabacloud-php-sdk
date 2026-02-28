@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GisSearchDeviceTraceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class points extends Model
 {
     /**
-     * @example 1645071254000
-     *
      * @var int
      */
     public $locateTime;
 
     /**
-     * @example 120.0,30.0
-     *
      * @var string
      */
     public $location;
     protected $_name = [
         'locateTime' => 'LocateTime',
-        'location'   => 'Location',
+        'location' => 'Location',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->locateTime) {
             $res['LocateTime'] = $this->locateTime;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
@@ -43,17 +41,18 @@ class points extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return points
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocateTime'])) {
             $model->locateTime = $map['LocateTime'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }

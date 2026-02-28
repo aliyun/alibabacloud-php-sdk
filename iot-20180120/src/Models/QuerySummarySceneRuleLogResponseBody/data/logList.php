@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySummarySceneRuleLogResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySummarySceneRuleLogResponseBody\data\logList\logInfo;
-use AlibabaCloud\Tea\Model;
 
 class logList extends Model
 {
@@ -19,17 +19,22 @@ class logList extends Model
 
     public function validate()
     {
+        if (\is_array($this->logInfo)) {
+            Model::validateArray($this->logInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logInfo) {
-            $res['LogInfo'] = [];
-            if (null !== $this->logInfo && \is_array($this->logInfo)) {
-                $n = 0;
-                foreach ($this->logInfo as $item) {
-                    $res['LogInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logInfo)) {
+                $res['LogInfo'] = [];
+                $n1 = 0;
+                foreach ($this->logInfo as $item1) {
+                    $res['LogInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class logList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogInfo'])) {
             if (!empty($map['LogInfo'])) {
                 $model->logInfo = [];
-                $n              = 0;
-                foreach ($map['LogInfo'] as $item) {
-                    $model->logInfo[$n++] = null !== $item ? logInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogInfo'] as $item1) {
+                    $model->logInfo[$n1] = logInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

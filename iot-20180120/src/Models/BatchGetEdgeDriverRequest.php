@@ -4,40 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchGetEdgeDriverRequest extends Model
 {
     /**
-     * @example fec565038d7544978d9aed5c1a******
-     *
      * @var string[]
      */
     public $driverIds;
 
     /**
-     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for public instances. However, this parameter is required for the instances that you have purchased.
-     *
-     * @example ot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'driverIds'     => 'DriverIds',
+        'driverIds' => 'DriverIds',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->driverIds)) {
+            Model::validateArray($this->driverIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driverIds) {
-            $res['DriverIds'] = $this->driverIds;
+            if (\is_array($this->driverIds)) {
+                $res['DriverIds'] = [];
+                $n1 = 0;
+                foreach ($this->driverIds as $item1) {
+                    $res['DriverIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -45,19 +51,25 @@ class BatchGetEdgeDriverRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetEdgeDriverRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DriverIds'])) {
             if (!empty($map['DriverIds'])) {
-                $model->driverIds = $map['DriverIds'];
+                $model->driverIds = [];
+                $n1 = 0;
+                foreach ($map['DriverIds'] as $item1) {
+                    $model->driverIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

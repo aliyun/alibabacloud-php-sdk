@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDetailSceneRuleLogResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDetailSceneRuleLogResponseBody\data\logList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
@@ -22,47 +20,51 @@ class data extends Model
     public $logList;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'logList'     => 'LogList',
-        'pageSize'    => 'PageSize',
-        'total'       => 'Total',
+        'logList' => 'LogList',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->logList)) {
+            Model::validateArray($this->logList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->logList) {
-            $res['LogList'] = [];
-            if (null !== $this->logList && \is_array($this->logList)) {
-                $n = 0;
-                foreach ($this->logList as $item) {
-                    $res['LogList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logList)) {
+                $res['LogList'] = [];
+                $n1 = 0;
+                foreach ($this->logList as $item1) {
+                    $res['LogList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -70,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['LogList'])) {
             if (!empty($map['LogList'])) {
                 $model->logList = [];
-                $n              = 0;
-                foreach ($map['LogList'] as $item) {
-                    $model->logList[$n++] = null !== $item ? logList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogList'] as $item1) {
+                    $model->logList[$n1] = logList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

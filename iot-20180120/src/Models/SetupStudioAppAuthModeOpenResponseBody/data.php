@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\SetupStudioAppAuthModeOpenResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\SetupStudioAppAuthModeOpenResponseBody\data\tokenInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $authMode;
@@ -21,38 +19,44 @@ class data extends Model
      */
     public $tokenInfo;
     protected $_name = [
-        'authMode'  => 'AuthMode',
+        'authMode' => 'AuthMode',
         'tokenInfo' => 'TokenInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->tokenInfo) {
+            $this->tokenInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authMode) {
             $res['AuthMode'] = $this->authMode;
         }
+
         if (null !== $this->tokenInfo) {
-            $res['TokenInfo'] = null !== $this->tokenInfo ? $this->tokenInfo->toMap() : null;
+            $res['TokenInfo'] = null !== $this->tokenInfo ? $this->tokenInfo->toArray($noStream) : $this->tokenInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthMode'])) {
             $model->authMode = $map['AuthMode'];
         }
+
         if (isset($map['TokenInfo'])) {
             $model->tokenInfo = tokenInfo::fromMap($map['TokenInfo']);
         }

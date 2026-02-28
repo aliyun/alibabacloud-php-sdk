@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ClearDeviceDesiredPropertyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The latest version of the desired values of the properties after you call this operation to delete the specified desired property values.
-     *
-     * @example {\"temperature\":0}
-     *
      * @var string
      */
     public $versions;
@@ -22,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->versions) {
@@ -34,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

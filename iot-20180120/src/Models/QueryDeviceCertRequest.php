@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDeviceCertRequest extends Model
 {
     /**
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
     protected $_name = [
-        'deviceName'    => 'DeviceName',
+        'deviceName' => 'DeviceName',
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -54,20 +51,22 @@ class QueryDeviceCertRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDeviceCertRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

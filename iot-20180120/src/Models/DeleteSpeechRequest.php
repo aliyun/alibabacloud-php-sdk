@@ -4,59 +4,73 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSpeechRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string[]
      */
     public $speechCodeList;
     protected $_name = [
-        'iotInstanceId'  => 'IotInstanceId',
+        'iotInstanceId' => 'IotInstanceId',
         'speechCodeList' => 'SpeechCodeList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->speechCodeList)) {
+            Model::validateArray($this->speechCodeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->speechCodeList) {
-            $res['SpeechCodeList'] = $this->speechCodeList;
+            if (\is_array($this->speechCodeList)) {
+                $res['SpeechCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->speechCodeList as $item1) {
+                    $res['SpeechCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSpeechRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['SpeechCodeList'])) {
             if (!empty($map['SpeechCodeList'])) {
-                $model->speechCodeList = $map['SpeechCodeList'];
+                $model->speechCodeList = [];
+                $n1 = 0;
+                foreach ($map['SpeechCodeList'] as $item1) {
+                    $model->speechCodeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

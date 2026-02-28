@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceNameList extends Model
 {
@@ -18,20 +18,22 @@ class deviceNameList extends Model
      */
     public $deviceNickname;
     protected $_name = [
-        'deviceName'     => 'DeviceName',
+        'deviceName' => 'DeviceName',
         'deviceNickname' => 'DeviceNickname',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->deviceNickname) {
             $res['DeviceNickname'] = $this->deviceNickname;
         }
@@ -39,17 +41,18 @@ class deviceNameList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceNameList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['DeviceNickname'])) {
             $model->deviceNickname = $map['DeviceNickname'];
         }

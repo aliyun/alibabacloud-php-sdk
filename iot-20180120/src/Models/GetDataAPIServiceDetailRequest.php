@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataAPIServiceDetailRequest extends Model
 {
     /**
-     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
-     *
      * @var string
      */
     public $apiSrn;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'apiSrn'        => 'ApiSrn',
+        'apiSrn' => 'ApiSrn',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiSrn) {
             $res['ApiSrn'] = $this->apiSrn;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -43,17 +41,18 @@ class GetDataAPIServiceDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataAPIServiceDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiSrn'])) {
             $model->apiSrn = $map['ApiSrn'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

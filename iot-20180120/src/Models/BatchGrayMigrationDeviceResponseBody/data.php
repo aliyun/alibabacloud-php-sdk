@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchGrayMigrationDeviceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGrayMigrationDeviceResponseBody\data\details;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->details) {
+            $this->details->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->details) {
-            $res['Details'] = null !== $this->details ? $this->details->toMap() : null;
+            $res['Details'] = null !== $this->details ? $this->details->toArray($noStream) : $this->details;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

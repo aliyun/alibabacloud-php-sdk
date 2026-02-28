@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceResponseBody\data\deviceInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->deviceInfo)) {
+            Model::validateArray($this->deviceInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceInfo) {
-            $res['DeviceInfo'] = [];
-            if (null !== $this->deviceInfo && \is_array($this->deviceInfo)) {
-                $n = 0;
-                foreach ($this->deviceInfo as $item) {
-                    $res['DeviceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceInfo)) {
+                $res['DeviceInfo'] = [];
+                $n1 = 0;
+                foreach ($this->deviceInfo as $item1) {
+                    $res['DeviceInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceInfo'])) {
             if (!empty($map['DeviceInfo'])) {
                 $model->deviceInfo = [];
-                $n                 = 0;
-                foreach ($map['DeviceInfo'] as $item) {
-                    $model->deviceInfo[$n++] = null !== $item ? deviceInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceInfo'] as $item1) {
+                    $model->deviceInfo[$n1] = deviceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

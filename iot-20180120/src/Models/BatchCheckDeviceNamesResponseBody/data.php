@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\invalidDetailList;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\invalidDeviceNameList;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\invalidDeviceNicknameList;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\repeatedDeviceNameList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1295006
-     *
      * @var int
      */
     public $applyId;
@@ -39,59 +37,80 @@ class data extends Model
      */
     public $repeatedDeviceNameList;
     protected $_name = [
-        'applyId'                   => 'ApplyId',
-        'invalidDetailList'         => 'InvalidDetailList',
-        'invalidDeviceNameList'     => 'InvalidDeviceNameList',
+        'applyId' => 'ApplyId',
+        'invalidDetailList' => 'InvalidDetailList',
+        'invalidDeviceNameList' => 'InvalidDeviceNameList',
         'invalidDeviceNicknameList' => 'InvalidDeviceNicknameList',
-        'repeatedDeviceNameList'    => 'RepeatedDeviceNameList',
+        'repeatedDeviceNameList' => 'RepeatedDeviceNameList',
     ];
 
     public function validate()
     {
+        if (null !== $this->invalidDetailList) {
+            $this->invalidDetailList->validate();
+        }
+        if (null !== $this->invalidDeviceNameList) {
+            $this->invalidDeviceNameList->validate();
+        }
+        if (null !== $this->invalidDeviceNicknameList) {
+            $this->invalidDeviceNicknameList->validate();
+        }
+        if (null !== $this->repeatedDeviceNameList) {
+            $this->repeatedDeviceNameList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyId) {
             $res['ApplyId'] = $this->applyId;
         }
+
         if (null !== $this->invalidDetailList) {
-            $res['InvalidDetailList'] = null !== $this->invalidDetailList ? $this->invalidDetailList->toMap() : null;
+            $res['InvalidDetailList'] = null !== $this->invalidDetailList ? $this->invalidDetailList->toArray($noStream) : $this->invalidDetailList;
         }
+
         if (null !== $this->invalidDeviceNameList) {
-            $res['InvalidDeviceNameList'] = null !== $this->invalidDeviceNameList ? $this->invalidDeviceNameList->toMap() : null;
+            $res['InvalidDeviceNameList'] = null !== $this->invalidDeviceNameList ? $this->invalidDeviceNameList->toArray($noStream) : $this->invalidDeviceNameList;
         }
+
         if (null !== $this->invalidDeviceNicknameList) {
-            $res['InvalidDeviceNicknameList'] = null !== $this->invalidDeviceNicknameList ? $this->invalidDeviceNicknameList->toMap() : null;
+            $res['InvalidDeviceNicknameList'] = null !== $this->invalidDeviceNicknameList ? $this->invalidDeviceNicknameList->toArray($noStream) : $this->invalidDeviceNicknameList;
         }
+
         if (null !== $this->repeatedDeviceNameList) {
-            $res['RepeatedDeviceNameList'] = null !== $this->repeatedDeviceNameList ? $this->repeatedDeviceNameList->toMap() : null;
+            $res['RepeatedDeviceNameList'] = null !== $this->repeatedDeviceNameList ? $this->repeatedDeviceNameList->toArray($noStream) : $this->repeatedDeviceNameList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplyId'])) {
             $model->applyId = $map['ApplyId'];
         }
+
         if (isset($map['InvalidDetailList'])) {
             $model->invalidDetailList = invalidDetailList::fromMap($map['InvalidDetailList']);
         }
+
         if (isset($map['InvalidDeviceNameList'])) {
             $model->invalidDeviceNameList = invalidDeviceNameList::fromMap($map['InvalidDeviceNameList']);
         }
+
         if (isset($map['InvalidDeviceNicknameList'])) {
             $model->invalidDeviceNicknameList = invalidDeviceNicknameList::fromMap($map['InvalidDeviceNicknameList']);
         }
+
         if (isset($map['RepeatedDeviceNameList'])) {
             $model->repeatedDeviceNameList = repeatedDeviceNameList::fromMap($map['RepeatedDeviceNameList']);
         }

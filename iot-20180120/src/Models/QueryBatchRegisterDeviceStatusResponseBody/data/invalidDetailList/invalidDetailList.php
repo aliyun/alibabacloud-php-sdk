@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryBatchRegisterDeviceStatusResponseBody\data\invalidDetailList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class invalidDetailList extends Model
 {
@@ -24,23 +24,26 @@ class invalidDetailList extends Model
     public $nickName;
     protected $_name = [
         'deviceName' => 'DeviceName',
-        'errorMsg'   => 'ErrorMsg',
-        'nickName'   => 'NickName',
+        'errorMsg' => 'ErrorMsg',
+        'nickName' => 'NickName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
@@ -48,20 +51,22 @@ class invalidDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invalidDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }

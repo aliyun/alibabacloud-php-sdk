@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceEventDataResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceEventDataResponseBody\data\list_\eventInfo;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->eventInfo)) {
+            Model::validateArray($this->eventInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventInfo) {
-            $res['EventInfo'] = [];
-            if (null !== $this->eventInfo && \is_array($this->eventInfo)) {
-                $n = 0;
-                foreach ($this->eventInfo as $item) {
-                    $res['EventInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventInfo)) {
+                $res['EventInfo'] = [];
+                $n1 = 0;
+                foreach ($this->eventInfo as $item1) {
+                    $res['EventInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventInfo'])) {
             if (!empty($map['EventInfo'])) {
                 $model->eventInfo = [];
-                $n                = 0;
-                foreach ($map['EventInfo'] as $item) {
-                    $model->eventInfo[$n++] = null !== $item ? eventInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventInfo'] as $item1) {
+                    $model->eventInfo[$n1] = eventInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

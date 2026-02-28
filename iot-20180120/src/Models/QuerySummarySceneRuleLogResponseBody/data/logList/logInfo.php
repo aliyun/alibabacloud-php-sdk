@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySummarySceneRuleLogResponseBody\data\logList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logInfo extends Model
 {
     /**
-     * @example 1582373706
-     *
      * @var int
      */
     public $logTime;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $result;
 
     /**
-     * @example a6a5b5df1582373508176121******
-     *
      * @var string
      */
     public $traceId;
     protected $_name = [
         'logTime' => 'LogTime',
-        'result'  => 'Result',
+        'result' => 'Result',
         'traceId' => 'TraceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logTime) {
             $res['LogTime'] = $this->logTime;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -54,20 +51,22 @@ class logInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogTime'])) {
             $model->logTime = $map['LogTime'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

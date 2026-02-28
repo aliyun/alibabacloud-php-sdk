@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\requestParams;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams;
-use AlibabaCloud\Tea\Model;
 
 class sqlTemplateDTO extends Model
 {
     /**
-     * @example SELECT COUNT(*) FROM ${system.device} WHERE status = 1
-     *
      * @var string
      */
     public $originSql;
@@ -28,34 +26,42 @@ class sqlTemplateDTO extends Model
     public $responseParams;
 
     /**
-     * @example SELECT COUNT(*) as deviceCount FROM ${system.device} WHERE status = ${status}
-     *
      * @var string
      */
     public $templateSql;
     protected $_name = [
-        'originSql'      => 'OriginSql',
-        'requestParams'  => 'RequestParams',
+        'originSql' => 'OriginSql',
+        'requestParams' => 'RequestParams',
         'responseParams' => 'ResponseParams',
-        'templateSql'    => 'TemplateSql',
+        'templateSql' => 'TemplateSql',
     ];
 
     public function validate()
     {
+        if (null !== $this->requestParams) {
+            $this->requestParams->validate();
+        }
+        if (null !== $this->responseParams) {
+            $this->responseParams->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->originSql) {
             $res['OriginSql'] = $this->originSql;
         }
+
         if (null !== $this->requestParams) {
-            $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toMap() : null;
+            $res['RequestParams'] = null !== $this->requestParams ? $this->requestParams->toArray($noStream) : $this->requestParams;
         }
+
         if (null !== $this->responseParams) {
-            $res['ResponseParams'] = null !== $this->responseParams ? $this->responseParams->toMap() : null;
+            $res['ResponseParams'] = null !== $this->responseParams ? $this->responseParams->toArray($noStream) : $this->responseParams;
         }
+
         if (null !== $this->templateSql) {
             $res['TemplateSql'] = $this->templateSql;
         }
@@ -63,23 +69,26 @@ class sqlTemplateDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sqlTemplateDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OriginSql'])) {
             $model->originSql = $map['OriginSql'];
         }
+
         if (isset($map['RequestParams'])) {
             $model->requestParams = requestParams::fromMap($map['RequestParams']);
         }
+
         if (isset($map['ResponseParams'])) {
             $model->responseParams = responseParams::fromMap($map['ResponseParams']);
         }
+
         if (isset($map['TemplateSql'])) {
             $model->templateSql = $map['TemplateSql'];
         }

@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetDeviceStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The status of the device. Valid values:
-     *
-     *   **ONLINE**: The device is online.
-     *   **OFFLINE**: The device is offline.
-     *   **UNACTIVE**: The device is not activated.
-     *   **DISABLE**: The device is disabled.
-     *
-     * @example ONLINE
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The time when the device status changed.
-     *
-     * @example 1557062301656
-     *
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'status'    => 'Status',
+        'status' => 'Status',
         'timestamp' => 'Timestamp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -52,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

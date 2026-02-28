@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckBindLicenseDeviceProgressRequest extends Model
 {
     /**
-     * @example 23****
-     *
      * @var string
      */
     public $checkProgressId;
 
     /**
-     * @example iot-2ws****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 720P
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example uhf5****
-     *
      * @var string
      */
     public $productKey;
     protected $_name = [
         'checkProgressId' => 'CheckProgressId',
-        'iotInstanceId'   => 'IotInstanceId',
-        'licenseCode'     => 'LicenseCode',
-        'productKey'      => 'ProductKey',
+        'iotInstanceId' => 'IotInstanceId',
+        'licenseCode' => 'LicenseCode',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkProgressId) {
             $res['CheckProgressId'] = $this->checkProgressId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->licenseCode) {
             $res['LicenseCode'] = $this->licenseCode;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -65,23 +61,26 @@ class CheckBindLicenseDeviceProgressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckBindLicenseDeviceProgressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckProgressId'])) {
             $model->checkProgressId = $map['CheckProgressId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['LicenseCode'])) {
             $model->licenseCode = $map['LicenseCode'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

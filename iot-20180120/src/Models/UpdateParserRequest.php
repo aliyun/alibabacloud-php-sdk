@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateParserRequest extends Model
 {
@@ -14,48 +14,46 @@ class UpdateParserRequest extends Model
     public $description;
 
     /**
-     * @example iot-8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example DataParserTwo
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 1001
-     *
      * @var int
      */
     public $parserId;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'iotInstanceId' => 'IotInstanceId',
-        'name'          => 'Name',
-        'parserId'      => 'ParserId',
+        'name' => 'Name',
+        'parserId' => 'ParserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parserId) {
             $res['ParserId'] = $this->parserId;
         }
@@ -63,23 +61,26 @@ class UpdateParserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateParserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ParserId'])) {
             $model->parserId = $map['ParserId'];
         }

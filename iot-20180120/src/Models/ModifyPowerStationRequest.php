@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPowerStationRequest extends Model
 {
@@ -39,35 +39,41 @@ class ModifyPowerStationRequest extends Model
     public $ratedPower;
     protected $_name = [
         'algorithmInstanceUid' => 'AlgorithmInstanceUid',
-        'description'          => 'Description',
-        'iotInstanceId'        => 'IotInstanceId',
-        'powerStationName'     => 'PowerStationName',
-        'powerStationUid'      => 'PowerStationUid',
-        'ratedPower'           => 'RatedPower',
+        'description' => 'Description',
+        'iotInstanceId' => 'IotInstanceId',
+        'powerStationName' => 'PowerStationName',
+        'powerStationUid' => 'PowerStationUid',
+        'ratedPower' => 'RatedPower',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmInstanceUid) {
             $res['AlgorithmInstanceUid'] = $this->algorithmInstanceUid;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->powerStationName) {
             $res['PowerStationName'] = $this->powerStationName;
         }
+
         if (null !== $this->powerStationUid) {
             $res['PowerStationUid'] = $this->powerStationUid;
         }
+
         if (null !== $this->ratedPower) {
             $res['RatedPower'] = $this->ratedPower;
         }
@@ -75,29 +81,34 @@ class ModifyPowerStationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPowerStationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgorithmInstanceUid'])) {
             $model->algorithmInstanceUid = $map['AlgorithmInstanceUid'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['PowerStationName'])) {
             $model->powerStationName = $map['PowerStationName'];
         }
+
         if (isset($map['PowerStationUid'])) {
             $model->powerStationUid = $map['PowerStationUid'];
         }
+
         if (isset($map['RatedPower'])) {
             $model->ratedPower = $map['RatedPower'];
         }

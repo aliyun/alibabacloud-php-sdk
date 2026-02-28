@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchUpdateDeviceNicknameRequest\deviceNicknameInfo;
-use AlibabaCloud\Tea\Model;
 
 class BatchUpdateDeviceNicknameRequest extends Model
 {
@@ -15,38 +15,36 @@ class BatchUpdateDeviceNicknameRequest extends Model
     public $deviceNicknameInfo;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
         'deviceNicknameInfo' => 'DeviceNicknameInfo',
-        'iotInstanceId'      => 'IotInstanceId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deviceNicknameInfo)) {
+            Model::validateArray($this->deviceNicknameInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceNicknameInfo) {
-            $res['DeviceNicknameInfo'] = [];
-            if (null !== $this->deviceNicknameInfo && \is_array($this->deviceNicknameInfo)) {
-                $n = 0;
-                foreach ($this->deviceNicknameInfo as $item) {
-                    $res['DeviceNicknameInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceNicknameInfo)) {
+                $res['DeviceNicknameInfo'] = [];
+                $n1 = 0;
+                foreach ($this->deviceNicknameInfo as $item1) {
+                    $res['DeviceNicknameInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -54,23 +52,25 @@ class BatchUpdateDeviceNicknameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchUpdateDeviceNicknameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceNicknameInfo'])) {
             if (!empty($map['DeviceNicknameInfo'])) {
                 $model->deviceNicknameInfo = [];
-                $n                         = 0;
-                foreach ($map['DeviceNicknameInfo'] as $item) {
-                    $model->deviceNicknameInfo[$n++] = null !== $item ? deviceNicknameInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceNicknameInfo'] as $item1) {
+                    $model->deviceNicknameInfo[$n1] = deviceNicknameInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchSetEdgeInstanceDeviceConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceConfigs extends Model
 {
     /**
-     * @example {"test": "device_config_demo"}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example sjI0Sd124XFYyjBY****000101
-     *
      * @var string
      */
     public $iotId;
     protected $_name = [
         'content' => 'Content',
-        'iotId'   => 'IotId',
+        'iotId' => 'IotId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
@@ -43,17 +41,18 @@ class deviceConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }

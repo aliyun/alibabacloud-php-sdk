@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechDeviceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechDeviceResponseBody\data\list_;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,48 +15,49 @@ class data extends Model
     public $list;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'list'     => 'List',
-        'pageId'   => 'PageId',
+        'list' => 'List',
+        'pageId' => 'PageId',
         'pageSize' => 'PageSize',
-        'total'    => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (null !== $this->list) {
+            $this->list->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+            $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
         }
+
         if (null !== $this->pageId) {
             $res['PageId'] = $this->pageId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -64,23 +65,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
         }
+
         if (isset($map['PageId'])) {
             $model->pageId = $map['PageId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

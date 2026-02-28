@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropertyStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropertyStatusResponseBody\data\list_;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The array of property information. The information about each property is indicated by the **PropertyStatusInfo** parameter.
-     *
      * @var list_
      */
     public $list;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->list) {
+            $this->list->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+            $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

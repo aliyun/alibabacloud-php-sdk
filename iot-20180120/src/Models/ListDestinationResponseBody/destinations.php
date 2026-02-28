@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListDestinationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class destinations extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Iot\V20180120\Models\ListDestinationResponseBody\destinations\destinations[]
+     * @var destinations\destinations[]
      */
     public $destinations;
     protected $_name = [
@@ -18,17 +18,22 @@ class destinations extends Model
 
     public function validate()
     {
+        if (\is_array($this->destinations)) {
+            Model::validateArray($this->destinations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinations) {
-            $res['destinations'] = [];
-            if (null !== $this->destinations && \is_array($this->destinations)) {
-                $n = 0;
-                foreach ($this->destinations as $item) {
-                    $res['destinations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->destinations)) {
+                $res['destinations'] = [];
+                $n1 = 0;
+                foreach ($this->destinations as $item1) {
+                    $res['destinations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class destinations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return destinations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['destinations'])) {
             if (!empty($map['destinations'])) {
                 $model->destinations = [];
-                $n                   = 0;
-                foreach ($map['destinations'] as $item) {
-                    $model->destinations[$n++] = null !== $item ? \AlibabaCloud\SDK\Iot\V20180120\Models\ListDestinationResponseBody\destinations\destinations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['destinations'] as $item1) {
+                    $model->destinations[$n1] = destinations\destinations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

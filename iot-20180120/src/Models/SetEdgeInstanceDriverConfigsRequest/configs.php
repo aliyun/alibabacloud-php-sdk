@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\SetEdgeInstanceDriverConfigsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configs extends Model
 {
     /**
-     * @example {"test":123}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example JSON
-     *
      * @var string
      */
     public $format;
 
     /**
-     * @example key1
-     *
      * @var string
      */
     public $key;
     protected $_name = [
         'content' => 'Content',
-        'format'  => 'Format',
-        'key'     => 'Key',
+        'format' => 'Format',
+        'key' => 'Key',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -54,20 +51,22 @@ class configs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

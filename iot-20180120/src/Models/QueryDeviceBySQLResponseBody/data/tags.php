@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceBySQLResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example Color
-     *
      * @var string
      */
     public $tagName;
 
     /**
-     * @description The tag value.
-     *
-     * @example Red
-     *
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagName'  => 'TagName',
+        'tagName' => 'TagName',
         'tagValue' => 'TagValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -47,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

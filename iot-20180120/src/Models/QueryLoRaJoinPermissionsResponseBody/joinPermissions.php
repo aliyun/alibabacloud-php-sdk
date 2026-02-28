@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryLoRaJoinPermissionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryLoRaJoinPermissionsResponseBody\joinPermissions\joinPermission;
-use AlibabaCloud\Tea\Model;
 
 class joinPermissions extends Model
 {
@@ -19,17 +19,22 @@ class joinPermissions extends Model
 
     public function validate()
     {
+        if (\is_array($this->joinPermission)) {
+            Model::validateArray($this->joinPermission);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->joinPermission) {
-            $res['JoinPermission'] = [];
-            if (null !== $this->joinPermission && \is_array($this->joinPermission)) {
-                $n = 0;
-                foreach ($this->joinPermission as $item) {
-                    $res['JoinPermission'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->joinPermission)) {
+                $res['JoinPermission'] = [];
+                $n1 = 0;
+                foreach ($this->joinPermission as $item1) {
+                    $res['JoinPermission'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class joinPermissions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return joinPermissions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JoinPermission'])) {
             if (!empty($map['JoinPermission'])) {
                 $model->joinPermission = [];
-                $n                     = 0;
-                foreach ($map['JoinPermission'] as $item) {
-                    $model->joinPermission[$n++] = null !== $item ? joinPermission::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['JoinPermission'] as $item1) {
+                    $model->joinPermission[$n1] = joinPermission::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

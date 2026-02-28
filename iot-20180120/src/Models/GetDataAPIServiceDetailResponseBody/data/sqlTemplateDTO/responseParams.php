@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams\responseParams;
 
 class responseParams extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams\responseParams[]
+     * @var responseParams[]
      */
     public $responseParams;
     protected $_name = [
@@ -18,17 +19,22 @@ class responseParams extends Model
 
     public function validate()
     {
+        if (\is_array($this->responseParams)) {
+            Model::validateArray($this->responseParams);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->responseParams) {
-            $res['ResponseParams'] = [];
-            if (null !== $this->responseParams && \is_array($this->responseParams)) {
-                $n = 0;
-                foreach ($this->responseParams as $item) {
-                    $res['ResponseParams'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->responseParams)) {
+                $res['ResponseParams'] = [];
+                $n1 = 0;
+                foreach ($this->responseParams as $item1) {
+                    $res['ResponseParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class responseParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return responseParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResponseParams'])) {
             if (!empty($map['ResponseParams'])) {
                 $model->responseParams = [];
-                $n                     = 0;
-                foreach ($map['ResponseParams'] as $item) {
-                    $model->responseParams[$n++] = null !== $item ? \AlibabaCloud\SDK\Iot\V20180120\Models\GetDataAPIServiceDetailResponseBody\data\sqlTemplateDTO\responseParams\responseParams::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResponseParams'] as $item1) {
+                    $model->responseParams[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,54 +4,56 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchUnbindDeviceFromEdgeInstanceRequest extends Model
 {
     /**
-     * @description The ID of the edge instance. To obtain the instance ID, perform the following steps: Log on to the [Link IoT Edge console](https://iot.console.aliyun.com/le/instance/list). On the **Edge Instances** page, move the pointer over the name of the edge instance from which you want to unbind multiple devices and obtain the instance ID.
-     *
-     * You can also call the [QueryEdgeInstance](~~135214~~) operation to query the instance ID.
-     * @example F3APY0tPLhmgGtx0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example BXPV9Ks3bxwM9fD****0000101
-     *
      * @var string[]
      */
     public $iotIds;
 
     /**
-     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for the public instance but required for Enterprise Edition instances.
-     *
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'iotIds'        => 'IotIds',
+        'instanceId' => 'InstanceId',
+        'iotIds' => 'IotIds',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->iotIds)) {
+            Model::validateArray($this->iotIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->iotIds) {
-            $res['IotIds'] = $this->iotIds;
+            if (\is_array($this->iotIds)) {
+                $res['IotIds'] = [];
+                $n1 = 0;
+                foreach ($this->iotIds as $item1) {
+                    $res['IotIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -59,22 +61,29 @@ class BatchUnbindDeviceFromEdgeInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchUnbindDeviceFromEdgeInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IotIds'])) {
             if (!empty($map['IotIds'])) {
-                $model->iotIds = $map['IotIds'];
+                $model->iotIds = [];
+                $n1 = 0;
+                foreach ($map['IotIds'] as $item1) {
+                    $model->iotIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

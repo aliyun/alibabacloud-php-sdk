@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportDeviceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class invalidDeviceNameList extends Model
 {
@@ -18,29 +18,45 @@ class invalidDeviceNameList extends Model
 
     public function validate()
     {
+        if (\is_array($this->invalidDeviceName)) {
+            Model::validateArray($this->invalidDeviceName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invalidDeviceName) {
-            $res['invalidDeviceName'] = $this->invalidDeviceName;
+            if (\is_array($this->invalidDeviceName)) {
+                $res['invalidDeviceName'] = [];
+                $n1 = 0;
+                foreach ($this->invalidDeviceName as $item1) {
+                    $res['invalidDeviceName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invalidDeviceNameList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['invalidDeviceName'])) {
             if (!empty($map['invalidDeviceName'])) {
-                $model->invalidDeviceName = $map['invalidDeviceName'];
+                $model->invalidDeviceName = [];
+                $n1 = 0;
+                foreach ($map['invalidDeviceName'] as $item1) {
+                    $model->invalidDeviceName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

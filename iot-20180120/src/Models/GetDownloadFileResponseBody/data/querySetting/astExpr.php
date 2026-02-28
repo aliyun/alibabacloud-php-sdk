@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetDownloadFileResponseBody\data\querySetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class astExpr extends Model
 {
     /**
-     * @example {"header":{"fieldName":"xxx"},"operator":"GreaterThanOrEqual","value":12345}
-     *
      * @var string
      */
     public $expr;
 
     /**
-     * @example binaryOp
-     *
      * @var string
      */
     public $exprType;
     protected $_name = [
-        'expr'     => 'Expr',
+        'expr' => 'Expr',
         'exprType' => 'ExprType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expr) {
             $res['Expr'] = $this->expr;
         }
+
         if (null !== $this->exprType) {
             $res['ExprType'] = $this->exprType;
         }
@@ -43,17 +41,18 @@ class astExpr extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return astExpr
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expr'])) {
             $model->expr = $map['Expr'];
         }
+
         if (isset($map['ExprType'])) {
             $model->exprType = $map['ExprType'];
         }

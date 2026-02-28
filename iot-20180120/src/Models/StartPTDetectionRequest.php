@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartPTDetectionRequest extends Model
 {
@@ -49,43 +49,51 @@ class StartPTDetectionRequest extends Model
     public $sensitivity;
     protected $_name = [
         'algorithmInstanceUid' => 'AlgorithmInstanceUid',
-        'data'                 => 'Data',
-        'dataCollectionTime'   => 'DataCollectionTime',
-        'fileName'             => 'FileName',
-        'iotInstanceId'        => 'IotInstanceId',
-        'powerPlantsNumber'    => 'PowerPlantsNumber',
-        'powerStationUid'      => 'PowerStationUid',
-        'sensitivity'          => 'Sensitivity',
+        'data' => 'Data',
+        'dataCollectionTime' => 'DataCollectionTime',
+        'fileName' => 'FileName',
+        'iotInstanceId' => 'IotInstanceId',
+        'powerPlantsNumber' => 'PowerPlantsNumber',
+        'powerStationUid' => 'PowerStationUid',
+        'sensitivity' => 'Sensitivity',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmInstanceUid) {
             $res['AlgorithmInstanceUid'] = $this->algorithmInstanceUid;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->dataCollectionTime) {
             $res['DataCollectionTime'] = $this->dataCollectionTime;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->powerPlantsNumber) {
             $res['PowerPlantsNumber'] = $this->powerPlantsNumber;
         }
+
         if (null !== $this->powerStationUid) {
             $res['PowerStationUid'] = $this->powerStationUid;
         }
+
         if (null !== $this->sensitivity) {
             $res['Sensitivity'] = $this->sensitivity;
         }
@@ -93,35 +101,42 @@ class StartPTDetectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartPTDetectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgorithmInstanceUid'])) {
             $model->algorithmInstanceUid = $map['AlgorithmInstanceUid'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['DataCollectionTime'])) {
             $model->dataCollectionTime = $map['DataCollectionTime'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['PowerPlantsNumber'])) {
             $model->powerPlantsNumber = $map['PowerPlantsNumber'];
         }
+
         if (isset($map['PowerStationUid'])) {
             $model->powerStationUid = $map['PowerStationUid'];
         }
+
         if (isset($map['Sensitivity'])) {
             $model->sensitivity = $map['Sensitivity'];
         }

@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseEdgeDriverVersionRequest extends Model
 {
     /**
-     * @example fec565038d7544978d9aed5c1a******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example 1.2.0
-     *
      * @var string
      */
     public $driverVersion;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'driverId'      => 'DriverId',
+        'driverId' => 'DriverId',
         'driverVersion' => 'DriverVersion',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driverId) {
             $res['DriverId'] = $this->driverId;
         }
+
         if (null !== $this->driverVersion) {
             $res['DriverVersion'] = $this->driverVersion;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -54,20 +51,22 @@ class ReleaseEdgeDriverVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseEdgeDriverVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DriverId'])) {
             $model->driverId = $map['DriverId'];
         }
+
         if (isset($map['DriverVersion'])) {
             $model->driverVersion = $map['DriverVersion'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

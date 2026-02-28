@@ -4,86 +4,76 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ClearDeviceDesiredPropertyRequest extends Model
 {
     /**
-     * @description The DeviceName of the device.
-     *
-     * >  If you specify a value for this parameter, you must configure the **ProductKey** parameter.
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example temperature
-     *
      * @var string[]
      */
     public $identifies;
 
     /**
-     * @description The ID of the device. The ID is a unique identifier that is issued by IoT Platform to the device.
-     *
-     * >  The IotId parameter specifies a globally unique identifier (GUID) for the device. The value of the **IotId** parameter is equivalent to a combination of the values of the **ProductKey** and **DeviceName** parameters. If you specify a value for the IotId parameter, you do not need to configure the **ProductKey** or **DeviceName** parameter. If you specify values for the **IotId**, **ProductKey**, and **DeviceName** parameters, the value of the **IotId** parameter takes precedence.
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @description The ID of the instance. You can view the ID of the instance on the **Overview** page in the IoT Platform console.****
-     *
-     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.****
-     * >*   If no **Overview** page or **ID** is generated for your instance, you do not need to configure this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot-2w****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The **ProductKey** of the product to which the device belongs.
-     *
-     * >  If you specify a value for this parameter, you must configure the **DeviceName** parameter.
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
     protected $_name = [
-        'deviceName'    => 'DeviceName',
-        'identifies'    => 'Identifies',
-        'iotId'         => 'IotId',
+        'deviceName' => 'DeviceName',
+        'identifies' => 'Identifies',
+        'iotId' => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
     {
+        if (\is_array($this->identifies)) {
+            Model::validateArray($this->identifies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->identifies) {
-            $res['Identifies'] = $this->identifies;
+            if (\is_array($this->identifies)) {
+                $res['Identifies'] = [];
+                $n1 = 0;
+                foreach ($this->identifies as $item1) {
+                    $res['Identifies'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -91,28 +81,37 @@ class ClearDeviceDesiredPropertyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ClearDeviceDesiredPropertyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['Identifies'])) {
             if (!empty($map['Identifies'])) {
-                $model->identifies = $map['Identifies'];
+                $model->identifies = [];
+                $n1 = 0;
+                foreach ($map['Identifies'] as $item1) {
+                    $model->identifies[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

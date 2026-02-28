@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAModuleVersionsByDeviceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAModuleVersionsByDeviceResponseBody\data\simpleOTAModuleInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->simpleOTAModuleInfo)) {
+            Model::validateArray($this->simpleOTAModuleInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->simpleOTAModuleInfo) {
-            $res['SimpleOTAModuleInfo'] = [];
-            if (null !== $this->simpleOTAModuleInfo && \is_array($this->simpleOTAModuleInfo)) {
-                $n = 0;
-                foreach ($this->simpleOTAModuleInfo as $item) {
-                    $res['SimpleOTAModuleInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->simpleOTAModuleInfo)) {
+                $res['SimpleOTAModuleInfo'] = [];
+                $n1 = 0;
+                foreach ($this->simpleOTAModuleInfo as $item1) {
+                    $res['SimpleOTAModuleInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SimpleOTAModuleInfo'])) {
             if (!empty($map['SimpleOTAModuleInfo'])) {
                 $model->simpleOTAModuleInfo = [];
-                $n                          = 0;
-                foreach ($map['SimpleOTAModuleInfo'] as $item) {
-                    $model->simpleOTAModuleInfo[$n++] = null !== $item ? simpleOTAModuleInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SimpleOTAModuleInfo'] as $item1) {
+                    $model->simpleOTAModuleInfo[$n1] = simpleOTAModuleInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePowerStationRequest extends Model
 {
@@ -24,23 +24,26 @@ class DeletePowerStationRequest extends Model
     public $powerStationUid;
     protected $_name = [
         'algorithmInstanceUid' => 'AlgorithmInstanceUid',
-        'iotInstanceId'        => 'IotInstanceId',
-        'powerStationUid'      => 'PowerStationUid',
+        'iotInstanceId' => 'IotInstanceId',
+        'powerStationUid' => 'PowerStationUid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithmInstanceUid) {
             $res['AlgorithmInstanceUid'] = $this->algorithmInstanceUid;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->powerStationUid) {
             $res['PowerStationUid'] = $this->powerStationUid;
         }
@@ -48,20 +51,22 @@ class DeletePowerStationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePowerStationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlgorithmInstanceUid'])) {
             $model->algorithmInstanceUid = $map['AlgorithmInstanceUid'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['PowerStationUid'])) {
             $model->powerStationUid = $map['PowerStationUid'];
         }

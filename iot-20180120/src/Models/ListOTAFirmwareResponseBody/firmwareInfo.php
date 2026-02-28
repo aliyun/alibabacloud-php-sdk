@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAFirmwareResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListOTAFirmwareResponseBody\firmwareInfo\simpleFirmwareInfo;
-use AlibabaCloud\Tea\Model;
 
 class firmwareInfo extends Model
 {
@@ -19,17 +19,22 @@ class firmwareInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->simpleFirmwareInfo)) {
+            Model::validateArray($this->simpleFirmwareInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->simpleFirmwareInfo) {
-            $res['SimpleFirmwareInfo'] = [];
-            if (null !== $this->simpleFirmwareInfo && \is_array($this->simpleFirmwareInfo)) {
-                $n = 0;
-                foreach ($this->simpleFirmwareInfo as $item) {
-                    $res['SimpleFirmwareInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->simpleFirmwareInfo)) {
+                $res['SimpleFirmwareInfo'] = [];
+                $n1 = 0;
+                foreach ($this->simpleFirmwareInfo as $item1) {
+                    $res['SimpleFirmwareInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class firmwareInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return firmwareInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SimpleFirmwareInfo'])) {
             if (!empty($map['SimpleFirmwareInfo'])) {
                 $model->simpleFirmwareInfo = [];
-                $n                         = 0;
-                foreach ($map['SimpleFirmwareInfo'] as $item) {
-                    $model->simpleFirmwareInfo[$n++] = null !== $item ? simpleFirmwareInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SimpleFirmwareInfo'] as $item1) {
+                    $model->simpleFirmwareInfo[$n1] = simpleFirmwareInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

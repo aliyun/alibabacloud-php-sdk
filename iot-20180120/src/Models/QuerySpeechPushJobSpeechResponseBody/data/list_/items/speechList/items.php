@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySpeechPushJobSpeechResponseBody\data\list_\items\speechList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example SYS_TONE_0
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @example Xiaoyun
-     *
      * @var string
      */
     public $voice;
     protected $_name = [
         'bizCode' => 'BizCode',
-        'text'    => 'Text',
-        'voice'   => 'Voice',
+        'text' => 'Text',
+        'voice' => 'Voice',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->voice) {
             $res['Voice'] = $this->voice;
         }
@@ -54,20 +51,22 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['Voice'])) {
             $model->voice = $map['Voice'];
         }

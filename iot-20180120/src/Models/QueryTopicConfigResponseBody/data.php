@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryTopicConfigResponseBody\data\topicConfigInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->topicConfigInfo)) {
+            Model::validateArray($this->topicConfigInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->topicConfigInfo) {
-            $res['TopicConfigInfo'] = [];
-            if (null !== $this->topicConfigInfo && \is_array($this->topicConfigInfo)) {
-                $n = 0;
-                foreach ($this->topicConfigInfo as $item) {
-                    $res['TopicConfigInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topicConfigInfo)) {
+                $res['TopicConfigInfo'] = [];
+                $n1 = 0;
+                foreach ($this->topicConfigInfo as $item1) {
+                    $res['TopicConfigInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TopicConfigInfo'])) {
             if (!empty($map['TopicConfigInfo'])) {
                 $model->topicConfigInfo = [];
-                $n                      = 0;
-                foreach ($map['TopicConfigInfo'] as $item) {
-                    $model->topicConfigInfo[$n++] = null !== $item ? topicConfigInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TopicConfigInfo'] as $item1) {
+                    $model->topicConfigInfo[$n1] = topicConfigInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

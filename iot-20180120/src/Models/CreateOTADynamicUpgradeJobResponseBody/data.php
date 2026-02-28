@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\CreateOTADynamicUpgradeJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The time when the update batch was created. The time is displayed in UTC.
-     *
-     * @example XUbmsMHmkqv0PiAG****010001
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @example 2019-05-10T02:18:53.000Z
-     *
      * @var string
      */
     public $utcCreate;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'utcCreate' => 'UtcCreate',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->utcCreate) {
             $res['UtcCreate'] = $this->utcCreate;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['UtcCreate'])) {
             $model->utcCreate = $map['UtcCreate'];
         }

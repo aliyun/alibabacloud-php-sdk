@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListProductTagsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListProductTagsResponseBody\data\productTag;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->productTag)) {
+            Model::validateArray($this->productTag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productTag) {
-            $res['ProductTag'] = [];
-            if (null !== $this->productTag && \is_array($this->productTag)) {
-                $n = 0;
-                foreach ($this->productTag as $item) {
-                    $res['ProductTag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productTag)) {
+                $res['ProductTag'] = [];
+                $n1 = 0;
+                foreach ($this->productTag as $item1) {
+                    $res['ProductTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductTag'])) {
             if (!empty($map['ProductTag'])) {
                 $model->productTag = [];
-                $n                 = 0;
-                foreach ($map['ProductTag'] as $item) {
-                    $model->productTag[$n++] = null !== $item ? productTag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProductTag'] as $item1) {
+                    $model->productTag[$n1] = productTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

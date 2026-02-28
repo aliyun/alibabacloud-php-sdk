@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeInstanceDeviceConfigResponseBody\deviceConfigList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class config extends Model
 {
     /**
-     * @description The configuration content or the Object Storage Service (OSS) path of the configuration file.
-     *
-     * @example {\"test\": \"device_config_demo\"}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The format of the configuration. Valid values: KV (key-value pair), JSON (JSON string), and FILE (configuration file).
-     *
-     * @example JSON
-     *
      * @var string
      */
     public $format;
     protected $_name = [
         'content' => 'Content',
-        'format'  => 'Format',
+        'format' => 'Format',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
@@ -47,17 +41,18 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\CreateDeviceDistributeJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetInstanceConfig extends Model
 {
     /**
-     * @description The configurations of the destination instance to which the device is distributed. For more information about instance IDs, see the description of the **SourceInstanceId** parameter.
-     *
-     *   If the value of the **Strategy** parameter is **1**, you can specify multiple instance IDs.
-     *   If the value of the **Strategy** parameter is **0**, you can specify only one instance ID.
-     *
-     * @example iot-cn-6ja***
-     *
      * @var string
      */
     public $targetInstanceId;
@@ -25,9 +18,10 @@ class targetInstanceConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetInstanceId) {
@@ -37,11 +31,11 @@ class targetInstanceConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetInstanceConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

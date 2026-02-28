@@ -4,60 +4,66 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchDeleteEdgeInstanceChannelRequest extends Model
 {
     /**
-     * @example BE0BD49EF5EF4D119D09CC1B25******
-     *
      * @var string[]
      */
     public $channelIds;
 
     /**
-     * @example 9c1ae7bd59f1469abbdccc9592******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example 6GaTtvTj7vJhiS******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'channelIds'    => 'ChannelIds',
-        'driverId'      => 'DriverId',
-        'instanceId'    => 'InstanceId',
+        'channelIds' => 'ChannelIds',
+        'driverId' => 'DriverId',
+        'instanceId' => 'InstanceId',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->channelIds)) {
+            Model::validateArray($this->channelIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelIds) {
-            $res['ChannelIds'] = $this->channelIds;
+            if (\is_array($this->channelIds)) {
+                $res['ChannelIds'] = [];
+                $n1 = 0;
+                foreach ($this->channelIds as $item1) {
+                    $res['ChannelIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->driverId) {
             $res['DriverId'] = $this->driverId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -65,25 +71,33 @@ class BatchDeleteEdgeInstanceChannelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchDeleteEdgeInstanceChannelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelIds'])) {
             if (!empty($map['ChannelIds'])) {
-                $model->channelIds = $map['ChannelIds'];
+                $model->channelIds = [];
+                $n1 = 0;
+                foreach ($map['ChannelIds'] as $item1) {
+                    $model->channelIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DriverId'])) {
             $model->driverId = $map['DriverId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

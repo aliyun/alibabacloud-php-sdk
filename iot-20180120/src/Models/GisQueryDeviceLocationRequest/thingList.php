@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GisQueryDeviceLocationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class thingList extends Model
 {
     /**
-     * @example mock_device_name
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example g3r****Vjta
-     *
      * @var string
      */
     public $productKey;
@@ -28,14 +24,16 @@ class thingList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -43,17 +41,18 @@ class thingList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return thingList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

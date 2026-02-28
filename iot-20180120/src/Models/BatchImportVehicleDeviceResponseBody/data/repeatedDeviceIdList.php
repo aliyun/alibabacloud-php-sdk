@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportVehicleDeviceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class repeatedDeviceIdList extends Model
 {
@@ -18,29 +18,45 @@ class repeatedDeviceIdList extends Model
 
     public function validate()
     {
+        if (\is_array($this->repeatedDeviceIdList)) {
+            Model::validateArray($this->repeatedDeviceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->repeatedDeviceIdList) {
-            $res['repeatedDeviceIdList'] = $this->repeatedDeviceIdList;
+            if (\is_array($this->repeatedDeviceIdList)) {
+                $res['repeatedDeviceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->repeatedDeviceIdList as $item1) {
+                    $res['repeatedDeviceIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return repeatedDeviceIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['repeatedDeviceIdList'])) {
             if (!empty($map['repeatedDeviceIdList'])) {
-                $model->repeatedDeviceIdList = $map['repeatedDeviceIdList'];
+                $model->repeatedDeviceIdList = [];
+                $n1 = 0;
+                foreach ($map['repeatedDeviceIdList'] as $item1) {
+                    $model->repeatedDeviceIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

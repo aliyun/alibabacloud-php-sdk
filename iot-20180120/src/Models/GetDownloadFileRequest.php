@@ -4,49 +4,54 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDownloadFileRequest extends Model
 {
     /**
-     * @example {"xxx";xxx}
-     *
      * @var mixed[]
      */
     public $context;
 
     /**
-     * @example iot-cn-npk1u******
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 62d949808bc742187xxxxxx
-     *
      * @var string
      */
     public $longJobId;
     protected $_name = [
-        'context'       => 'Context',
+        'context' => 'Context',
         'iotInstanceId' => 'IotInstanceId',
-        'longJobId'     => 'LongJobId',
+        'longJobId' => 'LongJobId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->context)) {
+            Model::validateArray($this->context);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
-            $res['Context'] = $this->context;
+            if (\is_array($this->context)) {
+                $res['Context'] = [];
+                foreach ($this->context as $key1 => $value1) {
+                    $res['Context'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->longJobId) {
             $res['LongJobId'] = $this->longJobId;
         }
@@ -54,20 +59,27 @@ class GetDownloadFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDownloadFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Context'])) {
-            $model->context = $map['Context'];
+            if (!empty($map['Context'])) {
+                $model->context = [];
+                foreach ($map['Context'] as $key1 => $value1) {
+                    $model->context[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['LongJobId'])) {
             $model->longJobId = $map['LongJobId'];
         }

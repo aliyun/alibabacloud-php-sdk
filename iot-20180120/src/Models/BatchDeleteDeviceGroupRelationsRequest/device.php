@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchDeleteDeviceGroupRelationsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class device extends Model
 {
     /**
-     * @description The names of the devices to be removed. You can specify a maximum of 200 devices.
-     *
-     * @example ZHuPo6sZzv7pOzYh****
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @description The ProductKeys of the products to which the devices belong. You can specify a maximum of 200 ProductKeys.
-     *
-     * @example a1kORrK****
-     *
      * @var string
      */
     public $productKey;
@@ -32,14 +24,16 @@ class device extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -47,17 +41,18 @@ class device extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return device
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserDefineTableDataByPrimaryKeyRequest extends Model
 {
@@ -23,24 +23,35 @@ class DeleteUserDefineTableDataByPrimaryKeyRequest extends Model
      */
     public $tableIdentifier;
     protected $_name = [
-        'conditions'      => 'Conditions',
-        'iotInstanceId'   => 'IotInstanceId',
+        'conditions' => 'Conditions',
+        'iotInstanceId' => 'IotInstanceId',
         'tableIdentifier' => 'TableIdentifier',
     ];
 
     public function validate()
     {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['Conditions'] = $this->conditions;
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                foreach ($this->conditions as $key1 => $value1) {
+                    $res['Conditions'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->tableIdentifier) {
             $res['TableIdentifier'] = $this->tableIdentifier;
         }
@@ -48,20 +59,27 @@ class DeleteUserDefineTableDataByPrimaryKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserDefineTableDataByPrimaryKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
-            $model->conditions = $map['Conditions'];
+            if (!empty($map['Conditions'])) {
+                $model->conditions = [];
+                foreach ($map['Conditions'] as $key1 => $value1) {
+                    $model->conditions[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['TableIdentifier'])) {
             $model->tableIdentifier = $map['TableIdentifier'];
         }

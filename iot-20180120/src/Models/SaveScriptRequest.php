@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveScriptRequest extends Model
 {
     /**
-     * @example iot-n8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1001
-     *
      * @var int
      */
     public $parserId;
 
     /**
-     * @example var data = payload("json")
-     *
      * @var string
      */
     public $scriptDraft;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'parserId'      => 'ParserId',
-        'scriptDraft'   => 'ScriptDraft',
+        'parserId' => 'ParserId',
+        'scriptDraft' => 'ScriptDraft',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->parserId) {
             $res['ParserId'] = $this->parserId;
         }
+
         if (null !== $this->scriptDraft) {
             $res['ScriptDraft'] = $this->scriptDraft;
         }
@@ -54,20 +51,22 @@ class SaveScriptRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveScriptRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ParserId'])) {
             $model->parserId = $map['ParserId'];
         }
+
         if (isset($map['ScriptDraft'])) {
             $model->scriptDraft = $map['ScriptDraft'];
         }

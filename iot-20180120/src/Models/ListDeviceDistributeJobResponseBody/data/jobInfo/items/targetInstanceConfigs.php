@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobResponseBody\data\jobInfo\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobResponseBody\data\jobInfo\items\targetInstanceConfigs\targetInstanceConfigs;
 
 class targetInstanceConfigs extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobResponseBody\data\jobInfo\items\targetInstanceConfigs\targetInstanceConfigs[]
+     * @var targetInstanceConfigs[]
      */
     public $targetInstanceConfigs;
     protected $_name = [
@@ -18,17 +19,22 @@ class targetInstanceConfigs extends Model
 
     public function validate()
     {
+        if (\is_array($this->targetInstanceConfigs)) {
+            Model::validateArray($this->targetInstanceConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetInstanceConfigs) {
-            $res['targetInstanceConfigs'] = [];
-            if (null !== $this->targetInstanceConfigs && \is_array($this->targetInstanceConfigs)) {
-                $n = 0;
-                foreach ($this->targetInstanceConfigs as $item) {
-                    $res['targetInstanceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targetInstanceConfigs)) {
+                $res['targetInstanceConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->targetInstanceConfigs as $item1) {
+                    $res['targetInstanceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class targetInstanceConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetInstanceConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['targetInstanceConfigs'])) {
             if (!empty($map['targetInstanceConfigs'])) {
                 $model->targetInstanceConfigs = [];
-                $n                            = 0;
-                foreach ($map['targetInstanceConfigs'] as $item) {
-                    $model->targetInstanceConfigs[$n++] = null !== $item ? \AlibabaCloud\SDK\Iot\V20180120\Models\ListDeviceDistributeJobResponseBody\data\jobInfo\items\targetInstanceConfigs\targetInstanceConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['targetInstanceConfigs'] as $item1) {
+                    $model->targetInstanceConfigs[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

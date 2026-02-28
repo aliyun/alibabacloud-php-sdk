@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetDownloadFileResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDownloadFileResponseBody\data\querySetting\astExpr;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetDownloadFileResponseBody\data\querySetting\selectedHeaders;
-use AlibabaCloud\Tea\Model;
 
 class querySetting extends Model
 {
@@ -20,32 +20,42 @@ class querySetting extends Model
      */
     public $selectedHeaders;
     protected $_name = [
-        'astExpr'         => 'AstExpr',
+        'astExpr' => 'AstExpr',
         'selectedHeaders' => 'SelectedHeaders',
     ];
 
     public function validate()
     {
+        if (\is_array($this->astExpr)) {
+            Model::validateArray($this->astExpr);
+        }
+        if (\is_array($this->selectedHeaders)) {
+            Model::validateArray($this->selectedHeaders);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->astExpr) {
-            $res['AstExpr'] = [];
-            if (null !== $this->astExpr && \is_array($this->astExpr)) {
-                $n = 0;
-                foreach ($this->astExpr as $item) {
-                    $res['AstExpr'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->astExpr)) {
+                $res['AstExpr'] = [];
+                $n1 = 0;
+                foreach ($this->astExpr as $item1) {
+                    $res['AstExpr'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->selectedHeaders) {
-            $res['SelectedHeaders'] = [];
-            if (null !== $this->selectedHeaders && \is_array($this->selectedHeaders)) {
-                $n = 0;
-                foreach ($this->selectedHeaders as $item) {
-                    $res['SelectedHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->selectedHeaders)) {
+                $res['SelectedHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->selectedHeaders as $item1) {
+                    $res['SelectedHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,29 +63,32 @@ class querySetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return querySetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AstExpr'])) {
             if (!empty($map['AstExpr'])) {
                 $model->astExpr = [];
-                $n              = 0;
-                foreach ($map['AstExpr'] as $item) {
-                    $model->astExpr[$n++] = null !== $item ? astExpr::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AstExpr'] as $item1) {
+                    $model->astExpr[$n1] = astExpr::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SelectedHeaders'])) {
             if (!empty($map['SelectedHeaders'])) {
                 $model->selectedHeaders = [];
-                $n                      = 0;
-                foreach ($map['SelectedHeaders'] as $item) {
-                    $model->selectedHeaders[$n++] = null !== $item ? selectedHeaders::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SelectedHeaders'] as $item1) {
+                    $model->selectedHeaders[$n1] = selectedHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

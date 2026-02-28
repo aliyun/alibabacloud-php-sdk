@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\GetThingModelTslResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example {\"schema\":\"https://iotx-tsl.oss-ap-southeast-1.aliyuncs.com/schema.json\",\"profile\":{\"productKey\":\"a14TeWI****\"},\"properties\":[{\"identifier\":\"Humidity\"}]}
-     *
      * @var string
      */
     public $tslStr;
 
     /**
-     * @description The string of the TSL model.
-     *
-     * @example https://iotx-pop-dsl.oss-cn-shanghai.aliyuncs.com/thing/a14TeWI****\/model.json?Expires=1581947119&OSSAccessKeyId=LTAIuFOwFSR9****&Signature=5i389hacjdj3t%2FnrHmQpEUfnxw****
-     *
      * @var string
      */
     public $tslUri;
@@ -30,14 +24,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tslStr) {
             $res['TslStr'] = $this->tslStr;
         }
+
         if (null !== $this->tslUri) {
             $res['TslUri'] = $this->tslUri;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TslStr'])) {
             $model->tslStr = $map['TslStr'];
         }
+
         if (isset($map['TslUri'])) {
             $model->tslUri = $map['TslUri'];
         }

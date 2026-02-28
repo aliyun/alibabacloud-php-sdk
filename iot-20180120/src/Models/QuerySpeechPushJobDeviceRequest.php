@@ -4,82 +4,76 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySpeechPushJobDeviceRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example iot-060*****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example tBUm***********************QPGT
-     *
      * @var string
      */
     public $jobCode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example SUCCESS
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'deviceName'    => 'DeviceName',
+        'deviceName' => 'DeviceName',
         'iotInstanceId' => 'IotInstanceId',
-        'jobCode'       => 'JobCode',
-        'pageId'        => 'PageId',
-        'pageSize'      => 'PageSize',
-        'status'        => 'Status',
+        'jobCode' => 'JobCode',
+        'pageId' => 'PageId',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->jobCode) {
             $res['JobCode'] = $this->jobCode;
         }
+
         if (null !== $this->pageId) {
             $res['PageId'] = $this->pageId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -87,29 +81,34 @@ class QuerySpeechPushJobDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySpeechPushJobDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['JobCode'])) {
             $model->jobCode = $map['JobCode'];
         }
+
         if (isset($map['PageId'])) {
             $model->pageId = $map['PageId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

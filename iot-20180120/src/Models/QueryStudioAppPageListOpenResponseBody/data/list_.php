@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppPageListOpenResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppPageListOpenResponseBody\data\list_\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->pageInfo)) {
+            Model::validateArray($this->pageInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = [];
-            if (null !== $this->pageInfo && \is_array($this->pageInfo)) {
-                $n = 0;
-                foreach ($this->pageInfo as $item) {
-                    $res['PageInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->pageInfo)) {
+                $res['PageInfo'] = [];
+                $n1 = 0;
+                foreach ($this->pageInfo as $item1) {
+                    $res['PageInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             if (!empty($map['PageInfo'])) {
                 $model->pageInfo = [];
-                $n               = 0;
-                foreach ($map['PageInfo'] as $item) {
-                    $model->pageInfo[$n++] = null !== $item ? pageInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PageInfo'] as $item1) {
+                    $model->pageInfo[$n1] = pageInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

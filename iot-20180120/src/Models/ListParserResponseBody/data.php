@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListParserResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListParserResponseBody\data\parserList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->parserList)) {
+            Model::validateArray($this->parserList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parserList) {
-            $res['ParserList'] = [];
-            if (null !== $this->parserList && \is_array($this->parserList)) {
-                $n = 0;
-                foreach ($this->parserList as $item) {
-                    $res['ParserList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parserList)) {
+                $res['ParserList'] = [];
+                $n1 = 0;
+                foreach ($this->parserList as $item1) {
+                    $res['ParserList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParserList'])) {
             if (!empty($map['ParserList'])) {
                 $model->parserList = [];
-                $n                 = 0;
-                foreach ($map['ParserList'] as $item) {
-                    $model->parserList[$n++] = null !== $item ? parserList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ParserList'] as $item1) {
+                    $model->parserList[$n1] = parserList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

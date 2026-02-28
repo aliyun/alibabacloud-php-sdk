@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckVehicleDeviceRequest\deviceList;
-use AlibabaCloud\Tea\Model;
 
 class BatchCheckVehicleDeviceRequest extends Model
 {
@@ -15,45 +15,46 @@ class BatchCheckVehicleDeviceRequest extends Model
     public $deviceList;
 
     /**
-     * @description BatchCheckVehicleDevice
-     *
-     * @example iot-1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1Bw****
-     *
      * @var string
      */
     public $productKey;
     protected $_name = [
-        'deviceList'    => 'DeviceList',
+        'deviceList' => 'DeviceList',
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deviceList)) {
+            Model::validateArray($this->deviceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceList) {
-            $res['DeviceList'] = [];
-            if (null !== $this->deviceList && \is_array($this->deviceList)) {
-                $n = 0;
-                foreach ($this->deviceList as $item) {
-                    $res['DeviceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceList)) {
+                $res['DeviceList'] = [];
+                $n1 = 0;
+                foreach ($this->deviceList as $item1) {
+                    $res['DeviceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -61,26 +62,29 @@ class BatchCheckVehicleDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchCheckVehicleDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceList'])) {
             if (!empty($map['DeviceList'])) {
                 $model->deviceList = [];
-                $n                 = 0;
-                foreach ($map['DeviceList'] as $item) {
-                    $model->deviceList[$n++] = null !== $item ? deviceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceList'] as $item1) {
+                    $model->deviceList[$n1] = deviceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

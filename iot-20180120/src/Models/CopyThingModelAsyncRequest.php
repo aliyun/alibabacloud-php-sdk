@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyThingModelAsyncRequest extends Model
 {
@@ -28,28 +28,32 @@ class CopyThingModelAsyncRequest extends Model
      */
     public $targetProductKey;
     protected $_name = [
-        'iotInstanceId'      => 'IotInstanceId',
+        'iotInstanceId' => 'IotInstanceId',
         'sourceModelVersion' => 'SourceModelVersion',
-        'sourceProductKey'   => 'SourceProductKey',
-        'targetProductKey'   => 'TargetProductKey',
+        'sourceProductKey' => 'SourceProductKey',
+        'targetProductKey' => 'TargetProductKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->sourceModelVersion) {
             $res['SourceModelVersion'] = $this->sourceModelVersion;
         }
+
         if (null !== $this->sourceProductKey) {
             $res['SourceProductKey'] = $this->sourceProductKey;
         }
+
         if (null !== $this->targetProductKey) {
             $res['TargetProductKey'] = $this->targetProductKey;
         }
@@ -57,23 +61,26 @@ class CopyThingModelAsyncRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyThingModelAsyncRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['SourceModelVersion'])) {
             $model->sourceModelVersion = $map['SourceModelVersion'];
         }
+
         if (isset($map['SourceProductKey'])) {
             $model->sourceProductKey = $map['SourceProductKey'];
         }
+
         if (isset($map['TargetProductKey'])) {
             $model->targetProductKey = $map['TargetProductKey'];
         }

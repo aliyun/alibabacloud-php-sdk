@@ -4,76 +4,67 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeDriverResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeDriverResponseBody\data\driverList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The information about each driver.
-     *
      * @var driverList[]
      */
     public $driverList;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of official or custom drivers found.
-     *
-     *   If the value of Type is 0, the value of this parameter is the total number of official drivers found.
-     *   If the value of Type is 1, the value of this parameter is the total number of custom drivers found.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'driverList'  => 'DriverList',
-        'pageSize'    => 'PageSize',
-        'total'       => 'Total',
+        'driverList' => 'DriverList',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->driverList)) {
+            Model::validateArray($this->driverList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->driverList) {
-            $res['DriverList'] = [];
-            if (null !== $this->driverList && \is_array($this->driverList)) {
-                $n = 0;
-                foreach ($this->driverList as $item) {
-                    $res['DriverList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->driverList)) {
+                $res['DriverList'] = [];
+                $n1 = 0;
+                foreach ($this->driverList as $item1) {
+                    $res['DriverList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -81,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DriverList'])) {
             if (!empty($map['DriverList'])) {
                 $model->driverList = [];
-                $n                 = 0;
-                foreach ($map['DriverList'] as $item) {
-                    $model->driverList[$n++] = null !== $item ? driverList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DriverList'] as $item1) {
+                    $model->driverList[$n1] = driverList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The identifier of the category.
-     *
-     * @example lighting
-     *
      * @var string
      */
     public $categoryKey;
 
     /**
-     * @description The name of the category.
-     *
      * @var string
      */
     public $categoryName;
     protected $_name = [
-        'categoryKey'  => 'CategoryKey',
+        'categoryKey' => 'CategoryKey',
         'categoryName' => 'CategoryName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryKey) {
             $res['CategoryKey'] = $this->categoryKey;
         }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryKey'])) {
             $model->categoryKey = $map['CategoryKey'];
         }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }

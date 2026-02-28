@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryImportedDeviceByApplyIdResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryImportedDeviceByApplyIdResponseBody\deviceList\device;
-use AlibabaCloud\Tea\Model;
 
 class deviceList extends Model
 {
@@ -19,17 +19,22 @@ class deviceList extends Model
 
     public function validate()
     {
+        if (\is_array($this->device)) {
+            Model::validateArray($this->device);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->device) {
-            $res['device'] = [];
-            if (null !== $this->device && \is_array($this->device)) {
-                $n = 0;
-                foreach ($this->device as $item) {
-                    $res['device'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->device)) {
+                $res['device'] = [];
+                $n1 = 0;
+                foreach ($this->device as $item1) {
+                    $res['device'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class deviceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['device'])) {
             if (!empty($map['device'])) {
                 $model->device = [];
-                $n             = 0;
-                foreach ($map['device'] as $item) {
-                    $model->device[$n++] = null !== $item ? device::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['device'] as $item1) {
+                    $model->device[$n1] = device::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

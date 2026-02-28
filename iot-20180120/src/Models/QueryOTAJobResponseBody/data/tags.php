@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAJobResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryOTAJobResponseBody\data\tags\otaTagDTO;
-use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
@@ -19,17 +19,22 @@ class tags extends Model
 
     public function validate()
     {
+        if (\is_array($this->otaTagDTO)) {
+            Model::validateArray($this->otaTagDTO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->otaTagDTO) {
-            $res['OtaTagDTO'] = [];
-            if (null !== $this->otaTagDTO && \is_array($this->otaTagDTO)) {
-                $n = 0;
-                foreach ($this->otaTagDTO as $item) {
-                    $res['OtaTagDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->otaTagDTO)) {
+                $res['OtaTagDTO'] = [];
+                $n1 = 0;
+                foreach ($this->otaTagDTO as $item1) {
+                    $res['OtaTagDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OtaTagDTO'])) {
             if (!empty($map['OtaTagDTO'])) {
                 $model->otaTagDTO = [];
-                $n                = 0;
-                foreach ($map['OtaTagDTO'] as $item) {
-                    $model->otaTagDTO[$n++] = null !== $item ? otaTagDTO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OtaTagDTO'] as $item1) {
+                    $model->otaTagDTO[$n1] = otaTagDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

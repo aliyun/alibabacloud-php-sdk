@@ -4,115 +4,106 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSoundCodeScheduleRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 2022-03-31
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @example 23:59
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $scheduleCode;
 
     /**
-     * @example 2022-03-31
-     *
      * @var string
      */
     public $startDate;
 
     /**
-     * @example 00:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example WORKING
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'   => 'Description',
-        'endDate'       => 'EndDate',
-        'endTime'       => 'EndTime',
+        'description' => 'Description',
+        'endDate' => 'EndDate',
+        'endTime' => 'EndTime',
         'iotInstanceId' => 'IotInstanceId',
-        'name'          => 'Name',
-        'scheduleCode'  => 'ScheduleCode',
-        'startDate'     => 'StartDate',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
+        'name' => 'Name',
+        'scheduleCode' => 'ScheduleCode',
+        'startDate' => 'StartDate',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->scheduleCode) {
             $res['ScheduleCode'] = $this->scheduleCode;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -120,38 +111,46 @@ class UpdateSoundCodeScheduleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSoundCodeScheduleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ScheduleCode'])) {
             $model->scheduleCode = $map['ScheduleCode'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

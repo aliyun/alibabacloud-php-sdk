@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of activated devices.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $activeCount;
 
     /**
-     * @description The total number of devices.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $deviceCount;
 
     /**
-     * @description The number of online devices.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $onlineCount;
@@ -42,17 +30,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeCount) {
             $res['activeCount'] = $this->activeCount;
         }
+
         if (null !== $this->deviceCount) {
             $res['deviceCount'] = $this->deviceCount;
         }
+
         if (null !== $this->onlineCount) {
             $res['onlineCount'] = $this->onlineCount;
         }
@@ -60,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['activeCount'])) {
             $model->activeCount = $map['activeCount'];
         }
+
         if (isset($map['deviceCount'])) {
             $model->deviceCount = $map['deviceCount'];
         }
+
         if (isset($map['onlineCount'])) {
             $model->onlineCount = $map['onlineCount'];
         }

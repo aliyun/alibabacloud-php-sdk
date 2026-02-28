@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\invalidDetailList\invalidDetailList;
 
 class invalidDetailList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\invalidDetailList\invalidDetailList[]
+     * @var invalidDetailList[]
      */
     public $invalidDetailList;
     protected $_name = [
@@ -18,17 +19,22 @@ class invalidDetailList extends Model
 
     public function validate()
     {
+        if (\is_array($this->invalidDetailList)) {
+            Model::validateArray($this->invalidDetailList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invalidDetailList) {
-            $res['InvalidDetailList'] = [];
-            if (null !== $this->invalidDetailList && \is_array($this->invalidDetailList)) {
-                $n = 0;
-                foreach ($this->invalidDetailList as $item) {
-                    $res['InvalidDetailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->invalidDetailList)) {
+                $res['InvalidDetailList'] = [];
+                $n1 = 0;
+                foreach ($this->invalidDetailList as $item1) {
+                    $res['InvalidDetailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class invalidDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invalidDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvalidDetailList'])) {
             if (!empty($map['InvalidDetailList'])) {
                 $model->invalidDetailList = [];
-                $n                        = 0;
-                foreach ($map['InvalidDetailList'] as $item) {
-                    $model->invalidDetailList[$n++] = null !== $item ? \AlibabaCloud\SDK\Iot\V20180120\Models\BatchCheckDeviceNamesResponseBody\data\invalidDetailList\invalidDetailList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InvalidDetailList'] as $item1) {
+                    $model->invalidDetailList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

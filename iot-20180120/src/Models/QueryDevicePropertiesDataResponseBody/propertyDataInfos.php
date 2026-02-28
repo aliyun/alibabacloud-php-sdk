@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropertiesDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicePropertiesDataResponseBody\propertyDataInfos\propertyDataInfo;
-use AlibabaCloud\Tea\Model;
 
 class propertyDataInfos extends Model
 {
@@ -19,17 +19,22 @@ class propertyDataInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->propertyDataInfo)) {
+            Model::validateArray($this->propertyDataInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyDataInfo) {
-            $res['PropertyDataInfo'] = [];
-            if (null !== $this->propertyDataInfo && \is_array($this->propertyDataInfo)) {
-                $n = 0;
-                foreach ($this->propertyDataInfo as $item) {
-                    $res['PropertyDataInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->propertyDataInfo)) {
+                $res['PropertyDataInfo'] = [];
+                $n1 = 0;
+                foreach ($this->propertyDataInfo as $item1) {
+                    $res['PropertyDataInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class propertyDataInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyDataInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyDataInfo'])) {
             if (!empty($map['PropertyDataInfo'])) {
                 $model->propertyDataInfo = [];
-                $n                       = 0;
-                foreach ($map['PropertyDataInfo'] as $item) {
-                    $model->propertyDataInfo[$n++] = null !== $item ? propertyDataInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PropertyDataInfo'] as $item1) {
+                    $model->propertyDataInfo[$n1] = propertyDataInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

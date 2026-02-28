@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryMessageInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryMessageInfoResponseBody\message\mqttProperties;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryMessageInfoResponseBody\message\userProperties;
-use AlibabaCloud\Tea\Model;
 
 class message extends Model
 {
     /**
-     * @example 1624419431000
-     *
      * @var int
      */
     public $generateTime;
 
     /**
-     * @example eyJsYXN0VGltZSI6IjIwMjEtMDYtMjQgMTY6Mj**
-     *
      * @var string
      */
     public $messageContent;
@@ -30,8 +26,6 @@ class message extends Model
     public $mqttProperties;
 
     /**
-     * @example /a1Q5XoY****\/device1/user/get
-     *
      * @var string
      */
     public $topicFullName;
@@ -47,8 +41,6 @@ class message extends Model
     public $transformedTopicFullName;
 
     /**
-     * @example 323455***
-     *
      * @var string
      */
     public $uniMsgId;
@@ -58,56 +50,72 @@ class message extends Model
      */
     public $userProperties;
     protected $_name = [
-        'generateTime'              => 'GenerateTime',
-        'messageContent'            => 'MessageContent',
-        'mqttProperties'            => 'MqttProperties',
-        'topicFullName'             => 'TopicFullName',
+        'generateTime' => 'GenerateTime',
+        'messageContent' => 'MessageContent',
+        'mqttProperties' => 'MqttProperties',
+        'topicFullName' => 'TopicFullName',
         'transformedMessageContent' => 'TransformedMessageContent',
-        'transformedTopicFullName'  => 'TransformedTopicFullName',
-        'uniMsgId'                  => 'UniMsgId',
-        'userProperties'            => 'UserProperties',
+        'transformedTopicFullName' => 'TransformedTopicFullName',
+        'uniMsgId' => 'UniMsgId',
+        'userProperties' => 'UserProperties',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mqttProperties)) {
+            Model::validateArray($this->mqttProperties);
+        }
+        if (\is_array($this->userProperties)) {
+            Model::validateArray($this->userProperties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->generateTime) {
             $res['GenerateTime'] = $this->generateTime;
         }
+
         if (null !== $this->messageContent) {
             $res['MessageContent'] = $this->messageContent;
         }
+
         if (null !== $this->mqttProperties) {
-            $res['MqttProperties'] = [];
-            if (null !== $this->mqttProperties && \is_array($this->mqttProperties)) {
-                $n = 0;
-                foreach ($this->mqttProperties as $item) {
-                    $res['MqttProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mqttProperties)) {
+                $res['MqttProperties'] = [];
+                $n1 = 0;
+                foreach ($this->mqttProperties as $item1) {
+                    $res['MqttProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->topicFullName) {
             $res['TopicFullName'] = $this->topicFullName;
         }
+
         if (null !== $this->transformedMessageContent) {
             $res['TransformedMessageContent'] = $this->transformedMessageContent;
         }
+
         if (null !== $this->transformedTopicFullName) {
             $res['TransformedTopicFullName'] = $this->transformedTopicFullName;
         }
+
         if (null !== $this->uniMsgId) {
             $res['UniMsgId'] = $this->uniMsgId;
         }
+
         if (null !== $this->userProperties) {
-            $res['UserProperties'] = [];
-            if (null !== $this->userProperties && \is_array($this->userProperties)) {
-                $n = 0;
-                foreach ($this->userProperties as $item) {
-                    $res['UserProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userProperties)) {
+                $res['UserProperties'] = [];
+                $n1 = 0;
+                foreach ($this->userProperties as $item1) {
+                    $res['UserProperties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,47 +123,56 @@ class message extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return message
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GenerateTime'])) {
             $model->generateTime = $map['GenerateTime'];
         }
+
         if (isset($map['MessageContent'])) {
             $model->messageContent = $map['MessageContent'];
         }
+
         if (isset($map['MqttProperties'])) {
             if (!empty($map['MqttProperties'])) {
                 $model->mqttProperties = [];
-                $n                     = 0;
-                foreach ($map['MqttProperties'] as $item) {
-                    $model->mqttProperties[$n++] = null !== $item ? mqttProperties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MqttProperties'] as $item1) {
+                    $model->mqttProperties[$n1] = mqttProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TopicFullName'])) {
             $model->topicFullName = $map['TopicFullName'];
         }
+
         if (isset($map['TransformedMessageContent'])) {
             $model->transformedMessageContent = $map['TransformedMessageContent'];
         }
+
         if (isset($map['TransformedTopicFullName'])) {
             $model->transformedTopicFullName = $map['TransformedTopicFullName'];
         }
+
         if (isset($map['UniMsgId'])) {
             $model->uniMsgId = $map['UniMsgId'];
         }
+
         if (isset($map['UserProperties'])) {
             if (!empty($map['UserProperties'])) {
                 $model->userProperties = [];
-                $n                     = 0;
-                foreach ($map['UserProperties'] as $item) {
-                    $model->userProperties[$n++] = null !== $item ? userProperties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserProperties'] as $item1) {
+                    $model->userProperties[$n1] = userProperties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

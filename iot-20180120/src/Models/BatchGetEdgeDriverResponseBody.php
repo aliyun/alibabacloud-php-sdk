@@ -4,86 +4,77 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchGetEdgeDriverResponseBody\driverList;
-use AlibabaCloud\Tea\Model;
 
 class BatchGetEdgeDriverResponseBody extends Model
 {
     /**
-     * @description The error code. Success indicates that the call was successful. Other values indicate that specific errors occurred. For more information, see [Error codes](~~135200~~).
-     *
-     * @example Success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The information about each driver.
-     *
      * @var driverList[]
      */
     public $driverList;
 
     /**
-     * @description The error message returned if the call failed.
-     *
-     * @example request parameter error
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example A42CAB88-6E26-4DC7-9A35-584D17E82DE0
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. true indicates that the call was successful. false indicates that the call failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
-        'driverList'   => 'DriverList',
+        'code' => 'Code',
+        'driverList' => 'DriverList',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (\is_array($this->driverList)) {
+            Model::validateArray($this->driverList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->driverList) {
-            $res['DriverList'] = [];
-            if (null !== $this->driverList && \is_array($this->driverList)) {
-                $n = 0;
-                foreach ($this->driverList as $item) {
-                    $res['DriverList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->driverList)) {
+                $res['DriverList'] = [];
+                $n1 = 0;
+                foreach ($this->driverList as $item1) {
+                    $res['DriverList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -91,32 +82,37 @@ class BatchGetEdgeDriverResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetEdgeDriverResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DriverList'])) {
             if (!empty($map['DriverList'])) {
                 $model->driverList = [];
-                $n                 = 0;
-                foreach ($map['DriverList'] as $item) {
-                    $model->driverList[$n++] = null !== $item ? driverList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DriverList'] as $item1) {
+                    $model->driverList[$n1] = driverList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

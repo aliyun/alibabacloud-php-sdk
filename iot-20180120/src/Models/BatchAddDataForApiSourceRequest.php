@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchAddDataForApiSourceRequest extends Model
 {
     /**
-     * @example cxatswiniekxw***
-     *
      * @var string
      */
     public $apiId;
 
     /**
-     * @example [{"key":"value1","ts":1637658286000},{"key":"value2","ts":1637658287000}]
-     *
      * @var string
      */
     public $contentList;
 
     /**
-     * @example iot-0pp1n*****
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'contentList'   => 'ContentList',
+        'apiId' => 'ApiId',
+        'contentList' => 'ContentList',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->contentList) {
             $res['ContentList'] = $this->contentList;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -54,20 +51,22 @@ class BatchAddDataForApiSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAddDataForApiSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['ContentList'])) {
             $model->contentList = $map['ContentList'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

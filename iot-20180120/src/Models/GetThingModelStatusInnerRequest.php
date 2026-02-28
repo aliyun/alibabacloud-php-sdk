@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetThingModelStatusInnerRequest extends Model
 {
@@ -23,24 +23,27 @@ class GetThingModelStatusInnerRequest extends Model
      */
     public $productKey;
     protected $_name = [
-        'insId'         => 'InsId',
+        'insId' => 'InsId',
         'iotInstanceId' => 'IotInstanceId',
-        'productKey'    => 'ProductKey',
+        'productKey' => 'ProductKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->insId) {
             $res['InsId'] = $this->insId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
         }
@@ -48,20 +51,22 @@ class GetThingModelStatusInnerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetThingModelStatusInnerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InsId'])) {
             $model->insId = $map['InsId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
         }

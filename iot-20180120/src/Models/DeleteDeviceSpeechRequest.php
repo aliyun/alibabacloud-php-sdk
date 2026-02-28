@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\DeleteDeviceSpeechRequest\deviceSpeechList;
-use AlibabaCloud\Tea\Model;
 
 class DeleteDeviceSpeechRequest extends Model
 {
@@ -15,43 +15,46 @@ class DeleteDeviceSpeechRequest extends Model
     public $deviceSpeechList;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
         'deviceSpeechList' => 'DeviceSpeechList',
-        'iotId'            => 'IotId',
-        'iotInstanceId'    => 'IotInstanceId',
+        'iotId' => 'IotId',
+        'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deviceSpeechList)) {
+            Model::validateArray($this->deviceSpeechList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceSpeechList) {
-            $res['DeviceSpeechList'] = [];
-            if (null !== $this->deviceSpeechList && \is_array($this->deviceSpeechList)) {
-                $n = 0;
-                foreach ($this->deviceSpeechList as $item) {
-                    $res['DeviceSpeechList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceSpeechList)) {
+                $res['DeviceSpeechList'] = [];
+                $n1 = 0;
+                foreach ($this->deviceSpeechList as $item1) {
+                    $res['DeviceSpeechList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->iotId) {
             $res['IotId'] = $this->iotId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -59,26 +62,29 @@ class DeleteDeviceSpeechRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDeviceSpeechRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceSpeechList'])) {
             if (!empty($map['DeviceSpeechList'])) {
                 $model->deviceSpeechList = [];
-                $n                       = 0;
-                foreach ($map['DeviceSpeechList'] as $item) {
-                    $model->deviceSpeechList[$n++] = null !== $item ? deviceSpeechList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeviceSpeechList'] as $item1) {
+                    $model->deviceSpeechList[$n1] = deviceSpeechList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IotId'])) {
             $model->iotId = $map['IotId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicesHotStorageDataStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDevicesHotStorageDataStatusResponseBody\data\list_;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,37 +15,39 @@ class data extends Model
     public $list;
 
     /**
-     * @example Bo***x44Qx
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $nextValid;
     protected $_name = [
-        'list'          => 'List',
+        'list' => 'List',
         'nextPageToken' => 'NextPageToken',
-        'nextValid'     => 'NextValid',
+        'nextValid' => 'NextValid',
     ];
 
     public function validate()
     {
+        if (null !== $this->list) {
+            $this->list->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
+            $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->nextValid) {
             $res['NextValid'] = $this->nextValid;
         }
@@ -53,20 +55,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['NextValid'])) {
             $model->nextValid = $map['NextValid'];
         }

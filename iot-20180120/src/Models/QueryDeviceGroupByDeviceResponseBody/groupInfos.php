@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupByDeviceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceGroupByDeviceResponseBody\groupInfos\groupInfo;
-use AlibabaCloud\Tea\Model;
 
 class groupInfos extends Model
 {
@@ -19,17 +19,22 @@ class groupInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupInfo)) {
+            Model::validateArray($this->groupInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupInfo) {
-            $res['GroupInfo'] = [];
-            if (null !== $this->groupInfo && \is_array($this->groupInfo)) {
-                $n = 0;
-                foreach ($this->groupInfo as $item) {
-                    $res['GroupInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupInfo)) {
+                $res['GroupInfo'] = [];
+                $n1 = 0;
+                foreach ($this->groupInfo as $item1) {
+                    $res['GroupInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class groupInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupInfo'])) {
             if (!empty($map['GroupInfo'])) {
                 $model->groupInfo = [];
-                $n                = 0;
-                foreach ($map['GroupInfo'] as $item) {
-                    $model->groupInfo[$n++] = null !== $item ? groupInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupInfo'] as $item1) {
+                    $model->groupInfo[$n1] = groupInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

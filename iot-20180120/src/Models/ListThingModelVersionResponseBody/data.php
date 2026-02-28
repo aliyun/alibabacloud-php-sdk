@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\ListThingModelVersionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingModelVersionResponseBody\data\modelVersions;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of TSL model versions. The versions are displayed in descending order based on the release time. The first version is the current version.
-     *
      * @var modelVersions[]
      */
     public $modelVersions;
@@ -21,17 +19,22 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->modelVersions)) {
+            Model::validateArray($this->modelVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->modelVersions) {
-            $res['ModelVersions'] = [];
-            if (null !== $this->modelVersions && \is_array($this->modelVersions)) {
-                $n = 0;
-                foreach ($this->modelVersions as $item) {
-                    $res['ModelVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->modelVersions)) {
+                $res['ModelVersions'] = [];
+                $n1 = 0;
+                foreach ($this->modelVersions as $item1) {
+                    $res['ModelVersions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -39,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ModelVersions'])) {
             if (!empty($map['ModelVersions'])) {
                 $model->modelVersions = [];
-                $n                    = 0;
-                foreach ($map['ModelVersions'] as $item) {
-                    $model->modelVersions[$n++] = null !== $item ? modelVersions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ModelVersions'] as $item1) {
+                    $model->modelVersions[$n1] = modelVersions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

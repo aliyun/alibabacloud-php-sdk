@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceCertResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceCertInfo extends Model
 {
     /**
-     * @example 636217374433****
-     *
      * @var string
      */
     public $certSN;
 
     /**
-     * @example tXHf4ezGEHcwdyMwoCDHGBmk9avi****
-     *
      * @var string
      */
     public $certificate;
 
     /**
-     * @example CqXL5h5ysRTA4NxjABjj0010fa****
-     *
      * @var string
      */
     public $privateKey;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $status;
     protected $_name = [
-        'certSN'      => 'CertSN',
+        'certSN' => 'CertSN',
         'certificate' => 'Certificate',
-        'privateKey'  => 'PrivateKey',
-        'status'      => 'Status',
+        'privateKey' => 'PrivateKey',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certSN) {
             $res['CertSN'] = $this->certSN;
         }
+
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
         }
+
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -65,23 +61,26 @@ class deviceCertInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceCertInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertSN'])) {
             $model->certSN = $map['CertSN'];
         }
+
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
         }
+
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

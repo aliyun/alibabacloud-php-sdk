@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsRequest\device;
-use AlibabaCloud\Tea\Model;
 
 class BatchAddDeviceGroupRelationsRequest extends Model
 {
@@ -15,47 +15,46 @@ class BatchAddDeviceGroupRelationsRequest extends Model
     public $device;
 
     /**
-     * @description The ProductKeys of the products to which the devices belong. You can specify a maximum of 200 ProductKeys.
-     *
-     * @example 6VfhebLg5iUe****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the group. The ID is the globally unique identifier (GUID) for the group.
-     *
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
     protected $_name = [
-        'device'        => 'Device',
-        'groupId'       => 'GroupId',
+        'device' => 'Device',
+        'groupId' => 'GroupId',
         'iotInstanceId' => 'IotInstanceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->device)) {
+            Model::validateArray($this->device);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->device) {
-            $res['Device'] = [];
-            if (null !== $this->device && \is_array($this->device)) {
-                $n = 0;
-                foreach ($this->device as $item) {
-                    $res['Device'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->device)) {
+                $res['Device'] = [];
+                $n1 = 0;
+                foreach ($this->device as $item1) {
+                    $res['Device'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
@@ -63,26 +62,29 @@ class BatchAddDeviceGroupRelationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAddDeviceGroupRelationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Device'])) {
             if (!empty($map['Device'])) {
                 $model->device = [];
-                $n             = 0;
-                foreach ($map['Device'] as $item) {
-                    $model->device[$n++] = null !== $item ? device::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Device'] as $item1) {
+                    $model->device[$n1] = device::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }

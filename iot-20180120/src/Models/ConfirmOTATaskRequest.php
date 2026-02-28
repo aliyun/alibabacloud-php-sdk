@@ -4,65 +4,73 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfirmOTATaskRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example y3tOmCDNgpR8F9jnVEzC01****
-     *
      * @var string[]
      */
     public $taskId;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'taskId'        => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskId)) {
+            Model::validateArray($this->taskId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+            if (\is_array($this->taskId)) {
+                $res['TaskId'] = [];
+                $n1 = 0;
+                foreach ($this->taskId as $item1) {
+                    $res['TaskId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfirmOTATaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['TaskId'])) {
             if (!empty($map['TaskId'])) {
-                $model->taskId = $map['TaskId'];
+                $model->taskId = [];
+                $n1 = 0;
+                foreach ($map['TaskId'] as $item1) {
+                    $model->taskId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

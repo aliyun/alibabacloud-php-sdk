@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GisQueryDeviceLocationRequest\thingList;
-use AlibabaCloud\Tea\Model;
 
 class GisQueryDeviceLocationRequest extends Model
 {
     /**
-     * @example iot-a****13l
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -22,25 +20,31 @@ class GisQueryDeviceLocationRequest extends Model
     public $thingList;
     protected $_name = [
         'iotInstanceId' => 'IotInstanceId',
-        'thingList'     => 'ThingList',
+        'thingList' => 'ThingList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->thingList)) {
+            Model::validateArray($this->thingList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
         }
+
         if (null !== $this->thingList) {
-            $res['ThingList'] = [];
-            if (null !== $this->thingList && \is_array($this->thingList)) {
-                $n = 0;
-                foreach ($this->thingList as $item) {
-                    $res['ThingList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->thingList)) {
+                $res['ThingList'] = [];
+                $n1 = 0;
+                foreach ($this->thingList as $item1) {
+                    $res['ThingList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class GisQueryDeviceLocationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GisQueryDeviceLocationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
         }
+
         if (isset($map['ThingList'])) {
             if (!empty($map['ThingList'])) {
                 $model->thingList = [];
-                $n                = 0;
-                foreach ($map['ThingList'] as $item) {
-                    $model->thingList[$n++] = null !== $item ? thingList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ThingList'] as $item1) {
+                    $model->thingList[$n1] = thingList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

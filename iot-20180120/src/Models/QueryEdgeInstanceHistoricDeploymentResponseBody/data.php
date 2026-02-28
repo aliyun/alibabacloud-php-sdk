@@ -4,73 +4,67 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceHistoricDeploymentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceHistoricDeploymentResponseBody\data\deploymentList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The list of deployment tasks.
-     *
      * @var deploymentList[]
      */
     public $deploymentList;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of deployment tasks.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'deploymentList' => 'DeploymentList',
-        'pageSize'       => 'PageSize',
-        'total'          => 'Total',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->deploymentList)) {
+            Model::validateArray($this->deploymentList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->deploymentList) {
-            $res['DeploymentList'] = [];
-            if (null !== $this->deploymentList && \is_array($this->deploymentList)) {
-                $n = 0;
-                foreach ($this->deploymentList as $item) {
-                    $res['DeploymentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deploymentList)) {
+                $res['DeploymentList'] = [];
+                $n1 = 0;
+                foreach ($this->deploymentList as $item1) {
+                    $res['DeploymentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -78,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DeploymentList'])) {
             if (!empty($map['DeploymentList'])) {
                 $model->deploymentList = [];
-                $n                     = 0;
-                foreach ($map['DeploymentList'] as $item) {
-                    $model->deploymentList[$n++] = null !== $item ? deploymentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeploymentList'] as $item1) {
+                    $model->deploymentList[$n1] = deploymentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

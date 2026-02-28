@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryDeviceDistributeJobResponseBody\data\targetInstanceConfigs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetInstanceConfigs extends Model
 {
     /**
-     * @description The ID of the destination instance.
-     *
-     * @example iot-cn-6ja***
-     *
      * @var string
      */
     public $targetInstanceId;
@@ -22,9 +18,10 @@ class targetInstanceConfigs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetInstanceId) {
@@ -34,11 +31,11 @@ class targetInstanceConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetInstanceConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\BatchImportVehicleDeviceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deviceList extends Model
 {
@@ -33,32 +33,37 @@ class deviceList extends Model
      */
     public $manufacturer;
     protected $_name = [
-        'deviceId'     => 'DeviceId',
-        'deviceModel'  => 'DeviceModel',
-        'deviceName'   => 'DeviceName',
+        'deviceId' => 'DeviceId',
+        'deviceModel' => 'DeviceModel',
+        'deviceName' => 'DeviceName',
         'deviceSecret' => 'DeviceSecret',
         'manufacturer' => 'Manufacturer',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+
         if (null !== $this->deviceModel) {
             $res['DeviceModel'] = $this->deviceModel;
         }
+
         if (null !== $this->deviceName) {
             $res['DeviceName'] = $this->deviceName;
         }
+
         if (null !== $this->deviceSecret) {
             $res['DeviceSecret'] = $this->deviceSecret;
         }
+
         if (null !== $this->manufacturer) {
             $res['Manufacturer'] = $this->manufacturer;
         }
@@ -66,26 +71,30 @@ class deviceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+
         if (isset($map['DeviceModel'])) {
             $model->deviceModel = $map['DeviceModel'];
         }
+
         if (isset($map['DeviceName'])) {
             $model->deviceName = $map['DeviceName'];
         }
+
         if (isset($map['DeviceSecret'])) {
             $model->deviceSecret = $map['DeviceSecret'];
         }
+
         if (isset($map['Manufacturer'])) {
             $model->manufacturer = $map['Manufacturer'];
         }

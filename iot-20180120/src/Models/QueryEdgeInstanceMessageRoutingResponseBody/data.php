@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceMessageRoutingResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryEdgeInstanceMessageRoutingResponseBody\data\messageRouteList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -29,28 +29,35 @@ class data extends Model
      */
     public $total;
     protected $_name = [
-        'currentPage'      => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'messageRouteList' => 'MessageRouteList',
-        'pageSize'         => 'PageSize',
-        'total'            => 'Total',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (null !== $this->messageRouteList) {
+            $this->messageRouteList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->messageRouteList) {
-            $res['MessageRouteList'] = null !== $this->messageRouteList ? $this->messageRouteList->toMap() : null;
+            $res['MessageRouteList'] = null !== $this->messageRouteList ? $this->messageRouteList->toArray($noStream) : $this->messageRouteList;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -58,23 +65,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['MessageRouteList'])) {
             $model->messageRouteList = messageRouteList::fromMap($map['MessageRouteList']);
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

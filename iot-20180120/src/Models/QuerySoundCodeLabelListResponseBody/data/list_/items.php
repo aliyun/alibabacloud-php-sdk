@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QuerySoundCodeLabelListResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $soundCode;
     protected $_name = [
-        'label'     => 'Label',
+        'label' => 'Label',
         'soundCode' => 'SoundCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->soundCode) {
             $res['SoundCode'] = $this->soundCode;
         }
@@ -43,17 +41,18 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['SoundCode'])) {
             $model->soundCode = $map['SoundCode'];
         }

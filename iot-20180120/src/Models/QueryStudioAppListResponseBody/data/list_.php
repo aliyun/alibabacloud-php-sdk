@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryStudioAppListResponseBody\data\list_\appInfo;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->appInfo)) {
+            Model::validateArray($this->appInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInfo) {
-            $res['AppInfo'] = [];
-            if (null !== $this->appInfo && \is_array($this->appInfo)) {
-                $n = 0;
-                foreach ($this->appInfo as $item) {
-                    $res['AppInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appInfo)) {
+                $res['AppInfo'] = [];
+                $n1 = 0;
+                foreach ($this->appInfo as $item1) {
+                    $res['AppInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInfo'])) {
             if (!empty($map['AppInfo'])) {
                 $model->appInfo = [];
-                $n              = 0;
-                foreach ($map['AppInfo'] as $item) {
-                    $model->appInfo[$n++] = null !== $item ? appInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppInfo'] as $item1) {
+                    $model->appInfo[$n1] = appInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
