@@ -51,6 +51,11 @@ class IdpConfig extends Model
     /**
      * @var int
      */
+    public $idpId;
+
+    /**
+     * @var int
+     */
     public $lastSyncTimeUnix;
 
     /**
@@ -106,6 +111,7 @@ class IdpConfig extends Model
         'feishuConfig' => 'FeishuConfig',
         'idaasConfig' => 'IdaasConfig',
         'idpConfigId' => 'IdpConfigId',
+        'idpId' => 'IdpId',
         'lastSyncTimeUnix' => 'LastSyncTimeUnix',
         'ldapConfig' => 'LdapConfig',
         'loginConfig' => 'LoginConfig',
@@ -186,6 +192,10 @@ class IdpConfig extends Model
 
         if (null !== $this->idpConfigId) {
             $res['IdpConfigId'] = $this->idpConfigId;
+        }
+
+        if (null !== $this->idpId) {
+            $res['IdpId'] = $this->idpId;
         }
 
         if (null !== $this->lastSyncTimeUnix) {
@@ -269,6 +279,10 @@ class IdpConfig extends Model
 
         if (isset($map['IdpConfigId'])) {
             $model->idpConfigId = $map['IdpConfigId'];
+        }
+
+        if (isset($map['IdpId'])) {
+            $model->idpId = $map['IdpId'];
         }
 
         if (isset($map['LastSyncTimeUnix'])) {

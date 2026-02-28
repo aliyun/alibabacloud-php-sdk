@@ -16,7 +16,17 @@ class OpenStructSaseDepartment extends Model
     /**
      * @var string
      */
+    public $fullDepartmentIdPath;
+
+    /**
+     * @var string
+     */
     public $fullDn;
+
+    /**
+     * @var int
+     */
+    public $idpId;
 
     /**
      * @var string
@@ -29,7 +39,9 @@ class OpenStructSaseDepartment extends Model
     public $parentDepartmentId;
     protected $_name = [
         'departmentId' => 'DepartmentId',
+        'fullDepartmentIdPath' => 'FullDepartmentIdPath',
         'fullDn' => 'FullDn',
+        'idpId' => 'IdpId',
         'name' => 'Name',
         'parentDepartmentId' => 'ParentDepartmentId',
     ];
@@ -46,8 +58,16 @@ class OpenStructSaseDepartment extends Model
             $res['DepartmentId'] = $this->departmentId;
         }
 
+        if (null !== $this->fullDepartmentIdPath) {
+            $res['FullDepartmentIdPath'] = $this->fullDepartmentIdPath;
+        }
+
         if (null !== $this->fullDn) {
             $res['FullDn'] = $this->fullDn;
+        }
+
+        if (null !== $this->idpId) {
+            $res['IdpId'] = $this->idpId;
         }
 
         if (null !== $this->name) {
@@ -73,8 +93,16 @@ class OpenStructSaseDepartment extends Model
             $model->departmentId = $map['DepartmentId'];
         }
 
+        if (isset($map['FullDepartmentIdPath'])) {
+            $model->fullDepartmentIdPath = $map['FullDepartmentIdPath'];
+        }
+
         if (isset($map['FullDn'])) {
             $model->fullDn = $map['FullDn'];
+        }
+
+        if (isset($map['IdpId'])) {
+            $model->idpId = $map['IdpId'];
         }
 
         if (isset($map['Name'])) {

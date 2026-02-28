@@ -2436,7 +2436,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除用户非在线设备.
+     * Deletes multiple user terminals at a time.
      *
      * @param request - DeleteUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2478,7 +2478,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除用户非在线设备.
+     * Deletes multiple user terminals at a time.
      *
      * @param request - DeleteUserDevicesRequest
      *
@@ -2804,7 +2804,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * Exports the information about user terminals in an Excel file.
      *
      * @param request - ExportUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2902,7 +2902,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询用户设备列表.
+     * Exports the information about user terminals in an Excel file.
      *
      * @param request - ExportUserDevicesRequest
      *
@@ -3167,7 +3167,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源指定用户.
+     * Query a specified user from a custom identity source.
      *
      * @param request - GetClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3202,7 +3202,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自定义身份源指定用户.
+     * Query a specified user from a custom identity source.
      *
      * @param request - GetClientUserRequest
      *

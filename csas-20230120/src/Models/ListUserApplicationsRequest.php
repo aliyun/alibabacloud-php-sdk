@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListUserApplicationsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $address;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -28,6 +33,7 @@ class ListUserApplicationsRequest extends Model
      */
     public $saseUserId;
     protected $_name = [
+        'address' => 'Address',
         'currentPage' => 'CurrentPage',
         'name' => 'Name',
         'pageSize' => 'PageSize',
@@ -42,6 +48,10 @@ class ListUserApplicationsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -69,6 +79,10 @@ class ListUserApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
