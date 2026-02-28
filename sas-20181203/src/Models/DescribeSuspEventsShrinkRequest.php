@@ -46,6 +46,11 @@ class DescribeSuspEventsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $detectSource;
+
+    /**
+     * @var string
+     */
     public $eventNames;
 
     /**
@@ -195,6 +200,7 @@ class DescribeSuspEventsShrinkRequest extends Model
         'containerFieldValue' => 'ContainerFieldValue',
         'currentPage' => 'CurrentPage',
         'dealed' => 'Dealed',
+        'detectSource' => 'DetectSource',
         'eventNames' => 'EventNames',
         'from' => 'From',
         'groupId' => 'GroupId',
@@ -276,6 +282,10 @@ class DescribeSuspEventsShrinkRequest extends Model
 
         if (null !== $this->dealed) {
             $res['Dealed'] = $this->dealed;
+        }
+
+        if (null !== $this->detectSource) {
+            $res['DetectSource'] = $this->detectSource;
         }
 
         if (null !== $this->eventNames) {
@@ -452,6 +462,10 @@ class DescribeSuspEventsShrinkRequest extends Model
 
         if (isset($map['Dealed'])) {
             $model->dealed = $map['Dealed'];
+        }
+
+        if (isset($map['DetectSource'])) {
+            $model->detectSource = $map['DetectSource'];
         }
 
         if (isset($map['EventNames'])) {

@@ -15,7 +15,7 @@ class ModifyCreateVulWhitelistResponseBody extends Model
     public $requestId;
 
     /**
-     * @var vulWhitelistList[]
+     * @var vulWhitelistList
      */
     public $vulWhitelistList;
     protected $_name = [
@@ -25,8 +25,8 @@ class ModifyCreateVulWhitelistResponseBody extends Model
 
     public function validate()
     {
-        if (\is_array($this->vulWhitelistList)) {
-            Model::validateArray($this->vulWhitelistList);
+        if (null !== $this->vulWhitelistList) {
+            $this->vulWhitelistList->validate();
         }
         parent::validate();
     }
@@ -39,14 +39,7 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         }
 
         if (null !== $this->vulWhitelistList) {
-            if (\is_array($this->vulWhitelistList)) {
-                $res['VulWhitelistList'] = [];
-                $n1 = 0;
-                foreach ($this->vulWhitelistList as $item1) {
-                    $res['VulWhitelistList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['VulWhitelistList'] = null !== $this->vulWhitelistList ? $this->vulWhitelistList->toArray($noStream) : $this->vulWhitelistList;
         }
 
         return $res;
@@ -65,14 +58,7 @@ class ModifyCreateVulWhitelistResponseBody extends Model
         }
 
         if (isset($map['VulWhitelistList'])) {
-            if (!empty($map['VulWhitelistList'])) {
-                $model->vulWhitelistList = [];
-                $n1 = 0;
-                foreach ($map['VulWhitelistList'] as $item1) {
-                    $model->vulWhitelistList[$n1] = vulWhitelistList::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->vulWhitelistList = vulWhitelistList::fromMap($map['VulWhitelistList']);
         }
 
         return $model;

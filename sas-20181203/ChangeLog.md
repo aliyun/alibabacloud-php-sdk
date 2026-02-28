@@ -1,3 +1,10 @@
+2026-02-28 Version: 9.0.0
+- Update API DescribeSuspEvents: add request parameters DetectSource.
+- Update API DescribeSuspEvents: add response parameters Body.SuspEvents.$.DetectSource.
+- Update API ModifyCreateVulWhitelist: update response parameters Body.VulWhitelistList' type has changed.
+- Update API ModifyCreateVulWhitelist: delete response parameters Body.VulWhitelistList.$.
+
+
 2026-02-10 Version: 8.0.1
 - Update API DescribeImageSensitiveFileList: add request parameters SensitiveKeyList.
 - Update API DescribePropertyScaDetail: add request parameters SearchCriteriaList.

@@ -97,6 +97,11 @@ class suspEvents extends Model
     public $details;
 
     /**
+     * @var string
+     */
+    public $detectSource;
+
+    /**
      * @var bool
      */
     public $displaySandboxResult;
@@ -308,6 +313,7 @@ class suspEvents extends Model
         'dataSource' => 'DataSource',
         'desc' => 'Desc',
         'details' => 'Details',
+        'detectSource' => 'DetectSource',
         'displaySandboxResult' => 'DisplaySandboxResult',
         'eventNotes' => 'EventNotes',
         'eventStatus' => 'EventStatus',
@@ -442,6 +448,10 @@ class suspEvents extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->detectSource) {
+            $res['DetectSource'] = $this->detectSource;
         }
 
         if (null !== $this->displaySandboxResult) {
@@ -705,6 +715,10 @@ class suspEvents extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DetectSource'])) {
+            $model->detectSource = $map['DetectSource'];
         }
 
         if (isset($map['DisplaySandboxResult'])) {

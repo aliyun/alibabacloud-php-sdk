@@ -30105,6 +30105,10 @@ class Sas extends OpenApiClient
             @$query['Dealed'] = $request->dealed;
         }
 
+        if (null !== $request->detectSource) {
+            @$query['DetectSource'] = $request->detectSource;
+        }
+
         if (null !== $request->eventNames) {
             @$query['EventNames'] = $request->eventNames;
         }
