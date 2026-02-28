@@ -1,3 +1,9 @@
+2026-02-28 Version: 2.11.1
+- Update API GetPasswordComplexityConfiguration: add response parameters Body.PasswordComplexityConfiguration.DisabledWeakPasswordLogin.
+- Update API GetPasswordComplexityConfiguration: add response parameters Body.PasswordComplexityConfiguration.DisabledWeakPasswordLoginStartedAt.
+- Update API SetPasswordComplexityConfiguration: add request parameters DisabledWeakPasswordLogin.
+
+
 2026-02-27 Version: 2.11.0
 - Support API CreateCredential.
 - Support API DeleteCredential.

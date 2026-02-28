@@ -10,6 +10,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordComplexityConfigurationRes
 class passwordComplexityConfiguration extends Model
 {
     /**
+     * @var bool
+     */
+    public $disabledWeakPasswordLogin;
+
+    /**
+     * @var int
+     */
+    public $disabledWeakPasswordLoginStartedAt;
+
+    /**
      * @var passwordComplexityRules[]
      */
     public $passwordComplexityRules;
@@ -19,6 +29,8 @@ class passwordComplexityConfiguration extends Model
      */
     public $passwordMinLength;
     protected $_name = [
+        'disabledWeakPasswordLogin' => 'DisabledWeakPasswordLogin',
+        'disabledWeakPasswordLoginStartedAt' => 'DisabledWeakPasswordLoginStartedAt',
         'passwordComplexityRules' => 'PasswordComplexityRules',
         'passwordMinLength' => 'PasswordMinLength',
     ];
@@ -34,6 +46,14 @@ class passwordComplexityConfiguration extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disabledWeakPasswordLogin) {
+            $res['DisabledWeakPasswordLogin'] = $this->disabledWeakPasswordLogin;
+        }
+
+        if (null !== $this->disabledWeakPasswordLoginStartedAt) {
+            $res['DisabledWeakPasswordLoginStartedAt'] = $this->disabledWeakPasswordLoginStartedAt;
+        }
+
         if (null !== $this->passwordComplexityRules) {
             if (\is_array($this->passwordComplexityRules)) {
                 $res['PasswordComplexityRules'] = [];
@@ -60,6 +80,14 @@ class passwordComplexityConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisabledWeakPasswordLogin'])) {
+            $model->disabledWeakPasswordLogin = $map['DisabledWeakPasswordLogin'];
+        }
+
+        if (isset($map['DisabledWeakPasswordLoginStartedAt'])) {
+            $model->disabledWeakPasswordLoginStartedAt = $map['DisabledWeakPasswordLoginStartedAt'];
+        }
+
         if (isset($map['PasswordComplexityRules'])) {
             if (!empty($map['PasswordComplexityRules'])) {
                 $model->passwordComplexityRules = [];

@@ -19657,6 +19657,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->disabledWeakPasswordLogin) {
+            @$query['DisabledWeakPasswordLogin'] = $request->disabledWeakPasswordLogin;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

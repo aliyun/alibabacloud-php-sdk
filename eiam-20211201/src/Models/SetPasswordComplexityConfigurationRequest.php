@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationReq
 class SetPasswordComplexityConfigurationRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $disabledWeakPasswordLogin;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -24,6 +29,7 @@ class SetPasswordComplexityConfigurationRequest extends Model
      */
     public $passwordMinLength;
     protected $_name = [
+        'disabledWeakPasswordLogin' => 'DisabledWeakPasswordLogin',
         'instanceId' => 'InstanceId',
         'passwordComplexityRules' => 'PasswordComplexityRules',
         'passwordMinLength' => 'PasswordMinLength',
@@ -40,6 +46,10 @@ class SetPasswordComplexityConfigurationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disabledWeakPasswordLogin) {
+            $res['DisabledWeakPasswordLogin'] = $this->disabledWeakPasswordLogin;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -70,6 +80,10 @@ class SetPasswordComplexityConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisabledWeakPasswordLogin'])) {
+            $model->disabledWeakPasswordLogin = $map['DisabledWeakPasswordLogin'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
