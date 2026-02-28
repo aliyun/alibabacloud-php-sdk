@@ -11,6 +11,11 @@ class GetConversationDetailRequest extends Model
     /**
      * @var string
      */
+    public $agentId;
+
+    /**
+     * @var string
+     */
     public $contactId;
 
     /**
@@ -18,6 +23,7 @@ class GetConversationDetailRequest extends Model
      */
     public $instanceId;
     protected $_name = [
+        'agentId' => 'AgentId',
         'contactId' => 'ContactId',
         'instanceId' => 'InstanceId',
     ];
@@ -30,6 +36,10 @@ class GetConversationDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
@@ -49,6 +59,10 @@ class GetConversationDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }

@@ -46,6 +46,11 @@ class CreateUserRequest extends Model
     /**
      * @var string
      */
+    public $needEmailNotification;
+
+    /**
+     * @var string
+     */
     public $nickname;
 
     /**
@@ -75,6 +80,7 @@ class CreateUserRequest extends Model
         'instanceId' => 'InstanceId',
         'loginName' => 'LoginName',
         'mobile' => 'Mobile',
+        'needEmailNotification' => 'NeedEmailNotification',
         'nickname' => 'Nickname',
         'resetPassword' => 'ResetPassword',
         'roleId' => 'RoleId',
@@ -116,6 +122,10 @@ class CreateUserRequest extends Model
 
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+
+        if (null !== $this->needEmailNotification) {
+            $res['NeedEmailNotification'] = $this->needEmailNotification;
         }
 
         if (null !== $this->nickname) {
@@ -175,6 +185,10 @@ class CreateUserRequest extends Model
 
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+
+        if (isset($map['NeedEmailNotification'])) {
+            $model->needEmailNotification = $map['NeedEmailNotification'];
         }
 
         if (isset($map['Nickname'])) {

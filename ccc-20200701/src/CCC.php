@@ -3269,6 +3269,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建坐席.
+     *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3311,6 +3313,10 @@ class CCC extends OpenApiClient
             @$query['Mobile'] = $request->mobile;
         }
 
+        if (null !== $request->needEmailNotification) {
+            @$query['NeedEmailNotification'] = $request->needEmailNotification;
+        }
+
         if (null !== $request->nickname) {
             @$query['Nickname'] = $request->nickname;
         }
@@ -3350,6 +3356,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建坐席.
+     *
      * @param request - CreateUserRequest
      *
      * @returns CreateUserResponse
@@ -5317,6 +5325,10 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
         if (null !== $request->contactId) {
             @$query['ContactId'] = $request->contactId;
         }
@@ -7294,6 +7306,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入自有线路号码
+     *
      * @param request - ImportCorpNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7351,6 +7365,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入自有线路号码
+     *
      * @param request - ImportCorpNumbersRequest
      *
      * @returns ImportCorpNumbersResponse
@@ -10990,6 +11006,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取单轨录音.
+     *
      * @param request - ListMonoRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11004,6 +11022,14 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentChannelId) {
+            @$query['AgentChannelId'] = $request->agentChannelId;
+        }
+
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
         if (null !== $request->contactId) {
             @$query['ContactId'] = $request->contactId;
         }
@@ -11031,6 +11057,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取单轨录音.
+     *
      * @param request - ListMonoRecordingsRequest
      *
      * @returns ListMonoRecordingsResponse
@@ -11047,6 +11075,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取分轨录音.
+     *
      * @param request - ListMultiChannelRecordingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11061,6 +11091,14 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentChannelId) {
+            @$query['AgentChannelId'] = $request->agentChannelId;
+        }
+
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
         if (null !== $request->contactId) {
             @$query['ContactId'] = $request->contactId;
         }
@@ -11088,6 +11126,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取分轨录音.
+     *
      * @param request - ListMultiChannelRecordingsRequest
      *
      * @returns ListMultiChannelRecordingsResponse
@@ -12078,6 +12118,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 使用ListSmsMetadata获取短信配置信息。
+     *
      * @param request - ListSmsMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12127,6 +12169,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 使用ListSmsMetadata获取短信配置信息。
+     *
      * @param request - ListSmsMetadataRequest
      *
      * @returns ListSmsMetadataResponse
@@ -12678,6 +12722,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询语音信箱列表.
+     *
      * @param request - ListVoicemailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12743,6 +12789,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询语音信箱列表.
+     *
      * @param request - ListVoicemailsRequest
      *
      * @returns ListVoicemailsResponse

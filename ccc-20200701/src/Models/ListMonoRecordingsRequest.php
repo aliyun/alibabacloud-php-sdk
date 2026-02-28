@@ -11,6 +11,16 @@ class ListMonoRecordingsRequest extends Model
     /**
      * @var string
      */
+    public $agentChannelId;
+
+    /**
+     * @var string
+     */
+    public $agentId;
+
+    /**
+     * @var string
+     */
     public $contactId;
 
     /**
@@ -18,6 +28,8 @@ class ListMonoRecordingsRequest extends Model
      */
     public $instanceId;
     protected $_name = [
+        'agentChannelId' => 'AgentChannelId',
+        'agentId' => 'AgentId',
         'contactId' => 'ContactId',
         'instanceId' => 'InstanceId',
     ];
@@ -30,6 +42,14 @@ class ListMonoRecordingsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentChannelId) {
+            $res['AgentChannelId'] = $this->agentChannelId;
+        }
+
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
@@ -49,6 +69,14 @@ class ListMonoRecordingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentChannelId'])) {
+            $model->agentChannelId = $map['AgentChannelId'];
+        }
+
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
