@@ -49,6 +49,16 @@ class LLMConfig extends Model
     public $temperature;
 
     /**
+     * @var mixed
+     */
+    public $toolExecutionConfig;
+
+    /**
+     * @var mixed[]
+     */
+    public $tools;
+
+    /**
      * @var float
      */
     public $topP;
@@ -71,6 +81,8 @@ class LLMConfig extends Model
         'params' => 'Params',
         'prompt' => 'Prompt',
         'temperature' => 'Temperature',
+        'toolExecutionConfig' => 'ToolExecutionConfig',
+        'tools' => 'Tools',
         'topP' => 'TopP',
         'url' => 'Url',
         'vendor' => 'Vendor',
@@ -80,6 +92,9 @@ class LLMConfig extends Model
     {
         if (\is_array($this->params)) {
             Model::validateArray($this->params);
+        }
+        if (\is_array($this->tools)) {
+            Model::validateArray($this->tools);
         }
         parent::validate();
     }
@@ -122,6 +137,21 @@ class LLMConfig extends Model
 
         if (null !== $this->temperature) {
             $res['Temperature'] = $this->temperature;
+        }
+
+        if (null !== $this->toolExecutionConfig) {
+            $res['ToolExecutionConfig'] = $this->toolExecutionConfig;
+        }
+
+        if (null !== $this->tools) {
+            if (\is_array($this->tools)) {
+                $res['Tools'] = [];
+                $n1 = 0;
+                foreach ($this->tools as $item1) {
+                    $res['Tools'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->topP) {
@@ -182,6 +212,21 @@ class LLMConfig extends Model
 
         if (isset($map['Temperature'])) {
             $model->temperature = $map['Temperature'];
+        }
+
+        if (isset($map['ToolExecutionConfig'])) {
+            $model->toolExecutionConfig = $map['ToolExecutionConfig'];
+        }
+
+        if (isset($map['Tools'])) {
+            if (!empty($map['Tools'])) {
+                $model->tools = [];
+                $n1 = 0;
+                foreach ($map['Tools'] as $item1) {
+                    $model->tools[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TopP'])) {
