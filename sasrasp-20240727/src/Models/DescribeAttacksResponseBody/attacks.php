@@ -115,6 +115,11 @@ class attacks extends Model
     public $languageVersion;
 
     /**
+     * @var bool
+     */
+    public $llmAsset;
+
+    /**
      * @var int
      */
     public $maxTimestamp;
@@ -255,6 +260,7 @@ class attacks extends Model
         'jdk' => 'Jdk',
         'language' => 'Language',
         'languageVersion' => 'LanguageVersion',
+        'llmAsset' => 'LlmAsset',
         'maxTimestamp' => 'MaxTimestamp',
         'message' => 'Message',
         'method' => 'Method',
@@ -384,6 +390,10 @@ class attacks extends Model
 
         if (null !== $this->languageVersion) {
             $res['LanguageVersion'] = $this->languageVersion;
+        }
+
+        if (null !== $this->llmAsset) {
+            $res['LlmAsset'] = $this->llmAsset;
         }
 
         if (null !== $this->maxTimestamp) {
@@ -589,6 +599,10 @@ class attacks extends Model
 
         if (isset($map['LanguageVersion'])) {
             $model->languageVersion = $map['LanguageVersion'];
+        }
+
+        if (isset($map['LlmAsset'])) {
+            $model->llmAsset = $map['LlmAsset'];
         }
 
         if (isset($map['MaxTimestamp'])) {
