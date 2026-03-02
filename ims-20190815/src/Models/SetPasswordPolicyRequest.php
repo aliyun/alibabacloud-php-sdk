@@ -19,6 +19,11 @@ class SetPasswordPolicyRequest extends Model
     public $initialPasswordAge;
 
     /**
+     * @var bool
+     */
+    public $interceptRiskPasswordOnApi;
+
+    /**
      * @var int
      */
     public $maxLoginAttemps;
@@ -70,6 +75,7 @@ class SetPasswordPolicyRequest extends Model
     protected $_name = [
         'hardExpire' => 'HardExpire',
         'initialPasswordAge' => 'InitialPasswordAge',
+        'interceptRiskPasswordOnApi' => 'InterceptRiskPasswordOnApi',
         'maxLoginAttemps' => 'MaxLoginAttemps',
         'maxPasswordAge' => 'MaxPasswordAge',
         'minimumPasswordDifferentCharacter' => 'MinimumPasswordDifferentCharacter',
@@ -96,6 +102,10 @@ class SetPasswordPolicyRequest extends Model
 
         if (null !== $this->initialPasswordAge) {
             $res['InitialPasswordAge'] = $this->initialPasswordAge;
+        }
+
+        if (null !== $this->interceptRiskPasswordOnApi) {
+            $res['InterceptRiskPasswordOnApi'] = $this->interceptRiskPasswordOnApi;
         }
 
         if (null !== $this->maxLoginAttemps) {
@@ -155,6 +165,10 @@ class SetPasswordPolicyRequest extends Model
 
         if (isset($map['InitialPasswordAge'])) {
             $model->initialPasswordAge = $map['InitialPasswordAge'];
+        }
+
+        if (isset($map['InterceptRiskPasswordOnApi'])) {
+            $model->interceptRiskPasswordOnApi = $map['InterceptRiskPasswordOnApi'];
         }
 
         if (isset($map['MaxLoginAttemps'])) {

@@ -229,7 +229,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     * 为OIDC身份提供商添加指定客户端ID.
      *
      * @param request - AddClientIdToOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -272,7 +272,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     * 为OIDC身份提供商添加指定客户端ID.
      *
      * @param request - AddClientIdToOIDCProviderRequest
      *
@@ -290,11 +290,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     * 为OIDC身份提供商添加验证指纹.
      *
      * @param request - AddFingerprintToOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -337,11 +333,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     * 为OIDC身份提供商添加验证指纹.
      *
      * @param request - AddFingerprintToOIDCProviderRequest
      *
@@ -359,7 +351,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a Resource Access Management (RAM) user to a RAM user group.
+     * 将RAM用户添加到指定的用户组.
      *
      * @param request - AddUserToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -402,7 +394,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a Resource Access Management (RAM) user to a RAM user group.
+     * 将RAM用户添加到指定的用户组.
      *
      * @param request - AddUserToGroupRequest
      *
@@ -420,7 +412,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+     * 为RAM用户绑定多因素认证设备.
      *
      * @param request - BindMFADeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -471,7 +463,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
+     * 为RAM用户绑定多因素认证设备.
      *
      * @param request - BindMFADeviceRequest
      *
@@ -489,10 +481,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
-     *
-     * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     * 修改RAM用户的登录密码
      *
      * @param request - ChangePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -535,10 +524,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
-     *
-     * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     * 修改RAM用户的登录密码
      *
      * @param request - ChangePasswordRequest
      *
@@ -556,7 +542,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 创建主账号或RAM用户访问密钥.
      *
      * @param request - CreateAccessKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -595,7 +581,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 创建主账号或RAM用户访问密钥.
      *
      * @param request - CreateAccessKeyRequest
      *
@@ -613,7 +599,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application secret for an application.
+     * 为指定的应用创建应用密钥.
      *
      * @param request - CreateAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -652,7 +638,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application secret for an application.
+     * 为指定的应用创建应用密钥.
      *
      * @param request - CreateAppSecretRequest
      *
@@ -767,7 +753,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user group.
+     * 创建用户组.
      *
      * @param request - CreateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -814,7 +800,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user group.
+     * 创建用户组.
      *
      * @param request - CreateGroupRequest
      *
@@ -832,7 +818,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Enables logon to the console for a Resource Access Management (RAM) user.
+     * Creates a logon configuration for a Resource Access Management (RAM) user.
      *
      * @param request - CreateLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -887,7 +873,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Enables logon to the console for a Resource Access Management (RAM) user.
+     * Creates a logon configuration for a Resource Access Management (RAM) user.
      *
      * @param request - CreateLoginProfileRequest
      *
@@ -905,17 +891,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-     *
-     * @remarks
-     * ### [](#)Prerequisites
-     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
-     * ### [](#)Limits
-     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-     * *   You can add a maximum of five fingerprints to an OIDC IdP.
-     * ### [](#)Operation description
-     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+     * 创建OIDC身份供应商.
      *
      * @param request - CreateOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -974,17 +950,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-     *
-     * @remarks
-     * ### [](#)Prerequisites
-     * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
-     * ### [](#)Limits
-     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-     * *   You can add a maximum of five fingerprints to an OIDC IdP.
-     * ### [](#)Operation description
-     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
+     * 创建OIDC身份供应商.
      *
      * @param request - CreateOIDCProviderRequest
      *
@@ -1071,10 +1037,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a RAM user.
-     *
-     * @remarks
-     * This topic provides an example on how to create a RAM user named `test`.
+     * 创建RAM用户.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,10 +1096,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a RAM user.
-     *
-     * @remarks
-     * This topic provides an example on how to create a RAM user named `test`.
+     * 创建RAM用户.
      *
      * @param request - CreateUserRequest
      *
@@ -1154,7 +1114,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a virtual multi-factor authentication (MFA) device.
+     * 创建多因素认证设备.
      *
      * @param request - CreateVirtualMFADeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1193,7 +1153,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a virtual multi-factor authentication (MFA) device.
+     * 创建多因素认证设备.
      *
      * @param request - CreateVirtualMFADeviceRequest
      *
@@ -1211,7 +1171,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 删除用户的访问密钥.
      *
      * @param request - DeleteAccessKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1254,7 +1214,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 删除用户的访问密钥.
      *
      * @param request - DeleteAccessKeyRequest
      *
@@ -1272,7 +1232,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     * 删除回收站中的访问密钥.
      *
      * @param request - DeleteAccessKeyInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1315,7 +1275,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     * 删除回收站中的访问密钥.
      *
      * @param request - DeleteAccessKeyInRecycleBinRequest
      *
@@ -1333,7 +1293,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes the application secret of an application.
+     * 删除指定应用的应用密钥.
      *
      * @param request - DeleteAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1376,7 +1336,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes the application secret of an application.
+     * 删除指定应用的应用密钥.
      *
      * @param request - DeleteAppSecretRequest
      *
@@ -1394,7 +1354,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * 删除指定的应用.
      *
      * @param request - DeleteApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1393,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * 删除指定的应用.
      *
      * @param request - DeleteApplicationRequest
      *
@@ -1451,10 +1411,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user group.
-     *
-     * @remarks
-     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     * 删除指定的用户组.
      *
      * @param request - DeleteGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1493,10 +1450,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user group.
-     *
-     * @remarks
-     * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
+     * 删除指定的用户组.
      *
      * @param request - DeleteGroupRequest
      *
@@ -1514,7 +1468,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Disables logon to the console for a Resource Access Management (RAM) user.
+     * 关闭指定RAM用户的控制台登录.
      *
      * @param request - DeleteLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1553,7 +1507,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Disables logon to the console for a Resource Access Management (RAM) user.
+     * 关闭指定RAM用户的控制台登录.
      *
      * @param request - DeleteLoginProfileRequest
      *
@@ -1571,11 +1525,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     * 删除指定的角色SSO身份提供商.
      *
      * @param request - DeleteOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1614,11 +1564,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     * 删除指定的角色SSO身份提供商.
      *
      * @param request - DeleteOIDCProviderRequest
      *
@@ -1636,7 +1582,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a passkey for a Resource Access Management (RAM) user.
+     * 删除Passkey.
      *
      * @param request - DeletePasskeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1679,7 +1625,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a passkey for a Resource Access Management (RAM) user.
+     * 删除Passkey.
      *
      * @param request - DeletePasskeyRequest
      *
@@ -1697,7 +1643,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+     * 删除指定的角色SSO身份提供商.
      *
      * @param request - DeleteSAMLProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1736,7 +1682,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
+     * 删除指定的角色SSO身份提供商.
      *
      * @param request - DeleteSAMLProviderRequest
      *
@@ -1754,7 +1700,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user.
+     * 删除RAM用户.
      *
      * @param request - DeleteUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1797,7 +1743,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user.
+     * 删除RAM用户.
      *
      * @param request - DeleteUserRequest
      *
@@ -1815,7 +1761,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+     * 删除回收站中的用户.
      *
      * @param request - DeleteUserInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1854,7 +1800,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a specific Resource Access Management (RAM) user from the recycle bin.
+     * 删除回收站中的用户.
      *
      * @param request - DeleteUserInRecycleBinRequest
      *
@@ -1872,7 +1818,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a multi-factor authentication (MFA) device.
+     * 删除多因素认证设备.
      *
      * @param request - DeleteVirtualMFADeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,7 +1857,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a multi-factor authentication (MFA) device.
+     * 删除多因素认证设备.
      *
      * @param request - DeleteVirtualMFADeviceRequest
      *
@@ -1929,11 +1875,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Uninstalls an external application or an internal application of the ServerApp type.
-     *
-     * @remarks
-     * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-     * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     * 解除安装应用.
      *
      * @param request - DeprovisionApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1972,11 +1914,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Uninstalls an external application or an internal application of the ServerApp type.
-     *
-     * @remarks
-     * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-     * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     * 解除安装应用.
      *
      * @param request - DeprovisionApplicationRequest
      *
@@ -1994,7 +1932,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an installed external application.
+     * 解除安装外部应用.
      *
      * @param request - DeprovisionExternalApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2033,7 +1971,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an installed external application.
+     * 解除安装外部应用.
      *
      * @param request - DeprovisionExternalApplicationRequest
      *
@@ -2051,7 +1989,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * 解绑并删除多因素认证设备.
      *
      * @param request - DisableVirtualMFARequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2090,7 +2028,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * 解绑并删除多因素认证设备.
      *
      * @param request - DisableVirtualMFARequest
      *
@@ -2108,7 +2046,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Generates the user credential report of an Alibaba Cloud account.
+     * 生成用户凭证报告.
      *
      * @param request - GenerateCredentialReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2138,7 +2076,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Generates the user credential report of an Alibaba Cloud account.
+     * 生成用户凭证报告.
      *
      * @returns GenerateCredentialReportResponse
      *
@@ -2152,7 +2090,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Generates a check report for Cloud Governance.
+     * 生成身份权限治理报告.
      *
      * @param request - GenerateGovernanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2182,7 +2120,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Generates a check report for Cloud Governance.
+     * 生成身份权限治理报告.
      *
      * @returns GenerateGovernanceReportResponse
      *
@@ -2196,7 +2134,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+     * 查询回收站中的访问密钥信息.
      *
      * @param request - GetAccessKeyInfoInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2235,7 +2173,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+     * 查询回收站中的访问密钥信息.
      *
      * @param request - GetAccessKeyInfoInRecycleBinRequest
      *
@@ -2253,7 +2191,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the time when an AccessKey pair was used for the last time.
+     * 查询指定访问密钥的最后使用时间.
      *
      * @param request - GetAccessKeyLastUsedRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,7 +2234,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the time when an AccessKey pair was used for the last time.
+     * 查询指定访问密钥的最后使用时间.
      *
      * @param request - GetAccessKeyLastUsedRequest
      *
@@ -2314,7 +2252,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+     * 查询主账号多因素认证设备信息.
      *
      * @param request - GetAccountMFAInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2344,7 +2282,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
+     * 查询主账号多因素认证设备信息.
      *
      * @returns GetAccountMFAInfoResponse
      *
@@ -2358,7 +2296,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security report of an Alibaba Cloud account.
+     * 查询阿里云账号的安全报告.
      *
      * @param request - GetAccountSecurityPracticeReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2388,7 +2326,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security report of an Alibaba Cloud account.
+     * 查询阿里云账号的安全报告.
      *
      * @returns GetAccountSecurityPracticeReportResponse
      *
@@ -2402,7 +2340,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the overview information about an Alibaba Cloud account.
+     * Retrieves a summary of an Alibaba Cloud account.
      *
      * @param request - GetAccountSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2432,7 +2370,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the overview information about an Alibaba Cloud account.
+     * Retrieves a summary of an Alibaba Cloud account.
      *
      * @returns GetAccountSummaryResponse
      *
@@ -2446,7 +2384,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application secret.
+     * 查询指定应用密钥信息.
      *
      * @param request - GetAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2489,7 +2427,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application secret.
+     * 查询指定应用密钥信息.
      *
      * @param request - GetAppSecretRequest
      *
@@ -2507,10 +2445,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about an application.
+     * Queries the configuration information of a specified application.
      *
      * @remarks
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     * This topic provides an example of how to query the configuration information of the application `472457090344041****`.
      *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2549,10 +2487,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about an application.
+     * Queries the configuration information of a specified application.
      *
      * @remarks
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     * This topic provides an example of how to query the configuration information of the application `472457090344041****`.
      *
      * @param request - GetApplicationRequest
      *
@@ -2570,7 +2508,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries installation information about a specified installed application.
+     * 查询应用安装信息.
      *
      * @param request - GetApplicationProvisionInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2609,7 +2547,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries installation information about a specified installed application.
+     * 查询应用安装信息.
      *
      * @param request - GetApplicationProvisionInfoRequest
      *
@@ -2627,7 +2565,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the user credential reports of an Alibaba Cloud account.
+     * 查询用户凭证报告内容.
      *
      * @param request - GetCredentialReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2670,7 +2608,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the user credential reports of an Alibaba Cloud account.
+     * 查询用户凭证报告内容.
      *
      * @param request - GetCredentialReportRequest
      *
@@ -2688,7 +2626,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the default domain name of an Alibaba Cloud account.
+     * 查询默认域名.
      *
      * @param request - GetDefaultDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2718,7 +2656,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the default domain name of an Alibaba Cloud account.
+     * 查询默认域名.
      *
      * @returns GetDefaultDomainResponse
      *
@@ -2732,7 +2670,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about an installed external application.
+     * 查询外部应用.
      *
      * @param request - GetExternalApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2771,7 +2709,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about an installed external application.
+     * 查询外部应用.
      *
      * @param request - GetExternalApplicationRequest
      *
@@ -2789,7 +2727,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询用户的单项ram治理报告.
+     * Queries the details of a specific check item in an identity and access governance report.
      *
      * @param request - GetGovernanceItemReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2836,7 +2774,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询用户的单项ram治理报告.
+     * Queries the details of a specific check item in an identity and access governance report.
      *
      * @param request - GetGovernanceItemReportRequest
      *
@@ -2854,7 +2792,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询成熟度报告状态
+     * Queries the status of an identity and access governance report.
      *
      * @param request - GetGovernanceReportStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2884,7 +2822,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询成熟度报告状态
+     * Queries the status of an identity and access governance report.
      *
      * @returns GetGovernanceReportStatusResponse
      *
@@ -2898,7 +2836,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Resource Access Management (RAM) user group.
+     * 查询指定用户组信息.
      *
      * @param request - GetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2937,7 +2875,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Resource Access Management (RAM) user group.
+     * 查询指定用户组信息.
      *
      * @param request - GetGroupRequest
      *
@@ -2955,7 +2893,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * Retrieves the logon information for a specified Resource Access Management (RAM) user.
      *
      * @param request - GetLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2994,7 +2932,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * Retrieves the logon information for a specified Resource Access Management (RAM) user.
      *
      * @param request - GetLoginProfileRequest
      *
@@ -3012,11 +2950,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an OIDC IdP.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+     * 查询OIDC身份提供商信息.
      *
      * @param request - GetOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3055,11 +2989,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an OIDC IdP.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
+     * 查询OIDC身份提供商信息.
      *
      * @param request - GetOIDCProviderRequest
      *
@@ -3077,7 +3007,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of the password policy for RAM users.
+     * Retrieves the password strength policy for Resource Access Management (RAM) users.
      *
      * @param request - GetPasswordPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3107,7 +3037,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of the password policy for RAM users.
+     * Retrieves the password strength policy for Resource Access Management (RAM) users.
      *
      * @returns GetPasswordPolicyResponse
      *
@@ -3121,7 +3051,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Retrieves information about a specified SAML provider for role-based SSO.
      *
      * @param request - GetSAMLProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3160,7 +3090,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Retrieves information about a specified SAML provider for role-based SSO.
      *
      * @param request - GetSAMLProviderRequest
      *
@@ -3178,7 +3108,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security preferences for RAM users.
+     * Queries the global security preferences for Resource Access Management (RAM) users.
      *
      * @param request - GetSecurityPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3208,7 +3138,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security preferences for RAM users.
+     * Queries the global security preferences for Resource Access Management (RAM) users.
      *
      * @returns GetSecurityPreferenceResponse
      *
@@ -3222,7 +3152,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a RAM user.
+     * 查询RAM用户的详细信息.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3269,7 +3199,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a RAM user.
+     * 查询RAM用户的详细信息.
      *
      * @param request - GetUserRequest
      *
@@ -3287,7 +3217,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+     * 获取回收站中的用户.
      *
      * @param request - GetUserInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3330,7 +3260,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
+     * 获取回收站中的用户.
      *
      * @param request - GetUserInRecycleBinRequest
      *
@@ -3348,7 +3278,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+     * 查询RAM用户多因素认证设备信息.
      *
      * @param request - GetUserMFAInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3387,7 +3317,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
+     * 查询RAM用户多因素认证设备信息.
      *
      * @param request - GetUserMFAInfoRequest
      *
@@ -3405,7 +3335,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of user-based single sign-on (SSO).
+     * Queries the identity provider settings for user-based SSO.
      *
      * @param request - GetUserSsoSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3435,7 +3365,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of user-based single sign-on (SSO).
+     * Queries the identity provider settings for user-based SSO.
      *
      * @returns GetUserSsoSettingsResponse
      *
@@ -3449,7 +3379,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     * 获取用户安全认证的信息.
      *
      * @param request - GetVerificationInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3488,7 +3418,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     * 获取用户安全认证的信息.
      *
      * @param request - GetVerificationInfoRequest
      *
@@ -3506,7 +3436,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 查询主账号或RAM用户访问密钥列表.
      *
      * @param request - ListAccessKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3545,7 +3475,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 查询主账号或RAM用户访问密钥列表.
      *
      * @param request - ListAccessKeysRequest
      *
@@ -3563,7 +3493,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+     * 列出回收站中访问密钥列表.
      *
      * @param request - ListAccessKeysInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3602,7 +3532,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
+     * 列出回收站中访问密钥列表.
      *
      * @param request - ListAccessKeysInRecycleBinRequest
      *
@@ -3620,7 +3550,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the secret IDs of an application.
+     * 查询指定应用的应用密钥ID列表.
      *
      * @param request - ListAppSecretIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3659,7 +3589,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the secret IDs of an application.
+     * 查询指定应用的应用密钥ID列表.
      *
      * @param request - ListAppSecretIdsRequest
      *
@@ -3734,10 +3664,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the created applications.
+     * Lists the applications that you have created.
      *
      * @remarks
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
      *
      * @param request - ListApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3767,10 +3697,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the created applications.
+     * Lists the applications that you have created.
      *
      * @remarks
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
      *
      * @returns ListApplicationsResponse
      *
@@ -3889,7 +3819,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     * 查询RAM用户加入的用户组列表.
      *
      * @param request - ListGroupsForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3928,7 +3858,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
+     * 查询RAM用户加入的用户组列表.
      *
      * @param request - ListGroupsForUserRequest
      *
@@ -3946,11 +3876,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries OIDC IdPs.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     * 查询OIDC身份提供商列表.
      *
      * @param request - ListOIDCProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3993,11 +3919,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries OIDC IdPs.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     * 查询OIDC身份提供商列表.
      *
      * @param request - ListOIDCProvidersRequest
      *
@@ -4015,7 +3937,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+     * 查询Passkey.
      *
      * @param request - ListPasskeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4054,7 +3976,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
+     * 查询Passkey.
      *
      * @param request - ListPasskeysRequest
      *
@@ -4173,7 +4095,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+     * 查询角色SSO身份提供商列表.
      *
      * @param request - ListSAMLProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4216,7 +4138,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
+     * 查询角色SSO身份提供商列表.
      *
      * @param request - ListSAMLProvidersRequest
      *
@@ -4234,14 +4156,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added resources.
-     *
-     * @remarks
-     * ###
-     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     * *   `ResourceId.N`
-     * *   `Tag.N.Key`
-     * *   `Tag.N.Key` and `Tag.N.Value`
+     * 查询资源与标签的关系.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4300,14 +4215,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added resources.
-     *
-     * @remarks
-     * ###
-     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     * *   `ResourceId.N`
-     * *   `Tag.N.Key`
-     * *   `Tag.N.Key` and `Tag.N.Value`
+     * 查询资源与标签的关系.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -4329,8 +4237,8 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * You can call the following API operations to query information about all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUserBasicInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4385,8 +4293,8 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * You can call the following API operations to query information about all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUserBasicInfosRequest
      *
@@ -4409,8 +4317,8 @@ class Ims extends OpenApiClient
      * @remarks
      * ### [](#)
      * You can call the following API operations to query the details of all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4466,8 +4374,8 @@ class Ims extends OpenApiClient
      * @remarks
      * ### [](#)
      * You can call the following API operations to query the details of all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUsersRequest
      *
@@ -4485,7 +4393,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) users in a RAM user group.
+     * 查询用户组中用户列表.
      *
      * @param request - ListUsersForGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4532,7 +4440,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries Resource Access Management (RAM) users in a RAM user group.
+     * 查询用户组中用户列表.
      *
      * @param request - ListUsersForGroupRequest
      *
@@ -4550,7 +4458,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+     * 查询回收站中用户列表.
      *
      * @param request - ListUsersInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4597,7 +4505,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
+     * 查询回收站中用户列表.
      *
      * @param request - ListUsersInRecycleBinRequest
      *
@@ -4676,7 +4584,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Installs an application.
+     * 安装应用.
      *
      * @param request - ProvisionApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4719,7 +4627,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Installs an application.
+     * 安装应用.
      *
      * @param request - ProvisionApplicationRequest
      *
@@ -4737,7 +4645,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Installs an external application.
+     * 安装外部应用.
      *
      * @param request - ProvisionExternalApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4780,7 +4688,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Installs an external application.
+     * 安装外部应用.
      *
      * @param request - ProvisionExternalApplicationRequest
      *
@@ -4798,11 +4706,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     * 移除OIDC身份提供商中的指定客户端ID.
      *
      * @param request - RemoveClientIdFromOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4845,11 +4749,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     * 移除OIDC身份提供商中的指定客户端ID.
      *
      * @param request - RemoveClientIdFromOIDCProviderRequest
      *
@@ -4867,11 +4767,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     * 移除OIDC身份提供商中指定的验证指纹.
      *
      * @param request - RemoveFingerprintFromOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4914,11 +4810,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     * 移除OIDC身份提供商中指定的验证指纹.
      *
      * @param request - RemoveFingerprintFromOIDCProviderRequest
      *
@@ -4936,7 +4828,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a Resource Access Management (RAM) user from a RAM user group.
+     * 将RAM用户从用户组中移除.
      *
      * @param request - RemoveUserFromGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4979,7 +4871,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes a Resource Access Management (RAM) user from a RAM user group.
+     * 将RAM用户从用户组中移除.
      *
      * @param request - RemoveUserFromGroupRequest
      *
@@ -4997,7 +4889,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     * 清空回收站中的访问密钥.
      *
      * @param request - RestoreAccessKeyFromRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5040,7 +4932,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
+     * 清空回收站中的访问密钥.
      *
      * @param request - RestoreAccessKeyFromRecycleBinRequest
      *
@@ -5058,7 +4950,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Restores a specific Resource Access Management (RAM) user from the recycle bin.
+     * 清空回收站中的用户.
      *
      * @param request - RestoreUserFromRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5097,7 +4989,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Restores a specific Resource Access Management (RAM) user from the recycle bin.
+     * 清空回收站中的用户.
      *
      * @param request - RestoreUserFromRecycleBinRequest
      *
@@ -5115,7 +5007,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the default domain name for an Alibaba Cloud account.
+     * 设置默认域名.
      *
      * @param request - SetDefaultDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5154,7 +5046,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the default domain name for an Alibaba Cloud account.
+     * 设置默认域名.
      *
      * @param request - SetDefaultDomainRequest
      *
@@ -5172,7 +5064,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the password policy for Resource Access Management (RAM) users.
+     * Sets the password strength policy for RAM users.
      *
      * @param request - SetPasswordPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5194,6 +5086,10 @@ class Ims extends OpenApiClient
 
         if (null !== $request->initialPasswordAge) {
             @$query['InitialPasswordAge'] = $request->initialPasswordAge;
+        }
+
+        if (null !== $request->interceptRiskPasswordOnApi) {
+            @$query['InterceptRiskPasswordOnApi'] = $request->interceptRiskPasswordOnApi;
         }
 
         if (null !== $request->maxLoginAttemps) {
@@ -5255,7 +5151,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the password policy for Resource Access Management (RAM) users.
+     * Sets the password strength policy for RAM users.
      *
      * @param request - SetPasswordPolicyRequest
      *
@@ -5273,11 +5169,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures security preferences for a RAM user.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     * Configures the global security preferences for a Resource Access Management (RAM) user.
      *
      * @param tmpReq - SetSecurityPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5370,11 +5262,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures security preferences for a RAM user.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     * Configures the global security preferences for a Resource Access Management (RAM) user.
      *
      * @param request - SetSecurityPreferenceRequest
      *
@@ -5392,7 +5280,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures information about user-based single sign-on (SSO).
+     * Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
      *
      * @param request - SetUserSsoSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5447,7 +5335,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures information about user-based single sign-on (SSO).
+     * Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
      *
      * @param request - SetUserSsoSettingsRequest
      *
@@ -5465,7 +5353,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a mobile phone or email to a Resource Access Management (RAM) user.
+     * 新增录入/修改安全手机号码、安全邮箱的API.
      *
      * @param request - SetVerificationInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5516,7 +5404,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a mobile phone or email to a Resource Access Management (RAM) user.
+     * 新增录入/修改安全手机号码、安全邮箱的API.
      *
      * @param request - SetVerificationInfoRequest
      *
@@ -5534,7 +5422,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * 资源打上标签.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5585,7 +5473,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * 资源打上标签.
      *
      * @param request - TagResourcesRequest
      *
@@ -5603,7 +5491,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * 为RAM用户解绑多因素认证设备.
      *
      * @param request - UnbindMFADeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5642,7 +5530,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
+     * 为RAM用户解绑多因素认证设备.
      *
      * @param request - UnbindMFADeviceRequest
      *
@@ -5660,7 +5548,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+     * 删除用户的安全认证
      *
      * @param request - UnbindVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5711,7 +5599,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+     * 删除用户的安全认证
      *
      * @param request - UnbindVerificationRequest
      *
@@ -5729,7 +5617,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes tags from a resource.
+     * 解绑资源的标签.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5784,7 +5672,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Removes tags from a resource.
+     * 解绑资源的标签.
      *
      * @param request - UntagResourcesRequest
      *
@@ -5802,7 +5690,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 修改访问密钥状态
      *
      * @param request - UpdateAccessKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5849,7 +5737,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * 修改访问密钥状态
      *
      * @param request - UpdateAccessKeyRequest
      *
@@ -5867,7 +5755,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a specified application.
+     * Updates the configuration of a specified application.
      *
      * @param request - UpdateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5938,7 +5826,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a specified application.
+     * Updates the configuration of a specified application.
      *
      * @param request - UpdateApplicationRequest
      *
@@ -5956,7 +5844,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about a Resource Access Management (RAM) user group.
+     * 修改指定用户组的信息.
      *
      * @param request - UpdateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6007,7 +5895,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about a Resource Access Management (RAM) user group.
+     * 修改指定用户组的信息.
      *
      * @param request - UpdateGroupRequest
      *
@@ -6025,7 +5913,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     * Modifies the console logon information for a specified Resource Access Management (RAM) user.
      *
      * @param request - UpdateLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6080,7 +5968,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     * Modifies the console logon information for a specified Resource Access Management (RAM) user.
      *
      * @param request - UpdateLoginProfileRequest
      *
@@ -6098,11 +5986,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+     * 修改OIDC身份提供商的描述和客户端ID.
      *
      * @param request - UpdateOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6153,11 +6037,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
+     * 修改OIDC身份提供商的描述和客户端ID.
      *
      * @param request - UpdateOIDCProviderRequest
      *
@@ -6175,7 +6055,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Updates the name of a passkey.
+     * 更新Passkey.
      *
      * @param request - UpdatePasskeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6222,7 +6102,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Updates the name of a passkey.
+     * 更新Passkey.
      *
      * @param request - UpdatePasskeyRequest
      *
@@ -6240,10 +6120,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Updates the information about a specified identity provider for role-based single sign-on (SSO).
      *
      * @remarks
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
      *
      * @param request - UpdateSAMLProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6294,10 +6174,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Updates the information about a specified identity provider for role-based single sign-on (SSO).
      *
      * @remarks
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
      *
      * @param request - UpdateSAMLProviderRequest
      *
@@ -6315,10 +6195,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a RAM user.
-     *
-     * @remarks
-     * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+     * 修改RAM用户信息.
      *
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6381,10 +6258,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a RAM user.
-     *
-     * @remarks
-     * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+     * 修改RAM用户信息.
      *
      * @param request - UpdateUserRequest
      *
