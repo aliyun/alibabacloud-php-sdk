@@ -266,6 +266,10 @@ class Paidsw extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->accessRestrictionRules) {
+            @$body['AccessRestrictionRules'] = $request->accessRestrictionRules;
+        }
+
         if (null !== $request->accessibility) {
             @$body['Accessibility'] = $request->accessibility;
         }
@@ -288,6 +292,10 @@ class Paidsw extends OpenApiClient
 
         if (null !== $request->datasets) {
             @$body['Datasets'] = $request->datasets;
+        }
+
+        if (null !== $request->dockerConfig) {
+            @$body['DockerConfig'] = $request->dockerConfig;
         }
 
         if (null !== $request->driver) {

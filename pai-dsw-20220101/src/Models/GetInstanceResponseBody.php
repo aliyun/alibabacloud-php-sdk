@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\affinity;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\datasets;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\dockerConfig;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\idleInstanceCuller;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\instanceShutdownTimer;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponseBody\instanceSnapshotList;
@@ -24,6 +25,11 @@ class GetInstanceResponseBody extends Model
      * @var string
      */
     public $acceleratorType;
+
+    /**
+     * @var string[]
+     */
+    public $accessRestrictionRules;
 
     /**
      * @var string
@@ -59,6 +65,11 @@ class GetInstanceResponseBody extends Model
      * @var datasets[]
      */
     public $datasets;
+
+    /**
+     * @var dockerConfig
+     */
+    public $dockerConfig;
 
     /**
      * @var string
@@ -291,6 +302,7 @@ class GetInstanceResponseBody extends Model
     public $workspaceSource;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
+        'accessRestrictionRules' => 'AccessRestrictionRules',
         'accessibility' => 'Accessibility',
         'accumulatedRunningTimeInMs' => 'AccumulatedRunningTimeInMs',
         'affinity' => 'Affinity',
@@ -298,6 +310,7 @@ class GetInstanceResponseBody extends Model
         'code' => 'Code',
         'credentialConfig' => 'CredentialConfig',
         'datasets' => 'Datasets',
+        'dockerConfig' => 'DockerConfig',
         'driver' => 'Driver',
         'dynamicMount' => 'DynamicMount',
         'ecsSpec' => 'EcsSpec',
@@ -348,6 +361,9 @@ class GetInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessRestrictionRules)) {
+            Model::validateArray($this->accessRestrictionRules);
+        }
         if (null !== $this->affinity) {
             $this->affinity->validate();
         }
@@ -359,6 +375,9 @@ class GetInstanceResponseBody extends Model
         }
         if (\is_array($this->datasets)) {
             Model::validateArray($this->datasets);
+        }
+        if (null !== $this->dockerConfig) {
+            $this->dockerConfig->validate();
         }
         if (null !== $this->dynamicMount) {
             $this->dynamicMount->validate();
@@ -412,6 +431,15 @@ class GetInstanceResponseBody extends Model
             $res['AcceleratorType'] = $this->acceleratorType;
         }
 
+        if (null !== $this->accessRestrictionRules) {
+            if (\is_array($this->accessRestrictionRules)) {
+                $res['AccessRestrictionRules'] = [];
+                foreach ($this->accessRestrictionRules as $key1 => $value1) {
+                    $res['AccessRestrictionRules'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
@@ -452,6 +480,10 @@ class GetInstanceResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dockerConfig) {
+            $res['DockerConfig'] = null !== $this->dockerConfig ? $this->dockerConfig->toArray($noStream) : $this->dockerConfig;
         }
 
         if (null !== $this->driver) {
@@ -691,6 +723,15 @@ class GetInstanceResponseBody extends Model
             $model->acceleratorType = $map['AcceleratorType'];
         }
 
+        if (isset($map['AccessRestrictionRules'])) {
+            if (!empty($map['AccessRestrictionRules'])) {
+                $model->accessRestrictionRules = [];
+                foreach ($map['AccessRestrictionRules'] as $key1 => $value1) {
+                    $model->accessRestrictionRules[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
@@ -731,6 +772,10 @@ class GetInstanceResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DockerConfig'])) {
+            $model->dockerConfig = dockerConfig::fromMap($map['DockerConfig']);
         }
 
         if (isset($map['Driver'])) {

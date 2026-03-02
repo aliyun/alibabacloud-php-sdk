@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\affinity;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\assignNodeSpec;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\datasets;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\dockerConfig;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\labels;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\requestedResource;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\spotSpec;
@@ -18,6 +19,11 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userVpc;
 
 class CreateInstanceRequest extends Model
 {
+    /**
+     * @var string[]
+     */
+    public $accessRestrictionRules;
+
     /**
      * @var string
      */
@@ -47,6 +53,11 @@ class CreateInstanceRequest extends Model
      * @var datasets[]
      */
     public $datasets;
+
+    /**
+     * @var dockerConfig
+     */
+    public $dockerConfig;
 
     /**
      * @var string
@@ -153,12 +164,14 @@ class CreateInstanceRequest extends Model
      */
     public $workspaceSource;
     protected $_name = [
+        'accessRestrictionRules' => 'AccessRestrictionRules',
         'accessibility' => 'Accessibility',
         'affinity' => 'Affinity',
         'assignNodeSpec' => 'AssignNodeSpec',
         'cloudDisks' => 'CloudDisks',
         'credentialConfig' => 'CredentialConfig',
         'datasets' => 'Datasets',
+        'dockerConfig' => 'DockerConfig',
         'driver' => 'Driver',
         'dynamicMount' => 'DynamicMount',
         'ecsSpec' => 'EcsSpec',
@@ -184,6 +197,9 @@ class CreateInstanceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessRestrictionRules)) {
+            Model::validateArray($this->accessRestrictionRules);
+        }
         if (null !== $this->affinity) {
             $this->affinity->validate();
         }
@@ -198,6 +214,9 @@ class CreateInstanceRequest extends Model
         }
         if (\is_array($this->datasets)) {
             Model::validateArray($this->datasets);
+        }
+        if (null !== $this->dockerConfig) {
+            $this->dockerConfig->validate();
         }
         if (null !== $this->dynamicMount) {
             $this->dynamicMount->validate();
@@ -232,6 +251,15 @@ class CreateInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessRestrictionRules) {
+            if (\is_array($this->accessRestrictionRules)) {
+                $res['AccessRestrictionRules'] = [];
+                foreach ($this->accessRestrictionRules as $key1 => $value1) {
+                    $res['AccessRestrictionRules'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
         }
@@ -268,6 +296,10 @@ class CreateInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dockerConfig) {
+            $res['DockerConfig'] = null !== $this->dockerConfig ? $this->dockerConfig->toArray($noStream) : $this->dockerConfig;
         }
 
         if (null !== $this->driver) {
@@ -389,6 +421,15 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessRestrictionRules'])) {
+            if (!empty($map['AccessRestrictionRules'])) {
+                $model->accessRestrictionRules = [];
+                foreach ($map['AccessRestrictionRules'] as $key1 => $value1) {
+                    $model->accessRestrictionRules[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
         }
@@ -425,6 +466,10 @@ class CreateInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DockerConfig'])) {
+            $model->dockerConfig = dockerConfig::fromMap($map['DockerConfig']);
         }
 
         if (isset($map['Driver'])) {
