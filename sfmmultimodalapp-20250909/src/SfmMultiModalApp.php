@@ -8,13 +8,23 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateCommandResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateCommandShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateMemoryRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateMemoryResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateMemoryShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateMmAppShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateProfileRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateProfileResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\CreateProfileShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteCommandResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteMemoryRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteProfileRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeleteProfileResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeCommandResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppRequest;
@@ -25,14 +35,30 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PatchMemoryConfigRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PatchMemoryConfigResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PublishMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PublishMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryConfigRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryConfigResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryListRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryListResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryProfileRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryProfileResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryUserProfileRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryUserProfileResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateCommandResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateCommandShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateProfileRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateProfileResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateProfileShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -168,6 +194,93 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 新增用户记忆.
+     *
+     * @param tmpReq - CreateMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param CreateMemoryRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMemoryResponse
+     */
+    public function createMemoryWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMemoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->metaData) {
+            $request->metaDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metaData, 'MetaData', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->messagesJson) {
+            @$query['MessagesJson'] = $request->messagesJson;
+        }
+
+        if (null !== $request->metaDataShrink) {
+            @$query['MetaData'] = $request->metaDataShrink;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemory',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增用户记忆.
+     *
+     * @param request - CreateMemoryRequest
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param CreateMemoryRequest $request
+     *
+     * @return CreateMemoryResponse
+     */
+    public function createMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMemoryWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建多模态应用.
      *
      * @param tmpReq - CreateMmAppRequest
@@ -259,6 +372,89 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 创建用户画像配置.
+     *
+     * @param tmpReq - CreateProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProfileResponse
+     *
+     * @param CreateProfileRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProfileResponse
+     */
+    public function createProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->attributesShrink) {
+            @$query['Attributes'] = $request->attributesShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProfile',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建用户画像配置.
+     *
+     * @param request - CreateProfileRequest
+     *
+     * @returns CreateProfileResponse
+     *
+     * @param CreateProfileRequest $request
+     *
+     * @return CreateProfileResponse
+     */
+    public function createProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProfileWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除指令.
      *
      * @param request - DeleteCommandRequest
@@ -328,6 +524,75 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 删除用户记忆.
+     *
+     * @param request - DeleteMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param DeleteMemoryRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->memoryNodeId) {
+            @$query['MemoryNodeId'] = $request->memoryNodeId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemory',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户记忆.
+     *
+     * @param request - DeleteMemoryRequest
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param DeleteMemoryRequest $request
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMemoryWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除多模态应用.
      *
      * @param request - DeleteMmAppRequest
@@ -386,6 +651,71 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMmAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除用户画像配置.
+     *
+     * @param request - DeleteProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProfileResponse
+     *
+     * @param DeleteProfileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProfileResponse
+     */
+    public function deleteProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProfile',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户画像配置.
+     *
+     * @param request - DeleteProfileRequest
+     *
+     * @returns DeleteProfileResponse
+     *
+     * @param DeleteProfileRequest $request
+     *
+     * @return DeleteProfileResponse
+     */
+    public function deleteProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProfileWithOptions($request, $runtime);
     }
 
     /**
@@ -738,6 +1068,91 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 变更用户记忆配置.
+     *
+     * @param request - PatchMemoryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PatchMemoryConfigResponse
+     *
+     * @param PatchMemoryConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PatchMemoryConfigResponse
+     */
+    public function patchMemoryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->autoUpdate) {
+            @$query['AutoUpdate'] = $request->autoUpdate;
+        }
+
+        if (null !== $request->expirationTime) {
+            @$query['ExpirationTime'] = $request->expirationTime;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PatchMemoryConfig',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PatchMemoryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 变更用户记忆配置.
+     *
+     * @param request - PatchMemoryConfigRequest
+     *
+     * @returns PatchMemoryConfigResponse
+     *
+     * @param PatchMemoryConfigRequest $request
+     *
+     * @return PatchMemoryConfigResponse
+     */
+    public function patchMemoryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->patchMemoryConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 多模态应用发布.
      *
      * @param request - PublishMmAppRequest
@@ -800,6 +1215,278 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->publishMmAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户记忆配置.
+     *
+     * @param request - QueryMemoryConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMemoryConfigResponse
+     *
+     * @param QueryMemoryConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryMemoryConfigResponse
+     */
+    public function queryMemoryConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMemoryConfig',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMemoryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户记忆配置.
+     *
+     * @param request - QueryMemoryConfigRequest
+     *
+     * @returns QueryMemoryConfigResponse
+     *
+     * @param QueryMemoryConfigRequest $request
+     *
+     * @return QueryMemoryConfigResponse
+     */
+    public function queryMemoryConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMemoryConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户记忆列表.
+     *
+     * @param request - QueryMemoryListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMemoryListResponse
+     *
+     * @param QueryMemoryListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryMemoryListResponse
+     */
+    public function queryMemoryListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMemoryList',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMemoryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户记忆列表.
+     *
+     * @param request - QueryMemoryListRequest
+     *
+     * @returns QueryMemoryListResponse
+     *
+     * @param QueryMemoryListRequest $request
+     *
+     * @return QueryMemoryListResponse
+     */
+    public function queryMemoryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMemoryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户画像配置.
+     *
+     * @param request - QueryProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryProfileResponse
+     *
+     * @param QueryProfileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryProfileResponse
+     */
+    public function queryProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryProfile',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户画像配置.
+     *
+     * @param request - QueryProfileRequest
+     *
+     * @returns QueryProfileResponse
+     *
+     * @param QueryProfileRequest $request
+     *
+     * @return QueryProfileResponse
+     */
+    public function queryProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户画像.
+     *
+     * @param request - QueryUserProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserProfileResponse
+     *
+     * @param QueryUserProfileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryUserProfileResponse
+     */
+    public function queryUserProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryUserProfile',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryUserProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户画像.
+     *
+     * @param request - QueryUserProfileRequest
+     *
+     * @returns QueryUserProfileResponse
+     *
+     * @param QueryUserProfileRequest $request
+     *
+     * @return QueryUserProfileResponse
+     */
+    public function queryUserProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserProfileWithOptions($request, $runtime);
     }
 
     /**
@@ -902,6 +1589,93 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 更新用户记忆.
+     *
+     * @param tmpReq - UpdateMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param UpdateMemoryRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemoryWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMemoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->metaData) {
+            $request->metaDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metaData, 'MetaData', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->memoryNodeId) {
+            @$query['MemoryNodeId'] = $request->memoryNodeId;
+        }
+
+        if (null !== $request->metaDataShrink) {
+            @$query['MetaData'] = $request->metaDataShrink;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemory',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新用户记忆.
+     *
+     * @param request - UpdateMemoryRequest
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param UpdateMemoryRequest $request
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMemoryWithOptions($request, $runtime);
+    }
+
+    /**
      * 多模态应用更新.
      *
      * @param tmpReq - UpdateMmAppRequest
@@ -994,5 +1768,88 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMmAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 变更用户画像配置.
+     *
+     * @param tmpReq - UpdateProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProfileResponse
+     *
+     * @param UpdateProfileRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProfileResponse
+     */
+    public function updateProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributesOperations) {
+            $request->attributesOperationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributesOperations, 'AttributesOperations', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->attributesOperationsShrink) {
+            @$query['AttributesOperations'] = $request->attributesOperationsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->userDefinedId) {
+            @$query['UserDefinedId'] = $request->userDefinedId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProfile',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 变更用户画像配置.
+     *
+     * @param request - UpdateProfileRequest
+     *
+     * @returns UpdateProfileResponse
+     *
+     * @param UpdateProfileRequest $request
+     *
+     * @return UpdateProfileResponse
+     */
+    public function updateProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProfileWithOptions($request, $runtime);
     }
 }
