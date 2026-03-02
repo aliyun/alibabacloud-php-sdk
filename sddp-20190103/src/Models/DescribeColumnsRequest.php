@@ -79,6 +79,11 @@ class DescribeColumnsRequest extends Model
     public $sensLevelName;
 
     /**
+     * @var string
+     */
+    public $serviceRegionId;
+
+    /**
      * @var int
      */
     public $tableId;
@@ -112,6 +117,7 @@ class DescribeColumnsRequest extends Model
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
         'sensLevelName' => 'SensLevelName',
+        'serviceRegionId' => 'ServiceRegionId',
         'tableId' => 'TableId',
         'tableName' => 'TableName',
         'templateId' => 'TemplateId',
@@ -180,6 +186,10 @@ class DescribeColumnsRequest extends Model
 
         if (null !== $this->sensLevelName) {
             $res['SensLevelName'] = $this->sensLevelName;
+        }
+
+        if (null !== $this->serviceRegionId) {
+            $res['ServiceRegionId'] = $this->serviceRegionId;
         }
 
         if (null !== $this->tableId) {
@@ -263,6 +273,10 @@ class DescribeColumnsRequest extends Model
 
         if (isset($map['SensLevelName'])) {
             $model->sensLevelName = $map['SensLevelName'];
+        }
+
+        if (isset($map['ServiceRegionId'])) {
+            $model->serviceRegionId = $map['ServiceRegionId'];
         }
 
         if (isset($map['TableId'])) {

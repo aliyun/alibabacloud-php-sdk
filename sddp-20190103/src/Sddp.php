@@ -1256,6 +1256,10 @@ class Sddp extends OpenApiClient
             @$query['SensLevelName'] = $request->sensLevelName;
         }
 
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
         if (null !== $request->tableId) {
             @$query['TableId'] = $request->tableId;
         }
@@ -1632,7 +1636,7 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+     * Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
      *
      * @remarks
      * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
@@ -1692,7 +1696,7 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+     * Queries assets that Data Security Center (DSC) is authorized to scan, or the regions that DSC supports.
      *
      * @remarks
      * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
@@ -2212,8 +2216,20 @@ class Sddp extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->APIVersion) {
+            @$query['APIVersion'] = $request->APIVersion;
+        }
+
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
+        }
+
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
 
         if (null !== $request->domainId) {
@@ -2240,6 +2256,14 @@ class Sddp extends OpenApiClient
             @$query['Lang'] = $request->lang;
         }
 
+        if (null !== $request->logStore) {
+            @$query['LogStore'] = $request->logStore;
+        }
+
+        if (null !== $request->logStoreFlag) {
+            @$query['LogStoreFlag'] = $request->logStoreFlag;
+        }
+
         if (null !== $request->memberAccount) {
             @$query['MemberAccount'] = $request->memberAccount;
         }
@@ -2260,20 +2284,52 @@ class Sddp extends OpenApiClient
             @$query['ParentCategoryIds'] = $request->parentCategoryIds;
         }
 
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
+        }
+
         if (null !== $request->productIds) {
             @$query['ProductIds'] = $request->productIds;
+        }
+
+        if (null !== $request->project) {
+            @$query['Project'] = $request->project;
         }
 
         if (null !== $request->queryName) {
             @$query['QueryName'] = $request->queryName;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->riskLevelIdList) {
+            @$query['RiskLevelIdList'] = $request->riskLevelIdList;
+        }
+
         if (null !== $request->riskLevels) {
             @$query['RiskLevels'] = $request->riskLevels;
         }
 
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
+        }
+
         if (null !== $request->serviceRegionId) {
             @$query['ServiceRegionId'] = $request->serviceRegionId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
 
         if (null !== $request->templateId) {
@@ -3579,7 +3635,7 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     * Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
      *
      * @remarks
      * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
@@ -3667,7 +3723,7 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     * Queries tables in data assets such as MaxCompute projects and ApsaraDB RDS instances that Data Security Center (DSC) is authorized to access.
      *
      * @remarks
      * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.

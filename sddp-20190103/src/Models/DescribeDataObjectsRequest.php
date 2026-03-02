@@ -11,7 +11,22 @@ class DescribeDataObjectsRequest extends Model
     /**
      * @var int
      */
+    public $APIVersion;
+
+    /**
+     * @var string
+     */
+    public $bucket;
+
+    /**
+     * @var int
+     */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $dbName;
 
     /**
      * @var int
@@ -44,6 +59,16 @@ class DescribeDataObjectsRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $logStore;
+
+    /**
+     * @var int
+     */
+    public $logStoreFlag;
+
+    /**
      * @var int
      */
     public $memberAccount;
@@ -71,7 +96,22 @@ class DescribeDataObjectsRequest extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var int
+     */
+    public $productId;
+
+    /**
+     * @var string
+     */
     public $productIds;
+
+    /**
+     * @var string
+     */
+    public $project;
 
     /**
      * @var string
@@ -81,7 +121,22 @@ class DescribeDataObjectsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $riskLevelIdList;
+
+    /**
+     * @var string
+     */
     public $riskLevels;
+
+    /**
+     * @var string
+     */
+    public $ruleIds;
 
     /**
      * @var string
@@ -89,26 +144,49 @@ class DescribeDataObjectsRequest extends Model
     public $serviceRegionId;
 
     /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
+     * @var int
+     */
+    public $taskId;
+
+    /**
      * @var int
      */
     public $templateId;
     protected $_name = [
+        'APIVersion' => 'APIVersion',
+        'bucket' => 'Bucket',
         'currentPage' => 'CurrentPage',
+        'dbName' => 'DbName',
         'domainId' => 'DomainId',
         'featureType' => 'FeatureType',
         'fileCategoryCode' => 'FileCategoryCode',
         'fileType' => 'FileType',
         'instanceId' => 'InstanceId',
         'lang' => 'Lang',
+        'logStore' => 'LogStore',
+        'logStoreFlag' => 'LogStoreFlag',
         'memberAccount' => 'MemberAccount',
         'modelIds' => 'ModelIds',
         'modelTagIds' => 'ModelTagIds',
         'pageSize' => 'PageSize',
         'parentCategoryIds' => 'ParentCategoryIds',
+        'path' => 'Path',
+        'productId' => 'ProductId',
         'productIds' => 'ProductIds',
+        'project' => 'Project',
         'queryName' => 'QueryName',
+        'regionId' => 'RegionId',
+        'riskLevelIdList' => 'RiskLevelIdList',
         'riskLevels' => 'RiskLevels',
+        'ruleIds' => 'RuleIds',
         'serviceRegionId' => 'ServiceRegionId',
+        'tableName' => 'TableName',
+        'taskId' => 'TaskId',
         'templateId' => 'TemplateId',
     ];
 
@@ -120,8 +198,20 @@ class DescribeDataObjectsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->APIVersion) {
+            $res['APIVersion'] = $this->APIVersion;
+        }
+
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
 
         if (null !== $this->domainId) {
@@ -148,6 +238,14 @@ class DescribeDataObjectsRequest extends Model
             $res['Lang'] = $this->lang;
         }
 
+        if (null !== $this->logStore) {
+            $res['LogStore'] = $this->logStore;
+        }
+
+        if (null !== $this->logStoreFlag) {
+            $res['LogStoreFlag'] = $this->logStoreFlag;
+        }
+
         if (null !== $this->memberAccount) {
             $res['MemberAccount'] = $this->memberAccount;
         }
@@ -168,20 +266,52 @@ class DescribeDataObjectsRequest extends Model
             $res['ParentCategoryIds'] = $this->parentCategoryIds;
         }
 
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
+        }
+
         if (null !== $this->productIds) {
             $res['ProductIds'] = $this->productIds;
+        }
+
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         if (null !== $this->queryName) {
             $res['QueryName'] = $this->queryName;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->riskLevelIdList) {
+            $res['RiskLevelIdList'] = $this->riskLevelIdList;
+        }
+
         if (null !== $this->riskLevels) {
             $res['RiskLevels'] = $this->riskLevels;
         }
 
+        if (null !== $this->ruleIds) {
+            $res['RuleIds'] = $this->ruleIds;
+        }
+
         if (null !== $this->serviceRegionId) {
             $res['ServiceRegionId'] = $this->serviceRegionId;
+        }
+
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->templateId) {
@@ -199,8 +329,20 @@ class DescribeDataObjectsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['APIVersion'])) {
+            $model->APIVersion = $map['APIVersion'];
+        }
+
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
 
         if (isset($map['DomainId'])) {
@@ -227,6 +369,14 @@ class DescribeDataObjectsRequest extends Model
             $model->lang = $map['Lang'];
         }
 
+        if (isset($map['LogStore'])) {
+            $model->logStore = $map['LogStore'];
+        }
+
+        if (isset($map['LogStoreFlag'])) {
+            $model->logStoreFlag = $map['LogStoreFlag'];
+        }
+
         if (isset($map['MemberAccount'])) {
             $model->memberAccount = $map['MemberAccount'];
         }
@@ -247,20 +397,52 @@ class DescribeDataObjectsRequest extends Model
             $model->parentCategoryIds = $map['ParentCategoryIds'];
         }
 
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
+        }
+
         if (isset($map['ProductIds'])) {
             $model->productIds = $map['ProductIds'];
+        }
+
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         if (isset($map['QueryName'])) {
             $model->queryName = $map['QueryName'];
         }
 
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RiskLevelIdList'])) {
+            $model->riskLevelIdList = $map['RiskLevelIdList'];
+        }
+
         if (isset($map['RiskLevels'])) {
             $model->riskLevels = $map['RiskLevels'];
         }
 
+        if (isset($map['RuleIds'])) {
+            $model->ruleIds = $map['RuleIds'];
+        }
+
         if (isset($map['ServiceRegionId'])) {
             $model->serviceRegionId = $map['ServiceRegionId'];
+        }
+
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['TemplateId'])) {

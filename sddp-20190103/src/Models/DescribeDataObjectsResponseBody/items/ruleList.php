@@ -19,6 +19,11 @@ class ruleList extends Model
     public $riskLevelName;
 
     /**
+     * @var string
+     */
+    public $ruleCategoryNameList;
+
+    /**
      * @var int
      */
     public $ruleCount;
@@ -32,12 +37,19 @@ class ruleList extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $sampleList;
     protected $_name = [
         'riskLevelId' => 'RiskLevelId',
         'riskLevelName' => 'RiskLevelName',
+        'ruleCategoryNameList' => 'RuleCategoryNameList',
         'ruleCount' => 'RuleCount',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
+        'sampleList' => 'SampleList',
     ];
 
     public function validate()
@@ -56,6 +68,10 @@ class ruleList extends Model
             $res['RiskLevelName'] = $this->riskLevelName;
         }
 
+        if (null !== $this->ruleCategoryNameList) {
+            $res['RuleCategoryNameList'] = $this->ruleCategoryNameList;
+        }
+
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
         }
@@ -66,6 +82,10 @@ class ruleList extends Model
 
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->sampleList) {
+            $res['SampleList'] = $this->sampleList;
         }
 
         return $res;
@@ -87,6 +107,10 @@ class ruleList extends Model
             $model->riskLevelName = $map['RiskLevelName'];
         }
 
+        if (isset($map['RuleCategoryNameList'])) {
+            $model->ruleCategoryNameList = $map['RuleCategoryNameList'];
+        }
+
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];
         }
@@ -97,6 +121,10 @@ class ruleList extends Model
 
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['SampleList'])) {
+            $model->sampleList = $map['SampleList'];
         }
 
         return $model;

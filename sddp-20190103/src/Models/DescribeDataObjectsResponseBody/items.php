@@ -18,6 +18,26 @@ class items extends Model
     /**
      * @var string
      */
+    public $comment;
+
+    /**
+     * @var string
+     */
+    public $dataType;
+
+    /**
+     * @var string
+     */
+    public $dbName;
+
+    /**
+     * @var int
+     */
+    public $fileCategoryCode;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -33,12 +53,27 @@ class items extends Model
     /**
      * @var int
      */
+    public $isRevision;
+
+    /**
+     * @var int
+     */
     public $lastModifiedTime;
 
     /**
      * @var int
      */
     public $lastScanTime;
+
+    /**
+     * @var string
+     */
+    public $logStore;
+
+    /**
+     * @var int
+     */
+    public $maskStatus;
 
     /**
      * @var int
@@ -83,12 +118,27 @@ class items extends Model
     /**
      * @var string
      */
+    public $project;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
     public $regionName;
+
+    /**
+     * @var int
+     */
+    public $riskLevelId;
+
+    /**
+     * @var int
+     */
+    public $ruleCount;
 
     /**
      * @var ruleList[]
@@ -103,14 +153,56 @@ class items extends Model
     /**
      * @var int
      */
+    public $size;
+
+    /**
+     * @var string
+     */
+    public $sx;
+
+    /**
+     * @var string
+     */
+    public $tableName;
+
+    /**
+     * @var int
+     */
+    public $taskId;
+
+    /**
+     * @var string
+     */
+    public $taskName;
+
+    /**
+     * @var int
+     */
+    public $taskNumber;
+
+    /**
+     * @var int
+     */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'categories' => 'Categories',
+        'comment' => 'Comment',
+        'dataType' => 'DataType',
+        'dbName' => 'DbName',
+        'fileCategoryCode' => 'FileCategoryCode',
         'id' => 'Id',
         'instanceDescription' => 'InstanceDescription',
         'instanceId' => 'InstanceId',
+        'isRevision' => 'IsRevision',
         'lastModifiedTime' => 'LastModifiedTime',
         'lastScanTime' => 'LastScanTime',
+        'logStore' => 'LogStore',
+        'maskStatus' => 'MaskStatus',
         'memberAccount' => 'MemberAccount',
         'modelTags' => 'ModelTags',
         'name' => 'Name',
@@ -119,11 +211,21 @@ class items extends Model
         'path' => 'Path',
         'productCode' => 'ProductCode',
         'productId' => 'ProductId',
+        'project' => 'Project',
         'regionId' => 'RegionId',
         'regionName' => 'RegionName',
+        'riskLevelId' => 'RiskLevelId',
+        'ruleCount' => 'RuleCount',
         'ruleList' => 'RuleList',
         'sensitiveCount' => 'SensitiveCount',
+        'size' => 'Size',
+        'sx' => 'Sx',
+        'tableName' => 'TableName',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskNumber' => 'TaskNumber',
         'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -154,6 +256,22 @@ class items extends Model
             }
         }
 
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+
+        if (null !== $this->dataType) {
+            $res['DataType'] = $this->dataType;
+        }
+
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
+
+        if (null !== $this->fileCategoryCode) {
+            $res['FileCategoryCode'] = $this->fileCategoryCode;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -166,12 +284,24 @@ class items extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->isRevision) {
+            $res['IsRevision'] = $this->isRevision;
+        }
+
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
 
         if (null !== $this->lastScanTime) {
             $res['LastScanTime'] = $this->lastScanTime;
+        }
+
+        if (null !== $this->logStore) {
+            $res['LogStore'] = $this->logStore;
+        }
+
+        if (null !== $this->maskStatus) {
+            $res['MaskStatus'] = $this->maskStatus;
         }
 
         if (null !== $this->memberAccount) {
@@ -213,12 +343,24 @@ class items extends Model
             $res['ProductId'] = $this->productId;
         }
 
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
+        }
+
+        if (null !== $this->riskLevelId) {
+            $res['RiskLevelId'] = $this->riskLevelId;
+        }
+
+        if (null !== $this->ruleCount) {
+            $res['RuleCount'] = $this->ruleCount;
         }
 
         if (null !== $this->ruleList) {
@@ -236,8 +378,36 @@ class items extends Model
             $res['SensitiveCount'] = $this->sensitiveCount;
         }
 
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->sx) {
+            $res['Sx'] = $this->sx;
+        }
+
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+
+        if (null !== $this->taskNumber) {
+            $res['TaskNumber'] = $this->taskNumber;
+        }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -262,6 +432,22 @@ class items extends Model
             }
         }
 
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+
+        if (isset($map['DataType'])) {
+            $model->dataType = $map['DataType'];
+        }
+
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
+
+        if (isset($map['FileCategoryCode'])) {
+            $model->fileCategoryCode = $map['FileCategoryCode'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -274,12 +460,24 @@ class items extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['IsRevision'])) {
+            $model->isRevision = $map['IsRevision'];
+        }
+
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
 
         if (isset($map['LastScanTime'])) {
             $model->lastScanTime = $map['LastScanTime'];
+        }
+
+        if (isset($map['LogStore'])) {
+            $model->logStore = $map['LogStore'];
+        }
+
+        if (isset($map['MaskStatus'])) {
+            $model->maskStatus = $map['MaskStatus'];
         }
 
         if (isset($map['MemberAccount'])) {
@@ -321,12 +519,24 @@ class items extends Model
             $model->productId = $map['ProductId'];
         }
 
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
+        }
+
+        if (isset($map['RiskLevelId'])) {
+            $model->riskLevelId = $map['RiskLevelId'];
+        }
+
+        if (isset($map['RuleCount'])) {
+            $model->ruleCount = $map['RuleCount'];
         }
 
         if (isset($map['RuleList'])) {
@@ -344,8 +554,36 @@ class items extends Model
             $model->sensitiveCount = $map['SensitiveCount'];
         }
 
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
+        }
+
+        if (isset($map['Sx'])) {
+            $model->sx = $map['Sx'];
+        }
+
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+
+        if (isset($map['TaskNumber'])) {
+            $model->taskNumber = $map['TaskNumber'];
+        }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;
