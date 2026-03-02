@@ -286,7 +286,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 执行定时计划.
+     * Executes a scheduled plan.
      *
      * @param headers - ApplyScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -330,7 +330,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 执行定时计划.
+     * Executes a scheduled plan.
      *
      * @returns ApplyScheduledPlanResponse
      *
@@ -495,7 +495,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * create a deploymentDraft.
+     * Creates an SQL draft.
      *
      * @param request - CreateDeploymentDraftRequest
      * @param headers - CreateDeploymentDraftHeaders
@@ -542,7 +542,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * create a deploymentDraft.
+     * Creates an SQL draft.
      *
      * @param request - CreateDeploymentDraftRequest
      *
@@ -562,7 +562,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 创建deploymentTarget.
+     * Creates a deployment target.
      *
      * @param request - CreateDeploymentTargetRequest
      * @param headers - CreateDeploymentTargetHeaders
@@ -615,7 +615,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 创建deploymentTarget.
+     * Creates a deployment target.
      *
      * @param request - CreateDeploymentTargetRequest
      *
@@ -708,7 +708,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * create a folder.
+     * Creates a folder.
      *
      * @param request - CreateFolderRequest
      * @param headers - CreateFolderHeaders
@@ -755,7 +755,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * create a folder.
+     * Creates a folder.
      *
      * @param request - CreateFolderRequest
      *
@@ -922,7 +922,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 创建定时执行计划.
+     * Creates a scheduled tuning plan.
      *
      * @param request - CreateScheduledPlanRequest
      * @param headers - CreateScheduledPlanHeaders
@@ -969,7 +969,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 创建定时执行计划.
+     * Creates a scheduled tuning plan.
      *
      * @param request - CreateScheduledPlanRequest
      *
@@ -989,7 +989,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 创建session集群.
+     * Create a session cluster.
      *
      * @param request - CreateSessionClusterRequest
      * @param headers - CreateSessionClusterHeaders
@@ -1036,7 +1036,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 创建session集群.
+     * Create a session cluster.
      *
      * @param request - CreateSessionClusterRequest
      *
@@ -1314,7 +1314,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * delete a deploymentDraft.
+     * Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
      *
      * @param headers - DeleteDeploymentDraftHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1358,7 +1358,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * delete a deploymentDraft.
+     * Deletes an SQL draft. If the draft is deployed as a deployment and the deployment is published or the deployment status is RUNNING, the deployment for the draft cannot be deleted.
      *
      * @returns DeleteDeploymentDraftResponse
      *
@@ -1376,7 +1376,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除deploymentTarget.
+     * Deletes a deployment target.
      *
      * @param headers - DeleteDeploymentTargetHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1420,7 +1420,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除deploymentTarget.
+     * Deletes a deployment target.
      *
      * @returns DeleteDeploymentTargetResponse
      *
@@ -1438,7 +1438,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * delete a folder.
+     * Deletes an empty folder. If files or folders exist in a folder, the folder cannot be deleted.
      *
      * @param headers - DeleteFolderHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1482,7 +1482,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * delete a folder.
+     * Deletes an empty folder. If files or folders exist in a folder, the folder cannot be deleted.
      *
      * @returns DeleteFolderResponse
      *
@@ -1686,7 +1686,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除定时执行计划.
+     * Deletes a scheduled tuning plan.
      *
      * @param headers - DeleteScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1730,7 +1730,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除定时执行计划.
+     * Deletes a scheduled tuning plan.
      *
      * @returns DeleteScheduledPlanResponse
      *
@@ -1748,7 +1748,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除session集群.
+     * Deletes a session cluster.
      *
      * @param headers - DeleteSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1792,7 +1792,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除session集群.
+     * Deletes a session cluster.
      *
      * @returns DeleteSessionClusterResponse
      *
@@ -1810,7 +1810,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除UdfArtifact.
+     * Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
      *
      * @param headers - DeleteUdfArtifactHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1854,7 +1854,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 删除UdfArtifact.
+     * Deletes resources of a user-defined function (UDF) from a namespace. Before you delete the resources of a UDF, you must delete the UDF.
      *
      * @returns DeleteUdfArtifactResponse
      *
@@ -2012,7 +2012,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * deploy deploymentDraft async.
+     * Deploys an SQL draft.
      *
      * @param request - DeployDeploymentDraftAsyncRequest
      * @param headers - DeployDeploymentDraftAsyncHeaders
@@ -2059,7 +2059,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * deploy deploymentDraft async.
+     * Deploys an SQL draft.
      *
      * @param request - DeployDeploymentDraftAsyncRequest
      *
@@ -2079,7 +2079,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 执行sql语句.
+     * Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
      *
      * @param request - ExecuteSqlStatementRequest
      * @param headers - ExecuteSqlStatementHeaders
@@ -2126,7 +2126,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 执行sql语句.
+     * Executes SQL statements to query the metadata. Only DDL and DML statements are supported. DQL statements are not supported.
      *
      * @param request - ExecuteSqlStatementRequest
      *
@@ -2226,7 +2226,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Provides a Flink request proxy.
+     * Provides a proxy for Realtime Compute for Apache Flink requests.
      *
      * @param request - FlinkApiProxyRequest
      * @param headers - FlinkApiProxyHeaders
@@ -2289,7 +2289,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * Provides a Flink request proxy.
+     * Provides a proxy for Realtime Compute for Apache Flink requests.
      *
      * @param request - FlinkApiProxyRequest
      *
@@ -2377,7 +2377,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取应用中的执行定时计划.
+     * Queries the scheduled plan of an application.
      *
      * @param request - GetAppliedScheduledPlanRequest
      * @param headers - GetAppliedScheduledPlanHeaders
@@ -2429,7 +2429,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取应用中的执行定时计划.
+     * Queries the scheduled plan of an application.
      *
      * @param request - GetAppliedScheduledPlanRequest
      *
@@ -2449,7 +2449,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取catalog.
+     * Obtains details of the specified catalog or all catalogs.
      *
      * @param request - GetCatalogsRequest
      * @param headers - GetCatalogsHeaders
@@ -2501,7 +2501,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取catalog.
+     * Obtains details of the specified catalog or all catalogs.
      *
      * @param request - GetCatalogsRequest
      *
@@ -2521,7 +2521,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取database.
+     * Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
      *
      * @param request - GetDatabasesRequest
      * @param headers - GetDatabasesHeaders
@@ -2574,7 +2574,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取database.
+     * Obtains the information about a database in a specified catalog or lists all databases in a specified catalog.
      *
      * @param request - GetDatabasesRequest
      *
@@ -2595,7 +2595,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get deploy deploymentDraft result.
+     * Obtains the deployment result based on the ID of the asynchronous ticket.
      *
      * @param headers - GetDeployDeploymentDraftResultHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2639,7 +2639,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get deploy deploymentDraft result.
+     * Obtains the deployment result based on the ID of the asynchronous ticket.
      *
      * @returns GetDeployDeploymentDraftResultResponse
      *
@@ -2719,7 +2719,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get a deploymentDraft.
+     * Obtains the details of an SQL draft.
      *
      * @param headers - GetDeploymentDraftHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2763,7 +2763,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get a deploymentDraft.
+     * Obtains the details of an SQL draft.
      *
      * @returns GetDeploymentDraftResponse
      *
@@ -2781,7 +2781,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get deploymentDraft lock.
+     * Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
      *
      * @param request - GetDeploymentDraftLockRequest
      * @param headers - GetDeploymentDraftLockHeaders
@@ -2833,7 +2833,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get deploymentDraft lock.
+     * Obtains the lock that is used to edit a draft. This can prevent operations performed on the page and API operations from affecting each other.
      *
      * @param request - GetDeploymentDraftLockRequest
      *
@@ -3107,7 +3107,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取运行事件.
+     * Queries events.
      *
      * @param request - GetEventsRequest
      * @param headers - GetEventsHeaders
@@ -3128,6 +3128,10 @@ class Ververica extends OpenApiClient
         $query = [];
         if (null !== $request->deploymentId) {
             @$query['deploymentId'] = $request->deploymentId;
+        }
+
+        if (null !== $request->deploymentName) {
+            @$query['deploymentName'] = $request->deploymentName;
         }
 
         if (null !== $request->pageIndex) {
@@ -3167,7 +3171,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取运行事件.
+     * Queries events.
      *
      * @param request - GetEventsRequest
      *
@@ -3187,7 +3191,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get a folder.
+     * Obtains the details of a folder.
      *
      * @param request - GetFolderRequest
      * @param headers - GetFolderHeaders
@@ -3208,6 +3212,10 @@ class Ververica extends OpenApiClient
         $query = [];
         if (null !== $request->folderId) {
             @$query['folderId'] = $request->folderId;
+        }
+
+        if (null !== $request->rootType) {
+            @$query['rootType'] = $request->rootType;
         }
 
         $realHeaders = [];
@@ -3239,7 +3247,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * get a folder.
+     * Obtains the details of a folder.
      *
      * @param request - GetFolderRequest
      *
@@ -3321,7 +3329,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 查询动态更新结果.
+     * Obtains the dynamic update result of a deployment when you dynamically update the deployment.
      *
      * @param headers - GetHotUpdateJobResultHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3365,7 +3373,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 查询动态更新结果.
+     * Obtains the dynamic update result of a deployment when you dynamically update the deployment.
      *
      * @returns GetHotUpdateJobResultResponse
      *
@@ -3445,7 +3453,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取作业诊断信息.
+     * Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
      *
      * @param headers - GetJobDiagnosisHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3490,7 +3498,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取作业诊断信息.
+     * Queries information about abnormal diagnostic items based on the intelligent deployment diagnostics feature.
      *
      * @returns GetJobDiagnosisResponse
      *
@@ -3832,7 +3840,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取session集群.
+     * Queries the information about a session cluster.
      *
      * @param headers - GetSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3876,7 +3884,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取session集群.
+     * Queries the information about a session cluster.
      *
      * @returns GetSessionClusterResponse
      *
@@ -3894,7 +3902,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取table.
+     * Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
      *
      * @param request - GetTablesRequest
      * @param headers - GetTablesHeaders
@@ -3948,7 +3956,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取table.
+     * Obtains the details of a specific table in a database of a specific catalog or the information about all tables in a database.
      *
      * @param request - GetTablesRequest
      *
@@ -4226,7 +4234,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * list deploymentDrafts.
+     * Queries a list of SQL drafts.
      *
      * @param request - ListDeploymentDraftsRequest
      * @param headers - ListDeploymentDraftsHeaders
@@ -4282,7 +4290,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * list deploymentDrafts.
+     * Queries a list of SQL drafts.
      *
      * @param request - ListDeploymentDraftsRequest
      *
@@ -4868,7 +4876,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 列表定时执行计划.
+     * Obtains a list of scheduled tuning plans.
      *
      * @param request - ListScheduledPlanRequest
      * @param headers - ListScheduledPlanHeaders
@@ -4928,7 +4936,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 列表定时执行计划.
+     * Obtains a list of scheduled tuning plans.
      *
      * @param request - ListScheduledPlanRequest
      *
@@ -4948,7 +4956,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取作业资源变更历史.
+     * Queries the execution history of a scheduled plan.
      *
      * @param request - ListScheduledPlanExecutedHistoryRequest
      * @param headers - ListScheduledPlanExecutedHistoryHeaders
@@ -5004,7 +5012,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 获取作业资源变更历史.
+     * Queries the execution history of a scheduled plan.
      *
      * @param request - ListScheduledPlanExecutedHistoryRequest
      *
@@ -5024,7 +5032,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 列举session集群.
+     * Queries a list of session clusters.
      *
      * @param headers - ListSessionClustersHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5067,7 +5075,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 列举session集群.
+     * Queries a list of session clusters.
      *
      * @returns ListSessionClustersResponse
      *
@@ -5451,7 +5459,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 启动session集群.
+     * Starts a session cluster.
      *
      * @param headers - StartSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5495,7 +5503,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 启动session集群.
+     * Starts a session cluster.
      *
      * @returns StartSessionClusterResponse
      *
@@ -5513,7 +5521,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 停止应用执行定时计划.
+     * Stops the scheduled plan of an application.
      *
      * @param headers - StopApplyScheduledPlanHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5557,7 +5565,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 停止应用执行定时计划.
+     * Stops the scheduled plan of an application.
      *
      * @returns StopApplyScheduledPlanResponse
      *
@@ -5644,7 +5652,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 停止session集群.
+     * Stops a session cluster.
      *
      * @param headers - StopSessionClusterHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5688,7 +5696,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 停止session集群.
+     * Stops a session cluster.
      *
      * @returns StopSessionClusterResponse
      *
@@ -5848,7 +5856,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * update a deploymentDraft.
+     * Updates an SQL draft.
      *
      * @param request - UpdateDeploymentDraftRequest
      * @param headers - UpdateDeploymentDraftHeaders
@@ -5896,7 +5904,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * update a deploymentDraft.
+     * Updates an SQL draft.
      *
      * @param request - UpdateDeploymentDraftRequest
      *
@@ -5917,7 +5925,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 修改deploymentTarget.
+     * Updates a cluster on which the deployment is deployed.
      *
      * @param request - UpdateDeploymentTargetRequest
      * @param headers - UpdateDeploymentTargetHeaders
@@ -5965,7 +5973,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 修改deploymentTarget.
+     * Updates a cluster on which the deployment is deployed.
      *
      * @param request - UpdateDeploymentTargetRequest
      *
@@ -6055,7 +6063,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * update a folder.
+     * Updates a folder.
      *
      * @param request - UpdateFolderRequest
      * @param headers - UpdateFolderHeaders
@@ -6103,7 +6111,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * update a folder.
+     * Updates a folder.
      *
      * @param request - UpdateFolderRequest
      *
@@ -6191,7 +6199,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 更新定时执行计划.
+     * Update a scheduled tuning plan.
      *
      * @param request - UpdateScheduledPlanRequest
      * @param headers - UpdateScheduledPlanHeaders
@@ -6239,7 +6247,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 更新定时执行计划.
+     * Update a scheduled tuning plan.
      *
      * @param request - UpdateScheduledPlanRequest
      *
@@ -6260,7 +6268,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 更新session集群.
+     * Updates a session cluster.
      *
      * @param request - UpdateSessionClusterRequest
      * @param headers - UpdateSessionClusterHeaders
@@ -6308,7 +6316,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 更新session集群.
+     * Updates a session cluster.
      *
      * @param request - UpdateSessionClusterRequest
      *
@@ -6398,7 +6406,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 更新秘钥.
+     * Updates the information about a variable in a namespace.
      *
      * @param request - UpdateVariableRequest
      * @param headers - UpdateVariableHeaders
@@ -6446,7 +6454,7 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * 更新秘钥.
+     * Updates the information about a variable in a namespace.
      *
      * @param request - UpdateVariableRequest
      *

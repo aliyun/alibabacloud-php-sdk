@@ -14,6 +14,11 @@ class GetEventsRequest extends Model
     public $deploymentId;
 
     /**
+     * @var string
+     */
+    public $deploymentName;
+
+    /**
      * @var int
      */
     public $pageIndex;
@@ -24,6 +29,7 @@ class GetEventsRequest extends Model
     public $pageSize;
     protected $_name = [
         'deploymentId' => 'deploymentId',
+        'deploymentName' => 'deploymentName',
         'pageIndex' => 'pageIndex',
         'pageSize' => 'pageSize',
     ];
@@ -38,6 +44,10 @@ class GetEventsRequest extends Model
         $res = [];
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
+        }
+
+        if (null !== $this->deploymentName) {
+            $res['deploymentName'] = $this->deploymentName;
         }
 
         if (null !== $this->pageIndex) {
@@ -61,6 +71,10 @@ class GetEventsRequest extends Model
         $model = new self();
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
+        }
+
+        if (isset($map['deploymentName'])) {
+            $model->deploymentName = $map['deploymentName'];
         }
 
         if (isset($map['pageIndex'])) {

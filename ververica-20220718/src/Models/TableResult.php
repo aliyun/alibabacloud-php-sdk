@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class TableResult extends Model
 {
     /**
+     * @var string
+     */
+    public $collectSinkOperatorId;
+
+    /**
      * @var RowUpdate[]
      */
     public $rowUpdates;
@@ -18,6 +23,7 @@ class TableResult extends Model
      */
     public $tableName;
     protected $_name = [
+        'collectSinkOperatorId' => 'collectSinkOperatorId',
         'rowUpdates' => 'rowUpdates',
         'tableName' => 'tableName',
     ];
@@ -33,6 +39,10 @@ class TableResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->collectSinkOperatorId) {
+            $res['collectSinkOperatorId'] = $this->collectSinkOperatorId;
+        }
+
         if (null !== $this->rowUpdates) {
             if (\is_array($this->rowUpdates)) {
                 $res['rowUpdates'] = [];
@@ -59,6 +69,10 @@ class TableResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['collectSinkOperatorId'])) {
+            $model->collectSinkOperatorId = $map['collectSinkOperatorId'];
+        }
+
         if (isset($map['rowUpdates'])) {
             if (!empty($map['rowUpdates'])) {
                 $model->rowUpdates = [];

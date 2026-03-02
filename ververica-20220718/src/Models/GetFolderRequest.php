@@ -12,8 +12,14 @@ class GetFolderRequest extends Model
      * @var string
      */
     public $folderId;
+
+    /**
+     * @var string
+     */
+    public $rootType;
     protected $_name = [
         'folderId' => 'folderId',
+        'rootType' => 'rootType',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class GetFolderRequest extends Model
         $res = [];
         if (null !== $this->folderId) {
             $res['folderId'] = $this->folderId;
+        }
+
+        if (null !== $this->rootType) {
+            $res['rootType'] = $this->rootType;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class GetFolderRequest extends Model
         $model = new self();
         if (isset($map['folderId'])) {
             $model->folderId = $map['folderId'];
+        }
+
+        if (isset($map['rootType'])) {
+            $model->rootType = $map['rootType'];
         }
 
         return $model;

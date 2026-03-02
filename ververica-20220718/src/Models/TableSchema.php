@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class TableSchema extends Model
 {
     /**
+     * @var string
+     */
+    public $collectSinkOperatorId;
+
+    /**
      * @var Schema
      */
     public $schema;
@@ -18,6 +23,7 @@ class TableSchema extends Model
      */
     public $tableName;
     protected $_name = [
+        'collectSinkOperatorId' => 'collectSinkOperatorId',
         'schema' => 'schema',
         'tableName' => 'tableName',
     ];
@@ -33,6 +39,10 @@ class TableSchema extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->collectSinkOperatorId) {
+            $res['collectSinkOperatorId'] = $this->collectSinkOperatorId;
+        }
+
         if (null !== $this->schema) {
             $res['schema'] = null !== $this->schema ? $this->schema->toArray($noStream) : $this->schema;
         }
@@ -52,6 +62,10 @@ class TableSchema extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['collectSinkOperatorId'])) {
+            $model->collectSinkOperatorId = $map['collectSinkOperatorId'];
+        }
+
         if (isset($map['schema'])) {
             $model->schema = Schema::fromMap($map['schema']);
         }
