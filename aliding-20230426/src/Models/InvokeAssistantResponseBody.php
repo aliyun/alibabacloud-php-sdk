@@ -25,6 +25,11 @@ class InvokeAssistantResponseBody extends Model
     public $sessionId;
 
     /**
+     * @var string
+     */
+    public $sessionStatus;
+
+    /**
      * @var bool
      */
     public $streamEnd;
@@ -32,6 +37,7 @@ class InvokeAssistantResponseBody extends Model
         'messages' => 'messages',
         'requestId' => 'requestId',
         'sessionId' => 'sessionId',
+        'sessionStatus' => 'sessionStatus',
         'streamEnd' => 'streamEnd',
     ];
 
@@ -63,6 +69,10 @@ class InvokeAssistantResponseBody extends Model
 
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->sessionStatus) {
+            $res['sessionStatus'] = $this->sessionStatus;
         }
 
         if (null !== $this->streamEnd) {
@@ -97,6 +107,10 @@ class InvokeAssistantResponseBody extends Model
 
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
+        }
+
+        if (isset($map['sessionStatus'])) {
+            $model->sessionStatus = $map['sessionStatus'];
         }
 
         if (isset($map['streamEnd'])) {

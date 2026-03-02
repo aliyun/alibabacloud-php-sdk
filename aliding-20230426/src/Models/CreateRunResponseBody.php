@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\run;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\thread;
 
 class CreateRunResponseBody extends Model
 {
@@ -24,10 +25,16 @@ class CreateRunResponseBody extends Model
      * @var run
      */
     public $run;
+
+    /**
+     * @var thread
+     */
+    public $thread;
     protected $_name = [
         'messages' => 'messages',
         'requestId' => 'requestId',
         'run' => 'run',
+        'thread' => 'thread',
     ];
 
     public function validate()
@@ -37,6 +44,9 @@ class CreateRunResponseBody extends Model
         }
         if (null !== $this->run) {
             $this->run->validate();
+        }
+        if (null !== $this->thread) {
+            $this->thread->validate();
         }
         parent::validate();
     }
@@ -61,6 +71,10 @@ class CreateRunResponseBody extends Model
 
         if (null !== $this->run) {
             $res['run'] = null !== $this->run ? $this->run->toArray($noStream) : $this->run;
+        }
+
+        if (null !== $this->thread) {
+            $res['thread'] = null !== $this->thread ? $this->thread->toArray($noStream) : $this->thread;
         }
 
         return $res;
@@ -91,6 +105,10 @@ class CreateRunResponseBody extends Model
 
         if (isset($map['run'])) {
             $model->run = run::fromMap($map['run']);
+        }
+
+        if (isset($map['thread'])) {
+            $model->thread = thread::fromMap($map['thread']);
         }
 
         return $model;
