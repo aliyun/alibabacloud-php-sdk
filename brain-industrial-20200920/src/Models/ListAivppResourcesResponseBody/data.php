@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $consoleUrl;
+
+    /**
+     * @var string
+     */
     public $detail;
 
     /**
@@ -74,6 +79,7 @@ class data extends Model
     public $userId;
     protected $_name = [
         'connectNum' => 'ConnectNum',
+        'consoleUrl' => 'ConsoleUrl',
         'detail' => 'Detail',
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
@@ -98,6 +104,10 @@ class data extends Model
         $res = [];
         if (null !== $this->connectNum) {
             $res['ConnectNum'] = $this->connectNum;
+        }
+
+        if (null !== $this->consoleUrl) {
+            $res['ConsoleUrl'] = $this->consoleUrl;
         }
 
         if (null !== $this->detail) {
@@ -161,6 +171,10 @@ class data extends Model
         $model = new self();
         if (isset($map['ConnectNum'])) {
             $model->connectNum = $map['ConnectNum'];
+        }
+
+        if (isset($map['ConsoleUrl'])) {
+            $model->consoleUrl = $map['ConsoleUrl'];
         }
 
         if (isset($map['Detail'])) {
