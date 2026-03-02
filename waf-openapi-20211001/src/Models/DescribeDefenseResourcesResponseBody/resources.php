@@ -52,6 +52,11 @@ class resources extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $ownerUserId;
 
     /**
@@ -102,6 +107,7 @@ class resources extends Model
         'detail' => 'Detail',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'instanceId' => 'InstanceId',
         'ownerUserId' => 'OwnerUserId',
         'pattern' => 'Pattern',
         'product' => 'Product',
@@ -172,6 +178,10 @@ class resources extends Model
 
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->ownerUserId) {
@@ -270,6 +280,10 @@ class resources extends Model
 
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['OwnerUserId'])) {
