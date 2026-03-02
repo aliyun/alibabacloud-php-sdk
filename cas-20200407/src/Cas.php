@@ -51,6 +51,7 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetAssetCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
@@ -60,10 +61,13 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceSummaryRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceSummaryResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetRiskCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetTaskAttributeRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetTaskAttributeResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetUserCertificateDetailResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListAssetCountRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListAssetCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertificatesRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertificatesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCertRequest;
@@ -1061,7 +1065,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes a certificate signing request (CSR) file.
+     * Deletes a Certificate Signing Request (CSR) that is no longer required.
      *
      * @param request - DeleteCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1100,7 +1104,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Deletes a certificate signing request (CSR) file.
+     * Deletes a Certificate Signing Request (CSR) that is no longer required.
      *
      * @param request - DeleteCsrRequest
      *
@@ -1799,7 +1803,51 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the quota for certificate repositories.
+     * 统计资产数量.
+     *
+     * @param request - GetAssetCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetCountResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAssetCountResponse
+     */
+    public function getAssetCountWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetAssetCount',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 统计资产数量.
+     *
+     * @returns GetAssetCountResponse
+     *
+     * @return GetAssetCountResponse
+     */
+    public function getAssetCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetCountWithOptions($runtime);
+    }
+
+    /**
+     * Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
      *
      * @remarks
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -1832,7 +1880,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the quota for certificate repositories.
+     * Queries the API call quota for certificate application repositories. When you call API operations for signature generation, signature verification, data encryption, and data decryption, your API call quota for certificate application repositories is consumed. If your API call quota is exhausted, you can no longer call specific certificate application repository-related operations. You can call this operation to query the API call quota for certificate application repositories.
      *
      * @remarks
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2077,6 +2125,50 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 统计风险资产数量.
+     *
+     * @param request - GetRiskCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRiskCountResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRiskCountResponse
+     */
+    public function getRiskCountWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetRiskCount',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRiskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 统计风险资产数量.
+     *
+     * @returns GetRiskCountResponse
+     *
+     * @return GetRiskCountResponse
+     */
+    public function getRiskCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRiskCountWithOptions($runtime);
+    }
+
+    /**
      * 查询异步任务状态
      *
      * @param request - GetTaskAttributeRequest
@@ -2138,7 +2230,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a certificate.
+     * Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
      *
      * @remarks
      * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2184,7 +2276,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a certificate.
+     * Queries certificate details, including the basic information and public and private key content. You can call this operation to download the certificate and private key.
      *
      * @remarks
      * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2202,6 +2294,75 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云产品资源统计列表.
+     *
+     * @param request - ListAssetCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAssetCountResponse
+     *
+     * @param ListAssetCountRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAssetCountResponse
+     */
+    public function listAssetCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAssetCount',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云产品资源统计列表.
+     *
+     * @param request - ListAssetCountRequest
+     *
+     * @returns ListAssetCountResponse
+     *
+     * @param ListAssetCountRequest $request
+     *
+     * @return ListAssetCountResponse
+     */
+    public function listAssetCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetCountWithOptions($request, $runtime);
     }
 
     /**
@@ -2677,7 +2838,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries certificate signing requests (CSRs).
+     * Queries the details of Certificate Signing Requests (CSRs).
      *
      * @param request - ListCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2728,7 +2889,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries certificate signing requests (CSRs).
+     * Queries the details of Certificate Signing Requests (CSRs).
      *
      * @param request - ListCsrRequest
      *
@@ -3521,7 +3682,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Updates the private key of a certificate signing request (CSR).
+     * Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
      *
      * @param request - UpdateCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3564,7 +3725,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Updates the private key of a certificate signing request (CSR).
+     * Uploads or updates the private key for a Certificate Signing Request (CSR). If you did not upload the required priviate when you uploaded a CSR, you can call this operation to upload or update the private key.
      *
      * @param request - UpdateCsrRequest
      *
@@ -3898,7 +4059,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads a certificate signing request (CSR) file.
+     * Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
      *
      * @param request - UploadCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3945,7 +4106,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Uploads a certificate signing request (CSR) file.
+     * Uploads an existing Certificate Signing Request (CSR). You can use the CSR when you upload a certificate. You can also manage the uploaded CSRs in a centralized manner.
      *
      * @param request - UploadCsrRequest
      *
