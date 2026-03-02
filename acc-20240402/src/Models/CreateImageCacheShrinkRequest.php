@@ -44,6 +44,11 @@ class CreateImageCacheShrinkRequest extends Model
     /**
      * @var string
      */
+    public $platform;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -62,6 +67,7 @@ class CreateImageCacheShrinkRequest extends Model
         'imageRegistryCredentials' => 'ImageRegistryCredentials',
         'images' => 'Images',
         'networkConfigShrink' => 'NetworkConfig',
+        'platform' => 'Platform',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
@@ -130,6 +136,10 @@ class CreateImageCacheShrinkRequest extends Model
 
         if (null !== $this->networkConfigShrink) {
             $res['NetworkConfig'] = $this->networkConfigShrink;
+        }
+
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
 
         if (null !== $this->regionId) {
@@ -205,6 +215,10 @@ class CreateImageCacheShrinkRequest extends Model
 
         if (isset($map['NetworkConfig'])) {
             $model->networkConfigShrink = $map['NetworkConfig'];
+        }
+
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
 
         if (isset($map['RegionId'])) {

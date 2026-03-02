@@ -45,6 +45,11 @@ class CreateImageCacheRequest extends Model
     /**
      * @var string
      */
+    public $platform;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -63,6 +68,7 @@ class CreateImageCacheRequest extends Model
         'imageRegistryCredentials' => 'ImageRegistryCredentials',
         'images' => 'Images',
         'networkConfig' => 'NetworkConfig',
+        'platform' => 'Platform',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
@@ -134,6 +140,10 @@ class CreateImageCacheRequest extends Model
 
         if (null !== $this->networkConfig) {
             $res['NetworkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toArray($noStream) : $this->networkConfig;
+        }
+
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
 
         if (null !== $this->regionId) {
@@ -209,6 +219,10 @@ class CreateImageCacheRequest extends Model
 
         if (isset($map['NetworkConfig'])) {
             $model->networkConfig = networkConfig::fromMap($map['NetworkConfig']);
+        }
+
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
 
         if (isset($map['RegionId'])) {

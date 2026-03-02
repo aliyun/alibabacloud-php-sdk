@@ -49,6 +49,11 @@ class GetImageCacheResponseBody extends Model
     /**
      * @var string
      */
+    public $platform;
+
+    /**
+     * @var string
+     */
     public $readyTime;
 
     /**
@@ -88,6 +93,7 @@ class GetImageCacheResponseBody extends Model
         'images' => 'Images',
         'networkConfig' => 'NetworkConfig',
         'paymentType' => 'PaymentType',
+        'platform' => 'Platform',
         'readyTime' => 'ReadyTime',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
@@ -157,6 +163,10 @@ class GetImageCacheResponseBody extends Model
 
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
 
         if (null !== $this->readyTime) {
@@ -245,6 +255,10 @@ class GetImageCacheResponseBody extends Model
 
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
 
         if (isset($map['ReadyTime'])) {

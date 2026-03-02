@@ -12,6 +12,11 @@ class ListImageCachesRequest extends Model
     /**
      * @var string
      */
+    public $image;
+
+    /**
+     * @var string
+     */
     public $imageCacheName;
 
     /**
@@ -44,6 +49,7 @@ class ListImageCachesRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'image' => 'Image',
         'imageCacheName' => 'ImageCacheName',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -64,6 +70,10 @@ class ListImageCachesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
+        }
+
         if (null !== $this->imageCacheName) {
             $res['ImageCacheName'] = $this->imageCacheName;
         }
@@ -110,6 +120,10 @@ class ListImageCachesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
+        }
+
         if (isset($map['ImageCacheName'])) {
             $model->imageCacheName = $map['ImageCacheName'];
         }

@@ -138,6 +138,10 @@ class Acc extends OpenApiClient
             @$query['NetworkConfig'] = $request->networkConfigShrink;
         }
 
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -329,6 +333,10 @@ class Acc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->image) {
+            @$query['Image'] = $request->image;
+        }
+
         if (null !== $request->imageCacheName) {
             @$query['ImageCacheName'] = $request->imageCacheName;
         }
