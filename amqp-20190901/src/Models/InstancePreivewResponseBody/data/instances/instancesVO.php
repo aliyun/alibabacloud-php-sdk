@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Amqp\V20190901\Models\InstancePreivewResponseBody\data\instances;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Amqp\V20190901\Models\InstancePreivewResponseBody\data\instances\instancesVO\pvlParams;
 use AlibabaCloud\SDK\Amqp\V20190901\Models\InstancePreivewResponseBody\data\instances\instancesVO\tags;
 
 class instancesVO extends Model
@@ -63,6 +64,11 @@ class instancesVO extends Model
      * @var string
      */
     public $kmsKeyId;
+
+    /**
+     * @var string
+     */
+    public $listenerMode;
 
     /**
      * @var int
@@ -157,7 +163,17 @@ class instancesVO extends Model
     /**
      * @var string
      */
+    public $privateEndpointType;
+
+    /**
+     * @var string
+     */
     public $publicEndpoint;
+
+    /**
+     * @var pvlParams
+     */
+    public $pvlParams;
 
     /**
      * @var string
@@ -230,6 +246,7 @@ class instancesVO extends Model
         'instanceType' => 'InstanceType',
         'invisibleTime' => 'InvisibleTime',
         'kmsKeyId' => 'KmsKeyId',
+        'listenerMode' => 'ListenerMode',
         'maxBindingCount' => 'MaxBindingCount',
         'maxConnectionChannelCount' => 'MaxConnectionChannelCount',
         'maxConnectionCount' => 'MaxConnectionCount',
@@ -248,7 +265,9 @@ class instancesVO extends Model
         'orderCreate' => 'OrderCreate',
         'orderType' => 'OrderType',
         'privateEndpoint' => 'PrivateEndpoint',
+        'privateEndpointType' => 'PrivateEndpointType',
         'publicEndpoint' => 'PublicEndpoint',
+        'pvlParams' => 'PvlParams',
         'resourceGroupId' => 'ResourceGroupId',
         'serverlessRate' => 'ServerlessRate',
         'serverlessSwitch' => 'ServerlessSwitch',
@@ -265,6 +284,9 @@ class instancesVO extends Model
 
     public function validate()
     {
+        if (null !== $this->pvlParams) {
+            $this->pvlParams->validate();
+        }
         if (null !== $this->tags) {
             $this->tags->validate();
         }
@@ -316,6 +338,10 @@ class instancesVO extends Model
 
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->listenerMode) {
+            $res['ListenerMode'] = $this->listenerMode;
         }
 
         if (null !== $this->maxBindingCount) {
@@ -390,8 +416,16 @@ class instancesVO extends Model
             $res['PrivateEndpoint'] = $this->privateEndpoint;
         }
 
+        if (null !== $this->privateEndpointType) {
+            $res['PrivateEndpointType'] = $this->privateEndpointType;
+        }
+
         if (null !== $this->publicEndpoint) {
             $res['PublicEndpoint'] = $this->publicEndpoint;
+        }
+
+        if (null !== $this->pvlParams) {
+            $res['PvlParams'] = null !== $this->pvlParams ? $this->pvlParams->toArray($noStream) : $this->pvlParams;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -497,6 +531,10 @@ class instancesVO extends Model
             $model->kmsKeyId = $map['KmsKeyId'];
         }
 
+        if (isset($map['ListenerMode'])) {
+            $model->listenerMode = $map['ListenerMode'];
+        }
+
         if (isset($map['MaxBindingCount'])) {
             $model->maxBindingCount = $map['MaxBindingCount'];
         }
@@ -569,8 +607,16 @@ class instancesVO extends Model
             $model->privateEndpoint = $map['PrivateEndpoint'];
         }
 
+        if (isset($map['PrivateEndpointType'])) {
+            $model->privateEndpointType = $map['PrivateEndpointType'];
+        }
+
         if (isset($map['PublicEndpoint'])) {
             $model->publicEndpoint = $map['PublicEndpoint'];
+        }
+
+        if (isset($map['PvlParams'])) {
+            $model->pvlParams = pvlParams::fromMap($map['PvlParams']);
         }
 
         if (isset($map['ResourceGroupId'])) {
