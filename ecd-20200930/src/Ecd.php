@@ -113,6 +113,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNatGatewayRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNatGatewayResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateOfficeSiteAcceleratorRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateOfficeSiteAcceleratorResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateQosRuleRequest;
@@ -169,6 +171,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNatGatewayRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNatGatewayResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNetworkPackagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteNetworkPackagesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSiteAcceleratorRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSiteAcceleratorResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteOfficeSitesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeletePolicyGroupsRequest;
@@ -464,6 +468,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageBandwidthRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageBandwidthResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageEnabledRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyNetworkPackageEnabledResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAcceleratorRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAcceleratorResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAttributeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAttributeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessRequest;
@@ -5805,6 +5811,85 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Enables global acceleration for office networks.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+     *
+     * @param request - CreateOfficeSiteAcceleratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOfficeSiteAcceleratorResponse
+     *
+     * @param CreateOfficeSiteAcceleratorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateOfficeSiteAcceleratorResponse
+     */
+    public function createOfficeSiteAcceleratorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accelerateRegion) {
+            @$query['AccelerateRegion'] = $request->accelerateRegion;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOfficeSiteAccelerator',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOfficeSiteAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables global acceleration for office networks.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+     *
+     * @param request - CreateOfficeSiteAcceleratorRequest
+     *
+     * @returns CreateOfficeSiteAcceleratorResponse
+     *
+     * @param CreateOfficeSiteAcceleratorRequest $request
+     *
+     * @return CreateOfficeSiteAcceleratorResponse
+     */
+    public function createOfficeSiteAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOfficeSiteAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a cloud computer policy.
      *
      * @remarks
@@ -8115,6 +8200,67 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNetworkPackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes Global Accelerator (GA) configuration.
+     *
+     * @param request - DeleteOfficeSiteAcceleratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOfficeSiteAcceleratorResponse
+     *
+     * @param DeleteOfficeSiteAcceleratorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteOfficeSiteAcceleratorResponse
+     */
+    public function deleteOfficeSiteAcceleratorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOfficeSiteAccelerator',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOfficeSiteAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes Global Accelerator (GA) configuration.
+     *
+     * @param request - DeleteOfficeSiteAcceleratorRequest
+     *
+     * @returns DeleteOfficeSiteAcceleratorResponse
+     *
+     * @param DeleteOfficeSiteAcceleratorRequest $request
+     *
+     * @return DeleteOfficeSiteAcceleratorResponse
+     */
+    public function deleteOfficeSiteAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOfficeSiteAcceleratorWithOptions($request, $runtime);
     }
 
     /**
@@ -15342,6 +15488,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->vpcAccessZone) {
+            @$query['VpcAccessZone'] = $request->vpcAccessZone;
+        }
+
         if (null !== $request->zoneType) {
             @$query['ZoneType'] = $request->zoneType;
         }
@@ -20723,6 +20873,71 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 修改全球加速配置.
+     *
+     * @param request - ModifyOfficeSiteAcceleratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOfficeSiteAcceleratorResponse
+     *
+     * @param ModifyOfficeSiteAcceleratorRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyOfficeSiteAcceleratorResponse
+     */
+    public function modifyOfficeSiteAcceleratorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accelerateRegion) {
+            @$query['AccelerateRegion'] = $request->accelerateRegion;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyOfficeSiteAccelerator',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyOfficeSiteAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改全球加速配置.
+     *
+     * @param request - ModifyOfficeSiteAcceleratorRequest
+     *
+     * @returns ModifyOfficeSiteAcceleratorResponse
+     *
+     * @param ModifyOfficeSiteAcceleratorRequest $request
+     *
+     * @return ModifyOfficeSiteAcceleratorResponse
+     */
+    public function modifyOfficeSiteAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOfficeSiteAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the basic properties of an office network, including the name and local administrator permission settings.
      *
      * @param request - ModifyOfficeSiteAttributeRequest
@@ -20785,6 +21000,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->tenantId) {
             @$query['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
 
         $req = new OpenApiRequest([

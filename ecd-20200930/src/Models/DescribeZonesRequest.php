@@ -14,11 +14,17 @@ class DescribeZonesRequest extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $vpcAccessZone;
+
+    /**
      * @var string
      */
     public $zoneType;
     protected $_name = [
         'regionId' => 'RegionId',
+        'vpcAccessZone' => 'VpcAccessZone',
         'zoneType' => 'ZoneType',
     ];
 
@@ -32,6 +38,10 @@ class DescribeZonesRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->vpcAccessZone) {
+            $res['VpcAccessZone'] = $this->vpcAccessZone;
         }
 
         if (null !== $this->zoneType) {
@@ -51,6 +61,10 @@ class DescribeZonesRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['VpcAccessZone'])) {
+            $model->vpcAccessZone = $map['VpcAccessZone'];
         }
 
         if (isset($map['ZoneType'])) {

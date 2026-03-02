@@ -67,6 +67,11 @@ class ModifyOfficeSiteAttributeRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string[]
+     */
+    public $vSwitchId;
     protected $_name = [
         'authorityHost' => 'AuthorityHost',
         'clientId' => 'ClientId',
@@ -80,10 +85,14 @@ class ModifyOfficeSiteAttributeRequest extends Model
         'officeSiteName' => 'OfficeSiteName',
         'regionId' => 'RegionId',
         'tenantId' => 'TenantId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vSwitchId)) {
+            Model::validateArray($this->vSwitchId);
+        }
         parent::validate();
     }
 
@@ -136,6 +145,17 @@ class ModifyOfficeSiteAttributeRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->vSwitchId) {
+            if (\is_array($this->vSwitchId)) {
+                $res['VSwitchId'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitchId as $item1) {
+                    $res['VSwitchId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -195,6 +215,17 @@ class ModifyOfficeSiteAttributeRequest extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            if (!empty($map['VSwitchId'])) {
+                $model->vSwitchId = [];
+                $n1 = 0;
+                foreach ($map['VSwitchId'] as $item1) {
+                    $model->vSwitchId[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
