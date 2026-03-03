@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QuerySupabaseInstanceInfoForAdminRequest extends Model
+class OperateSupabaseForAdminRequest extends Model
 {
     /**
      * @var string
@@ -16,7 +16,17 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
     /**
      * @var string
      */
-    public $env;
+    public $executeSql;
+
+    /**
+     * @var string
+     */
+    public $operateType;
+
+    /**
+     * @var string
+     */
+    public $orderByClause;
 
     /**
      * @var string
@@ -41,15 +51,29 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
     /**
      * @var string
      */
+    public $tableName;
+
+    /**
+     * @var string
+     */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $whereClause;
     protected $_name = [
         'bizId' => 'BizId',
-        'env' => 'Env',
+        'executeSql' => 'ExecuteSql',
+        'operateType' => 'OperateType',
+        'orderByClause' => 'OrderByClause',
         'orderColumn' => 'OrderColumn',
         'orderType' => 'OrderType',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
+        'tableName' => 'TableName',
         'userId' => 'UserId',
+        'whereClause' => 'WhereClause',
     ];
 
     public function validate()
@@ -64,8 +88,16 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
             $res['BizId'] = $this->bizId;
         }
 
-        if (null !== $this->env) {
-            $res['Env'] = $this->env;
+        if (null !== $this->executeSql) {
+            $res['ExecuteSql'] = $this->executeSql;
+        }
+
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
+        }
+
+        if (null !== $this->orderByClause) {
+            $res['OrderByClause'] = $this->orderByClause;
         }
 
         if (null !== $this->orderColumn) {
@@ -84,8 +116,16 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
+        }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+
+        if (null !== $this->whereClause) {
+            $res['WhereClause'] = $this->whereClause;
         }
 
         return $res;
@@ -103,8 +143,16 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
             $model->bizId = $map['BizId'];
         }
 
-        if (isset($map['Env'])) {
-            $model->env = $map['Env'];
+        if (isset($map['ExecuteSql'])) {
+            $model->executeSql = $map['ExecuteSql'];
+        }
+
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
+        }
+
+        if (isset($map['OrderByClause'])) {
+            $model->orderByClause = $map['OrderByClause'];
         }
 
         if (isset($map['OrderColumn'])) {
@@ -123,8 +171,16 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
+        }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+
+        if (isset($map['WhereClause'])) {
+            $model->whereClause = $map['WhereClause'];
         }
 
         return $model;

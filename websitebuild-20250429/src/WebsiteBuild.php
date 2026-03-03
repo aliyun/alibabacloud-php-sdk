@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest;
@@ -73,6 +75,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateSupabaseForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateSupabaseForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialDirectoryTreeRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialDirectoryTreeResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileDetailRequest;
@@ -147,6 +151,83 @@ class WebsiteBuild extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 分配Supabase实例.
+     *
+     * @param request - AllocateSupabaseForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateSupabaseForAdminResponse
+     *
+     * @param AllocateSupabaseForAdminRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AllocateSupabaseForAdminResponse
+     */
+    public function allocateSupabaseForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AllocateSupabaseForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AllocateSupabaseForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分配Supabase实例.
+     *
+     * @param request - AllocateSupabaseForAdminRequest
+     *
+     * @returns AllocateSupabaseForAdminResponse
+     *
+     * @param AllocateSupabaseForAdminRequest $request
+     *
+     * @return AllocateSupabaseForAdminResponse
+     */
+    public function allocateSupabaseForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateSupabaseForAdminWithOptions($request, $runtime);
     }
 
     /**
@@ -2275,6 +2356,103 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 通用Supabase操作.
+     *
+     * @param request - OperateSupabaseForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateSupabaseForAdminResponse
+     *
+     * @param OperateSupabaseForAdminRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return OperateSupabaseForAdminResponse
+     */
+    public function operateSupabaseForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->executeSql) {
+            @$query['ExecuteSql'] = $request->executeSql;
+        }
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->orderByClause) {
+            @$query['OrderByClause'] = $request->orderByClause;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->whereClause) {
+            @$query['WhereClause'] = $request->whereClause;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OperateSupabaseForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateSupabaseForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用Supabase操作.
+     *
+     * @param request - OperateSupabaseForAdminRequest
+     *
+     * @returns OperateSupabaseForAdminResponse
+     *
+     * @param OperateSupabaseForAdminRequest $request
+     *
+     * @return OperateSupabaseForAdminResponse
+     */
+    public function operateSupabaseForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateSupabaseForAdminWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询素材中心文件夹树结构.
      *
      * @param request - QueryMaterialDirectoryTreeRequest
@@ -2797,6 +2975,22 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->env) {
             @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
 
         if (null !== $request->userId) {

@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QuerySupabaseInstanceInfoForAdminRequest extends Model
+class AllocateSupabaseForAdminRequest extends Model
 {
     /**
      * @var string
      */
     public $bizId;
-
-    /**
-     * @var string
-     */
-    public $env;
 
     /**
      * @var string
@@ -44,7 +39,6 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
     public $userId;
     protected $_name = [
         'bizId' => 'BizId',
-        'env' => 'Env',
         'orderColumn' => 'OrderColumn',
         'orderType' => 'OrderType',
         'pageNum' => 'PageNum',
@@ -62,10 +56,6 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
-        }
-
-        if (null !== $this->env) {
-            $res['Env'] = $this->env;
         }
 
         if (null !== $this->orderColumn) {
@@ -101,10 +91,6 @@ class QuerySupabaseInstanceInfoForAdminRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
-        }
-
-        if (isset($map['Env'])) {
-            $model->env = $map['Env'];
         }
 
         if (isset($map['OrderColumn'])) {
