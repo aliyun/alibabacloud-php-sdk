@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDasAgentSSEResponse extends Model
+class GetYaoChiAgentResponse extends Model
 {
     /**
      * @var string[]
@@ -29,7 +29,7 @@ class GetDasAgentSSEResponse extends Model
     public $event;
 
     /**
-     * @var GetDasAgentSSEResponseBody
+     * @var GetYaoChiAgentResponseBody
      */
     public $body;
     protected $_name = [
@@ -112,7 +112,7 @@ class GetDasAgentSSEResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetDasAgentSSEResponseBody::fromMap($map['body']);
+            $model->body = GetYaoChiAgentResponseBody::fromMap($map['body']);
         }
 
         return $model;

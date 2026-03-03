@@ -209,6 +209,8 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\GetSqlOptimizeAdviceRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetSqlOptimizeAdviceResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetStorageAnalysisResultRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetStorageAnalysisResultResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetYaoChiAgentRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetYaoChiAgentResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\KillInstanceAllSessionRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\KillInstanceAllSessionResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\ModifyAutoScalingConfigRequest;
@@ -896,7 +898,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建最近死锁分析任务
+     * Creates a recent deadlock analysis task.
      *
      * @param request - CreateLatestDeadLockAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -939,7 +941,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 创建最近死锁分析任务
+     * Creates a recent deadlock analysis task.
      *
      * @param request - CreateLatestDeadLockAnalysisRequest
      *
@@ -2485,7 +2487,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取执行计划.
+     * Queries the execution plan of an SQL statement.
      *
      * @param request - DescribeQueryExplainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2540,7 +2542,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取执行计划.
+     * Queries the execution plan of an SQL statement.
      *
      * @param request - DescribeQueryExplainRequest
      *
@@ -2676,7 +2678,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DescribeSlowLogHistogramAsync.
+     * Asynchronously queries the trend data of slow query logs of an instance.
      *
      * @param request - DescribeSlowLogHistogramAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2731,7 +2733,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * DescribeSlowLogHistogramAsync.
+     * Asynchronously queries the trend data of slow query logs of an instance.
      *
      * @param request - DescribeSlowLogHistogramAsyncRequest
      *
@@ -2749,7 +2751,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查看慢日志明细接口.
+     * Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2822,7 +2824,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查看慢日志明细接口.
+     * Queries the slow logs of a database instance. You can filter and sort data by multiple conditions.
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -2840,7 +2842,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 慢日志统计信息.
+     * Queries statistical information about slow query logs.
      *
      * @param request - DescribeSlowLogStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2919,7 +2921,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 慢日志统计信息.
+     * Queries statistical information about slow query logs.
      *
      * @param request - DescribeSlowLogStatisticRequest
      *
@@ -4993,16 +4995,17 @@ class DAS extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield GetDasAgentSSEResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield GetDasAgentSSEResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -5330,7 +5333,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询单个死锁详情.
+     * Queries the details of a deadlock.
      *
      * @param request - GetDeadLockDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5381,7 +5384,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询单个死锁详情.
+     * Queries the details of a deadlock.
      *
      * @param request - GetDeadLockDetailRequest
      *
@@ -5486,7 +5489,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取历史死锁记录.
+     * Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
      *
      * @param request - GetDeadLockHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5549,7 +5552,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 获取历史死锁记录.
+     * Queries the historical tasks of recent deadlock analysis and full deadlock analysis.
      *
      * @param request - GetDeadLockHistoryRequest
      *
@@ -5567,7 +5570,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询时间范围内基于错误日志分析的死锁数量.
+     * Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
      *
      * @param request - GetDeadlockHistogramRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5622,7 +5625,7 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * 查询时间范围内基于错误日志分析的死锁数量.
+     * Queries the trend of the number of deadlocks in full deadlock analysis within a specified period of time.
      *
      * @param request - GetDeadlockHistogramRequest
      *
@@ -8808,6 +8811,139 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getStorageAnalysisResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 瑶池AI助理大模型能力接口.
+     *
+     * @param request - GetYaoChiAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYaoChiAgentResponse
+     *
+     * @param GetYaoChiAgentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetYaoChiAgentResponse
+     */
+    public function getYaoChiAgentWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYaoChiAgent',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield GetYaoChiAgentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 瑶池AI助理大模型能力接口.
+     *
+     * @param request - GetYaoChiAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYaoChiAgentResponse
+     *
+     * @param GetYaoChiAgentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetYaoChiAgentResponse
+     */
+    public function getYaoChiAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extraInfo) {
+            @$query['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYaoChiAgent',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYaoChiAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 瑶池AI助理大模型能力接口.
+     *
+     * @param request - GetYaoChiAgentRequest
+     *
+     * @returns GetYaoChiAgentResponse
+     *
+     * @param GetYaoChiAgentRequest $request
+     *
+     * @return GetYaoChiAgentResponse
+     */
+    public function getYaoChiAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYaoChiAgentWithOptions($request, $runtime);
     }
 
     /**
