@@ -7913,56 +7913,19 @@ class AiMiaoBi extends OpenApiClient
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
-        $query = [];
+        $body = [];
         if (null !== $request->categoryUuidsShrink) {
-            @$query['CategoryUuids'] = $request->categoryUuidsShrink;
+            @$body['CategoryUuids'] = $request->categoryUuidsShrink;
         }
 
         if (null !== $request->createTimeEnd) {
-            @$query['CreateTimeEnd'] = $request->createTimeEnd;
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
         }
 
         if (null !== $request->createTimeStart) {
-            @$query['CreateTimeStart'] = $request->createTimeStart;
+            @$body['CreateTimeStart'] = $request->createTimeStart;
         }
 
-        if (null !== $request->docIdsShrink) {
-            @$query['DocIds'] = $request->docIdsShrink;
-        }
-
-        if (null !== $request->docUuidsShrink) {
-            @$query['DocUuids'] = $request->docUuidsShrink;
-        }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
-        }
-
-        if (null !== $request->extend1) {
-            @$query['Extend1'] = $request->extend1;
-        }
-
-        if (null !== $request->extend2) {
-            @$query['Extend2'] = $request->extend2;
-        }
-
-        if (null !== $request->extend3) {
-            @$query['Extend3'] = $request->extend3;
-        }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
-        }
-
-        if (null !== $request->tagsShrink) {
-            @$query['Tags'] = $request->tagsShrink;
-        }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
-        }
-
-        $body = [];
         if (null !== $request->datasetDescription) {
             @$body['DatasetDescription'] = $request->datasetDescription;
         }
@@ -7975,12 +7938,36 @@ class AiMiaoBi extends OpenApiClient
             @$body['DatasetName'] = $request->datasetName;
         }
 
+        if (null !== $request->docIdsShrink) {
+            @$body['DocIds'] = $request->docIdsShrink;
+        }
+
         if (null !== $request->docType) {
             @$body['DocType'] = $request->docType;
         }
 
+        if (null !== $request->docUuidsShrink) {
+            @$body['DocUuids'] = $request->docUuidsShrink;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->excludeFieldsShrink) {
             @$body['ExcludeFields'] = $request->excludeFieldsShrink;
+        }
+
+        if (null !== $request->extend1) {
+            @$body['Extend1'] = $request->extend1;
+        }
+
+        if (null !== $request->extend2) {
+            @$body['Extend2'] = $request->extend2;
+        }
+
+        if (null !== $request->extend3) {
+            @$body['Extend3'] = $request->extend3;
         }
 
         if (null !== $request->includeFieldsShrink) {
@@ -7999,8 +7986,20 @@ class AiMiaoBi extends OpenApiClient
             @$body['Query'] = $request->query;
         }
 
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
 
         if (null !== $request->workspaceId) {
@@ -8008,7 +8007,6 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -16758,56 +16756,19 @@ class AiMiaoBi extends OpenApiClient
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
-        $query = [];
+        $body = [];
         if (null !== $request->categoryUuidsShrink) {
-            @$query['CategoryUuids'] = $request->categoryUuidsShrink;
+            @$body['CategoryUuids'] = $request->categoryUuidsShrink;
         }
 
         if (null !== $request->createTimeEnd) {
-            @$query['CreateTimeEnd'] = $request->createTimeEnd;
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
         }
 
         if (null !== $request->createTimeStart) {
-            @$query['CreateTimeStart'] = $request->createTimeStart;
+            @$body['CreateTimeStart'] = $request->createTimeStart;
         }
 
-        if (null !== $request->docIdsShrink) {
-            @$query['DocIds'] = $request->docIdsShrink;
-        }
-
-        if (null !== $request->docTypesShrink) {
-            @$query['DocTypes'] = $request->docTypesShrink;
-        }
-
-        if (null !== $request->docUuidsShrink) {
-            @$query['DocUuids'] = $request->docUuidsShrink;
-        }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
-        }
-
-        if (null !== $request->extend2) {
-            @$query['Extend2'] = $request->extend2;
-        }
-
-        if (null !== $request->extend3) {
-            @$query['Extend3'] = $request->extend3;
-        }
-
-        if (null !== $request->searchMode) {
-            @$query['SearchMode'] = $request->searchMode;
-        }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
-        }
-
-        if (null !== $request->tagsShrink) {
-            @$query['Tags'] = $request->tagsShrink;
-        }
-
-        $body = [];
         if (null !== $request->datasetId) {
             @$body['DatasetId'] = $request->datasetId;
         }
@@ -16816,8 +16777,32 @@ class AiMiaoBi extends OpenApiClient
             @$body['DatasetName'] = $request->datasetName;
         }
 
+        if (null !== $request->docIdsShrink) {
+            @$body['DocIds'] = $request->docIdsShrink;
+        }
+
+        if (null !== $request->docTypesShrink) {
+            @$body['DocTypes'] = $request->docTypesShrink;
+        }
+
+        if (null !== $request->docUuidsShrink) {
+            @$body['DocUuids'] = $request->docUuidsShrink;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->extend1) {
             @$body['Extend1'] = $request->extend1;
+        }
+
+        if (null !== $request->extend2) {
+            @$body['Extend2'] = $request->extend2;
+        }
+
+        if (null !== $request->extend3) {
+            @$body['Extend3'] = $request->extend3;
         }
 
         if (null !== $request->includeContent) {
@@ -16832,12 +16817,23 @@ class AiMiaoBi extends OpenApiClient
             @$body['Query'] = $request->query;
         }
 
+        if (null !== $request->searchMode) {
+            @$body['SearchMode'] = $request->searchMode;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
