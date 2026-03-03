@@ -154,7 +154,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 检查账号是否存在ServiceLinkedRole授权.
+     * Checks whether a service-linked role is created for an Alibaba Cloud account.
      *
      * @param request - CheckServiceLinkedRoleForProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -193,7 +193,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 检查账号是否存在ServiceLinkedRole授权.
+     * Checks whether a service-linked role is created for an Alibaba Cloud account.
      *
      * @param request - CheckServiceLinkedRoleForProductRequest
      *
@@ -1388,7 +1388,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 发现EventSource(例如：Mysql)的Schema和SimpleData.
+     * Discovers the schema and simple data of an event source (such as MySQL).
      *
      * @param tmpReq - DiscoverEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1433,7 +1433,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 发现EventSource(例如：Mysql)的Schema和SimpleData.
+     * Discovers the schema and simple data of an event source (such as MySQL).
      *
      * @param request - DiscoverEventSourceRequest
      *
@@ -3621,7 +3621,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询事件流
+     * This API operation allows you to query event streams.
      *
      * @param request - UpdateEventStreamingBusinessOptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3672,7 +3672,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询事件流
+     * This API operation allows you to query event streams.
      *
      * @param request - UpdateEventStreamingBusinessOptionRequest
      *

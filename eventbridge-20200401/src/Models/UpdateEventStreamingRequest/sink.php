@@ -20,6 +20,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkDashVectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkDataHubParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkDorisParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkEventHouseParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkFcParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkFnfParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkKafkaParameters;
@@ -82,6 +83,11 @@ class sink extends Model
      * @var sinkDorisParameters
      */
     public $sinkDorisParameters;
+
+    /**
+     * @var sinkEventHouseParameters
+     */
+    public $sinkEventHouseParameters;
 
     /**
      * @var sinkFcParameters
@@ -168,6 +174,7 @@ class sink extends Model
         'sinkDataHubParameters' => 'SinkDataHubParameters',
         'sinkDataWorksTriggerParameters' => 'SinkDataWorksTriggerParameters',
         'sinkDorisParameters' => 'SinkDorisParameters',
+        'sinkEventHouseParameters' => 'SinkEventHouseParameters',
         'sinkFcParameters' => 'SinkFcParameters',
         'sinkFnfParameters' => 'SinkFnfParameters',
         'sinkHttpsParameters' => 'SinkHttpsParameters',
@@ -216,6 +223,9 @@ class sink extends Model
         }
         if (null !== $this->sinkDorisParameters) {
             $this->sinkDorisParameters->validate();
+        }
+        if (null !== $this->sinkEventHouseParameters) {
+            $this->sinkEventHouseParameters->validate();
         }
         if (null !== $this->sinkFcParameters) {
             $this->sinkFcParameters->validate();
@@ -306,6 +316,10 @@ class sink extends Model
 
         if (null !== $this->sinkDorisParameters) {
             $res['SinkDorisParameters'] = null !== $this->sinkDorisParameters ? $this->sinkDorisParameters->toArray($noStream) : $this->sinkDorisParameters;
+        }
+
+        if (null !== $this->sinkEventHouseParameters) {
+            $res['SinkEventHouseParameters'] = null !== $this->sinkEventHouseParameters ? $this->sinkEventHouseParameters->toArray($noStream) : $this->sinkEventHouseParameters;
         }
 
         if (null !== $this->sinkFcParameters) {
@@ -417,6 +431,10 @@ class sink extends Model
 
         if (isset($map['SinkDorisParameters'])) {
             $model->sinkDorisParameters = sinkDorisParameters::fromMap($map['SinkDorisParameters']);
+        }
+
+        if (isset($map['SinkEventHouseParameters'])) {
+            $model->sinkEventHouseParameters = sinkEventHouseParameters::fromMap($map['SinkEventHouseParameters']);
         }
 
         if (isset($map['SinkFcParameters'])) {
