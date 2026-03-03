@@ -14,6 +14,11 @@ class ListQuotaActiveUserUsagesResponseBody extends Model
     public $quotaUserUsage;
 
     /**
+     * @var QuotaUser[]
+     */
+    public $quotaUserUsages;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -24,6 +29,7 @@ class ListQuotaActiveUserUsagesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'quotaUserUsage' => 'QuotaUserUsage',
+        'quotaUserUsages' => 'QuotaUserUsages',
         'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
@@ -32,6 +38,9 @@ class ListQuotaActiveUserUsagesResponseBody extends Model
     {
         if (\is_array($this->quotaUserUsage)) {
             Model::validateArray($this->quotaUserUsage);
+        }
+        if (\is_array($this->quotaUserUsages)) {
+            Model::validateArray($this->quotaUserUsages);
         }
         parent::validate();
     }
@@ -45,6 +54,17 @@ class ListQuotaActiveUserUsagesResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->quotaUserUsage as $item1) {
                     $res['QuotaUserUsage'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->quotaUserUsages) {
+            if (\is_array($this->quotaUserUsages)) {
+                $res['QuotaUserUsages'] = [];
+                $n1 = 0;
+                foreach ($this->quotaUserUsages as $item1) {
+                    $res['QuotaUserUsages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -75,6 +95,17 @@ class ListQuotaActiveUserUsagesResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['QuotaUserUsage'] as $item1) {
                     $model->quotaUserUsage[$n1] = QuotaUser::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['QuotaUserUsages'])) {
+            if (!empty($map['QuotaUserUsages'])) {
+                $model->quotaUserUsages = [];
+                $n1 = 0;
+                foreach ($map['QuotaUserUsages'] as $item1) {
+                    $model->quotaUserUsages[$n1] = QuotaUser::fromMap($item1);
                     ++$n1;
                 }
             }

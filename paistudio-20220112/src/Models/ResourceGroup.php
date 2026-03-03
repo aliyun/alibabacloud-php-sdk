@@ -39,6 +39,16 @@ class ResourceGroup extends Model
     public $resourceGroupID;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var UserVpc
      */
     public $userVpc;
@@ -59,6 +69,8 @@ class ResourceGroup extends Model
         'name' => 'Name',
         'nodeCount' => 'NodeCount',
         'resourceGroupID' => 'ResourceGroupID',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
         'userVpc' => 'UserVpc',
         'version' => 'Version',
         'workspaceID' => 'WorkspaceID',
@@ -97,6 +109,14 @@ class ResourceGroup extends Model
 
         if (null !== $this->resourceGroupID) {
             $res['ResourceGroupID'] = $this->resourceGroupID;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->userVpc) {
@@ -144,6 +164,14 @@ class ResourceGroup extends Model
 
         if (isset($map['ResourceGroupID'])) {
             $model->resourceGroupID = $map['ResourceGroupID'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['UserVpc'])) {
