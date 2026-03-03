@@ -12,8 +12,20 @@ class GetHistoryDeveloperRequest extends Model
      * @var int
      */
     public $enterpriseId;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
         'enterpriseId' => 'enterpriseId',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
     ];
 
     public function validate()
@@ -26,6 +38,14 @@ class GetHistoryDeveloperRequest extends Model
         $res = [];
         if (null !== $this->enterpriseId) {
             $res['enterpriseId'] = $this->enterpriseId;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -41,6 +61,14 @@ class GetHistoryDeveloperRequest extends Model
         $model = new self();
         if (isset($map['enterpriseId'])) {
             $model->enterpriseId = $map['enterpriseId'];
+        }
+
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
         }
 
         return $model;

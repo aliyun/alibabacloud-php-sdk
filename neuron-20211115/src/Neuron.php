@@ -5600,6 +5600,14 @@ class Neuron extends OpenApiClient
             @$query['enterpriseId'] = $request->enterpriseId;
         }
 
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
