@@ -86,6 +86,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $originMinorVersion;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -122,6 +127,11 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $series;
+
+    /**
+     * @var string
+     */
+    public $storageType;
 
     /**
      * @var string
@@ -168,6 +178,7 @@ class CreateDBInstanceRequest extends Model
         'isColumnarReadDBInstance' => 'IsColumnarReadDBInstance',
         'isReadDBInstance' => 'IsReadDBInstance',
         'networkType' => 'NetworkType',
+        'originMinorVersion' => 'OriginMinorVersion',
         'payType' => 'PayType',
         'period' => 'Period',
         'primaryDBInstanceName' => 'PrimaryDBInstanceName',
@@ -176,6 +187,7 @@ class CreateDBInstanceRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'secondaryZone' => 'SecondaryZone',
         'series' => 'Series',
+        'storageType' => 'StorageType',
         'tertiaryZone' => 'TertiaryZone',
         'topologyType' => 'TopologyType',
         'usedTime' => 'UsedTime',
@@ -260,6 +272,10 @@ class CreateDBInstanceRequest extends Model
             $res['NetworkType'] = $this->networkType;
         }
 
+        if (null !== $this->originMinorVersion) {
+            $res['OriginMinorVersion'] = $this->originMinorVersion;
+        }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -290,6 +306,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->series) {
             $res['Series'] = $this->series;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->tertiaryZone) {
@@ -392,6 +412,10 @@ class CreateDBInstanceRequest extends Model
             $model->networkType = $map['NetworkType'];
         }
 
+        if (isset($map['OriginMinorVersion'])) {
+            $model->originMinorVersion = $map['OriginMinorVersion'];
+        }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
@@ -422,6 +446,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['TertiaryZone'])) {

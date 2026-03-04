@@ -1400,6 +1400,10 @@ class Polardbx extends OpenApiClient
             @$query['NetworkType'] = $request->networkType;
         }
 
+        if (null !== $request->originMinorVersion) {
+            @$query['OriginMinorVersion'] = $request->originMinorVersion;
+        }
+
         if (null !== $request->payType) {
             @$query['PayType'] = $request->payType;
         }
@@ -1430,6 +1434,10 @@ class Polardbx extends OpenApiClient
 
         if (null !== $request->series) {
             @$query['Series'] = $request->series;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
 
         if (null !== $request->tertiaryZone) {
