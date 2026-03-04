@@ -123,6 +123,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingConfigurationRespons
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingConfigurationShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingGroupResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeAssetUploadRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeAssetUploadResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAdInsertionRequest;
@@ -380,6 +382,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAIAppJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAIAppJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsRequest;
@@ -504,6 +510,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingGroupsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingGroupsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListWorkflowTasksRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListWorkflowTasksResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListYikeAssetFoldersRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListYikeAssetFoldersResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListYikeProductionsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListYikeProductionsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\OpenMediaConnectFlowFailoverRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\OpenMediaConnectFlowFailoverResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobRequest;
@@ -543,6 +553,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaStreamResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterYikeAssetMediaInfoRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterYikeAssetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeMediaConnectFlowOutputRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
@@ -719,6 +731,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoCognitionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoCognitionJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeAIAppJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeAIAppJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAdInsertionRequest;
@@ -1788,7 +1802,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 修改库.
+     * Modifies a search library.
      *
      * @param request - AlterSearchLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1831,7 +1845,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 修改库.
+     * Modifies a search library.
      *
      * @param request - AlterSearchLibRequest
      *
@@ -2434,7 +2448,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+     * Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
      *
      * @param request - CreateAvatarTrainingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2497,7 +2511,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
+     * Creates an avatar training job. You can configure the basic information of the avatar and the materials required for the training.
      *
      * @param request - CreateAvatarTrainingJobRequest
      *
@@ -2600,7 +2614,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a custom template.
+     * Creates a custom media processing template.
      *
      * @param request - CreateCustomTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2651,7 +2665,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a custom template.
+     * Creates a custom media processing template.
      *
      * @param request - CreateCustomTemplateRequest
      *
@@ -2999,7 +3013,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * IPC下单.
+     * Creates an IPC order. The purchased capacity is shared at the account level.
      *
      * @param request - CreateIpcOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3046,7 +3060,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * IPC下单.
+     * Creates an IPC order. The purchased capacity is shared at the account level.
      *
      * @param request - CreateIpcOrderRequest
      *
@@ -3499,7 +3513,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a live stream transcoding template to submit live stream transcoding jobs.
+     * Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
      *
      * @param tmpReq - CreateLiveTranscodeTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3552,7 +3566,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a live stream transcoding template to submit live stream transcoding jobs.
+     * Creates a live stream transcoding template, which can be referenced when submitting a transcoding job.
      *
      * @param request - CreateLiveTranscodeTemplateRequest
      *
@@ -4331,7 +4345,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建搜索索引.
+     * Creates a search index in a search library. Each search library can contain multiple indexes.
      *
      * @remarks
      * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
@@ -4385,7 +4399,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建搜索索引.
+     * Creates a search index in a search library. Each search library can contain multiple indexes.
      *
      * @remarks
      * The large visual model feature is still in the public preview phase. You can use this feature for free for 1,000 hours of videos.
@@ -4931,7 +4945,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a packaging configuration.
+     * Creates a VOD packaging configuration.
      *
      * @param tmpReq - CreateVodPackagingConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4992,7 +5006,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a packaging configuration.
+     * Creates a VOD packaging configuration.
      *
      * @param request - CreateVodPackagingConfigurationRequest
      *
@@ -5010,7 +5024,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a packaging group.
+     * Creates a VOD packaging group.
      *
      * @param request - CreateVodPackagingGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5053,7 +5067,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Creates a packaging group.
+     * Creates a VOD packaging group.
      *
      * @param request - CreateVodPackagingGroupRequest
      *
@@ -5068,6 +5082,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createVodPackagingGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻媒资上传凭证
+     *
+     * @param request - CreateYikeAssetUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateYikeAssetUploadResponse
+     *
+     * @param CreateYikeAssetUploadRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateYikeAssetUploadResponse
+     */
+    public function createYikeAssetUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileExt) {
+            @$query['FileExt'] = $request->fileExt;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateYikeAssetUpload',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateYikeAssetUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻媒资上传凭证
+     *
+     * @param request - CreateYikeAssetUploadRequest
+     *
+     * @returns CreateYikeAssetUploadResponse
+     *
+     * @param CreateYikeAssetUploadRequest $request
+     *
+     * @return CreateYikeAssetUploadResponse
+     */
+    public function createYikeAssetUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYikeAssetUploadWithOptions($request, $runtime);
     }
 
     /**
@@ -7815,7 +7886,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Deletes a packaging configuration.
+     * Deletes a VOD packaging configuration.
      *
      * @param request - DeleteVodPackagingConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7854,7 +7925,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Deletes a packaging configuration.
+     * Deletes a VOD packaging configuration.
      *
      * @param request - DeleteVodPackagingConfigurationRequest
      *
@@ -7872,7 +7943,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Deletes a packaging group.
+     * Deletes a VOD packaging group.
      *
      * @param request - DeleteVodPackagingGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7911,7 +7982,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Deletes a packaging group.
+     * Deletes a VOD packaging group.
      *
      * @param request - DeleteVodPackagingGroupRequest
      *
@@ -8489,7 +8560,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询实例.
+     * Queries the information about an AI agent for real-time communication (RTC).
      *
      * @param request - DescribeRtcRobotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8528,7 +8599,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询实例.
+     * Queries the information about an AI agent for real-time communication (RTC).
      *
      * @param request - DescribeRtcRobotInstanceRequest
      *
@@ -10354,7 +10425,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询IPC设备信息.
+     * Retrieves information about IPC devices.
      *
      * @param request - GetIpcDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10413,7 +10484,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询IPC设备信息.
+     * Retrieves information about IPC devices.
      *
      * @param request - GetIpcDeviceInfoRequest
      *
@@ -12000,7 +12071,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries the playback URL of a video or audio file based on its ID.
+     * Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
      *
      * @remarks
      * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
@@ -12050,7 +12121,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries the playback URL of a video or audio file based on its ID.
+     * Queries the playback URL of a video or audio file by its ID. You can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
      *
      * @remarks
      * You use the ID of a video or audio file to query the playback URL of the file. Then, you can use the playback URL to play the audio or video in ApsaraVideo Player SDK (for URL-based playback) or a third-party player.
@@ -13278,7 +13349,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries a packaging group.
+     * Queries a VOD packaging group.
      *
      * @param request - GetVodPackagingGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13317,7 +13388,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries a packaging group.
+     * Queries a VOD packaging group.
      *
      * @param request - GetVodPackagingGroupRequest
      *
@@ -13389,6 +13460,120 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkflowTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻AI应用任务
+     *
+     * @param request - GetYikeAIAppJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeAIAppJobResponse
+     *
+     * @param GetYikeAIAppJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetYikeAIAppJobResponse
+     */
+    public function getYikeAIAppJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeAIAppJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeAIAppJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻AI应用任务
+     *
+     * @param request - GetYikeAIAppJobRequest
+     *
+     * @returns GetYikeAIAppJobResponse
+     *
+     * @param GetYikeAIAppJobRequest $request
+     *
+     * @return GetYikeAIAppJobResponse
+     */
+    public function getYikeAIAppJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeAIAppJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻媒资内容信息.
+     *
+     * @param request - GetYikeAssetMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeAssetMediaInfoResponse
+     *
+     * @param GetYikeAssetMediaInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetYikeAssetMediaInfoResponse
+     */
+    public function getYikeAssetMediaInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeAssetMediaInfo',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeAssetMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻媒资内容信息.
+     *
+     * @param request - GetYikeAssetMediaInfoRequest
+     *
+     * @returns GetYikeAssetMediaInfoResponse
+     *
+     * @param GetYikeAssetMediaInfoRequest $request
+     *
+     * @return GetYikeAssetMediaInfoResponse
+     */
+    public function getYikeAssetMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeAssetMediaInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -13639,7 +13824,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 罗列用户电话资源接口.
+     * Lists available phone numbers.
      *
      * @param request - ListAIAgentPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13690,7 +13875,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 罗列用户电话资源接口.
+     * Lists available phone numbers.
      *
      * @param request - ListAIAgentPhoneNumberRequest
      *
@@ -16436,7 +16621,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries a list of packaging jobs.
+     * Queries packaging jobs.
      *
      * @param request - ListPackageJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16499,7 +16684,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries a list of packaging jobs.
+     * Queries packaging jobs.
      *
      * @param request - ListPackageJobsRequest
      *
@@ -17935,7 +18120,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Lists packaging configurations.
+     * Lists VOD packaging configurations.
      *
      * @param request - ListVodPackagingConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17990,7 +18175,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Lists packaging configurations.
+     * Lists VOD packaging configurations.
      *
      * @param request - ListVodPackagingConfigurationsRequest
      *
@@ -18008,7 +18193,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Lists packaging groups.
+     * Lists VOD packaging groups.
      *
      * @param request - ListVodPackagingGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18059,7 +18244,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Lists packaging groups.
+     * Lists VOD packaging groups.
      *
      * @param request - ListVodPackagingGroupsRequest
      *
@@ -18161,6 +18346,140 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listWorkflowTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻文件夹列表.
+     *
+     * @param request - ListYikeAssetFoldersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListYikeAssetFoldersResponse
+     *
+     * @param ListYikeAssetFoldersRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListYikeAssetFoldersResponse
+     */
+    public function listYikeAssetFoldersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListYikeAssetFolders',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListYikeAssetFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻文件夹列表.
+     *
+     * @param request - ListYikeAssetFoldersRequest
+     *
+     * @returns ListYikeAssetFoldersResponse
+     *
+     * @param ListYikeAssetFoldersRequest $request
+     *
+     * @return ListYikeAssetFoldersResponse
+     */
+    public function listYikeAssetFolders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listYikeAssetFoldersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻项目列表.
+     *
+     * @param request - ListYikeProductionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListYikeProductionsResponse
+     *
+     * @param ListYikeProductionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListYikeProductionsResponse
+     */
+    public function listYikeProductionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListYikeProductions',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListYikeProductionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻项目列表.
+     *
+     * @param request - ListYikeProductionsRequest
+     *
+     * @returns ListYikeProductionsResponse
+     *
+     * @param ListYikeProductionsRequest $request
+     *
+     * @return ListYikeProductionsResponse
+     */
+    public function listYikeProductions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listYikeProductionsWithOptions($request, $runtime);
     }
 
     /**
@@ -18503,7 +18822,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询IPC用量.
+     * Queries the usage for the IPC service.
      *
      * @param request - QueryIpcQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18558,7 +18877,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询IPC用量.
+     * Queries the usage for the IPC service.
      *
      * @param request - QueryIpcQuotaRequest
      *
@@ -19558,6 +19877,75 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->registerMediaStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * 注册一刻媒资.
+     *
+     * @param request - RegisterYikeAssetMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegisterYikeAssetMediaInfoResponse
+     *
+     * @param RegisterYikeAssetMediaInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RegisterYikeAssetMediaInfoResponse
+     */
+    public function registerYikeAssetMediaInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->folderId) {
+            @$query['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->inputURL) {
+            @$query['InputURL'] = $request->inputURL;
+        }
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
+        }
+
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RegisterYikeAssetMediaInfo',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RegisterYikeAssetMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 注册一刻媒资.
+     *
+     * @param request - RegisterYikeAssetMediaInfoRequest
+     *
+     * @returns RegisterYikeAssetMediaInfoResponse
+     *
+     * @param RegisterYikeAssetMediaInfoRequest $request
+     *
+     * @return RegisterYikeAssetMediaInfoResponse
+     */
+    public function registerYikeAssetMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerYikeAssetMediaInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -21362,7 +21750,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+     * Initiates an outbound phone call for an AI agent.
      *
      * @param tmpReq - StartAIAgentOutboundCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21431,7 +21819,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+     * Initiates an outbound phone call for an AI agent.
      *
      * @param request - StartAIAgentOutboundCallRequest
      *
@@ -21648,7 +22036,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 开启一个机器人实例.
+     * Starts an AI agent and joins a real-time communication (RTC) call.
      *
      * @param tmpReq - StartRtcRobotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21713,7 +22101,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 开启一个机器人实例.
+     * Starts an AI agent and joins a real-time communication (RTC) call.
      *
      * @param request - StartRtcRobotInstanceRequest
      *
@@ -22058,7 +22446,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 停止一个机器人实例.
+     * Stops an AI agent for real-time communication (RTC).
      *
      * @param request - StopRtcRobotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22097,7 +22485,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 停止一个机器人实例.
+     * Stops an AI agent for real-time communication (RTC).
      *
      * @param request - StopRtcRobotInstanceRequest
      *
@@ -22293,7 +22681,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits an audio production job that converts text into an audio file.
+     * Converts the provided text content into a high-quality audio file.
      *
      * @param request - SubmitAudioProduceJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22356,7 +22744,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits an audio production job that converts text into an audio file.
+     * Converts the provided text content into a high-quality audio file.
      *
      * @param request - SubmitAudioProduceJobRequest
      *
@@ -22783,7 +23171,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+     * Submits a basic voice cloning job.
      *
      * @param request - SubmitCustomizedVoiceJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22826,7 +23214,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
+     * Submits a basic voice cloning job.
      *
      * @param request - SubmitCustomizedVoiceJobRequest
      *
@@ -25686,7 +26074,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+     * Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
      *
      * @remarks
      * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
@@ -25772,7 +26160,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
+     * Submits a video translation job. You can call this operation to translate video subtitles and speech to a specific language, and synchronize the speakers\\" lip movements with the translated audio.
      *
      * @remarks
      * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
@@ -25790,6 +26178,75 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitVideoTranslationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交一刻AI应用任务
+     *
+     * @param request - SubmitYikeAIAppJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitYikeAIAppJobResponse
+     *
+     * @param SubmitYikeAIAppJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitYikeAIAppJobResponse
+     */
+    public function submitYikeAIAppJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appParams) {
+            @$body['AppParams'] = $request->appParams;
+        }
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->productionId) {
+            @$body['ProductionId'] = $request->productionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitYikeAIAppJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitYikeAIAppJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交一刻AI应用任务
+     *
+     * @param request - SubmitYikeAIAppJobRequest
+     *
+     * @returns SubmitYikeAIAppJobResponse
+     *
+     * @param SubmitYikeAIAppJobRequest $request
+     *
+     * @return SubmitYikeAIAppJobResponse
+     */
+    public function submitYikeAIAppJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitYikeAIAppJobWithOptions($request, $runtime);
     }
 
     /**
@@ -28132,7 +28589,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 修改实例的配置.
+     * Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
      *
      * @param tmpReq - UpdateRtcRobotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28181,7 +28638,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 修改实例的配置.
+     * Modifies an AI agent for real-time communication (RTC), such as the tone and greeting.
      *
      * @param request - UpdateRtcRobotInstanceRequest
      *
@@ -28199,7 +28656,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Modifies a source in MediaWeaver.
+     * Modifies a source.
      *
      * @param request - UpdateSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28250,7 +28707,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Modifies a source in MediaWeaver.
+     * Modifies a source.
      *
      * @param request - UpdateSourceRequest
      *

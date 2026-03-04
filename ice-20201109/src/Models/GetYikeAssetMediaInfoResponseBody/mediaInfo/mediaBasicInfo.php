@@ -1,0 +1,370 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoResponseBody\mediaInfo;
+
+use AlibabaCloud\Dara\Model;
+
+class mediaBasicInfo extends Model
+{
+    /**
+     * @var string
+     */
+    public $biz;
+
+    /**
+     * @var string
+     */
+    public $businessType;
+
+    /**
+     * @var int
+     */
+    public $cateId;
+
+    /**
+     * @var string
+     */
+    public $cateName;
+
+    /**
+     * @var string
+     */
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $coverURL;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $deletedTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $inputURL;
+
+    /**
+     * @var string
+     */
+    public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $mediaTags;
+
+    /**
+     * @var string
+     */
+    public $mediaType;
+
+    /**
+     * @var string
+     */
+    public $modifiedTime;
+
+    /**
+     * @var string
+     */
+    public $referenceId;
+
+    /**
+     * @var string
+     */
+    public $snapshots;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $spriteImages;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $thumbURL240P;
+
+    /**
+     * @var string
+     */
+    public $thumbURLWebp;
+
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $uploadSource;
+
+    /**
+     * @var string
+     */
+    public $userData;
+    protected $_name = [
+        'biz' => 'Biz',
+        'businessType' => 'BusinessType',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'category' => 'Category',
+        'coverURL' => 'CoverURL',
+        'createTime' => 'CreateTime',
+        'deletedTime' => 'DeletedTime',
+        'description' => 'Description',
+        'inputURL' => 'InputURL',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
+        'modifiedTime' => 'ModifiedTime',
+        'referenceId' => 'ReferenceId',
+        'snapshots' => 'Snapshots',
+        'source' => 'Source',
+        'spriteImages' => 'SpriteImages',
+        'status' => 'Status',
+        'thumbURL240P' => 'ThumbURL240P',
+        'thumbURLWebp' => 'ThumbURLWebp',
+        'title' => 'Title',
+        'uploadSource' => 'UploadSource',
+        'userData' => 'UserData',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->biz) {
+            $res['Biz'] = $this->biz;
+        }
+
+        if (null !== $this->businessType) {
+            $res['BusinessType'] = $this->businessType;
+        }
+
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
+        }
+
+        if (null !== $this->cateName) {
+            $res['CateName'] = $this->cateName;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->coverURL) {
+            $res['CoverURL'] = $this->coverURL;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->deletedTime) {
+            $res['DeletedTime'] = $this->deletedTime;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->inputURL) {
+            $res['InputURL'] = $this->inputURL;
+        }
+
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
+
+        if (null !== $this->mediaTags) {
+            $res['MediaTags'] = $this->mediaTags;
+        }
+
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
+
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+
+        if (null !== $this->referenceId) {
+            $res['ReferenceId'] = $this->referenceId;
+        }
+
+        if (null !== $this->snapshots) {
+            $res['Snapshots'] = $this->snapshots;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
+        if (null !== $this->spriteImages) {
+            $res['SpriteImages'] = $this->spriteImages;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->thumbURL240P) {
+            $res['ThumbURL240P'] = $this->thumbURL240P;
+        }
+
+        if (null !== $this->thumbURLWebp) {
+            $res['ThumbURLWebp'] = $this->thumbURLWebp;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
+        }
+
+        if (null !== $this->uploadSource) {
+            $res['UploadSource'] = $this->uploadSource;
+        }
+
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Biz'])) {
+            $model->biz = $map['Biz'];
+        }
+
+        if (isset($map['BusinessType'])) {
+            $model->businessType = $map['BusinessType'];
+        }
+
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
+        }
+
+        if (isset($map['CateName'])) {
+            $model->cateName = $map['CateName'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+
+        if (isset($map['CoverURL'])) {
+            $model->coverURL = $map['CoverURL'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['DeletedTime'])) {
+            $model->deletedTime = $map['DeletedTime'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
+        if (isset($map['InputURL'])) {
+            $model->inputURL = $map['InputURL'];
+        }
+
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
+
+        if (isset($map['MediaTags'])) {
+            $model->mediaTags = $map['MediaTags'];
+        }
+
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
+
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+
+        if (isset($map['ReferenceId'])) {
+            $model->referenceId = $map['ReferenceId'];
+        }
+
+        if (isset($map['Snapshots'])) {
+            $model->snapshots = $map['Snapshots'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+
+        if (isset($map['SpriteImages'])) {
+            $model->spriteImages = $map['SpriteImages'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['ThumbURL240P'])) {
+            $model->thumbURL240P = $map['ThumbURL240P'];
+        }
+
+        if (isset($map['ThumbURLWebp'])) {
+            $model->thumbURLWebp = $map['ThumbURLWebp'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
+        }
+
+        if (isset($map['UploadSource'])) {
+            $model->uploadSource = $map['UploadSource'];
+        }
+
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
+
+        return $model;
+    }
+}
