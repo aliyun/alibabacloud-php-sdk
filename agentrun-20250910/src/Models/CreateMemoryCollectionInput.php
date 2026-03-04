@@ -57,6 +57,11 @@ class CreateMemoryCollectionInput extends Model
      * @var VectorStoreConfig
      */
     public $vectorStoreConfig;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'description' => 'description',
         'embedderConfig' => 'embedderConfig',
@@ -68,6 +73,7 @@ class CreateMemoryCollectionInput extends Model
         'networkConfiguration' => 'networkConfiguration',
         'type' => 'type',
         'vectorStoreConfig' => 'vectorStoreConfig',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -130,6 +136,10 @@ class CreateMemoryCollectionInput extends Model
             $res['vectorStoreConfig'] = null !== $this->vectorStoreConfig ? $this->vectorStoreConfig->toArray($noStream) : $this->vectorStoreConfig;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -179,6 +189,10 @@ class CreateMemoryCollectionInput extends Model
 
         if (isset($map['vectorStoreConfig'])) {
             $model->vectorStoreConfig = VectorStoreConfig::fromMap($map['vectorStoreConfig']);
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

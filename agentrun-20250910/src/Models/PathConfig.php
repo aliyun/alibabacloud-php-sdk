@@ -24,6 +24,11 @@ class PathConfig extends Model
     public $path;
 
     /**
+     * @var bool
+     */
+    public $removeBasePathOnForward;
+
+    /**
      * @var string
      */
     public $resourceName;
@@ -36,6 +41,7 @@ class PathConfig extends Model
         'agentRuntimeEndpointName' => 'agentRuntimeEndpointName',
         'methods' => 'methods',
         'path' => 'path',
+        'removeBasePathOnForward' => 'removeBasePathOnForward',
         'resourceName' => 'resourceName',
         'resourceType' => 'resourceType',
     ];
@@ -68,6 +74,10 @@ class PathConfig extends Model
 
         if (null !== $this->path) {
             $res['path'] = $this->path;
+        }
+
+        if (null !== $this->removeBasePathOnForward) {
+            $res['removeBasePathOnForward'] = $this->removeBasePathOnForward;
         }
 
         if (null !== $this->resourceName) {
@@ -106,6 +116,10 @@ class PathConfig extends Model
 
         if (isset($map['path'])) {
             $model->path = $map['path'];
+        }
+
+        if (isset($map['removeBasePathOnForward'])) {
+            $model->removeBasePathOnForward = $map['removeBasePathOnForward'];
         }
 
         if (isset($map['resourceName'])) {

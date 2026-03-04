@@ -47,6 +47,11 @@ class UpdateMemoryCollectionInput extends Model
      * @var VectorStoreConfig
      */
     public $vectorStoreConfig;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'description' => 'description',
         'embedderConfig' => 'embedderConfig',
@@ -56,6 +61,7 @@ class UpdateMemoryCollectionInput extends Model
         'llmConfig' => 'llmConfig',
         'networkConfiguration' => 'networkConfiguration',
         'vectorStoreConfig' => 'vectorStoreConfig',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -110,6 +116,10 @@ class UpdateMemoryCollectionInput extends Model
             $res['vectorStoreConfig'] = null !== $this->vectorStoreConfig ? $this->vectorStoreConfig->toArray($noStream) : $this->vectorStoreConfig;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -151,6 +161,10 @@ class UpdateMemoryCollectionInput extends Model
 
         if (isset($map['vectorStoreConfig'])) {
             $model->vectorStoreConfig = VectorStoreConfig::fromMap($map['vectorStoreConfig']);
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

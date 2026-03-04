@@ -14,6 +14,11 @@ class ListCustomDomainsRequest extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $domainType;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -34,6 +39,7 @@ class ListCustomDomainsRequest extends Model
     public $resourceType;
     protected $_name = [
         'domainName' => 'domainName',
+        'domainType' => 'domainType',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'resourceName' => 'resourceName',
@@ -50,6 +56,10 @@ class ListCustomDomainsRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
+        }
+
+        if (null !== $this->domainType) {
+            $res['domainType'] = $this->domainType;
         }
 
         if (null !== $this->pageNumber) {
@@ -81,6 +91,10 @@ class ListCustomDomainsRequest extends Model
         $model = new self();
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
+        }
+
+        if (isset($map['domainType'])) {
+            $model->domainType = $map['domainType'];
         }
 
         if (isset($map['pageNumber'])) {

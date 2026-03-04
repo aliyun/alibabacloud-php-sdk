@@ -32,12 +32,18 @@ class ListMemoryCollectionsRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'memoryCollectionName' => 'memoryCollectionName',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'status' => 'status',
         'type' => 'type',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListMemoryCollectionsRequest extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListMemoryCollectionsRequest extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

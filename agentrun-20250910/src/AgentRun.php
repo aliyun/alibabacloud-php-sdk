@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateWorkspaceRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
@@ -44,6 +46,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeEndpointResponse;
@@ -59,6 +62,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceDiscoveryEndpointsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimesRequest;
@@ -109,6 +114,10 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceDiscoveryEndpointsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceDiscoveryEndpointsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -926,6 +935,68 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 创建工作空间.
+     *
+     * @remarks
+     * 创建工作空间
+     *
+     * @param request - CreateWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkspaceResponse
+     *
+     * @param CreateWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspaceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkspace',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/workspaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工作空间.
+     *
+     * @remarks
+     * 创建工作空间
+     *
+     * @param request - CreateWorkspaceRequest
+     *
+     * @returns CreateWorkspaceResponse
+     *
+     * @param CreateWorkspaceRequest $request
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkspaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 删除智能体运行时.
      *
      * @remarks
@@ -1561,6 +1632,63 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteTemplateWithOptions($templateName, $headers, $runtime);
+    }
+
+    /**
+     * 删除工作空间.
+     *
+     * @remarks
+     * 删除工作空间
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkspaceResponse
+     *
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteWorkspaceResponse
+     */
+    public function deleteWorkspaceWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkspace',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/workspaces/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工作空间.
+     *
+     * @remarks
+     * 删除工作空间
+     *
+     * @returns DeleteWorkspaceResponse
+     *
+     * @param string $workspaceId
+     *
+     * @return DeleteWorkspaceResponse
+     */
+    public function deleteWorkspace($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -2289,6 +2417,114 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 查看工作空间.
+     *
+     * @remarks
+     * 查看工作空间
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceResponse
+     *
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspace',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/workspaces/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看工作空间.
+     *
+     * @remarks
+     * 查看工作空间
+     *
+     * @returns GetWorkspaceResponse
+     *
+     * @param string $workspaceId
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspace($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * 获取工作空间下的发现端点.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceDiscoveryEndpointsResponse
+     *
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkspaceDiscoveryEndpointsResponse
+     */
+    public function getWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceDiscoveryEndpoints',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/workspaces/' . Url::percentEncode($workspaceId) . '/discovery/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceDiscoveryEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作空间下的发现端点.
+     *
+     * @returns GetWorkspaceDiscoveryEndpointsResponse
+     *
+     * @param string $workspaceId
+     *
+     * @return GetWorkspaceDiscoveryEndpointsResponse
+     */
+    public function getWorkspaceDiscoveryEndpoints($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
      * Retrieve the list of access endpoints for an agent runtime.
      *
      * @remarks
@@ -2488,6 +2724,10 @@ class AgentRun extends OpenApiClient
 
         if (null !== $request->workspaceId) {
             @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceIds) {
+            @$query['workspaceIds'] = $request->workspaceIds;
         }
 
         $req = new OpenApiRequest([
@@ -2793,6 +3033,10 @@ class AgentRun extends OpenApiClient
             @$query['domainName'] = $request->domainName;
         }
 
+        if (null !== $request->domainType) {
+            @$query['domainType'] = $request->domainType;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }
@@ -2953,6 +3197,10 @@ class AgentRun extends OpenApiClient
 
         if (null !== $request->type) {
             @$query['type'] = $request->type;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
@@ -4102,5 +4350,127 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateTemplateWithOptions($templateName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新工作空间.
+     *
+     * @remarks
+     * 更新工作空间
+     *
+     * @param request - UpdateWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkspaceResponse
+     *
+     * @param string                 $workspaceId
+     * @param UpdateWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateWorkspaceResponse
+     */
+    public function updateWorkspaceWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkspace',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/workspaces/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新工作空间.
+     *
+     * @remarks
+     * 更新工作空间
+     *
+     * @param request - UpdateWorkspaceRequest
+     *
+     * @returns UpdateWorkspaceResponse
+     *
+     * @param string                 $workspaceId
+     * @param UpdateWorkspaceRequest $request
+     *
+     * @return UpdateWorkspaceResponse
+     */
+    public function updateWorkspace($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取工作空间下的发现端点.
+     *
+     * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkspaceDiscoveryEndpointsResponse
+     *
+     * @param string                                   $workspaceId
+     * @param UpdateWorkspaceDiscoveryEndpointsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateWorkspaceDiscoveryEndpointsResponse
+     */
+    public function updateWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkspaceDiscoveryEndpoints',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/workspaces/' . Url::percentEncode($workspaceId) . '/discovery/endpoints',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkspaceDiscoveryEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作空间下的发现端点.
+     *
+     * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
+     *
+     * @returns UpdateWorkspaceDiscoveryEndpointsResponse
+     *
+     * @param string                                   $workspaceId
+     * @param UpdateWorkspaceDiscoveryEndpointsRequest $request
+     *
+     * @return UpdateWorkspaceDiscoveryEndpointsResponse
+     */
+    public function updateWorkspaceDiscoveryEndpoints($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }
