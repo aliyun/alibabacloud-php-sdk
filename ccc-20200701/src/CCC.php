@@ -326,6 +326,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMonoRecordingsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListMultiChannelRecordingsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListNotificationRecordsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListNotificationRecordsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListOutboundNumbersOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListOutboundNumbersOfUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListPersonalNumbersOfUserRequest;
@@ -513,6 +515,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyShrinkRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSubscriptionRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSubscriptionResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateTicketRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateTicketResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\WithdrawTicketRequest;
@@ -11144,6 +11148,67 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询消息推送记录.
+     *
+     * @param request - ListNotificationRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNotificationRecordsResponse
+     *
+     * @param ListNotificationRecordsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListNotificationRecordsResponse
+     */
+    public function listNotificationRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->notificationKeys) {
+            @$query['NotificationKeys'] = $request->notificationKeys;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNotificationRecords',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNotificationRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消息推送记录.
+     *
+     * @param request - ListNotificationRecordsRequest
+     *
+     * @returns ListNotificationRecordsResponse
+     *
+     * @param ListNotificationRecordsRequest $request
+     *
+     * @return ListNotificationRecordsResponse
+     */
+    public function listNotificationRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNotificationRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * 该坐席可用的外呼号码列表.
      *
      * @param request - ListOutboundNumbersOfUserRequest
@@ -17427,6 +17492,99 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSchemaPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * UpdateSubscription.
+     *
+     * @param request - UpdateSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param UpdateSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSubscriptionResponse
+     */
+    public function updateSubscriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessPoint) {
+            @$query['AccessPoint'] = $request->accessPoint;
+        }
+
+        if (null !== $request->aliyunUid) {
+            @$query['AliyunUid'] = $request->aliyunUid;
+        }
+
+        if (null !== $request->defaultTopic) {
+            @$query['DefaultTopic'] = $request->defaultTopic;
+        }
+
+        if (null !== $request->eventSubscriptionsJson) {
+            @$query['EventSubscriptionsJson'] = $request->eventSubscriptionsJson;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->mqInstanceId) {
+            @$query['MqInstanceId'] = $request->mqInstanceId;
+        }
+
+        if (null !== $request->mqType) {
+            @$query['MqType'] = $request->mqType;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->producerId) {
+            @$query['ProducerId'] = $request->producerId;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSubscription',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateSubscription.
+     *
+     * @param request - UpdateSubscriptionRequest
+     *
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param UpdateSubscriptionRequest $request
+     *
+     * @return UpdateSubscriptionResponse
+     */
+    public function updateSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSubscriptionWithOptions($request, $runtime);
     }
 
     /**
