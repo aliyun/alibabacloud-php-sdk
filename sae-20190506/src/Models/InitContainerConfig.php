@@ -42,6 +42,11 @@ class InitContainerConfig extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $secretMountDesc;
     protected $_name = [
         'command' => 'Command',
         'commandArgs' => 'CommandArgs',
@@ -50,6 +55,7 @@ class InitContainerConfig extends Model
         'envs' => 'Envs',
         'imageUrl' => 'ImageUrl',
         'name' => 'Name',
+        'secretMountDesc' => 'SecretMountDesc',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class InitContainerConfig extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->secretMountDesc) {
+            $res['SecretMountDesc'] = $this->secretMountDesc;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class InitContainerConfig extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SecretMountDesc'])) {
+            $model->secretMountDesc = $map['SecretMountDesc'];
         }
 
         return $model;

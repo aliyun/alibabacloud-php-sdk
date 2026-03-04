@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRespons
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig\configMapMountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig\emptyDirDesc;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig\secretMountDesc;
 
 class initContainersConfig extends Model
 {
@@ -44,6 +45,11 @@ class initContainersConfig extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var secretMountDesc[]
+     */
+    public $secretMountDesc;
     protected $_name = [
         'command' => 'Command',
         'commandArgs' => 'CommandArgs',
@@ -52,6 +58,7 @@ class initContainersConfig extends Model
         'envs' => 'Envs',
         'imageUrl' => 'ImageUrl',
         'name' => 'Name',
+        'secretMountDesc' => 'SecretMountDesc',
     ];
 
     public function validate()
@@ -61,6 +68,9 @@ class initContainersConfig extends Model
         }
         if (\is_array($this->emptyDirDesc)) {
             Model::validateArray($this->emptyDirDesc);
+        }
+        if (\is_array($this->secretMountDesc)) {
+            Model::validateArray($this->secretMountDesc);
         }
         parent::validate();
     }
@@ -108,6 +118,17 @@ class initContainersConfig extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->secretMountDesc) {
+            if (\is_array($this->secretMountDesc)) {
+                $res['SecretMountDesc'] = [];
+                $n1 = 0;
+                foreach ($this->secretMountDesc as $item1) {
+                    $res['SecretMountDesc'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -161,6 +182,17 @@ class initContainersConfig extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SecretMountDesc'])) {
+            if (!empty($map['SecretMountDesc'])) {
+                $model->secretMountDesc = [];
+                $n1 = 0;
+                foreach ($map['SecretMountDesc'] as $item1) {
+                    $model->secretMountDesc[$n1] = secretMountDesc::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
