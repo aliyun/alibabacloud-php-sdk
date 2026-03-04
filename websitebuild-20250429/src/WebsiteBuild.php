@@ -50,6 +50,7 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsRequest;
@@ -1548,6 +1549,50 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->introspectAppInstanceTicketForPreviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取商品配置信息.
+     *
+     * @param request - ListAppCommoditySpecificationsForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppCommoditySpecificationsForPartnerResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAppCommoditySpecificationsForPartnerResponse
+     */
+    public function listAppCommoditySpecificationsForPartnerWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListAppCommoditySpecificationsForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppCommoditySpecificationsForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取商品配置信息.
+     *
+     * @returns ListAppCommoditySpecificationsForPartnerResponse
+     *
+     * @return ListAppCommoditySpecificationsForPartnerResponse
+     */
+    public function listAppCommoditySpecificationsForPartner()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppCommoditySpecificationsForPartnerWithOptions($runtime);
     }
 
     /**
