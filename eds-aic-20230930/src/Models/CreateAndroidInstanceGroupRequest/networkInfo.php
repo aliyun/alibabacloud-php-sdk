@@ -66,6 +66,11 @@ class networkInfo extends Model
     /**
      * @var string
      */
+    public $promotionId;
+
+    /**
+     * @var string
+     */
     public $visibleType;
     protected $_name = [
         'autoPay' => 'AutoPay',
@@ -79,6 +84,7 @@ class networkInfo extends Model
         'payType' => 'PayType',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
         'visibleType' => 'VisibleType',
     ];
 
@@ -132,6 +138,10 @@ class networkInfo extends Model
 
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
 
         if (null !== $this->visibleType) {
@@ -191,6 +201,10 @@ class networkInfo extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
 
         if (isset($map['VisibleType'])) {
