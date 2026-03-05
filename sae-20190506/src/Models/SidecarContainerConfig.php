@@ -49,6 +49,11 @@ class SidecarContainerConfig extends Model
     public $imageUrl;
 
     /**
+     * @var string
+     */
+    public $liveness;
+
+    /**
      * @var int
      */
     public $memory;
@@ -57,6 +62,16 @@ class SidecarContainerConfig extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $readiness;
+
+    /**
+     * @var string
+     */
+    public $secretMountDesc;
     protected $_name = [
         'acrInstanceId' => 'AcrInstanceId',
         'command' => 'Command',
@@ -66,8 +81,11 @@ class SidecarContainerConfig extends Model
         'emptyDirDesc' => 'EmptyDirDesc',
         'envs' => 'Envs',
         'imageUrl' => 'ImageUrl',
+        'liveness' => 'Liveness',
         'memory' => 'Memory',
         'name' => 'Name',
+        'readiness' => 'Readiness',
+        'secretMountDesc' => 'SecretMountDesc',
     ];
 
     public function validate()
@@ -110,12 +128,24 @@ class SidecarContainerConfig extends Model
             $res['ImageUrl'] = $this->imageUrl;
         }
 
+        if (null !== $this->liveness) {
+            $res['Liveness'] = $this->liveness;
+        }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->readiness) {
+            $res['Readiness'] = $this->readiness;
+        }
+
+        if (null !== $this->secretMountDesc) {
+            $res['SecretMountDesc'] = $this->secretMountDesc;
         }
 
         return $res;
@@ -161,12 +191,24 @@ class SidecarContainerConfig extends Model
             $model->imageUrl = $map['ImageUrl'];
         }
 
+        if (isset($map['Liveness'])) {
+            $model->liveness = $map['Liveness'];
+        }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Readiness'])) {
+            $model->readiness = $map['Readiness'];
+        }
+
+        if (isset($map['SecretMountDesc'])) {
+            $model->secretMountDesc = $map['SecretMountDesc'];
         }
 
         return $model;
