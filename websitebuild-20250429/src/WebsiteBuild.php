@@ -7,13 +7,19 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BatchCheckResourceMeasureRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BatchCheckResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateMaterialDirectoryRequest;
@@ -38,6 +44,9 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRecommendedCommoditiesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRecommendedCommoditiesResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppTokenServiceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerRequest;
@@ -78,6 +87,13 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRe
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateSupabaseForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateSupabaseForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\PushResourceMeasureRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\PushResourceMeasureResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryInspirationAccountDetailsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryInspirationAccountDetailsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryInspirationBalanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryInspirationConsumeRecordsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryInspirationConsumeRecordsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialDirectoryTreeRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialDirectoryTreeResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialFileDetailRequest;
@@ -232,6 +248,83 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 批量校验资源计量.
+     *
+     * @param request - BatchCheckResourceMeasureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCheckResourceMeasureResponse
+     *
+     * @param BatchCheckResourceMeasureRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return BatchCheckResourceMeasureResponse
+     */
+    public function batchCheckResourceMeasureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->belongId) {
+            @$query['BelongId'] = $request->belongId;
+        }
+
+        if (null !== $request->belongIdType) {
+            @$query['BelongIdType'] = $request->belongIdType;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->espBizId) {
+            @$query['EspBizId'] = $request->espBizId;
+        }
+
+        if (null !== $request->orderComponentParams) {
+            @$query['OrderComponentParams'] = $request->orderComponentParams;
+        }
+
+        if (null !== $request->resourceCheckItems) {
+            @$query['ResourceCheckItems'] = $request->resourceCheckItems;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCheckResourceMeasure',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCheckResourceMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量校验资源计量.
+     *
+     * @param request - BatchCheckResourceMeasureRequest
+     *
+     * @returns BatchCheckResourceMeasureResponse
+     *
+     * @param BatchCheckResourceMeasureRequest $request
+     *
+     * @return BatchCheckResourceMeasureResponse
+     */
+    public function batchCheckResourceMeasure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCheckResourceMeasureWithOptions($request, $runtime);
+    }
+
+    /**
      * Bind Application Domain.
      *
      * @param request - BindAppDomainRequest
@@ -298,6 +391,87 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindAppDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 校验资源计量.
+     *
+     * @param request - CheckResourceMeasureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckResourceMeasureResponse
+     *
+     * @param CheckResourceMeasureRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CheckResourceMeasureResponse
+     */
+    public function checkResourceMeasureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->belongId) {
+            @$query['BelongId'] = $request->belongId;
+        }
+
+        if (null !== $request->belongIdType) {
+            @$query['BelongIdType'] = $request->belongIdType;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->espBizId) {
+            @$query['EspBizId'] = $request->espBizId;
+        }
+
+        if (null !== $request->orderComponentParams) {
+            @$query['OrderComponentParams'] = $request->orderComponentParams;
+        }
+
+        if (null !== $request->resourceCode) {
+            @$query['ResourceCode'] = $request->resourceCode;
+        }
+
+        if (null !== $request->resourceValue) {
+            @$query['ResourceValue'] = $request->resourceValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckResourceMeasure',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckResourceMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验资源计量.
+     *
+     * @param request - CheckResourceMeasureRequest
+     *
+     * @returns CheckResourceMeasureResponse
+     *
+     * @param CheckResourceMeasureRequest $request
+     *
+     * @return CheckResourceMeasureResponse
+     */
+    public function checkResourceMeasure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkResourceMeasureWithOptions($request, $runtime);
     }
 
     /**
@@ -468,6 +642,63 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppInstanceTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * 万小智开通灵感值服务
+     *
+     * @param request - CreateAppTokenServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppTokenServiceResponse
+     *
+     * @param CreateAppTokenServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateAppTokenServiceResponse
+     */
+    public function createAppTokenServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createAction) {
+            @$query['CreateAction'] = $request->createAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppTokenService',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppTokenServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 万小智开通灵感值服务
+     *
+     * @param request - CreateAppTokenServiceRequest
+     *
+     * @returns CreateAppTokenServiceResponse
+     *
+     * @param CreateAppTokenServiceRequest $request
+     *
+     * @return CreateAppTokenServiceResponse
+     */
+    public function createAppTokenService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppTokenServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -1171,6 +1402,111 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppPluginConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询万小智推荐商品
+     *
+     * @param request - GetAppRecommendedCommoditiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppRecommendedCommoditiesResponse
+     *
+     * @param GetAppRecommendedCommoditiesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAppRecommendedCommoditiesResponse
+     */
+    public function getAppRecommendedCommoditiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppRecommendedCommodities',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppRecommendedCommoditiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询万小智推荐商品
+     *
+     * @param request - GetAppRecommendedCommoditiesRequest
+     *
+     * @returns GetAppRecommendedCommoditiesResponse
+     *
+     * @param GetAppRecommendedCommoditiesRequest $request
+     *
+     * @return GetAppRecommendedCommoditiesResponse
+     */
+    public function getAppRecommendedCommodities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppRecommendedCommoditiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询万小智灵感值服务
+     *
+     * @param request - GetAppTokenServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppTokenServiceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAppTokenServiceResponse
+     */
+    public function getAppTokenServiceWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetAppTokenService',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppTokenServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询万小智灵感值服务
+     *
+     * @returns GetAppTokenServiceResponse
+     *
+     * @return GetAppTokenServiceResponse
+     */
+    public function getAppTokenService()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppTokenServiceWithOptions($runtime);
     }
 
     /**
@@ -2495,6 +2831,301 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateSupabaseForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * 推送资源计量数据.
+     *
+     * @param request - PushResourceMeasureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushResourceMeasureResponse
+     *
+     * @param PushResourceMeasureRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PushResourceMeasureResponse
+     */
+    public function pushResourceMeasureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->belongId) {
+            @$query['BelongId'] = $request->belongId;
+        }
+
+        if (null !== $request->belongIdType) {
+            @$query['BelongIdType'] = $request->belongIdType;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->measureData) {
+            @$query['MeasureData'] = $request->measureData;
+        }
+
+        if (null !== $request->metaData) {
+            @$query['MetaData'] = $request->metaData;
+        }
+
+        if (null !== $request->resourceCode) {
+            @$query['ResourceCode'] = $request->resourceCode;
+        }
+
+        if (null !== $request->useTime) {
+            @$query['UseTime'] = $request->useTime;
+        }
+
+        if (null !== $request->useType) {
+            @$query['UseType'] = $request->useType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PushResourceMeasure',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PushResourceMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 推送资源计量数据.
+     *
+     * @param request - PushResourceMeasureRequest
+     *
+     * @returns PushResourceMeasureResponse
+     *
+     * @param PushResourceMeasureRequest $request
+     *
+     * @return PushResourceMeasureResponse
+     */
+    public function pushResourceMeasure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushResourceMeasureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询灵感值获取明细.
+     *
+     * @param request - QueryInspirationAccountDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInspirationAccountDetailsResponse
+     *
+     * @param QueryInspirationAccountDetailsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryInspirationAccountDetailsResponse
+     */
+    public function queryInspirationAccountDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryInspirationAccountDetails',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryInspirationAccountDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询灵感值获取明细.
+     *
+     * @param request - QueryInspirationAccountDetailsRequest
+     *
+     * @returns QueryInspirationAccountDetailsResponse
+     *
+     * @param QueryInspirationAccountDetailsRequest $request
+     *
+     * @return QueryInspirationAccountDetailsResponse
+     */
+    public function queryInspirationAccountDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInspirationAccountDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询灵感值余额总览.
+     *
+     * @param request - QueryInspirationBalanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInspirationBalanceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryInspirationBalanceResponse
+     */
+    public function queryInspirationBalanceWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'QueryInspirationBalance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryInspirationBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询灵感值余额总览.
+     *
+     * @returns QueryInspirationBalanceResponse
+     *
+     * @return QueryInspirationBalanceResponse
+     */
+    public function queryInspirationBalance()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInspirationBalanceWithOptions($runtime);
+    }
+
+    /**
+     * 查询灵感值消耗明细.
+     *
+     * @param request - QueryInspirationConsumeRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInspirationConsumeRecordsResponse
+     *
+     * @param QueryInspirationConsumeRecordsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryInspirationConsumeRecordsResponse
+     */
+    public function queryInspirationConsumeRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sceneName) {
+            @$query['SceneName'] = $request->sceneName;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryInspirationConsumeRecords',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryInspirationConsumeRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询灵感值消耗明细.
+     *
+     * @param request - QueryInspirationConsumeRecordsRequest
+     *
+     * @returns QueryInspirationConsumeRecordsResponse
+     *
+     * @param QueryInspirationConsumeRecordsRequest $request
+     *
+     * @return QueryInspirationConsumeRecordsResponse
+     */
+    public function queryInspirationConsumeRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInspirationConsumeRecordsWithOptions($request, $runtime);
     }
 
     /**
