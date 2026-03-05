@@ -610,7 +610,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint for an ApsaraDB for Redis instance.
+     * Applies for a public endpoint for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
@@ -680,7 +680,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint for an ApsaraDB for Redis instance.
+     * Applies for a public endpoint for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * You can also apply for public endpoints in the ApsaraDB for Redis console. For more information, see [Use a public endpoint to connect to an ApsaraDB for Redis instance](https://help.aliyun.com/document_detail/43850.html).
@@ -1441,6 +1441,10 @@ class Rkvstore extends OpenApiClient
             @$query['InstanceClass'] = $request->instanceClass;
         }
 
+        if (null !== $request->instanceEndpointType) {
+            @$query['InstanceEndpointType'] = $request->instanceEndpointType;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -1825,7 +1829,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 创建TairCustom实例.
+     * Creates a TairCustom instance.
      *
      * @param request - CreateTCInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1968,7 +1972,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 创建TairCustom实例.
+     * Creates a TairCustom instance.
      *
      * @param request - CreateTCInstanceRequest
      *
@@ -2071,6 +2075,10 @@ class Rkvstore extends OpenApiClient
 
         if (null !== $request->instanceClass) {
             @$query['InstanceClass'] = $request->instanceClass;
+        }
+
+        if (null !== $request->instanceEndpointType) {
+            @$query['InstanceEndpointType'] = $request->instanceEndpointType;
         }
 
         if (null !== $request->instanceName) {
@@ -2659,7 +2667,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Release the Redis instance.
+     * Releases a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
@@ -2729,7 +2737,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Release the Redis instance.
+     * Releases a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * For more information about how to perform the corresponding operation in the console, see [Release an instance](https://help.aliyun.com/document_detail/43882.html).
@@ -3096,7 +3104,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+     * Queries the details of the O\\\\\\&M tasks of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
@@ -3174,7 +3182,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the details of the O\\&M tasks of a Tair (Redis OSS-compatible) instance.
+     * Queries the details of the O\\\\\\&M tasks of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * After you have called this API operation and queried the information about a specific O&M task, you can also call the [ModifyActiveOperationTask](https://help.aliyun.com/document_detail/473864.html) operation to modify the scheduled switchover time of the O&M task.
@@ -3272,7 +3280,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the O\\\\\\\\\\\\&M event details of an instance.
+     * Queries the O\\\\\\\\\\\\\\\\\\\\&M event details of an instance.
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3371,7 +3379,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the O\\\\\\\\\\\\&M event details of an instance.
+     * Queries the O\\\\\\\\\\\\\\\\\\\\&M event details of an instance.
      *
      * @param request - DescribeActiveOperationTasksRequest
      *
@@ -4420,7 +4428,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the network information of an ApsaraDB for Redis instance.
+     * Queries the network information of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4483,7 +4491,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the network information of an ApsaraDB for Redis instance.
+     * Queries the network information of a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeDBInstanceNetInfoRequest
      *
@@ -6108,7 +6116,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether TLS (SSL) encryption is enabled for an instance.
+     * Queries whether TLS (SSL) encryption is enabled for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
@@ -6174,7 +6182,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries whether TLS (SSL) encryption is enabled for an instance.
+     * Queries whether TLS (SSL) encryption is enabled for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * SSL encryption is supported for Tair (Redis OSS-compatible) 2.8 standard master-replica instances, Tair (Redis OSS-compatible) 2.8 master-replica cluster instances, and Tair (Redis OSS-compatible) 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
@@ -6590,7 +6598,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+     * Queries the current bandwidth of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
@@ -6656,7 +6664,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the internal bandwidth of a Tair (Redis OSS-compatible) instance.
+     * Queries the current bandwidth of a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * You can call the [EnableAdditionalBandwidth](https://help.aliyun.com/document_detail/473771.html) operation to increase the internal bandwidth of an instance.
@@ -7607,7 +7615,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the regions in which ApsaraDB for Redis instances can be created.
+     * Queries all regions and zones supported for a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7666,7 +7674,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the regions in which ApsaraDB for Redis instances can be created.
+     * Queries all regions and zones supported for a Tair (Redis OSS-compatible) instance.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -8347,7 +8355,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * Queries the details of a TairKVCache instance.
      *
      * @param request - DescribeTairKVCacheCustomInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8382,7 +8390,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * Queries the details of a TairKVCache instance.
      *
      * @param request - DescribeTairKVCacheCustomInstanceAttributeRequest
      *
@@ -8400,7 +8408,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询TairCustom主机监控.
+     * Queries the monitoring data of a Tair-KVCache instance.
      *
      * @param request - DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8435,7 +8443,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查询TairCustom主机监控.
+     * Queries the monitoring data of a Tair-KVCache instance.
      *
      * @param request - DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
      *
@@ -8453,7 +8461,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * Queries Tair-KVCache instances.
      *
      * @param request - DescribeTairKVCacheCustomInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8488,7 +8496,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 查看TairCustom实例.
+     * Queries Tair-KVCache instances.
      *
      * @param request - DescribeTairKVCacheCustomInstancesRequest
      *
@@ -8618,7 +8626,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the zones available for Tair (Redis OSS-compatible).
+     * Queries the zones that support Tair (Redis OSS-compatible) in a specific region. To query the zones where Tair (Redis OSS-compatible) instances can be purchased, call the DescribeAvailableResource operation.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8681,7 +8689,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Queries the zones available for Tair (Redis OSS-compatible).
+     * Queries the zones that support Tair (Redis OSS-compatible) in a specific region. To query the zones where Tair (Redis OSS-compatible) instances can be purchased, call the DescribeAvailableResource operation.
      *
      * @param request - DescribeZonesRequest
      *
@@ -9441,7 +9449,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     * Locks an instance. After the instance is locked, you can only read data from the instance, but cannot write data to the instance.
      *
      * @param request - LockDBInstanceWriteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9504,7 +9512,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Places a write lock on an instance. After the instance is locked, it supports only read operations.
+     * Locks an instance. After the instance is locked, you can only read data from the instance, but cannot write data to the instance.
      *
      * @param request - LockDBInstanceWriteRequest
      *
@@ -9819,7 +9827,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+     * Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
      *
      * @param request - ModifyAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9894,7 +9902,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the password of a specific account for a Tair (Redis OSS-compatible) instance.
+     * Modifies the password of an account for a Tair (Redis OSS-compatible) instance.
      *
      * @param request - ModifyAccountPasswordRequest
      *
@@ -10005,7 +10013,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the scheduled switchover time of an O&M task.
+     * Changes the scheduled switchover time of an O\\&M task.
      *
      * @remarks
      * You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
@@ -10071,7 +10079,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the scheduled switchover time of an O&M task.
+     * Changes the scheduled switchover time of an O\\&M task.
      *
      * @remarks
      * You can receive notifications for Tair (Redis OSS-compatible) events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the console. You can also change the scheduled switchover time of a task by using the console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
@@ -10448,7 +10456,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the setting related to the automatic update of minor versions for an instance.
+     * Modifies the settings related to the automatic minor version update for an instance.
      *
      * @param request - ModifyDBInstanceAutoUpgradeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10511,7 +10519,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the setting related to the automatic update of minor versions for an instance.
+     * Modifies the settings related to the automatic minor version update for an instance.
      *
      * @param request - ModifyDBInstanceAutoUpgradeRequest
      *
@@ -11437,7 +11445,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+     * Modifies the maintenance window of a Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
      *
      * @remarks
      * You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
@@ -11507,7 +11515,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
+     * Modifies the maintenance window of a Tair (Redis OSS-compatible) instance. Alibaba Cloud maintains Tair (Redis OSS-compatible) instances during the specified maintenance window.
      *
      * @remarks
      * You can also modify the maintenance window of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Set a maintenance window](https://help.aliyun.com/document_detail/55252.html).
@@ -12528,7 +12536,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
+     * Modifies the resource group to which a Tair (Redis OSS-compatible) instance belongs.
      *
      * @remarks
      * You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
@@ -12599,7 +12607,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a Tair (Redis OSS-compatible) instance belongs.
+     * Modifies the resource group to which a Tair (Redis OSS-compatible) instance belongs.
      *
      * @remarks
      * You can also perform this operation in the [Resource Management](https://resourcemanager.console.aliyun.com/resource-center) console. For more information, see [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html).
@@ -12708,7 +12716,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     * Configures an IP address whitelist for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
@@ -12786,7 +12794,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelists of a Tair (Redis OSS-compatible) instance.
+     * Configures an IP address whitelist for a Tair (Redis OSS-compatible) instance.
      *
      * @remarks
      * You can also modify the whitelists of an instance in the Tair (Redis OSS-compatible) console. For more information, see [Configure a whitelist for an instance](https://help.aliyun.com/document_detail/56464.html).
@@ -12807,7 +12815,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改TairCustom实例基本参数.
+     * Modifies the basic parameters of a Tair-KVCache instance.
      *
      * @param request - ModifyTairKVCacheCustomInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12874,7 +12882,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 修改TairCustom实例基本参数.
+     * Modifies the basic parameters of a Tair-KVCache instance.
      *
      * @param request - ModifyTairKVCacheCustomInstanceAttributeRequest
      *
@@ -13072,7 +13080,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     * Releases the private endpoint of a Tair (Redis OSS-compatible) cluster instance.
      *
      * @remarks
      * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
@@ -13134,7 +13142,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
+     * Releases the private endpoint of a Tair (Redis OSS-compatible) cluster instance.
      *
      * @remarks
      * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
@@ -13424,7 +13432,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Renews an ApsaraDB for Redis instance.
+     * Renews a Tair (Redis OSS-compatible) subscription instance.
      *
      * @remarks
      * This operation is applicable only to subscription instances.
@@ -13522,7 +13530,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Renews an ApsaraDB for Redis instance.
+     * Renews a Tair (Redis OSS-compatible) subscription instance.
      *
      * @remarks
      * This operation is applicable only to subscription instances.
@@ -13638,7 +13646,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重置TairCustom上主机密码
+     * Modifies the basic parameters of a Tair-KVCache instance.
      *
      * @param request - ResetTairKVCacheCustomInstancePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13705,7 +13713,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重置TairCustom上主机密码
+     * Modifies the basic parameters of a Tair-KVCache instance.
      *
      * @param request - ResetTairKVCacheCustomInstancePasswordRequest
      *
@@ -13723,7 +13731,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 变配TairCustom的主机的磁盘.
+     * Modifies the disk size of a Tair-KVCache instance.
      *
      * @param request - ResizeTairKVCacheCustomInstanceDiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13794,7 +13802,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 变配TairCustom的主机的磁盘.
+     * Modifies the disk size of a Tair-KVCache instance.
      *
      * @param request - ResizeTairKVCacheCustomInstanceDiskRequest
      *
@@ -13812,7 +13820,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restarts a running ApsaraDB for Redis instance.
+     * Restarts a running Tair (Redis OSS-compatible) instance.
      *
      * @param request - RestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13879,7 +13887,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Restarts a running ApsaraDB for Redis instance.
+     * Restarts a running Tair (Redis OSS-compatible) instance.
      *
      * @param request - RestartInstanceRequest
      *
@@ -13897,7 +13905,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重启TairCustom的主机.
+     * Restarts a Tair-KVCache instance.
      *
      * @param request - RestartTairKVCacheCustomInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13956,7 +13964,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 重启TairCustom的主机.
+     * Restarts a Tair-KVCache instance.
      *
      * @param request - RestartTairKVCacheCustomInstanceRequest
      *
@@ -14079,7 +14087,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 启动TairCustom的主机.
+     * Starts a Tair-KVCache instance.
      *
      * @param request - StartTairKVCacheCustomInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14138,7 +14146,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 启动TairCustom的主机.
+     * Starts a Tair-KVCache instance.
      *
      * @param request - StartTairKVCacheCustomInstanceRequest
      *
@@ -14156,7 +14164,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 停止TairCustom的主机.
+     * Stops a Tair-KVCache instance.
      *
      * @param request - StopTairKVCacheCustomInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14215,7 +14223,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 停止TairCustom的主机.
+     * Stops a Tair-KVCache instance.
      *
      * @param request - StopTairKVCacheCustomInstanceRequest
      *
@@ -15104,7 +15112,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     * Unlocks a write-locked instance. After the instance is unlocked, you can read and write data to and from the instance.
      *
      * @param request - UnlockDBInstanceWriteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15163,7 +15171,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Removes the write lock from an instance. After the instance is unlocked, it supports both read and write operations.
+     * Unlocks a write-locked instance. After the instance is unlocked, you can read and write data to and from the instance.
      *
      * @param request - UnlockDBInstanceWriteRequest
      *

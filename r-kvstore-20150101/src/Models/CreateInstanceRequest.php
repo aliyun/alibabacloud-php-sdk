@@ -102,6 +102,11 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $instanceEndpointType;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
@@ -267,6 +272,7 @@ class CreateInstanceRequest extends Model
         'globalInstanceId' => 'GlobalInstanceId',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
         'instanceClass' => 'InstanceClass',
+        'instanceEndpointType' => 'InstanceEndpointType',
         'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
         'networkType' => 'NetworkType',
@@ -380,6 +386,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
+        }
+
+        if (null !== $this->instanceEndpointType) {
+            $res['InstanceEndpointType'] = $this->instanceEndpointType;
         }
 
         if (null !== $this->instanceName) {
@@ -590,6 +600,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
+        }
+
+        if (isset($map['InstanceEndpointType'])) {
+            $model->instanceEndpointType = $map['InstanceEndpointType'];
         }
 
         if (isset($map['InstanceName'])) {
