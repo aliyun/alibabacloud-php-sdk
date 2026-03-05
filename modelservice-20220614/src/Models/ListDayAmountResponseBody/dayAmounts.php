@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ModelService\V20220614\Models\ListDayAmountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dayAmounts extends Model
 {
@@ -19,19 +19,21 @@ class dayAmounts extends Model
     public $date;
     protected $_name = [
         'amount' => 'Amount',
-        'date'   => 'Date',
+        'date' => 'Date',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
@@ -39,17 +41,18 @@ class dayAmounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dayAmounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }

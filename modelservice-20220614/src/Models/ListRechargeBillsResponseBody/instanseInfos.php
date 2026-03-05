@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ModelService\V20220614\Models\ListRechargeBillsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanseInfos extends Model
 {
@@ -33,32 +33,37 @@ class instanseInfos extends Model
      */
     public $source;
     protected $_name = [
-        'currTimes'  => 'CurrTimes',
+        'currTimes' => 'CurrTimes',
         'gmtEndTime' => 'GmtEndTime',
-        'initTimes'  => 'InitTimes',
+        'initTimes' => 'InitTimes',
         'instanceId' => 'InstanceId',
-        'source'     => 'Source',
+        'source' => 'Source',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currTimes) {
             $res['CurrTimes'] = $this->currTimes;
         }
+
         if (null !== $this->gmtEndTime) {
             $res['GmtEndTime'] = $this->gmtEndTime;
         }
+
         if (null !== $this->initTimes) {
             $res['InitTimes'] = $this->initTimes;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -66,26 +71,30 @@ class instanseInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanseInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrTimes'])) {
             $model->currTimes = $map['CurrTimes'];
         }
+
         if (isset($map['GmtEndTime'])) {
             $model->gmtEndTime = $map['GmtEndTime'];
         }
+
         if (isset($map['InitTimes'])) {
             $model->initTimes = $map['InitTimes'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

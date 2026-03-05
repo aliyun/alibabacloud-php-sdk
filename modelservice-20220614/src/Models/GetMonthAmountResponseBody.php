@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ModelService\V20220614\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMonthAmountResponseBody extends Model
 {
@@ -34,31 +34,36 @@ class GetMonthAmountResponseBody extends Model
     public $totalAmount;
     protected $_name = [
         'backgroundAmount' => 'BackgroundAmount',
-        'postpayAmount'    => 'PostpayAmount',
-        'prepayAmount'     => 'PrepayAmount',
-        'requestId'        => 'RequestId',
-        'totalAmount'      => 'TotalAmount',
+        'postpayAmount' => 'PostpayAmount',
+        'prepayAmount' => 'PrepayAmount',
+        'requestId' => 'RequestId',
+        'totalAmount' => 'TotalAmount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backgroundAmount) {
             $res['BackgroundAmount'] = $this->backgroundAmount;
         }
+
         if (null !== $this->postpayAmount) {
             $res['PostpayAmount'] = $this->postpayAmount;
         }
+
         if (null !== $this->prepayAmount) {
             $res['PrepayAmount'] = $this->prepayAmount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalAmount) {
             $res['TotalAmount'] = $this->totalAmount;
         }
@@ -66,26 +71,30 @@ class GetMonthAmountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMonthAmountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackgroundAmount'])) {
             $model->backgroundAmount = $map['BackgroundAmount'];
         }
+
         if (isset($map['PostpayAmount'])) {
             $model->postpayAmount = $map['PostpayAmount'];
         }
+
         if (isset($map['PrepayAmount'])) {
             $model->prepayAmount = $map['PrepayAmount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalAmount'])) {
             $model->totalAmount = $map['TotalAmount'];
         }

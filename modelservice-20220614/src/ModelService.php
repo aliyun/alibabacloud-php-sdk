@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ModelService\V20220614;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ModelService\V20220614\Models\GetMonthAmountRequest;
 use AlibabaCloud\SDK\ModelService\V20220614\Models\GetMonthAmountResponse;
 use AlibabaCloud\SDK\ModelService\V20220614\Models\GetUserRequest;
@@ -14,11 +13,10 @@ use AlibabaCloud\SDK\ModelService\V20220614\Models\ListDayAmountRequest;
 use AlibabaCloud\SDK\ModelService\V20220614\Models\ListDayAmountResponse;
 use AlibabaCloud\SDK\ModelService\V20220614\Models\ListRechargeBillsRequest;
 use AlibabaCloud\SDK\ModelService\V20220614\Models\ListRechargeBillsResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ModelService extends OpenApiClient
 {
@@ -43,57 +41,69 @@ class ModelService extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 获取当月的使用量
-     *  *
-     * @param GetMonthAmountRequest $request GetMonthAmountRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取当月的使用量.
      *
-     * @return GetMonthAmountResponse GetMonthAmountResponse
+     * @param request - GetMonthAmountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMonthAmountResponse
+     *
+     * @param GetMonthAmountRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMonthAmountResponse
      */
     public function getMonthAmountWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
+        if (null !== $request->sceneType) {
+            @$query['SceneType'] = $request->sceneType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMonthAmount',
-            'version'     => '2022-06-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/statistics/month/amount',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMonthAmount',
+            'version' => '2022-06-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/month/amount',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMonthAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取当月的使用量
-     *  *
-     * @param GetMonthAmountRequest $request GetMonthAmountRequest
+     * 获取当月的使用量.
      *
-     * @return GetMonthAmountResponse GetMonthAmountResponse
+     * @param request - GetMonthAmountRequest
+     *
+     * @returns GetMonthAmountResponse
+     *
+     * @param GetMonthAmountRequest $request
+     *
+     * @return GetMonthAmountResponse
      */
     public function getMonthAmount($request)
     {
@@ -104,46 +114,57 @@ class ModelService extends OpenApiClient
     }
 
     /**
-     * @summary 获取user相关的appid, token等信息
-     *  *
-     * @param GetUserRequest $request GetUserRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取user相关的appid, token等信息.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
      */
     public function getUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
+        if (null !== $request->sceneType) {
+            @$query['SceneType'] = $request->sceneType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2022-06-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/user/info',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUser',
+            'version' => '2022-06-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/user/info',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取user相关的appid, token等信息
-     *  *
-     * @param GetUserRequest $request GetUserRequest
+     * 获取user相关的appid, token等信息.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
      */
     public function getUser($request)
     {
@@ -154,52 +175,65 @@ class ModelService extends OpenApiClient
     }
 
     /**
-     * @summary 每天的调用量列表
-     *  *
-     * @param ListDayAmountRequest $request ListDayAmountRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 每天的调用量列表.
      *
-     * @return ListDayAmountResponse ListDayAmountResponse
+     * @param request - ListDayAmountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDayAmountResponse
+     *
+     * @param ListDayAmountRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDayAmountResponse
      */
     public function listDayAmountWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
+
+        if (null !== $request->sceneType) {
+            @$query['SceneType'] = $request->sceneType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDayAmount',
-            'version'     => '2022-06-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/statistics/day/amount',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDayAmount',
+            'version' => '2022-06-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/day/amount',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDayAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 每天的调用量列表
-     *  *
-     * @param ListDayAmountRequest $request ListDayAmountRequest
+     * 每天的调用量列表.
      *
-     * @return ListDayAmountResponse ListDayAmountResponse
+     * @param request - ListDayAmountRequest
+     *
+     * @returns ListDayAmountResponse
+     *
+     * @param ListDayAmountRequest $request
+     *
+     * @return ListDayAmountResponse
      */
     public function listDayAmount($request)
     {
@@ -210,52 +244,65 @@ class ModelService extends OpenApiClient
     }
 
     /**
-     * @summary 用户充值列表
-     *  *
-     * @param ListRechargeBillsRequest $request ListRechargeBillsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 用户充值列表.
      *
-     * @return ListRechargeBillsResponse ListRechargeBillsResponse
+     * @param request - ListRechargeBillsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRechargeBillsResponse
+     *
+     * @param ListRechargeBillsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRechargeBillsResponse
      */
     public function listRechargeBillsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sceneType)) {
-            $query['SceneType'] = $request->sceneType;
+
+        if (null !== $request->sceneType) {
+            @$query['SceneType'] = $request->sceneType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRechargeBills',
-            'version'     => '2022-06-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/statistics/rechargebills',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRechargeBills',
+            'version' => '2022-06-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/rechargebills',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRechargeBillsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 用户充值列表
-     *  *
-     * @param ListRechargeBillsRequest $request ListRechargeBillsRequest
+     * 用户充值列表.
      *
-     * @return ListRechargeBillsResponse ListRechargeBillsResponse
+     * @param request - ListRechargeBillsRequest
+     *
+     * @returns ListRechargeBillsResponse
+     *
+     * @param ListRechargeBillsRequest $request
+     *
+     * @return ListRechargeBillsResponse
      */
     public function listRechargeBills($request)
     {

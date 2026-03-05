@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ModelService\V20220614\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserRequest extends Model
 {
     /**
-     * @example image_label
-     *
      * @var string
      */
     public $sceneType;
@@ -20,9 +18,10 @@ class GetUserRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneType) {
@@ -32,11 +31,11 @@ class GetUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
