@@ -41,6 +41,11 @@ class voiceChatConfig extends Model
     public $chatMode;
 
     /**
+     * @var bool
+     */
+    public $enableVideoUnderstanding;
+
+    /**
      * @var string
      */
     public $greeting;
@@ -64,17 +69,24 @@ class voiceChatConfig extends Model
      * @var TTSConfig
      */
     public $TTSConfig;
+
+    /**
+     * @var int
+     */
+    public $preferVideo;
     protected $_name = [
         'ASRConfig' => 'ASRConfig',
         'agentSilenceConfig' => 'AgentSilenceConfig',
         'ambientSoundConfig' => 'AmbientSoundConfig',
         'backChannelConfig' => 'BackChannelConfig',
         'chatMode' => 'ChatMode',
+        'enableVideoUnderstanding' => 'EnableVideoUnderstanding',
         'greeting' => 'Greeting',
         'interruptConfig' => 'InterruptConfig',
         'interruptMode' => 'InterruptMode',
         'LLMConfig' => 'LLMConfig',
         'TTSConfig' => 'TTSConfig',
+        'preferVideo' => 'preferVideo',
     ];
 
     public function validate()
@@ -126,6 +138,10 @@ class voiceChatConfig extends Model
             $res['ChatMode'] = $this->chatMode;
         }
 
+        if (null !== $this->enableVideoUnderstanding) {
+            $res['EnableVideoUnderstanding'] = $this->enableVideoUnderstanding;
+        }
+
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
@@ -144,6 +160,10 @@ class voiceChatConfig extends Model
 
         if (null !== $this->TTSConfig) {
             $res['TTSConfig'] = null !== $this->TTSConfig ? $this->TTSConfig->toArray($noStream) : $this->TTSConfig;
+        }
+
+        if (null !== $this->preferVideo) {
+            $res['preferVideo'] = $this->preferVideo;
         }
 
         return $res;
@@ -177,6 +197,10 @@ class voiceChatConfig extends Model
             $model->chatMode = $map['ChatMode'];
         }
 
+        if (isset($map['EnableVideoUnderstanding'])) {
+            $model->enableVideoUnderstanding = $map['EnableVideoUnderstanding'];
+        }
+
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
@@ -195,6 +219,10 @@ class voiceChatConfig extends Model
 
         if (isset($map['TTSConfig'])) {
             $model->TTSConfig = TTSConfig::fromMap($map['TTSConfig']);
+        }
+
+        if (isset($map['preferVideo'])) {
+            $model->preferVideo = $map['preferVideo'];
         }
 
         return $model;

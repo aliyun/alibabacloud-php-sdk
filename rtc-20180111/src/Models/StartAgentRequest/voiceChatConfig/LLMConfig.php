@@ -19,6 +19,11 @@ class LLMConfig extends Model
     public $appId;
 
     /**
+     * @var mixed
+     */
+    public $bizParams;
+
+    /**
      * @var int
      */
     public $historyDepth;
@@ -75,6 +80,7 @@ class LLMConfig extends Model
     protected $_name = [
         'apiKey' => 'ApiKey',
         'appId' => 'AppId',
+        'bizParams' => 'BizParams',
         'historyDepth' => 'HistoryDepth',
         'maxToken' => 'MaxToken',
         'model' => 'Model',
@@ -108,6 +114,10 @@ class LLMConfig extends Model
 
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->bizParams) {
+            $res['BizParams'] = $this->bizParams;
         }
 
         if (null !== $this->historyDepth) {
@@ -183,6 +193,10 @@ class LLMConfig extends Model
 
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['BizParams'])) {
+            $model->bizParams = $map['BizParams'];
         }
 
         if (isset($map['HistoryDepth'])) {

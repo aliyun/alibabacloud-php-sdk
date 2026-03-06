@@ -539,6 +539,10 @@ class Rtc extends OpenApiClient
             @$query['ChatMode'] = $request->chatMode;
         }
 
+        if (null !== $request->enableVideoUnderstanding) {
+            @$query['EnableVideoUnderstanding'] = $request->enableVideoUnderstanding;
+        }
+
         if (null !== $request->greeting) {
             @$query['Greeting'] = $request->greeting;
         }
@@ -557,6 +561,10 @@ class Rtc extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->preferVideo) {
+            @$query['PreferVideo'] = $request->preferVideo;
         }
 
         if (null !== $request->ttsConfigShrink) {
@@ -6392,6 +6400,10 @@ class Rtc extends OpenApiClient
             @$query['ChatMode'] = $request->chatMode;
         }
 
+        if (null !== $request->enableVideoUnderstanding) {
+            @$query['EnableVideoUnderstanding'] = $request->enableVideoUnderstanding;
+        }
+
         if (null !== $request->greeting) {
             @$query['Greeting'] = $request->greeting;
         }
@@ -6414,6 +6426,10 @@ class Rtc extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->preferVideo) {
+            @$query['PreferVideo'] = $request->preferVideo;
         }
 
         if (null !== $request->ttsConfigShrink) {

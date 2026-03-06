@@ -39,6 +39,11 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
     public $chatMode;
 
     /**
+     * @var bool
+     */
+    public $enableVideoUnderstanding;
+
+    /**
      * @var string
      */
     public $greeting;
@@ -69,6 +74,11 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $preferVideo;
+
+    /**
      * @var string
      */
     public $ttsConfigShrink;
@@ -84,12 +94,14 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
         'asrConfigShrink' => 'AsrConfig',
         'backChannelConfigShrink' => 'BackChannelConfig',
         'chatMode' => 'ChatMode',
+        'enableVideoUnderstanding' => 'EnableVideoUnderstanding',
         'greeting' => 'Greeting',
         'id' => 'Id',
         'interruptConfigShrink' => 'InterruptConfig',
         'interruptMode' => 'InterruptMode',
         'llmConfigShrink' => 'LlmConfig',
         'name' => 'Name',
+        'preferVideo' => 'PreferVideo',
         'ttsConfigShrink' => 'TtsConfig',
         'type' => 'Type',
     ];
@@ -126,6 +138,10 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
             $res['ChatMode'] = $this->chatMode;
         }
 
+        if (null !== $this->enableVideoUnderstanding) {
+            $res['EnableVideoUnderstanding'] = $this->enableVideoUnderstanding;
+        }
+
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
@@ -148,6 +164,10 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->preferVideo) {
+            $res['PreferVideo'] = $this->preferVideo;
         }
 
         if (null !== $this->ttsConfigShrink) {
@@ -193,6 +213,10 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
             $model->chatMode = $map['ChatMode'];
         }
 
+        if (isset($map['EnableVideoUnderstanding'])) {
+            $model->enableVideoUnderstanding = $map['EnableVideoUnderstanding'];
+        }
+
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
@@ -215,6 +239,10 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PreferVideo'])) {
+            $model->preferVideo = $map['PreferVideo'];
         }
 
         if (isset($map['TtsConfig'])) {

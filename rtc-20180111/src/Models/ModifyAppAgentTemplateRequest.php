@@ -46,6 +46,11 @@ class ModifyAppAgentTemplateRequest extends Model
     public $chatMode;
 
     /**
+     * @var bool
+     */
+    public $enableVideoUnderstanding;
+
+    /**
      * @var string
      */
     public $greeting;
@@ -76,6 +81,11 @@ class ModifyAppAgentTemplateRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $preferVideo;
+
+    /**
      * @var ttsConfig
      */
     public $ttsConfig;
@@ -91,12 +101,14 @@ class ModifyAppAgentTemplateRequest extends Model
         'asrConfig' => 'AsrConfig',
         'backChannelConfig' => 'BackChannelConfig',
         'chatMode' => 'ChatMode',
+        'enableVideoUnderstanding' => 'EnableVideoUnderstanding',
         'greeting' => 'Greeting',
         'id' => 'Id',
         'interruptConfig' => 'InterruptConfig',
         'interruptMode' => 'InterruptMode',
         'llmConfig' => 'LlmConfig',
         'name' => 'Name',
+        'preferVideo' => 'PreferVideo',
         'ttsConfig' => 'TtsConfig',
         'type' => 'Type',
     ];
@@ -154,6 +166,10 @@ class ModifyAppAgentTemplateRequest extends Model
             $res['ChatMode'] = $this->chatMode;
         }
 
+        if (null !== $this->enableVideoUnderstanding) {
+            $res['EnableVideoUnderstanding'] = $this->enableVideoUnderstanding;
+        }
+
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
@@ -176,6 +192,10 @@ class ModifyAppAgentTemplateRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->preferVideo) {
+            $res['PreferVideo'] = $this->preferVideo;
         }
 
         if (null !== $this->ttsConfig) {
@@ -221,6 +241,10 @@ class ModifyAppAgentTemplateRequest extends Model
             $model->chatMode = $map['ChatMode'];
         }
 
+        if (isset($map['EnableVideoUnderstanding'])) {
+            $model->enableVideoUnderstanding = $map['EnableVideoUnderstanding'];
+        }
+
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
@@ -243,6 +267,10 @@ class ModifyAppAgentTemplateRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PreferVideo'])) {
+            $model->preferVideo = $map['PreferVideo'];
         }
 
         if (isset($map['TtsConfig'])) {
