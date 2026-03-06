@@ -113,6 +113,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskDetailRespon
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseAuthConfigsForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseAuthConfigsForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseConfigsForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseConfigsForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseInstanceInfoForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseInstanceInfoForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketRequest;
@@ -3748,6 +3752,164 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMaterialTaskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Supabase Auth配置信息.
+     *
+     * @param request - QuerySupabaseAuthConfigsForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySupabaseAuthConfigsForAdminResponse
+     *
+     * @param QuerySupabaseAuthConfigsForAdminRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QuerySupabaseAuthConfigsForAdminResponse
+     */
+    public function querySupabaseAuthConfigsForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySupabaseAuthConfigsForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySupabaseAuthConfigsForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase Auth配置信息.
+     *
+     * @param request - QuerySupabaseAuthConfigsForAdminRequest
+     *
+     * @returns QuerySupabaseAuthConfigsForAdminResponse
+     *
+     * @param QuerySupabaseAuthConfigsForAdminRequest $request
+     *
+     * @return QuerySupabaseAuthConfigsForAdminResponse
+     */
+    public function querySupabaseAuthConfigsForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySupabaseAuthConfigsForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Supabase配置信息.
+     *
+     * @param request - QuerySupabaseConfigsForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySupabaseConfigsForAdminResponse
+     *
+     * @param QuerySupabaseConfigsForAdminRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QuerySupabaseConfigsForAdminResponse
+     */
+    public function querySupabaseConfigsForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySupabaseConfigsForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySupabaseConfigsForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase配置信息.
+     *
+     * @param request - QuerySupabaseConfigsForAdminRequest
+     *
+     * @returns QuerySupabaseConfigsForAdminResponse
+     *
+     * @param QuerySupabaseConfigsForAdminRequest $request
+     *
+     * @return QuerySupabaseConfigsForAdminResponse
+     */
+    public function querySupabaseConfigsForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySupabaseConfigsForAdminWithOptions($request, $runtime);
     }
 
     /**
