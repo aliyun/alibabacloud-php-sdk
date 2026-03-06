@@ -12,8 +12,14 @@ class GenerateCLICommandResponseBody extends Model
      * @var string
      */
     public $cli;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'cli' => 'cli',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class GenerateCLICommandResponseBody extends Model
         $res = [];
         if (null !== $this->cli) {
             $res['cli'] = $this->cli;
+        }
+
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class GenerateCLICommandResponseBody extends Model
         $model = new self();
         if (isset($map['cli'])) {
             $model->cli = $map['cli'];
+        }
+
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

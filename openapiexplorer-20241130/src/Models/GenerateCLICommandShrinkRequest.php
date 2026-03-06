@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GenerateCLICommandShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $aggregatePagination;
+
+    /**
      * @var string
      */
     public $api;
@@ -38,6 +43,7 @@ class GenerateCLICommandShrinkRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'aggregatePagination' => 'aggregatePagination',
         'api' => 'api',
         'apiParamsShrink' => 'apiParams',
         'apiVersion' => 'apiVersion',
@@ -54,6 +60,10 @@ class GenerateCLICommandShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aggregatePagination) {
+            $res['aggregatePagination'] = $this->aggregatePagination;
+        }
+
         if (null !== $this->api) {
             $res['api'] = $this->api;
         }
@@ -89,6 +99,10 @@ class GenerateCLICommandShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aggregatePagination'])) {
+            $model->aggregatePagination = $map['aggregatePagination'];
+        }
+
         if (isset($map['api'])) {
             $model->api = $map['api'];
         }

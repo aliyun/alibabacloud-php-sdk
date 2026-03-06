@@ -81,7 +81,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 验证 Terraform HCL 语法.
+     * Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
      *
      * @param request - ApiMcpServerValidateHclRequest
      * @param headers - map
@@ -123,7 +123,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 验证 Terraform HCL 语法.
+     * Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
      *
      * @param request - ApiMcpServerValidateHclRequest
      *
@@ -142,7 +142,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 创建ApiMcpServer.
+     * Creates an API MCP service.
      *
      * @param request - CreateApiMcpServerRequest
      * @param headers - map
@@ -248,7 +248,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 创建ApiMcpServer.
+     * Creates an API MCP service.
      *
      * @param request - CreateApiMcpServerRequest
      *
@@ -267,7 +267,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 删除ApiMcpServer.
+     * Deletes an API MCP service.
      *
      * @param request - DeleteApiMcpServerRequest
      * @param headers - map
@@ -313,7 +313,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 删除ApiMcpServer.
+     * Deletes an API MCP service.
      *
      * @param request - DeleteApiMcpServerRequest
      *
@@ -332,7 +332,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 动态生成Aliyun CLI命令.
+     * Generates commands for the Alibaba Cloud command-line interface (CLI).
      *
      * @param tmpReq - GenerateCLICommandRequest
      * @param headers - map
@@ -356,6 +356,10 @@ class OpenAPIExplorer extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->aggregatePagination) {
+            @$body['aggregatePagination'] = $request->aggregatePagination;
+        }
+
         if (null !== $request->api) {
             @$body['api'] = $request->api;
         }
@@ -400,7 +404,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 动态生成Aliyun CLI命令.
+     * Generates commands for the Alibaba Cloud command-line interface (CLI).
      *
      * @param request - GenerateCLICommandRequest
      *
@@ -419,7 +423,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 获取产品相关接口的开放元数据.
+     * Retrieves the OpenAPI metadata for an API in a product.
      *
      * @param request - GetApiDefinitionRequest
      * @param headers - map
@@ -469,7 +473,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 获取产品相关接口的开放元数据.
+     * Retrieves the OpenAPI metadata for an API in a product.
      *
      * @param request - GetApiDefinitionRequest
      *
@@ -488,7 +492,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 查询 ApiMcpServer.
+     * Retrieves the details of a specific API MCP service.
      *
      * @param request - GetApiMcpServerRequest
      * @param headers - map
@@ -530,7 +534,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 查询 ApiMcpServer.
+     * Retrieves the details of a specific API MCP service.
      *
      * @param request - GetApiMcpServerRequest
      *
@@ -549,7 +553,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 查询用户全局API MCP Server配置.
+     * Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -582,7 +586,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 查询用户全局API MCP Server配置.
+     * Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
      *
      * @returns GetApiMcpServerUserConfigResponse
      *
@@ -676,10 +680,10 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
+     * Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
      *
      * @remarks
-     * Permissions on this API cannot be granted to other members.
+     * This API does not support authorization.
      *
      * @param request - GetOwnRequestLogRequest
      * @param headers - map
@@ -721,10 +725,10 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
+     * Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
      *
      * @remarks
-     * Permissions on this API cannot be granted to other members.
+     * This API does not support authorization.
      *
      * @param request - GetOwnRequestLogRequest
      *
@@ -743,7 +747,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 获取产品的接入点信息.
+     * Retrieves the endpoint information for a product.
      *
      * @param request - GetProductEndpointsRequest
      * @param headers - map
@@ -785,7 +789,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 获取产品的接入点信息.
+     * Retrieves the endpoint information for a product.
      *
      * @param request - GetProductEndpointsRequest
      *
@@ -804,10 +808,10 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
+     * Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
      *
      * @remarks
-     * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
+     * You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
      *
      * @param request - GetRequestLogRequest
      * @param headers - map
@@ -849,10 +853,10 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
+     * Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
      *
      * @remarks
-     * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
+     * You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
      *
      * @param request - GetRequestLogRequest
      *
@@ -871,7 +875,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 获取产品的开放元数据.
+     * Retrieves the OpenAPI metadata for a product.
      *
      * @param request - ListApiDefinitionsRequest
      * @param headers - map
@@ -917,7 +921,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 获取产品的开放元数据.
+     * Retrieves the OpenAPI metadata for a product.
      *
      * @param request - ListApiDefinitionsRequest
      *
@@ -936,7 +940,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 查询系统工具列表.
+     * Lists the system tools supported by the MCP service.
      *
      * @param request - ListApiMcpServerSystemToolsRequest
      * @param headers - map
@@ -986,7 +990,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 查询系统工具列表.
+     * Lists the system tools supported by the MCP service.
      *
      * @param request - ListApiMcpServerSystemToolsRequest
      *
@@ -1005,7 +1009,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 列出资源ApiMcpServer.
+     * This operation queries a list of all API MCP servers in an Alibaba Cloud account.
      *
      * @param request - ListApiMcpServersRequest
      * @param headers - map
@@ -1083,7 +1087,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 列出资源ApiMcpServer.
+     * This operation queries a list of all API MCP servers in an Alibaba Cloud account.
      *
      * @param request - ListApiMcpServersRequest
      *
@@ -1102,7 +1106,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 更新UpdateApiMcpServer.
+     * Updates an API MCP service.
      *
      * @param request - UpdateApiMcpServerRequest
      * @param headers - map
@@ -1210,7 +1214,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 更新UpdateApiMcpServer.
+     * Updates an API MCP service.
      *
      * @param request - UpdateApiMcpServerRequest
      *
@@ -1229,7 +1233,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 修改用户全局API MCP Server配置.
+     * Updates the global API MCP Server configuration for a user.
      *
      * @param request - UpdateApiMcpServerUserConfigRequest
      * @param headers - map
@@ -1275,7 +1279,7 @@ class OpenAPIExplorer extends OpenApiClient
     }
 
     /**
-     * 修改用户全局API MCP Server配置.
+     * Updates the global API MCP Server configuration for a user.
      *
      * @param request - UpdateApiMcpServerUserConfigRequest
      *
