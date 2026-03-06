@@ -39,6 +39,11 @@ class QuotaDetails extends Model
     public $desiredMinQuota;
 
     /**
+     * @var QuotaNodeStatistics
+     */
+    public $nodeStatistics;
+
+    /**
      * @var ResourceAmount
      */
     public $requestedQuota;
@@ -69,6 +74,7 @@ class QuotaDetails extends Model
         'ancestorsAllocatedQuota' => 'AncestorsAllocatedQuota',
         'descendantsAllocatedQuota' => 'DescendantsAllocatedQuota',
         'desiredMinQuota' => 'DesiredMinQuota',
+        'nodeStatistics' => 'NodeStatistics',
         'requestedQuota' => 'RequestedQuota',
         'selfAllocatedQuota' => 'SelfAllocatedQuota',
         'selfSubmittedQuota' => 'SelfSubmittedQuota',
@@ -95,6 +101,9 @@ class QuotaDetails extends Model
         }
         if (null !== $this->desiredMinQuota) {
             $this->desiredMinQuota->validate();
+        }
+        if (null !== $this->nodeStatistics) {
+            $this->nodeStatistics->validate();
         }
         if (null !== $this->requestedQuota) {
             $this->requestedQuota->validate();
@@ -139,6 +148,10 @@ class QuotaDetails extends Model
 
         if (null !== $this->desiredMinQuota) {
             $res['DesiredMinQuota'] = null !== $this->desiredMinQuota ? $this->desiredMinQuota->toArray($noStream) : $this->desiredMinQuota;
+        }
+
+        if (null !== $this->nodeStatistics) {
+            $res['NodeStatistics'] = null !== $this->nodeStatistics ? $this->nodeStatistics->toArray($noStream) : $this->nodeStatistics;
         }
 
         if (null !== $this->requestedQuota) {
@@ -194,6 +207,10 @@ class QuotaDetails extends Model
 
         if (isset($map['DesiredMinQuota'])) {
             $model->desiredMinQuota = ResourceAmount::fromMap($map['DesiredMinQuota']);
+        }
+
+        if (isset($map['NodeStatistics'])) {
+            $model->nodeStatistics = QuotaNodeStatistics::fromMap($map['NodeStatistics']);
         }
 
         if (isset($map['RequestedQuota'])) {
