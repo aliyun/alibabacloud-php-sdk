@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigRequest;
@@ -60,6 +62,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsV2ForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsV2ForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsRequest;
@@ -1344,6 +1348,63 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 实例详情查询.
+     *
+     * @param request - GetAppInstanceForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppInstanceForPartnerResponse
+     *
+     * @param GetAppInstanceForPartnerRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAppInstanceForPartnerResponse
+     */
+    public function getAppInstanceForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppInstanceForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppInstanceForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实例详情查询.
+     *
+     * @param request - GetAppInstanceForPartnerRequest
+     *
+     * @returns GetAppInstanceForPartnerResponse
+     *
+     * @param GetAppInstanceForPartnerRequest $request
+     *
+     * @return GetAppInstanceForPartnerResponse
+     */
+    public function getAppInstanceForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppInstanceForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
      * 生码-获取插件配置信息.
      *
      * @param request - GetAppPluginConfigRequest
@@ -1929,6 +1990,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppCommoditySpecificationsForPartnerWithOptions($runtime);
+    }
+
+    /**
+     * 网站信息查询.
+     *
+     * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppCommoditySpecificationsV2ForPartnerResponse
+     *
+     * @param ListAppCommoditySpecificationsV2ForPartnerRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return ListAppCommoditySpecificationsV2ForPartnerResponse
+     */
+    public function listAppCommoditySpecificationsV2ForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppCommoditySpecificationsV2ForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppCommoditySpecificationsV2ForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 网站信息查询.
+     *
+     * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
+     *
+     * @returns ListAppCommoditySpecificationsV2ForPartnerResponse
+     *
+     * @param ListAppCommoditySpecificationsV2ForPartnerRequest $request
+     *
+     * @return ListAppCommoditySpecificationsV2ForPartnerResponse
+     */
+    public function listAppCommoditySpecificationsV2ForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppCommoditySpecificationsV2ForPartnerWithOptions($request, $runtime);
     }
 
     /**
