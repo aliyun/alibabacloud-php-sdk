@@ -27,11 +27,17 @@ class ListModelProxiesRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'proxyMode' => 'proxyMode',
         'status' => 'status',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListModelProxiesRequest extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListModelProxiesRequest extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

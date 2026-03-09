@@ -77,6 +77,11 @@ class CreateModelProxyInput extends Model
      * @var string
      */
     public $serviceRegionId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'armsConfiguration' => 'armsConfiguration',
         'cpu' => 'cpu',
@@ -92,6 +97,7 @@ class CreateModelProxyInput extends Model
         'proxyConfig' => 'proxyConfig',
         'proxyMode' => 'proxyMode',
         'serviceRegionId' => 'serviceRegionId',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -170,6 +176,10 @@ class CreateModelProxyInput extends Model
             $res['serviceRegionId'] = $this->serviceRegionId;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -235,6 +245,10 @@ class CreateModelProxyInput extends Model
 
         if (isset($map['serviceRegionId'])) {
             $model->serviceRegionId = $map['serviceRegionId'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

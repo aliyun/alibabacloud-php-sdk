@@ -107,6 +107,11 @@ class ModelProxy extends Model
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'cpu' => 'cpu',
         'createdAt' => 'createdAt',
@@ -128,6 +133,7 @@ class ModelProxy extends Model
         'serviceRegionId' => 'serviceRegionId',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -227,6 +233,10 @@ class ModelProxy extends Model
             $res['statusReason'] = $this->statusReason;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -316,6 +326,10 @@ class ModelProxy extends Model
 
         if (isset($map['statusReason'])) {
             $model->statusReason = $map['statusReason'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

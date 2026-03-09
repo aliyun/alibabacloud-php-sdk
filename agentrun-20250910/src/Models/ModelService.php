@@ -72,6 +72,11 @@ class ModelService extends Model
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'createdAt' => 'createdAt',
         'credentialName' => 'credentialName',
@@ -86,6 +91,7 @@ class ModelService extends Model
         'providerSettings' => 'providerSettings',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -164,6 +170,10 @@ class ModelService extends Model
             $res['statusReason'] = $this->statusReason;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -232,6 +242,10 @@ class ModelService extends Model
 
         if (isset($map['statusReason'])) {
             $model->statusReason = $map['statusReason'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

@@ -47,6 +47,11 @@ class CreateModelServiceInput extends Model
      * @var ProviderSettings
      */
     public $providerSettings;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'credentialName' => 'credentialName',
         'description' => 'description',
@@ -56,6 +61,7 @@ class CreateModelServiceInput extends Model
         'networkConfiguration' => 'networkConfiguration',
         'provider' => 'provider',
         'providerSettings' => 'providerSettings',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -114,6 +120,10 @@ class CreateModelServiceInput extends Model
             $res['providerSettings'] = null !== $this->providerSettings ? $this->providerSettings->toArray($noStream) : $this->providerSettings;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -162,6 +172,10 @@ class CreateModelServiceInput extends Model
 
         if (isset($map['providerSettings'])) {
             $model->providerSettings = ProviderSettings::fromMap($map['providerSettings']);
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

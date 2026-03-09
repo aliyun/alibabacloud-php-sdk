@@ -42,6 +42,11 @@ class UpdateModelServiceInput extends Model
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'credentialName' => 'credentialName',
         'description' => 'description',
@@ -50,6 +55,7 @@ class UpdateModelServiceInput extends Model
         'providerSettings' => 'providerSettings',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -104,6 +110,10 @@ class UpdateModelServiceInput extends Model
             $res['statusReason'] = $this->statusReason;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -148,6 +158,10 @@ class UpdateModelServiceInput extends Model
 
         if (isset($map['statusReason'])) {
             $model->statusReason = $map['statusReason'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

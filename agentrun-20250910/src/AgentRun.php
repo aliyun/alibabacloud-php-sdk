@@ -3353,6 +3353,10 @@ class AgentRun extends OpenApiClient
             @$query['status'] = $request->status;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -3428,6 +3432,10 @@ class AgentRun extends OpenApiClient
 
         if (null !== $request->providerType) {
             @$query['providerType'] = $request->providerType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([

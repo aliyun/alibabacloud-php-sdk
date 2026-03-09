@@ -42,6 +42,11 @@ class UpdateModelProxyInput extends Model
      * @var ProxyConfig
      */
     public $proxyConfig;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'armsConfiguration' => 'armsConfiguration',
         'credentialName' => 'credentialName',
@@ -50,6 +55,7 @@ class UpdateModelProxyInput extends Model
         'logConfiguration' => 'logConfiguration',
         'networkConfiguration' => 'networkConfiguration',
         'proxyConfig' => 'proxyConfig',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -100,6 +106,10 @@ class UpdateModelProxyInput extends Model
             $res['proxyConfig'] = null !== $this->proxyConfig ? $this->proxyConfig->toArray($noStream) : $this->proxyConfig;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -137,6 +147,10 @@ class UpdateModelProxyInput extends Model
 
         if (isset($map['proxyConfig'])) {
             $model->proxyConfig = ProxyConfig::fromMap($map['proxyConfig']);
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

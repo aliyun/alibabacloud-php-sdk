@@ -32,12 +32,18 @@ class ListModelServicesRequest extends Model
      * @var string
      */
     public $providerType;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'modelType' => 'modelType',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'provider' => 'provider',
         'providerType' => 'providerType',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListModelServicesRequest extends Model
 
         if (null !== $this->providerType) {
             $res['providerType'] = $this->providerType;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListModelServicesRequest extends Model
 
         if (isset($map['providerType'])) {
             $model->providerType = $map['providerType'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;
