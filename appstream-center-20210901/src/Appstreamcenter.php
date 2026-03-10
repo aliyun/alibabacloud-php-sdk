@@ -2178,6 +2178,10 @@ class Appstreamcenter extends OpenApiClient
             @$query['GpuMemory'] = $request->gpuMemory;
         }
 
+        if (null !== $request->instanceTypeForModify) {
+            @$query['InstanceTypeForModify'] = $request->instanceTypeForModify;
+        }
+
         if (null !== $request->language) {
             @$query['Language'] = $request->language;
         }
@@ -2196,6 +2200,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->orderBy) {
             @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
 
         if (null !== $request->osType) {

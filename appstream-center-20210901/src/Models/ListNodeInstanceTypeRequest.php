@@ -31,6 +31,11 @@ class ListNodeInstanceTypeRequest extends Model
     /**
      * @var string
      */
+    public $instanceTypeForModify;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -52,6 +57,11 @@ class ListNodeInstanceTypeRequest extends Model
      * @var string
      */
     public $orderBy;
+
+    /**
+     * @var string
+     */
+    public $orderType;
 
     /**
      * @var string
@@ -82,11 +92,13 @@ class ListNodeInstanceTypeRequest extends Model
         'cpu' => 'Cpu',
         'gpu' => 'Gpu',
         'gpuMemory' => 'GpuMemory',
+        'instanceTypeForModify' => 'InstanceTypeForModify',
         'language' => 'Language',
         'memory' => 'Memory',
         'nodeInstanceType' => 'NodeInstanceType',
         'nodeInstanceTypeFamily' => 'NodeInstanceTypeFamily',
         'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
         'osType' => 'OsType',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -118,6 +130,10 @@ class ListNodeInstanceTypeRequest extends Model
             $res['GpuMemory'] = $this->gpuMemory;
         }
 
+        if (null !== $this->instanceTypeForModify) {
+            $res['InstanceTypeForModify'] = $this->instanceTypeForModify;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -136,6 +152,10 @@ class ListNodeInstanceTypeRequest extends Model
 
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
+        }
+
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
 
         if (null !== $this->osType) {
@@ -185,6 +205,10 @@ class ListNodeInstanceTypeRequest extends Model
             $model->gpuMemory = $map['GpuMemory'];
         }
 
+        if (isset($map['InstanceTypeForModify'])) {
+            $model->instanceTypeForModify = $map['InstanceTypeForModify'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
@@ -203,6 +227,10 @@ class ListNodeInstanceTypeRequest extends Model
 
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
+        }
+
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
 
         if (isset($map['OsType'])) {
