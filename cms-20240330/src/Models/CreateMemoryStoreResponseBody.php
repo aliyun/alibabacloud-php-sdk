@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class IndexJsonKey extends Model
+class CreateMemoryStoreResponseBody extends Model
 {
-    /**
-     * @var bool
-     */
-    public $chn;
-
     /**
      * @var string
      */
-    public $type;
+    public $requestId;
     protected $_name = [
-        'chn' => 'chn',
-        'type' => 'type',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class IndexJsonKey extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->chn) {
-            $res['chn'] = $this->chn;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class IndexJsonKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['chn'])) {
-            $model->chn = $map['chn'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

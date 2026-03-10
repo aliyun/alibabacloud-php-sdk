@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cms\V20240330\Models;
+namespace AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryHistoryResponseBody\results;
 
 use AlibabaCloud\Dara\Model;
 
-class IndexJsonKey extends Model
+class input extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $chn;
+    public $content;
 
     /**
      * @var string
      */
-    public $type;
+    public $role;
     protected $_name = [
-        'chn' => 'chn',
-        'type' => 'type',
+        'content' => 'content',
+        'role' => 'role',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class IndexJsonKey extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->chn) {
-            $res['chn'] = $this->chn;
+        if (null !== $this->content) {
+            $res['content'] = $this->content;
         }
 
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->role) {
+            $res['role'] = $this->role;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class IndexJsonKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['chn'])) {
-            $model->chn = $map['chn'];
+        if (isset($map['content'])) {
+            $model->content = $map['content'];
         }
 
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['role'])) {
+            $model->role = $map['role'];
         }
 
         return $model;

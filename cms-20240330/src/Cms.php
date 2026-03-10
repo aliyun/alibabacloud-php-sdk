@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cms\V20240330;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AddMemoriesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AddMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
@@ -26,6 +28,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusViewRequest;
@@ -54,6 +58,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoriesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoriesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
@@ -90,6 +98,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoriesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoriesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryHistoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingRequest;
@@ -143,6 +156,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyServiceMonitorsRe
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyServiceMonitorsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusInstancesRequest;
@@ -167,6 +182,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UntagResourcesRequest;
@@ -188,6 +205,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateIntegrationPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceRequest;
@@ -245,6 +266,103 @@ class Cms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加记忆.
+     *
+     * @param request - AddMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddMemoriesResponse
+     *
+     * @param string             $workspace
+     * @param string             $memoryStoreName
+     * @param AddMemoriesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddMemoriesResponse
+     */
+    public function addMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->appId) {
+            @$body['appId'] = $request->appId;
+        }
+
+        if (null !== $request->asyncMode) {
+            @$body['asyncMode'] = $request->asyncMode;
+        }
+
+        if (null !== $request->customInstructions) {
+            @$body['customInstructions'] = $request->customInstructions;
+        }
+
+        if (null !== $request->infer) {
+            @$body['infer'] = $request->infer;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddMemories',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加记忆.
+     *
+     * @param request - AddMemoriesRequest
+     *
+     * @returns AddMemoriesResponse
+     *
+     * @param string             $workspace
+     * @param string             $memoryStoreName
+     * @param AddMemoriesRequest $request
+     *
+     * @return AddMemoriesResponse
+     */
+    public function addMemories($workspace, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -1216,6 +1334,85 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createIntegrationPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建记忆库.
+     *
+     * @param request - CreateMemoryStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryStoreResponse
+     *
+     * @param string                   $workspace
+     * @param CreateMemoryStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMemoryStoreResponse
+     */
+    public function createMemoryStoreWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->customExtractionStrategies) {
+            @$body['customExtractionStrategies'] = $request->customExtractionStrategies;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->extractionStrategies) {
+            @$body['extractionStrategies'] = $request->extractionStrategies;
+        }
+
+        if (null !== $request->memoryStoreName) {
+            @$body['memoryStoreName'] = $request->memoryStoreName;
+        }
+
+        if (null !== $request->shortTermTtl) {
+            @$body['shortTermTtl'] = $request->shortTermTtl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemoryStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建记忆库.
+     *
+     * @param request - CreateMemoryStoreRequest
+     *
+     * @returns CreateMemoryStoreResponse
+     *
+     * @param string                   $workspace
+     * @param CreateMemoryStoreRequest $request
+     *
+     * @return CreateMemoryStoreResponse
+     */
+    public function createMemoryStore($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryStoreWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -2348,6 +2545,191 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteIntegrationPolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除记忆.
+     *
+     * @param request - DeleteMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoriesResponse
+     *
+     * @param string                $workspace
+     * @param string                $memoryStoreName
+     * @param DeleteMemoriesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteMemoriesResponse
+     */
+    public function deleteMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->appId) {
+            @$query['appId'] = $request->appId;
+        }
+
+        if (null !== $request->runId) {
+            @$query['runId'] = $request->runId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemories',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除记忆.
+     *
+     * @param request - DeleteMemoriesRequest
+     *
+     * @returns DeleteMemoriesResponse
+     *
+     * @param string                $workspace
+     * @param string                $memoryStoreName
+     * @param DeleteMemoriesRequest $request
+     *
+     * @return DeleteMemoriesResponse
+     */
+    public function deleteMemories($workspace, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除记忆.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string         $workspace
+     * @param string         $memoryStoreName
+     * @param string         $memoryId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemory',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory/' . Url::percentEncode($memoryId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除记忆.
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string $workspace
+     * @param string $memoryStoreName
+     * @param string $memoryId
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemory($workspace, $memoryStoreName, $memoryId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime);
+    }
+
+    /**
+     * 删除记忆库.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryStoreResponse
+     *
+     * @param string         $workspace
+     * @param string         $memoryStoreName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMemoryStoreResponse
+     */
+    public function deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemoryStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除记忆库.
+     *
+     * @returns DeleteMemoryStoreResponse
+     *
+     * @param string $workspace
+     * @param string $memoryStoreName
+     *
+     * @return DeleteMemoryStoreResponse
+     */
+    public function deleteMemoryStore($workspace, $memoryStoreName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime);
     }
 
     /**
@@ -3788,6 +4170,254 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getIntegrationVersionForCSWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询全部记忆.
+     *
+     * @param request - GetMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoriesResponse
+     *
+     * @param string             $workspace
+     * @param string             $memoryStoreName
+     * @param GetMemoriesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetMemoriesResponse
+     */
+    public function getMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->appId) {
+            @$body['appId'] = $request->appId;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMemories',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询全部记忆.
+     *
+     * @param request - GetMemoriesRequest
+     *
+     * @returns GetMemoriesResponse
+     *
+     * @param string             $workspace
+     * @param string             $memoryStoreName
+     * @param GetMemoriesRequest $request
+     *
+     * @return GetMemoriesResponse
+     */
+    public function getMemories($workspace, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询记忆.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string         $workspace
+     * @param string         $memoryStoreName
+     * @param string         $memoryId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemory',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory/' . Url::percentEncode($memoryId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询记忆.
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string $workspace
+     * @param string $memoryStoreName
+     * @param string $memoryId
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemory($workspace, $memoryStoreName, $memoryId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime);
+    }
+
+    /**
+     * 查询记忆历史记录.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryHistoryResponse
+     *
+     * @param string         $workspace
+     * @param string         $memoryStoreName
+     * @param string         $memoryId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMemoryHistoryResponse
+     */
+    public function getMemoryHistoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryHistory',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory/' . Url::percentEncode($memoryId) . '/history',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询记忆历史记录.
+     *
+     * @returns GetMemoryHistoryResponse
+     *
+     * @param string $workspace
+     * @param string $memoryStoreName
+     * @param string $memoryId
+     *
+     * @return GetMemoryHistoryResponse
+     */
+    public function getMemoryHistory($workspace, $memoryStoreName, $memoryId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryHistoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime);
+    }
+
+    /**
+     * 查询记忆库.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryStoreResponse
+     *
+     * @param string         $workspace
+     * @param string         $memoryStoreName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMemoryStoreResponse
+     */
+    public function getMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询记忆库.
+     *
+     * @returns GetMemoryStoreResponse
+     *
+     * @param string $workspace
+     * @param string $memoryStoreName
+     *
+     * @return GetMemoryStoreResponse
+     */
+    public function getMemoryStore($workspace, $memoryStoreName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime);
     }
 
     /**
@@ -5773,6 +6403,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询记忆库列表.
+     *
+     * @param request - ListMemoryStoresRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryStoresResponse
+     *
+     * @param string                  $workspace
+     * @param ListMemoryStoresRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMemoryStoresResponse
+     */
+    public function listMemoryStoresWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memoryStoreName) {
+            @$query['memoryStoreName'] = $request->memoryStoreName;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemoryStores',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询记忆库列表.
+     *
+     * @param request - ListMemoryStoresRequest
+     *
+     * @returns ListMemoryStoresResponse
+     *
+     * @param string                  $workspace
+     * @param ListMemoryStoresRequest $request
+     *
+     * @return ListMemoryStoresResponse
+     */
+    public function listMemoryStores($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryStoresWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * Get Prometheus Instance Dashboard List.
      *
      * @remarks
@@ -6543,6 +7244,99 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->putWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 搜索记忆.
+     *
+     * @param request - SearchMemoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMemoriesResponse
+     *
+     * @param string                $workspace
+     * @param string                $memoryStoreName
+     * @param SearchMemoriesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchMemoriesResponse
+     */
+    public function searchMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->appId) {
+            @$body['appId'] = $request->appId;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->rerank) {
+            @$body['rerank'] = $request->rerank;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->topK) {
+            @$body['topK'] = $request->topK;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchMemories',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 搜索记忆.
+     *
+     * @param request - SearchMemoriesRequest
+     *
+     * @returns SearchMemoriesResponse
+     *
+     * @param string                $workspace
+     * @param string                $memoryStoreName
+     * @param SearchMemoriesRequest $request
+     *
+     * @return SearchMemoriesResponse
+     */
+    public function searchMemories($workspace, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchMemoriesWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -7355,6 +8149,154 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateIntegrationPolicyWithOptions($integrationPolicyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改记忆.
+     *
+     * @param request - UpdateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $workspace
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->text) {
+            @$body['text'] = $request->text;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemory',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '/memory/' . Url::percentEncode($memoryId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改记忆.
+     *
+     * @param request - UpdateMemoryRequest
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $workspace
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemory($workspace, $memoryStoreName, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改记忆库配置.
+     *
+     * @param request - UpdateMemoryStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryStoreResponse
+     *
+     * @param string                   $workspace
+     * @param string                   $memoryStoreName
+     * @param UpdateMemoryStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateMemoryStoreResponse
+     */
+    public function updateMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->customExtractionStrategies) {
+            @$body['customExtractionStrategies'] = $request->customExtractionStrategies;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->extractionStrategies) {
+            @$body['extractionStrategies'] = $request->extractionStrategies;
+        }
+
+        if (null !== $request->shortTermTtl) {
+            @$body['shortTermTtl'] = $request->shortTermTtl;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemoryStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/memorystore/' . Url::percentEncode($memoryStoreName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改记忆库配置.
+     *
+     * @param request - UpdateMemoryStoreRequest
+     *
+     * @returns UpdateMemoryStoreResponse
+     *
+     * @param string                   $workspace
+     * @param string                   $memoryStoreName
+     * @param UpdateMemoryStoreRequest $request
+     *
+     * @return UpdateMemoryStoreResponse
+     */
+    public function updateMemoryStore($workspace, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
