@@ -440,6 +440,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInvocationResultsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInvocationResultsShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCNetworkInterfacesRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCNetworkInterfacesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCNodePoolRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCNodePoolResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCResourcesModificationRequest;
@@ -4441,7 +4443,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 原生复制实例创建复制通道.
+     * Create a replication channel for a native replication instance.
      *
      * @param request - CreateDBInstanceReplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4508,7 +4510,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 原生复制实例创建复制通道.
+     * Create a replication channel for a native replication instance.
      *
      * @param request - CreateDBInstanceReplicationRequest
      *
@@ -8154,7 +8156,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 原生复制实例删除复制通道.
+     * Delete a replication link from a native replication instance.
      *
      * @param request - DeleteDBInstanceReplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8205,7 +8207,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 原生复制实例删除复制通道.
+     * Delete a replication link from a native replication instance.
      *
      * @param request - DeleteDBInstanceReplicationRequest
      *
@@ -21424,6 +21426,63 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRCMetricListWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeRCNetworkInterfaces.
+     *
+     * @param request - DescribeRCNetworkInterfacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRCNetworkInterfacesResponse
+     *
+     * @param DescribeRCNetworkInterfacesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRCNetworkInterfacesResponse
+     */
+    public function describeRCNetworkInterfacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRCNetworkInterfaces',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRCNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeRCNetworkInterfaces.
+     *
+     * @param request - DescribeRCNetworkInterfacesRequest
+     *
+     * @returns DescribeRCNetworkInterfacesResponse
+     *
+     * @param DescribeRCNetworkInterfacesRequest $request
+     *
+     * @return DescribeRCNetworkInterfacesResponse
+     */
+    public function describeRCNetworkInterfaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCNetworkInterfacesWithOptions($request, $runtime);
     }
 
     /**
@@ -39461,7 +39520,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 原生复制实例更新复制通道.
+     * Update replication channel for a native replication instance.
      *
      * @param request - UpdateDBInstanceReplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39532,7 +39591,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 原生复制实例更新复制通道.
+     * Update replication channel for a native replication instance.
      *
      * @param request - UpdateDBInstanceReplicationRequest
      *
