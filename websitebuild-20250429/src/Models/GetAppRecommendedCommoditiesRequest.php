@@ -16,9 +16,15 @@ class GetAppRecommendedCommoditiesRequest extends Model
     /**
      * @var string
      */
+    public $resourceConditions;
+
+    /**
+     * @var string
+     */
     public $scene;
     protected $_name = [
         'bizId' => 'BizId',
+        'resourceConditions' => 'ResourceConditions',
         'scene' => 'Scene',
     ];
 
@@ -32,6 +38,10 @@ class GetAppRecommendedCommoditiesRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->resourceConditions) {
+            $res['ResourceConditions'] = $this->resourceConditions;
         }
 
         if (null !== $this->scene) {
@@ -51,6 +61,10 @@ class GetAppRecommendedCommoditiesRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['ResourceConditions'])) {
+            $model->resourceConditions = $map['ResourceConditions'];
         }
 
         if (isset($map['Scene'])) {

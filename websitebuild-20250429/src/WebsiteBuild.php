@@ -1490,6 +1490,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->resourceConditions) {
+            @$query['ResourceConditions'] = $request->resourceConditions;
+        }
+
         if (null !== $request->scene) {
             @$query['Scene'] = $request->scene;
         }

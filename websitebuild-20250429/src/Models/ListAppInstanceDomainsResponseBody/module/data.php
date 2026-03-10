@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsR
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\data\certificate;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\data\ownership;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\data\qualification;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\data\resolution;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\data\verification;
 
@@ -38,6 +39,11 @@ class data extends Model
     public $ownership;
 
     /**
+     * @var qualification
+     */
+    public $qualification;
+
+    /**
      * @var resolution
      */
     public $resolution;
@@ -52,6 +58,7 @@ class data extends Model
         'domainName' => 'DomainName',
         'overallStatus' => 'OverallStatus',
         'ownership' => 'Ownership',
+        'qualification' => 'Qualification',
         'resolution' => 'Resolution',
         'verification' => 'Verification',
     ];
@@ -63,6 +70,9 @@ class data extends Model
         }
         if (null !== $this->ownership) {
             $this->ownership->validate();
+        }
+        if (null !== $this->qualification) {
+            $this->qualification->validate();
         }
         if (null !== $this->resolution) {
             $this->resolution->validate();
@@ -94,6 +104,10 @@ class data extends Model
 
         if (null !== $this->ownership) {
             $res['Ownership'] = null !== $this->ownership ? $this->ownership->toArray($noStream) : $this->ownership;
+        }
+
+        if (null !== $this->qualification) {
+            $res['Qualification'] = null !== $this->qualification ? $this->qualification->toArray($noStream) : $this->qualification;
         }
 
         if (null !== $this->resolution) {
@@ -133,6 +147,10 @@ class data extends Model
 
         if (isset($map['Ownership'])) {
             $model->ownership = ownership::fromMap($map['Ownership']);
+        }
+
+        if (isset($map['Qualification'])) {
+            $model->qualification = qualification::fromMap($map['Qualification']);
         }
 
         if (isset($map['Resolution'])) {
