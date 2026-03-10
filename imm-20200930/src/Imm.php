@@ -72,6 +72,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileCompressionTaskShrinkRequest
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskShrinkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateHighlightTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateHighlightTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateHighlightTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateImageModerationTaskShrinkRequest;
@@ -2677,6 +2680,135 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFileUncompressionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建高光任务
+     *
+     * @param tmpReq - CreateHighlightTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHighlightTaskResponse
+     *
+     * @param CreateHighlightTaskRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateHighlightTaskResponse
+     */
+    public function createHighlightTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateHighlightTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        }
+
+        if (null !== $tmpReq->edit) {
+            $request->editShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->edit, 'Edit', 'json');
+        }
+
+        if (null !== $tmpReq->highlight) {
+            $request->highlightShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->highlight, 'Highlight', 'json');
+        }
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+
+        if (null !== $tmpReq->output) {
+            $request->outputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+        }
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        $body = [];
+        if (null !== $request->credentialConfigShrink) {
+            @$body['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+
+        if (null !== $request->editShrink) {
+            @$body['Edit'] = $request->editShrink;
+        }
+
+        if (null !== $request->highlightShrink) {
+            @$body['Highlight'] = $request->highlightShrink;
+        }
+
+        if (null !== $request->mode) {
+            @$body['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->notificationShrink) {
+            @$body['Notification'] = $request->notificationShrink;
+        }
+
+        if (null !== $request->outputShrink) {
+            @$body['Output'] = $request->outputShrink;
+        }
+
+        if (null !== $request->sourcesShrink) {
+            @$body['Sources'] = $request->sourcesShrink;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHighlightTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHighlightTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建高光任务
+     *
+     * @param request - CreateHighlightTaskRequest
+     *
+     * @returns CreateHighlightTaskResponse
+     *
+     * @param CreateHighlightTaskRequest $request
+     *
+     * @return CreateHighlightTaskResponse
+     */
+    public function createHighlightTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHighlightTaskWithOptions($request, $runtime);
     }
 
     /**
