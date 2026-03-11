@@ -70,6 +70,7 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableTokenRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetTableTokenResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetUserResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetVpcConfigResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListCatalogsRequest;
@@ -2638,6 +2639,54 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->getUserWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取可信 VPC 配置.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVpcConfigResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVpcConfigResponse
+     */
+    public function getVpcConfigWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetVpcConfig',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/auth/vpc',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVpcConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取可信 VPC 配置.
+     *
+     * @returns GetVpcConfigResponse
+     *
+     * @return GetVpcConfigResponse
+     */
+    public function getVpcConfig()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVpcConfigWithOptions($headers, $runtime);
     }
 
     /**
