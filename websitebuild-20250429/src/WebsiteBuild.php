@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
@@ -653,7 +655,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 万小智开通灵感值服务
+     * Activate the Wanxiaozhi Inspiration Value service.
      *
      * @param request - CreateAppTokenServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -692,7 +694,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 万小智开通灵感值服务
+     * Activate the Wanxiaozhi Inspiration Value service.
      *
      * @param request - CreateAppTokenServiceRequest
      *
@@ -1352,7 +1354,68 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 实例详情查询.
+     * Query application instance information.
+     *
+     * @param request - GetAppInstanceForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppInstanceForAdminResponse
+     *
+     * @param GetAppInstanceForAdminRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAppInstanceForAdminResponse
+     */
+    public function getAppInstanceForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppInstanceForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppInstanceForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query application instance information.
+     *
+     * @param request - GetAppInstanceForAdminRequest
+     *
+     * @returns GetAppInstanceForAdminResponse
+     *
+     * @param GetAppInstanceForAdminRequest $request
+     *
+     * @return GetAppInstanceForAdminResponse
+     */
+    public function getAppInstanceForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppInstanceForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query instance details.
      *
      * @param request - GetAppInstanceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1391,7 +1454,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 实例详情查询.
+     * Query instance details.
      *
      * @param request - GetAppInstanceForPartnerRequest
      *
