@@ -41,6 +41,11 @@ class networkInfo extends Model
     /**
      * @var string
      */
+    public $paidCallbackUrl;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -54,6 +59,7 @@ class networkInfo extends Model
         'ipRatio' => 'IpRatio',
         'isp' => 'Isp',
         'limitedBandwidth' => 'LimitedBandwidth',
+        'paidCallbackUrl' => 'PaidCallbackUrl',
         'payType' => 'PayType',
         'visibleType' => 'VisibleType',
     ];
@@ -88,6 +94,10 @@ class networkInfo extends Model
 
         if (null !== $this->limitedBandwidth) {
             $res['LimitedBandwidth'] = $this->limitedBandwidth;
+        }
+
+        if (null !== $this->paidCallbackUrl) {
+            $res['PaidCallbackUrl'] = $this->paidCallbackUrl;
         }
 
         if (null !== $this->payType) {
@@ -131,6 +141,10 @@ class networkInfo extends Model
 
         if (isset($map['LimitedBandwidth'])) {
             $model->limitedBandwidth = $map['LimitedBandwidth'];
+        }
+
+        if (isset($map['PaidCallbackUrl'])) {
+            $model->paidCallbackUrl = $map['PaidCallbackUrl'];
         }
 
         if (isset($map['PayType'])) {
