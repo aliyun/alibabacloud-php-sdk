@@ -19,6 +19,11 @@ class CreateSandboxInput extends Model
     public $ossMountConfig;
 
     /**
+     * @var PolarFsConfig
+     */
+    public $polarFsConfig;
+
+    /**
      * @var string
      */
     public $sandboxId;
@@ -40,6 +45,7 @@ class CreateSandboxInput extends Model
     protected $_name = [
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
+        'polarFsConfig' => 'polarFsConfig',
         'sandboxId' => 'sandboxId',
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxIdleTimeoutSeconds' => 'sandboxIdleTimeoutSeconds',
@@ -54,6 +60,9 @@ class CreateSandboxInput extends Model
         if (null !== $this->ossMountConfig) {
             $this->ossMountConfig->validate();
         }
+        if (null !== $this->polarFsConfig) {
+            $this->polarFsConfig->validate();
+        }
         parent::validate();
     }
 
@@ -66,6 +75,10 @@ class CreateSandboxInput extends Model
 
         if (null !== $this->ossMountConfig) {
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
+        }
+
+        if (null !== $this->polarFsConfig) {
+            $res['polarFsConfig'] = null !== $this->polarFsConfig ? $this->polarFsConfig->toArray($noStream) : $this->polarFsConfig;
         }
 
         if (null !== $this->sandboxId) {
@@ -101,6 +114,10 @@ class CreateSandboxInput extends Model
 
         if (isset($map['ossMountConfig'])) {
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+
+        if (isset($map['polarFsConfig'])) {
+            $model->polarFsConfig = PolarFsConfig::fromMap($map['polarFsConfig']);
         }
 
         if (isset($map['sandboxId'])) {
