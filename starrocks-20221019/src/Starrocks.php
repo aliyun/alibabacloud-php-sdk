@@ -14,6 +14,10 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateInstanceV1Response;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DeleteGatewayRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DeleteGatewayResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeConfigHistoryRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeConfigHistoryResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstanceConfigsRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstanceConfigsResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeInstancesShrinkRequest;
@@ -43,6 +47,10 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskSizeRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskSizeResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskTypeRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyDiskTypeResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyInstanceConfigPreCheckRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyInstanceConfigPreCheckResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyInstanceConfigRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyInstanceConfigResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberPreCheckRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberPreCheckResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyNodeNumberRequest;
@@ -61,6 +69,8 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestoreInstanceRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\RestoreInstanceResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RollbackConfigModificationRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\RollbackConfigModificationResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\TogglePublicSlbRequest;
@@ -547,6 +557,184 @@ class Starrocks extends OpenApiClient
         $headers = [];
 
         return $this->deleteGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询实例配置历史.
+     *
+     * @param request - DescribeConfigHistoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeConfigHistoryResponse
+     *
+     * @param DescribeConfigHistoryRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeConfigHistoryResponse
+     */
+    public function describeConfigHistoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->effectStatuses) {
+            @$query['EffectStatuses'] = $request->effectStatuses;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->needTotal) {
+            @$query['NeedTotal'] = $request->needTotal;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeConfigHistory',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/describeConfigHistory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例配置历史.
+     *
+     * @param request - DescribeConfigHistoryRequest
+     *
+     * @returns DescribeConfigHistoryResponse
+     *
+     * @param DescribeConfigHistoryRequest $request
+     *
+     * @return DescribeConfigHistoryResponse
+     */
+    public function describeConfigHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeConfigHistoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询实例配置.
+     *
+     * @param request - DescribeInstanceConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceConfigsResponse
+     *
+     * @param DescribeInstanceConfigsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceConfigsResponse
+     */
+    public function describeInstanceConfigsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowModify) {
+            @$query['AllowModify'] = $request->allowModify;
+        }
+
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->configType) {
+            @$query['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->needTotal) {
+            @$query['NeedTotal'] = $request->needTotal;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$query['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceConfigs',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/describeInstanceConfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例配置.
+     *
+     * @param request - DescribeInstanceConfigsRequest
+     *
+     * @returns DescribeInstanceConfigsResponse
+     *
+     * @param DescribeInstanceConfigsRequest $request
+     *
+     * @return DescribeInstanceConfigsResponse
+     */
+    public function describeInstanceConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeInstanceConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1680,6 +1868,180 @@ class Starrocks extends OpenApiClient
     }
 
     /**
+     * 修改实例配置.
+     *
+     * @param request - ModifyInstanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceConfigResponse
+     *
+     * @param ModifyInstanceConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyInstanceConfigResponse
+     */
+    public function modifyInstanceConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addConfigList) {
+            @$query['AddConfigList'] = $request->addConfigList;
+        }
+
+        if (null !== $request->configList) {
+            @$query['ConfigList'] = $request->configList;
+        }
+
+        if (null !== $request->deleteConfigList) {
+            @$query['DeleteConfigList'] = $request->deleteConfigList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
+        }
+
+        $body = [];
+        if (null !== $request->configsToAdd) {
+            @$body['configsToAdd'] = $request->configsToAdd;
+        }
+
+        if (null !== $request->configsToDelete) {
+            @$body['configsToDelete'] = $request->configsToDelete;
+        }
+
+        if (null !== $request->configsToUpdate) {
+            @$body['configsToUpdate'] = $request->configsToUpdate;
+        }
+
+        if (null !== $request->fastMode) {
+            @$body['fastMode'] = $request->fastMode;
+        }
+
+        if (null !== $request->restart) {
+            @$body['restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceConfig',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/modifyInstanceConfig',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例配置.
+     *
+     * @param request - ModifyInstanceConfigRequest
+     *
+     * @returns ModifyInstanceConfigResponse
+     *
+     * @param ModifyInstanceConfigRequest $request
+     *
+     * @return ModifyInstanceConfigResponse
+     */
+    public function modifyInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyInstanceConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 配置变更预检查，返回此次变更需要重启的计算组ID.
+     *
+     * @param request - ModifyInstanceConfigPreCheckRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceConfigPreCheckResponse
+     *
+     * @param ModifyInstanceConfigPreCheckRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyInstanceConfigPreCheckResponse
+     */
+    public function modifyInstanceConfigPreCheckWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->configsToAdd) {
+            @$body['configsToAdd'] = $request->configsToAdd;
+        }
+
+        if (null !== $request->configsToDelete) {
+            @$body['configsToDelete'] = $request->configsToDelete;
+        }
+
+        if (null !== $request->configsToUpdate) {
+            @$body['configsToUpdate'] = $request->configsToUpdate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceConfigPreCheck',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/modifyInstanceConfigPreCheck',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceConfigPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置变更预检查，返回此次变更需要重启的计算组ID.
+     *
+     * @param request - ModifyInstanceConfigPreCheckRequest
+     *
+     * @returns ModifyInstanceConfigPreCheckResponse
+     *
+     * @param ModifyInstanceConfigPreCheckRequest $request
+     *
+     * @return ModifyInstanceConfigPreCheckResponse
+     */
+    public function modifyInstanceConfigPreCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyInstanceConfigPreCheckWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Modifies the number of nodes in a warehouse of an E-MapReduce (EMR) Serverless StarRocks instance.
      *
      * @remarks
@@ -2352,6 +2714,75 @@ class Starrocks extends OpenApiClient
         $headers = [];
 
         return $this->resumeInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 回滚正在进行中的配置修改.
+     *
+     * @param request - RollbackConfigModificationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackConfigModificationResponse
+     *
+     * @param RollbackConfigModificationRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RollbackConfigModificationResponse
+     */
+    public function rollbackConfigModificationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configHistoryId) {
+            @$query['ConfigHistoryId'] = $request->configHistoryId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackConfigModification',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/rollbackConfigModification',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackConfigModificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 回滚正在进行中的配置修改.
+     *
+     * @param request - RollbackConfigModificationRequest
+     *
+     * @returns RollbackConfigModificationResponse
+     *
+     * @param RollbackConfigModificationRequest $request
+     *
+     * @return RollbackConfigModificationResponse
+     */
+    public function rollbackConfigModification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rollbackConfigModificationWithOptions($request, $headers, $runtime);
     }
 
     /**
