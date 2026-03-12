@@ -33,12 +33,18 @@ class FeatureViewConfigValue extends Model
      * @var snapshot
      */
     public $snapshot;
+
+    /**
+     * @var string
+     */
+    public $secondJoinKey;
     protected $_name = [
         'partitions' => 'Partitions',
         'eventTime' => 'EventTime',
         'equal' => 'Equal',
         'useMock' => 'UseMock',
         'snapshot' => 'Snapshot',
+        'secondJoinKey' => 'SecondJoinKey',
     ];
 
     public function validate()
@@ -80,6 +86,10 @@ class FeatureViewConfigValue extends Model
             $res['Snapshot'] = null !== $this->snapshot ? $this->snapshot->toArray($noStream) : $this->snapshot;
         }
 
+        if (null !== $this->secondJoinKey) {
+            $res['SecondJoinKey'] = $this->secondJoinKey;
+        }
+
         return $res;
     }
 
@@ -114,6 +124,10 @@ class FeatureViewConfigValue extends Model
 
         if (isset($map['Snapshot'])) {
             $model->snapshot = snapshot::fromMap($map['Snapshot']);
+        }
+
+        if (isset($map['SecondJoinKey'])) {
+            $model->secondJoinKey = $map['SecondJoinKey'];
         }
 
         return $model;
