@@ -5,24 +5,19 @@
 namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\credentialConfig;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\dataSources;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\ecsSpec;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\envs;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\labels;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\userVpc;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest\credentialConfig;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest\dataSources;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest\ecsSpec;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest\envs;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest\labels;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest\userVpc;
 
-class Runtime extends Model
+class CreateRuntimeRequest extends Model
 {
     /**
      * @var string
      */
     public $accessibility;
-
-    /**
-     * @var string
-     */
-    public $creator;
 
     /**
      * @var credentialConfig
@@ -45,16 +40,6 @@ class Runtime extends Model
     public $envs;
 
     /**
-     * @var string
-     */
-    public $gmtCreateTime;
-
-    /**
-     * @var string
-     */
-    public $gmtModifiedTime;
-
-    /**
      * @var labels[]
      */
     public $labels;
@@ -72,22 +57,7 @@ class Runtime extends Model
     /**
      * @var string
      */
-    public $runtimeId;
-
-    /**
-     * @var string
-     */
-    public $runtimeLog;
-
-    /**
-     * @var string
-     */
     public $runtimeName;
-
-    /**
-     * @var string
-     */
-    public $runtimeStatus;
 
     /**
      * @var string
@@ -102,11 +72,6 @@ class Runtime extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
     public $workDir;
 
     /**
@@ -115,23 +80,16 @@ class Runtime extends Model
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'creator' => 'Creator',
         'credentialConfig' => 'CredentialConfig',
         'dataSources' => 'DataSources',
         'ecsSpec' => 'EcsSpec',
         'envs' => 'Envs',
-        'gmtCreateTime' => 'GmtCreateTime',
-        'gmtModifiedTime' => 'GmtModifiedTime',
         'labels' => 'Labels',
         'resourceId' => 'ResourceId',
         'runTimeout' => 'RunTimeout',
-        'runtimeId' => 'RuntimeId',
-        'runtimeLog' => 'RuntimeLog',
         'runtimeName' => 'RuntimeName',
-        'runtimeStatus' => 'RuntimeStatus',
         'runtimeType' => 'RuntimeType',
         'userVpc' => 'UserVpc',
-        'version' => 'Version',
         'workDir' => 'WorkDir',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -166,10 +124,6 @@ class Runtime extends Model
             $res['Accessibility'] = $this->accessibility;
         }
 
-        if (null !== $this->creator) {
-            $res['Creator'] = $this->creator;
-        }
-
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
@@ -200,14 +154,6 @@ class Runtime extends Model
             }
         }
 
-        if (null !== $this->gmtCreateTime) {
-            $res['GmtCreateTime'] = $this->gmtCreateTime;
-        }
-
-        if (null !== $this->gmtModifiedTime) {
-            $res['GmtModifiedTime'] = $this->gmtModifiedTime;
-        }
-
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
@@ -227,20 +173,8 @@ class Runtime extends Model
             $res['RunTimeout'] = $this->runTimeout;
         }
 
-        if (null !== $this->runtimeId) {
-            $res['RuntimeId'] = $this->runtimeId;
-        }
-
-        if (null !== $this->runtimeLog) {
-            $res['RuntimeLog'] = $this->runtimeLog;
-        }
-
         if (null !== $this->runtimeName) {
             $res['RuntimeName'] = $this->runtimeName;
-        }
-
-        if (null !== $this->runtimeStatus) {
-            $res['RuntimeStatus'] = $this->runtimeStatus;
         }
 
         if (null !== $this->runtimeType) {
@@ -249,10 +183,6 @@ class Runtime extends Model
 
         if (null !== $this->userVpc) {
             $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
-        }
-
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         if (null !== $this->workDir) {
@@ -276,10 +206,6 @@ class Runtime extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
-        }
-
-        if (isset($map['Creator'])) {
-            $model->creator = $map['Creator'];
         }
 
         if (isset($map['CredentialConfig'])) {
@@ -312,14 +238,6 @@ class Runtime extends Model
             }
         }
 
-        if (isset($map['GmtCreateTime'])) {
-            $model->gmtCreateTime = $map['GmtCreateTime'];
-        }
-
-        if (isset($map['GmtModifiedTime'])) {
-            $model->gmtModifiedTime = $map['GmtModifiedTime'];
-        }
-
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
@@ -339,20 +257,8 @@ class Runtime extends Model
             $model->runTimeout = $map['RunTimeout'];
         }
 
-        if (isset($map['RuntimeId'])) {
-            $model->runtimeId = $map['RuntimeId'];
-        }
-
-        if (isset($map['RuntimeLog'])) {
-            $model->runtimeLog = $map['RuntimeLog'];
-        }
-
         if (isset($map['RuntimeName'])) {
             $model->runtimeName = $map['RuntimeName'];
-        }
-
-        if (isset($map['RuntimeStatus'])) {
-            $model->runtimeStatus = $map['RuntimeStatus'];
         }
 
         if (isset($map['RuntimeType'])) {
@@ -361,10 +267,6 @@ class Runtime extends Model
 
         if (isset($map['UserVpc'])) {
             $model->userVpc = userVpc::fromMap($map['UserVpc']);
-        }
-
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         if (isset($map['WorkDir'])) {

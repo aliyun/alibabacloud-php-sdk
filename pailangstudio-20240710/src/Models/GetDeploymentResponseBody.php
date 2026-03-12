@@ -5,11 +5,11 @@
 namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\chatHistoryConfig;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\contentModerationConfig;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\deploymentStages;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetDeploymentResponseBody\chatHistoryConfig;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetDeploymentResponseBody\contentModerationConfig;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetDeploymentResponseBody\deploymentStages;
 
-class Deployment extends Model
+class GetDeploymentResponseBody extends Model
 {
     /**
      * @var string
@@ -89,6 +89,11 @@ class Deployment extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
@@ -131,6 +136,7 @@ class Deployment extends Model
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'operationType' => 'OperationType',
+        'requestId' => 'RequestId',
         'resourceId' => 'ResourceId',
         'resourceSnapshotId' => 'ResourceSnapshotId',
         'resourceType' => 'ResourceType',
@@ -221,6 +227,10 @@ class Deployment extends Model
 
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         if (null !== $this->resourceId) {
@@ -323,6 +333,10 @@ class Deployment extends Model
 
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         if (isset($map['ResourceId'])) {

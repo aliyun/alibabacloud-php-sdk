@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime;
+namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateRuntimeRequest;
 
 use AlibabaCloud\Dara\Model;
 

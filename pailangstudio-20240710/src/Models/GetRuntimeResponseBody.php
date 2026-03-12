@@ -5,14 +5,14 @@
 namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\credentialConfig;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\dataSources;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\ecsSpec;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\envs;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\labels;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Runtime\userVpc;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetRuntimeResponseBody\credentialConfig;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetRuntimeResponseBody\dataSources;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetRuntimeResponseBody\ecsSpec;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetRuntimeResponseBody\envs;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetRuntimeResponseBody\labels;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\GetRuntimeResponseBody\userVpc;
 
-class Runtime extends Model
+class GetRuntimeResponseBody extends Model
 {
     /**
      * @var string
@@ -58,6 +58,11 @@ class Runtime extends Model
      * @var labels[]
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var string
@@ -123,6 +128,7 @@ class Runtime extends Model
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'labels' => 'Labels',
+        'requestId' => 'RequestId',
         'resourceId' => 'ResourceId',
         'runTimeout' => 'RunTimeout',
         'runtimeId' => 'RuntimeId',
@@ -217,6 +223,10 @@ class Runtime extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         if (null !== $this->resourceId) {
@@ -329,6 +339,10 @@ class Runtime extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         if (isset($map['ResourceId'])) {

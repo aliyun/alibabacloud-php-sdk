@@ -22,11 +22,29 @@ class evaluationConfigs extends Model
     /**
      * @var string
      */
+    public $inputs;
+
+    /**
+     * @var string
+     */
     public $inputsOverrideConfig;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'dataColumnMapping' => 'DataColumnMapping',
         'flowSource' => 'FlowSource',
+        'inputs' => 'Inputs',
         'inputsOverrideConfig' => 'InputsOverrideConfig',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -56,8 +74,20 @@ class evaluationConfigs extends Model
             $res['FlowSource'] = null !== $this->flowSource ? $this->flowSource->toArray($noStream) : $this->flowSource;
         }
 
+        if (null !== $this->inputs) {
+            $res['Inputs'] = $this->inputs;
+        }
+
         if (null !== $this->inputsOverrideConfig) {
             $res['InputsOverrideConfig'] = $this->inputsOverrideConfig;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -84,8 +114,20 @@ class evaluationConfigs extends Model
             $model->flowSource = flowSource::fromMap($map['FlowSource']);
         }
 
+        if (isset($map['Inputs'])) {
+            $model->inputs = $map['Inputs'];
+        }
+
         if (isset($map['InputsOverrideConfig'])) {
             $model->inputsOverrideConfig = $map['InputsOverrideConfig'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

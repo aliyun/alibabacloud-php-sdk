@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\FlowTemplate\labels;
 
 class FlowTemplate extends Model
 {
@@ -59,6 +60,11 @@ class FlowTemplate extends Model
     public $flowType;
 
     /**
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
      * @var string
      */
     public $locale;
@@ -103,6 +109,7 @@ class FlowTemplate extends Model
         'flowStoragePath' => 'FlowStoragePath',
         'flowTemplateId' => 'FlowTemplateId',
         'flowType' => 'FlowType',
+        'labels' => 'Labels',
         'locale' => 'Locale',
         'referenceCount' => 'ReferenceCount',
         'templateGroup' => 'TemplateGroup',
@@ -119,6 +126,9 @@ class FlowTemplate extends Model
         }
         if (\is_array($this->displayNameI18N)) {
             Model::validateArray($this->displayNameI18N);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
         }
         parent::validate();
     }
@@ -174,6 +184,17 @@ class FlowTemplate extends Model
 
         if (null !== $this->flowType) {
             $res['FlowType'] = $this->flowType;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->locale) {
@@ -263,6 +284,17 @@ class FlowTemplate extends Model
 
         if (isset($map['FlowType'])) {
             $model->flowType = $map['FlowType'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Locale'])) {

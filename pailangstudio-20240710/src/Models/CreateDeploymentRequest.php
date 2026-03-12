@@ -5,11 +5,10 @@
 namespace AlibabaCloud\SDK\PAILangStudio\V20240710\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\chatHistoryConfig;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\contentModerationConfig;
-use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\Deployment\deploymentStages;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateDeploymentRequest\chatHistoryConfig;
+use AlibabaCloud\SDK\PAILangStudio\V20240710\Models\CreateDeploymentRequest\contentModerationConfig;
 
-class Deployment extends Model
+class CreateDeploymentRequest extends Model
 {
     /**
      * @var string
@@ -34,27 +33,7 @@ class Deployment extends Model
     /**
      * @var string
      */
-    public $creator;
-
-    /**
-     * @var string
-     */
     public $deploymentConfig;
-
-    /**
-     * @var string
-     */
-    public $deploymentId;
-
-    /**
-     * @var deploymentStages[]
-     */
-    public $deploymentStages;
-
-    /**
-     * @var string
-     */
-    public $deploymentStatus;
 
     /**
      * @var string
@@ -65,26 +44,6 @@ class Deployment extends Model
      * @var bool
      */
     public $enableTrace;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $gmtCreateTime;
-
-    /**
-     * @var string
-     */
-    public $gmtModifiedTime;
-
-    /**
-     * @var string
-     */
-    public $operationType;
 
     /**
      * @var string
@@ -120,17 +79,9 @@ class Deployment extends Model
         'autoApproval' => 'AutoApproval',
         'chatHistoryConfig' => 'ChatHistoryConfig',
         'contentModerationConfig' => 'ContentModerationConfig',
-        'creator' => 'Creator',
         'deploymentConfig' => 'DeploymentConfig',
-        'deploymentId' => 'DeploymentId',
-        'deploymentStages' => 'DeploymentStages',
-        'deploymentStatus' => 'DeploymentStatus',
         'description' => 'Description',
         'enableTrace' => 'EnableTrace',
-        'errorMessage' => 'ErrorMessage',
-        'gmtCreateTime' => 'GmtCreateTime',
-        'gmtModifiedTime' => 'GmtModifiedTime',
-        'operationType' => 'OperationType',
         'resourceId' => 'ResourceId',
         'resourceSnapshotId' => 'ResourceSnapshotId',
         'resourceType' => 'ResourceType',
@@ -146,9 +97,6 @@ class Deployment extends Model
         }
         if (null !== $this->contentModerationConfig) {
             $this->contentModerationConfig->validate();
-        }
-        if (\is_array($this->deploymentStages)) {
-            Model::validateArray($this->deploymentStages);
         }
         parent::validate();
     }
@@ -172,31 +120,8 @@ class Deployment extends Model
             $res['ContentModerationConfig'] = null !== $this->contentModerationConfig ? $this->contentModerationConfig->toArray($noStream) : $this->contentModerationConfig;
         }
 
-        if (null !== $this->creator) {
-            $res['Creator'] = $this->creator;
-        }
-
         if (null !== $this->deploymentConfig) {
             $res['DeploymentConfig'] = $this->deploymentConfig;
-        }
-
-        if (null !== $this->deploymentId) {
-            $res['DeploymentId'] = $this->deploymentId;
-        }
-
-        if (null !== $this->deploymentStages) {
-            if (\is_array($this->deploymentStages)) {
-                $res['DeploymentStages'] = [];
-                $n1 = 0;
-                foreach ($this->deploymentStages as $item1) {
-                    $res['DeploymentStages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (null !== $this->deploymentStatus) {
-            $res['DeploymentStatus'] = $this->deploymentStatus;
         }
 
         if (null !== $this->description) {
@@ -205,22 +130,6 @@ class Deployment extends Model
 
         if (null !== $this->enableTrace) {
             $res['EnableTrace'] = $this->enableTrace;
-        }
-
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-
-        if (null !== $this->gmtCreateTime) {
-            $res['GmtCreateTime'] = $this->gmtCreateTime;
-        }
-
-        if (null !== $this->gmtModifiedTime) {
-            $res['GmtModifiedTime'] = $this->gmtModifiedTime;
-        }
-
-        if (null !== $this->operationType) {
-            $res['OperationType'] = $this->operationType;
         }
 
         if (null !== $this->resourceId) {
@@ -274,31 +183,8 @@ class Deployment extends Model
             $model->contentModerationConfig = contentModerationConfig::fromMap($map['ContentModerationConfig']);
         }
 
-        if (isset($map['Creator'])) {
-            $model->creator = $map['Creator'];
-        }
-
         if (isset($map['DeploymentConfig'])) {
             $model->deploymentConfig = $map['DeploymentConfig'];
-        }
-
-        if (isset($map['DeploymentId'])) {
-            $model->deploymentId = $map['DeploymentId'];
-        }
-
-        if (isset($map['DeploymentStages'])) {
-            if (!empty($map['DeploymentStages'])) {
-                $model->deploymentStages = [];
-                $n1 = 0;
-                foreach ($map['DeploymentStages'] as $item1) {
-                    $model->deploymentStages[$n1] = deploymentStages::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['DeploymentStatus'])) {
-            $model->deploymentStatus = $map['DeploymentStatus'];
         }
 
         if (isset($map['Description'])) {
@@ -307,22 +193,6 @@ class Deployment extends Model
 
         if (isset($map['EnableTrace'])) {
             $model->enableTrace = $map['EnableTrace'];
-        }
-
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-
-        if (isset($map['GmtCreateTime'])) {
-            $model->gmtCreateTime = $map['GmtCreateTime'];
-        }
-
-        if (isset($map['GmtModifiedTime'])) {
-            $model->gmtModifiedTime = $map['GmtModifiedTime'];
-        }
-
-        if (isset($map['OperationType'])) {
-            $model->operationType = $map['OperationType'];
         }
 
         if (isset($map['ResourceId'])) {
