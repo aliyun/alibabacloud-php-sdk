@@ -36,6 +36,11 @@ class schedules extends Model
     /**
      * @var string
      */
+    public $reportLanguage;
+
+    /**
+     * @var string
+     */
     public $scheduledId;
 
     /**
@@ -53,6 +58,7 @@ class schedules extends Model
         'frequency' => 'Frequency',
         'instanceCount' => 'InstanceCount',
         'name' => 'Name',
+        'reportLanguage' => 'ReportLanguage',
         'scheduledId' => 'ScheduledId',
         'taskStartTime' => 'TaskStartTime',
         'timeRange' => 'TimeRange',
@@ -84,6 +90,10 @@ class schedules extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->reportLanguage) {
+            $res['ReportLanguage'] = $this->reportLanguage;
         }
 
         if (null !== $this->scheduledId) {
@@ -127,6 +137,10 @@ class schedules extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ReportLanguage'])) {
+            $model->reportLanguage = $map['ReportLanguage'];
         }
 
         if (isset($map['ScheduledId'])) {

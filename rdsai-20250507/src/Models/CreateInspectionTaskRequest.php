@@ -26,11 +26,17 @@ class CreateInspectionTaskRequest extends Model
     /**
      * @var string
      */
+    public $reportLanguage;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'endTime' => 'EndTime',
         'inspectionItems' => 'InspectionItems',
         'instanceIds' => 'InstanceIds',
+        'reportLanguage' => 'ReportLanguage',
         'startTime' => 'StartTime',
     ];
 
@@ -52,6 +58,10 @@ class CreateInspectionTaskRequest extends Model
 
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
+        }
+
+        if (null !== $this->reportLanguage) {
+            $res['ReportLanguage'] = $this->reportLanguage;
         }
 
         if (null !== $this->startTime) {
@@ -79,6 +89,10 @@ class CreateInspectionTaskRequest extends Model
 
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
+        }
+
+        if (isset($map['ReportLanguage'])) {
+            $model->reportLanguage = $map['ReportLanguage'];
         }
 
         if (isset($map['StartTime'])) {

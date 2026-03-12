@@ -31,6 +31,11 @@ class CreateScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $reportLanguage;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -42,6 +47,7 @@ class CreateScheduledTaskRequest extends Model
         'frequency' => 'Frequency',
         'instanceIds' => 'InstanceIds',
         'name' => 'Name',
+        'reportLanguage' => 'ReportLanguage',
         'startTime' => 'StartTime',
         'timeRange' => 'TimeRange',
     ];
@@ -68,6 +74,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->reportLanguage) {
+            $res['ReportLanguage'] = $this->reportLanguage;
         }
 
         if (null !== $this->startTime) {
@@ -103,6 +113,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ReportLanguage'])) {
+            $model->reportLanguage = $map['ReportLanguage'];
         }
 
         if (isset($map['StartTime'])) {

@@ -31,6 +31,11 @@ class ModifyScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $reportLanguage;
+
+    /**
+     * @var string
+     */
     public $scheduledId;
 
     /**
@@ -47,6 +52,7 @@ class ModifyScheduledTaskRequest extends Model
         'frequency' => 'Frequency',
         'instanceIds' => 'InstanceIds',
         'name' => 'Name',
+        'reportLanguage' => 'ReportLanguage',
         'scheduledId' => 'ScheduledId',
         'startTime' => 'StartTime',
         'timeRange' => 'TimeRange',
@@ -74,6 +80,10 @@ class ModifyScheduledTaskRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->reportLanguage) {
+            $res['ReportLanguage'] = $this->reportLanguage;
         }
 
         if (null !== $this->scheduledId) {
@@ -113,6 +123,10 @@ class ModifyScheduledTaskRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ReportLanguage'])) {
+            $model->reportLanguage = $map['ReportLanguage'];
         }
 
         if (isset($map['ScheduledId'])) {
