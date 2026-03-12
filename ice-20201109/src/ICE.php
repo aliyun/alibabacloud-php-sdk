@@ -34,6 +34,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetYikeAIAppJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetYikeAIAppJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetYikeAssetMediaInfosRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetYikeAssetMediaInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaRequest;
@@ -214,6 +218,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingConfigurationRequest
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingConfigurationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingGroupResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteYikeAssetMediaInfosRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteYikeAssetMediaInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsEditUsageRequest;
@@ -1992,6 +1998,120 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchGetMediaInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量获取一刻AI应用生成任务
+     *
+     * @param request - BatchGetYikeAIAppJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetYikeAIAppJobResponse
+     *
+     * @param BatchGetYikeAIAppJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BatchGetYikeAIAppJobResponse
+     */
+    public function batchGetYikeAIAppJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetYikeAIAppJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetYikeAIAppJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量获取一刻AI应用生成任务
+     *
+     * @param request - BatchGetYikeAIAppJobRequest
+     *
+     * @returns BatchGetYikeAIAppJobResponse
+     *
+     * @param BatchGetYikeAIAppJobRequest $request
+     *
+     * @return BatchGetYikeAIAppJobResponse
+     */
+    public function batchGetYikeAIAppJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchGetYikeAIAppJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量获取媒资信息.
+     *
+     * @param request - BatchGetYikeAssetMediaInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetYikeAssetMediaInfosResponse
+     *
+     * @param BatchGetYikeAssetMediaInfosRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BatchGetYikeAssetMediaInfosResponse
+     */
+    public function batchGetYikeAssetMediaInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetYikeAssetMediaInfos',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetYikeAssetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量获取媒资信息.
+     *
+     * @param request - BatchGetYikeAssetMediaInfosRequest
+     *
+     * @returns BatchGetYikeAssetMediaInfosResponse
+     *
+     * @param BatchGetYikeAssetMediaInfosRequest $request
+     *
+     * @return BatchGetYikeAssetMediaInfosResponse
+     */
+    public function batchGetYikeAssetMediaInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchGetYikeAssetMediaInfosWithOptions($request, $runtime);
     }
 
     /**
@@ -7997,6 +8117,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVodPackagingGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除媒资信息.
+     *
+     * @param request - DeleteYikeAssetMediaInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteYikeAssetMediaInfosResponse
+     *
+     * @param DeleteYikeAssetMediaInfosRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteYikeAssetMediaInfosResponse
+     */
+    public function deleteYikeAssetMediaInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->logicDelete) {
+            @$query['LogicDelete'] = $request->logicDelete;
+        }
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteYikeAssetMediaInfos',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteYikeAssetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除媒资信息.
+     *
+     * @param request - DeleteYikeAssetMediaInfosRequest
+     *
+     * @returns DeleteYikeAssetMediaInfosResponse
+     *
+     * @param DeleteYikeAssetMediaInfosRequest $request
+     *
+     * @return DeleteYikeAssetMediaInfosResponse
+     */
+    public function deleteYikeAssetMediaInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteYikeAssetMediaInfosWithOptions($request, $runtime);
     }
 
     /**
