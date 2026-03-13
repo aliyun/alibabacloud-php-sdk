@@ -1,0 +1,272 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Slb\V20130221\Models\DescribeLoadBalancersResponseBody\loadBalancers;
+
+use AlibabaCloud\Dara\Model;
+
+class loadBalancer extends Model
+{
+    /**
+     * @var string
+     */
+    public $address;
+
+    /**
+     * @var string
+     */
+    public $addressType;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $createTimeStamp;
+
+    /**
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerId;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerName;
+
+    /**
+     * @var string
+     */
+    public $loadBalancerStatus;
+
+    /**
+     * @var string
+     */
+    public $masterZoneId;
+
+    /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
+     * @var string
+     */
+    public $payType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionIdAlias;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $slaveZoneId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+    protected $_name = [
+        'address' => 'Address',
+        'addressType' => 'AddressType',
+        'createTime' => 'CreateTime',
+        'createTimeStamp' => 'CreateTimeStamp',
+        'internetChargeType' => 'InternetChargeType',
+        'loadBalancerId' => 'LoadBalancerId',
+        'loadBalancerName' => 'LoadBalancerName',
+        'loadBalancerStatus' => 'LoadBalancerStatus',
+        'masterZoneId' => 'MasterZoneId',
+        'networkType' => 'NetworkType',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'regionIdAlias' => 'RegionIdAlias',
+        'resourceGroupId' => 'ResourceGroupId',
+        'slaveZoneId' => 'SlaveZoneId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
+        }
+
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->createTimeStamp) {
+            $res['CreateTimeStamp'] = $this->createTimeStamp;
+        }
+
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+
+        if (null !== $this->loadBalancerId) {
+            $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+
+        if (null !== $this->loadBalancerName) {
+            $res['LoadBalancerName'] = $this->loadBalancerName;
+        }
+
+        if (null !== $this->loadBalancerStatus) {
+            $res['LoadBalancerStatus'] = $this->loadBalancerStatus;
+        }
+
+        if (null !== $this->masterZoneId) {
+            $res['MasterZoneId'] = $this->masterZoneId;
+        }
+
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->regionIdAlias) {
+            $res['RegionIdAlias'] = $this->regionIdAlias;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->slaveZoneId) {
+            $res['SlaveZoneId'] = $this->slaveZoneId;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
+        }
+
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CreateTimeStamp'])) {
+            $model->createTimeStamp = $map['CreateTimeStamp'];
+        }
+
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+
+        if (isset($map['LoadBalancerId'])) {
+            $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+
+        if (isset($map['LoadBalancerName'])) {
+            $model->loadBalancerName = $map['LoadBalancerName'];
+        }
+
+        if (isset($map['LoadBalancerStatus'])) {
+            $model->loadBalancerStatus = $map['LoadBalancerStatus'];
+        }
+
+        if (isset($map['MasterZoneId'])) {
+            $model->masterZoneId = $map['MasterZoneId'];
+        }
+
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RegionIdAlias'])) {
+            $model->regionIdAlias = $map['RegionIdAlias'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SlaveZoneId'])) {
+            $model->slaveZoneId = $map['SlaveZoneId'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+
+        return $model;
+    }
+}
