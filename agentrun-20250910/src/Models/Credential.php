@@ -29,7 +29,7 @@ class Credential extends Model
     public $credentialName;
 
     /**
-     * @var string[]
+     * @var CredentialPublicConfig
      */
     public $credentialPublicConfig;
 
@@ -78,8 +78,8 @@ class Credential extends Model
 
     public function validate()
     {
-        if (\is_array($this->credentialPublicConfig)) {
-            Model::validateArray($this->credentialPublicConfig);
+        if (null !== $this->credentialPublicConfig) {
+            $this->credentialPublicConfig->validate();
         }
         if (\is_array($this->relatedResources)) {
             Model::validateArray($this->relatedResources);
@@ -107,12 +107,7 @@ class Credential extends Model
         }
 
         if (null !== $this->credentialPublicConfig) {
-            if (\is_array($this->credentialPublicConfig)) {
-                $res['credentialPublicConfig'] = [];
-                foreach ($this->credentialPublicConfig as $key1 => $value1) {
-                    $res['credentialPublicConfig'][$key1] = $value1;
-                }
-            }
+            $res['credentialPublicConfig'] = null !== $this->credentialPublicConfig ? $this->credentialPublicConfig->toArray($noStream) : $this->credentialPublicConfig;
         }
 
         if (null !== $this->credentialSecret) {
@@ -174,12 +169,7 @@ class Credential extends Model
         }
 
         if (isset($map['credentialPublicConfig'])) {
-            if (!empty($map['credentialPublicConfig'])) {
-                $model->credentialPublicConfig = [];
-                foreach ($map['credentialPublicConfig'] as $key1 => $value1) {
-                    $model->credentialPublicConfig[$key1] = $value1;
-                }
-            }
+            $model->credentialPublicConfig = CredentialPublicConfig::fromMap($map['credentialPublicConfig']);
         }
 
         if (isset($map['credentialSecret'])) {

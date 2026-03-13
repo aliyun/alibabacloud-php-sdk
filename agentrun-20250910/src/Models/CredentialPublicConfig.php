@@ -28,6 +28,16 @@ class CredentialPublicConfig extends Model
     /**
      * @var string
      */
+    public $jwks;
+
+    /**
+     * @var string
+     */
+    public $prefix;
+
+    /**
+     * @var string
+     */
     public $provider;
 
     /**
@@ -43,6 +53,8 @@ class CredentialPublicConfig extends Model
         'authConfig' => 'authConfig',
         'authType' => 'authType',
         'headerKey' => 'headerKey',
+        'jwks' => 'jwks',
+        'prefix' => 'prefix',
         'provider' => 'provider',
         'remoteConfig' => 'remoteConfig',
         'users' => 'users',
@@ -80,6 +92,14 @@ class CredentialPublicConfig extends Model
 
         if (null !== $this->headerKey) {
             $res['headerKey'] = $this->headerKey;
+        }
+
+        if (null !== $this->jwks) {
+            $res['jwks'] = $this->jwks;
+        }
+
+        if (null !== $this->prefix) {
+            $res['prefix'] = $this->prefix;
         }
 
         if (null !== $this->provider) {
@@ -127,6 +147,14 @@ class CredentialPublicConfig extends Model
 
         if (isset($map['headerKey'])) {
             $model->headerKey = $map['headerKey'];
+        }
+
+        if (isset($map['jwks'])) {
+            $model->jwks = $map['jwks'];
+        }
+
+        if (isset($map['prefix'])) {
+            $model->prefix = $map['prefix'];
         }
 
         if (isset($map['provider'])) {

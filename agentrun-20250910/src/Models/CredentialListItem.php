@@ -34,6 +34,11 @@ class CredentialListItem extends Model
     public $credentialSourceType;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var bool
      */
     public $enabled;
@@ -53,6 +58,7 @@ class CredentialListItem extends Model
         'credentialId' => 'credentialId',
         'credentialName' => 'credentialName',
         'credentialSourceType' => 'credentialSourceType',
+        'description' => 'description',
         'enabled' => 'enabled',
         'relatedResourceCount' => 'relatedResourceCount',
         'updatedAt' => 'updatedAt',
@@ -84,6 +90,10 @@ class CredentialListItem extends Model
 
         if (null !== $this->credentialSourceType) {
             $res['credentialSourceType'] = $this->credentialSourceType;
+        }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         if (null !== $this->enabled) {
@@ -127,6 +137,10 @@ class CredentialListItem extends Model
 
         if (isset($map['credentialSourceType'])) {
             $model->credentialSourceType = $map['credentialSourceType'];
+        }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         if (isset($map['enabled'])) {
