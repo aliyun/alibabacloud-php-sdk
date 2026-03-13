@@ -4,8 +4,17 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806;
 
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
+use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AddSharedAccountsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AddSharedAccountsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateGroupRequest;
@@ -147,8 +156,13 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttribu
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateTaskAttributeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateTaskAttributeResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UploadModuleAdvanceRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UploadModuleRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UploadModuleResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ValidateModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ValidateModuleResponse;
+use Darabonba\OpenApi\Exceptions\ClientException;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -162,6 +176,102 @@ class IaCService extends OpenApiClient
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('iacservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
+    }
+
+    /**
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
+     *
+     * @return mixed[]
+     */
+    public function _postOSSObject($bucketName, $form, $runtime)
+    {
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
+        ];
+
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
+
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_runtime['stream'] = true;
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
+        }
+
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -191,7 +301,7 @@ class IaCService extends OpenApiClient
     /**
      * 新增共享账号信息.
      *
-     * @param request - AddSharedAccountsRequest
+     * @param Request - AddSharedAccountsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -241,7 +351,7 @@ class IaCService extends OpenApiClient
     /**
      * 新增共享账号信息.
      *
-     * @param request - AddSharedAccountsRequest
+     * @param Request - AddSharedAccountsRequest
      *
      * @returns AddSharedAccountsResponse
      *
@@ -260,7 +370,7 @@ class IaCService extends OpenApiClient
     /**
      * 分组关联.
      *
-     * @param request - AssociateGroupRequest
+     * @param Request - AssociateGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -315,7 +425,7 @@ class IaCService extends OpenApiClient
     /**
      * 分组关联.
      *
-     * @param request - AssociateGroupRequest
+     * @param Request - AssociateGroupRequest
      *
      * @returns AssociateGroupResponse
      *
@@ -335,7 +445,7 @@ class IaCService extends OpenApiClient
     /**
      * 将参数集关联资源.
      *
-     * @param request - AssociateParameterSetRequest
+     * @param Request - AssociateParameterSetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -385,7 +495,7 @@ class IaCService extends OpenApiClient
     /**
      * 将参数集关联资源.
      *
-     * @param request - AssociateParameterSetRequest
+     * @param Request - AssociateParameterSetRequest
      *
      * @returns AssociateParameterSetResponse
      *
@@ -404,7 +514,7 @@ class IaCService extends OpenApiClient
     /**
      * 取消资源导出任务
      *
-     * @param request - CancelResourceExportTaskRequest
+     * @param Request - CancelResourceExportTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -447,7 +557,7 @@ class IaCService extends OpenApiClient
     /**
      * 取消资源导出任务
      *
-     * @param request - CancelResourceExportTaskRequest
+     * @param Request - CancelResourceExportTaskRequest
      *
      * @returns CancelResourceExportTaskResponse
      *
@@ -467,7 +577,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建分组.
      *
-     * @param request - CreateGroupRequest
+     * @param Request - CreateGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -565,7 +675,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建分组.
      *
-     * @param request - CreateGroupRequest
+     * @param Request - CreateGroupRequest
      *
      * @returns CreateGroupResponse
      *
@@ -584,7 +694,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建作业.
      *
-     * @param request - CreateJobRequest
+     * @param Request - CreateJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -639,7 +749,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建作业.
      *
-     * @param request - CreateJobRequest
+     * @param Request - CreateJobRequest
      *
      * @returns CreateJobResponse
      *
@@ -659,7 +769,7 @@ class IaCService extends OpenApiClient
     /**
      * Create Module.
      *
-     * @param request - CreateModuleRequest
+     * @param Request - CreateModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -733,7 +843,7 @@ class IaCService extends OpenApiClient
     /**
      * Create Module.
      *
-     * @param request - CreateModuleRequest
+     * @param Request - CreateModuleRequest
      *
      * @returns CreateModuleResponse
      *
@@ -752,7 +862,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建模板版本.
      *
-     * @param request - CreateModuleVersionRequest
+     * @param Request - CreateModuleVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -803,7 +913,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建模板版本.
      *
-     * @param request - CreateModuleVersionRequest
+     * @param Request - CreateModuleVersionRequest
      *
      * @returns CreateModuleVersionResponse
      *
@@ -823,7 +933,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建参数集.
      *
-     * @param request - CreateParameterSetRequest
+     * @param Request - CreateParameterSetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -877,7 +987,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建参数集.
      *
-     * @param request - CreateParameterSetRequest
+     * @param Request - CreateParameterSetRequest
      *
      * @returns CreateParameterSetResponse
      *
@@ -896,7 +1006,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建项目.
      *
-     * @param request - CreateProjectRequest
+     * @param Request - CreateProjectRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -946,7 +1056,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建项目.
      *
-     * @param request - CreateProjectRequest
+     * @param Request - CreateProjectRequest
      *
      * @returns CreateProjectResponse
      *
@@ -965,7 +1075,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建RegistryModule.
      *
-     * @param request - CreateRegistryModuleRequest
+     * @param Request - CreateRegistryModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1031,7 +1141,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建RegistryModule.
      *
-     * @param request - CreateRegistryModuleRequest
+     * @param Request - CreateRegistryModuleRequest
      *
      * @returns CreateRegistryModuleResponse
      *
@@ -1050,7 +1160,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建工作空间.
      *
-     * @param request - CreateRegistryNamespaceRequest
+     * @param Request - CreateRegistryNamespaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1108,7 +1218,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建工作空间.
      *
-     * @param request - CreateRegistryNamespaceRequest
+     * @param Request - CreateRegistryNamespaceRequest
      *
      * @returns CreateRegistryNamespaceResponse
      *
@@ -1127,7 +1237,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建导出任务
      *
-     * @param request - CreateResourceExportTaskRequest
+     * @param Request - CreateResourceExportTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1205,7 +1315,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建导出任务
      *
-     * @param request - CreateResourceExportTaskRequest
+     * @param Request - CreateResourceExportTaskRequest
      *
      * @returns CreateResourceExportTaskResponse
      *
@@ -1224,7 +1334,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建任务
      *
-     * @param request - CreateTaskRequest
+     * @param Request - CreateTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1326,7 +1436,7 @@ class IaCService extends OpenApiClient
     /**
      * 创建任务
      *
-     * @param request - CreateTaskRequest
+     * @param Request - CreateTaskRequest
      *
      * @returns CreateTaskResponse
      *
@@ -1810,7 +1920,7 @@ class IaCService extends OpenApiClient
     /**
      * 取消关联分组.
      *
-     * @param request - DissociateGroupRequest
+     * @param Request - DissociateGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1862,7 +1972,7 @@ class IaCService extends OpenApiClient
     /**
      * 取消关联分组.
      *
-     * @param request - DissociateGroupRequest
+     * @param Request - DissociateGroupRequest
      *
      * @returns DissociateGroupResponse
      *
@@ -1883,7 +1993,7 @@ class IaCService extends OpenApiClient
     /**
      * 解除参数集关联资源关系.
      *
-     * @param request - DissociateParameterSetRequest
+     * @param Request - DissociateParameterSetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1933,7 +2043,7 @@ class IaCService extends OpenApiClient
     /**
      * 解除参数集关联资源关系.
      *
-     * @param request - DissociateParameterSetRequest
+     * @param Request - DissociateParameterSetRequest
      *
      * @returns DissociateParameterSetResponse
      *
@@ -1952,7 +2062,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行RegistryModule.
      *
-     * @param request - ExecuteRegistryModuleRequest
+     * @param Request - ExecuteRegistryModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2000,7 +2110,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行RegistryModule.
      *
-     * @param request - ExecuteRegistryModuleRequest
+     * @param Request - ExecuteRegistryModuleRequest
      *
      * @returns ExecuteRegistryModuleResponse
      *
@@ -2021,7 +2131,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行资源导出任务
      *
-     * @param request - ExecuteResourceExportTaskRequest
+     * @param Request - ExecuteResourceExportTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2064,7 +2174,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行资源导出任务
      *
-     * @param request - ExecuteResourceExportTaskRequest
+     * @param Request - ExecuteResourceExportTaskRequest
      *
      * @returns ExecuteResourceExportTaskResponse
      *
@@ -2084,7 +2194,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行TerraformApply.
      *
-     * @param request - ExecuteTerraformApplyRequest
+     * @param Request - ExecuteTerraformApplyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2134,7 +2244,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行TerraformApply.
      *
-     * @param request - ExecuteTerraformApplyRequest
+     * @param Request - ExecuteTerraformApplyRequest
      *
      * @returns ExecuteTerraformApplyResponse
      *
@@ -2153,7 +2263,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行TerraformDestroy.
      *
-     * @param request - ExecuteTerraformDestroyRequest
+     * @param Request - ExecuteTerraformDestroyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2199,7 +2309,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行TerraformDestroy.
      *
-     * @param request - ExecuteTerraformDestroyRequest
+     * @param Request - ExecuteTerraformDestroyRequest
      *
      * @returns ExecuteTerraformDestroyResponse
      *
@@ -2218,7 +2328,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行TerraformPlan.
      *
-     * @param request - ExecuteTerraformPlanRequest
+     * @param Request - ExecuteTerraformPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2268,7 +2378,7 @@ class IaCService extends OpenApiClient
     /**
      * 执行TerraformPlan.
      *
-     * @param request - ExecuteTerraformPlanRequest
+     * @param Request - ExecuteTerraformPlanRequest
      *
      * @returns ExecuteTerraformPlanResponse
      *
@@ -2287,7 +2397,7 @@ class IaCService extends OpenApiClient
     /**
      * 生成模板
      *
-     * @param request - GenerateModuleRequest
+     * @param Request - GenerateModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2353,7 +2463,7 @@ class IaCService extends OpenApiClient
     /**
      * 生成模板
      *
-     * @param request - GenerateModuleRequest
+     * @param Request - GenerateModuleRequest
      *
      * @returns GenerateModuleResponse
      *
@@ -2474,7 +2584,7 @@ class IaCService extends OpenApiClient
     /**
      * 作业详情.
      *
-     * @param request - GetJobRequest
+     * @param Request - GetJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2518,7 +2628,7 @@ class IaCService extends OpenApiClient
     /**
      * 作业详情.
      *
-     * @param request - GetJobRequest
+     * @param Request - GetJobRequest
      *
      * @returns GetJobResponse
      *
@@ -2904,7 +3014,7 @@ class IaCService extends OpenApiClient
     /**
      * 查询导出任务详情.
      *
-     * @param request - GetResourceExportTaskRequest
+     * @param Request - GetResourceExportTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2947,7 +3057,7 @@ class IaCService extends OpenApiClient
     /**
      * 查询导出任务详情.
      *
-     * @param request - GetResourceExportTaskRequest
+     * @param Request - GetResourceExportTaskRequest
      *
      * @returns GetResourceExportTaskResponse
      *
@@ -2967,7 +3077,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取资源类型信息.
      *
-     * @param request - GetResourceTypeRequest
+     * @param Request - GetResourceTypeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3018,7 +3128,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取资源类型信息.
      *
-     * @param request - GetResourceTypeRequest
+     * @param Request - GetResourceTypeRequest
      *
      * @returns GetResourceTypeResponse
      *
@@ -3089,7 +3199,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取Explorer的egistryModule版本示例列表.
      *
-     * @param request - ListExplorerRegistryModuleExamplesRequest
+     * @param Request - ListExplorerRegistryModuleExamplesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3155,7 +3265,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取Explorer的egistryModule版本示例列表.
      *
-     * @param request - ListExplorerRegistryModuleExamplesRequest
+     * @param Request - ListExplorerRegistryModuleExamplesRequest
      *
      * @returns ListExplorerRegistryModuleExamplesResponse
      *
@@ -3174,7 +3284,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取Explorer的egistryModule版本列表.
      *
-     * @param request - ListExplorerRegistryModuleVersionsRequest
+     * @param Request - ListExplorerRegistryModuleVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3236,7 +3346,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取Explorer的egistryModule版本列表.
      *
-     * @param request - ListExplorerRegistryModuleVersionsRequest
+     * @param Request - ListExplorerRegistryModuleVersionsRequest
      *
      * @returns ListExplorerRegistryModuleVersionsResponse
      *
@@ -3255,7 +3365,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取Explorer的Registry Module列表.
      *
-     * @param request - ListExplorerRegistryModulesRequest
+     * @param Request - ListExplorerRegistryModulesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3313,7 +3423,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取Explorer的Registry Module列表.
      *
-     * @param request - ListExplorerRegistryModulesRequest
+     * @param Request - ListExplorerRegistryModulesRequest
      *
      * @returns ListExplorerRegistryModulesResponse
      *
@@ -3396,7 +3506,7 @@ class IaCService extends OpenApiClient
     /**
      * 查询分组列表.
      *
-     * @param request - ListGroupRequest
+     * @param Request - ListGroupRequest
      *
      * @returns ListGroupResponse
      *
@@ -3415,7 +3525,7 @@ class IaCService extends OpenApiClient
     /**
      * 作业列表.
      *
-     * @param request - ListJobsRequest
+     * @param Request - ListJobsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3474,7 +3584,7 @@ class IaCService extends OpenApiClient
     /**
      * 作业列表.
      *
-     * @param request - ListJobsRequest
+     * @param Request - ListJobsRequest
      *
      * @returns ListJobsResponse
      *
@@ -3494,7 +3604,7 @@ class IaCService extends OpenApiClient
     /**
      * 模板版本列表.
      *
-     * @param request - ListModuleVersionRequest
+     * @param Request - ListModuleVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3545,7 +3655,7 @@ class IaCService extends OpenApiClient
     /**
      * 模板版本列表.
      *
-     * @param request - ListModuleVersionRequest
+     * @param Request - ListModuleVersionRequest
      *
      * @returns ListModuleVersionResponse
      *
@@ -3637,7 +3747,7 @@ class IaCService extends OpenApiClient
     /**
      * 列举模板
      *
-     * @param request - ListModulesRequest
+     * @param Request - ListModulesRequest
      *
      * @returns ListModulesResponse
      *
@@ -3656,7 +3766,7 @@ class IaCService extends OpenApiClient
     /**
      * 关联到资源的参数集列表.
      *
-     * @param request - ListParameterSetRelationRequest
+     * @param Request - ListParameterSetRelationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3702,7 +3812,7 @@ class IaCService extends OpenApiClient
     /**
      * 关联到资源的参数集列表.
      *
-     * @param request - ListParameterSetRelationRequest
+     * @param Request - ListParameterSetRelationRequest
      *
      * @returns ListParameterSetRelationResponse
      *
@@ -3721,7 +3831,7 @@ class IaCService extends OpenApiClient
     /**
      * 参数集列表.
      *
-     * @param request - ListParameterSetsRequest
+     * @param Request - ListParameterSetsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3771,7 +3881,7 @@ class IaCService extends OpenApiClient
     /**
      * 参数集列表.
      *
-     * @param request - ListParameterSetsRequest
+     * @param Request - ListParameterSetsRequest
      *
      * @returns ListParameterSetsResponse
      *
@@ -3790,7 +3900,7 @@ class IaCService extends OpenApiClient
     /**
      * 所有产品列表.
      *
-     * @param request - ListProductsRequest
+     * @param Request - ListProductsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3856,7 +3966,7 @@ class IaCService extends OpenApiClient
     /**
      * 所有产品列表.
      *
-     * @param request - ListProductsRequest
+     * @param Request - ListProductsRequest
      *
      * @returns ListProductsResponse
      *
@@ -3935,7 +4045,7 @@ class IaCService extends OpenApiClient
     /**
      * 查询项目列表.
      *
-     * @param request - ListProjectRequest
+     * @param Request - ListProjectRequest
      *
      * @returns ListProjectResponse
      *
@@ -3954,7 +4064,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取RegistryModule版本列表.
      *
-     * @param request - ListRegistryModuleVersionsRequest
+     * @param Request - ListRegistryModuleVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4008,7 +4118,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取RegistryModule版本列表.
      *
-     * @param request - ListRegistryModuleVersionsRequest
+     * @param Request - ListRegistryModuleVersionsRequest
      *
      * @returns ListRegistryModuleVersionsResponse
      *
@@ -4027,7 +4137,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取RegistryModule列表.
      *
-     * @param request - ListRegistryModulesRequest
+     * @param Request - ListRegistryModulesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4089,7 +4199,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取RegistryModule列表.
      *
-     * @param request - ListRegistryModulesRequest
+     * @param Request - ListRegistryModulesRequest
      *
      * @returns ListRegistryModulesResponse
      *
@@ -4108,7 +4218,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取工作空间列表.
      *
-     * @param request - ListRegistryNamespacesRequest
+     * @param Request - ListRegistryNamespacesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4162,7 +4272,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取工作空间列表.
      *
-     * @param request - ListRegistryNamespacesRequest
+     * @param Request - ListRegistryNamespacesRequest
      *
      * @returns ListRegistryNamespacesResponse
      *
@@ -4181,7 +4291,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取任务版本列表.
      *
-     * @param request - ListResourceExportTaskVersionsRequest
+     * @param Request - ListResourceExportTaskVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4240,7 +4350,7 @@ class IaCService extends OpenApiClient
     /**
      * 获取任务版本列表.
      *
-     * @param request - ListResourceExportTaskVersionsRequest
+     * @param Request - ListResourceExportTaskVersionsRequest
      *
      * @returns ListResourceExportTaskVersionsResponse
      *
@@ -4260,7 +4370,7 @@ class IaCService extends OpenApiClient
     /**
      * 查询导出任务列表.
      *
-     * @param request - ListResourceExportTasksRequest
+     * @param Request - ListResourceExportTasksRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4314,7 +4424,7 @@ class IaCService extends OpenApiClient
     /**
      * 查询导出任务列表.
      *
-     * @param request - ListResourceExportTasksRequest
+     * @param Request - ListResourceExportTasksRequest
      *
      * @returns ListResourceExportTasksResponse
      *
@@ -4421,7 +4531,7 @@ class IaCService extends OpenApiClient
     /**
      * 资源类型列表.
      *
-     * @param request - ListResourceTypesRequest
+     * @param Request - ListResourceTypesRequest
      *
      * @returns ListResourceTypesResponse
      *
@@ -4440,7 +4550,7 @@ class IaCService extends OpenApiClient
     /**
      * 资源列表.
      *
-     * @param request - ListResourcesRequest
+     * @param Request - ListResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4498,7 +4608,7 @@ class IaCService extends OpenApiClient
     /**
      * 资源列表.
      *
-     * @param request - ListResourcesRequest
+     * @param Request - ListResourcesRequest
      *
      * @returns ListResourcesResponse
      *
@@ -4597,7 +4707,7 @@ class IaCService extends OpenApiClient
     /**
      * 任务列表.
      *
-     * @param request - ListTasksRequest
+     * @param Request - ListTasksRequest
      *
      * @returns ListTasksResponse
      *
@@ -4616,7 +4726,7 @@ class IaCService extends OpenApiClient
     /**
      * terraformProvider版本.
      *
-     * @param request - ListTerraformProviderVersionsRequest
+     * @param Request - ListTerraformProviderVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4670,7 +4780,7 @@ class IaCService extends OpenApiClient
     /**
      * terraformProvider版本.
      *
-     * @param request - ListTerraformProviderVersionsRequest
+     * @param Request - ListTerraformProviderVersionsRequest
      *
      * @returns ListTerraformProviderVersionsResponse
      *
@@ -4689,7 +4799,7 @@ class IaCService extends OpenApiClient
     /**
      * 支持状态文件的资源导入和移除.
      *
-     * @param request - ManageTerraformStateRequest
+     * @param Request - ManageTerraformStateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4751,7 +4861,7 @@ class IaCService extends OpenApiClient
     /**
      * 支持状态文件的资源导入和移除.
      *
-     * @param request - ManageTerraformStateRequest
+     * @param Request - ManageTerraformStateRequest
      *
      * @returns ManageTerraformStateResponse
      *
@@ -4770,7 +4880,7 @@ class IaCService extends OpenApiClient
     /**
      * 控制作业.
      *
-     * @param request - OperateJobRequest
+     * @param Request - OperateJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4819,7 +4929,7 @@ class IaCService extends OpenApiClient
     /**
      * 控制作业.
      *
-     * @param request - OperateJobRequest
+     * @param Request - OperateJobRequest
      *
      * @returns OperateJobResponse
      *
@@ -4841,7 +4951,7 @@ class IaCService extends OpenApiClient
     /**
      * 发布RegistryModule版本.
      *
-     * @param request - PublishRegistryModuleVersionRequest
+     * @param Request - PublishRegistryModuleVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4895,7 +5005,7 @@ class IaCService extends OpenApiClient
     /**
      * 发布RegistryModule版本.
      *
-     * @param request - PublishRegistryModuleVersionRequest
+     * @param Request - PublishRegistryModuleVersionRequest
      *
      * @returns PublishRegistryModuleVersionResponse
      *
@@ -4970,7 +5080,7 @@ class IaCService extends OpenApiClient
     /**
      * 删除共享账号信息.
      *
-     * @param request - RemoveSharedAccountsRequest
+     * @param Request - RemoveSharedAccountsRequest
      *
      * @returns RemoveSharedAccountsResponse
      *
@@ -4989,7 +5099,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改ExplorerModule.
      *
-     * @param request - UpdateExplorerModuleAttributeRequest
+     * @param Request - UpdateExplorerModuleAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5040,7 +5150,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改ExplorerModule.
      *
-     * @param request - UpdateExplorerModuleAttributeRequest
+     * @param Request - UpdateExplorerModuleAttributeRequest
      *
      * @returns UpdateExplorerModuleAttributeResponse
      *
@@ -5060,7 +5170,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改分组.
      *
-     * @param request - UpdateGroupRequest
+     * @param Request - UpdateGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5155,7 +5265,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改分组.
      *
-     * @param request - UpdateGroupRequest
+     * @param Request - UpdateGroupRequest
      *
      * @returns UpdateGroupResponse
      *
@@ -5175,7 +5285,7 @@ class IaCService extends OpenApiClient
     /**
      * Update Module.
      *
-     * @param request - UpdateModuleAttributeRequest
+     * @param Request - UpdateModuleAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5246,7 +5356,7 @@ class IaCService extends OpenApiClient
     /**
      * Update Module.
      *
-     * @param request - UpdateModuleAttributeRequest
+     * @param Request - UpdateModuleAttributeRequest
      *
      * @returns UpdateModuleAttributeResponse
      *
@@ -5266,7 +5376,7 @@ class IaCService extends OpenApiClient
     /**
      * 更新参数集.
      *
-     * @param request - UpdateParameterSetAttributeRequest
+     * @param Request - UpdateParameterSetAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5317,7 +5427,7 @@ class IaCService extends OpenApiClient
     /**
      * 更新参数集.
      *
-     * @param request - UpdateParameterSetAttributeRequest
+     * @param Request - UpdateParameterSetAttributeRequest
      *
      * @returns UpdateParameterSetAttributeResponse
      *
@@ -5337,7 +5447,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改项目.
      *
-     * @param request - UpdateProjectRequest
+     * @param Request - UpdateProjectRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5388,7 +5498,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改项目.
      *
-     * @param request - UpdateProjectRequest
+     * @param Request - UpdateProjectRequest
      *
      * @returns UpdateProjectResponse
      *
@@ -5408,7 +5518,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改RegistryModule.
      *
-     * @param request - UpdateRegistryModuleAttributeRequest
+     * @param Request - UpdateRegistryModuleAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5460,7 +5570,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改RegistryModule.
      *
-     * @param request - UpdateRegistryModuleAttributeRequest
+     * @param Request - UpdateRegistryModuleAttributeRequest
      *
      * @returns UpdateRegistryModuleAttributeResponse
      *
@@ -5481,7 +5591,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改工作空间.
      *
-     * @param request - UpdateRegistryNamespaceAttributeRequest
+     * @param Request - UpdateRegistryNamespaceAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5532,7 +5642,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改工作空间.
      *
-     * @param request - UpdateRegistryNamespaceAttributeRequest
+     * @param Request - UpdateRegistryNamespaceAttributeRequest
      *
      * @returns UpdateRegistryNamespaceAttributeResponse
      *
@@ -5552,7 +5662,7 @@ class IaCService extends OpenApiClient
     /**
      * 更新导出任务
      *
-     * @param request - UpdateResourceExportTaskAttributeRequest
+     * @param Request - UpdateResourceExportTaskAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5631,7 +5741,7 @@ class IaCService extends OpenApiClient
     /**
      * 更新导出任务
      *
-     * @param request - UpdateResourceExportTaskAttributeRequest
+     * @param Request - UpdateResourceExportTaskAttributeRequest
      *
      * @returns UpdateResourceExportTaskAttributeResponse
      *
@@ -5651,7 +5761,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改任务
      *
-     * @param request - UpdateTaskAttributeRequest
+     * @param Request - UpdateTaskAttributeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5746,7 +5856,7 @@ class IaCService extends OpenApiClient
     /**
      * 修改任务
      *
-     * @param request - UpdateTaskAttributeRequest
+     * @param Request - UpdateTaskAttributeRequest
      *
      * @returns UpdateTaskAttributeResponse
      *
@@ -5764,9 +5874,184 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 模版上传.
+     *
+     * @param Request - UploadModuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadModuleResponse
+     *
+     * @param string              $resourceType
+     * @param UploadModuleRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UploadModuleResponse
+     */
+    public function uploadModuleWithOptions($resourceType, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->moduleId) {
+            @$query['moduleId'] = $request->moduleId;
+        }
+
+        if (null !== $request->moduleName) {
+            @$query['moduleName'] = $request->moduleName;
+        }
+
+        if (null !== $request->namespaceName) {
+            @$query['namespaceName'] = $request->namespaceName;
+        }
+
+        if (null !== $request->url) {
+            @$query['url'] = $request->url;
+        }
+
+        $body = [];
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UploadModule',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modules/upload/' . Url::percentEncode($resourceType) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadModuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模版上传.
+     *
+     * @param Request - UploadModuleRequest
+     *
+     * @returns UploadModuleResponse
+     *
+     * @param string              $resourceType
+     * @param UploadModuleRequest $request
+     *
+     * @return UploadModuleResponse
+     */
+    public function uploadModule($resourceType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uploadModuleWithOptions($resourceType, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                     $resourceType
+     * @param UploadModuleAdvanceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UploadModuleResponse
+     */
+    public function uploadModuleAdvance($resourceType, $request, $headers, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'IaCService',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $uploadModuleReq = new UploadModuleRequest([]);
+        Utils::convert($request, $uploadModuleReq);
+        if (null !== $request->urlObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->urlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $uploadModuleReq->url = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->uploadModuleWithOptions($resourceType, $uploadModuleReq, $headers, $runtime);
+    }
+
+    /**
      * 模版预检
      *
-     * @param request - ValidateModuleRequest
+     * @param Request - ValidateModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5837,7 +6122,7 @@ class IaCService extends OpenApiClient
     /**
      * 模版预检
      *
-     * @param request - ValidateModuleRequest
+     * @param Request - ValidateModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5895,7 +6180,7 @@ class IaCService extends OpenApiClient
     /**
      * 模版预检
      *
-     * @param request - ValidateModuleRequest
+     * @param Request - ValidateModuleRequest
      *
      * @returns ValidateModuleResponse
      *
