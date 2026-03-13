@@ -221,7 +221,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * 将产品组合授权给某个RAM实体.
+     * Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
      *
      * @param request - AssociatePrincipalWithPortfolioRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -272,7 +272,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * 将产品组合授权给某个RAM实体.
+     * Grants a Resource Access Management (RAM) user or RAM role that belongs to the current Alibaba Cloud account the permissions to access a product portfolio.
      *
      * @param request - AssociatePrincipalWithPortfolioRequest
      *
@@ -2371,7 +2371,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The number of entries returned per page.
+     * Queries product portfolios.
      *
      * @param request - ListPortfoliosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2434,7 +2434,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The number of entries returned per page.
+     * Queries product portfolios.
      *
      * @param request - ListPortfoliosRequest
      *
@@ -3097,7 +3097,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The page number of the returned page.
+     * Queries tasks.
      *
      * @param request - ListTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3152,7 +3152,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The page number of the returned page.
+     * Queries tasks.
      *
      * @param request - ListTasksRequest
      *
@@ -3298,7 +3298,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The ID of the product portfolio.
+     * Updates the information about a product portfolio.
      *
      * @param request - UpdatePortfolioRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3349,7 +3349,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The ID of the product portfolio.
+     * Updates the information about a product portfolio.
      *
      * @param request - UpdatePortfolioRequest
      *
@@ -3367,7 +3367,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The ID of the product.
+     * Updates the information about a product.
      *
      * @param request - UpdateProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3418,7 +3418,7 @@ class Servicecatalog extends OpenApiClient
     }
 
     /**
-     * The ID of the product.
+     * Updates the information about a product.
      *
      * @param request - UpdateProductRequest
      *
