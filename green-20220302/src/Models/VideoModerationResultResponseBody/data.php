@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseB
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\audioResult;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\ext;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult;
 
 class data extends Model
@@ -19,6 +20,11 @@ class data extends Model
      * @var string
      */
     public $dataId;
+
+    /**
+     * @var ext
+     */
+    public $ext;
 
     /**
      * @var frameResult
@@ -47,6 +53,7 @@ class data extends Model
     protected $_name = [
         'audioResult' => 'AudioResult',
         'dataId' => 'DataId',
+        'ext' => 'Ext',
         'frameResult' => 'FrameResult',
         'liveId' => 'LiveId',
         'manualTaskId' => 'ManualTaskId',
@@ -58,6 +65,9 @@ class data extends Model
     {
         if (null !== $this->audioResult) {
             $this->audioResult->validate();
+        }
+        if (null !== $this->ext) {
+            $this->ext->validate();
         }
         if (null !== $this->frameResult) {
             $this->frameResult->validate();
@@ -74,6 +84,10 @@ class data extends Model
 
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+
+        if (null !== $this->ext) {
+            $res['Ext'] = null !== $this->ext ? $this->ext->toArray($noStream) : $this->ext;
         }
 
         if (null !== $this->frameResult) {
@@ -113,6 +127,10 @@ class data extends Model
 
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+
+        if (isset($map['Ext'])) {
+            $model->ext = ext::fromMap($map['Ext']);
         }
 
         if (isset($map['FrameResult'])) {
