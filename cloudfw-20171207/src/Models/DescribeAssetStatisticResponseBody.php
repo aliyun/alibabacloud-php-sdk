@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponseBody
 class DescribeAssetStatisticResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoResourceEnable;
+
+    /**
      * @var generalInstanceSpecStatistic
      */
     public $generalInstanceSpecStatistic;
@@ -25,6 +30,7 @@ class DescribeAssetStatisticResponseBody extends Model
      */
     public $resourceSpecStatistic;
     protected $_name = [
+        'autoResourceEnable' => 'AutoResourceEnable',
         'generalInstanceSpecStatistic' => 'GeneralInstanceSpecStatistic',
         'requestId' => 'RequestId',
         'resourceSpecStatistic' => 'ResourceSpecStatistic',
@@ -44,6 +50,10 @@ class DescribeAssetStatisticResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoResourceEnable) {
+            $res['AutoResourceEnable'] = $this->autoResourceEnable;
+        }
+
         if (null !== $this->generalInstanceSpecStatistic) {
             $res['GeneralInstanceSpecStatistic'] = null !== $this->generalInstanceSpecStatistic ? $this->generalInstanceSpecStatistic->toArray($noStream) : $this->generalInstanceSpecStatistic;
         }
@@ -67,6 +77,10 @@ class DescribeAssetStatisticResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoResourceEnable'])) {
+            $model->autoResourceEnable = $map['AutoResourceEnable'];
+        }
+
         if (isset($map['GeneralInstanceSpecStatistic'])) {
             $model->generalInstanceSpecStatistic = generalInstanceSpecStatistic::fromMap($map['GeneralInstanceSpecStatistic']);
         }

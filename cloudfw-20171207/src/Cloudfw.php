@@ -9958,7 +9958,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 概览页-NAT流量趋势
+     * Queries the traffic trend of NAT gateways.
      *
      * @param request - DescribeNatFirewallTrafficTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9993,7 +9993,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 概览页-NAT流量趋势
+     * Queries the traffic trend of NAT gateways.
      *
      * @param request - DescribeNatFirewallTrafficTrendRequest
      *
@@ -13632,7 +13632,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取正向代理.
+     * Queries information about NAT firewalls.
      *
      * @deprecated openAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead
      *
@@ -13714,7 +13714,7 @@ class Cloudfw extends OpenApiClient
 
     // Deprecated
     /**
-     * 获取正向代理.
+     * Queries information about NAT firewalls.
      *
      * @deprecated openAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead
      *
