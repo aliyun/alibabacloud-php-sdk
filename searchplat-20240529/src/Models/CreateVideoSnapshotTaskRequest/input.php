@@ -22,10 +22,16 @@ class input extends Model
      * @var string
      */
     public $oss;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'content' => 'content',
         'fileName' => 'file_name',
         'oss' => 'oss',
+        'url' => 'url',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class input extends Model
 
         if (null !== $this->oss) {
             $res['oss'] = $this->oss;
+        }
+
+        if (null !== $this->url) {
+            $res['url'] = $this->url;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class input extends Model
 
         if (isset($map['oss'])) {
             $model->oss = $map['oss'];
+        }
+
+        if (isset($map['url'])) {
+            $model->url = $map['url'];
         }
 
         return $model;

@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateAudioAsrTaskRequest;
+namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSegmentationTaskRequest;
 
 use AlibabaCloud\Dara\Model;
 
 class input extends Model
 {
-    /**
-     * @var string
-     */
-    public $content;
-
     /**
      * @var string
      */
@@ -28,7 +23,6 @@ class input extends Model
      */
     public $url;
     protected $_name = [
-        'content' => 'content',
         'fileName' => 'file_name',
         'oss' => 'oss',
         'url' => 'url',
@@ -42,10 +36,6 @@ class input extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
-        }
-
         if (null !== $this->fileName) {
             $res['file_name'] = $this->fileName;
         }
@@ -69,10 +59,6 @@ class input extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
-        }
-
         if (isset($map['file_name'])) {
             $model->fileName = $map['file_name'];
         }

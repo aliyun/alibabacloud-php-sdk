@@ -22,14 +22,23 @@ class data extends Model
      * @var int
      */
     public $pageNum;
+
+    /**
+     * @var string[]
+     */
+    public $pages;
     protected $_name = [
         'content' => 'content',
         'contentType' => 'content_type',
         'pageNum' => 'page_num',
+        'pages' => 'pages',
     ];
 
     public function validate()
     {
+        if (\is_array($this->pages)) {
+            Model::validateArray($this->pages);
+        }
         parent::validate();
     }
 
@@ -46,6 +55,17 @@ class data extends Model
 
         if (null !== $this->pageNum) {
             $res['page_num'] = $this->pageNum;
+        }
+
+        if (null !== $this->pages) {
+            if (\is_array($this->pages)) {
+                $res['pages'] = [];
+                $n1 = 0;
+                foreach ($this->pages as $item1) {
+                    $res['pages'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -69,6 +89,17 @@ class data extends Model
 
         if (isset($map['page_num'])) {
             $model->pageNum = $map['page_num'];
+        }
+
+        if (isset($map['pages'])) {
+            if (!empty($map['pages'])) {
+                $model->pages = [];
+                $n1 = 0;
+                foreach ($map['pages'] as $item1) {
+                    $model->pages[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

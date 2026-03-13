@@ -2,16 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateAudioAsrTaskRequest;
+namespace AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSummarizationTaskRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSummarizationTaskRequest\input\chunks;
 
 class input extends Model
 {
     /**
-     * @var string
+     * @var chunks[]
      */
-    public $content;
+    public $chunks;
 
     /**
      * @var string
@@ -28,7 +29,7 @@ class input extends Model
      */
     public $url;
     protected $_name = [
-        'content' => 'content',
+        'chunks' => 'chunks',
         'fileName' => 'file_name',
         'oss' => 'oss',
         'url' => 'url',
@@ -36,14 +37,24 @@ class input extends Model
 
     public function validate()
     {
+        if (\is_array($this->chunks)) {
+            Model::validateArray($this->chunks);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
+        if (null !== $this->chunks) {
+            if (\is_array($this->chunks)) {
+                $res['chunks'] = [];
+                $n1 = 0;
+                foreach ($this->chunks as $item1) {
+                    $res['chunks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->fileName) {
@@ -69,8 +80,15 @@ class input extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
+        if (isset($map['chunks'])) {
+            if (!empty($map['chunks'])) {
+                $model->chunks = [];
+                $n1 = 0;
+                foreach ($map['chunks'] as $item1) {
+                    $model->chunks[$n1] = chunks::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['file_name'])) {

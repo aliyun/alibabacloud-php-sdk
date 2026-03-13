@@ -19,6 +19,11 @@ class searchResult extends Model
     public $link;
 
     /**
+     * @var mixed[]
+     */
+    public $metaInfo;
+
+    /**
      * @var int
      */
     public $position;
@@ -35,6 +40,7 @@ class searchResult extends Model
     protected $_name = [
         'content' => 'content',
         'link' => 'link',
+        'metaInfo' => 'meta_info',
         'position' => 'position',
         'snippet' => 'snippet',
         'tilte' => 'tilte',
@@ -42,6 +48,9 @@ class searchResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->metaInfo)) {
+            Model::validateArray($this->metaInfo);
+        }
         parent::validate();
     }
 
@@ -54,6 +63,15 @@ class searchResult extends Model
 
         if (null !== $this->link) {
             $res['link'] = $this->link;
+        }
+
+        if (null !== $this->metaInfo) {
+            if (\is_array($this->metaInfo)) {
+                $res['meta_info'] = [];
+                foreach ($this->metaInfo as $key1 => $value1) {
+                    $res['meta_info'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->position) {
@@ -85,6 +103,15 @@ class searchResult extends Model
 
         if (isset($map['link'])) {
             $model->link = $map['link'];
+        }
+
+        if (isset($map['meta_info'])) {
+            if (!empty($map['meta_info'])) {
+                $model->metaInfo = [];
+                foreach ($map['meta_info'] as $key1 => $value1) {
+                    $model->metaInfo[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['position'])) {

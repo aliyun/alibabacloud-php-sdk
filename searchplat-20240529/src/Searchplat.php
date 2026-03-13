@@ -11,8 +11,12 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskReques
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSegmentationTaskRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSegmentationTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSummarizationTaskRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSummarizationTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetAudioAsrTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetAudioAsrTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentAnalyzeTaskStatusRequest;
@@ -42,8 +46,12 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSegmentationTaskStatusRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSegmentationTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSnapshotTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSnapshotTaskStatusResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSummarizationTaskStatusRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSummarizationTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponse;
 use Darabonba\GatewayPop\Client;
@@ -275,6 +283,79 @@ class Searchplat extends OpenApiClient
     }
 
     /**
+     * 创建视频切割异步任务
+     *
+     * @param request - CreateVideoSegmentationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoSegmentationTaskResponse
+     *
+     * @param string                             $workspaceName
+     * @param string                             $serviceId
+     * @param CreateVideoSegmentationTaskRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateVideoSegmentationTaskResponse
+     */
+    public function createVideoSegmentationTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVideoSegmentationTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/video-segmentation/' . $serviceId . '/async',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVideoSegmentationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建视频切割异步任务
+     *
+     * @param request - CreateVideoSegmentationTaskRequest
+     *
+     * @returns CreateVideoSegmentationTaskResponse
+     *
+     * @param string                             $workspaceName
+     * @param string                             $serviceId
+     * @param CreateVideoSegmentationTaskRequest $request
+     *
+     * @return CreateVideoSegmentationTaskResponse
+     */
+    public function createVideoSegmentationTask($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVideoSegmentationTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 创建语音转录异步任务
      *
      * @param request - CreateVideoSnapshotTaskRequest
@@ -345,6 +426,79 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->createVideoSnapshotTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建视频总结异步任务
+     *
+     * @param request - CreateVideoSummarizationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoSummarizationTaskResponse
+     *
+     * @param string                              $workspaceName
+     * @param string                              $serviceId
+     * @param CreateVideoSummarizationTaskRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateVideoSummarizationTaskResponse
+     */
+    public function createVideoSummarizationTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVideoSummarizationTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/video-summarization/' . $serviceId . '/async',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVideoSummarizationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建视频总结异步任务
+     *
+     * @param request - CreateVideoSummarizationTaskRequest
+     *
+     * @returns CreateVideoSummarizationTaskResponse
+     *
+     * @param string                              $workspaceName
+     * @param string                              $serviceId
+     * @param CreateVideoSummarizationTaskRequest $request
+     *
+     * @return CreateVideoSummarizationTaskResponse
+     */
+    public function createVideoSummarizationTask($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVideoSummarizationTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1324,6 +1478,71 @@ class Searchplat extends OpenApiClient
     }
 
     /**
+     * 获取视频切割异步任务状态
+     *
+     * @param request - GetVideoSegmentationTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoSegmentationTaskStatusResponse
+     *
+     * @param string                                $workspaceName
+     * @param string                                $serviceId
+     * @param GetVideoSegmentationTaskStatusRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetVideoSegmentationTaskStatusResponse
+     */
+    public function getVideoSegmentationTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoSegmentationTaskStatus',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/video-segmentation/' . $serviceId . '/async/task-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoSegmentationTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取视频切割异步任务状态
+     *
+     * @param request - GetVideoSegmentationTaskStatusRequest
+     *
+     * @returns GetVideoSegmentationTaskStatusResponse
+     *
+     * @param string                                $workspaceName
+     * @param string                                $serviceId
+     * @param GetVideoSegmentationTaskStatusRequest $request
+     *
+     * @return GetVideoSegmentationTaskStatusResponse
+     */
+    public function getVideoSegmentationTaskStatus($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoSegmentationTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取视频截帧异步提取任务状态
      *
      * @param request - GetVideoSnapshotTaskStatusRequest
@@ -1386,6 +1605,71 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getVideoSnapshotTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取视频总结异步任务状态
+     *
+     * @param request - GetVideoSummarizationTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoSummarizationTaskStatusResponse
+     *
+     * @param string                                 $workspaceName
+     * @param string                                 $serviceId
+     * @param GetVideoSummarizationTaskStatusRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetVideoSummarizationTaskStatusResponse
+     */
+    public function getVideoSummarizationTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['task_id'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoSummarizationTaskStatus',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/video-summarization/' . $serviceId . '/async/task-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoSummarizationTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取视频总结异步任务状态
+     *
+     * @param request - GetVideoSummarizationTaskStatusRequest
+     *
+     * @returns GetVideoSummarizationTaskStatusResponse
+     *
+     * @param string                                 $workspaceName
+     * @param string                                 $serviceId
+     * @param GetVideoSummarizationTaskStatusRequest $request
+     *
+     * @return GetVideoSummarizationTaskStatusResponse
+     */
+    public function getVideoSummarizationTaskStatus($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoSummarizationTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
