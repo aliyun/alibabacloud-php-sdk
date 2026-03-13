@@ -16,6 +16,7 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncEditTimelineShrinkRequest;
@@ -843,19 +844,25 @@ class AiMiaoBi extends OpenApiClient
     /**
      * 智能剪辑timeline.
      *
-     * @param request - AsyncCreateClipsTimeLineRequest
+     * @param tmpReq - AsyncCreateClipsTimeLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AsyncCreateClipsTimeLineResponse
      *
-     * @param AsyncCreateClipsTimeLineRequest $request
+     * @param AsyncCreateClipsTimeLineRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
      * @return AsyncCreateClipsTimeLineResponse
      */
-    public function asyncCreateClipsTimeLineWithOptions($request, $runtime)
+    public function asyncCreateClipsTimeLineWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new AsyncCreateClipsTimeLineShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->highLightConfig) {
+            $request->highLightConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->highLightConfig, 'HighLightConfig', 'json');
+        }
+
         $body = [];
         if (null !== $request->additionalContent) {
             @$body['AdditionalContent'] = $request->additionalContent;
@@ -863,6 +870,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->customContent) {
             @$body['CustomContent'] = $request->customContent;
+        }
+
+        if (null !== $request->highLightConfigShrink) {
+            @$body['HighLightConfig'] = $request->highLightConfigShrink;
         }
 
         if (null !== $request->noRefVideo) {
@@ -873,8 +884,16 @@ class AiMiaoBi extends OpenApiClient
             @$body['ProcessPrompt'] = $request->processPrompt;
         }
 
+        if (null !== $request->recommendAudio) {
+            @$body['RecommendAudio'] = $request->recommendAudio;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->timelineScene) {
+            @$body['TimelineScene'] = $request->timelineScene;
         }
 
         if (null !== $request->workspaceId) {

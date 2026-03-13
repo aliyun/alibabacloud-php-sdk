@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTimeLineRequest\highLightConfig;
 
-class AsyncCreateClipsTimeLineRequest extends Model
+class AsyncCreateClipsTimeLineShrinkRequest extends Model
 {
     /**
      * @var string
@@ -20,9 +19,9 @@ class AsyncCreateClipsTimeLineRequest extends Model
     public $customContent;
 
     /**
-     * @var highLightConfig
+     * @var string
      */
-    public $highLightConfig;
+    public $highLightConfigShrink;
 
     /**
      * @var bool
@@ -56,7 +55,7 @@ class AsyncCreateClipsTimeLineRequest extends Model
     protected $_name = [
         'additionalContent' => 'AdditionalContent',
         'customContent' => 'CustomContent',
-        'highLightConfig' => 'HighLightConfig',
+        'highLightConfigShrink' => 'HighLightConfig',
         'noRefVideo' => 'NoRefVideo',
         'processPrompt' => 'ProcessPrompt',
         'recommendAudio' => 'RecommendAudio',
@@ -67,9 +66,6 @@ class AsyncCreateClipsTimeLineRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->highLightConfig) {
-            $this->highLightConfig->validate();
-        }
         parent::validate();
     }
 
@@ -84,8 +80,8 @@ class AsyncCreateClipsTimeLineRequest extends Model
             $res['CustomContent'] = $this->customContent;
         }
 
-        if (null !== $this->highLightConfig) {
-            $res['HighLightConfig'] = null !== $this->highLightConfig ? $this->highLightConfig->toArray($noStream) : $this->highLightConfig;
+        if (null !== $this->highLightConfigShrink) {
+            $res['HighLightConfig'] = $this->highLightConfigShrink;
         }
 
         if (null !== $this->noRefVideo) {
@@ -132,7 +128,7 @@ class AsyncCreateClipsTimeLineRequest extends Model
         }
 
         if (isset($map['HighLightConfig'])) {
-            $model->highLightConfig = highLightConfig::fromMap($map['HighLightConfig']);
+            $model->highLightConfigShrink = $map['HighLightConfig'];
         }
 
         if (isset($map['NoRefVideo'])) {
