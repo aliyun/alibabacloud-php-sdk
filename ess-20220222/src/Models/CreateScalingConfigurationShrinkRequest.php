@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkReques
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\imageOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\instancePatternInfos;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\instanceTypeCandidateOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\instanceTypeOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest\privatePoolOptions;
@@ -138,6 +139,11 @@ class CreateScalingConfigurationShrinkRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var instanceTypeCandidateOptions
+     */
+    public $instanceTypeCandidateOptions;
 
     /**
      * @var instanceTypeOverrides[]
@@ -348,6 +354,7 @@ class CreateScalingConfigurationShrinkRequest extends Model
         'instanceName' => 'InstanceName',
         'instancePatternInfos' => 'InstancePatternInfos',
         'instanceType' => 'InstanceType',
+        'instanceTypeCandidateOptions' => 'InstanceTypeCandidateOptions',
         'instanceTypeOverrides' => 'InstanceTypeOverrides',
         'instanceTypes' => 'InstanceTypes',
         'internetChargeType' => 'InternetChargeType',
@@ -406,6 +413,9 @@ class CreateScalingConfigurationShrinkRequest extends Model
         }
         if (\is_array($this->instancePatternInfos)) {
             Model::validateArray($this->instancePatternInfos);
+        }
+        if (null !== $this->instanceTypeCandidateOptions) {
+            $this->instanceTypeCandidateOptions->validate();
         }
         if (\is_array($this->instanceTypeOverrides)) {
             Model::validateArray($this->instanceTypeOverrides);
@@ -552,6 +562,10 @@ class CreateScalingConfigurationShrinkRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->instanceTypeCandidateOptions) {
+            $res['InstanceTypeCandidateOptions'] = null !== $this->instanceTypeCandidateOptions ? $this->instanceTypeCandidateOptions->toArray($noStream) : $this->instanceTypeCandidateOptions;
         }
 
         if (null !== $this->instanceTypeOverrides) {
@@ -870,6 +884,10 @@ class CreateScalingConfigurationShrinkRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['InstanceTypeCandidateOptions'])) {
+            $model->instanceTypeCandidateOptions = instanceTypeCandidateOptions::fromMap($map['InstanceTypeCandidateOptions']);
         }
 
         if (isset($map['InstanceTypeOverrides'])) {

@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\customPriorities;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instancePatternInfos;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instanceTypeCandidateOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\resourcePoolOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\schedulerOptions;
@@ -136,6 +137,11 @@ class scalingConfigurations extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var instanceTypeCandidateOptions
+     */
+    public $instanceTypeCandidateOptions;
 
     /**
      * @var string[]
@@ -406,6 +412,7 @@ class scalingConfigurations extends Model
         'instanceName' => 'InstanceName',
         'instancePatternInfos' => 'InstancePatternInfos',
         'instanceType' => 'InstanceType',
+        'instanceTypeCandidateOptions' => 'InstanceTypeCandidateOptions',
         'instanceTypes' => 'InstanceTypes',
         'internetChargeType' => 'InternetChargeType',
         'internetMaxBandwidthIn' => 'InternetMaxBandwidthIn',
@@ -467,6 +474,9 @@ class scalingConfigurations extends Model
         }
         if (\is_array($this->instancePatternInfos)) {
             Model::validateArray($this->instancePatternInfos);
+        }
+        if (null !== $this->instanceTypeCandidateOptions) {
+            $this->instanceTypeCandidateOptions->validate();
         }
         if (\is_array($this->instanceTypes)) {
             Model::validateArray($this->instanceTypes);
@@ -619,6 +629,10 @@ class scalingConfigurations extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->instanceTypeCandidateOptions) {
+            $res['InstanceTypeCandidateOptions'] = null !== $this->instanceTypeCandidateOptions ? $this->instanceTypeCandidateOptions->toArray($noStream) : $this->instanceTypeCandidateOptions;
         }
 
         if (null !== $this->instanceTypes) {
@@ -992,6 +1006,10 @@ class scalingConfigurations extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['InstanceTypeCandidateOptions'])) {
+            $model->instanceTypeCandidateOptions = instanceTypeCandidateOptions::fromMap($map['InstanceTypeCandidateOptions']);
         }
 
         if (isset($map['InstanceTypes'])) {

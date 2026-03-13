@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\cust
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\imageOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\instancePatternInfos;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\instanceTypeCandidateOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\instanceTypeOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\networkInterfaces;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationRequest\privatePoolOptions;
@@ -138,6 +139,11 @@ class CreateScalingConfigurationRequest extends Model
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var instanceTypeCandidateOptions
+     */
+    public $instanceTypeCandidateOptions;
 
     /**
      * @var instanceTypeOverrides[]
@@ -348,6 +354,7 @@ class CreateScalingConfigurationRequest extends Model
         'instanceName' => 'InstanceName',
         'instancePatternInfos' => 'InstancePatternInfos',
         'instanceType' => 'InstanceType',
+        'instanceTypeCandidateOptions' => 'InstanceTypeCandidateOptions',
         'instanceTypeOverrides' => 'InstanceTypeOverrides',
         'instanceTypes' => 'InstanceTypes',
         'internetChargeType' => 'InternetChargeType',
@@ -406,6 +413,9 @@ class CreateScalingConfigurationRequest extends Model
         }
         if (\is_array($this->instancePatternInfos)) {
             Model::validateArray($this->instancePatternInfos);
+        }
+        if (null !== $this->instanceTypeCandidateOptions) {
+            $this->instanceTypeCandidateOptions->validate();
         }
         if (\is_array($this->instanceTypeOverrides)) {
             Model::validateArray($this->instanceTypeOverrides);
@@ -555,6 +565,10 @@ class CreateScalingConfigurationRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->instanceTypeCandidateOptions) {
+            $res['InstanceTypeCandidateOptions'] = null !== $this->instanceTypeCandidateOptions ? $this->instanceTypeCandidateOptions->toArray($noStream) : $this->instanceTypeCandidateOptions;
         }
 
         if (null !== $this->instanceTypeOverrides) {
@@ -878,6 +892,10 @@ class CreateScalingConfigurationRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['InstanceTypeCandidateOptions'])) {
+            $model->instanceTypeCandidateOptions = instanceTypeCandidateOptions::fromMap($map['InstanceTypeCandidateOptions']);
         }
 
         if (isset($map['InstanceTypeOverrides'])) {
