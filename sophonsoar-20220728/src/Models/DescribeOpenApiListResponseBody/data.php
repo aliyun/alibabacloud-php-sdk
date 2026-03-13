@@ -22,10 +22,16 @@ class data extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @var mixed
+     */
+    public $versions;
     protected $_name = [
         'code' => 'Code',
         'directories' => 'Directories',
         'version' => 'Version',
+        'versions' => 'Versions',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class data extends Model
 
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+
+        if (null !== $this->versions) {
+            $res['Versions'] = $this->versions;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class data extends Model
 
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+
+        if (isset($map['Versions'])) {
+            $model->versions = $map['Versions'];
         }
 
         return $model;

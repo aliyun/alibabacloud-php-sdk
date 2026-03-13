@@ -1869,7 +1869,19 @@ class Sophonsoar extends OpenApiClient
     public function describePopApiWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->apiName) {
+            @$query['ApiName'] = $request->apiName;
+        }
+
+        if (null !== $request->apiVersion) {
+            @$query['ApiVersion'] = $request->apiVersion;
+        }
+
+        if (null !== $request->popCode) {
+            @$query['PopCode'] = $request->popCode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1878,7 +1890,7 @@ class Sophonsoar extends OpenApiClient
             'version' => '2022-07-28',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -2435,7 +2447,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Query OpenApi List of Cloud Vendors.
+     * Queries the API operations of a cloud service provider.
      *
      * @remarks
      * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
@@ -2497,7 +2509,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * Query OpenApi List of Cloud Vendors.
+     * Queries the API operations of a cloud service provider.
      *
      * @remarks
      * Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the response orchestration product (i.e., threat analysis and response log access traffic) before using this interface.
