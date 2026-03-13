@@ -21,6 +21,11 @@ class MealApplyAddRequest extends Model
     public $costCenterId;
 
     /**
+     * @var string
+     */
+    public $extendField;
+
+    /**
      * @var int
      */
     public $invoiceId;
@@ -72,6 +77,7 @@ class MealApplyAddRequest extends Model
     protected $_name = [
         'applyUser' => 'apply_user',
         'costCenterId' => 'cost_center_id',
+        'extendField' => 'extend_field',
         'invoiceId' => 'invoice_id',
         'itineraryList' => 'itinerary_list',
         'mealAmount' => 'meal_amount',
@@ -104,6 +110,10 @@ class MealApplyAddRequest extends Model
 
         if (null !== $this->costCenterId) {
             $res['cost_center_id'] = $this->costCenterId;
+        }
+
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
 
         if (null !== $this->invoiceId) {
@@ -170,6 +180,10 @@ class MealApplyAddRequest extends Model
 
         if (isset($map['cost_center_id'])) {
             $model->costCenterId = $map['cost_center_id'];
+        }
+
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
 
         if (isset($map['invoice_id'])) {

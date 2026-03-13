@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class TrainBillSettlementQueryRequest extends Model
+class IeCarBillSettlementQueryRequest extends Model
 {
     /**
      * @var string

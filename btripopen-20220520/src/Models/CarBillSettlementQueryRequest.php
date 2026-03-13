@@ -14,6 +14,16 @@ class CarBillSettlementQueryRequest extends Model
     public $billBatch;
 
     /**
+     * @var string
+     */
+    public $billRecordTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $billRecordTimeStart;
+
+    /**
      * @var int
      */
     public $orderId;
@@ -49,6 +59,8 @@ class CarBillSettlementQueryRequest extends Model
     public $scrollMod;
     protected $_name = [
         'billBatch' => 'bill_batch',
+        'billRecordTimeEnd' => 'bill_record_time_end',
+        'billRecordTimeStart' => 'bill_record_time_start',
         'orderId' => 'order_id',
         'pageNo' => 'page_no',
         'pageSize' => 'page_size',
@@ -68,6 +80,14 @@ class CarBillSettlementQueryRequest extends Model
         $res = [];
         if (null !== $this->billBatch) {
             $res['bill_batch'] = $this->billBatch;
+        }
+
+        if (null !== $this->billRecordTimeEnd) {
+            $res['bill_record_time_end'] = $this->billRecordTimeEnd;
+        }
+
+        if (null !== $this->billRecordTimeStart) {
+            $res['bill_record_time_start'] = $this->billRecordTimeStart;
         }
 
         if (null !== $this->orderId) {
@@ -111,6 +131,14 @@ class CarBillSettlementQueryRequest extends Model
         $model = new self();
         if (isset($map['bill_batch'])) {
             $model->billBatch = $map['bill_batch'];
+        }
+
+        if (isset($map['bill_record_time_end'])) {
+            $model->billRecordTimeEnd = $map['bill_record_time_end'];
+        }
+
+        if (isset($map['bill_record_time_start'])) {
+            $model->billRecordTimeStart = $map['bill_record_time_start'];
         }
 
         if (isset($map['order_id'])) {

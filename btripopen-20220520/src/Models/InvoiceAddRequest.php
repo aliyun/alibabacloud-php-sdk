@@ -26,6 +26,11 @@ class InvoiceAddRequest extends Model
     /**
      * @var string
      */
+    public $mailThirdPartId;
+
+    /**
+     * @var string
+     */
     public $taxNo;
 
     /**
@@ -56,6 +61,7 @@ class InvoiceAddRequest extends Model
         'address' => 'address',
         'bankName' => 'bank_name',
         'bankNo' => 'bank_no',
+        'mailThirdPartId' => 'mail_third_part_id',
         'taxNo' => 'tax_no',
         'tel' => 'tel',
         'thirdPartId' => 'third_part_id',
@@ -82,6 +88,10 @@ class InvoiceAddRequest extends Model
 
         if (null !== $this->bankNo) {
             $res['bank_no'] = $this->bankNo;
+        }
+
+        if (null !== $this->mailThirdPartId) {
+            $res['mail_third_part_id'] = $this->mailThirdPartId;
         }
 
         if (null !== $this->taxNo) {
@@ -129,6 +139,10 @@ class InvoiceAddRequest extends Model
 
         if (isset($map['bank_no'])) {
             $model->bankNo = $map['bank_no'];
+        }
+
+        if (isset($map['mail_third_part_id'])) {
+            $model->mailThirdPartId = $map['mail_third_part_id'];
         }
 
         if (isset($map['tax_no'])) {

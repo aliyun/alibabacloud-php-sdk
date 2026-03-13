@@ -16,10 +16,22 @@ class FlightOtaItemDetailRequest extends Model
     /**
      * @var string
      */
+    public $orderId;
+
+    /**
+     * @var string
+     */
     public $otaItemId;
+
+    /**
+     * @var string
+     */
+    public $outOrderId;
     protected $_name = [
         'isvName' => 'isv_name',
+        'orderId' => 'order_id',
         'otaItemId' => 'ota_item_id',
+        'outOrderId' => 'out_order_id',
     ];
 
     public function validate()
@@ -34,8 +46,16 @@ class FlightOtaItemDetailRequest extends Model
             $res['isv_name'] = $this->isvName;
         }
 
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
+        }
+
         if (null !== $this->otaItemId) {
             $res['ota_item_id'] = $this->otaItemId;
+        }
+
+        if (null !== $this->outOrderId) {
+            $res['out_order_id'] = $this->outOrderId;
         }
 
         return $res;
@@ -53,8 +73,16 @@ class FlightOtaItemDetailRequest extends Model
             $model->isvName = $map['isv_name'];
         }
 
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
+        }
+
         if (isset($map['ota_item_id'])) {
             $model->otaItemId = $map['ota_item_id'];
+        }
+
+        if (isset($map['out_order_id'])) {
+            $model->outOrderId = $map['out_order_id'];
         }
 
         return $model;

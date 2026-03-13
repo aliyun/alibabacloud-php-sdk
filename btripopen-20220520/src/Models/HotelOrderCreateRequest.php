@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest\invoiceInfo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest\memberInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest\occupantInfoList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest\promotionInfo;
 
@@ -72,6 +73,11 @@ class HotelOrderCreateRequest extends Model
     public $itineraryNo;
 
     /**
+     * @var memberInfo
+     */
+    public $memberInfo;
+
+    /**
      * @var occupantInfoList[]
      */
     public $occupantInfoList;
@@ -133,6 +139,7 @@ class HotelOrderCreateRequest extends Model
         'invoiceInfo' => 'invoice_info',
         'itemId' => 'item_id',
         'itineraryNo' => 'itinerary_no',
+        'memberInfo' => 'member_info',
         'occupantInfoList' => 'occupant_info_list',
         'personPayPrice' => 'person_pay_price',
         'promotionInfo' => 'promotion_info',
@@ -149,6 +156,9 @@ class HotelOrderCreateRequest extends Model
     {
         if (null !== $this->invoiceInfo) {
             $this->invoiceInfo->validate();
+        }
+        if (null !== $this->memberInfo) {
+            $this->memberInfo->validate();
         }
         if (\is_array($this->occupantInfoList)) {
             Model::validateArray($this->occupantInfoList);
@@ -208,6 +218,10 @@ class HotelOrderCreateRequest extends Model
 
         if (null !== $this->itineraryNo) {
             $res['itinerary_no'] = $this->itineraryNo;
+        }
+
+        if (null !== $this->memberInfo) {
+            $res['member_info'] = null !== $this->memberInfo ? $this->memberInfo->toArray($noStream) : $this->memberInfo;
         }
 
         if (null !== $this->occupantInfoList) {
@@ -314,6 +328,10 @@ class HotelOrderCreateRequest extends Model
 
         if (isset($map['itinerary_no'])) {
             $model->itineraryNo = $map['itinerary_no'];
+        }
+
+        if (isset($map['member_info'])) {
+            $model->memberInfo = memberInfo::fromMap($map['member_info']);
         }
 
         if (isset($map['occupant_info_list'])) {

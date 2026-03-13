@@ -87,6 +87,11 @@ class hotelInfo extends Model
      * @var string
      */
     public $roomType;
+
+    /**
+     * @var string
+     */
+    public $star;
     protected $_name = [
         'brandCode' => 'brand_code',
         'brandGroup' => 'brand_group',
@@ -104,6 +109,7 @@ class hotelInfo extends Model
         'night' => 'night',
         'roomNum' => 'room_num',
         'roomType' => 'room_type',
+        'star' => 'star',
     ];
 
     public function validate()
@@ -176,6 +182,10 @@ class hotelInfo extends Model
 
         if (null !== $this->roomType) {
             $res['room_type'] = $this->roomType;
+        }
+
+        if (null !== $this->star) {
+            $res['star'] = $this->star;
         }
 
         return $res;
@@ -251,6 +261,10 @@ class hotelInfo extends Model
 
         if (isset($map['room_type'])) {
             $model->roomType = $map['room_type'];
+        }
+
+        if (isset($map['star'])) {
+            $model->star = $map['star'];
         }
 
         return $model;

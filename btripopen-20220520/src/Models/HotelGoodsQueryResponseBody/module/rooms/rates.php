@@ -58,6 +58,11 @@ class rates extends Model
     public $companyAassist;
 
     /**
+     * @var string
+     */
+    public $companyAssistType;
+
+    /**
      * @var int
      */
     public $confirmType;
@@ -91,6 +96,11 @@ class rates extends Model
      * @var hotelDetailRatePriceDTO[]
      */
     public $hotelDetailRatePriceDTO;
+
+    /**
+     * @var string[]
+     */
+    public $hotelMemberBenefit;
 
     /**
      * @var bool
@@ -148,6 +158,11 @@ class rates extends Model
     public $minDays;
 
     /**
+     * @var bool
+     */
+    public $needCertificate;
+
+    /**
      * @var int
      */
     public $nod;
@@ -181,6 +196,11 @@ class rates extends Model
      * @var int
      */
     public $rateId;
+
+    /**
+     * @var string
+     */
+    public $rateKey;
 
     /**
      * @var string
@@ -236,6 +256,7 @@ class rates extends Model
         'cancelPolicyDesc' => 'cancel_policy_desc',
         'cancelPolicyType' => 'cancel_policy_type',
         'companyAassist' => 'company_aassist',
+        'companyAssistType' => 'company_assist_type',
         'confirmType' => 'confirm_type',
         'currencyCode' => 'currency_code',
         'dailyPriceFormatYuan' => 'daily_price_format_yuan',
@@ -243,6 +264,7 @@ class rates extends Model
         'discountDesc' => 'discount_desc',
         'endTimeDaily' => 'end_time_daily',
         'hotelDetailRatePriceDTO' => 'hotel_detail_rate_price_d_t_o',
+        'hotelMemberBenefit' => 'hotel_member_benefit',
         'instantConfirm' => 'instant_confirm',
         'inventoryDesc' => 'inventory_desc',
         'inventoryPrice' => 'inventory_price',
@@ -254,6 +276,7 @@ class rates extends Model
         'maxOccupancy' => 'max_occupancy',
         'minAdvHours' => 'min_adv_hours',
         'minDays' => 'min_days',
+        'needCertificate' => 'need_certificate',
         'nod' => 'nod',
         'nop' => 'nop',
         'orderShipTime' => 'order_ship_time',
@@ -261,6 +284,7 @@ class rates extends Model
         'priceType' => 'price_type',
         'promotionInfo' => 'promotion_info',
         'rateId' => 'rate_id',
+        'rateKey' => 'rate_key',
         'ratePlanName' => 'rate_plan_name',
         'rpId' => 'rp_id',
         'sellerId' => 'seller_id',
@@ -285,6 +309,9 @@ class rates extends Model
         }
         if (\is_array($this->hotelDetailRatePriceDTO)) {
             Model::validateArray($this->hotelDetailRatePriceDTO);
+        }
+        if (\is_array($this->hotelMemberBenefit)) {
+            Model::validateArray($this->hotelMemberBenefit);
         }
         parent::validate();
     }
@@ -335,6 +362,10 @@ class rates extends Model
             $res['company_aassist'] = $this->companyAassist;
         }
 
+        if (null !== $this->companyAssistType) {
+            $res['company_assist_type'] = $this->companyAssistType;
+        }
+
         if (null !== $this->confirmType) {
             $res['confirm_type'] = $this->confirmType;
         }
@@ -366,6 +397,15 @@ class rates extends Model
                 foreach ($this->hotelDetailRatePriceDTO as $item1) {
                     $res['hotel_detail_rate_price_d_t_o'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->hotelMemberBenefit) {
+            if (\is_array($this->hotelMemberBenefit)) {
+                $res['hotel_member_benefit'] = [];
+                foreach ($this->hotelMemberBenefit as $key1 => $value1) {
+                    $res['hotel_member_benefit'][$key1] = $value1;
                 }
             }
         }
@@ -414,6 +454,10 @@ class rates extends Model
             $res['min_days'] = $this->minDays;
         }
 
+        if (null !== $this->needCertificate) {
+            $res['need_certificate'] = $this->needCertificate;
+        }
+
         if (null !== $this->nod) {
             $res['nod'] = $this->nod;
         }
@@ -440,6 +484,10 @@ class rates extends Model
 
         if (null !== $this->rateId) {
             $res['rate_id'] = $this->rateId;
+        }
+
+        if (null !== $this->rateKey) {
+            $res['rate_key'] = $this->rateKey;
         }
 
         if (null !== $this->ratePlanName) {
@@ -532,6 +580,10 @@ class rates extends Model
             $model->companyAassist = $map['company_aassist'];
         }
 
+        if (isset($map['company_assist_type'])) {
+            $model->companyAssistType = $map['company_assist_type'];
+        }
+
         if (isset($map['confirm_type'])) {
             $model->confirmType = $map['confirm_type'];
         }
@@ -563,6 +615,15 @@ class rates extends Model
                 foreach ($map['hotel_detail_rate_price_d_t_o'] as $item1) {
                     $model->hotelDetailRatePriceDTO[$n1] = hotelDetailRatePriceDTO::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['hotel_member_benefit'])) {
+            if (!empty($map['hotel_member_benefit'])) {
+                $model->hotelMemberBenefit = [];
+                foreach ($map['hotel_member_benefit'] as $key1 => $value1) {
+                    $model->hotelMemberBenefit[$key1] = $value1;
                 }
             }
         }
@@ -611,6 +672,10 @@ class rates extends Model
             $model->minDays = $map['min_days'];
         }
 
+        if (isset($map['need_certificate'])) {
+            $model->needCertificate = $map['need_certificate'];
+        }
+
         if (isset($map['nod'])) {
             $model->nod = $map['nod'];
         }
@@ -637,6 +702,10 @@ class rates extends Model
 
         if (isset($map['rate_id'])) {
             $model->rateId = $map['rate_id'];
+        }
+
+        if (isset($map['rate_key'])) {
+            $model->rateKey = $map['rate_key'];
         }
 
         if (isset($map['rate_plan_name'])) {

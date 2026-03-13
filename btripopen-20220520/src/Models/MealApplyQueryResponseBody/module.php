@@ -23,6 +23,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $extendField;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -77,6 +82,7 @@ class module extends Model
     protected $_name = [
         'applyUser' => 'apply_user',
         'costCenterId' => 'cost_center_id',
+        'extendField' => 'extend_field',
         'gmtCreate' => 'gmt_create',
         'invoiceId' => 'invoice_id',
         'itineraryList' => 'itinerary_list',
@@ -110,6 +116,10 @@ class module extends Model
 
         if (null !== $this->costCenterId) {
             $res['cost_center_id'] = $this->costCenterId;
+        }
+
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
 
         if (null !== $this->gmtCreate) {
@@ -180,6 +190,10 @@ class module extends Model
 
         if (isset($map['cost_center_id'])) {
             $model->costCenterId = $map['cost_center_id'];
+        }
+
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
 
         if (isset($map['gmt_create'])) {

@@ -50,6 +50,11 @@ class module extends Model
     public $earlyArrivalTime;
 
     /**
+     * @var string
+     */
+    public $hotelGroupDesc;
+
+    /**
      * @var int
      */
     public $hotelId;
@@ -82,6 +87,7 @@ class module extends Model
         'descriptions' => 'descriptions',
         'dinamicBannerPicUrls' => 'dinamic_banner_pic_urls',
         'earlyArrivalTime' => 'early_arrival_time',
+        'hotelGroupDesc' => 'hotel_group_desc',
         'hotelId' => 'hotel_id',
         'hotelName' => 'hotel_name',
         'lateArrivalTime' => 'late_arrival_time',
@@ -158,6 +164,10 @@ class module extends Model
 
         if (null !== $this->earlyArrivalTime) {
             $res['early_arrival_time'] = $this->earlyArrivalTime;
+        }
+
+        if (null !== $this->hotelGroupDesc) {
+            $res['hotel_group_desc'] = $this->hotelGroupDesc;
         }
 
         if (null !== $this->hotelId) {
@@ -247,6 +257,10 @@ class module extends Model
 
         if (isset($map['early_arrival_time'])) {
             $model->earlyArrivalTime = $map['early_arrival_time'];
+        }
+
+        if (isset($map['hotel_group_desc'])) {
+            $model->hotelGroupDesc = $map['hotel_group_desc'];
         }
 
         if (isset($map['hotel_id'])) {

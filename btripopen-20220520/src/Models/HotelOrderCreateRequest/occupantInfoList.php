@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderCreateRequest\occupantInfoList\costCenterInfo;
 
 class occupantInfoList extends Model
 {
@@ -17,6 +18,16 @@ class occupantInfoList extends Model
      * @var int
      */
     public $cardType;
+
+    /**
+     * @var string
+     */
+    public $cascadeDeptName;
+
+    /**
+     * @var costCenterInfo
+     */
+    public $costCenterInfo;
 
     /**
      * @var int
@@ -47,6 +58,11 @@ class occupantInfoList extends Model
      * @var string
      */
     public $firstName;
+
+    /**
+     * @var bool
+     */
+    public $isBooker;
 
     /**
      * @var string
@@ -80,12 +96,15 @@ class occupantInfoList extends Model
     protected $_name = [
         'cardNo' => 'card_no',
         'cardType' => 'card_type',
+        'cascadeDeptName' => 'cascade_dept_name',
+        'costCenterInfo' => 'cost_center_info',
         'customerType' => 'customer_type',
         'departmentId' => 'department_id',
         'departmentName' => 'department_name',
         'email' => 'email',
         'employeeType' => 'employee_type',
         'firstName' => 'first_name',
+        'isBooker' => 'is_booker',
         'lastName' => 'last_name',
         'name' => 'name',
         'phone' => 'phone',
@@ -96,6 +115,9 @@ class occupantInfoList extends Model
 
     public function validate()
     {
+        if (null !== $this->costCenterInfo) {
+            $this->costCenterInfo->validate();
+        }
         parent::validate();
     }
 
@@ -108,6 +130,14 @@ class occupantInfoList extends Model
 
         if (null !== $this->cardType) {
             $res['card_type'] = $this->cardType;
+        }
+
+        if (null !== $this->cascadeDeptName) {
+            $res['cascade_dept_name'] = $this->cascadeDeptName;
+        }
+
+        if (null !== $this->costCenterInfo) {
+            $res['cost_center_info'] = null !== $this->costCenterInfo ? $this->costCenterInfo->toArray($noStream) : $this->costCenterInfo;
         }
 
         if (null !== $this->customerType) {
@@ -132,6 +162,10 @@ class occupantInfoList extends Model
 
         if (null !== $this->firstName) {
             $res['first_name'] = $this->firstName;
+        }
+
+        if (null !== $this->isBooker) {
+            $res['is_booker'] = $this->isBooker;
         }
 
         if (null !== $this->lastName) {
@@ -177,6 +211,14 @@ class occupantInfoList extends Model
             $model->cardType = $map['card_type'];
         }
 
+        if (isset($map['cascade_dept_name'])) {
+            $model->cascadeDeptName = $map['cascade_dept_name'];
+        }
+
+        if (isset($map['cost_center_info'])) {
+            $model->costCenterInfo = costCenterInfo::fromMap($map['cost_center_info']);
+        }
+
         if (isset($map['customer_type'])) {
             $model->customerType = $map['customer_type'];
         }
@@ -199,6 +241,10 @@ class occupantInfoList extends Model
 
         if (isset($map['first_name'])) {
             $model->firstName = $map['first_name'];
+        }
+
+        if (isset($map['is_booker'])) {
+            $model->isBooker = $map['is_booker'];
         }
 
         if (isset($map['last_name'])) {

@@ -49,9 +49,19 @@ class items extends Model
     public $department;
 
     /**
+     * @var string
+     */
+    public $electronicTicketNo;
+
+    /**
      * @var int
      */
     public $feeTypeShowCode;
+
+    /**
+     * @var bool
+     */
+    public $hasChanged;
 
     /**
      * @var string
@@ -82,6 +92,11 @@ class items extends Model
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $originTicketNo;
 
     /**
      * @var string
@@ -152,6 +167,11 @@ class items extends Model
      * @var string
      */
     public $trainNo;
+
+    /**
+     * @var string
+     */
+    public $xmlUrl;
     protected $_name = [
         'applyId' => 'apply_id',
         'arrStation' => 'arr_station',
@@ -161,13 +181,16 @@ class items extends Model
         'depStation' => 'dep_station',
         'depTime' => 'dep_time',
         'department' => 'department',
+        'electronicTicketNo' => 'electronic_ticket_no',
         'feeTypeShowCode' => 'fee_type_show_code',
+        'hasChanged' => 'has_changed',
         'id' => 'id',
         'invoiceDate' => 'invoice_date',
         'invoiceMaterial' => 'invoice_material',
         'invoiceTitle' => 'invoice_title',
         'ofdUrl' => 'ofd_url',
         'orderId' => 'order_id',
+        'originTicketNo' => 'origin_ticket_no',
         'ossUrl' => 'oss_url',
         'passenger' => 'passenger',
         'pdfUrl' => 'pdf_url',
@@ -182,6 +205,7 @@ class items extends Model
         'taxRate' => 'tax_rate',
         'ticketNo' => 'ticket_no',
         'trainNo' => 'train_no',
+        'xmlUrl' => 'xml_url',
     ];
 
     public function validate()
@@ -224,8 +248,16 @@ class items extends Model
             $res['department'] = $this->department;
         }
 
+        if (null !== $this->electronicTicketNo) {
+            $res['electronic_ticket_no'] = $this->electronicTicketNo;
+        }
+
         if (null !== $this->feeTypeShowCode) {
             $res['fee_type_show_code'] = $this->feeTypeShowCode;
+        }
+
+        if (null !== $this->hasChanged) {
+            $res['has_changed'] = $this->hasChanged;
         }
 
         if (null !== $this->id) {
@@ -250,6 +282,10 @@ class items extends Model
 
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
+        }
+
+        if (null !== $this->originTicketNo) {
+            $res['origin_ticket_no'] = $this->originTicketNo;
         }
 
         if (null !== $this->ossUrl) {
@@ -308,6 +344,10 @@ class items extends Model
             $res['train_no'] = $this->trainNo;
         }
 
+        if (null !== $this->xmlUrl) {
+            $res['xml_url'] = $this->xmlUrl;
+        }
+
         return $res;
     }
 
@@ -351,8 +391,16 @@ class items extends Model
             $model->department = $map['department'];
         }
 
+        if (isset($map['electronic_ticket_no'])) {
+            $model->electronicTicketNo = $map['electronic_ticket_no'];
+        }
+
         if (isset($map['fee_type_show_code'])) {
             $model->feeTypeShowCode = $map['fee_type_show_code'];
+        }
+
+        if (isset($map['has_changed'])) {
+            $model->hasChanged = $map['has_changed'];
         }
 
         if (isset($map['id'])) {
@@ -377,6 +425,10 @@ class items extends Model
 
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
+        }
+
+        if (isset($map['origin_ticket_no'])) {
+            $model->originTicketNo = $map['origin_ticket_no'];
         }
 
         if (isset($map['oss_url'])) {
@@ -433,6 +485,10 @@ class items extends Model
 
         if (isset($map['train_no'])) {
             $model->trainNo = $map['train_no'];
+        }
+
+        if (isset($map['xml_url'])) {
+            $model->xmlUrl = $map['xml_url'];
         }
 
         return $model;

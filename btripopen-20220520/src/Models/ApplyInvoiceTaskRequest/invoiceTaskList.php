@@ -41,6 +41,11 @@ class invoiceTaskList extends Model
     /**
      * @var string
      */
+    public $ieVehicleNormalInvoiceFee;
+
+    /**
+     * @var string
+     */
     public $internationalFlightInvoiceFee;
 
     /**
@@ -82,6 +87,11 @@ class invoiceTaskList extends Model
      * @var string
      */
     public $mealNormalInvoiceFee;
+
+    /**
+     * @var string
+     */
+    public $mealTc7NormalInvoiceFee;
 
     /**
      * @var string
@@ -139,6 +149,7 @@ class invoiceTaskList extends Model
         'fuPointInvoiceFee' => 'fu_point_invoice_fee',
         'hotelNormalInvoiceFee' => 'hotel_normal_invoice_fee',
         'hotelSpecialInvoiceFee' => 'hotel_special_invoice_fee',
+        'ieVehicleNormalInvoiceFee' => 'ie_vehicle_normal_invoice_fee',
         'internationalFlightInvoiceFee' => 'international_flight_invoice_fee',
         'internationalHotelInvoiceFee' => 'international_hotel_invoice_fee',
         'invoiceThirdPartId' => 'invoice_third_part_id',
@@ -148,6 +159,7 @@ class invoiceTaskList extends Model
         'mailFullAddress' => 'mail_full_address',
         'mailProvince' => 'mail_province',
         'mealNormalInvoiceFee' => 'meal_normal_invoice_fee',
+        'mealTc7NormalInvoiceFee' => 'meal_tc7_normal_invoice_fee',
         'penaltyFee' => 'penalty_fee',
         'remark' => 'remark',
         'serviceFee' => 'service_fee',
@@ -192,6 +204,10 @@ class invoiceTaskList extends Model
             $res['hotel_special_invoice_fee'] = $this->hotelSpecialInvoiceFee;
         }
 
+        if (null !== $this->ieVehicleNormalInvoiceFee) {
+            $res['ie_vehicle_normal_invoice_fee'] = $this->ieVehicleNormalInvoiceFee;
+        }
+
         if (null !== $this->internationalFlightInvoiceFee) {
             $res['international_flight_invoice_fee'] = $this->internationalFlightInvoiceFee;
         }
@@ -226,6 +242,10 @@ class invoiceTaskList extends Model
 
         if (null !== $this->mealNormalInvoiceFee) {
             $res['meal_normal_invoice_fee'] = $this->mealNormalInvoiceFee;
+        }
+
+        if (null !== $this->mealTc7NormalInvoiceFee) {
+            $res['meal_tc7_normal_invoice_fee'] = $this->mealTc7NormalInvoiceFee;
         }
 
         if (null !== $this->penaltyFee) {
@@ -303,6 +323,10 @@ class invoiceTaskList extends Model
             $model->hotelSpecialInvoiceFee = $map['hotel_special_invoice_fee'];
         }
 
+        if (isset($map['ie_vehicle_normal_invoice_fee'])) {
+            $model->ieVehicleNormalInvoiceFee = $map['ie_vehicle_normal_invoice_fee'];
+        }
+
         if (isset($map['international_flight_invoice_fee'])) {
             $model->internationalFlightInvoiceFee = $map['international_flight_invoice_fee'];
         }
@@ -337,6 +361,10 @@ class invoiceTaskList extends Model
 
         if (isset($map['meal_normal_invoice_fee'])) {
             $model->mealNormalInvoiceFee = $map['meal_normal_invoice_fee'];
+        }
+
+        if (isset($map['meal_tc7_normal_invoice_fee'])) {
+            $model->mealTc7NormalInvoiceFee = $map['meal_tc7_normal_invoice_fee'];
         }
 
         if (isset($map['penalty_fee'])) {

@@ -86,6 +86,16 @@ class orderBaseInfo extends Model
     /**
      * @var string
      */
+    public $replenishOrderIds;
+
+    /**
+     * @var string
+     */
+    public $replenishOriginalOrderId;
+
+    /**
+     * @var string
+     */
     public $thirdPartBusinessId;
 
     /**
@@ -133,6 +143,8 @@ class orderBaseInfo extends Model
         'itineraryId' => 'itinerary_id',
         'orderId' => 'order_id',
         'orderStatus' => 'order_status',
+        'replenishOrderIds' => 'replenish_order_ids',
+        'replenishOriginalOrderId' => 'replenish_original_order_id',
         'thirdPartBusinessId' => 'thirdPart_business_id',
         'thirdpartApplyId' => 'thirdpart_apply_id',
         'thirdpartDepartId' => 'thirdpart_depart_id',
@@ -208,6 +220,14 @@ class orderBaseInfo extends Model
 
         if (null !== $this->orderStatus) {
             $res['order_status'] = $this->orderStatus;
+        }
+
+        if (null !== $this->replenishOrderIds) {
+            $res['replenish_order_ids'] = $this->replenishOrderIds;
+        }
+
+        if (null !== $this->replenishOriginalOrderId) {
+            $res['replenish_original_order_id'] = $this->replenishOriginalOrderId;
         }
 
         if (null !== $this->thirdPartBusinessId) {
@@ -307,6 +327,14 @@ class orderBaseInfo extends Model
 
         if (isset($map['order_status'])) {
             $model->orderStatus = $map['order_status'];
+        }
+
+        if (isset($map['replenish_order_ids'])) {
+            $model->replenishOrderIds = $map['replenish_order_ids'];
+        }
+
+        if (isset($map['replenish_original_order_id'])) {
+            $model->replenishOriginalOrderId = $map['replenish_original_order_id'];
         }
 
         if (isset($map['thirdPart_business_id'])) {

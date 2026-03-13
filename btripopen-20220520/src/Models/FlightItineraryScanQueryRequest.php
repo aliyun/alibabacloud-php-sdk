@@ -31,6 +31,11 @@ class FlightItineraryScanQueryRequest extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $pageNo;
 
     /**
@@ -47,6 +52,7 @@ class FlightItineraryScanQueryRequest extends Model
         'billId' => 'bill_id',
         'invoiceSubTaskId' => 'invoice_sub_task_id',
         'itineraryNum' => 'itinerary_num',
+        'orderId' => 'order_id',
         'pageNo' => 'page_no',
         'pageSize' => 'page_size',
         'ticketNo' => 'ticket_no',
@@ -74,6 +80,10 @@ class FlightItineraryScanQueryRequest extends Model
 
         if (null !== $this->itineraryNum) {
             $res['itinerary_num'] = $this->itineraryNum;
+        }
+
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
 
         if (null !== $this->pageNo) {
@@ -113,6 +123,10 @@ class FlightItineraryScanQueryRequest extends Model
 
         if (isset($map['itinerary_num'])) {
             $model->itineraryNum = $map['itinerary_num'];
+        }
+
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
 
         if (isset($map['page_no'])) {

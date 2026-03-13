@@ -41,6 +41,11 @@ class module extends Model
     /**
      * @var int
      */
+    public $orderId;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -74,6 +79,7 @@ class module extends Model
         'corpId' => 'corp_id',
         'extendValue' => 'extend_value',
         'gmtCreate' => 'gmt_create',
+        'orderId' => 'order_id',
         'status' => 'status',
         'thirdpartCorpId' => 'thirdpart_corp_id',
         'thirdpartId' => 'thirdpart_id',
@@ -112,6 +118,10 @@ class module extends Model
 
         if (null !== $this->gmtCreate) {
             $res['gmt_create'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
 
         if (null !== $this->status) {
@@ -171,6 +181,10 @@ class module extends Model
 
         if (isset($map['gmt_create'])) {
             $model->gmtCreate = $map['gmt_create'];
+        }
+
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
 
         if (isset($map['status'])) {

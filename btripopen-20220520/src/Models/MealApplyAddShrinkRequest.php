@@ -19,6 +19,11 @@ class MealApplyAddShrinkRequest extends Model
     public $costCenterId;
 
     /**
+     * @var string
+     */
+    public $extendField;
+
+    /**
      * @var int
      */
     public $invoiceId;
@@ -70,6 +75,7 @@ class MealApplyAddShrinkRequest extends Model
     protected $_name = [
         'applyUserShrink' => 'apply_user',
         'costCenterId' => 'cost_center_id',
+        'extendField' => 'extend_field',
         'invoiceId' => 'invoice_id',
         'itineraryListShrink' => 'itinerary_list',
         'mealAmount' => 'meal_amount',
@@ -96,6 +102,10 @@ class MealApplyAddShrinkRequest extends Model
 
         if (null !== $this->costCenterId) {
             $res['cost_center_id'] = $this->costCenterId;
+        }
+
+        if (null !== $this->extendField) {
+            $res['extend_field'] = $this->extendField;
         }
 
         if (null !== $this->invoiceId) {
@@ -155,6 +165,10 @@ class MealApplyAddShrinkRequest extends Model
 
         if (isset($map['cost_center_id'])) {
             $model->costCenterId = $map['cost_center_id'];
+        }
+
+        if (isset($map['extend_field'])) {
+            $model->extendField = $map['extend_field'];
         }
 
         if (isset($map['invoice_id'])) {

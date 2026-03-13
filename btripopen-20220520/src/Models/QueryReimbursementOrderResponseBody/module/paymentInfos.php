@@ -16,9 +16,15 @@ class paymentInfos extends Model
     /**
      * @var string
      */
+    public $payeeAccountNumber;
+
+    /**
+     * @var string
+     */
     public $payeeUserId;
     protected $_name = [
         'amount' => 'amount',
+        'payeeAccountNumber' => 'payee_account_number',
         'payeeUserId' => 'payee_user_id',
     ];
 
@@ -32,6 +38,10 @@ class paymentInfos extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
+        }
+
+        if (null !== $this->payeeAccountNumber) {
+            $res['payee_account_number'] = $this->payeeAccountNumber;
         }
 
         if (null !== $this->payeeUserId) {
@@ -51,6 +61,10 @@ class paymentInfos extends Model
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
+        }
+
+        if (isset($map['payee_account_number'])) {
+            $model->payeeAccountNumber = $map['payee_account_number'];
         }
 
         if (isset($map['payee_user_id'])) {

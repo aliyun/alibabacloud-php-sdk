@@ -19,9 +19,24 @@ class TrainTicketScanQueryRequest extends Model
     public $billId;
 
     /**
+     * @var string
+     */
+    public $invoiceDateEnd;
+
+    /**
+     * @var string
+     */
+    public $invoiceDateStart;
+
+    /**
      * @var int
      */
     public $invoiceSubTaskId;
+
+    /**
+     * @var int
+     */
+    public $orderId;
 
     /**
      * @var int
@@ -45,7 +60,10 @@ class TrainTicketScanQueryRequest extends Model
     protected $_name = [
         'billDate' => 'bill_date',
         'billId' => 'bill_id',
+        'invoiceDateEnd' => 'invoice_date_end',
+        'invoiceDateStart' => 'invoice_date_start',
         'invoiceSubTaskId' => 'invoice_sub_task_id',
+        'orderId' => 'order_id',
         'pageNo' => 'page_no',
         'pageSize' => 'page_size',
         'serialNumber' => 'serial_number',
@@ -68,8 +86,20 @@ class TrainTicketScanQueryRequest extends Model
             $res['bill_id'] = $this->billId;
         }
 
+        if (null !== $this->invoiceDateEnd) {
+            $res['invoice_date_end'] = $this->invoiceDateEnd;
+        }
+
+        if (null !== $this->invoiceDateStart) {
+            $res['invoice_date_start'] = $this->invoiceDateStart;
+        }
+
         if (null !== $this->invoiceSubTaskId) {
             $res['invoice_sub_task_id'] = $this->invoiceSubTaskId;
+        }
+
+        if (null !== $this->orderId) {
+            $res['order_id'] = $this->orderId;
         }
 
         if (null !== $this->pageNo) {
@@ -107,8 +137,20 @@ class TrainTicketScanQueryRequest extends Model
             $model->billId = $map['bill_id'];
         }
 
+        if (isset($map['invoice_date_end'])) {
+            $model->invoiceDateEnd = $map['invoice_date_end'];
+        }
+
+        if (isset($map['invoice_date_start'])) {
+            $model->invoiceDateStart = $map['invoice_date_start'];
+        }
+
         if (isset($map['invoice_sub_task_id'])) {
             $model->invoiceSubTaskId = $map['invoice_sub_task_id'];
+        }
+
+        if (isset($map['order_id'])) {
+            $model->orderId = $map['order_id'];
         }
 
         if (isset($map['page_no'])) {

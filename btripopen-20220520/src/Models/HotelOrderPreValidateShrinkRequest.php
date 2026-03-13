@@ -44,6 +44,11 @@ class HotelOrderPreValidateShrinkRequest extends Model
     public $occupantInfoListShrink;
 
     /**
+     * @var string
+     */
+    public $rateKey;
+
+    /**
      * @var int
      */
     public $ratePlanId;
@@ -80,6 +85,7 @@ class HotelOrderPreValidateShrinkRequest extends Model
         'itemId' => 'item_id',
         'numberOfAdultsPerRoom' => 'number_of_adults_per_room',
         'occupantInfoListShrink' => 'occupant_info_list',
+        'rateKey' => 'rate_key',
         'ratePlanId' => 'rate_plan_id',
         'roomId' => 'room_id',
         'roomNum' => 'room_num',
@@ -122,6 +128,10 @@ class HotelOrderPreValidateShrinkRequest extends Model
 
         if (null !== $this->occupantInfoListShrink) {
             $res['occupant_info_list'] = $this->occupantInfoListShrink;
+        }
+
+        if (null !== $this->rateKey) {
+            $res['rate_key'] = $this->rateKey;
         }
 
         if (null !== $this->ratePlanId) {
@@ -185,6 +195,10 @@ class HotelOrderPreValidateShrinkRequest extends Model
 
         if (isset($map['occupant_info_list'])) {
             $model->occupantInfoListShrink = $map['occupant_info_list'];
+        }
+
+        if (isset($map['rate_key'])) {
+            $model->rateKey = $map['rate_key'];
         }
 
         if (isset($map['rate_plan_id'])) {

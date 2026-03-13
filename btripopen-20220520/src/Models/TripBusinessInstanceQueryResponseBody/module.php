@@ -11,6 +11,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $businessData;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -28,6 +33,7 @@ class module extends Model
      */
     public $status;
     protected $_name = [
+        'businessData' => 'business_data',
         'creator' => 'creator',
         'gmtCreate' => 'gmt_create',
         'gmtModified' => 'gmt_modified',
@@ -42,6 +48,10 @@ class module extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessData) {
+            $res['business_data'] = $this->businessData;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
@@ -69,6 +79,10 @@ class module extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['business_data'])) {
+            $model->businessData = $map['business_data'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }

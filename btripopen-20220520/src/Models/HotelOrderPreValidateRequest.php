@@ -46,6 +46,11 @@ class HotelOrderPreValidateRequest extends Model
     public $occupantInfoList;
 
     /**
+     * @var string
+     */
+    public $rateKey;
+
+    /**
      * @var int
      */
     public $ratePlanId;
@@ -82,6 +87,7 @@ class HotelOrderPreValidateRequest extends Model
         'itemId' => 'item_id',
         'numberOfAdultsPerRoom' => 'number_of_adults_per_room',
         'occupantInfoList' => 'occupant_info_list',
+        'rateKey' => 'rate_key',
         'ratePlanId' => 'rate_plan_id',
         'roomId' => 'room_id',
         'roomNum' => 'room_num',
@@ -144,6 +150,10 @@ class HotelOrderPreValidateRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->rateKey) {
+            $res['rate_key'] = $this->rateKey;
         }
 
         if (null !== $this->ratePlanId) {
@@ -221,6 +231,10 @@ class HotelOrderPreValidateRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['rate_key'])) {
+            $model->rateKey = $map['rate_key'];
         }
 
         if (isset($map['rate_plan_id'])) {

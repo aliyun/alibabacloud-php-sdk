@@ -24,6 +24,11 @@ class orderBaseInfo extends Model
     public $btripTitle;
 
     /**
+     * @var int
+     */
+    public $carOrderSourceType;
+
+    /**
      * @var string
      */
     public $corpId;
@@ -106,6 +111,7 @@ class orderBaseInfo extends Model
         'applyId' => 'apply_id',
         'btripCause' => 'btrip_cause',
         'btripTitle' => 'btrip_title',
+        'carOrderSourceType' => 'car_order_source_type',
         'corpId' => 'corp_id',
         'corpName' => 'corp_name',
         'departId' => 'depart_id',
@@ -142,6 +148,10 @@ class orderBaseInfo extends Model
 
         if (null !== $this->btripTitle) {
             $res['btrip_title'] = $this->btripTitle;
+        }
+
+        if (null !== $this->carOrderSourceType) {
+            $res['car_order_source_type'] = $this->carOrderSourceType;
         }
 
         if (null !== $this->corpId) {
@@ -229,6 +239,10 @@ class orderBaseInfo extends Model
 
         if (isset($map['btrip_title'])) {
             $model->btripTitle = $map['btrip_title'];
+        }
+
+        if (isset($map['car_order_source_type'])) {
+            $model->carOrderSourceType = $map['car_order_source_type'];
         }
 
         if (isset($map['corp_id'])) {

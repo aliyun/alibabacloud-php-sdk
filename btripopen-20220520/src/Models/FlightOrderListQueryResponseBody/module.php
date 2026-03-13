@@ -26,6 +26,16 @@ class module extends Model
     /**
      * @var string
      */
+    public $arrAptPrefectureAdCode;
+
+    /**
+     * @var string
+     */
+    public $arrAptPrefectureName;
+
+    /**
+     * @var string
+     */
     public $arrCity;
 
     /**
@@ -67,6 +77,16 @@ class module extends Model
      * @var string
      */
     public $depAirport;
+
+    /**
+     * @var string
+     */
+    public $depAptPrefectureAdCode;
+
+    /**
+     * @var string
+     */
+    public $depAptPrefectureName;
 
     /**
      * @var string
@@ -210,6 +230,8 @@ class module extends Model
     protected $_name = [
         'applyId' => 'apply_id',
         'arrAirport' => 'arr_airport',
+        'arrAptPrefectureAdCode' => 'arr_apt_prefecture_ad_code',
+        'arrAptPrefectureName' => 'arr_apt_prefecture_name',
         'arrCity' => 'arr_city',
         'arrCityAdCode' => 'arr_city_ad_code',
         'btripTitle' => 'btrip_title',
@@ -219,6 +241,8 @@ class module extends Model
         'corpName' => 'corp_name',
         'costCenter' => 'cost_center',
         'depAirport' => 'dep_airport',
+        'depAptPrefectureAdCode' => 'dep_apt_prefecture_ad_code',
+        'depAptPrefectureName' => 'dep_apt_prefecture_name',
         'depCity' => 'dep_city',
         'depCityAdCode' => 'dep_city_ad_code',
         'depDate' => 'dep_date',
@@ -280,6 +304,14 @@ class module extends Model
             $res['arr_airport'] = $this->arrAirport;
         }
 
+        if (null !== $this->arrAptPrefectureAdCode) {
+            $res['arr_apt_prefecture_ad_code'] = $this->arrAptPrefectureAdCode;
+        }
+
+        if (null !== $this->arrAptPrefectureName) {
+            $res['arr_apt_prefecture_name'] = $this->arrAptPrefectureName;
+        }
+
         if (null !== $this->arrCity) {
             $res['arr_city'] = $this->arrCity;
         }
@@ -314,6 +346,14 @@ class module extends Model
 
         if (null !== $this->depAirport) {
             $res['dep_airport'] = $this->depAirport;
+        }
+
+        if (null !== $this->depAptPrefectureAdCode) {
+            $res['dep_apt_prefecture_ad_code'] = $this->depAptPrefectureAdCode;
+        }
+
+        if (null !== $this->depAptPrefectureName) {
+            $res['dep_apt_prefecture_name'] = $this->depAptPrefectureName;
         }
 
         if (null !== $this->depCity) {
@@ -468,6 +508,14 @@ class module extends Model
             $model->arrAirport = $map['arr_airport'];
         }
 
+        if (isset($map['arr_apt_prefecture_ad_code'])) {
+            $model->arrAptPrefectureAdCode = $map['arr_apt_prefecture_ad_code'];
+        }
+
+        if (isset($map['arr_apt_prefecture_name'])) {
+            $model->arrAptPrefectureName = $map['arr_apt_prefecture_name'];
+        }
+
         if (isset($map['arr_city'])) {
             $model->arrCity = $map['arr_city'];
         }
@@ -502,6 +550,14 @@ class module extends Model
 
         if (isset($map['dep_airport'])) {
             $model->depAirport = $map['dep_airport'];
+        }
+
+        if (isset($map['dep_apt_prefecture_ad_code'])) {
+            $model->depAptPrefectureAdCode = $map['dep_apt_prefecture_ad_code'];
+        }
+
+        if (isset($map['dep_apt_prefecture_name'])) {
+            $model->depAptPrefectureName = $map['dep_apt_prefecture_name'];
         }
 
         if (isset($map['dep_city'])) {

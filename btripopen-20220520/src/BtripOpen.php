@@ -382,6 +382,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelStaticInfoShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2Headers;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2Request;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSuggestV2Response;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeCarBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeCarBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeCarBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryResponse;
@@ -556,6 +559,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCompenInfosForOpHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCompenInfosForOpRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCompenInfosForOpResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCorpDetailInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCorpDetailInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCorpDetailInfoResponse;
@@ -3095,6 +3101,14 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
+        }
+
         if (null !== $request->orderId) {
             @$query['order_id'] = $request->orderId;
         }
@@ -3774,6 +3788,14 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
+        }
+
         if (null !== $request->cooperatorId) {
             @$query['cooperator_id'] = $request->cooperatorId;
         }
@@ -3874,6 +3896,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->cooperatorId) {
@@ -6058,6 +6088,14 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
+        }
+
         if (null !== $request->orderId) {
             @$query['order_id'] = $request->orderId;
         }
@@ -6660,6 +6698,10 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->itineraryNum) {
             @$query['itinerary_num'] = $request->itineraryNum;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -8058,8 +8100,16 @@ class BtripOpen extends OpenApiClient
             @$query['isv_name'] = $request->isvName;
         }
 
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
         if (null !== $request->otaItemId) {
             @$query['ota_item_id'] = $request->otaItemId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
         }
 
         $realHeaders = [];
@@ -9238,6 +9288,14 @@ class BtripOpen extends OpenApiClient
             @$query['bill_batch'] = $request->billBatch;
         }
 
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
+        }
+
         if (null !== $request->cooperatorId) {
             @$query['cooperator_id'] = $request->cooperatorId;
         }
@@ -9752,6 +9810,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->orderId) {
@@ -10441,6 +10507,10 @@ class BtripOpen extends OpenApiClient
             $request->invoiceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->invoiceInfo, 'invoice_info', 'json');
         }
 
+        if (null !== $tmpReq->memberInfo) {
+            $request->memberInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memberInfo, 'member_info', 'json');
+        }
+
         if (null !== $tmpReq->occupantInfoList) {
             $request->occupantInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->occupantInfoList, 'occupant_info_list', 'json');
         }
@@ -10496,6 +10566,10 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->itineraryNo) {
             @$body['itinerary_no'] = $request->itineraryNo;
+        }
+
+        if (null !== $request->memberInfoShrink) {
+            @$body['member_info'] = $request->memberInfoShrink;
         }
 
         if (null !== $request->occupantInfoListShrink) {
@@ -10982,6 +11056,10 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->occupantInfoListShrink) {
             @$query['occupant_info_list'] = $request->occupantInfoListShrink;
+        }
+
+        if (null !== $request->rateKey) {
+            @$query['rate_key'] = $request->rateKey;
         }
 
         if (null !== $request->ratePlanId) {
@@ -11628,7 +11706,7 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * 国际机票订单详情.
+     * International Flight Order Details.
      *
      * @param request - IFlightOrderDetailQueryRequest
      * @param headers - IFlightOrderDetailQueryHeaders
@@ -11679,7 +11757,7 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * 国际机票订单详情.
+     * International Flight Order Details.
      *
      * @param request - IFlightOrderDetailQueryRequest
      *
@@ -11814,6 +11892,112 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * 查询国际/中国港澳台用车记账数据.
+     *
+     * @param request - IeCarBillSettlementQueryRequest
+     * @param headers - IeCarBillSettlementQueryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IeCarBillSettlementQueryResponse
+     *
+     * @param IeCarBillSettlementQueryRequest $request
+     * @param IeCarBillSettlementQueryHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return IeCarBillSettlementQueryResponse
+     */
+    public function ieCarBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->billBatch) {
+            @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['page_no'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['page_size'] = $request->pageSize;
+        }
+
+        if (null !== $request->periodEnd) {
+            @$query['period_end'] = $request->periodEnd;
+        }
+
+        if (null !== $request->periodStart) {
+            @$query['period_start'] = $request->periodStart;
+        }
+
+        if (null !== $request->scrollId) {
+            @$query['scroll_id'] = $request->scrollId;
+        }
+
+        if (null !== $request->scrollMod) {
+            @$query['scroll_mod'] = $request->scrollMod;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IeCarBillSettlementQuery',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/open/v1/ieCar-bill-settlement-query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IeCarBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询国际/中国港澳台用车记账数据.
+     *
+     * @param request - IeCarBillSettlementQueryRequest
+     *
+     * @returns IeCarBillSettlementQueryResponse
+     *
+     * @param IeCarBillSettlementQueryRequest $request
+     *
+     * @return IeCarBillSettlementQueryResponse
+     */
+    public function ieCarBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IeCarBillSettlementQueryHeaders([]);
+
+        return $this->ieCarBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询国际机票记账数据.
      *
      * @param request - IeFlightBillSettlementQueryRequest
@@ -11834,6 +12018,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->orderId) {
@@ -11932,6 +12124,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->category) {
@@ -14526,6 +14726,10 @@ class BtripOpen extends OpenApiClient
             @$body['bank_no'] = $request->bankNo;
         }
 
+        if (null !== $request->mailThirdPartId) {
+            @$body['mail_third_part_id'] = $request->mailThirdPartId;
+        }
+
         if (null !== $request->taxNo) {
             @$body['tax_no'] = $request->taxNo;
         }
@@ -14696,6 +14900,10 @@ class BtripOpen extends OpenApiClient
 
         if (null !== $request->bankNo) {
             @$body['bank_no'] = $request->bankNo;
+        }
+
+        if (null !== $request->mailThirdPartId) {
+            @$body['mail_third_part_id'] = $request->mailThirdPartId;
         }
 
         if (null !== $request->taxNo) {
@@ -15308,6 +15516,10 @@ class BtripOpen extends OpenApiClient
             @$body['cost_center_id'] = $request->costCenterId;
         }
 
+        if (null !== $request->extendField) {
+            @$body['extend_field'] = $request->extendField;
+        }
+
         if (null !== $request->invoiceId) {
             @$body['invoice_id'] = $request->invoiceId;
         }
@@ -15572,6 +15784,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->orderId) {
@@ -16341,6 +16561,84 @@ class BtripOpen extends OpenApiClient
         $headers = new ProjectModifyHeaders([]);
 
         return $this->projectModifyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询赔付信息.
+     *
+     * @param request - QueryCompenInfosForOpRequest
+     * @param headers - QueryCompenInfosForOpHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCompenInfosForOpResponse
+     *
+     * @param QueryCompenInfosForOpRequest $request
+     * @param QueryCompenInfosForOpHeaders $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryCompenInfosForOpResponse
+     */
+    public function queryCompenInfosForOpWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
+        }
+
+        if (null !== $request->compenId) {
+            @$query['compen_id'] = $request->compenId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCompenInfosForOp',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/compen/v1/queryCompenInfosForOp',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCompenInfosForOpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询赔付信息.
+     *
+     * @param request - QueryCompenInfosForOpRequest
+     *
+     * @returns QueryCompenInfosForOpResponse
+     *
+     * @param QueryCompenInfosForOpRequest $request
+     *
+     * @return QueryCompenInfosForOpResponse
+     */
+    public function queryCompenInfosForOp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryCompenInfosForOpHeaders([]);
+
+        return $this->queryCompenInfosForOpWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -17702,6 +18000,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->orderId) {
@@ -19092,8 +19398,20 @@ class BtripOpen extends OpenApiClient
             @$query['bill_id'] = $request->billId;
         }
 
+        if (null !== $request->invoiceDateEnd) {
+            @$query['invoice_date_end'] = $request->invoiceDateEnd;
+        }
+
+        if (null !== $request->invoiceDateStart) {
+            @$query['invoice_date_start'] = $request->invoiceDateStart;
+        }
+
         if (null !== $request->invoiceSubTaskId) {
             @$query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
         }
 
         if (null !== $request->pageNo) {
@@ -20406,6 +20724,14 @@ class BtripOpen extends OpenApiClient
         $query = [];
         if (null !== $request->billBatch) {
             @$query['bill_batch'] = $request->billBatch;
+        }
+
+        if (null !== $request->billRecordTimeEnd) {
+            @$query['bill_record_time_end'] = $request->billRecordTimeEnd;
+        }
+
+        if (null !== $request->billRecordTimeStart) {
+            @$query['bill_record_time_start'] = $request->billRecordTimeStart;
         }
 
         if (null !== $request->cooperatorId) {

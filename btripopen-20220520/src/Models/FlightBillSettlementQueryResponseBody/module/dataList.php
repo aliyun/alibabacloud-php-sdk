@@ -121,6 +121,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $beforeTicketNo;
+
+    /**
+     * @var string
+     */
     public $billRecordTime;
 
     /**
@@ -549,6 +554,11 @@ class dataList extends Model
     public $sealPrice;
 
     /**
+     * @var string
+     */
+    public $segmentList;
+
+    /**
      * @var float
      */
     public $serviceFee;
@@ -690,6 +700,7 @@ class dataList extends Model
         'arrStation' => 'arr_station',
         'arrTime' => 'arr_time',
         'baseLocation' => 'base_location',
+        'beforeTicketNo' => 'before_ticket_no',
         'billRecordTime' => 'bill_record_time',
         'bookChannel' => 'book_channel',
         'bookMode' => 'book_mode',
@@ -776,6 +787,7 @@ class dataList extends Model
         'sceneId' => 'scene_id',
         'sceneName' => 'scene_name',
         'sealPrice' => 'seal_price',
+        'segmentList' => 'segment_list',
         'serviceFee' => 'service_fee',
         'settleTypeDesc' => 'settle_type_desc',
         'settlementFee' => 'settlement_fee',
@@ -896,6 +908,10 @@ class dataList extends Model
 
         if (null !== $this->baseLocation) {
             $res['base_location'] = $this->baseLocation;
+        }
+
+        if (null !== $this->beforeTicketNo) {
+            $res['before_ticket_no'] = $this->beforeTicketNo;
         }
 
         if (null !== $this->billRecordTime) {
@@ -1242,6 +1258,10 @@ class dataList extends Model
             $res['seal_price'] = $this->sealPrice;
         }
 
+        if (null !== $this->segmentList) {
+            $res['segment_list'] = $this->segmentList;
+        }
+
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
         }
@@ -1435,6 +1455,10 @@ class dataList extends Model
 
         if (isset($map['base_location'])) {
             $model->baseLocation = $map['base_location'];
+        }
+
+        if (isset($map['before_ticket_no'])) {
+            $model->beforeTicketNo = $map['before_ticket_no'];
         }
 
         if (isset($map['bill_record_time'])) {
@@ -1779,6 +1803,10 @@ class dataList extends Model
 
         if (isset($map['seal_price'])) {
             $model->sealPrice = $map['seal_price'];
+        }
+
+        if (isset($map['segment_list'])) {
+            $model->segmentList = $map['segment_list'];
         }
 
         if (isset($map['service_fee'])) {

@@ -25,6 +25,11 @@ class items extends Model
     public $billDate;
 
     /**
+     * @var int
+     */
+    public $blueOrRed;
+
+    /**
      * @var string
      */
     public $build;
@@ -102,6 +107,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $otherTaxes;
+
+    /**
+     * @var string
+     */
     public $passengerName;
 
     /**
@@ -163,10 +173,16 @@ class items extends Model
      * @var string
      */
     public $validationCode;
+
+    /**
+     * @var string
+     */
+    public $xmlOssUrl;
     protected $_name = [
         'agentCode' => 'agent_code',
         'applyId' => 'apply_id',
         'billDate' => 'bill_date',
+        'blueOrRed' => 'blue_or_red',
         'build' => 'build',
         'costCenter' => 'cost_center',
         'department' => 'department',
@@ -182,6 +198,7 @@ class items extends Model
         'ofdOssUrl' => 'ofd_oss_url',
         'orderId' => 'order_id',
         'ossUrl' => 'oss_url',
+        'otherTaxes' => 'other_taxes',
         'passengerName' => 'passenger_name',
         'pdfOssUrl' => 'pdf_oss_url',
         'project' => 'project',
@@ -195,6 +212,7 @@ class items extends Model
         'ticketPrice' => 'ticket_price',
         'totalPrice' => 'total_price',
         'validationCode' => 'validation_code',
+        'xmlOssUrl' => 'xml_oss_url',
     ];
 
     public function validate()
@@ -218,6 +236,10 @@ class items extends Model
 
         if (null !== $this->billDate) {
             $res['bill_date'] = $this->billDate;
+        }
+
+        if (null !== $this->blueOrRed) {
+            $res['blue_or_red'] = $this->blueOrRed;
         }
 
         if (null !== $this->build) {
@@ -287,6 +309,10 @@ class items extends Model
             $res['oss_url'] = $this->ossUrl;
         }
 
+        if (null !== $this->otherTaxes) {
+            $res['other_taxes'] = $this->otherTaxes;
+        }
+
         if (null !== $this->passengerName) {
             $res['passenger_name'] = $this->passengerName;
         }
@@ -339,6 +365,10 @@ class items extends Model
             $res['validation_code'] = $this->validationCode;
         }
 
+        if (null !== $this->xmlOssUrl) {
+            $res['xml_oss_url'] = $this->xmlOssUrl;
+        }
+
         return $res;
     }
 
@@ -360,6 +390,10 @@ class items extends Model
 
         if (isset($map['bill_date'])) {
             $model->billDate = $map['bill_date'];
+        }
+
+        if (isset($map['blue_or_red'])) {
+            $model->blueOrRed = $map['blue_or_red'];
         }
 
         if (isset($map['build'])) {
@@ -429,6 +463,10 @@ class items extends Model
             $model->ossUrl = $map['oss_url'];
         }
 
+        if (isset($map['other_taxes'])) {
+            $model->otherTaxes = $map['other_taxes'];
+        }
+
         if (isset($map['passenger_name'])) {
             $model->passengerName = $map['passenger_name'];
         }
@@ -479,6 +517,10 @@ class items extends Model
 
         if (isset($map['validation_code'])) {
             $model->validationCode = $map['validation_code'];
+        }
+
+        if (isset($map['xml_oss_url'])) {
+            $model->xmlOssUrl = $map['xml_oss_url'];
         }
 
         return $model;

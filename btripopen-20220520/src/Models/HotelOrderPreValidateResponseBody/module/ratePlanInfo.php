@@ -20,6 +20,11 @@ class ratePlanInfo extends Model
     public $btripHotelCancelPolicyDTO;
 
     /**
+     * @var string[]
+     */
+    public $certTypeList;
+
+    /**
      * @var string
      */
     public $earliestCheckInTime;
@@ -66,6 +71,7 @@ class ratePlanInfo extends Model
     protected $_name = [
         'bedDesc' => 'bed_desc',
         'btripHotelCancelPolicyDTO' => 'btrip_hotel_cancel_policy_d_t_o',
+        'certTypeList' => 'cert_type_list',
         'earliestCheckInTime' => 'earliest_check_in_time',
         'latestCheckOutTime' => 'latest_check_out_time',
         'maxBookingNum' => 'max_booking_num',
@@ -82,6 +88,9 @@ class ratePlanInfo extends Model
         if (null !== $this->btripHotelCancelPolicyDTO) {
             $this->btripHotelCancelPolicyDTO->validate();
         }
+        if (\is_array($this->certTypeList)) {
+            Model::validateArray($this->certTypeList);
+        }
         parent::validate();
     }
 
@@ -94,6 +103,17 @@ class ratePlanInfo extends Model
 
         if (null !== $this->btripHotelCancelPolicyDTO) {
             $res['btrip_hotel_cancel_policy_d_t_o'] = null !== $this->btripHotelCancelPolicyDTO ? $this->btripHotelCancelPolicyDTO->toArray($noStream) : $this->btripHotelCancelPolicyDTO;
+        }
+
+        if (null !== $this->certTypeList) {
+            if (\is_array($this->certTypeList)) {
+                $res['cert_type_list'] = [];
+                $n1 = 0;
+                foreach ($this->certTypeList as $item1) {
+                    $res['cert_type_list'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->earliestCheckInTime) {
@@ -149,6 +169,17 @@ class ratePlanInfo extends Model
 
         if (isset($map['btrip_hotel_cancel_policy_d_t_o'])) {
             $model->btripHotelCancelPolicyDTO = btripHotelCancelPolicyDTO::fromMap($map['btrip_hotel_cancel_policy_d_t_o']);
+        }
+
+        if (isset($map['cert_type_list'])) {
+            if (!empty($map['cert_type_list'])) {
+                $model->certTypeList = [];
+                $n1 = 0;
+                foreach ($map['cert_type_list'] as $item1) {
+                    $model->certTypeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['earliest_check_in_time'])) {

@@ -71,6 +71,11 @@ class HotelOrderCreateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $memberInfoShrink;
+
+    /**
+     * @var string
+     */
     public $occupantInfoListShrink;
 
     /**
@@ -130,6 +135,7 @@ class HotelOrderCreateShrinkRequest extends Model
         'invoiceInfoShrink' => 'invoice_info',
         'itemId' => 'item_id',
         'itineraryNo' => 'itinerary_no',
+        'memberInfoShrink' => 'member_info',
         'occupantInfoListShrink' => 'occupant_info_list',
         'personPayPrice' => 'person_pay_price',
         'promotionInfoShrink' => 'promotion_info',
@@ -196,6 +202,10 @@ class HotelOrderCreateShrinkRequest extends Model
 
         if (null !== $this->itineraryNo) {
             $res['itinerary_no'] = $this->itineraryNo;
+        }
+
+        if (null !== $this->memberInfoShrink) {
+            $res['member_info'] = $this->memberInfoShrink;
         }
 
         if (null !== $this->occupantInfoListShrink) {
@@ -295,6 +305,10 @@ class HotelOrderCreateShrinkRequest extends Model
 
         if (isset($map['itinerary_no'])) {
             $model->itineraryNo = $map['itinerary_no'];
+        }
+
+        if (isset($map['member_info'])) {
+            $model->memberInfoShrink = $map['member_info'];
         }
 
         if (isset($map['occupant_info_list'])) {

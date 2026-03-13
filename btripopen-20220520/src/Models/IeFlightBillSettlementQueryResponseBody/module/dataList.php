@@ -476,6 +476,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $segmentList;
+
+    /**
+     * @var string
+     */
     public $segmentType;
 
     /**
@@ -701,6 +706,7 @@ class dataList extends Model
         'remark' => 'remark',
         'repeatRefund' => 'repeat_refund',
         'sealPrice' => 'seal_price',
+        'segmentList' => 'segment_list',
         'segmentType' => 'segment_type',
         'serviceFee' => 'service_fee',
         'settleTypeDesc' => 'settle_type_desc',
@@ -1108,6 +1114,10 @@ class dataList extends Model
 
         if (null !== $this->sealPrice) {
             $res['seal_price'] = $this->sealPrice;
+        }
+
+        if (null !== $this->segmentList) {
+            $res['segment_list'] = $this->segmentList;
         }
 
         if (null !== $this->segmentType) {
@@ -1599,6 +1609,10 @@ class dataList extends Model
 
         if (isset($map['seal_price'])) {
             $model->sealPrice = $map['seal_price'];
+        }
+
+        if (isset($map['segment_list'])) {
+            $model->segmentList = $map['segment_list'];
         }
 
         if (isset($map['segment_type'])) {
