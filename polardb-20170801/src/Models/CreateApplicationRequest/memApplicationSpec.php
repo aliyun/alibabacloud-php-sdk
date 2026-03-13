@@ -29,6 +29,16 @@ class memApplicationSpec extends Model
     public $embedderModel;
 
     /**
+     * @var int
+     */
+    public $embedderModelDimension;
+
+    /**
+     * @var string
+     */
+    public $graphLlmModel;
+
+    /**
      * @var string
      */
     public $llmModel;
@@ -42,14 +52,22 @@ class memApplicationSpec extends Model
      * @var string
      */
     public $rerankerModel;
+
+    /**
+     * @var int
+     */
+    public $shard;
     protected $_name = [
         'dbName' => 'DbName',
         'dbPassword' => 'DbPassword',
         'dbUser' => 'DbUser',
         'embedderModel' => 'EmbedderModel',
+        'embedderModelDimension' => 'EmbedderModelDimension',
+        'graphLlmModel' => 'GraphLlmModel',
         'llmModel' => 'LlmModel',
         'projectName' => 'ProjectName',
         'rerankerModel' => 'RerankerModel',
+        'shard' => 'Shard',
     ];
 
     public function validate()
@@ -76,6 +94,14 @@ class memApplicationSpec extends Model
             $res['EmbedderModel'] = $this->embedderModel;
         }
 
+        if (null !== $this->embedderModelDimension) {
+            $res['EmbedderModelDimension'] = $this->embedderModelDimension;
+        }
+
+        if (null !== $this->graphLlmModel) {
+            $res['GraphLlmModel'] = $this->graphLlmModel;
+        }
+
         if (null !== $this->llmModel) {
             $res['LlmModel'] = $this->llmModel;
         }
@@ -86,6 +112,10 @@ class memApplicationSpec extends Model
 
         if (null !== $this->rerankerModel) {
             $res['RerankerModel'] = $this->rerankerModel;
+        }
+
+        if (null !== $this->shard) {
+            $res['Shard'] = $this->shard;
         }
 
         return $res;
@@ -115,6 +145,14 @@ class memApplicationSpec extends Model
             $model->embedderModel = $map['EmbedderModel'];
         }
 
+        if (isset($map['EmbedderModelDimension'])) {
+            $model->embedderModelDimension = $map['EmbedderModelDimension'];
+        }
+
+        if (isset($map['GraphLlmModel'])) {
+            $model->graphLlmModel = $map['GraphLlmModel'];
+        }
+
         if (isset($map['LlmModel'])) {
             $model->llmModel = $map['LlmModel'];
         }
@@ -125,6 +163,10 @@ class memApplicationSpec extends Model
 
         if (isset($map['RerankerModel'])) {
             $model->rerankerModel = $map['RerankerModel'];
+        }
+
+        if (isset($map['Shard'])) {
+            $model->shard = $map['Shard'];
         }
 
         return $model;
