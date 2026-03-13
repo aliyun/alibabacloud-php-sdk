@@ -271,6 +271,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateOauthTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateOauthTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateUploadAuthRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateUploadAuthResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateWebAuthnAuthenticatorRegistrationUrlRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GenerateWebAuthnAuthenticatorRegistrationUrlResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationAdvancedConfigResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialRequest;
@@ -9659,6 +9661,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * 生成WebAuthn认证器注册URL.
+     *
+     * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+     *
+     * @param GenerateWebAuthnAuthenticatorRegistrationUrlRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+     */
+    public function generateWebAuthnAuthenticatorRegistrationUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateWebAuthnAuthenticatorRegistrationUrl',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateWebAuthnAuthenticatorRegistrationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成WebAuthn认证器注册URL.
+     *
+     * @param request - GenerateWebAuthnAuthenticatorRegistrationUrlRequest
+     *
+     * @returns GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+     *
+     * @param GenerateWebAuthnAuthenticatorRegistrationUrlRequest $request
+     *
+     * @return GenerateWebAuthnAuthenticatorRegistrationUrlResponse
+     */
+    public function generateWebAuthnAuthenticatorRegistrationUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateWebAuthnAuthenticatorRegistrationUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of an Employee Identity and Access Management (EIAM) application.
      *
      * @param request - GetApplicationRequest
@@ -14766,6 +14833,10 @@ class Eiam extends OpenApiClient
         $query = [];
         if (null !== $request->credentialIds) {
             @$query['CredentialIds'] = $request->credentialIds;
+        }
+
+        if (null !== $request->credentialTypes) {
+            @$query['CredentialTypes'] = $request->credentialTypes;
         }
 
         if (null !== $request->filter) {

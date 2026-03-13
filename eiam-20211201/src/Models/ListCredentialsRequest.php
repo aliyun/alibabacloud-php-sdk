@@ -15,6 +15,11 @@ class ListCredentialsRequest extends Model
     public $credentialIds;
 
     /**
+     * @var string[]
+     */
+    public $credentialTypes;
+
+    /**
      * @var filter[]
      */
     public $filter;
@@ -40,6 +45,7 @@ class ListCredentialsRequest extends Model
     public $statuses;
     protected $_name = [
         'credentialIds' => 'CredentialIds',
+        'credentialTypes' => 'CredentialTypes',
         'filter' => 'Filter',
         'instanceId' => 'InstanceId',
         'maxResults' => 'MaxResults',
@@ -51,6 +57,9 @@ class ListCredentialsRequest extends Model
     {
         if (\is_array($this->credentialIds)) {
             Model::validateArray($this->credentialIds);
+        }
+        if (\is_array($this->credentialTypes)) {
+            Model::validateArray($this->credentialTypes);
         }
         if (\is_array($this->filter)) {
             Model::validateArray($this->filter);
@@ -70,6 +79,17 @@ class ListCredentialsRequest extends Model
                 $n1 = 0;
                 foreach ($this->credentialIds as $item1) {
                     $res['CredentialIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->credentialTypes) {
+            if (\is_array($this->credentialTypes)) {
+                $res['CredentialTypes'] = [];
+                $n1 = 0;
+                foreach ($this->credentialTypes as $item1) {
+                    $res['CredentialTypes'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -126,6 +146,17 @@ class ListCredentialsRequest extends Model
                 $n1 = 0;
                 foreach ($map['CredentialIds'] as $item1) {
                     $model->credentialIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CredentialTypes'])) {
+            if (!empty($map['CredentialTypes'])) {
+                $model->credentialTypes = [];
+                $n1 = 0;
+                foreach ($map['CredentialTypes'] as $item1) {
+                    $model->credentialTypes[$n1] = $item1;
                     ++$n1;
                 }
             }
