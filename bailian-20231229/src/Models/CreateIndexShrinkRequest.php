@@ -111,6 +111,11 @@ class CreateIndexShrinkRequest extends Model
     /**
      * @var string
      */
+    public $channelType;
+
+    /**
+     * @var string
+     */
     public $chunkMode;
 
     /**
@@ -183,6 +188,7 @@ class CreateIndexShrinkRequest extends Model
         'sourceType' => 'SourceType',
         'structureType' => 'StructureType',
         'tableIdsShrink' => 'TableIds',
+        'channelType' => 'channelType',
         'chunkMode' => 'chunkMode',
         'connectId' => 'connectId',
         'database' => 'database',
@@ -282,6 +288,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (null !== $this->tableIdsShrink) {
             $res['TableIds'] = $this->tableIdsShrink;
+        }
+
+        if (null !== $this->channelType) {
+            $res['channelType'] = $this->channelType;
         }
 
         if (null !== $this->chunkMode) {
@@ -417,6 +427,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['TableIds'])) {
             $model->tableIdsShrink = $map['TableIds'];
+        }
+
+        if (isset($map['channelType'])) {
+            $model->channelType = $map['channelType'];
         }
 
         if (isset($map['chunkMode'])) {

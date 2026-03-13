@@ -114,6 +114,11 @@ class CreateIndexRequest extends Model
     /**
      * @var string
      */
+    public $channelType;
+
+    /**
+     * @var string
+     */
     public $chunkMode;
 
     /**
@@ -186,6 +191,7 @@ class CreateIndexRequest extends Model
         'sourceType' => 'SourceType',
         'structureType' => 'StructureType',
         'tableIds' => 'TableIds',
+        'channelType' => 'channelType',
         'chunkMode' => 'chunkMode',
         'connectId' => 'connectId',
         'database' => 'database',
@@ -331,6 +337,10 @@ class CreateIndexRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->channelType) {
+            $res['channelType'] = $this->channelType;
         }
 
         if (null !== $this->chunkMode) {
@@ -501,6 +511,10 @@ class CreateIndexRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['channelType'])) {
+            $model->channelType = $map['channelType'];
         }
 
         if (isset($map['chunkMode'])) {
