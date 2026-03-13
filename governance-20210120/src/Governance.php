@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\Governance\V20210120\Models\DeleteAccountFactoryBaselineRes
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\EnrollAccountShrinkRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\GenerateEvaluationReportRequest;
+use AlibabaCloud\SDK\Governance\V20210120\Models\GenerateEvaluationReportResponse;
+use AlibabaCloud\SDK\Governance\V20210120\Models\GenerateEvaluationReportShrinkRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineRequest;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetAccountFactoryBaselineResponse;
 use AlibabaCloud\SDK\Governance\V20210120\Models\GetEnrolledAccountRequest;
@@ -388,6 +391,81 @@ class Governance extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enrollAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成治理检测报告.
+     *
+     * @param tmpReq - GenerateEvaluationReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateEvaluationReportResponse
+     *
+     * @param GenerateEvaluationReportRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateEvaluationReportResponse
+     */
+    public function generateEvaluationReportWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GenerateEvaluationReportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateEvaluationReport',
+            'version' => '2021-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateEvaluationReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成治理检测报告.
+     *
+     * @param request - GenerateEvaluationReportRequest
+     *
+     * @returns GenerateEvaluationReportResponse
+     *
+     * @param GenerateEvaluationReportRequest $request
+     *
+     * @return GenerateEvaluationReportResponse
+     */
+    public function generateEvaluationReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateEvaluationReportWithOptions($request, $runtime);
     }
 
     /**
