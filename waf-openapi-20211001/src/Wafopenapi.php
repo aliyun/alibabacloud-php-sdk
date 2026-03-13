@@ -136,6 +136,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSuggestionsReques
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecSuggestionsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecUserOperationsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseRuleChangeLogRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseRuleChangeLogResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBaseSystemRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeBotAppKeyRequest;
@@ -211,6 +213,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainUsedPortsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainUsedPortsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeElasticBillsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeElasticBillsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowChartRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowChartResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFlowTopResourceRequest;
@@ -281,6 +285,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePocFunctionsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePocFunctionsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePrepayDailyBillsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePrepayDailyBillsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePunishedDomainsRequest;
@@ -5760,6 +5766,83 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * 分页查询基础防护规则集变化记录.
+     *
+     * @param request - DescribeBaseRuleChangeLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBaseRuleChangeLogResponse
+     *
+     * @param DescribeBaseRuleChangeLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeBaseRuleChangeLogResponse
+     */
+    public function describeBaseRuleChangeLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBaseRuleChangeLog',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBaseRuleChangeLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询基础防护规则集变化记录.
+     *
+     * @param request - DescribeBaseRuleChangeLogRequest
+     *
+     * @returns DescribeBaseRuleChangeLogResponse
+     *
+     * @param DescribeBaseRuleChangeLogRequest $request
+     *
+     * @return DescribeBaseRuleChangeLogResponse
+     */
+    public function describeBaseRuleChangeLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBaseRuleChangeLogWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询基础防护系统规则集.
      *
      * @param request - DescribeBaseSystemRulesRequest
@@ -8655,6 +8738,79 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+     *
+     * @param request - DescribeElasticBillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeElasticBillsResponse
+     *
+     * @param DescribeElasticBillsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeElasticBillsResponse
+     */
+    public function describeElasticBillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeElasticBills',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeElasticBillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the daily billing information of a pay-as-you-go Web Application Firewall (WAF) instance. This allows you to check the daily security capacity unit (SeCU) usage. You can query only data in the previous seven days.
+     *
+     * @param request - DescribeElasticBillsRequest
+     *
+     * @returns DescribeElasticBillsResponse
+     *
+     * @param DescribeElasticBillsRequest $request
+     *
+     * @return DescribeElasticBillsResponse
+     */
+    public function describeElasticBills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeElasticBillsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
      *
      * @param request - DescribeFlowChartRequest
@@ -11174,6 +11330,79 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePocFunctionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+     *
+     * @param request - DescribePrepayDailyBillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePrepayDailyBillsResponse
+     *
+     * @param DescribePrepayDailyBillsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePrepayDailyBillsResponse
+     */
+    public function describePrepayDailyBillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrepayDailyBills',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrepayDailyBillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
+     *
+     * @param request - DescribePrepayDailyBillsRequest
+     *
+     * @returns DescribePrepayDailyBillsResponse
+     *
+     * @param DescribePrepayDailyBillsRequest $request
+     *
+     * @return DescribePrepayDailyBillsResponse
+     */
+    public function describePrepayDailyBills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrepayDailyBillsWithOptions($request, $runtime);
     }
 
     /**
