@@ -101,6 +101,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTriggersRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTriggersResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListVpcBindingsResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\PauseSessionRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\PauseSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PublishFunctionVersionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PublishFunctionVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutAsyncInvokeConfigRequest;
@@ -113,6 +115,8 @@ use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutProvisionConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PutScalingConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ResumeSessionRequest;
+use AlibabaCloud\SDK\FC\V20230330\Models\ResumeSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\StopAsyncTaskRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\StopAsyncTaskResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\TagResourcesRequest;
@@ -232,7 +236,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数别名。
+     * Creates an alias.
      *
      * @param request - CreateAliasRequest
      * @param headers - map
@@ -270,7 +274,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数别名。
+     * Creates an alias.
      *
      * @param request - CreateAliasRequest
      *
@@ -414,7 +418,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建层版本。
+     * Releases a layer version.
      *
      * @param request - CreateLayerVersionRequest
      * @param headers - map
@@ -452,7 +456,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建层版本。
+     * Releases a layer version.
      *
      * @param request - CreateLayerVersionRequest
      *
@@ -536,7 +540,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数触发器。
+     * Creates a trigger.
      *
      * @param request - CreateTriggerRequest
      * @param headers - map
@@ -574,7 +578,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 创建函数触发器。
+     * Creates a trigger.
      *
      * @param request - CreateTriggerRequest
      *
@@ -921,7 +925,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * http://pre.hhht/#vpc.
+     * Deletes a function version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -956,7 +960,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * http://pre.hhht/#vpc.
+     * Deletes a function version.
      *
      * @returns DeleteFunctionVersionResponse
      *
@@ -2599,7 +2603,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数并发度配置。
+     * Queries a list of concurrency configurations.
      *
      * @param request - ListConcurrencyConfigsRequest
      * @param headers - map
@@ -2649,7 +2653,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数并发度配置。
+     * Queries a list of concurrency configurations.
      *
      * @param request - ListConcurrencyConfigsRequest
      *
@@ -2808,7 +2812,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数。
+     * Queries a list of functions.
      *
      * @remarks
      * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
@@ -2895,7 +2899,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * 列出函数。
+     * Queries a list of functions.
      *
      * @remarks
      * ListFunctions returns only a subset of a function\\"s attribute fields. To obtain the additional fields, which include state, stateReasonCode, stateReason, lastUpdateStatus, lastUpdateStatusReasonCode, and lastUpdateStatusReason, use [GetFunction](https://help.aliyun.com/document_detail/2618610.html).
@@ -3588,6 +3592,71 @@ class FC extends OpenApiClient
     }
 
     /**
+     * 暂停/保存会话.
+     *
+     * @param request - PauseSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseSessionResponse
+     *
+     * @param string              $functionName
+     * @param string              $sessionId
+     * @param PauseSessionRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PauseSessionResponse
+     */
+    public function pauseSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PauseSession',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions/' . Url::percentEncode($sessionId) . '/pause',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停/保存会话.
+     *
+     * @param request - PauseSessionRequest
+     *
+     * @returns PauseSessionResponse
+     *
+     * @param string              $functionName
+     * @param string              $sessionId
+     * @param PauseSessionRequest $request
+     *
+     * @return PauseSessionResponse
+     */
+    public function pauseSession($functionName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pauseSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
+    }
+
+    /**
      * Publishes a function version.
      *
      * @param request - PublishFunctionVersionRequest
@@ -3960,6 +4029,71 @@ class FC extends OpenApiClient
         $headers = [];
 
         return $this->putScalingConfigWithOptions($functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 恢复会话.
+     *
+     * @param request - ResumeSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeSessionResponse
+     *
+     * @param string               $functionName
+     * @param string               $sessionId
+     * @param ResumeSessionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResumeSessionResponse
+     */
+    public function resumeSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qualifier) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeSession',
+            'version' => '2023-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-03-30/functions/' . Url::percentEncode($functionName) . '/sessions/' . Url::percentEncode($sessionId) . '/resume',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复会话.
+     *
+     * @param request - ResumeSessionRequest
+     *
+     * @returns ResumeSessionResponse
+     *
+     * @param string               $functionName
+     * @param string               $sessionId
+     * @param ResumeSessionRequest $request
+     *
+     * @return ResumeSessionResponse
+     */
+    public function resumeSession($functionName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeSessionWithOptions($functionName, $sessionId, $request, $headers, $runtime);
     }
 
     /**
