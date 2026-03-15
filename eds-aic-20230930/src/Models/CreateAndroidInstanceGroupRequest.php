@@ -106,6 +106,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $officeSiteId;
 
     /**
+     * @var string
+     */
+    public $paidCallBackUrl;
+
+    /**
      * @var int
      */
     public $period;
@@ -159,6 +164,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'networkType' => 'NetworkType',
         'numberOfInstances' => 'NumberOfInstances',
         'officeSiteId' => 'OfficeSiteId',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
@@ -256,6 +262,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->period) {
@@ -378,6 +388,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['Period'])) {

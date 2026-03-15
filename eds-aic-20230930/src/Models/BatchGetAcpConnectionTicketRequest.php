@@ -33,12 +33,18 @@ class BatchGetAcpConnectionTicketRequest extends Model
      * @var instanceTasks[]
      */
     public $instanceTasks;
+
+    /**
+     * @var string[]
+     */
+    public $ports;
     protected $_name = [
         'connectionMode' => 'ConnectionMode',
         'endUserId' => 'EndUserId',
         'instanceGroupId' => 'InstanceGroupId',
         'instanceIds' => 'InstanceIds',
         'instanceTasks' => 'InstanceTasks',
+        'ports' => 'Ports',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class BatchGetAcpConnectionTicketRequest extends Model
         }
         if (\is_array($this->instanceTasks)) {
             Model::validateArray($this->instanceTasks);
+        }
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
         }
         parent::validate();
     }
@@ -84,6 +93,17 @@ class BatchGetAcpConnectionTicketRequest extends Model
                 $n1 = 0;
                 foreach ($this->instanceTasks as $item1) {
                     $res['InstanceTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ports) {
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -129,6 +149,17 @@ class BatchGetAcpConnectionTicketRequest extends Model
                 $n1 = 0;
                 foreach ($map['InstanceTasks'] as $item1) {
                     $model->instanceTasks[$n1] = instanceTasks::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Ports'])) {
+            if (!empty($map['Ports'])) {
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = $item1;
                     ++$n1;
                 }
             }

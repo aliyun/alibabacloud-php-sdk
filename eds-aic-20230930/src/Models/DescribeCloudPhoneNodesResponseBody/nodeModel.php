@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\bizTags;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\networkInfos;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\phoneDataInfo;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponseBody\nodeModel\tags;
 
 class nodeModel extends Model
 {
@@ -137,6 +138,11 @@ class nodeModel extends Model
     public $swapSize;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -166,6 +172,7 @@ class nodeModel extends Model
         'shareDataVolume' => 'ShareDataVolume',
         'status' => 'Status',
         'swapSize' => 'SwapSize',
+        'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
     ];
 
@@ -179,6 +186,9 @@ class nodeModel extends Model
         }
         if (null !== $this->phoneDataInfo) {
             $this->phoneDataInfo->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -298,6 +308,17 @@ class nodeModel extends Model
 
         if (null !== $this->swapSize) {
             $res['SwapSize'] = $this->swapSize;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vSwitchId) {
@@ -427,6 +448,17 @@ class nodeModel extends Model
 
         if (isset($map['SwapSize'])) {
             $model->swapSize = $map['SwapSize'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VSwitchId'])) {

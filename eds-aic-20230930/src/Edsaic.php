@@ -669,6 +669,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceTasks'] = $request->instanceTasks;
         }
 
+        if (null !== $request->ports) {
+            @$query['Ports'] = $request->ports;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -977,6 +981,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->officeSiteId) {
             @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
         }
 
         if (null !== $request->period) {
@@ -2789,6 +2797,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         $req = new OpenApiRequest([
