@@ -22,10 +22,22 @@ class ModifySupabaseProjectSecurityIpsRequest extends Model
      * @var string
      */
     public $securityIPList;
+
+    /**
+     * @var bool
+     */
+    public $updateDb;
+
+    /**
+     * @var bool
+     */
+    public $updateWeb;
     protected $_name = [
         'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'securityIPList' => 'SecurityIPList',
+        'updateDb' => 'UpdateDb',
+        'updateWeb' => 'UpdateWeb',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class ModifySupabaseProjectSecurityIpsRequest extends Model
 
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
+        }
+
+        if (null !== $this->updateDb) {
+            $res['UpdateDb'] = $this->updateDb;
+        }
+
+        if (null !== $this->updateWeb) {
+            $res['UpdateWeb'] = $this->updateWeb;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class ModifySupabaseProjectSecurityIpsRequest extends Model
 
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
+        }
+
+        if (isset($map['UpdateDb'])) {
+            $model->updateDb = $map['UpdateDb'];
+        }
+
+        if (isset($map['UpdateWeb'])) {
+            $model->updateWeb = $map['UpdateWeb'];
         }
 
         return $model;

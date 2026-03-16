@@ -17159,6 +17159,14 @@ class Gpdb extends OpenApiClient
             @$query['SecurityIPList'] = $request->securityIPList;
         }
 
+        if (null !== $request->updateDb) {
+            @$query['UpdateDb'] = $request->updateDb;
+        }
+
+        if (null !== $request->updateWeb) {
+            @$query['UpdateWeb'] = $request->updateWeb;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

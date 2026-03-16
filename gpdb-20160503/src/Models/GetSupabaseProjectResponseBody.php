@@ -16,6 +16,11 @@ class GetSupabaseProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $DBSecurityIpList;
+
+    /**
+     * @var string
+     */
     public $dashboardPassword;
 
     /**
@@ -124,6 +129,7 @@ class GetSupabaseProjectResponseBody extends Model
     public $zoneId;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'DBSecurityIpList' => 'DBSecurityIpList',
         'dashboardPassword' => 'DashboardPassword',
         'dashboardUserName' => 'DashboardUserName',
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
@@ -158,6 +164,10 @@ class GetSupabaseProjectResponseBody extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->DBSecurityIpList) {
+            $res['DBSecurityIpList'] = $this->DBSecurityIpList;
         }
 
         if (null !== $this->dashboardPassword) {
@@ -261,6 +271,10 @@ class GetSupabaseProjectResponseBody extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['DBSecurityIpList'])) {
+            $model->DBSecurityIpList = $map['DBSecurityIpList'];
         }
 
         if (isset($map['DashboardPassword'])) {
