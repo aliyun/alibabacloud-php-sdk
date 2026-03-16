@@ -17,6 +17,11 @@ class AddGatewayDomainRequest extends Model
     /**
      * @var string
      */
+    public $caCertIdentifier;
+
+    /**
+     * @var string
+     */
     public $certIdentifier;
 
     /**
@@ -28,6 +33,11 @@ class AddGatewayDomainRequest extends Model
      * @var string
      */
     public $http2;
+
+    /**
+     * @var bool
+     */
+    public $mtlsEnabled;
 
     /**
      * @var bool
@@ -60,9 +70,11 @@ class AddGatewayDomainRequest extends Model
     public $tlsMin;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'caCertIdentifier' => 'CaCertIdentifier',
         'certIdentifier' => 'CertIdentifier',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'http2' => 'Http2',
+        'mtlsEnabled' => 'MtlsEnabled',
         'mustHttps' => 'MustHttps',
         'name' => 'Name',
         'protocol' => 'Protocol',
@@ -86,6 +98,10 @@ class AddGatewayDomainRequest extends Model
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
 
+        if (null !== $this->caCertIdentifier) {
+            $res['CaCertIdentifier'] = $this->caCertIdentifier;
+        }
+
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
@@ -96,6 +112,10 @@ class AddGatewayDomainRequest extends Model
 
         if (null !== $this->http2) {
             $res['Http2'] = $this->http2;
+        }
+
+        if (null !== $this->mtlsEnabled) {
+            $res['MtlsEnabled'] = $this->mtlsEnabled;
         }
 
         if (null !== $this->mustHttps) {
@@ -137,6 +157,10 @@ class AddGatewayDomainRequest extends Model
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
 
+        if (isset($map['CaCertIdentifier'])) {
+            $model->caCertIdentifier = $map['CaCertIdentifier'];
+        }
+
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
@@ -147,6 +171,10 @@ class AddGatewayDomainRequest extends Model
 
         if (isset($map['Http2'])) {
             $model->http2 = $map['Http2'];
+        }
+
+        if (isset($map['MtlsEnabled'])) {
+            $model->mtlsEnabled = $map['MtlsEnabled'];
         }
 
         if (isset($map['MustHttps'])) {

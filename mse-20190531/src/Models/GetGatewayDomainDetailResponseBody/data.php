@@ -27,6 +27,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $caCertIdentifier;
+
+    /**
+     * @var string
+     */
     public $certIdentifier;
 
     /**
@@ -92,6 +97,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $mtlsEnabled;
+
+    /**
+     * @var bool
+     */
     public $mustHttps;
 
     /**
@@ -127,6 +137,7 @@ class data extends Model
         'afterDate' => 'AfterDate',
         'algorithm' => 'Algorithm',
         'beforeDate' => 'BeforeDate',
+        'caCertIdentifier' => 'CaCertIdentifier',
         'certIdentifier' => 'CertIdentifier',
         'certName' => 'CertName',
         'commonName' => 'CommonName',
@@ -140,6 +151,7 @@ class data extends Model
         'id' => 'Id',
         'isManaged' => 'IsManaged',
         'issuer' => 'Issuer',
+        'mtlsEnabled' => 'MtlsEnabled',
         'mustHttps' => 'MustHttps',
         'name' => 'Name',
         'protocol' => 'Protocol',
@@ -170,6 +182,10 @@ class data extends Model
 
         if (null !== $this->beforeDate) {
             $res['BeforeDate'] = $this->beforeDate;
+        }
+
+        if (null !== $this->caCertIdentifier) {
+            $res['CaCertIdentifier'] = $this->caCertIdentifier;
         }
 
         if (null !== $this->certIdentifier) {
@@ -224,6 +240,10 @@ class data extends Model
             $res['Issuer'] = $this->issuer;
         }
 
+        if (null !== $this->mtlsEnabled) {
+            $res['MtlsEnabled'] = $this->mtlsEnabled;
+        }
+
         if (null !== $this->mustHttps) {
             $res['MustHttps'] = $this->mustHttps;
         }
@@ -273,6 +293,10 @@ class data extends Model
 
         if (isset($map['BeforeDate'])) {
             $model->beforeDate = $map['BeforeDate'];
+        }
+
+        if (isset($map['CaCertIdentifier'])) {
+            $model->caCertIdentifier = $map['CaCertIdentifier'];
         }
 
         if (isset($map['CertIdentifier'])) {
@@ -325,6 +349,10 @@ class data extends Model
 
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
+        }
+
+        if (isset($map['MtlsEnabled'])) {
+            $model->mtlsEnabled = $map['MtlsEnabled'];
         }
 
         if (isset($map['MustHttps'])) {

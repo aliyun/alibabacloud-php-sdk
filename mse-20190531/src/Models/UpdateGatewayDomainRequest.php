@@ -17,6 +17,11 @@ class UpdateGatewayDomainRequest extends Model
     /**
      * @var string
      */
+    public $caCertIdentifier;
+
+    /**
+     * @var string
+     */
     public $certIdentifier;
 
     /**
@@ -33,6 +38,11 @@ class UpdateGatewayDomainRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var bool
+     */
+    public $mtlsEnabled;
 
     /**
      * @var bool
@@ -60,10 +70,12 @@ class UpdateGatewayDomainRequest extends Model
     public $tlsMin;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'caCertIdentifier' => 'CaCertIdentifier',
         'certIdentifier' => 'CertIdentifier',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'http2' => 'Http2',
         'id' => 'Id',
+        'mtlsEnabled' => 'MtlsEnabled',
         'mustHttps' => 'MustHttps',
         'protocol' => 'Protocol',
         'tlsCipherSuitesConfigJSON' => 'TlsCipherSuitesConfigJSON',
@@ -86,6 +98,10 @@ class UpdateGatewayDomainRequest extends Model
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
 
+        if (null !== $this->caCertIdentifier) {
+            $res['CaCertIdentifier'] = $this->caCertIdentifier;
+        }
+
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
@@ -100,6 +116,10 @@ class UpdateGatewayDomainRequest extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->mtlsEnabled) {
+            $res['MtlsEnabled'] = $this->mtlsEnabled;
         }
 
         if (null !== $this->mustHttps) {
@@ -137,6 +157,10 @@ class UpdateGatewayDomainRequest extends Model
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
 
+        if (isset($map['CaCertIdentifier'])) {
+            $model->caCertIdentifier = $map['CaCertIdentifier'];
+        }
+
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
@@ -151,6 +175,10 @@ class UpdateGatewayDomainRequest extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['MtlsEnabled'])) {
+            $model->mtlsEnabled = $map['MtlsEnabled'];
         }
 
         if (isset($map['MustHttps'])) {

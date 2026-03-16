@@ -590,7 +590,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 新增服务鉴权规则.
+     * Creates a service authentication rule.
      *
      * @param request - AddAuthPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -669,7 +669,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 新增服务鉴权规则.
+     * Creates a service authentication rule.
      *
      * @param request - AddAuthPolicyRequest
      *
@@ -687,7 +687,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Creates authorization information for a gateway.
+     * Adds authorization information for a gateway.
      *
      * @param tmpReq - AddAuthResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -760,7 +760,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Creates authorization information for a gateway.
+     * Adds authorization information for a gateway.
      *
      * @param request - AddAuthResourceRequest
      *
@@ -1316,6 +1316,10 @@ class Mse extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
+        if (null !== $request->caCertIdentifier) {
+            @$query['CaCertIdentifier'] = $request->caCertIdentifier;
+        }
+
         if (null !== $request->certIdentifier) {
             @$query['CertIdentifier'] = $request->certIdentifier;
         }
@@ -1326,6 +1330,10 @@ class Mse extends OpenApiClient
 
         if (null !== $request->http2) {
             @$query['Http2'] = $request->http2;
+        }
+
+        if (null !== $request->mtlsEnabled) {
+            @$query['MtlsEnabled'] = $request->mtlsEnabled;
         }
 
         if (null !== $request->mustHttps) {
@@ -1536,7 +1544,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Adds a service version.
+     * Adds a service version for a gateway.
      *
      * @param request - AddGatewayServiceVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,7 +1595,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Adds a service version.
+     * Adds a service version for a gateway.
      *
      * @param request - AddGatewayServiceVersionRequest
      *
@@ -1801,7 +1809,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Creates a mock rule.
+     * Creates a service mocking rule.
      *
      * @param request - AddMockRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1884,7 +1892,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Creates a mock rule.
+     * Creates a service mocking rule.
      *
      * @param request - AddMockRuleRequest
      *
@@ -3166,7 +3174,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建网关路由熔断规则.
+     * Creates a gateway circuit breaking rule.
      *
      * @param request - CreateGatewayCircuitBreakerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3269,7 +3277,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建网关路由熔断规则.
+     * Creates a gateway circuit breaking rule.
      *
      * @param request - CreateGatewayCircuitBreakerRuleRequest
      *
@@ -3388,7 +3396,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建网关路由隔离规则.
+     * Creates a concurrency rule for a gateway.
      *
      * @param request - CreateGatewayIsolationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3471,7 +3479,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建网关路由隔离规则.
+     * Creates a concurrency rule for a gateway.
      *
      * @param request - CreateGatewayIsolationRuleRequest
      *
@@ -3489,7 +3497,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建隔离规则.
+     * Creates an isolation rule.
      *
      * @param request - CreateIsolationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3560,7 +3568,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建隔离规则.
+     * Creates an isolation rule.
      *
      * @param request - CreateIsolationRuleRequest
      *
@@ -4068,7 +4076,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * CreateNamespace.
+     * Creates a namespace for Microservices Governance.
      *
      * @param tmpReq - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4125,7 +4133,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * CreateNamespace.
+     * Creates a namespace for Microservices Governance.
      *
      * @param request - CreateNamespaceRequest
      *
@@ -4569,7 +4577,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建热点参数防护规则（HTTP 请求）.
+     * Creates a hot parameter protection rule for HTTP requests.
      *
      * @param request - CreateWebFlowRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4668,7 +4676,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 创建热点参数防护规则（HTTP 请求）.
+     * Creates a hot parameter protection rule for HTTP requests.
      *
      * @param request - CreateWebFlowRuleRequest
      *
@@ -5433,7 +5441,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除网关路由熔断规则.
+     * Deletes a gateway circuit breaking rule.
      *
      * @param request - DeleteGatewayCircuitBreakerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5484,7 +5492,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除网关路由熔断规则.
+     * Deletes a gateway circuit breaking rule.
      *
      * @param request - DeleteGatewayCircuitBreakerRuleRequest
      *
@@ -5502,7 +5510,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Disassociates a domain name from a gateway.
+     * Deletes a domain name that is associated with a gateway.
      *
      * @param request - DeleteGatewayDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5549,7 +5557,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Disassociates a domain name from a gateway.
+     * Deletes a domain name that is associated with a gateway.
      *
      * @param request - DeleteGatewayDomainRequest
      *
@@ -5567,7 +5575,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除网关路由流控规则.
+     * Deletes a throttling rule for a gateway.
      *
      * @param request - DeleteGatewayFlowRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5618,7 +5626,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除网关路由流控规则.
+     * Deletes a throttling rule for a gateway.
      *
      * @param request - DeleteGatewayFlowRuleRequest
      *
@@ -5636,7 +5644,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除网关路由隔离规则.
+     * Deletes the gateway concurrency rule.
      *
      * @param request - DeleteGatewayIsolationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5687,7 +5695,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除网关路由隔离规则.
+     * Deletes the gateway concurrency rule.
      *
      * @param request - DeleteGatewayIsolationRuleRequest
      *
@@ -5981,7 +5989,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除隔离规则.
+     * Deletes isolation rules.
      *
      * @param tmpReq - DeleteIsolationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6038,7 +6046,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除隔离规则.
+     * Deletes isolation rules.
      *
      * @param request - DeleteIsolationRulesRequest
      *
@@ -6920,7 +6928,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除热点参数防护规则（HTTP 请求）.
+     * Deletes a hot parameter protection rule for HTTP requests.
      *
      * @param request - DeleteWebFlowRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6971,7 +6979,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除热点参数防护规则（HTTP 请求）.
+     * Deletes a hot parameter protection rule for HTTP requests.
      *
      * @param request - DeleteWebFlowRulesRequest
      *
@@ -8066,7 +8074,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询网关认证详情.
+     * Obtains the authentication details of a gateway.
      *
      * @param request - GetGatewayAuthDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8117,7 +8125,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询网关认证详情.
+     * Obtains the authentication details of a gateway.
      *
      * @param request - GetGatewayAuthDetailRequest
      *
@@ -8135,7 +8143,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 获取网关全局配置.
+     * Obtains the parameter configurations of a gateway.
      *
      * @param request - GetGatewayConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8178,7 +8186,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 获取网关全局配置.
+     * Obtains the parameter configurations of a gateway.
      *
      * @param request - GetGatewayConfigRequest
      *
@@ -8726,7 +8734,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 获取同AZ路由规则.
+     * Obtains the Intra-zone Provider First rules.
      *
      * @param request - GetLocalityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8785,7 +8793,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 获取同AZ路由规则.
+     * Obtains the Intra-zone Provider First rules.
      *
      * @param request - GetLocalityRuleRequest
      *
@@ -9251,7 +9259,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Queries information about service governance.
+     * Queries overview information about Microservices Governance.
      *
      * @remarks
      * You can call this operation to query overview information about service governance.
@@ -9301,7 +9309,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Queries information about service governance.
+     * Queries overview information about Microservices Governance.
      *
      * @remarks
      * You can call this operation to query overview information about service governance.
@@ -9731,7 +9739,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 获取服务接口列表.
+     * Queries a list of service interfaces.
      *
      * @param request - GetServiceMethodPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9826,7 +9834,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 获取服务接口列表.
+     * Queries a list of service interfaces.
      *
      * @param request - GetServiceMethodPageRequest
      *
@@ -10231,7 +10239,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 用户授权mseSLR.
+     * Creates a Microservices Engine (MSE) service-linked role.
      *
      * @param request - InitializeServiceLinkRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10278,7 +10286,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 用户授权mseSLR.
+     * Creates a Microservices Engine (MSE) service-linked role.
      *
      * @param request - InitializeServiceLinkRoleRequest
      *
@@ -12084,7 +12092,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查看网关路由熔断规则.
+     * Queries a gateway circuit breaking rule.
      *
      * @param request - ListGatewayCircuitBreakerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12127,7 +12135,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查看网关路由熔断规则.
+     * Queries a gateway circuit breaking rule.
      *
      * @param request - ListGatewayCircuitBreakerRuleRequest
      *
@@ -12214,7 +12222,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查看网关路由流控规则.
+     * Queries throttling rules of a gateway.
      *
      * @param request - ListGatewayFlowRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12257,7 +12265,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查看网关路由流控规则.
+     * Queries throttling rules of a gateway.
      *
      * @param request - ListGatewayFlowRuleRequest
      *
@@ -12275,7 +12283,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查看网关路由隔离规则.
+     * Queries the concurrency rule of a gateway.
      *
      * @param request - ListGatewayIsolationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12318,7 +12326,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查看网关路由隔离规则.
+     * Queries the concurrency rule of a gateway.
      *
      * @param request - ListGatewayIsolationRuleRequest
      *
@@ -12484,7 +12492,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Queries a list of services that are subscribed with a gateway.
+     * Queries a list of services that are subscribed to by a gateway.
      *
      * @param tmpReq - ListGatewayServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12549,7 +12557,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Queries a list of services that are subscribed with a gateway.
+     * Queries a list of services that are subscribed to by a gateway.
      *
      * @param request - ListGatewayServiceRequest
      *
@@ -12758,7 +12766,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询隔离规则.
+     * Queries isolation rules.
      *
      * @param request - ListIsolationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12825,7 +12833,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询隔离规则.
+     * Queries isolation rules.
      *
      * @param request - ListIsolationRulesRequest
      *
@@ -13367,7 +13375,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 展示命名空间列表.
+     * Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
      *
      * @param tmpReq - ListNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13432,7 +13440,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 展示命名空间列表.
+     * Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
      *
      * @param request - ListNamespacesRequest
      *
@@ -13907,7 +13915,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询热点参数防护规则（HTTP 请求）.
+     * Queries hot parameter protection rules for HTTP requests.
      *
      * @param request - ListWebFlowRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13974,7 +13982,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询热点参数防护规则（HTTP 请求）.
+     * Queries hot parameter protection rules for HTTP requests.
      *
      * @param request - ListWebFlowRulesRequest
      *
@@ -14332,7 +14340,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Unpublishes a route for a gateway.
+     * Disables a route for a gateway.
      *
      * @param request - OfflineGatewayRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14379,7 +14387,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Unpublishes a route for a gateway.
+     * Disables a route for a gateway.
      *
      * @param request - OfflineGatewayRouteRequest
      *
@@ -15554,7 +15562,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询nacos灰度配置.
+     * Queries canary configurations of a Nacos instance.
      *
      * @param request - QueryNacosGrayConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15621,7 +15629,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 查询nacos灰度配置.
+     * Queries canary configurations of a Nacos instance.
      *
      * @param request - QueryNacosGrayConfigRequest
      *
@@ -15895,7 +15903,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除单个应用.
+     * Deletes a single application.
      *
      * @param request - RemoveApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15950,7 +15958,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 删除单个应用.
+     * Deletes a single application.
      *
      * @param request - RemoveApplicationRequest
      *
@@ -15968,6 +15976,8 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * Deletes a service authentication rule.
+     *
      * @param request - RemoveAuthPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16009,6 +16019,8 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * Deletes a service authentication rule.
+     *
      * @param request - RemoveAuthPolicyRequest
      *
      * @returns RemoveAuthPolicyResponse
@@ -17748,7 +17760,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关路由熔断规则.
+     * Updates a gateway circuit breaking rule.
      *
      * @param request - UpdateGatewayCircuitBreakerRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17855,7 +17867,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关路由熔断规则.
+     * Updates a gateway circuit breaking rule.
      *
      * @param request - UpdateGatewayCircuitBreakerRuleRequest
      *
@@ -17873,7 +17885,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关配置.
+     * Updates gateway configurations.
      *
      * @param request - UpdateGatewayConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17924,7 +17936,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关配置.
+     * Updates gateway configurations.
      *
      * @param request - UpdateGatewayConfigRequest
      *
@@ -17968,6 +17980,10 @@ class Mse extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
+        if (null !== $request->caCertIdentifier) {
+            @$query['CaCertIdentifier'] = $request->caCertIdentifier;
+        }
+
         if (null !== $request->certIdentifier) {
             @$query['CertIdentifier'] = $request->certIdentifier;
         }
@@ -17982,6 +17998,10 @@ class Mse extends OpenApiClient
 
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->mtlsEnabled) {
+            @$query['MtlsEnabled'] = $request->mtlsEnabled;
         }
 
         if (null !== $request->mustHttps) {
@@ -18041,7 +18061,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关路由流控规则.
+     * Queries throttling rules of a gateway.
      *
      * @param request - UpdateGatewayFlowRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18128,7 +18148,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关路由流控规则.
+     * Queries throttling rules of a gateway.
      *
      * @param request - UpdateGatewayFlowRuleRequest
      *
@@ -18146,7 +18166,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关路由隔离规则.
+     * Updates the concurrency rule of a gateway.
      *
      * @param request - UpdateGatewayIsolationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18233,7 +18253,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新网关路由隔离规则.
+     * Updates the concurrency rule of a gateway.
      *
      * @param request - UpdateGatewayIsolationRuleRequest
      *
@@ -18251,7 +18271,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Renames a gateway.
+     * Updates the name of a gateway.
      *
      * @param request - UpdateGatewayNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18298,7 +18318,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Renames a gateway.
+     * Updates the name of a gateway.
      *
      * @param request - UpdateGatewayNameRequest
      *
@@ -19061,7 +19081,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新服务
+     * Updates gateways for fixed address services or DNS services.
      *
      * @param tmpReq - UpdateGatewayServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19146,7 +19166,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新服务
+     * Updates gateways for fixed address services or DNS services.
      *
      * @param request - UpdateGatewayServiceRequest
      *
@@ -19350,7 +19370,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Modifies the version of a service.
+     * Updates the service version of a gateway.
      *
      * @param request - UpdateGatewayServiceVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19401,7 +19421,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Modifies the version of a service.
+     * Updates the service version of a gateway.
      *
      * @param request - UpdateGatewayServiceVersionRequest
      *
@@ -19559,7 +19579,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新隔离规则.
+     * Updates an isolation rule.
      *
      * @param request - UpdateIsolationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19626,7 +19646,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新隔离规则.
+     * Updates an isolation rule.
      *
      * @param request - UpdateIsolationRuleRequest
      *
@@ -19644,7 +19664,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新同AZ路由规则.
+     * Updates the Intra-zone Provider First rules.
      *
      * @param request - UpdateLocalityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19715,7 +19735,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新同AZ路由规则.
+     * Updates the Intra-zone Provider First rules.
      *
      * @param request - UpdateLocalityRuleRequest
      *
@@ -20135,7 +20155,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新nacos灰度配置.
+     * Updates the canary release settings, which include beta release and tag-based canary release.
      *
      * @param request - UpdateNacosGrayConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20230,7 +20250,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新nacos灰度配置.
+     * Updates the canary release settings, which include beta release and tag-based canary release.
      *
      * @param request - UpdateNacosGrayConfigRequest
      *
@@ -20444,7 +20464,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a plug-in.
+     * Updates plug-in configurations.
      *
      * @param tmpReq - UpdatePluginConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20531,7 +20551,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a plug-in.
+     * Updates plug-in configurations.
      *
      * @param request - UpdatePluginConfigRequest
      *
@@ -20721,7 +20741,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新热点参数防护规则（HTTP 请求）.
+     * Updates a hot parameter protection rule for HTTP requests.
      *
      * @param request - UpdateWebFlowRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20816,7 +20836,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * 更新热点参数防护规则（HTTP 请求）.
+     * Updates a hot parameter protection rule for HTTP requests.
      *
      * @param request - UpdateWebFlowRuleRequest
      *
