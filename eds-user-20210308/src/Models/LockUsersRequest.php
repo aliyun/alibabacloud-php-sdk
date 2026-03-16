@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class LockUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var bool
      */
     public $logoutSession;
@@ -18,6 +23,7 @@ class LockUsersRequest extends Model
      */
     public $users;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'logoutSession' => 'LogoutSession',
         'users' => 'Users',
     ];
@@ -33,6 +39,10 @@ class LockUsersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->logoutSession) {
             $res['LogoutSession'] = $this->logoutSession;
         }
@@ -59,6 +69,10 @@ class LockUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['LogoutSession'])) {
             $model->logoutSession = $map['LogoutSession'];
         }

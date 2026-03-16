@@ -14,6 +14,11 @@ class DescribeMfaDevicesRequest extends Model
     public $adDomain;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $endUserIds;
@@ -39,6 +44,7 @@ class DescribeMfaDevicesRequest extends Model
     public $serialNumbers;
     protected $_name = [
         'adDomain' => 'AdDomain',
+        'businessChannel' => 'BusinessChannel',
         'endUserIds' => 'EndUserIds',
         'filter' => 'Filter',
         'maxResults' => 'MaxResults',
@@ -62,6 +68,10 @@ class DescribeMfaDevicesRequest extends Model
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->endUserIds) {
@@ -111,6 +121,10 @@ class DescribeMfaDevicesRequest extends Model
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['EndUserIds'])) {

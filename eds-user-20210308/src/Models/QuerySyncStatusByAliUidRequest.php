@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CheckUsedPropertyRequest extends Model
+class QuerySyncStatusByAliUidRequest extends Model
 {
     /**
      * @var string
      */
     public $businessChannel;
-
-    /**
-     * @var int
-     */
-    public $propertyId;
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
-        'propertyId' => 'PropertyId',
     ];
 
     public function validate()
@@ -32,10 +26,6 @@ class CheckUsedPropertyRequest extends Model
         $res = [];
         if (null !== $this->businessChannel) {
             $res['BusinessChannel'] = $this->businessChannel;
-        }
-
-        if (null !== $this->propertyId) {
-            $res['PropertyId'] = $this->propertyId;
         }
 
         return $res;
@@ -51,10 +41,6 @@ class CheckUsedPropertyRequest extends Model
         $model = new self();
         if (isset($map['BusinessChannel'])) {
             $model->businessChannel = $map['BusinessChannel'];
-        }
-
-        if (isset($map['PropertyId'])) {
-            $model->propertyId = $map['PropertyId'];
         }
 
         return $model;

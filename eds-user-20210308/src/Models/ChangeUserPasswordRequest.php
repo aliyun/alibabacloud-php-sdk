@@ -11,6 +11,11 @@ class ChangeUserPasswordRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $endUserId;
 
     /**
@@ -18,6 +23,7 @@ class ChangeUserPasswordRequest extends Model
      */
     public $newPassword;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'endUserId' => 'EndUserId',
         'newPassword' => 'NewPassword',
     ];
@@ -30,6 +36,10 @@ class ChangeUserPasswordRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
@@ -49,6 +59,10 @@ class ChangeUserPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }

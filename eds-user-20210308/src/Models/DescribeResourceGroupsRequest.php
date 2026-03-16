@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DescribeResourceGroupsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $aliyunResourceGroupIds;
+
+    /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $needContainResourceGroupWithOfficeSite;
@@ -38,6 +48,8 @@ class DescribeResourceGroupsRequest extends Model
      */
     public $resourceGroupName;
     protected $_name = [
+        'aliyunResourceGroupIds' => 'AliyunResourceGroupIds',
+        'businessChannel' => 'BusinessChannel',
         'needContainResourceGroupWithOfficeSite' => 'NeedContainResourceGroupWithOfficeSite',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -48,6 +60,9 @@ class DescribeResourceGroupsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->aliyunResourceGroupIds)) {
+            Model::validateArray($this->aliyunResourceGroupIds);
+        }
         if (\is_array($this->resourceGroupIds)) {
             Model::validateArray($this->resourceGroupIds);
         }
@@ -57,6 +72,21 @@ class DescribeResourceGroupsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aliyunResourceGroupIds) {
+            if (\is_array($this->aliyunResourceGroupIds)) {
+                $res['AliyunResourceGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->aliyunResourceGroupIds as $item1) {
+                    $res['AliyunResourceGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->needContainResourceGroupWithOfficeSite) {
             $res['NeedContainResourceGroupWithOfficeSite'] = $this->needContainResourceGroupWithOfficeSite;
         }
@@ -99,6 +129,21 @@ class DescribeResourceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunResourceGroupIds'])) {
+            if (!empty($map['AliyunResourceGroupIds'])) {
+                $model->aliyunResourceGroupIds = [];
+                $n1 = 0;
+                foreach ($map['AliyunResourceGroupIds'] as $item1) {
+                    $model->aliyunResourceGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['NeedContainResourceGroupWithOfficeSite'])) {
             $model->needContainResourceGroupWithOfficeSite = $map['NeedContainResourceGroupWithOfficeSite'];
         }

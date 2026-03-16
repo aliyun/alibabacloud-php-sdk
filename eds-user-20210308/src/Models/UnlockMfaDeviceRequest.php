@@ -16,9 +16,15 @@ class UnlockMfaDeviceRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $serialNumber;
     protected $_name = [
         'adDomain' => 'AdDomain',
+        'businessChannel' => 'BusinessChannel',
         'serialNumber' => 'SerialNumber',
     ];
 
@@ -32,6 +38,10 @@ class UnlockMfaDeviceRequest extends Model
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->serialNumber) {
@@ -51,6 +61,10 @@ class UnlockMfaDeviceRequest extends Model
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['SerialNumber'])) {

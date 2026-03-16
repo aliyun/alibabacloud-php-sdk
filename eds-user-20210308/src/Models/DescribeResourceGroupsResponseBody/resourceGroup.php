@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponseBody
 class resourceGroup extends Model
 {
     /**
+     * @var string
+     */
+    public $aliyunResourceGroupId;
+
+    /**
      * @var appRules[]
      */
     public $appRules;
@@ -51,6 +56,7 @@ class resourceGroup extends Model
      */
     public $timers;
     protected $_name = [
+        'aliyunResourceGroupId' => 'AliyunResourceGroupId',
         'appRules' => 'AppRules',
         'authCount' => 'AuthCount',
         'createTime' => 'CreateTime',
@@ -78,6 +84,10 @@ class resourceGroup extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aliyunResourceGroupId) {
+            $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
+
         if (null !== $this->appRules) {
             if (\is_array($this->appRules)) {
                 $res['AppRules'] = [];
@@ -142,6 +152,10 @@ class resourceGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunResourceGroupId'])) {
+            $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
+
         if (isset($map['AppRules'])) {
             if (!empty($map['AppRules'])) {
                 $model->appRules = [];

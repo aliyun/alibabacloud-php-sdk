@@ -11,6 +11,11 @@ class ModifyUserRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $email;
 
     /**
@@ -23,6 +28,7 @@ class ModifyUserRequest extends Model
      */
     public $phone;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'email' => 'Email',
         'endUserId' => 'EndUserId',
         'phone' => 'Phone',
@@ -36,6 +42,10 @@ class ModifyUserRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
@@ -59,6 +69,10 @@ class ModifyUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }

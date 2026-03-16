@@ -14,6 +14,11 @@ class DescribeGroupsRequest extends Model
     public $bizType;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var bool
      */
     public $excludeAttachedLoginPolicyGroups;
@@ -59,6 +64,7 @@ class DescribeGroupsRequest extends Model
     public $transferFileNeedApproval;
     protected $_name = [
         'bizType' => 'BizType',
+        'businessChannel' => 'BusinessChannel',
         'excludeAttachedLoginPolicyGroups' => 'ExcludeAttachedLoginPolicyGroups',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
@@ -80,6 +86,10 @@ class DescribeGroupsRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->excludeAttachedLoginPolicyGroups) {
@@ -131,6 +141,10 @@ class DescribeGroupsRequest extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['ExcludeAttachedLoginPolicyGroups'])) {

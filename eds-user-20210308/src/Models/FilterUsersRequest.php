@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersRequest\propertyKeyValu
 class FilterUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $excludeEndUserIds;
@@ -22,6 +27,11 @@ class FilterUsersRequest extends Model
     public $filter;
 
     /**
+     * @var string[]
+     */
+    public $filterMap;
+
+    /**
      * @var bool
      */
     public $includeDesktopCount;
@@ -30,6 +40,11 @@ class FilterUsersRequest extends Model
      * @var bool
      */
     public $includeDesktopGroupCount;
+
+    /**
+     * @var string[]
+     */
+    public $includeEndUserIds;
 
     /**
      * @var bool
@@ -86,10 +101,13 @@ class FilterUsersRequest extends Model
      */
     public $status;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'excludeEndUserIds' => 'ExcludeEndUserIds',
         'filter' => 'Filter',
+        'filterMap' => 'FilterMap',
         'includeDesktopCount' => 'IncludeDesktopCount',
         'includeDesktopGroupCount' => 'IncludeDesktopGroupCount',
+        'includeEndUserIds' => 'IncludeEndUserIds',
         'includeOrgInfo' => 'IncludeOrgInfo',
         'includeSupportIdps' => 'IncludeSupportIdps',
         'isQueryAllSubOrgs' => 'IsQueryAllSubOrgs',
@@ -108,6 +126,12 @@ class FilterUsersRequest extends Model
         if (\is_array($this->excludeEndUserIds)) {
             Model::validateArray($this->excludeEndUserIds);
         }
+        if (\is_array($this->filterMap)) {
+            Model::validateArray($this->filterMap);
+        }
+        if (\is_array($this->includeEndUserIds)) {
+            Model::validateArray($this->includeEndUserIds);
+        }
         if (null !== $this->orderParam) {
             $this->orderParam->validate();
         }
@@ -123,6 +147,10 @@ class FilterUsersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->excludeEndUserIds) {
             if (\is_array($this->excludeEndUserIds)) {
                 $res['ExcludeEndUserIds'] = [];
@@ -138,12 +166,32 @@ class FilterUsersRequest extends Model
             $res['Filter'] = $this->filter;
         }
 
+        if (null !== $this->filterMap) {
+            if (\is_array($this->filterMap)) {
+                $res['FilterMap'] = [];
+                foreach ($this->filterMap as $key1 => $value1) {
+                    $res['FilterMap'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->includeDesktopCount) {
             $res['IncludeDesktopCount'] = $this->includeDesktopCount;
         }
 
         if (null !== $this->includeDesktopGroupCount) {
             $res['IncludeDesktopGroupCount'] = $this->includeDesktopGroupCount;
+        }
+
+        if (null !== $this->includeEndUserIds) {
+            if (\is_array($this->includeEndUserIds)) {
+                $res['IncludeEndUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->includeEndUserIds as $item1) {
+                    $res['IncludeEndUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->includeOrgInfo) {
@@ -215,6 +263,10 @@ class FilterUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['ExcludeEndUserIds'])) {
             if (!empty($map['ExcludeEndUserIds'])) {
                 $model->excludeEndUserIds = [];
@@ -230,12 +282,32 @@ class FilterUsersRequest extends Model
             $model->filter = $map['Filter'];
         }
 
+        if (isset($map['FilterMap'])) {
+            if (!empty($map['FilterMap'])) {
+                $model->filterMap = [];
+                foreach ($map['FilterMap'] as $key1 => $value1) {
+                    $model->filterMap[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['IncludeDesktopCount'])) {
             $model->includeDesktopCount = $map['IncludeDesktopCount'];
         }
 
         if (isset($map['IncludeDesktopGroupCount'])) {
             $model->includeDesktopGroupCount = $map['IncludeDesktopGroupCount'];
+        }
+
+        if (isset($map['IncludeEndUserIds'])) {
+            if (!empty($map['IncludeEndUserIds'])) {
+                $model->includeEndUserIds = [];
+                $n1 = 0;
+                foreach ($map['IncludeEndUserIds'] as $item1) {
+                    $model->includeEndUserIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['IncludeOrgInfo'])) {

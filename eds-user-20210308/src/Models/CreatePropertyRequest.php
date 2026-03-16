@@ -11,6 +11,11 @@ class CreatePropertyRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $propertyKey;
 
     /**
@@ -18,6 +23,7 @@ class CreatePropertyRequest extends Model
      */
     public $propertyValues;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'propertyKey' => 'PropertyKey',
         'propertyValues' => 'PropertyValues',
     ];
@@ -33,6 +39,10 @@ class CreatePropertyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->propertyKey) {
             $res['PropertyKey'] = $this->propertyKey;
         }
@@ -59,6 +69,10 @@ class CreatePropertyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['PropertyKey'])) {
             $model->propertyKey = $map['PropertyKey'];
         }

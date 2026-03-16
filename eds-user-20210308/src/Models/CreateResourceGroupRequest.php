@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateResourceGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $isResourceGroupWithOfficeSite;
@@ -23,6 +28,7 @@ class CreateResourceGroupRequest extends Model
      */
     public $resourceGroupName;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'isResourceGroupWithOfficeSite' => 'IsResourceGroupWithOfficeSite',
         'platform' => 'Platform',
         'resourceGroupName' => 'ResourceGroupName',
@@ -36,6 +42,10 @@ class CreateResourceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->isResourceGroupWithOfficeSite) {
             $res['IsResourceGroupWithOfficeSite'] = $this->isResourceGroupWithOfficeSite;
         }
@@ -59,6 +69,10 @@ class CreateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['IsResourceGroupWithOfficeSite'])) {
             $model->isResourceGroupWithOfficeSite = $map['IsResourceGroupWithOfficeSite'];
         }

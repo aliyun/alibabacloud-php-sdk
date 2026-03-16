@@ -15,6 +15,11 @@ class CreateUsersRequest extends Model
     public $autoLockTime;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var bool
      */
     public $isLocalAdmin;
@@ -35,6 +40,7 @@ class CreateUsersRequest extends Model
     public $users;
     protected $_name = [
         'autoLockTime' => 'AutoLockTime',
+        'businessChannel' => 'BusinessChannel',
         'isLocalAdmin' => 'IsLocalAdmin',
         'password' => 'Password',
         'passwordExpireDays' => 'PasswordExpireDays',
@@ -54,6 +60,10 @@ class CreateUsersRequest extends Model
         $res = [];
         if (null !== $this->autoLockTime) {
             $res['AutoLockTime'] = $this->autoLockTime;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->isLocalAdmin) {
@@ -92,6 +102,10 @@ class CreateUsersRequest extends Model
         $model = new self();
         if (isset($map['AutoLockTime'])) {
             $model->autoLockTime = $map['AutoLockTime'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['IsLocalAdmin'])) {

@@ -11,6 +11,11 @@ class ModifyGroupRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -23,6 +28,7 @@ class ModifyGroupRequest extends Model
      */
     public $newGroupName;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'description' => 'Description',
         'groupId' => 'GroupId',
         'newGroupName' => 'NewGroupName',
@@ -36,6 +42,10 @@ class ModifyGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -59,6 +69,10 @@ class ModifyGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

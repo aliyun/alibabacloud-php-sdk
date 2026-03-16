@@ -16,6 +16,11 @@ class CreateGroupRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -34,6 +39,7 @@ class CreateGroupRequest extends Model
     public $solutionId;
     protected $_name = [
         'bizType' => 'BizType',
+        'businessChannel' => 'BusinessChannel',
         'description' => 'Description',
         'groupName' => 'GroupName',
         'parentGroupId' => 'ParentGroupId',
@@ -50,6 +56,10 @@ class CreateGroupRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->description) {
@@ -81,6 +91,10 @@ class CreateGroupRequest extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['Description'])) {

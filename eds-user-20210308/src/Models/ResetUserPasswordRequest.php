@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ResetUserPasswordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $notifyType;
@@ -18,6 +23,7 @@ class ResetUserPasswordRequest extends Model
      */
     public $users;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'notifyType' => 'NotifyType',
         'users' => 'Users',
     ];
@@ -33,6 +39,10 @@ class ResetUserPasswordRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->notifyType) {
             $res['NotifyType'] = $this->notifyType;
         }
@@ -59,6 +69,10 @@ class ResetUserPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['NotifyType'])) {
             $model->notifyType = $map['NotifyType'];
         }

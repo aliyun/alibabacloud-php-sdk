@@ -14,6 +14,11 @@ class DescribeUsersShrinkRequest extends Model
     public $bizType;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $endUserIds;
@@ -32,6 +37,11 @@ class DescribeUsersShrinkRequest extends Model
      * @var string
      */
     public $filter;
+
+    /**
+     * @var string
+     */
+    public $filterMapShrink;
 
     /**
      * @var string
@@ -84,10 +94,12 @@ class DescribeUsersShrinkRequest extends Model
     public $status;
     protected $_name = [
         'bizType' => 'BizType',
+        'businessChannel' => 'BusinessChannel',
         'endUserIds' => 'EndUserIds',
         'excludeEndUserIds' => 'ExcludeEndUserIds',
         'excludeGroupId' => 'ExcludeGroupId',
         'filter' => 'Filter',
+        'filterMapShrink' => 'FilterMap',
         'filterWithAssignedResourceShrink' => 'FilterWithAssignedResource',
         'filterWithAssignedResourcesShrink' => 'FilterWithAssignedResources',
         'groupId' => 'GroupId',
@@ -118,6 +130,10 @@ class DescribeUsersShrinkRequest extends Model
             $res['BizType'] = $this->bizType;
         }
 
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->endUserIds) {
             if (\is_array($this->endUserIds)) {
                 $res['EndUserIds'] = [];
@@ -146,6 +162,10 @@ class DescribeUsersShrinkRequest extends Model
 
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+
+        if (null !== $this->filterMapShrink) {
+            $res['FilterMap'] = $this->filterMapShrink;
         }
 
         if (null !== $this->filterWithAssignedResourceShrink) {
@@ -203,6 +223,10 @@ class DescribeUsersShrinkRequest extends Model
             $model->bizType = $map['BizType'];
         }
 
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
                 $model->endUserIds = [];
@@ -231,6 +255,10 @@ class DescribeUsersShrinkRequest extends Model
 
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+
+        if (isset($map['FilterMap'])) {
+            $model->filterMapShrink = $map['FilterMap'];
         }
 
         if (isset($map['FilterWithAssignedResource'])) {

@@ -11,6 +11,11 @@ class DeleteResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -18,6 +23,7 @@ class DeleteResourceGroupRequest extends Model
      */
     public $resourceGroupIds;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupIds' => 'ResourceGroupIds',
     ];
@@ -33,6 +39,10 @@ class DeleteResourceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -59,6 +69,10 @@ class DeleteResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CheckUsedPropertyValueRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $propertyId;
@@ -18,6 +23,7 @@ class CheckUsedPropertyValueRequest extends Model
      */
     public $propertyValueId;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'propertyId' => 'PropertyId',
         'propertyValueId' => 'PropertyValueId',
     ];
@@ -30,6 +36,10 @@ class CheckUsedPropertyValueRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->propertyId) {
             $res['PropertyId'] = $this->propertyId;
         }
@@ -49,6 +59,10 @@ class CheckUsedPropertyValueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['PropertyId'])) {
             $model->propertyId = $map['PropertyId'];
         }

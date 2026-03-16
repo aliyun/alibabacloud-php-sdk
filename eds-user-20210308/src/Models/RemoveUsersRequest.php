@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class RemoveUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $users;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'users' => 'Users',
     ];
 
@@ -27,6 +33,10 @@ class RemoveUsersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->users) {
             if (\is_array($this->users)) {
                 $res['Users'] = [];
@@ -49,6 +59,10 @@ class RemoveUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];

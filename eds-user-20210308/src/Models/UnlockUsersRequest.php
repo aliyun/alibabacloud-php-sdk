@@ -14,11 +14,17 @@ class UnlockUsersRequest extends Model
     public $autoLockTime;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $users;
     protected $_name = [
         'autoLockTime' => 'AutoLockTime',
+        'businessChannel' => 'BusinessChannel',
         'users' => 'Users',
     ];
 
@@ -35,6 +41,10 @@ class UnlockUsersRequest extends Model
         $res = [];
         if (null !== $this->autoLockTime) {
             $res['AutoLockTime'] = $this->autoLockTime;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->users) {
@@ -61,6 +71,10 @@ class UnlockUsersRequest extends Model
         $model = new self();
         if (isset($map['AutoLockTime'])) {
             $model->autoLockTime = $map['AutoLockTime'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['Users'])) {

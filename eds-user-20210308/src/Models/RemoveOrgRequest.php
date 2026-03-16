@@ -11,8 +11,14 @@ class RemoveOrgRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $orgId;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'orgId' => 'OrgId',
     ];
 
@@ -24,6 +30,10 @@ class RemoveOrgRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
@@ -39,6 +49,10 @@ class RemoveOrgRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }

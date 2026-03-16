@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeOrgsShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -33,6 +38,7 @@ class DescribeOrgsShrinkRequest extends Model
      */
     public $showExtrasShrink;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orgName' => 'OrgName',
@@ -48,6 +54,10 @@ class DescribeOrgsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -79,6 +89,10 @@ class DescribeOrgsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

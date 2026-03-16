@@ -48,7 +48,9 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersShrinkRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\InitTenantAliasRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\InitTenantAliasResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueResponse;
@@ -66,6 +68,7 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveUserOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveUserOrgResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\QuerySyncStatusByAliUidRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\QuerySyncStatusByAliUidResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveGroupRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveGroupResponse;
@@ -151,6 +154,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->isDesktopManager) {
             @$body['IsDesktopManager'] = $request->isDesktopManager;
         }
@@ -199,7 +206,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 管理员修改用户密码
+     * If the user is in administrator-activated mode, you can change the user logon password through this operation.
      *
      * @param request - ChangeUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -215,6 +222,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->endUserId) {
             @$body['EndUserId'] = $request->endUserId;
         }
@@ -242,7 +253,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 管理员修改用户密码
+     * If the user is in administrator-activated mode, you can change the user logon password through this operation.
      *
      * @param request - ChangeUserPasswordRequest
      *
@@ -276,6 +287,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->propertyId) {
             @$query['PropertyId'] = $request->propertyId;
         }
@@ -336,6 +351,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->propertyId) {
             @$query['PropertyId'] = $request->propertyId;
         }
@@ -402,6 +421,10 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (null !== $request->bizType) {
             @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->description) {
@@ -473,6 +496,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->orgName) {
             @$query['OrgName'] = $request->orgName;
         }
@@ -534,6 +561,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->propertyKey) {
             @$body['PropertyKey'] = $request->propertyKey;
         }
@@ -595,6 +626,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->isResourceGroupWithOfficeSite) {
             @$query['IsResourceGroupWithOfficeSite'] = $request->isResourceGroupWithOfficeSite;
         }
@@ -665,6 +700,10 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (null !== $request->autoLockTime) {
             @$query['AutoLockTime'] = $request->autoLockTime;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->isLocalAdmin) {
@@ -741,6 +780,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -805,6 +848,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->propertyId) {
             @$body['PropertyId'] = $request->propertyId;
         }
@@ -875,6 +922,10 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (null !== $request->bizType) {
             @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->filter) {
@@ -952,6 +1003,10 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (null !== $request->bizType) {
             @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->excludeAttachedLoginPolicyGroups) {
@@ -1047,6 +1102,10 @@ class Edsuser extends OpenApiClient
             @$query['AdDomain'] = $request->adDomain;
         }
 
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->endUserIds) {
             @$query['EndUserIds'] = $request->endUserIds;
         }
@@ -1120,6 +1179,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->orgName) {
             @$body['OrgName'] = $request->orgName;
         }
@@ -1190,6 +1253,10 @@ class Edsuser extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -1266,6 +1333,14 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->aliyunResourceGroupIds) {
+            @$query['AliyunResourceGroupIds'] = $request->aliyunResourceGroupIds;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->needContainResourceGroupWithOfficeSite) {
             @$query['NeedContainResourceGroupWithOfficeSite'] = $request->needContainResourceGroupWithOfficeSite;
         }
@@ -1344,6 +1419,10 @@ class Edsuser extends OpenApiClient
         $tmpReq->validate();
         $request = new DescribeUsersShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterMap) {
+            $request->filterMapShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterMap, 'FilterMap', 'json');
+        }
+
         if (null !== $tmpReq->filterWithAssignedResource) {
             $request->filterWithAssignedResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResource, 'FilterWithAssignedResource', 'json');
         }
@@ -1357,8 +1436,16 @@ class Edsuser extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->filter) {
             @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->filterMapShrink) {
+            @$query['FilterMap'] = $request->filterMapShrink;
         }
 
         if (null !== $request->maxResults) {
@@ -1473,11 +1560,19 @@ class Edsuser extends OpenApiClient
         $tmpReq->validate();
         $request = new FilterUsersShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterMap) {
+            $request->filterMapShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterMap, 'FilterMap', 'json');
+        }
+
         if (null !== $tmpReq->orderParam) {
             $request->orderParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderParam, 'OrderParam', 'json');
         }
 
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->excludeEndUserIds) {
             @$query['ExcludeEndUserIds'] = $request->excludeEndUserIds;
         }
@@ -1486,12 +1581,20 @@ class Edsuser extends OpenApiClient
             @$query['Filter'] = $request->filter;
         }
 
+        if (null !== $request->filterMapShrink) {
+            @$query['FilterMap'] = $request->filterMapShrink;
+        }
+
         if (null !== $request->includeDesktopCount) {
             @$query['IncludeDesktopCount'] = $request->includeDesktopCount;
         }
 
         if (null !== $request->includeDesktopGroupCount) {
             @$query['IncludeDesktopGroupCount'] = $request->includeDesktopGroupCount;
+        }
+
+        if (null !== $request->includeEndUserIds) {
+            @$query['IncludeEndUserIds'] = $request->includeEndUserIds;
         }
 
         if (null !== $request->includeOrgInfo) {
@@ -1639,13 +1742,22 @@ class Edsuser extends OpenApiClient
      *
      * @returns InitTenantAliasResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param InitTenantAliasRequest $request
+     * @param RuntimeOptions         $runtime
      *
      * @return InitTenantAliasResponse
      */
-    public function initTenantAliasWithOptions($runtime)
+    public function initTenantAliasWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'InitTenantAlias',
             'version' => '2021-03-08',
@@ -1664,15 +1776,19 @@ class Edsuser extends OpenApiClient
     /**
      * Initializes an organization ID.
      *
+     * @param request - InitTenantAliasRequest
+     *
      * @returns InitTenantAliasResponse
+     *
+     * @param InitTenantAliasRequest $request
      *
      * @return InitTenantAliasResponse
      */
-    public function initTenantAlias()
+    public function initTenantAlias($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->initTenantAliasWithOptions($runtime);
+        return $this->initTenantAliasWithOptions($request, $runtime);
     }
 
     /**
@@ -1683,13 +1799,22 @@ class Edsuser extends OpenApiClient
      *
      * @returns ListPropertyResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param ListPropertyRequest $request
+     * @param RuntimeOptions      $runtime
      *
      * @return ListPropertyResponse
      */
-    public function listPropertyWithOptions($runtime)
+    public function listPropertyWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'ListProperty',
             'version' => '2021-03-08',
@@ -1708,15 +1833,19 @@ class Edsuser extends OpenApiClient
     /**
      * Queries all user properties within an Alibaba Cloud account.
      *
+     * @param request - ListPropertyRequest
+     *
      * @returns ListPropertyResponse
+     *
+     * @param ListPropertyRequest $request
      *
      * @return ListPropertyResponse
      */
-    public function listProperty()
+    public function listProperty($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listPropertyWithOptions($runtime);
+        return $this->listPropertyWithOptions($request, $runtime);
     }
 
     /**
@@ -1736,6 +1865,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->propertyId) {
             @$query['PropertyId'] = $request->propertyId;
         }
@@ -1800,6 +1933,10 @@ class Edsuser extends OpenApiClient
             @$query['AdDomain'] = $request->adDomain;
         }
 
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->serialNumber) {
             @$query['SerialNumber'] = $request->serialNumber;
         }
@@ -1860,6 +1997,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->logoutSession) {
             @$query['LogoutSession'] = $request->logoutSession;
         }
@@ -1923,6 +2064,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -1988,6 +2133,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->orgId) {
             @$query['OrgId'] = $request->orgId;
         }
@@ -2033,7 +2182,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Modifies user information.
+     * Updates the contact information of a convenience account.
      *
      * @param request - ModifyUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2049,6 +2198,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->email) {
             @$query['Email'] = $request->email;
         }
@@ -2080,7 +2233,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Modifies user information.
+     * Updates the contact information of a convenience account.
      *
      * @param request - ModifyUserRequest
      *
@@ -2114,6 +2267,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->newParentOrgId) {
             @$body['NewParentOrgId'] = $request->newParentOrgId;
         }
@@ -2175,6 +2332,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->endUserIds) {
             @$body['EndUserIds'] = $request->endUserIds;
         }
@@ -2220,20 +2381,29 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 查询edu同步信息.
+     * Queries user synchronization status.
      *
      * @param request - QuerySyncStatusByAliUidRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QuerySyncStatusByAliUidResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param QuerySyncStatusByAliUidRequest $request
+     * @param RuntimeOptions                 $runtime
      *
      * @return QuerySyncStatusByAliUidResponse
      */
-    public function querySyncStatusByAliUidWithOptions($runtime)
+    public function querySyncStatusByAliUidWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'QuerySyncStatusByAliUid',
             'version' => '2021-03-08',
@@ -2250,17 +2420,21 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 查询edu同步信息.
+     * Queries user synchronization status.
+     *
+     * @param request - QuerySyncStatusByAliUidRequest
      *
      * @returns QuerySyncStatusByAliUidResponse
      *
+     * @param QuerySyncStatusByAliUidRequest $request
+     *
      * @return QuerySyncStatusByAliUidResponse
      */
-    public function querySyncStatusByAliUid()
+    public function querySyncStatusByAliUid($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->querySyncStatusByAliUidWithOptions($runtime);
+        return $this->querySyncStatusByAliUidWithOptions($request, $runtime);
     }
 
     /**
@@ -2280,6 +2454,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->groupId) {
             @$query['GroupId'] = $request->groupId;
         }
@@ -2348,6 +2526,10 @@ class Edsuser extends OpenApiClient
             @$query['AdDomain'] = $request->adDomain;
         }
 
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->serialNumber) {
             @$query['SerialNumber'] = $request->serialNumber;
         }
@@ -2408,6 +2590,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->orgId) {
             @$body['OrgId'] = $request->orgId;
         }
@@ -2464,12 +2650,18 @@ class Edsuser extends OpenApiClient
     public function removePropertyWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         $body = [];
         if (null !== $request->propertyId) {
             @$body['PropertyId'] = $request->propertyId;
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2522,6 +2714,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->users) {
             @$body['Users'] = $request->users;
         }
@@ -2579,6 +2775,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->notifyType) {
             @$body['NotifyType'] = $request->notifyType;
         }
@@ -2640,6 +2840,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->propertyId) {
             @$body['PropertyId'] = $request->propertyId;
         }
@@ -2693,7 +2897,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 从钉钉手动同步老师学生信息.
+     * Synchronizes all education information.
      *
      * @param request - SyncAllEduInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2723,7 +2927,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * 从钉钉手动同步老师学生信息.
+     * Synchronizes all education information.
      *
      * @returns SyncAllEduInfoResponse
      *
@@ -2755,6 +2959,10 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (null !== $request->adDomain) {
             @$query['AdDomain'] = $request->adDomain;
+        }
+
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
         }
 
         if (null !== $request->serialNumber) {
@@ -2818,6 +3026,10 @@ class Edsuser extends OpenApiClient
             @$query['AutoLockTime'] = $request->autoLockTime;
         }
 
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         $body = [];
         if (null !== $request->users) {
             @$body['Users'] = $request->users;
@@ -2876,6 +3088,11 @@ class Edsuser extends OpenApiClient
     public function updatePropertyWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         $body = [];
         if (null !== $request->propertyId) {
             @$body['PropertyId'] = $request->propertyId;
@@ -2890,6 +3107,7 @@ class Edsuser extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2942,6 +3160,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->endUserIds) {
             @$body['EndUserIds'] = $request->endUserIds;
         }
@@ -3003,6 +3225,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->businessChannel) {
+            @$body['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->endUserIds) {
             @$body['EndUserIds'] = $request->endUserIds;
         }

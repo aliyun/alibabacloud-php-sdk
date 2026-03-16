@@ -11,6 +11,11 @@ class MoveOrgRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $newParentOrgId;
 
     /**
@@ -18,6 +23,7 @@ class MoveOrgRequest extends Model
      */
     public $orgId;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'newParentOrgId' => 'NewParentOrgId',
         'orgId' => 'OrgId',
     ];
@@ -30,6 +36,10 @@ class MoveOrgRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->newParentOrgId) {
             $res['NewParentOrgId'] = $this->newParentOrgId;
         }
@@ -49,6 +59,10 @@ class MoveOrgRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['NewParentOrgId'])) {
             $model->newParentOrgId = $map['NewParentOrgId'];
         }

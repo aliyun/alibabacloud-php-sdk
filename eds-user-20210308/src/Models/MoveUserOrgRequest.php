@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class MoveUserOrgRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $endUserIds;
@@ -18,6 +23,7 @@ class MoveUserOrgRequest extends Model
      */
     public $orgId;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'endUserIds' => 'EndUserIds',
         'orgId' => 'OrgId',
     ];
@@ -33,6 +39,10 @@ class MoveUserOrgRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->endUserIds) {
             if (\is_array($this->endUserIds)) {
                 $res['EndUserIds'] = [];
@@ -59,6 +69,10 @@ class MoveUserOrgRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
                 $model->endUserIds = [];

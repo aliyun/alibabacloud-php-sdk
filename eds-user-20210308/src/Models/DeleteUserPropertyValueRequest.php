@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DeleteUserPropertyValueRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $propertyId;
@@ -23,6 +28,7 @@ class DeleteUserPropertyValueRequest extends Model
      */
     public $userId;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'propertyId' => 'PropertyId',
         'propertyValueId' => 'PropertyValueId',
         'userId' => 'UserId',
@@ -36,6 +42,10 @@ class DeleteUserPropertyValueRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->propertyId) {
             $res['PropertyId'] = $this->propertyId;
         }
@@ -59,6 +69,10 @@ class DeleteUserPropertyValueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['PropertyId'])) {
             $model->propertyId = $map['PropertyId'];
         }

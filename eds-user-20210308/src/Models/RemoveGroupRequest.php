@@ -11,6 +11,11 @@ class RemoveGroupRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -18,6 +23,7 @@ class RemoveGroupRequest extends Model
      */
     public $groupIds;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'groupId' => 'GroupId',
         'groupIds' => 'GroupIds',
     ];
@@ -33,6 +39,10 @@ class RemoveGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -59,6 +69,10 @@ class RemoveGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

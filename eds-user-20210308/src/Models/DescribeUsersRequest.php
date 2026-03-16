@@ -14,6 +14,11 @@ class DescribeUsersRequest extends Model
     public $bizType;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $endUserIds;
@@ -32,6 +37,11 @@ class DescribeUsersRequest extends Model
      * @var string
      */
     public $filter;
+
+    /**
+     * @var string[]
+     */
+    public $filterMap;
 
     /**
      * @var string[]
@@ -84,10 +94,12 @@ class DescribeUsersRequest extends Model
     public $status;
     protected $_name = [
         'bizType' => 'BizType',
+        'businessChannel' => 'BusinessChannel',
         'endUserIds' => 'EndUserIds',
         'excludeEndUserIds' => 'ExcludeEndUserIds',
         'excludeGroupId' => 'ExcludeGroupId',
         'filter' => 'Filter',
+        'filterMap' => 'FilterMap',
         'filterWithAssignedResource' => 'FilterWithAssignedResource',
         'filterWithAssignedResources' => 'FilterWithAssignedResources',
         'groupId' => 'GroupId',
@@ -108,6 +120,9 @@ class DescribeUsersRequest extends Model
         if (\is_array($this->excludeEndUserIds)) {
             Model::validateArray($this->excludeEndUserIds);
         }
+        if (\is_array($this->filterMap)) {
+            Model::validateArray($this->filterMap);
+        }
         if (\is_array($this->filterWithAssignedResource)) {
             Model::validateArray($this->filterWithAssignedResource);
         }
@@ -125,6 +140,10 @@ class DescribeUsersRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->endUserIds) {
@@ -155,6 +174,15 @@ class DescribeUsersRequest extends Model
 
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+
+        if (null !== $this->filterMap) {
+            if (\is_array($this->filterMap)) {
+                $res['FilterMap'] = [];
+                foreach ($this->filterMap as $key1 => $value1) {
+                    $res['FilterMap'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->filterWithAssignedResource) {
@@ -227,6 +255,10 @@ class DescribeUsersRequest extends Model
             $model->bizType = $map['BizType'];
         }
 
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
                 $model->endUserIds = [];
@@ -255,6 +287,15 @@ class DescribeUsersRequest extends Model
 
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+
+        if (isset($map['FilterMap'])) {
+            if (!empty($map['FilterMap'])) {
+                $model->filterMap = [];
+                foreach ($map['FilterMap'] as $key1 => $value1) {
+                    $model->filterMap[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['FilterWithAssignedResource'])) {

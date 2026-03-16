@@ -11,6 +11,11 @@ class BatchSetDesktopManagerRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $isDesktopManager;
 
     /**
@@ -18,6 +23,7 @@ class BatchSetDesktopManagerRequest extends Model
      */
     public $users;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'isDesktopManager' => 'IsDesktopManager',
         'users' => 'Users',
     ];
@@ -33,6 +39,10 @@ class BatchSetDesktopManagerRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->isDesktopManager) {
             $res['IsDesktopManager'] = $this->isDesktopManager;
         }
@@ -59,6 +69,10 @@ class BatchSetDesktopManagerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['IsDesktopManager'])) {
             $model->isDesktopManager = $map['IsDesktopManager'];
         }
