@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\extraParams\translationHotwordMap;
 
 class extraParams extends Model
 {
@@ -37,6 +38,11 @@ class extraParams extends Model
      * @var bool
      */
     public $translateLlmSceneEnabled;
+
+    /**
+     * @var translationHotwordMap
+     */
+    public $translationHotwordMap;
     protected $_name = [
         'domainEducationEnabled' => 'DomainEducationEnabled',
         'fullTextSummaryFormat' => 'FullTextSummaryFormat',
@@ -44,10 +50,14 @@ class extraParams extends Model
         'nfixEnabled' => 'NfixEnabled',
         'ocrAuxiliaryEnabled' => 'OcrAuxiliaryEnabled',
         'translateLlmSceneEnabled' => 'TranslateLlmSceneEnabled',
+        'translationHotwordMap' => 'TranslationHotwordMap',
     ];
 
     public function validate()
     {
+        if (null !== $this->translationHotwordMap) {
+            $this->translationHotwordMap->validate();
+        }
         parent::validate();
     }
 
@@ -76,6 +86,10 @@ class extraParams extends Model
 
         if (null !== $this->translateLlmSceneEnabled) {
             $res['TranslateLlmSceneEnabled'] = $this->translateLlmSceneEnabled;
+        }
+
+        if (null !== $this->translationHotwordMap) {
+            $res['TranslationHotwordMap'] = null !== $this->translationHotwordMap ? $this->translationHotwordMap->toArray($noStream) : $this->translationHotwordMap;
         }
 
         return $res;
@@ -111,6 +125,10 @@ class extraParams extends Model
 
         if (isset($map['TranslateLlmSceneEnabled'])) {
             $model->translateLlmSceneEnabled = $map['TranslateLlmSceneEnabled'];
+        }
+
+        if (isset($map['TranslationHotwordMap'])) {
+            $model->translationHotwordMap = translationHotwordMap::fromMap($map['TranslationHotwordMap']);
         }
 
         return $model;
