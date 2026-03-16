@@ -17,6 +17,8 @@ use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\AddImageAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\AddImageRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\AddImageResponse;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\CheckImageExistsRequest;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\CheckImageExistsResponse;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\CompareSimilarByImageAdvanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\CompareSimilarByImageRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\CompareSimilarByImageResponse;
@@ -396,6 +398,71 @@ class ImageSearch extends OpenApiClient
         }
 
         return $this->addImageWithOptions($addImageReq, $runtime);
+    }
+
+    /**
+     * CheckImageExists.
+     *
+     * @param Request - CheckImageExistsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckImageExistsResponse
+     *
+     * @param CheckImageExistsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CheckImageExistsResponse
+     */
+    public function checkImageExistsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->picName) {
+            @$body['PicName'] = $request->picName;
+        }
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckImageExists',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckImageExistsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CheckImageExists.
+     *
+     * @param Request - CheckImageExistsRequest
+     *
+     * @returns CheckImageExistsResponse
+     *
+     * @param CheckImageExistsRequest $request
+     *
+     * @return CheckImageExistsResponse
+     */
+    public function checkImageExists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkImageExistsWithOptions($request, $runtime);
     }
 
     /**
