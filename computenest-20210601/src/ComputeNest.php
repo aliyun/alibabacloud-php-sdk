@@ -218,7 +218,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a cloud resource belongs.
+     * Changes the resource group of a cloud resource based on the resource ID.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -269,7 +269,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a cloud resource belongs.
+     * Changes the resource group of a cloud resource based on the resource ID.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -287,7 +287,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 服务实例部署前的预检查.
+     * Performs a precheck before deploying a service instance.
      *
      * @param request - CheckServiceDeployableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -350,7 +350,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 服务实例部署前的预检查.
+     * Performs a precheck before deploying a service instance.
      *
      * @param request - CheckServiceDeployableRequest
      *
@@ -868,7 +868,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Delete service instances.
+     * Deletes service instances based on the region ID and service instance IDs.
      *
      * @param request - DeleteServiceInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -915,7 +915,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Delete service instances.
+     * Deletes service instances based on the region ID and service instance IDs.
      *
      * @param request - DeleteServiceInstancesRequest
      *
@@ -933,7 +933,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deploy service instance in Created status.
+     * Deploys the created service instance.
      *
      * @param request - DeployServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -980,7 +980,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deploy service instance in Created status.
+     * Deploys the created service instance.
      *
      * @param request - DeployServiceInstanceRequest
      *
@@ -1055,7 +1055,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 生成并校验服务创建stack所需要的权限.
+     * Queries the missing policies before creating a service instance.
      *
      * @param request - GenerateServicePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1114,7 +1114,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 生成并校验服务创建stack所需要的权限.
+     * Queries the missing policies before creating a service instance.
      *
      * @param request - GenerateServicePolicyRequest
      *
@@ -1531,7 +1531,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+     * Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
      *
      * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1594,7 +1594,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+     * Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
      *
      * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
      *
@@ -1695,7 +1695,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+     * Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1774,7 +1774,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+     * Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
      *
@@ -1922,7 +1922,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query Permission Policy List.
+     * Queires the permissions.
      *
      * @param request - ListPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1969,7 +1969,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query Permission Policy List.
+     * Queires the permissions.
      *
      * @param request - ListPoliciesRequest
      *
@@ -2060,7 +2060,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询服务类别.
+     * Queries service categories.
      *
      * @param request - ListServiceCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2090,7 +2090,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询服务类别.
+     * Queries service categories.
      *
      * @returns ListServiceCategoriesResponse
      *
@@ -2104,7 +2104,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 展示服务实例账单.
+     * Queries instance bills.
      *
      * @param request - ListServiceInstanceBillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2163,7 +2163,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 展示服务实例账单.
+     * Queries instance bills.
      *
      * @param request - ListServiceInstanceBillRequest
      *
@@ -2651,7 +2651,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签键列表.
+     * Queries the existing tag keys.
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2698,7 +2698,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签键列表.
+     * Queries the existing tag keys.
      *
      * @param request - ListTagKeysRequest
      *
@@ -2716,7 +2716,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签资源列表.
+     * Query tag resource list.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2771,7 +2771,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签资源列表.
+     * Query tag resource list.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -2789,7 +2789,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签值列表.
+     * Queries the tag values of a tag key.
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2840,7 +2840,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签值列表.
+     * Queries the tag values of a tag key.
      *
      * @param request - ListTagValuesRequest
      *
@@ -2858,7 +2858,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+     * Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
      *
      * @param request - RenewServiceInstanceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2917,7 +2917,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+     * Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
      *
      * @param request - RenewServiceInstanceResourcesRequest
      *
@@ -2935,7 +2935,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     * Restarts a service instance that is in the Deployed state.
      *
      * @param request - RestartServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2982,7 +2982,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     * Restarts a service instance that is in the Deployed state.
      *
      * @param request - RestartServiceInstanceRequest
      *
@@ -3065,7 +3065,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     * Starts a service instance that is in the Stopped or StartFailed state.
      *
      * @param request - StartServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3112,7 +3112,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     * Starts a service instance that is in the Stopped or StartFailed state.
      *
      * @param request - StartServiceInstanceRequest
      *
@@ -3130,7 +3130,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     * Stops a service instance that is in the Deployed or StopFailed state.
      *
      * @param request - StopServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3177,7 +3177,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     * Stops a service instance that is in the Deployed or StopFailed state.
      *
      * @param request - StopServiceInstanceRequest
      *
@@ -3195,7 +3195,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源打标签.
+     * Creates and adds tags to a specified resource list.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3246,7 +3246,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源打标签.
+     * Creates and adds tags to a specified resource list.
      *
      * @param request - TagResourcesRequest
      *
@@ -3264,7 +3264,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源解除标签.
+     * Removes tags from resources.
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3319,7 +3319,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源解除标签.
+     * Removes tags from resources.
      *
      * @param request - UnTagResourcesRequest
      *

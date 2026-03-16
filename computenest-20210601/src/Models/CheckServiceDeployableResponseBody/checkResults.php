@@ -14,6 +14,11 @@ class checkResults extends Model
     public $message;
 
     /**
+     * @var bool
+     */
+    public $skippable;
+
+    /**
      * @var string
      */
     public $type;
@@ -24,6 +29,7 @@ class checkResults extends Model
     public $value;
     protected $_name = [
         'message' => 'Message',
+        'skippable' => 'Skippable',
         'type' => 'Type',
         'value' => 'Value',
     ];
@@ -38,6 +44,10 @@ class checkResults extends Model
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->skippable) {
+            $res['Skippable'] = $this->skippable;
         }
 
         if (null !== $this->type) {
@@ -61,6 +71,10 @@ class checkResults extends Model
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['Skippable'])) {
+            $model->skippable = $map['Skippable'];
         }
 
         if (isset($map['Type'])) {
