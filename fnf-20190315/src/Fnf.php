@@ -165,6 +165,10 @@ class Fnf extends OpenApiClient
             @$body['Name'] = $request->name;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->roleArn) {
             @$body['RoleArn'] = $request->roleArn;
         }
@@ -833,7 +837,7 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * 查询地域信息列表.
+     * Queries the regions where CloudFlow is available.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -872,7 +876,7 @@ class Fnf extends OpenApiClient
     }
 
     /**
-     * 查询地域信息列表.
+     * Queries the regions where CloudFlow is available.
      *
      * @param request - DescribeRegionsRequest
      *

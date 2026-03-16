@@ -57,6 +57,11 @@ class CreateFlowResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $roleArn;
 
     /**
@@ -73,6 +78,7 @@ class CreateFlowResponseBody extends Model
         'lastModifiedTime' => 'LastModifiedTime',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'roleArn' => 'RoleArn',
         'type' => 'Type',
     ];
@@ -122,6 +128,10 @@ class CreateFlowResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->roleArn) {
@@ -177,6 +187,10 @@ class CreateFlowResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['RoleArn'])) {

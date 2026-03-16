@@ -17,9 +17,15 @@ class ListFlowsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'limit' => 'Limit',
         'nextToken' => 'NextToken',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListFlowsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListFlowsRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

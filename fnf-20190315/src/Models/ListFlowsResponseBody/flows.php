@@ -52,6 +52,11 @@ class flows extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $roleArn;
 
     /**
@@ -67,6 +72,7 @@ class flows extends Model
         'id' => 'Id',
         'lastModifiedTime' => 'LastModifiedTime',
         'name' => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
         'roleArn' => 'RoleArn',
         'type' => 'Type',
     ];
@@ -112,6 +118,10 @@ class flows extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->roleArn) {
@@ -163,6 +173,10 @@ class flows extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['RoleArn'])) {

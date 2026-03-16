@@ -42,6 +42,11 @@ class CreateFlowRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $roleArn;
 
     /**
@@ -55,6 +60,7 @@ class CreateFlowRequest extends Model
         'executionMode' => 'ExecutionMode',
         'externalStorageLocation' => 'ExternalStorageLocation',
         'name' => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
         'roleArn' => 'RoleArn',
         'type' => 'Type',
     ];
@@ -92,6 +98,10 @@ class CreateFlowRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->roleArn) {
@@ -135,6 +145,10 @@ class CreateFlowRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['RoleArn'])) {
