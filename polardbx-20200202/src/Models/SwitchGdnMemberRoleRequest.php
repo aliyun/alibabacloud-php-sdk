@@ -16,7 +16,32 @@ class SwitchGdnMemberRoleRequest extends Model
     /**
      * @var string
      */
+    public $dstMainConnectString;
+
+    /**
+     * @var string
+     */
+    public $dstMainPort;
+
+    /**
+     * @var string
+     */
+    public $isModifyEndpoint;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $srcMainConnectString;
+
+    /**
+     * @var string
+     */
+    public $srcMainPort;
 
     /**
      * @var string
@@ -29,7 +54,12 @@ class SwitchGdnMemberRoleRequest extends Model
     public $taskTimeout;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
+        'dstMainConnectString' => 'DstMainConnectString',
+        'dstMainPort' => 'DstMainPort',
+        'isModifyEndpoint' => 'IsModifyEndpoint',
         'regionId' => 'RegionId',
+        'srcMainConnectString' => 'SrcMainConnectString',
+        'srcMainPort' => 'SrcMainPort',
         'switchMode' => 'SwitchMode',
         'taskTimeout' => 'TaskTimeout',
     ];
@@ -46,8 +76,28 @@ class SwitchGdnMemberRoleRequest extends Model
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
+        if (null !== $this->dstMainConnectString) {
+            $res['DstMainConnectString'] = $this->dstMainConnectString;
+        }
+
+        if (null !== $this->dstMainPort) {
+            $res['DstMainPort'] = $this->dstMainPort;
+        }
+
+        if (null !== $this->isModifyEndpoint) {
+            $res['IsModifyEndpoint'] = $this->isModifyEndpoint;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->srcMainConnectString) {
+            $res['SrcMainConnectString'] = $this->srcMainConnectString;
+        }
+
+        if (null !== $this->srcMainPort) {
+            $res['SrcMainPort'] = $this->srcMainPort;
         }
 
         if (null !== $this->switchMode) {
@@ -73,8 +123,28 @@ class SwitchGdnMemberRoleRequest extends Model
             $model->DBInstanceName = $map['DBInstanceName'];
         }
 
+        if (isset($map['DstMainConnectString'])) {
+            $model->dstMainConnectString = $map['DstMainConnectString'];
+        }
+
+        if (isset($map['DstMainPort'])) {
+            $model->dstMainPort = $map['DstMainPort'];
+        }
+
+        if (isset($map['IsModifyEndpoint'])) {
+            $model->isModifyEndpoint = $map['IsModifyEndpoint'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SrcMainConnectString'])) {
+            $model->srcMainConnectString = $map['SrcMainConnectString'];
+        }
+
+        if (isset($map['SrcMainPort'])) {
+            $model->srcMainPort = $map['SrcMainPort'];
         }
 
         if (isset($map['SwitchMode'])) {

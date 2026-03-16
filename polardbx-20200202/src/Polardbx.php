@@ -8959,8 +8959,28 @@ class Polardbx extends OpenApiClient
             @$query['DBInstanceName'] = $request->DBInstanceName;
         }
 
+        if (null !== $request->dstMainConnectString) {
+            @$query['DstMainConnectString'] = $request->dstMainConnectString;
+        }
+
+        if (null !== $request->dstMainPort) {
+            @$query['DstMainPort'] = $request->dstMainPort;
+        }
+
+        if (null !== $request->isModifyEndpoint) {
+            @$query['IsModifyEndpoint'] = $request->isModifyEndpoint;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->srcMainConnectString) {
+            @$query['SrcMainConnectString'] = $request->srcMainConnectString;
+        }
+
+        if (null !== $request->srcMainPort) {
+            @$query['SrcMainPort'] = $request->srcMainPort;
         }
 
         if (null !== $request->switchMode) {
