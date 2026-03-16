@@ -383,6 +383,10 @@ class Aiccs extends OpenApiClient
             $request->callTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
         }
 
+        if (null !== $tmpReq->callTimeStrList) {
+            $request->callTimeStrListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeStrList, 'CallTimeStrList', 'json');
+        }
+
         if (null !== $tmpReq->repeatReason) {
             $request->repeatReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repeatReason, 'RepeatReason', 'json');
         }
@@ -398,6 +402,10 @@ class Aiccs extends OpenApiClient
         $query = [];
         if (null !== $request->callTimeListShrink) {
             @$query['CallTimeList'] = $request->callTimeListShrink;
+        }
+
+        if (null !== $request->callTimeStrListShrink) {
+            @$query['CallTimeStrList'] = $request->callTimeStrListShrink;
         }
 
         if (null !== $request->callbackUrl) {
@@ -1272,6 +1280,10 @@ class Aiccs extends OpenApiClient
             $request->callTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
         }
 
+        if (null !== $tmpReq->callTimeStrList) {
+            $request->callTimeStrListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeStrList, 'CallTimeStrList', 'json');
+        }
+
         if (null !== $tmpReq->repeatReason) {
             $request->repeatReasonShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repeatReason, 'RepeatReason', 'json');
         }
@@ -1287,6 +1299,10 @@ class Aiccs extends OpenApiClient
         $query = [];
         if (null !== $request->callTimeListShrink) {
             @$query['CallTimeList'] = $request->callTimeListShrink;
+        }
+
+        if (null !== $request->callTimeStrListShrink) {
+            @$query['CallTimeStrList'] = $request->callTimeStrListShrink;
         }
 
         if (null !== $request->callbackUrl) {
@@ -1842,6 +1858,10 @@ class Aiccs extends OpenApiClient
             $request->callTimeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeList, 'CallTimeList', 'json');
         }
 
+        if (null !== $tmpReq->callTimeStrList) {
+            $request->callTimeStrListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callTimeStrList, 'CallTimeStrList', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentGroupId) {
             @$query['AgentGroupId'] = $request->agentGroupId;
@@ -1849,6 +1869,10 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->callTimeListShrink) {
             @$query['CallTimeList'] = $request->callTimeListShrink;
+        }
+
+        if (null !== $request->callTimeStrListShrink) {
+            @$query['CallTimeStrList'] = $request->callTimeStrListShrink;
         }
 
         if (null !== $request->name) {

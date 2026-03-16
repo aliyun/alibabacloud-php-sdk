@@ -16,6 +16,11 @@ class EditTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $callTimeStrListShrink;
+
+    /**
+     * @var string
+     */
     public $callbackUrl;
 
     /**
@@ -119,6 +124,7 @@ class EditTaskShrinkRequest extends Model
     public $templateType;
     protected $_name = [
         'callTimeListShrink' => 'CallTimeList',
+        'callTimeStrListShrink' => 'CallTimeStrList',
         'callbackUrl' => 'CallbackUrl',
         'flashSmsTemplateId' => 'FlashSmsTemplateId',
         'flashSmsType' => 'FlashSmsType',
@@ -152,6 +158,10 @@ class EditTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->callTimeListShrink) {
             $res['CallTimeList'] = $this->callTimeListShrink;
+        }
+
+        if (null !== $this->callTimeStrListShrink) {
+            $res['CallTimeStrList'] = $this->callTimeStrListShrink;
         }
 
         if (null !== $this->callbackUrl) {
@@ -251,6 +261,10 @@ class EditTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['CallTimeList'])) {
             $model->callTimeListShrink = $map['CallTimeList'];
+        }
+
+        if (isset($map['CallTimeStrList'])) {
+            $model->callTimeStrListShrink = $map['CallTimeStrList'];
         }
 
         if (isset($map['CallbackUrl'])) {

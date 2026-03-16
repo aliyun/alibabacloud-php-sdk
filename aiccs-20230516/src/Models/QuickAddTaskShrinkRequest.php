@@ -21,6 +21,11 @@ class QuickAddTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $callTimeStrListShrink;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -65,6 +70,7 @@ class QuickAddTaskShrinkRequest extends Model
     protected $_name = [
         'agentGroupId' => 'AgentGroupId',
         'callTimeListShrink' => 'CallTimeList',
+        'callTimeStrListShrink' => 'CallTimeStrList',
         'name' => 'Name',
         'ownerId' => 'OwnerId',
         'referenceTaskId' => 'ReferenceTaskId',
@@ -90,6 +96,10 @@ class QuickAddTaskShrinkRequest extends Model
 
         if (null !== $this->callTimeListShrink) {
             $res['CallTimeList'] = $this->callTimeListShrink;
+        }
+
+        if (null !== $this->callTimeStrListShrink) {
+            $res['CallTimeStrList'] = $this->callTimeStrListShrink;
         }
 
         if (null !== $this->name) {
@@ -145,6 +155,10 @@ class QuickAddTaskShrinkRequest extends Model
 
         if (isset($map['CallTimeList'])) {
             $model->callTimeListShrink = $map['CallTimeList'];
+        }
+
+        if (isset($map['CallTimeStrList'])) {
+            $model->callTimeStrListShrink = $map['CallTimeStrList'];
         }
 
         if (isset($map['Name'])) {

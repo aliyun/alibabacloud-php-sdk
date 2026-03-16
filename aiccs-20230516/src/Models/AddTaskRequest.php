@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskRequest\callTimeList;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskRequest\callTimeStrList;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\AddTaskRequest\sendSmsPlan;
 
 class AddTaskRequest extends Model
@@ -14,6 +15,11 @@ class AddTaskRequest extends Model
      * @var callTimeList[]
      */
     public $callTimeList;
+
+    /**
+     * @var callTimeStrList[]
+     */
+    public $callTimeStrList;
 
     /**
      * @var string
@@ -121,6 +127,7 @@ class AddTaskRequest extends Model
     public $templateType;
     protected $_name = [
         'callTimeList' => 'CallTimeList',
+        'callTimeStrList' => 'CallTimeStrList',
         'callbackUrl' => 'CallbackUrl',
         'flashSmsTemplateId' => 'FlashSmsTemplateId',
         'flashSmsType' => 'FlashSmsType',
@@ -149,6 +156,9 @@ class AddTaskRequest extends Model
         if (\is_array($this->callTimeList)) {
             Model::validateArray($this->callTimeList);
         }
+        if (\is_array($this->callTimeStrList)) {
+            Model::validateArray($this->callTimeStrList);
+        }
         if (\is_array($this->repeatReason)) {
             Model::validateArray($this->repeatReason);
         }
@@ -170,6 +180,17 @@ class AddTaskRequest extends Model
                 $n1 = 0;
                 foreach ($this->callTimeList as $item1) {
                     $res['CallTimeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->callTimeStrList) {
+            if (\is_array($this->callTimeStrList)) {
+                $res['CallTimeStrList'] = [];
+                $n1 = 0;
+                foreach ($this->callTimeStrList as $item1) {
+                    $res['CallTimeStrList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -297,6 +318,17 @@ class AddTaskRequest extends Model
                 $n1 = 0;
                 foreach ($map['CallTimeList'] as $item1) {
                     $model->callTimeList[$n1] = callTimeList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CallTimeStrList'])) {
+            if (!empty($map['CallTimeStrList'])) {
+                $model->callTimeStrList = [];
+                $n1 = 0;
+                foreach ($map['CallTimeStrList'] as $item1) {
+                    $model->callTimeStrList[$n1] = callTimeStrList::fromMap($item1);
                     ++$n1;
                 }
             }

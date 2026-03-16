@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aiccs\V20230516\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuickAddTaskRequest\callTimeList;
+use AlibabaCloud\SDK\Aiccs\V20230516\Models\QuickAddTaskRequest\callTimeStrList;
 
 class QuickAddTaskRequest extends Model
 {
@@ -18,6 +19,11 @@ class QuickAddTaskRequest extends Model
      * @var callTimeList[]
      */
     public $callTimeList;
+
+    /**
+     * @var callTimeStrList[]
+     */
+    public $callTimeStrList;
 
     /**
      * @var string
@@ -66,6 +72,7 @@ class QuickAddTaskRequest extends Model
     protected $_name = [
         'agentGroupId' => 'AgentGroupId',
         'callTimeList' => 'CallTimeList',
+        'callTimeStrList' => 'CallTimeStrList',
         'name' => 'Name',
         'ownerId' => 'OwnerId',
         'referenceTaskId' => 'ReferenceTaskId',
@@ -81,6 +88,9 @@ class QuickAddTaskRequest extends Model
     {
         if (\is_array($this->callTimeList)) {
             Model::validateArray($this->callTimeList);
+        }
+        if (\is_array($this->callTimeStrList)) {
+            Model::validateArray($this->callTimeStrList);
         }
         parent::validate();
     }
@@ -98,6 +108,17 @@ class QuickAddTaskRequest extends Model
                 $n1 = 0;
                 foreach ($this->callTimeList as $item1) {
                     $res['CallTimeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->callTimeStrList) {
+            if (\is_array($this->callTimeStrList)) {
+                $res['CallTimeStrList'] = [];
+                $n1 = 0;
+                foreach ($this->callTimeStrList as $item1) {
+                    $res['CallTimeStrList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -160,6 +181,17 @@ class QuickAddTaskRequest extends Model
                 $n1 = 0;
                 foreach ($map['CallTimeList'] as $item1) {
                     $model->callTimeList[$n1] = callTimeList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CallTimeStrList'])) {
+            if (!empty($map['CallTimeStrList'])) {
+                $model->callTimeStrList = [];
+                $n1 = 0;
+                foreach ($map['CallTimeStrList'] as $item1) {
+                    $model->callTimeStrList[$n1] = callTimeStrList::fromMap($item1);
                     ++$n1;
                 }
             }
