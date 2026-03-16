@@ -32,6 +32,21 @@ class devices extends Model
     /**
      * @var string
      */
+    public $city;
+
+    /**
+     * @var string
+     */
+    public $continent;
+
+    /**
+     * @var string
+     */
+    public $country;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -85,6 +100,11 @@ class devices extends Model
     public $edrStatus;
 
     /**
+     * @var string[]
+     */
+    public $fullDepartment;
+
+    /**
      * @var string
      */
     public $hostname;
@@ -98,6 +118,11 @@ class devices extends Model
      * @var string
      */
     public $innerIP;
+
+    /**
+     * @var bool
+     */
+    public $joinAdDomain;
 
     /**
      * @var string
@@ -128,6 +153,11 @@ class devices extends Model
      * @var string
      */
     public $paStatus;
+
+    /**
+     * @var string
+     */
+    public $province;
 
     /**
      * @var string
@@ -188,6 +218,9 @@ class devices extends Model
         'appVersion' => 'AppVersion',
         'autoLoginStatus' => 'AutoLoginStatus',
         'CPU' => 'CPU',
+        'city' => 'City',
+        'continent' => 'Continent',
+        'country' => 'Country',
         'createTime' => 'CreateTime',
         'department' => 'Department',
         'deviceBelong' => 'DeviceBelong',
@@ -199,15 +232,18 @@ class devices extends Model
         'disk' => 'Disk',
         'dlpStatus' => 'DlpStatus',
         'edrStatus' => 'EdrStatus',
+        'fullDepartment' => 'FullDepartment',
         'hostname' => 'Hostname',
         'iaStatus' => 'IaStatus',
         'innerIP' => 'InnerIP',
+        'joinAdDomain' => 'JoinAdDomain',
         'mac' => 'Mac',
         'matchDeviceGroupIds' => 'MatchDeviceGroupIds',
         'memory' => 'Memory',
         'nacStatus' => 'NacStatus',
         'netInterfaceInfo' => 'NetInterfaceInfo',
         'paStatus' => 'PaStatus',
+        'province' => 'Province',
         'saseUserId' => 'SaseUserId',
         'sharingStatus' => 'SharingStatus',
         'snBaseBoard' => 'SnBaseBoard',
@@ -223,6 +259,9 @@ class devices extends Model
 
     public function validate()
     {
+        if (\is_array($this->fullDepartment)) {
+            Model::validateArray($this->fullDepartment);
+        }
         if (\is_array($this->matchDeviceGroupIds)) {
             Model::validateArray($this->matchDeviceGroupIds);
         }
@@ -249,6 +288,18 @@ class devices extends Model
 
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
+        }
+
+        if (null !== $this->city) {
+            $res['City'] = $this->city;
+        }
+
+        if (null !== $this->continent) {
+            $res['Continent'] = $this->continent;
+        }
+
+        if (null !== $this->country) {
+            $res['Country'] = $this->country;
         }
 
         if (null !== $this->createTime) {
@@ -295,6 +346,17 @@ class devices extends Model
             $res['EdrStatus'] = $this->edrStatus;
         }
 
+        if (null !== $this->fullDepartment) {
+            if (\is_array($this->fullDepartment)) {
+                $res['FullDepartment'] = [];
+                $n1 = 0;
+                foreach ($this->fullDepartment as $item1) {
+                    $res['FullDepartment'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
@@ -305,6 +367,10 @@ class devices extends Model
 
         if (null !== $this->innerIP) {
             $res['InnerIP'] = $this->innerIP;
+        }
+
+        if (null !== $this->joinAdDomain) {
+            $res['JoinAdDomain'] = $this->joinAdDomain;
         }
 
         if (null !== $this->mac) {
@@ -343,6 +409,10 @@ class devices extends Model
 
         if (null !== $this->paStatus) {
             $res['PaStatus'] = $this->paStatus;
+        }
+
+        if (null !== $this->province) {
+            $res['Province'] = $this->province;
         }
 
         if (null !== $this->saseUserId) {
@@ -416,6 +486,18 @@ class devices extends Model
             $model->CPU = $map['CPU'];
         }
 
+        if (isset($map['City'])) {
+            $model->city = $map['City'];
+        }
+
+        if (isset($map['Continent'])) {
+            $model->continent = $map['Continent'];
+        }
+
+        if (isset($map['Country'])) {
+            $model->country = $map['Country'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -460,6 +542,17 @@ class devices extends Model
             $model->edrStatus = $map['EdrStatus'];
         }
 
+        if (isset($map['FullDepartment'])) {
+            if (!empty($map['FullDepartment'])) {
+                $model->fullDepartment = [];
+                $n1 = 0;
+                foreach ($map['FullDepartment'] as $item1) {
+                    $model->fullDepartment[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
@@ -470,6 +563,10 @@ class devices extends Model
 
         if (isset($map['InnerIP'])) {
             $model->innerIP = $map['InnerIP'];
+        }
+
+        if (isset($map['JoinAdDomain'])) {
+            $model->joinAdDomain = $map['JoinAdDomain'];
         }
 
         if (isset($map['Mac'])) {
@@ -508,6 +605,10 @@ class devices extends Model
 
         if (isset($map['PaStatus'])) {
             $model->paStatus = $map['PaStatus'];
+        }
+
+        if (isset($map['Province'])) {
+            $model->province = $map['Province'];
         }
 
         if (isset($map['SaseUserId'])) {

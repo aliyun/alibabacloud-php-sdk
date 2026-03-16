@@ -19,6 +19,11 @@ class users extends Model
     public $email;
 
     /**
+     * @var string[]
+     */
+    public $fullDepartment;
+
+    /**
      * @var string
      */
     public $idpName;
@@ -45,6 +50,7 @@ class users extends Model
     protected $_name = [
         'department' => 'Department',
         'email' => 'Email',
+        'fullDepartment' => 'FullDepartment',
         'idpName' => 'IdpName',
         'phone' => 'Phone',
         'saseUserId' => 'SaseUserId',
@@ -54,6 +60,9 @@ class users extends Model
 
     public function validate()
     {
+        if (\is_array($this->fullDepartment)) {
+            Model::validateArray($this->fullDepartment);
+        }
         parent::validate();
     }
 
@@ -66,6 +75,17 @@ class users extends Model
 
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+
+        if (null !== $this->fullDepartment) {
+            if (\is_array($this->fullDepartment)) {
+                $res['FullDepartment'] = [];
+                $n1 = 0;
+                foreach ($this->fullDepartment as $item1) {
+                    $res['FullDepartment'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->idpName) {
@@ -105,6 +125,17 @@ class users extends Model
 
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+
+        if (isset($map['FullDepartment'])) {
+            if (!empty($map['FullDepartment'])) {
+                $model->fullDepartment = [];
+                $n1 = 0;
+                foreach ($map['FullDepartment'] as $item1) {
+                    $model->fullDepartment[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['IdpName'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponseBody\device\historyUsers;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponseBody\device\netInterfaceInfo;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponseBody\device\processes;
 
 class device extends Model
 {
@@ -26,9 +27,34 @@ class device extends Model
     public $autoLoginStatus;
 
     /**
+     * @var int
+     */
+    public $batteryHealthPercentage;
+
+    /**
+     * @var int
+     */
+    public $batteryRemainingPercentage;
+
+    /**
      * @var string
      */
     public $CPU;
+
+    /**
+     * @var string
+     */
+    public $city;
+
+    /**
+     * @var string
+     */
+    public $continent;
+
+    /**
+     * @var string
+     */
+    public $country;
 
     /**
      * @var string
@@ -76,6 +102,16 @@ class device extends Model
     public $disk;
 
     /**
+     * @var int
+     */
+    public $diskAvailable;
+
+    /**
+     * @var int
+     */
+    public $diskUsed;
+
+    /**
      * @var string
      */
     public $dlpStatus;
@@ -106,6 +142,11 @@ class device extends Model
     public $innerIP;
 
     /**
+     * @var bool
+     */
+    public $joinAdDomain;
+
+    /**
      * @var string
      */
     public $mac;
@@ -134,6 +175,16 @@ class device extends Model
      * @var string
      */
     public $paStatus;
+
+    /**
+     * @var processes[]
+     */
+    public $processes;
+
+    /**
+     * @var string
+     */
+    public $province;
 
     /**
      * @var string
@@ -176,6 +227,11 @@ class device extends Model
     public $srcIP;
 
     /**
+     * @var int
+     */
+    public $terminalInfoCollectTime;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -193,7 +249,12 @@ class device extends Model
         'appStatus' => 'AppStatus',
         'appVersion' => 'AppVersion',
         'autoLoginStatus' => 'AutoLoginStatus',
+        'batteryHealthPercentage' => 'BatteryHealthPercentage',
+        'batteryRemainingPercentage' => 'BatteryRemainingPercentage',
         'CPU' => 'CPU',
+        'city' => 'City',
+        'continent' => 'Continent',
+        'country' => 'Country',
         'createTime' => 'CreateTime',
         'department' => 'Department',
         'deviceBelong' => 'DeviceBelong',
@@ -203,18 +264,23 @@ class device extends Model
         'deviceType' => 'DeviceType',
         'deviceVersion' => 'DeviceVersion',
         'disk' => 'Disk',
+        'diskAvailable' => 'DiskAvailable',
+        'diskUsed' => 'DiskUsed',
         'dlpStatus' => 'DlpStatus',
         'edrStatus' => 'EdrStatus',
         'historyUsers' => 'HistoryUsers',
         'hostname' => 'Hostname',
         'iaStatus' => 'IaStatus',
         'innerIP' => 'InnerIP',
+        'joinAdDomain' => 'JoinAdDomain',
         'mac' => 'Mac',
         'matchDeviceGroupIds' => 'MatchDeviceGroupIds',
         'memory' => 'Memory',
         'nacStatus' => 'NacStatus',
         'netInterfaceInfo' => 'NetInterfaceInfo',
         'paStatus' => 'PaStatus',
+        'processes' => 'Processes',
+        'province' => 'Province',
         'saseUserId' => 'SaseUserId',
         'sharingStatus' => 'SharingStatus',
         'snBaseBoard' => 'SnBaseBoard',
@@ -223,6 +289,7 @@ class device extends Model
         'snProcessor' => 'SnProcessor',
         'snSystem' => 'SnSystem',
         'srcIP' => 'SrcIP',
+        'terminalInfoCollectTime' => 'TerminalInfoCollectTime',
         'updateTime' => 'UpdateTime',
         'username' => 'Username',
         'workshop' => 'Workshop',
@@ -238,6 +305,9 @@ class device extends Model
         }
         if (\is_array($this->netInterfaceInfo)) {
             Model::validateArray($this->netInterfaceInfo);
+        }
+        if (\is_array($this->processes)) {
+            Model::validateArray($this->processes);
         }
         parent::validate();
     }
@@ -257,8 +327,28 @@ class device extends Model
             $res['AutoLoginStatus'] = $this->autoLoginStatus;
         }
 
+        if (null !== $this->batteryHealthPercentage) {
+            $res['BatteryHealthPercentage'] = $this->batteryHealthPercentage;
+        }
+
+        if (null !== $this->batteryRemainingPercentage) {
+            $res['BatteryRemainingPercentage'] = $this->batteryRemainingPercentage;
+        }
+
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
+        }
+
+        if (null !== $this->city) {
+            $res['City'] = $this->city;
+        }
+
+        if (null !== $this->continent) {
+            $res['Continent'] = $this->continent;
+        }
+
+        if (null !== $this->country) {
+            $res['Country'] = $this->country;
         }
 
         if (null !== $this->createTime) {
@@ -297,6 +387,14 @@ class device extends Model
             $res['Disk'] = $this->disk;
         }
 
+        if (null !== $this->diskAvailable) {
+            $res['DiskAvailable'] = $this->diskAvailable;
+        }
+
+        if (null !== $this->diskUsed) {
+            $res['DiskUsed'] = $this->diskUsed;
+        }
+
         if (null !== $this->dlpStatus) {
             $res['DlpStatus'] = $this->dlpStatus;
         }
@@ -326,6 +424,10 @@ class device extends Model
 
         if (null !== $this->innerIP) {
             $res['InnerIP'] = $this->innerIP;
+        }
+
+        if (null !== $this->joinAdDomain) {
+            $res['JoinAdDomain'] = $this->joinAdDomain;
         }
 
         if (null !== $this->mac) {
@@ -366,6 +468,21 @@ class device extends Model
             $res['PaStatus'] = $this->paStatus;
         }
 
+        if (null !== $this->processes) {
+            if (\is_array($this->processes)) {
+                $res['Processes'] = [];
+                $n1 = 0;
+                foreach ($this->processes as $item1) {
+                    $res['Processes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->province) {
+            $res['Province'] = $this->province;
+        }
+
         if (null !== $this->saseUserId) {
             $res['SaseUserId'] = $this->saseUserId;
         }
@@ -396,6 +513,10 @@ class device extends Model
 
         if (null !== $this->srcIP) {
             $res['SrcIP'] = $this->srcIP;
+        }
+
+        if (null !== $this->terminalInfoCollectTime) {
+            $res['TerminalInfoCollectTime'] = $this->terminalInfoCollectTime;
         }
 
         if (null !== $this->updateTime) {
@@ -433,8 +554,28 @@ class device extends Model
             $model->autoLoginStatus = $map['AutoLoginStatus'];
         }
 
+        if (isset($map['BatteryHealthPercentage'])) {
+            $model->batteryHealthPercentage = $map['BatteryHealthPercentage'];
+        }
+
+        if (isset($map['BatteryRemainingPercentage'])) {
+            $model->batteryRemainingPercentage = $map['BatteryRemainingPercentage'];
+        }
+
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
+        }
+
+        if (isset($map['City'])) {
+            $model->city = $map['City'];
+        }
+
+        if (isset($map['Continent'])) {
+            $model->continent = $map['Continent'];
+        }
+
+        if (isset($map['Country'])) {
+            $model->country = $map['Country'];
         }
 
         if (isset($map['CreateTime'])) {
@@ -473,6 +614,14 @@ class device extends Model
             $model->disk = $map['Disk'];
         }
 
+        if (isset($map['DiskAvailable'])) {
+            $model->diskAvailable = $map['DiskAvailable'];
+        }
+
+        if (isset($map['DiskUsed'])) {
+            $model->diskUsed = $map['DiskUsed'];
+        }
+
         if (isset($map['DlpStatus'])) {
             $model->dlpStatus = $map['DlpStatus'];
         }
@@ -502,6 +651,10 @@ class device extends Model
 
         if (isset($map['InnerIP'])) {
             $model->innerIP = $map['InnerIP'];
+        }
+
+        if (isset($map['JoinAdDomain'])) {
+            $model->joinAdDomain = $map['JoinAdDomain'];
         }
 
         if (isset($map['Mac'])) {
@@ -542,6 +695,21 @@ class device extends Model
             $model->paStatus = $map['PaStatus'];
         }
 
+        if (isset($map['Processes'])) {
+            if (!empty($map['Processes'])) {
+                $model->processes = [];
+                $n1 = 0;
+                foreach ($map['Processes'] as $item1) {
+                    $model->processes[$n1] = processes::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Province'])) {
+            $model->province = $map['Province'];
+        }
+
         if (isset($map['SaseUserId'])) {
             $model->saseUserId = $map['SaseUserId'];
         }
@@ -572,6 +740,10 @@ class device extends Model
 
         if (isset($map['SrcIP'])) {
             $model->srcIP = $map['SrcIP'];
+        }
+
+        if (isset($map['TerminalInfoCollectTime'])) {
+            $model->terminalInfoCollectTime = $map['TerminalInfoCollectTime'];
         }
 
         if (isset($map['UpdateTime'])) {

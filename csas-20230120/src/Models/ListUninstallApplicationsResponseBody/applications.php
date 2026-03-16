@@ -34,6 +34,11 @@ class applications extends Model
     public $devType;
 
     /**
+     * @var string[]
+     */
+    public $fullDepartment;
+
+    /**
      * @var string
      */
     public $hostname;
@@ -78,6 +83,7 @@ class applications extends Model
         'department' => 'Department',
         'devTag' => 'DevTag',
         'devType' => 'DevType',
+        'fullDepartment' => 'FullDepartment',
         'hostname' => 'Hostname',
         'idpName' => 'IdpName',
         'isUninstall' => 'IsUninstall',
@@ -90,6 +96,9 @@ class applications extends Model
 
     public function validate()
     {
+        if (\is_array($this->fullDepartment)) {
+            Model::validateArray($this->fullDepartment);
+        }
         parent::validate();
     }
 
@@ -114,6 +123,17 @@ class applications extends Model
 
         if (null !== $this->devType) {
             $res['DevType'] = $this->devType;
+        }
+
+        if (null !== $this->fullDepartment) {
+            if (\is_array($this->fullDepartment)) {
+                $res['FullDepartment'] = [];
+                $n1 = 0;
+                foreach ($this->fullDepartment as $item1) {
+                    $res['FullDepartment'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->hostname) {
@@ -177,6 +197,17 @@ class applications extends Model
 
         if (isset($map['DevType'])) {
             $model->devType = $map['DevType'];
+        }
+
+        if (isset($map['FullDepartment'])) {
+            if (!empty($map['FullDepartment'])) {
+                $model->fullDepartment = [];
+                $n1 = 0;
+                foreach ($map['FullDepartment'] as $item1) {
+                    $model->fullDepartment[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Hostname'])) {
