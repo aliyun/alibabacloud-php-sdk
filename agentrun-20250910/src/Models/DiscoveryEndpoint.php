@@ -16,10 +16,22 @@ class DiscoveryEndpoint extends Model
     /**
      * @var string
      */
+    public $credentialName;
+
+    /**
+     * @var string
+     */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $returnAgentCredentialContent;
     protected $_name = [
         'agentEndpointConfigs' => 'agentEndpointConfigs',
+        'credentialName' => 'credentialName',
         'name' => 'name',
+        'returnAgentCredentialContent' => 'returnAgentCredentialContent',
     ];
 
     public function validate()
@@ -44,8 +56,16 @@ class DiscoveryEndpoint extends Model
             }
         }
 
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->returnAgentCredentialContent) {
+            $res['returnAgentCredentialContent'] = $this->returnAgentCredentialContent;
         }
 
         return $res;
@@ -70,8 +90,16 @@ class DiscoveryEndpoint extends Model
             }
         }
 
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['returnAgentCredentialContent'])) {
+            $model->returnAgentCredentialContent = $map['returnAgentCredentialContent'];
         }
 
         return $model;

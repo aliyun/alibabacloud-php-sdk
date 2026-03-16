@@ -21,10 +21,16 @@ class AgentEndpointConfig extends Model
     /**
      * @var string
      */
+    public $endpointName;
+
+    /**
+     * @var string
+     */
     public $endpointUrl;
     protected $_name = [
         'agentName' => 'agentName',
         'customDomainUrl' => 'customDomainUrl',
+        'endpointName' => 'endpointName',
         'endpointUrl' => 'endpointUrl',
     ];
 
@@ -42,6 +48,10 @@ class AgentEndpointConfig extends Model
 
         if (null !== $this->customDomainUrl) {
             $res['customDomainUrl'] = $this->customDomainUrl;
+        }
+
+        if (null !== $this->endpointName) {
+            $res['endpointName'] = $this->endpointName;
         }
 
         if (null !== $this->endpointUrl) {
@@ -65,6 +75,10 @@ class AgentEndpointConfig extends Model
 
         if (isset($map['customDomainUrl'])) {
             $model->customDomainUrl = $map['customDomainUrl'];
+        }
+
+        if (isset($map['endpointName'])) {
+            $model->endpointName = $map['endpointName'];
         }
 
         if (isset($map['endpointUrl'])) {

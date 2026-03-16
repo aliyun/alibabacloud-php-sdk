@@ -14,11 +14,17 @@ class ArmsConfiguration extends Model
     public $armsLicenseKey;
 
     /**
+     * @var string
+     */
+    public $cmsWorkspace;
+
+    /**
      * @var bool
      */
     public $enableArms;
     protected $_name = [
         'armsLicenseKey' => 'armsLicenseKey',
+        'cmsWorkspace' => 'cmsWorkspace',
         'enableArms' => 'enableArms',
     ];
 
@@ -32,6 +38,10 @@ class ArmsConfiguration extends Model
         $res = [];
         if (null !== $this->armsLicenseKey) {
             $res['armsLicenseKey'] = $this->armsLicenseKey;
+        }
+
+        if (null !== $this->cmsWorkspace) {
+            $res['cmsWorkspace'] = $this->cmsWorkspace;
         }
 
         if (null !== $this->enableArms) {
@@ -51,6 +61,10 @@ class ArmsConfiguration extends Model
         $model = new self();
         if (isset($map['armsLicenseKey'])) {
             $model->armsLicenseKey = $map['armsLicenseKey'];
+        }
+
+        if (isset($map['cmsWorkspace'])) {
+            $model->cmsWorkspace = $map['cmsWorkspace'];
         }
 
         if (isset($map['enableArms'])) {

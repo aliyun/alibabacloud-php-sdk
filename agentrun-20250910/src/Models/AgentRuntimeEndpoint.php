@@ -34,6 +34,11 @@ class AgentRuntimeEndpoint extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disablePublicNetworkAccess;
+
+    /**
      * @var string
      */
     public $endpointPublicUrl;
@@ -63,6 +68,7 @@ class AgentRuntimeEndpoint extends Model
         'agentRuntimeEndpointName' => 'agentRuntimeEndpointName',
         'agentRuntimeId' => 'agentRuntimeId',
         'description' => 'description',
+        'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'endpointPublicUrl' => 'endpointPublicUrl',
         'routingConfiguration' => 'routingConfiguration',
         'status' => 'status',
@@ -99,6 +105,10 @@ class AgentRuntimeEndpoint extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disablePublicNetworkAccess) {
+            $res['disablePublicNetworkAccess'] = $this->disablePublicNetworkAccess;
         }
 
         if (null !== $this->endpointPublicUrl) {
@@ -150,6 +160,10 @@ class AgentRuntimeEndpoint extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disablePublicNetworkAccess'])) {
+            $model->disablePublicNetworkAccess = $map['disablePublicNetworkAccess'];
         }
 
         if (isset($map['endpointPublicUrl'])) {

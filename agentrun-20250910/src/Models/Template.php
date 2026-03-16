@@ -116,6 +116,11 @@ class Template extends Model
     public $sandboxTTLInSeconds;
 
     /**
+     * @var ScalingStatus
+     */
+    public $scalingStatus;
+
+    /**
      * @var string
      */
     public $status;
@@ -181,6 +186,7 @@ class Template extends Model
         'resourceName' => 'resourceName',
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxTTLInSeconds' => 'sandboxTTLInSeconds',
+        'scalingStatus' => 'scalingStatus',
         'status' => 'status',
         'statusReason' => 'statusReason',
         'templateArn' => 'templateArn',
@@ -220,6 +226,9 @@ class Template extends Model
         }
         if (\is_array($this->ossConfiguration)) {
             Model::validateArray($this->ossConfiguration);
+        }
+        if (null !== $this->scalingStatus) {
+            $this->scalingStatus->validate();
         }
         if (\is_array($this->templateConfiguration)) {
             Model::validateArray($this->templateConfiguration);
@@ -324,6 +333,10 @@ class Template extends Model
 
         if (null !== $this->sandboxTTLInSeconds) {
             $res['sandboxTTLInSeconds'] = $this->sandboxTTLInSeconds;
+        }
+
+        if (null !== $this->scalingStatus) {
+            $res['scalingStatus'] = null !== $this->scalingStatus ? $this->scalingStatus->toArray($noStream) : $this->scalingStatus;
         }
 
         if (null !== $this->status) {
@@ -472,6 +485,10 @@ class Template extends Model
 
         if (isset($map['sandboxTTLInSeconds'])) {
             $model->sandboxTTLInSeconds = $map['sandboxTTLInSeconds'];
+        }
+
+        if (isset($map['scalingStatus'])) {
+            $model->scalingStatus = ScalingStatus::fromMap($map['scalingStatus']);
         }
 
         if (isset($map['status'])) {

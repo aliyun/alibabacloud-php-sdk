@@ -19,6 +19,11 @@ class UpdateAgentRuntimeEndpointInput extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disablePublicNetworkAccess;
+
+    /**
      * @var RoutingConfiguration
      */
     public $routingConfiguration;
@@ -30,6 +35,7 @@ class UpdateAgentRuntimeEndpointInput extends Model
     protected $_name = [
         'agentRuntimeEndpointName' => 'agentRuntimeEndpointName',
         'description' => 'description',
+        'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'routingConfiguration' => 'routingConfiguration',
         'targetVersion' => 'targetVersion',
     ];
@@ -51,6 +57,10 @@ class UpdateAgentRuntimeEndpointInput extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disablePublicNetworkAccess) {
+            $res['disablePublicNetworkAccess'] = $this->disablePublicNetworkAccess;
         }
 
         if (null !== $this->routingConfiguration) {
@@ -78,6 +88,10 @@ class UpdateAgentRuntimeEndpointInput extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disablePublicNetworkAccess'])) {
+            $model->disablePublicNetworkAccess = $map['disablePublicNetworkAccess'];
         }
 
         if (isset($map['routingConfiguration'])) {

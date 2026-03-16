@@ -26,6 +26,11 @@ class ProtocolSettings extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $headers;
 
     /**
@@ -67,10 +72,16 @@ class ProtocolSettings extends Model
      * @var string
      */
     public $responseContentType;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'a2AAgentCard' => 'A2AAgentCard',
         'a2aAgentCard' => 'a2aAgentCard',
         'a2aAgentCardUrl' => 'a2aAgentCardUrl',
+        'config' => 'config',
         'headers' => 'headers',
         'inputBodyJsonSchema' => 'inputBodyJsonSchema',
         'method' => 'method',
@@ -80,6 +91,7 @@ class ProtocolSettings extends Model
         'pathPrefix' => 'pathPrefix',
         'requestContentType' => 'requestContentType',
         'responseContentType' => 'responseContentType',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -100,6 +112,10 @@ class ProtocolSettings extends Model
 
         if (null !== $this->a2aAgentCardUrl) {
             $res['a2aAgentCardUrl'] = $this->a2aAgentCardUrl;
+        }
+
+        if (null !== $this->config) {
+            $res['config'] = $this->config;
         }
 
         if (null !== $this->headers) {
@@ -138,6 +154,10 @@ class ProtocolSettings extends Model
             $res['responseContentType'] = $this->responseContentType;
         }
 
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -159,6 +179,10 @@ class ProtocolSettings extends Model
 
         if (isset($map['a2aAgentCardUrl'])) {
             $model->a2aAgentCardUrl = $map['a2aAgentCardUrl'];
+        }
+
+        if (isset($map['config'])) {
+            $model->config = $map['config'];
         }
 
         if (isset($map['headers'])) {
@@ -195,6 +219,10 @@ class ProtocolSettings extends Model
 
         if (isset($map['responseContentType'])) {
             $model->responseContentType = $map['responseContentType'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

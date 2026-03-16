@@ -94,6 +94,11 @@ class CreateTemplateInput extends Model
     public $sandboxTTLInSeconds;
 
     /**
+     * @var ScalingConfig
+     */
+    public $scalingConfig;
+
+    /**
      * @var mixed[]
      */
     public $templateConfiguration;
@@ -130,6 +135,7 @@ class CreateTemplateInput extends Model
         'ossConfiguration' => 'ossConfiguration',
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxTTLInSeconds' => 'sandboxTTLInSeconds',
+        'scalingConfig' => 'scalingConfig',
         'templateConfiguration' => 'templateConfiguration',
         'templateName' => 'templateName',
         'templateType' => 'templateType',
@@ -161,6 +167,9 @@ class CreateTemplateInput extends Model
         }
         if (\is_array($this->ossConfiguration)) {
             Model::validateArray($this->ossConfiguration);
+        }
+        if (null !== $this->scalingConfig) {
+            $this->scalingConfig->validate();
         }
         if (\is_array($this->templateConfiguration)) {
             Model::validateArray($this->templateConfiguration);
@@ -249,6 +258,10 @@ class CreateTemplateInput extends Model
 
         if (null !== $this->sandboxTTLInSeconds) {
             $res['sandboxTTLInSeconds'] = $this->sandboxTTLInSeconds;
+        }
+
+        if (null !== $this->scalingConfig) {
+            $res['scalingConfig'] = null !== $this->scalingConfig ? $this->scalingConfig->toArray($noStream) : $this->scalingConfig;
         }
 
         if (null !== $this->templateConfiguration) {
@@ -361,6 +374,10 @@ class CreateTemplateInput extends Model
 
         if (isset($map['sandboxTTLInSeconds'])) {
             $model->sandboxTTLInSeconds = $map['sandboxTTLInSeconds'];
+        }
+
+        if (isset($map['scalingConfig'])) {
+            $model->scalingConfig = ScalingConfig::fromMap($map['scalingConfig']);
         }
 
         if (isset($map['templateConfiguration'])) {
