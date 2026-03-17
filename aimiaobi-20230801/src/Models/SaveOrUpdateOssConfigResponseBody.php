@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetDocumentsResponseBody\data;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveOrUpdateOssConfigResponseBody\data;
 
-class ListDatasetDocumentsResponseBody extends Model
+class SaveOrUpdateOssConfigResponseBody extends Model
 {
     /**
      * @var string
@@ -15,7 +15,7 @@ class ListDatasetDocumentsResponseBody extends Model
     public $code;
 
     /**
-     * @var data[]
+     * @var data
      */
     public $data;
 
@@ -32,49 +32,25 @@ class ListDatasetDocumentsResponseBody extends Model
     /**
      * @var string
      */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'code' => 'Code',
         'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
-        'nextToken' => 'NextToken',
-        'pageNumber' => 'PageNumber',
-        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
         'success' => 'Success',
-        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -87,14 +63,7 @@ class ListDatasetDocumentsResponseBody extends Model
         }
 
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->httpStatusCode) {
@@ -105,28 +74,12 @@ class ListDatasetDocumentsResponseBody extends Model
             $res['Message'] = $this->message;
         }
 
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
 
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -145,14 +98,7 @@ class ListDatasetDocumentsResponseBody extends Model
         }
 
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['HttpStatusCode'])) {
@@ -163,28 +109,12 @@ class ListDatasetDocumentsResponseBody extends Model
             $model->message = $map['Message'];
         }
 
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
 
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

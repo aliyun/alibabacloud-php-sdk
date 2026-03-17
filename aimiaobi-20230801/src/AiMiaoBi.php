@@ -411,6 +411,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigShrinkRe
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveMaterialDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveOrUpdateOssConfigRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveOrUpdateOssConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveStyleLearningResultShrinkRequest;
@@ -7991,6 +7993,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->includeFieldsShrink) {
             @$body['IncludeFields'] = $request->includeFieldsShrink;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
 
         if (null !== $request->pageNumber) {
@@ -16644,6 +16650,71 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveMaterialDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置oss访问参数.
+     *
+     * @param request - SaveOrUpdateOssConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveOrUpdateOssConfigResponse
+     *
+     * @param SaveOrUpdateOssConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SaveOrUpdateOssConfigResponse
+     */
+    public function saveOrUpdateOssConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bucketName) {
+            @$body['BucketName'] = $request->bucketName;
+        }
+
+        if (null !== $request->endPoint) {
+            @$body['EndPoint'] = $request->endPoint;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveOrUpdateOssConfig',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveOrUpdateOssConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置oss访问参数.
+     *
+     * @param request - SaveOrUpdateOssConfigRequest
+     *
+     * @returns SaveOrUpdateOssConfigResponse
+     *
+     * @param SaveOrUpdateOssConfigRequest $request
+     *
+     * @return SaveOrUpdateOssConfigResponse
+     */
+    public function saveOrUpdateOssConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveOrUpdateOssConfigWithOptions($request, $runtime);
     }
 
     /**

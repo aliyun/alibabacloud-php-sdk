@@ -84,6 +84,11 @@ class ListDatasetDocumentsShrinkRequest extends Model
     public $includeFieldsShrink;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -138,6 +143,7 @@ class ListDatasetDocumentsShrinkRequest extends Model
         'extend2' => 'Extend2',
         'extend3' => 'Extend3',
         'includeFieldsShrink' => 'IncludeFields',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'query' => 'Query',
@@ -214,6 +220,10 @@ class ListDatasetDocumentsShrinkRequest extends Model
 
         if (null !== $this->includeFieldsShrink) {
             $res['IncludeFields'] = $this->includeFieldsShrink;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNumber) {
@@ -317,6 +327,10 @@ class ListDatasetDocumentsShrinkRequest extends Model
 
         if (isset($map['IncludeFields'])) {
             $model->includeFieldsShrink = $map['IncludeFields'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNumber'])) {

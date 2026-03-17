@@ -84,6 +84,11 @@ class ListDatasetDocumentsRequest extends Model
     public $includeFields;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -138,6 +143,7 @@ class ListDatasetDocumentsRequest extends Model
         'extend2' => 'Extend2',
         'extend3' => 'Extend3',
         'includeFields' => 'IncludeFields',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'query' => 'Query',
@@ -267,6 +273,10 @@ class ListDatasetDocumentsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNumber) {
@@ -412,6 +422,10 @@ class ListDatasetDocumentsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNumber'])) {
