@@ -89,6 +89,11 @@ class workspaces extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceSpec;
 
     /**
@@ -136,6 +141,7 @@ class workspaces extends Model
         'prePaidQuota' => 'prePaidQuota',
         'regionId' => 'regionId',
         'releaseType' => 'releaseType',
+        'resourceGroupId' => 'resourceGroupId',
         'resourceSpec' => 'resourceSpec',
         'stateChangeReason' => 'stateChangeReason',
         'storage' => 'storage',
@@ -220,6 +226,10 @@ class workspaces extends Model
 
         if (null !== $this->releaseType) {
             $res['releaseType'] = $this->releaseType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceSpec) {
@@ -326,6 +336,10 @@ class workspaces extends Model
 
         if (isset($map['releaseType'])) {
             $model->releaseType = $map['releaseType'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['resourceSpec'])) {

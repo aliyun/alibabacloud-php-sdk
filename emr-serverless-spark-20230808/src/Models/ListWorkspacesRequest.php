@@ -32,6 +32,11 @@ class ListWorkspacesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $state;
 
     /**
@@ -43,6 +48,7 @@ class ListWorkspacesRequest extends Model
         'name' => 'name',
         'nextToken' => 'nextToken',
         'regionId' => 'regionId',
+        'resourceGroupId' => 'resourceGroupId',
         'state' => 'state',
         'tag' => 'tag',
     ];
@@ -72,6 +78,10 @@ class ListWorkspacesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->state) {
@@ -114,6 +124,10 @@ class ListWorkspacesRequest extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['state'])) {

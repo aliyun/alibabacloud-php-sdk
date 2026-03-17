@@ -76,6 +76,11 @@ class CreateWorkspaceRequest extends Model
     public $releaseType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -108,6 +113,7 @@ class CreateWorkspaceRequest extends Model
         'paymentType' => 'paymentType',
         'ramRoleName' => 'ramRoleName',
         'releaseType' => 'releaseType',
+        'resourceGroupId' => 'resourceGroupId',
         'resourceSpec' => 'resourceSpec',
         'tag' => 'tag',
         'workspaceName' => 'workspaceName',
@@ -178,6 +184,10 @@ class CreateWorkspaceRequest extends Model
 
         if (null !== $this->releaseType) {
             $res['releaseType'] = $this->releaseType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceSpec) {
@@ -264,6 +274,10 @@ class CreateWorkspaceRequest extends Model
 
         if (isset($map['releaseType'])) {
             $model->releaseType = $map['releaseType'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['resourceSpec'])) {

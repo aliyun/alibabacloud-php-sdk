@@ -1276,6 +1276,10 @@ class Emrserverlessspark extends OpenApiClient
             @$body['releaseType'] = $request->releaseType;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourceSpec) {
             @$body['resourceSpec'] = $request->resourceSpec;
         }
@@ -2921,7 +2925,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * ListKyuubiServices.
+     * Gets the list of KyuubiServers.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2955,7 +2959,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * ListKyuubiServices.
+     * Gets the list of KyuubiServers.
      *
      * @returns ListKyuubiServicesResponse
      *
@@ -3144,7 +3148,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出livy compute.
+     * List the Livy Gateway.
      *
      * @param request - ListLivyComputeRequest
      * @param headers - map
@@ -3191,7 +3195,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出livy compute.
+     * List the Livy Gateway.
      *
      * @param request - ListLivyComputeRequest
      *
@@ -3965,6 +3969,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->state) {
