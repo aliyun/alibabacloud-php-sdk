@@ -4,36 +4,16 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DiscribeSmartAccessGatewayDiagnosisReportResponseBody\diagnoseResult\details;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DiscribeSmartAccessGatewayDiagnosisReportResponseBody\diagnoseResult\details\items\CN;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DiscribeSmartAccessGatewayDiagnosisReportResponseBody\diagnoseResult\details\items\EN;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var CN
      */
     public $CN;
-
-    /**
-     * @var string
-     */
-    public $itemName;
 
     /**
      * @var EN
@@ -41,79 +21,118 @@ class items extends Model
     public $EN;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $itemName;
+
+    /**
      * @var string
      */
     public $level;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
-        'endTime'   => 'EndTime',
+        'CN' => 'CN',
+        'EN' => 'EN',
+        'endTime' => 'EndTime',
+        'itemName' => 'ItemName',
+        'level' => 'Level',
         'startTime' => 'StartTime',
-        'CN'        => 'CN',
-        'itemName'  => 'ItemName',
-        'EN'        => 'EN',
-        'level'     => 'Level',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->CN) {
+            $this->CN->validate();
+        }
+        if (null !== $this->EN) {
+            $this->EN->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->CN) {
+            $res['CN'] = null !== $this->CN ? $this->CN->toArray($noStream) : $this->CN;
         }
+
+        if (null !== $this->EN) {
+            $res['EN'] = null !== $this->EN ? $this->EN->toArray($noStream) : $this->EN;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->CN) {
-            $res['CN'] = null !== $this->CN ? $this->CN->toMap() : null;
-        }
+
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->EN) {
-            $res['EN'] = null !== $this->EN ? $this->EN->toMap() : null;
-        }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['CN'])) {
             $model->CN = CN::fromMap($map['CN']);
         }
-        if (isset($map['ItemName'])) {
-            $model->itemName = $map['ItemName'];
-        }
+
         if (isset($map['EN'])) {
             $model->EN = EN::fromMap($map['EN']);
         }
+
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['ItemName'])) {
+            $model->itemName = $map['ItemName'];
+        }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -4,55 +4,61 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeRegionsResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var regions
      */
     public $regions;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
-        'regions'   => 'Regions',
     ];
 
     public function validate()
     {
+        if (null !== $this->regions) {
+            $this->regions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->regions) {
+            $res['Regions'] = null !== $this->regions ? $this->regions->toArray($noStream) : $this->regions;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Regions'])) {
             $model->regions = regions::fromMap($map['Regions']);
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -4,16 +4,16 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\GetQosAttributeResponseBody\qosCars;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\GetQosAttributeResponseBody\qosPolicies;
-use AlibabaCloud\Tea\Model;
 
 class GetQosAttributeResponseBody extends Model
 {
     /**
-     * @var qosPolicies[]
+     * @var int
      */
-    public $qosPolicies;
+    public $errorConfigSmartAGCount;
 
     /**
      * @var qosCars[]
@@ -23,12 +23,7 @@ class GetQosAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $errorConfigSmartAGCount;
+    public $qosDescription;
 
     /**
      * @var string
@@ -36,96 +31,122 @@ class GetQosAttributeResponseBody extends Model
     public $qosName;
 
     /**
+     * @var qosPolicies[]
+     */
+    public $qosPolicies;
+
+    /**
      * @var string
      */
-    public $qosDescription;
+    public $requestId;
     protected $_name = [
-        'qosPolicies'             => 'QosPolicies',
-        'qosCars'                 => 'QosCars',
-        'requestId'               => 'RequestId',
         'errorConfigSmartAGCount' => 'ErrorConfigSmartAGCount',
-        'qosName'                 => 'QosName',
-        'qosDescription'          => 'QosDescription',
+        'qosCars' => 'QosCars',
+        'qosDescription' => 'QosDescription',
+        'qosName' => 'QosName',
+        'qosPolicies' => 'QosPolicies',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->qosCars)) {
+            Model::validateArray($this->qosCars);
+        }
+        if (\is_array($this->qosPolicies)) {
+            Model::validateArray($this->qosPolicies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->qosPolicies) {
-            $res['QosPolicies'] = [];
-            if (null !== $this->qosPolicies && \is_array($this->qosPolicies)) {
-                $n = 0;
-                foreach ($this->qosPolicies as $item) {
-                    $res['QosPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->qosCars) {
-            $res['QosCars'] = [];
-            if (null !== $this->qosCars && \is_array($this->qosCars)) {
-                $n = 0;
-                foreach ($this->qosCars as $item) {
-                    $res['QosCars'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->errorConfigSmartAGCount) {
             $res['ErrorConfigSmartAGCount'] = $this->errorConfigSmartAGCount;
         }
+
+        if (null !== $this->qosCars) {
+            if (\is_array($this->qosCars)) {
+                $res['QosCars'] = [];
+                $n1 = 0;
+                foreach ($this->qosCars as $item1) {
+                    $res['QosCars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->qosDescription) {
+            $res['QosDescription'] = $this->qosDescription;
+        }
+
         if (null !== $this->qosName) {
             $res['QosName'] = $this->qosName;
         }
-        if (null !== $this->qosDescription) {
-            $res['QosDescription'] = $this->qosDescription;
+
+        if (null !== $this->qosPolicies) {
+            if (\is_array($this->qosPolicies)) {
+                $res['QosPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->qosPolicies as $item1) {
+                    $res['QosPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQosAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QosPolicies'])) {
-            if (!empty($map['QosPolicies'])) {
-                $model->qosPolicies = [];
-                $n                  = 0;
-                foreach ($map['QosPolicies'] as $item) {
-                    $model->qosPolicies[$n++] = null !== $item ? qosPolicies::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['QosCars'])) {
-            if (!empty($map['QosCars'])) {
-                $model->qosCars = [];
-                $n              = 0;
-                foreach ($map['QosCars'] as $item) {
-                    $model->qosCars[$n++] = null !== $item ? qosCars::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ErrorConfigSmartAGCount'])) {
             $model->errorConfigSmartAGCount = $map['ErrorConfigSmartAGCount'];
         }
+
+        if (isset($map['QosCars'])) {
+            if (!empty($map['QosCars'])) {
+                $model->qosCars = [];
+                $n1 = 0;
+                foreach ($map['QosCars'] as $item1) {
+                    $model->qosCars[$n1] = qosCars::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['QosDescription'])) {
+            $model->qosDescription = $map['QosDescription'];
+        }
+
         if (isset($map['QosName'])) {
             $model->qosName = $map['QosName'];
         }
-        if (isset($map['QosDescription'])) {
-            $model->qosDescription = $map['QosDescription'];
+
+        if (isset($map['QosPolicies'])) {
+            if (!empty($map['QosPolicies'])) {
+                $model->qosPolicies = [];
+                $n1 = 0;
+                foreach ($map['QosPolicies'] as $item1) {
+                    $model->qosPolicies[$n1] = qosPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -4,19 +4,44 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewayAttributeResponseBody\links;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class link extends Model
 {
     /**
      * @var string
      */
-    public $healthCheckTargetIp;
+    public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $commodityType;
 
     /**
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $healthCheckTargetIp;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $relateInstanceId;
+
+    /**
+     * @var string
+     */
+    public $relateInstanceRegionId;
 
     /**
      * @var string
@@ -27,115 +52,107 @@ class link extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $bandwidth;
-
-    /**
-     * @var string
-     */
-    public $relateInstanceRegionId;
-
-    /**
-     * @var string
-     */
-    public $relateInstanceId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $commodityType;
     protected $_name = [
-        'healthCheckTargetIp'    => 'HealthCheckTargetIp',
-        'endTime'                => 'EndTime',
-        'status'                 => 'Status',
-        'type'                   => 'Type',
-        'bandwidth'              => 'Bandwidth',
+        'bandwidth' => 'Bandwidth',
+        'commodityType' => 'CommodityType',
+        'endTime' => 'EndTime',
+        'healthCheckTargetIp' => 'HealthCheckTargetIp',
+        'instanceId' => 'InstanceId',
+        'relateInstanceId' => 'RelateInstanceId',
         'relateInstanceRegionId' => 'RelateInstanceRegionId',
-        'relateInstanceId'       => 'RelateInstanceId',
-        'instanceId'             => 'InstanceId',
-        'commodityType'          => 'CommodityType',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->healthCheckTargetIp) {
-            $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->relateInstanceRegionId) {
-            $res['RelateInstanceRegionId'] = $this->relateInstanceRegionId;
+
+        if (null !== $this->commodityType) {
+            $res['CommodityType'] = $this->commodityType;
         }
-        if (null !== $this->relateInstanceId) {
-            $res['RelateInstanceId'] = $this->relateInstanceId;
+
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
+
+        if (null !== $this->healthCheckTargetIp) {
+            $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->commodityType) {
-            $res['CommodityType'] = $this->commodityType;
+
+        if (null !== $this->relateInstanceId) {
+            $res['RelateInstanceId'] = $this->relateInstanceId;
+        }
+
+        if (null !== $this->relateInstanceRegionId) {
+            $res['RelateInstanceRegionId'] = $this->relateInstanceRegionId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return link
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HealthCheckTargetIp'])) {
-            $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['RelateInstanceRegionId'])) {
-            $model->relateInstanceRegionId = $map['RelateInstanceRegionId'];
+
+        if (isset($map['CommodityType'])) {
+            $model->commodityType = $map['CommodityType'];
         }
-        if (isset($map['RelateInstanceId'])) {
-            $model->relateInstanceId = $map['RelateInstanceId'];
+
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
+
+        if (isset($map['HealthCheckTargetIp'])) {
+            $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['CommodityType'])) {
-            $model->commodityType = $map['CommodityType'];
+
+        if (isset($map['RelateInstanceId'])) {
+            $model->relateInstanceId = $map['RelateInstanceId'];
+        }
+
+        if (isset($map['RelateInstanceRegionId'])) {
+            $model->relateInstanceRegionId = $map['RelateInstanceRegionId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

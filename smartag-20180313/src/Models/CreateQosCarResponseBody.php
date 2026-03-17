@@ -4,15 +4,10 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateQosCarResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $minBandwidthAbs;
-
     /**
      * @var string
      */
@@ -21,12 +16,7 @@ class CreateQosCarResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $qosCarId;
+    public $limitType;
 
     /**
      * @var int
@@ -41,17 +31,7 @@ class CreateQosCarResponseBody extends Model
     /**
      * @var int
      */
-    public $priority;
-
-    /**
-     * @var string
-     */
-    public $qosId;
-
-    /**
-     * @var string
-     */
-    public $percentSourceType;
+    public $minBandwidthAbs;
 
     /**
      * @var int
@@ -61,105 +41,146 @@ class CreateQosCarResponseBody extends Model
     /**
      * @var string
      */
-    public $limitType;
+    public $percentSourceType;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $qosCarId;
+
+    /**
+     * @var string
+     */
+    public $qosId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'minBandwidthAbs'     => 'MinBandwidthAbs',
-        'description'         => 'Description',
-        'requestId'           => 'RequestId',
-        'qosCarId'            => 'QosCarId',
-        'maxBandwidthAbs'     => 'MaxBandwidthAbs',
+        'description' => 'Description',
+        'limitType' => 'LimitType',
+        'maxBandwidthAbs' => 'MaxBandwidthAbs',
         'maxBandwidthPercent' => 'MaxBandwidthPercent',
-        'priority'            => 'Priority',
-        'qosId'               => 'QosId',
-        'percentSourceType'   => 'PercentSourceType',
+        'minBandwidthAbs' => 'MinBandwidthAbs',
         'minBandwidthPercent' => 'MinBandwidthPercent',
-        'limitType'           => 'LimitType',
+        'percentSourceType' => 'PercentSourceType',
+        'priority' => 'Priority',
+        'qosCarId' => 'QosCarId',
+        'qosId' => 'QosId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->minBandwidthAbs) {
-            $res['MinBandwidthAbs'] = $this->minBandwidthAbs;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+
+        if (null !== $this->limitType) {
+            $res['LimitType'] = $this->limitType;
         }
-        if (null !== $this->qosCarId) {
-            $res['QosCarId'] = $this->qosCarId;
-        }
+
         if (null !== $this->maxBandwidthAbs) {
             $res['MaxBandwidthAbs'] = $this->maxBandwidthAbs;
         }
+
         if (null !== $this->maxBandwidthPercent) {
             $res['MaxBandwidthPercent'] = $this->maxBandwidthPercent;
         }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
+
+        if (null !== $this->minBandwidthAbs) {
+            $res['MinBandwidthAbs'] = $this->minBandwidthAbs;
         }
-        if (null !== $this->qosId) {
-            $res['QosId'] = $this->qosId;
-        }
-        if (null !== $this->percentSourceType) {
-            $res['PercentSourceType'] = $this->percentSourceType;
-        }
+
         if (null !== $this->minBandwidthPercent) {
             $res['MinBandwidthPercent'] = $this->minBandwidthPercent;
         }
-        if (null !== $this->limitType) {
-            $res['LimitType'] = $this->limitType;
+
+        if (null !== $this->percentSourceType) {
+            $res['PercentSourceType'] = $this->percentSourceType;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->qosCarId) {
+            $res['QosCarId'] = $this->qosCarId;
+        }
+
+        if (null !== $this->qosId) {
+            $res['QosId'] = $this->qosId;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateQosCarResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MinBandwidthAbs'])) {
-            $model->minBandwidthAbs = $map['MinBandwidthAbs'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+
+        if (isset($map['LimitType'])) {
+            $model->limitType = $map['LimitType'];
         }
-        if (isset($map['QosCarId'])) {
-            $model->qosCarId = $map['QosCarId'];
-        }
+
         if (isset($map['MaxBandwidthAbs'])) {
             $model->maxBandwidthAbs = $map['MaxBandwidthAbs'];
         }
+
         if (isset($map['MaxBandwidthPercent'])) {
             $model->maxBandwidthPercent = $map['MaxBandwidthPercent'];
         }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
+
+        if (isset($map['MinBandwidthAbs'])) {
+            $model->minBandwidthAbs = $map['MinBandwidthAbs'];
         }
-        if (isset($map['QosId'])) {
-            $model->qosId = $map['QosId'];
-        }
-        if (isset($map['PercentSourceType'])) {
-            $model->percentSourceType = $map['PercentSourceType'];
-        }
+
         if (isset($map['MinBandwidthPercent'])) {
             $model->minBandwidthPercent = $map['MinBandwidthPercent'];
         }
-        if (isset($map['LimitType'])) {
-            $model->limitType = $map['LimitType'];
+
+        if (isset($map['PercentSourceType'])) {
+            $model->percentSourceType = $map['PercentSourceType'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['QosCarId'])) {
+            $model->qosCarId = $map['QosCarId'];
+        }
+
+        if (isset($map['QosId'])) {
+            $model->qosId = $map['QosId'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

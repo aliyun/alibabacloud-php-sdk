@@ -4,15 +4,15 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\ListDpiGroupsResponseBody\dpiGroup;
-use AlibabaCloud\Tea\Model;
 
 class ListDpiGroupsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var dpiGroup[]
      */
-    public $totalCount;
+    public $dpiGroup;
 
     /**
      * @var string
@@ -25,70 +25,82 @@ class ListDpiGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var dpiGroup[]
+     * @var int
      */
-    public $dpiGroup;
+    public $totalCount;
     protected $_name = [
+        'dpiGroup' => 'DpiGroup',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'dpiGroup'   => 'DpiGroup',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dpiGroup)) {
+            Model::validateArray($this->dpiGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->dpiGroup) {
+            if (\is_array($this->dpiGroup)) {
+                $res['DpiGroup'] = [];
+                $n1 = 0;
+                foreach ($this->dpiGroup as $item1) {
+                    $res['DpiGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->dpiGroup) {
-            $res['DpiGroup'] = [];
-            if (null !== $this->dpiGroup && \is_array($this->dpiGroup)) {
-                $n = 0;
-                foreach ($this->dpiGroup as $item) {
-                    $res['DpiGroup'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDpiGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DpiGroup'])) {
             if (!empty($map['DpiGroup'])) {
                 $model->dpiGroup = [];
-                $n               = 0;
-                foreach ($map['DpiGroup'] as $item) {
-                    $model->dpiGroup[$n++] = null !== $item ? dpiGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DpiGroup'] as $item1) {
+                    $model->dpiGroup[$n1] = dpiGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

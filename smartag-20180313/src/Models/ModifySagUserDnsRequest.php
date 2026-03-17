@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySagUserDnsRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $masterDns;
+
     /**
      * @var string
      */
@@ -17,6 +22,11 @@ class ModifySagUserDnsRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -31,7 +41,7 @@ class ModifySagUserDnsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $slaveDns;
 
     /**
      * @var string
@@ -42,100 +52,107 @@ class ModifySagUserDnsRequest extends Model
      * @var string
      */
     public $smartAGSn;
-
-    /**
-     * @var string
-     */
-    public $masterDns;
-
-    /**
-     * @var string
-     */
-    public $slaveDns;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'masterDns' => 'MasterDns',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'smartAGId'            => 'SmartAGId',
-        'smartAGSn'            => 'SmartAGSn',
-        'masterDns'            => 'MasterDns',
-        'slaveDns'             => 'SlaveDns',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'slaveDns' => 'SlaveDns',
+        'smartAGId' => 'SmartAGId',
+        'smartAGSn' => 'SmartAGSn',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
-        if (null !== $this->smartAGSn) {
-            $res['SmartAGSn'] = $this->smartAGSn;
-        }
         if (null !== $this->masterDns) {
             $res['MasterDns'] = $this->masterDns;
         }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
         if (null !== $this->slaveDns) {
             $res['SlaveDns'] = $this->slaveDns;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
+        }
+
+        if (null !== $this->smartAGSn) {
+            $res['SmartAGSn'] = $this->smartAGSn;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySagUserDnsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
-        if (isset($map['SmartAGSn'])) {
-            $model->smartAGSn = $map['SmartAGSn'];
-        }
         if (isset($map['MasterDns'])) {
             $model->masterDns = $map['MasterDns'];
         }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
         if (isset($map['SlaveDns'])) {
             $model->slaveDns = $map['SlaveDns'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
+        }
+
+        if (isset($map['SmartAGSn'])) {
+            $model->smartAGSn = $map['SmartAGSn'];
         }
 
         return $model;

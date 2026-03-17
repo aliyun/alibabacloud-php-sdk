@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDeviceAutoUpgradePolicyRequest extends Model
 {
@@ -21,6 +21,11 @@ class DescribeDeviceAutoUpgradePolicyRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -31,7 +36,7 @@ class DescribeDeviceAutoUpgradePolicyRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $serialNumber;
 
     /**
      * @var string
@@ -41,51 +46,54 @@ class DescribeDeviceAutoUpgradePolicyRequest extends Model
     /**
      * @var string
      */
-    public $serialNumber;
-
-    /**
-     * @var string
-     */
     public $versionType;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'smartAGId'            => 'SmartAGId',
-        'serialNumber'         => 'SerialNumber',
-        'versionType'          => 'VersionType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serialNumber' => 'SerialNumber',
+        'smartAGId' => 'SmartAGId',
+        'versionType' => 'VersionType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
+        }
+
         if (null !== $this->versionType) {
             $res['VersionType'] = $this->versionType;
         }
@@ -93,35 +101,42 @@ class DescribeDeviceAutoUpgradePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeviceAutoUpgradePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
+        }
+
         if (isset($map['VersionType'])) {
             $model->versionType = $map['VersionType'];
         }

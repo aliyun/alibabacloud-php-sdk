@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewayHaResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewayHaResponseBody\linkBackupInfoList\linkBackupInfoList;
-use AlibabaCloud\Tea\Model;
 
 class linkBackupInfoList extends Model
 {
@@ -19,17 +19,22 @@ class linkBackupInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->linkBackupInfoList)) {
+            Model::validateArray($this->linkBackupInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->linkBackupInfoList) {
-            $res['LinkBackupInfoList'] = [];
-            if (null !== $this->linkBackupInfoList && \is_array($this->linkBackupInfoList)) {
-                $n = 0;
-                foreach ($this->linkBackupInfoList as $item) {
-                    $res['LinkBackupInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->linkBackupInfoList)) {
+                $res['LinkBackupInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->linkBackupInfoList as $item1) {
+                    $res['LinkBackupInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class linkBackupInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return linkBackupInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LinkBackupInfoList'])) {
             if (!empty($map['LinkBackupInfoList'])) {
                 $model->linkBackupInfoList = [];
-                $n                         = 0;
-                foreach ($map['LinkBackupInfoList'] as $item) {
-                    $model->linkBackupInfoList[$n++] = null !== $item ? self::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LinkBackupInfoList'] as $item1) {
+                    $model->linkBackupInfoList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

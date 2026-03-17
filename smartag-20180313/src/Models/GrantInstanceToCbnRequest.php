@@ -4,10 +4,30 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrantInstanceToCbnRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $ccnInstanceId;
+
+    /**
+     * @var string
+     */
+    public $cenInstanceId;
+
+    /**
+     * @var int
+     */
+    public $cenUid;
+
+    /**
+     * @var bool
+     */
+    public $grantTrafficService;
+
     /**
      * @var string
      */
@@ -21,121 +41,118 @@ class GrantInstanceToCbnRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $cenUid;
-
-    /**
-     * @var string
-     */
-    public $ccnInstanceId;
-
-    /**
-     * @var string
-     */
-    public $cenInstanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $grantTrafficService;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ccnInstanceId' => 'CcnInstanceId',
+        'cenInstanceId' => 'CenInstanceId',
+        'cenUid' => 'CenUid',
+        'grantTrafficService' => 'GrantTrafficService',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'cenUid'               => 'CenUid',
-        'ccnInstanceId'        => 'CcnInstanceId',
-        'cenInstanceId'        => 'CenInstanceId',
-        'regionId'             => 'RegionId',
-        'grantTrafficService'  => 'GrantTrafficService',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenUid) {
-            $res['CenUid'] = $this->cenUid;
-        }
         if (null !== $this->ccnInstanceId) {
             $res['CcnInstanceId'] = $this->ccnInstanceId;
         }
+
         if (null !== $this->cenInstanceId) {
             $res['CenInstanceId'] = $this->cenInstanceId;
         }
+
+        if (null !== $this->cenUid) {
+            $res['CenUid'] = $this->cenUid;
+        }
+
+        if (null !== $this->grantTrafficService) {
+            $res['GrantTrafficService'] = $this->grantTrafficService;
+        }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->grantTrafficService) {
-            $res['GrantTrafficService'] = $this->grantTrafficService;
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrantInstanceToCbnRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenUid'])) {
-            $model->cenUid = $map['CenUid'];
-        }
         if (isset($map['CcnInstanceId'])) {
             $model->ccnInstanceId = $map['CcnInstanceId'];
         }
+
         if (isset($map['CenInstanceId'])) {
             $model->cenInstanceId = $map['CenInstanceId'];
         }
+
+        if (isset($map['CenUid'])) {
+            $model->cenUid = $map['CenUid'];
+        }
+
+        if (isset($map['GrantTrafficService'])) {
+            $model->grantTrafficService = $map['GrantTrafficService'];
+        }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['GrantTrafficService'])) {
-            $model->grantTrafficService = $map['GrantTrafficService'];
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

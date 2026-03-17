@@ -4,54 +4,57 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAclAttributeRequest extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $aclId;
 
     /**
      * @var string
      */
-    public $aclId;
+    public $regionId;
     protected $_name = [
+        'aclId' => 'AclId',
         'regionId' => 'RegionId',
-        'aclId'    => 'AclId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAclAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

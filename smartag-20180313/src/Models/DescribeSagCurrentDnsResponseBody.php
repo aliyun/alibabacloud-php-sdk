@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSagCurrentDnsResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $masterDns;
+
     /**
      * @var string
      */
@@ -17,53 +22,53 @@ class DescribeSagCurrentDnsResponseBody extends Model
      * @var string
      */
     public $slaveDns;
-
-    /**
-     * @var string
-     */
-    public $masterDns;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'slaveDns'  => 'SlaveDns',
         'masterDns' => 'MasterDns',
+        'requestId' => 'RequestId',
+        'slaveDns' => 'SlaveDns',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->masterDns) {
+            $res['MasterDns'] = $this->masterDns;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slaveDns) {
             $res['SlaveDns'] = $this->slaveDns;
-        }
-        if (null !== $this->masterDns) {
-            $res['MasterDns'] = $this->masterDns;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSagCurrentDnsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MasterDns'])) {
+            $model->masterDns = $map['MasterDns'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SlaveDns'])) {
             $model->slaveDns = $map['SlaveDns'];
-        }
-        if (isset($map['MasterDns'])) {
-            $model->masterDns = $map['MasterDns'];
         }
 
         return $model;

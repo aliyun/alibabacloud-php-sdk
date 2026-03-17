@@ -4,19 +4,19 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DiscribeSmartAccessGatewayDiagnosisReportResponseBody\diagnoseResult\details;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statistics extends Model
 {
     /**
      * @var int
      */
-    public $warning;
+    public $error;
 
     /**
      * @var int
      */
-    public $error;
+    public $info;
 
     /**
      * @var int
@@ -26,56 +26,63 @@ class statistics extends Model
     /**
      * @var int
      */
-    public $info;
+    public $warning;
     protected $_name = [
+        'error' => 'Error',
+        'info' => 'Info',
+        'total' => 'Total',
         'warning' => 'Warning',
-        'error'   => 'Error',
-        'total'   => 'Total',
-        'info'    => 'Info',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->warning) {
-            $res['Warning'] = $this->warning;
-        }
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
+
+        if (null !== $this->info) {
+            $res['Info'] = $this->info;
+        }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
-        if (null !== $this->info) {
-            $res['Info'] = $this->info;
+
+        if (null !== $this->warning) {
+            $res['Warning'] = $this->warning;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Warning'])) {
-            $model->warning = $map['Warning'];
-        }
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
+
+        if (isset($map['Info'])) {
+            $model->info = $map['Info'];
+        }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
-        if (isset($map['Info'])) {
-            $model->info = $map['Info'];
+
+        if (isset($map['Warning'])) {
+            $model->warning = $map['Warning'];
         }
 
         return $model;

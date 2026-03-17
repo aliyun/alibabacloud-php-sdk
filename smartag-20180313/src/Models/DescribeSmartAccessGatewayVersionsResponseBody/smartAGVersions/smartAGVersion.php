@@ -4,15 +4,10 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewayVersionsResponseBody\smartAGVersions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class smartAGVersion extends Model
 {
-    /**
-     * @var string
-     */
-    public $type;
-
     /**
      * @var int
      */
@@ -21,61 +16,73 @@ class smartAGVersion extends Model
     /**
      * @var string
      */
-    public $versionName;
+    public $type;
 
     /**
      * @var string
      */
     public $versionCode;
+
+    /**
+     * @var string
+     */
+    public $versionName;
     protected $_name = [
-        'type'        => 'Type',
-        'createTime'  => 'CreateTime',
-        'versionName' => 'VersionName',
+        'createTime' => 'CreateTime',
+        'type' => 'Type',
         'versionCode' => 'VersionCode',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->versionName) {
-            $res['VersionName'] = $this->versionName;
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
+
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
+        }
+
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return smartAGVersion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['VersionName'])) {
-            $model->versionName = $map['VersionName'];
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
+
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
+        }
+
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
         }
 
         return $model;

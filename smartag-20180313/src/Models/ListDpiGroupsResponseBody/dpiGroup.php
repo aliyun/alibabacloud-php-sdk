@@ -4,14 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\ListDpiGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dpiGroup extends Model
 {
     /**
      * @var string
      */
-    public $minSignatureDbVersion;
+    public $dpiGroupId;
 
     /**
      * @var string
@@ -21,61 +21,68 @@ class dpiGroup extends Model
     /**
      * @var string
      */
-    public $dpiGroupId;
+    public $minEngineVersion;
 
     /**
      * @var string
      */
-    public $minEngineVersion;
+    public $minSignatureDbVersion;
     protected $_name = [
+        'dpiGroupId' => 'DpiGroupId',
+        'dpiGroupName' => 'DpiGroupName',
+        'minEngineVersion' => 'MinEngineVersion',
         'minSignatureDbVersion' => 'MinSignatureDbVersion',
-        'dpiGroupName'          => 'DpiGroupName',
-        'dpiGroupId'            => 'DpiGroupId',
-        'minEngineVersion'      => 'MinEngineVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->minSignatureDbVersion) {
-            $res['MinSignatureDbVersion'] = $this->minSignatureDbVersion;
-        }
-        if (null !== $this->dpiGroupName) {
-            $res['DpiGroupName'] = $this->dpiGroupName;
-        }
         if (null !== $this->dpiGroupId) {
             $res['DpiGroupId'] = $this->dpiGroupId;
         }
+
+        if (null !== $this->dpiGroupName) {
+            $res['DpiGroupName'] = $this->dpiGroupName;
+        }
+
         if (null !== $this->minEngineVersion) {
             $res['MinEngineVersion'] = $this->minEngineVersion;
+        }
+
+        if (null !== $this->minSignatureDbVersion) {
+            $res['MinSignatureDbVersion'] = $this->minSignatureDbVersion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dpiGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MinSignatureDbVersion'])) {
-            $model->minSignatureDbVersion = $map['MinSignatureDbVersion'];
-        }
-        if (isset($map['DpiGroupName'])) {
-            $model->dpiGroupName = $map['DpiGroupName'];
-        }
         if (isset($map['DpiGroupId'])) {
             $model->dpiGroupId = $map['DpiGroupId'];
         }
+
+        if (isset($map['DpiGroupName'])) {
+            $model->dpiGroupName = $map['DpiGroupName'];
+        }
+
         if (isset($map['MinEngineVersion'])) {
             $model->minEngineVersion = $map['MinEngineVersion'];
+        }
+
+        if (isset($map['MinSignatureDbVersion'])) {
+            $model->minSignatureDbVersion = $map['MinSignatureDbVersion'];
         }
 
         return $model;

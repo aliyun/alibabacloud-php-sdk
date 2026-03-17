@@ -4,54 +4,57 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQosAttributeRequest extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $qosId;
 
     /**
      * @var string
      */
-    public $qosId;
+    public $regionId;
     protected $_name = [
+        'qosId' => 'QosId',
         'regionId' => 'RegionId',
-        'qosId'    => 'QosId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->qosId) {
             $res['QosId'] = $this->qosId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQosAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['QosId'])) {
             $model->qosId = $map['QosId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -4,19 +4,19 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAclAttributeResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $aclId;
 
     /**
      * @var string
      */
-    public $aclId;
+    public $aclName;
 
     /**
      * @var int
@@ -26,56 +26,63 @@ class GetAclAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $aclName;
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'aclId'                   => 'AclId',
+        'aclId' => 'AclId',
+        'aclName' => 'AclName',
         'errorConfigSmartAGCount' => 'ErrorConfigSmartAGCount',
-        'aclName'                 => 'AclName',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
+        if (null !== $this->aclName) {
+            $res['AclName'] = $this->aclName;
+        }
+
         if (null !== $this->errorConfigSmartAGCount) {
             $res['ErrorConfigSmartAGCount'] = $this->errorConfigSmartAGCount;
         }
-        if (null !== $this->aclName) {
-            $res['AclName'] = $this->aclName;
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAclAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
+        if (isset($map['AclName'])) {
+            $model->aclName = $map['AclName'];
+        }
+
         if (isset($map['ErrorConfigSmartAGCount'])) {
             $model->errorConfigSmartAGCount = $map['ErrorConfigSmartAGCount'];
         }
-        if (isset($map['AclName'])) {
-            $model->aclName = $map['AclName'];
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

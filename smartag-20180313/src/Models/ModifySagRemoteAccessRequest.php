@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySagRemoteAccessRequest extends Model
 {
@@ -21,6 +21,11 @@ class ModifySagRemoteAccessRequest extends Model
     /**
      * @var string
      */
+    public $remoteAccessIp;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -31,87 +36,95 @@ class ModifySagRemoteAccessRequest extends Model
     /**
      * @var string
      */
-    public $smartAGId;
-
-    /**
-     * @var string
-     */
     public $serialNumber;
 
     /**
      * @var string
      */
-    public $remoteAccessIp;
+    public $smartAGId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'remoteAccessIp' => 'RemoteAccessIp',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'smartAGId'            => 'SmartAGId',
-        'serialNumber'         => 'SerialNumber',
-        'remoteAccessIp'       => 'RemoteAccessIp',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serialNumber' => 'SerialNumber',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
+        if (null !== $this->remoteAccessIp) {
+            $res['RemoteAccessIp'] = $this->remoteAccessIp;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
+
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
-        if (null !== $this->remoteAccessIp) {
-            $res['RemoteAccessIp'] = $this->remoteAccessIp;
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySagRemoteAccessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
+        if (isset($map['RemoteAccessIp'])) {
+            $model->remoteAccessIp = $map['RemoteAccessIp'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
+
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
-        if (isset($map['RemoteAccessIp'])) {
-            $model->remoteAccessIp = $map['RemoteAccessIp'];
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
         }
 
         return $model;

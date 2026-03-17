@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFlowLogResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $flowLogId;
+
     /**
      * @var string
      */
@@ -16,42 +21,54 @@ class CreateFlowLogResponseBody extends Model
     /**
      * @var string
      */
-    public $flowLogId;
+    public $resourceGroupId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'flowLogId' => 'FlowLogId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->flowLogId) {
+            $res['FlowLogId'] = $this->flowLogId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->flowLogId) {
-            $res['FlowLogId'] = $this->flowLogId;
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFlowLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FlowLogId'])) {
+            $model->flowLogId = $map['FlowLogId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['FlowLogId'])) {
-            $model->flowLogId = $map['FlowLogId'];
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

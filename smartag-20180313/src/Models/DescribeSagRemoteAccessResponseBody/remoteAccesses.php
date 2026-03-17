@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagRemoteAccessResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagRemoteAccessResponseBody\remoteAccesses\remoteAccess;
-use AlibabaCloud\Tea\Model;
 
 class remoteAccesses extends Model
 {
@@ -19,17 +19,22 @@ class remoteAccesses extends Model
 
     public function validate()
     {
+        if (\is_array($this->remoteAccess)) {
+            Model::validateArray($this->remoteAccess);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remoteAccess) {
-            $res['RemoteAccess'] = [];
-            if (null !== $this->remoteAccess && \is_array($this->remoteAccess)) {
-                $n = 0;
-                foreach ($this->remoteAccess as $item) {
-                    $res['RemoteAccess'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remoteAccess)) {
+                $res['RemoteAccess'] = [];
+                $n1 = 0;
+                foreach ($this->remoteAccess as $item1) {
+                    $res['RemoteAccess'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class remoteAccesses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return remoteAccesses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemoteAccess'])) {
             if (!empty($map['RemoteAccess'])) {
                 $model->remoteAccess = [];
-                $n                   = 0;
-                foreach ($map['RemoteAccess'] as $item) {
-                    $model->remoteAccess[$n++] = null !== $item ? remoteAccess::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RemoteAccess'] as $item1) {
+                    $model->remoteAccess[$n1] = remoteAccess::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

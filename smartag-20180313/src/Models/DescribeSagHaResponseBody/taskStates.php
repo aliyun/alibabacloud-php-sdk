@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagHaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskStates extends Model
 {
     /**
      * @var string
      */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $state;
+    public $createTime;
 
     /**
      * @var string
@@ -26,56 +21,68 @@ class taskStates extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
+        'createTime' => 'CreateTime',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'state'        => 'State',
-        'errorCode'    => 'ErrorCode',
-        'createTime'   => 'CreateTime',
+        'state' => 'State',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskStates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

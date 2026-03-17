@@ -4,54 +4,57 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagOnlineClientStatisticsResponseBody\sagStatistics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statistics extends Model
 {
     /**
      * @var string
      */
-    public $smartAGId;
+    public $onlineCount;
 
     /**
      * @var string
      */
-    public $onlineCount;
+    public $smartAGId;
     protected $_name = [
-        'smartAGId'   => 'SmartAGId',
         'onlineCount' => 'OnlineCount',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
         if (null !== $this->onlineCount) {
             $res['OnlineCount'] = $this->onlineCount;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
         if (isset($map['OnlineCount'])) {
             $model->onlineCount = $map['OnlineCount'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
         }
 
         return $model;

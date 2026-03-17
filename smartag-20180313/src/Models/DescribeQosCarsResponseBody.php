@@ -4,25 +4,25 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosCarsResponseBody\qosCars;
-use AlibabaCloud\Tea\Model;
 
 class DescribeQosCarsResponseBody extends Model
 {
     /**
      * @var int
      */
-    public $totalCount;
-
-    /**
-     * @var qosCars
-     */
-    public $qosCars;
+    public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var qosCars
+     */
+    public $qosCars;
 
     /**
      * @var string
@@ -32,63 +32,75 @@ class DescribeQosCarsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'qosCars'    => 'QosCars',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
         'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'qosCars' => 'QosCars',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (null !== $this->qosCars) {
+            $this->qosCars->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->qosCars) {
-            $res['QosCars'] = null !== $this->qosCars ? $this->qosCars->toMap() : null;
-        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
+        if (null !== $this->qosCars) {
+            $res['QosCars'] = null !== $this->qosCars ? $this->qosCars->toArray($noStream) : $this->qosCars;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeQosCarsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['QosCars'])) {
-            $model->qosCars = qosCars::fromMap($map['QosCars']);
-        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
+        if (isset($map['QosCars'])) {
+            $model->qosCars = qosCars::fromMap($map['QosCars']);
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

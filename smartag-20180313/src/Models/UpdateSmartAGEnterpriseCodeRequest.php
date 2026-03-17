@@ -4,14 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSmartAGEnterpriseCodeRequest extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,73 +21,68 @@ class UpdateSmartAGEnterpriseCodeRequest extends Model
     /**
      * @var string
      */
-    public $smartAGId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
+    public $smartAGId;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'clientToken' => 'ClientToken',
         'enterpriseCode' => 'EnterpriseCode',
-        'smartAGId'      => 'SmartAGId',
-        'clientToken'    => 'ClientToken',
-        'dryRun'         => 'DryRun',
+        'regionId' => 'RegionId',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->enterpriseCode) {
-            $res['EnterpriseCode'] = $this->enterpriseCode;
-        }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
+
+        if (null !== $this->enterpriseCode) {
+            $res['EnterpriseCode'] = $this->enterpriseCode;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSmartAGEnterpriseCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['EnterpriseCode'])) {
-            $model->enterpriseCode = $map['EnterpriseCode'];
-        }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
+
+        if (isset($map['EnterpriseCode'])) {
+            $model->enterpriseCode = $map['EnterpriseCode'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
         }
 
         return $model;

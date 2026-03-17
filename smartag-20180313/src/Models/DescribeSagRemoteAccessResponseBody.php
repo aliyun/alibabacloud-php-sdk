@@ -4,20 +4,25 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagRemoteAccessResponseBody\remoteAccesses;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSagRemoteAccessResponseBody extends Model
 {
     /**
-     * @var remoteAccesses
+     * @var string
      */
-    public $remoteAccesses;
+    public $code;
 
     /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var remoteAccesses
+     */
+    public $remoteAccesses;
 
     /**
      * @var string
@@ -30,45 +35,49 @@ class DescribeSagRemoteAccessResponseBody extends Model
     public $smartAGId;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'code' => 'Code',
+        'message' => 'Message',
         'remoteAccesses' => 'RemoteAccesses',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'smartAGId'      => 'SmartAGId',
-        'code'           => 'Code',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'smartAGId' => 'SmartAGId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->remoteAccesses) {
+            $this->remoteAccesses->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->remoteAccesses) {
-            $res['RemoteAccesses'] = null !== $this->remoteAccesses ? $this->remoteAccesses->toMap() : null;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->remoteAccesses) {
+            $res['RemoteAccesses'] = null !== $this->remoteAccesses ? $this->remoteAccesses->toArray($noStream) : $this->remoteAccesses;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
+        }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -76,29 +85,34 @@ class DescribeSagRemoteAccessResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSagRemoteAccessResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemoteAccesses'])) {
-            $model->remoteAccesses = remoteAccesses::fromMap($map['RemoteAccesses']);
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+
+        if (isset($map['RemoteAccesses'])) {
+            $model->remoteAccesses = remoteAccesses::fromMap($map['RemoteAccesses']);
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
+        }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

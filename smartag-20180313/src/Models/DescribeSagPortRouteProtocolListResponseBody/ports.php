@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagPortRouteProtocolListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ports extends Model
 {
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $remoteIp;
+    public $neighborIp;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class ports extends Model
     /**
      * @var string
      */
-    public $neighborIp;
+    public $remoteAs;
+
+    /**
+     * @var string
+     */
+    public $remoteIp;
 
     /**
      * @var string
@@ -36,47 +36,54 @@ class ports extends Model
     /**
      * @var string
      */
-    public $remoteAs;
+    public $status;
 
     /**
      * @var string
      */
     public $vlan;
     protected $_name = [
-        'status'        => 'Status',
-        'remoteIp'      => 'RemoteIp',
-        'portName'      => 'PortName',
-        'neighborIp'    => 'NeighborIp',
+        'neighborIp' => 'NeighborIp',
+        'portName' => 'PortName',
+        'remoteAs' => 'RemoteAs',
+        'remoteIp' => 'RemoteIp',
         'routeProtocol' => 'RouteProtocol',
-        'remoteAs'      => 'RemoteAs',
-        'vlan'          => 'Vlan',
+        'status' => 'Status',
+        'vlan' => 'Vlan',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->remoteIp) {
-            $res['RemoteIp'] = $this->remoteIp;
-        }
-        if (null !== $this->portName) {
-            $res['PortName'] = $this->portName;
-        }
         if (null !== $this->neighborIp) {
             $res['NeighborIp'] = $this->neighborIp;
         }
-        if (null !== $this->routeProtocol) {
-            $res['RouteProtocol'] = $this->routeProtocol;
+
+        if (null !== $this->portName) {
+            $res['PortName'] = $this->portName;
         }
+
         if (null !== $this->remoteAs) {
             $res['RemoteAs'] = $this->remoteAs;
         }
+
+        if (null !== $this->remoteIp) {
+            $res['RemoteIp'] = $this->remoteIp;
+        }
+
+        if (null !== $this->routeProtocol) {
+            $res['RouteProtocol'] = $this->routeProtocol;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         if (null !== $this->vlan) {
             $res['Vlan'] = $this->vlan;
         }
@@ -84,32 +91,38 @@ class ports extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ports
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RemoteIp'])) {
-            $model->remoteIp = $map['RemoteIp'];
-        }
-        if (isset($map['PortName'])) {
-            $model->portName = $map['PortName'];
-        }
         if (isset($map['NeighborIp'])) {
             $model->neighborIp = $map['NeighborIp'];
         }
-        if (isset($map['RouteProtocol'])) {
-            $model->routeProtocol = $map['RouteProtocol'];
+
+        if (isset($map['PortName'])) {
+            $model->portName = $map['PortName'];
         }
+
         if (isset($map['RemoteAs'])) {
             $model->remoteAs = $map['RemoteAs'];
         }
+
+        if (isset($map['RemoteIp'])) {
+            $model->remoteIp = $map['RemoteIp'];
+        }
+
+        if (isset($map['RouteProtocol'])) {
+            $model->routeProtocol = $map['RouteProtocol'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
         if (isset($map['Vlan'])) {
             $model->vlan = $map['Vlan'];
         }

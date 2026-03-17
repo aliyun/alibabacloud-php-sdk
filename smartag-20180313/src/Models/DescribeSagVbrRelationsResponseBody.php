@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagVbrRelationsResponseBody\sagVbrRelations;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSagVbrRelationsResponseBody extends Model
 {
@@ -19,26 +19,32 @@ class DescribeSagVbrRelationsResponseBody extends Model
      */
     public $sagVbrRelations;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'sagVbrRelations' => 'SagVbrRelations',
     ];
 
     public function validate()
     {
+        if (\is_array($this->sagVbrRelations)) {
+            Model::validateArray($this->sagVbrRelations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sagVbrRelations) {
-            $res['SagVbrRelations'] = [];
-            if (null !== $this->sagVbrRelations && \is_array($this->sagVbrRelations)) {
-                $n = 0;
-                foreach ($this->sagVbrRelations as $item) {
-                    $res['SagVbrRelations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sagVbrRelations)) {
+                $res['SagVbrRelations'] = [];
+                $n1 = 0;
+                foreach ($this->sagVbrRelations as $item1) {
+                    $res['SagVbrRelations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class DescribeSagVbrRelationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSagVbrRelationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SagVbrRelations'])) {
             if (!empty($map['SagVbrRelations'])) {
                 $model->sagVbrRelations = [];
-                $n                      = 0;
-                foreach ($map['SagVbrRelations'] as $item) {
-                    $model->sagVbrRelations[$n++] = null !== $item ? sagVbrRelations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SagVbrRelations'] as $item1) {
+                    $model->sagVbrRelations[$n1] = sagVbrRelations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

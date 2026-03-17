@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\ListDpiConfigErrorResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\ListDpiConfigErrorResponseBody\dpiConfigError\ruleConfigErrorList;
-use AlibabaCloud\Tea\Model;
 
 class dpiConfigError extends Model
 {
-    /**
-     * @var string
-     */
-    public $SN;
-
-    /**
-     * @var string
-     */
-    public $smartAGId;
-
     /**
      * @var string
      */
@@ -28,67 +18,89 @@ class dpiConfigError extends Model
      * @var ruleConfigErrorList[]
      */
     public $ruleConfigErrorList;
+
+    /**
+     * @var string
+     */
+    public $SN;
+
+    /**
+     * @var string
+     */
+    public $smartAGId;
     protected $_name = [
-        'SN'                  => 'SN',
-        'smartAGId'           => 'SmartAGId',
-        'errorType'           => 'ErrorType',
+        'errorType' => 'ErrorType',
         'ruleConfigErrorList' => 'RuleConfigErrorList',
+        'SN' => 'SN',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ruleConfigErrorList)) {
+            Model::validateArray($this->ruleConfigErrorList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->SN) {
-            $res['SN'] = $this->SN;
-        }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
         if (null !== $this->errorType) {
             $res['ErrorType'] = $this->errorType;
         }
+
         if (null !== $this->ruleConfigErrorList) {
-            $res['RuleConfigErrorList'] = [];
-            if (null !== $this->ruleConfigErrorList && \is_array($this->ruleConfigErrorList)) {
-                $n = 0;
-                foreach ($this->ruleConfigErrorList as $item) {
-                    $res['RuleConfigErrorList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleConfigErrorList)) {
+                $res['RuleConfigErrorList'] = [];
+                $n1 = 0;
+                foreach ($this->ruleConfigErrorList as $item1) {
+                    $res['RuleConfigErrorList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->SN) {
+            $res['SN'] = $this->SN;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dpiConfigError
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SN'])) {
-            $model->SN = $map['SN'];
-        }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
         if (isset($map['ErrorType'])) {
             $model->errorType = $map['ErrorType'];
         }
+
         if (isset($map['RuleConfigErrorList'])) {
             if (!empty($map['RuleConfigErrorList'])) {
                 $model->ruleConfigErrorList = [];
-                $n                          = 0;
-                foreach ($map['RuleConfigErrorList'] as $item) {
-                    $model->ruleConfigErrorList[$n++] = null !== $item ? ruleConfigErrorList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuleConfigErrorList'] as $item1) {
+                    $model->ruleConfigErrorList[$n1] = ruleConfigErrorList::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SN'])) {
+            $model->SN = $map['SN'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
         }
 
         return $model;

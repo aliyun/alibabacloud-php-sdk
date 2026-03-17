@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientsResponseBody\users;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
@@ -18,20 +18,22 @@ class user extends Model
      */
     public $onlineTime;
     protected $_name = [
-        'clientIp'   => 'ClientIp',
+        'clientIp' => 'ClientIp',
         'onlineTime' => 'OnlineTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->onlineTime) {
             $res['OnlineTime'] = $this->onlineTime;
         }
@@ -39,17 +41,18 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['OnlineTime'])) {
             $model->onlineTime = $map['OnlineTime'];
         }

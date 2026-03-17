@@ -4,35 +4,10 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddACLRuleRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
     /**
      * @var string
      */
@@ -46,17 +21,27 @@ class AddACLRuleRequest extends Model
     /**
      * @var string
      */
+    public $destCidr;
+
+    /**
+     * @var string
+     */
+    public $destPortRange;
+
+    /**
+     * @var string
+     */
     public $direction;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $sourceCidr;
+    public $dpiGroupIds;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $destCidr;
+    public $dpiSignatureIds;
 
     /**
      * @var string
@@ -66,12 +51,17 @@ class AddACLRuleRequest extends Model
     /**
      * @var string
      */
-    public $sourcePortRange;
+    public $name;
 
     /**
      * @var string
      */
-    public $destPortRange;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -86,180 +76,257 @@ class AddACLRuleRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $name;
+    public $resourceOwnerAccount;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $dpiSignatureIds;
+    public $resourceOwnerId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $dpiGroupIds;
+    public $sourceCidr;
+
+    /**
+     * @var string
+     */
+    public $sourcePortRange;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'aclId' => 'AclId',
+        'description' => 'Description',
+        'destCidr' => 'DestCidr',
+        'destPortRange' => 'DestPortRange',
+        'direction' => 'Direction',
+        'dpiGroupIds' => 'DpiGroupIds',
+        'dpiSignatureIds' => 'DpiSignatureIds',
+        'ipProtocol' => 'IpProtocol',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'policy' => 'Policy',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'aclId'                => 'AclId',
-        'description'          => 'Description',
-        'direction'            => 'Direction',
-        'sourceCidr'           => 'SourceCidr',
-        'destCidr'             => 'DestCidr',
-        'ipProtocol'           => 'IpProtocol',
-        'sourcePortRange'      => 'SourcePortRange',
-        'destPortRange'        => 'DestPortRange',
-        'policy'               => 'Policy',
-        'priority'             => 'Priority',
-        'type'                 => 'Type',
-        'name'                 => 'Name',
-        'dpiSignatureIds'      => 'DpiSignatureIds',
-        'dpiGroupIds'          => 'DpiGroupIds',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceCidr' => 'SourceCidr',
+        'sourcePortRange' => 'SourcePortRange',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dpiGroupIds)) {
+            Model::validateArray($this->dpiGroupIds);
+        }
+        if (\is_array($this->dpiSignatureIds)) {
+            Model::validateArray($this->dpiSignatureIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
-        }
-        if (null !== $this->sourceCidr) {
-            $res['SourceCidr'] = $this->sourceCidr;
-        }
+
         if (null !== $this->destCidr) {
             $res['DestCidr'] = $this->destCidr;
         }
-        if (null !== $this->ipProtocol) {
-            $res['IpProtocol'] = $this->ipProtocol;
-        }
-        if (null !== $this->sourcePortRange) {
-            $res['SourcePortRange'] = $this->sourcePortRange;
-        }
+
         if (null !== $this->destPortRange) {
             $res['DestPortRange'] = $this->destPortRange;
         }
-        if (null !== $this->policy) {
-            $res['Policy'] = $this->policy;
+
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
+
+        if (null !== $this->dpiGroupIds) {
+            if (\is_array($this->dpiGroupIds)) {
+                $res['DpiGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->dpiGroupIds as $item1) {
+                    $res['DpiGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+
+        if (null !== $this->dpiSignatureIds) {
+            if (\is_array($this->dpiSignatureIds)) {
+                $res['DpiSignatureIds'] = [];
+                $n1 = 0;
+                foreach ($this->dpiSignatureIds as $item1) {
+                    $res['DpiSignatureIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (null !== $this->ipProtocol) {
+            $res['IpProtocol'] = $this->ipProtocol;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->dpiSignatureIds) {
-            $res['DpiSignatureIds'] = $this->dpiSignatureIds;
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->dpiGroupIds) {
-            $res['DpiGroupIds'] = $this->dpiGroupIds;
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->sourceCidr) {
+            $res['SourceCidr'] = $this->sourceCidr;
+        }
+
+        if (null !== $this->sourcePortRange) {
+            $res['SourcePortRange'] = $this->sourcePortRange;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddACLRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
-        }
-        if (isset($map['SourceCidr'])) {
-            $model->sourceCidr = $map['SourceCidr'];
-        }
+
         if (isset($map['DestCidr'])) {
             $model->destCidr = $map['DestCidr'];
         }
-        if (isset($map['IpProtocol'])) {
-            $model->ipProtocol = $map['IpProtocol'];
-        }
-        if (isset($map['SourcePortRange'])) {
-            $model->sourcePortRange = $map['SourcePortRange'];
-        }
+
         if (isset($map['DestPortRange'])) {
             $model->destPortRange = $map['DestPortRange'];
         }
-        if (isset($map['Policy'])) {
-            $model->policy = $map['Policy'];
+
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
+
+        if (isset($map['DpiGroupIds'])) {
+            if (!empty($map['DpiGroupIds'])) {
+                $model->dpiGroupIds = [];
+                $n1 = 0;
+                foreach ($map['DpiGroupIds'] as $item1) {
+                    $model->dpiGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+
+        if (isset($map['DpiSignatureIds'])) {
+            if (!empty($map['DpiSignatureIds'])) {
+                $model->dpiSignatureIds = [];
+                $n1 = 0;
+                foreach ($map['DpiSignatureIds'] as $item1) {
+                    $model->dpiSignatureIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
+        if (isset($map['IpProtocol'])) {
+            $model->ipProtocol = $map['IpProtocol'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['DpiSignatureIds'])) {
-            if (!empty($map['DpiSignatureIds'])) {
-                $model->dpiSignatureIds = $map['DpiSignatureIds'];
-            }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['DpiGroupIds'])) {
-            if (!empty($map['DpiGroupIds'])) {
-                $model->dpiGroupIds = $map['DpiGroupIds'];
-            }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SourceCidr'])) {
+            $model->sourceCidr = $map['SourceCidr'];
+        }
+
+        if (isset($map['SourcePortRange'])) {
+            $model->sourcePortRange = $map['SourcePortRange'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -4,66 +4,57 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\ListEnterpriseCodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class enterpriseCodes extends Model
 {
     /**
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
-     * @var int
-     */
-    public $smartAGCount;
-
-    /**
      * @var string
      */
     public $enterpriseCode;
+
+    /**
+     * @var bool
+     */
+    public $isDefault;
     protected $_name = [
-        'isDefault'      => 'IsDefault',
-        'smartAGCount'   => 'SmartAGCount',
         'enterpriseCode' => 'EnterpriseCode',
+        'isDefault' => 'IsDefault',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
-        }
-        if (null !== $this->smartAGCount) {
-            $res['SmartAGCount'] = $this->smartAGCount;
-        }
         if (null !== $this->enterpriseCode) {
             $res['EnterpriseCode'] = $this->enterpriseCode;
+        }
+
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enterpriseCodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
-        }
-        if (isset($map['SmartAGCount'])) {
-            $model->smartAGCount = $map['SmartAGCount'];
-        }
         if (isset($map['EnterpriseCode'])) {
             $model->enterpriseCode = $map['EnterpriseCode'];
+        }
+
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
 
         return $model;

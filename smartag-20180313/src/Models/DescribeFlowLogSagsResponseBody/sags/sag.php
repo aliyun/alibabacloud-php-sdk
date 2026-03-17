@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeFlowLogSagsResponseBody\sags;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sag extends Model
 {
@@ -16,54 +16,59 @@ class sag extends Model
     /**
      * @var string
      */
-    public $smartAGId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $smartAGId;
     protected $_name = [
         'description' => 'Description',
-        'smartAGId'   => 'SmartAGId',
-        'name'        => 'Name',
+        'name' => 'Name',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
         }
 
         return $model;

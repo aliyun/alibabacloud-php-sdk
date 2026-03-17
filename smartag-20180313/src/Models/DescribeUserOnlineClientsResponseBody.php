@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientsResponseBody\users;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUserOnlineClientsResponseBody extends Model
 {
@@ -20,37 +20,43 @@ class DescribeUserOnlineClientsResponseBody extends Model
     public $users;
     protected $_name = [
         'requestId' => 'RequestId',
-        'users'     => 'Users',
+        'users' => 'Users',
     ];
 
     public function validate()
     {
+        if (null !== $this->users) {
+            $this->users->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->users) {
-            $res['Users'] = null !== $this->users ? $this->users->toMap() : null;
+            $res['Users'] = null !== $this->users ? $this->users->toArray($noStream) : $this->users;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserOnlineClientsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Users'])) {
             $model->users = users::fromMap($map['Users']);
         }

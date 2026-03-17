@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSnatEntriesResponseBody\snatEntries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snatEntry extends Model
 {
@@ -28,28 +28,32 @@ class snatEntry extends Model
      */
     public $snatIp;
     protected $_name = [
-        'cidrBlock'  => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'createTime' => 'CreateTime',
         'instanceId' => 'InstanceId',
-        'snatIp'     => 'SnatIp',
+        'snatIp' => 'SnatIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->snatIp) {
             $res['SnatIp'] = $this->snatIp;
         }
@@ -57,23 +61,26 @@ class snatEntry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snatEntry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SnatIp'])) {
             $model->snatIp = $map['SnatIp'];
         }

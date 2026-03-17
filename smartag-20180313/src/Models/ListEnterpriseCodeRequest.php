@@ -4,15 +4,10 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEnterpriseCodeRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $regionId;
-
     /**
      * @var string
      */
@@ -24,70 +19,84 @@ class ListEnterpriseCodeRequest extends Model
     public $isDefault;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
         'enterpriseCode' => 'EnterpriseCode',
-        'isDefault'      => 'IsDefault',
-        'nextToken'      => 'NextToken',
-        'maxResults'     => 'MaxResults',
+        'isDefault' => 'IsDefault',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->enterpriseCode) {
             $res['EnterpriseCode'] = $this->enterpriseCode;
         }
+
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEnterpriseCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['EnterpriseCode'])) {
             $model->enterpriseCode = $map['EnterpriseCode'];
         }
+
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

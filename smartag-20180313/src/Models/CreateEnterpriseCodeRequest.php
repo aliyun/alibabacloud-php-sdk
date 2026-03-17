@@ -4,14 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEnterpriseCodeRequest extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,61 +21,54 @@ class CreateEnterpriseCodeRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
+    public $regionId;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'clientToken' => 'ClientToken',
         'enterpriseCode' => 'EnterpriseCode',
-        'clientToken'    => 'ClientToken',
-        'dryRun'         => 'DryRun',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->enterpriseCode) {
-            $res['EnterpriseCode'] = $this->enterpriseCode;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
+
+        if (null !== $this->enterpriseCode) {
+            $res['EnterpriseCode'] = $this->enterpriseCode;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEnterpriseCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['EnterpriseCode'])) {
-            $model->enterpriseCode = $map['EnterpriseCode'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
+
+        if (isset($map['EnterpriseCode'])) {
+            $model->enterpriseCode = $map['EnterpriseCode'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

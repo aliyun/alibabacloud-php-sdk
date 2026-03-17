@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeFlowLogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeFlowLogsResponseBody\flowLogs\flowLogSetType;
-use AlibabaCloud\Tea\Model;
 
 class flowLogs extends Model
 {
@@ -19,17 +19,22 @@ class flowLogs extends Model
 
     public function validate()
     {
+        if (\is_array($this->flowLogSetType)) {
+            Model::validateArray($this->flowLogSetType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowLogSetType) {
-            $res['FlowLogSetType'] = [];
-            if (null !== $this->flowLogSetType && \is_array($this->flowLogSetType)) {
-                $n = 0;
-                foreach ($this->flowLogSetType as $item) {
-                    $res['FlowLogSetType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flowLogSetType)) {
+                $res['FlowLogSetType'] = [];
+                $n1 = 0;
+                foreach ($this->flowLogSetType as $item1) {
+                    $res['FlowLogSetType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class flowLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flowLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowLogSetType'])) {
             if (!empty($map['FlowLogSetType'])) {
                 $model->flowLogSetType = [];
-                $n                     = 0;
-                foreach ($map['FlowLogSetType'] as $item) {
-                    $model->flowLogSetType[$n++] = null !== $item ? flowLogSetType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FlowLogSetType'] as $item1) {
+                    $model->flowLogSetType[$n1] = flowLogSetType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

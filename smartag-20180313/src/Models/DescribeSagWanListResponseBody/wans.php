@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagWanListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class wans extends Model
 {
     /**
      * @var int
      */
-    public $weight;
-
-    /**
-     * @var string
-     */
-    public $mask;
+    public $bandWidth;
 
     /**
      * @var string
@@ -26,32 +21,12 @@ class wans extends Model
     /**
      * @var string
      */
-    public $portName;
+    public $IP;
 
     /**
      * @var string
      */
     public $IPType;
-
-    /**
-     * @var int
-     */
-    public $priority;
-
-    /**
-     * @var int
-     */
-    public $bandWidth;
-
-    /**
-     * @var string
-     */
-    public $trafficState;
-
-    /**
-     * @var string
-     */
-    public $IP;
 
     /**
      * @var string
@@ -61,105 +36,151 @@ class wans extends Model
     /**
      * @var string
      */
+    public $mask;
+
+    /**
+     * @var string
+     */
+    public $portName;
+
+    /**
+     * @var int
+     */
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $trafficState;
+
+    /**
+     * @var string
+     */
     public $username;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'weight'       => 'Weight',
-        'mask'         => 'Mask',
-        'gateway'      => 'Gateway',
-        'portName'     => 'PortName',
-        'IPType'       => 'IPType',
-        'priority'     => 'Priority',
-        'bandWidth'    => 'BandWidth',
+        'bandWidth' => 'BandWidth',
+        'gateway' => 'Gateway',
+        'IP' => 'IP',
+        'IPType' => 'IPType',
+        'ISP' => 'ISP',
+        'mask' => 'Mask',
+        'portName' => 'PortName',
+        'priority' => 'Priority',
         'trafficState' => 'TrafficState',
-        'IP'           => 'IP',
-        'ISP'          => 'ISP',
-        'username'     => 'Username',
+        'username' => 'Username',
+        'weight' => 'Weight',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
-        }
-        if (null !== $this->gateway) {
-            $res['Gateway'] = $this->gateway;
-        }
-        if (null !== $this->portName) {
-            $res['PortName'] = $this->portName;
-        }
-        if (null !== $this->IPType) {
-            $res['IPType'] = $this->IPType;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
         if (null !== $this->bandWidth) {
             $res['BandWidth'] = $this->bandWidth;
         }
-        if (null !== $this->trafficState) {
-            $res['TrafficState'] = $this->trafficState;
+
+        if (null !== $this->gateway) {
+            $res['Gateway'] = $this->gateway;
         }
+
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
+
+        if (null !== $this->IPType) {
+            $res['IPType'] = $this->IPType;
+        }
+
         if (null !== $this->ISP) {
             $res['ISP'] = $this->ISP;
         }
+
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
+        }
+
+        if (null !== $this->portName) {
+            $res['PortName'] = $this->portName;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->trafficState) {
+            $res['TrafficState'] = $this->trafficState;
+        }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
+        }
+
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wans
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
-        }
-        if (isset($map['Gateway'])) {
-            $model->gateway = $map['Gateway'];
-        }
-        if (isset($map['PortName'])) {
-            $model->portName = $map['PortName'];
-        }
-        if (isset($map['IPType'])) {
-            $model->IPType = $map['IPType'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
         if (isset($map['BandWidth'])) {
             $model->bandWidth = $map['BandWidth'];
         }
-        if (isset($map['TrafficState'])) {
-            $model->trafficState = $map['TrafficState'];
+
+        if (isset($map['Gateway'])) {
+            $model->gateway = $map['Gateway'];
         }
+
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
+
+        if (isset($map['IPType'])) {
+            $model->IPType = $map['IPType'];
+        }
+
         if (isset($map['ISP'])) {
             $model->ISP = $map['ISP'];
         }
+
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
+        }
+
+        if (isset($map['PortName'])) {
+            $model->portName = $map['PortName'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['TrafficState'])) {
+            $model->trafficState = $map['TrafficState'];
+        }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

@@ -4,15 +4,10 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCloudConnectNetworkUseLimitResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $usedAmount;
-
     /**
      * @var string
      */
@@ -22,48 +17,58 @@ class GetCloudConnectNetworkUseLimitResponseBody extends Model
      * @var int
      */
     public $totalAmount;
+
+    /**
+     * @var int
+     */
+    public $usedAmount;
     protected $_name = [
-        'usedAmount'  => 'UsedAmount',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'totalAmount' => 'TotalAmount',
+        'usedAmount' => 'UsedAmount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->usedAmount) {
-            $res['UsedAmount'] = $this->usedAmount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalAmount) {
             $res['TotalAmount'] = $this->totalAmount;
+        }
+
+        if (null !== $this->usedAmount) {
+            $res['UsedAmount'] = $this->usedAmount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCloudConnectNetworkUseLimitResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UsedAmount'])) {
-            $model->usedAmount = $map['UsedAmount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalAmount'])) {
             $model->totalAmount = $map['TotalAmount'];
+        }
+
+        if (isset($map['UsedAmount'])) {
+            $model->usedAmount = $map['UsedAmount'];
         }
 
         return $model;

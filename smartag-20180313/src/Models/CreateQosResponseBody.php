@@ -4,10 +4,15 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateQosResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $qosId;
+
     /**
      * @var string
      */
@@ -16,42 +21,54 @@ class CreateQosResponseBody extends Model
     /**
      * @var string
      */
-    public $qosId;
+    public $resourceGroupId;
     protected $_name = [
+        'qosId' => 'QosId',
         'requestId' => 'RequestId',
-        'qosId'     => 'QosId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->qosId) {
+            $res['QosId'] = $this->qosId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->qosId) {
-            $res['QosId'] = $this->qosId;
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateQosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['QosId'])) {
+            $model->qosId = $map['QosId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['QosId'])) {
-            $model->qosId = $map['QosId'];
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

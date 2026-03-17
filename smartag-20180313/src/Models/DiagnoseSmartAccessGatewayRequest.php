@@ -4,24 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DiagnoseSmartAccessGatewayRequest extends Model
 {
     /**
      * @var string
      */
-    public $smartAGId;
-
-    /**
-     * @var string
-     */
-    public $smartAGSn;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,7 +21,7 @@ class DiagnoseSmartAccessGatewayRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $regionId;
 
     /**
      * @var string
@@ -42,76 +32,99 @@ class DiagnoseSmartAccessGatewayRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $smartAGId;
+
+    /**
+     * @var string
+     */
+    public $smartAGSn;
     protected $_name = [
-        'smartAGId'            => 'SmartAGId',
-        'smartAGSn'            => 'SmartAGSn',
-        'regionId'             => 'RegionId',
-        'ownerId'              => 'OwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'smartAGId' => 'SmartAGId',
+        'smartAGSn' => 'SmartAGSn',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
-        if (null !== $this->smartAGSn) {
-            $res['SmartAGSn'] = $this->smartAGSn;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
+        }
+
+        if (null !== $this->smartAGSn) {
+            $res['SmartAGSn'] = $this->smartAGSn;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DiagnoseSmartAccessGatewayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
-        if (isset($map['SmartAGSn'])) {
-            $model->smartAGSn = $map['SmartAGSn'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
+        }
+
+        if (isset($map['SmartAGSn'])) {
+            $model->smartAGSn = $map['SmartAGSn'];
         }
 
         return $model;

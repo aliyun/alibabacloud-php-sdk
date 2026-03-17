@@ -4,50 +4,57 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagGlobalRouteProtocolResponseBody\taskStates;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSagGlobalRouteProtocolResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $routeProtocol;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $routeProtocol;
 
     /**
      * @var taskStates[]
      */
     public $taskStates;
     protected $_name = [
+        'requestId' => 'RequestId',
         'routeProtocol' => 'RouteProtocol',
-        'requestId'     => 'RequestId',
-        'taskStates'    => 'TaskStates',
+        'taskStates' => 'TaskStates',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskStates)) {
+            Model::validateArray($this->taskStates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->routeProtocol) {
-            $res['RouteProtocol'] = $this->routeProtocol;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
+        if (null !== $this->routeProtocol) {
+            $res['RouteProtocol'] = $this->routeProtocol;
+        }
+
         if (null !== $this->taskStates) {
-            $res['TaskStates'] = [];
-            if (null !== $this->taskStates && \is_array($this->taskStates)) {
-                $n = 0;
-                foreach ($this->taskStates as $item) {
-                    $res['TaskStates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskStates)) {
+                $res['TaskStates'] = [];
+                $n1 = 0;
+                foreach ($this->taskStates as $item1) {
+                    $res['TaskStates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,26 +62,29 @@ class DescribeSagGlobalRouteProtocolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSagGlobalRouteProtocolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteProtocol'])) {
-            $model->routeProtocol = $map['RouteProtocol'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
+        if (isset($map['RouteProtocol'])) {
+            $model->routeProtocol = $map['RouteProtocol'];
+        }
+
         if (isset($map['TaskStates'])) {
             if (!empty($map['TaskStates'])) {
                 $model->taskStates = [];
-                $n                 = 0;
-                foreach ($map['TaskStates'] as $item) {
-                    $model->taskStates[$n++] = null !== $item ? taskStates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskStates'] as $item1) {
+                    $model->taskStates[$n1] = taskStates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

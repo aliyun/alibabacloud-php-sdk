@@ -4,10 +4,20 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateACLResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $aclId;
+
+    /**
+     * @var string
+     */
+    public $aclType;
+
     /**
      * @var string
      */
@@ -16,42 +26,63 @@ class CreateACLResponseBody extends Model
     /**
      * @var string
      */
-    public $aclId;
+    public $resourceGroupId;
     protected $_name = [
+        'aclId' => 'AclId',
+        'aclType' => 'AclType',
         'requestId' => 'RequestId',
-        'aclId'     => 'AclId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
+        }
+
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateACLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
+        }
+
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

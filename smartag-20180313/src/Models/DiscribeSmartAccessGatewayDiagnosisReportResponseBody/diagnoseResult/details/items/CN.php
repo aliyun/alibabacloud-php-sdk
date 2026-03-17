@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DiscribeSmartAccessGatewayDiagnosisReportResponseBody\diagnoseResult\details\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CN extends Model
 {
@@ -14,9 +14,9 @@ class CN extends Model
     public $advice;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $itemName;
+    public $details;
 
     /**
      * @var string
@@ -26,72 +26,111 @@ class CN extends Model
     /**
      * @var string
      */
-    public $itemType;
+    public $itemName;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $details;
+    public $itemType;
     protected $_name = [
-        'advice'    => 'Advice',
-        'itemName'  => 'ItemName',
+        'advice' => 'Advice',
+        'details' => 'Details',
         'itemLevel' => 'ItemLevel',
-        'itemType'  => 'ItemType',
-        'details'   => 'Details',
+        'itemName' => 'ItemName',
+        'itemType' => 'ItemType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->advice)) {
+            Model::validateArray($this->advice);
+        }
+        if (\is_array($this->details)) {
+            Model::validateArray($this->details);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->advice) {
-            $res['Advice'] = $this->advice;
+            if (\is_array($this->advice)) {
+                $res['Advice'] = [];
+                $n1 = 0;
+                foreach ($this->advice as $item1) {
+                    $res['Advice'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
-        if (null !== $this->itemName) {
-            $res['ItemName'] = $this->itemName;
+
+        if (null !== $this->details) {
+            if (\is_array($this->details)) {
+                $res['Details'] = [];
+                $n1 = 0;
+                foreach ($this->details as $item1) {
+                    $res['Details'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->itemLevel) {
             $res['ItemLevel'] = $this->itemLevel;
         }
+
+        if (null !== $this->itemName) {
+            $res['ItemName'] = $this->itemName;
+        }
+
         if (null !== $this->itemType) {
             $res['ItemType'] = $this->itemType;
-        }
-        if (null !== $this->details) {
-            $res['Details'] = $this->details;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CN
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Advice'])) {
             if (!empty($map['Advice'])) {
-                $model->advice = $map['Advice'];
+                $model->advice = [];
+                $n1 = 0;
+                foreach ($map['Advice'] as $item1) {
+                    $model->advice[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
-        if (isset($map['ItemName'])) {
-            $model->itemName = $map['ItemName'];
+
+        if (isset($map['Details'])) {
+            if (!empty($map['Details'])) {
+                $model->details = [];
+                $n1 = 0;
+                foreach ($map['Details'] as $item1) {
+                    $model->details[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (isset($map['ItemLevel'])) {
             $model->itemLevel = $map['ItemLevel'];
         }
+
+        if (isset($map['ItemName'])) {
+            $model->itemName = $map['ItemName'];
+        }
+
         if (isset($map['ItemType'])) {
             $model->itemType = $map['ItemType'];
-        }
-        if (isset($map['Details'])) {
-            if (!empty($map['Details'])) {
-                $model->details = $map['Details'];
-            }
         }
 
         return $model;

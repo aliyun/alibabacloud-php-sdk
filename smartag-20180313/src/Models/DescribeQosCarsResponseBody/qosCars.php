@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosCarsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosCarsResponseBody\qosCars\qosCar;
-use AlibabaCloud\Tea\Model;
 
 class qosCars extends Model
 {
@@ -19,17 +19,22 @@ class qosCars extends Model
 
     public function validate()
     {
+        if (\is_array($this->qosCar)) {
+            Model::validateArray($this->qosCar);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qosCar) {
-            $res['QosCar'] = [];
-            if (null !== $this->qosCar && \is_array($this->qosCar)) {
-                $n = 0;
-                foreach ($this->qosCar as $item) {
-                    $res['QosCar'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qosCar)) {
+                $res['QosCar'] = [];
+                $n1 = 0;
+                foreach ($this->qosCar as $item1) {
+                    $res['QosCar'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class qosCars extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qosCars
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QosCar'])) {
             if (!empty($map['QosCar'])) {
                 $model->qosCar = [];
-                $n             = 0;
-                foreach ($map['QosCar'] as $item) {
-                    $model->qosCar[$n++] = null !== $item ? qosCar::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QosCar'] as $item1) {
+                    $model->qosCar[$n1] = qosCar::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

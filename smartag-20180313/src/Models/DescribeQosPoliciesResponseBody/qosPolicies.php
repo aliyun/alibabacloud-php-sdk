@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosPoliciesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosPoliciesResponseBody\qosPolicies\qosPolicy;
-use AlibabaCloud\Tea\Model;
 
 class qosPolicies extends Model
 {
@@ -19,17 +19,22 @@ class qosPolicies extends Model
 
     public function validate()
     {
+        if (\is_array($this->qosPolicy)) {
+            Model::validateArray($this->qosPolicy);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qosPolicy) {
-            $res['QosPolicy'] = [];
-            if (null !== $this->qosPolicy && \is_array($this->qosPolicy)) {
-                $n = 0;
-                foreach ($this->qosPolicy as $item) {
-                    $res['QosPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qosPolicy)) {
+                $res['QosPolicy'] = [];
+                $n1 = 0;
+                foreach ($this->qosPolicy as $item1) {
+                    $res['QosPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class qosPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qosPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QosPolicy'])) {
             if (!empty($map['QosPolicy'])) {
                 $model->qosPolicy = [];
-                $n                = 0;
-                foreach ($map['QosPolicy'] as $item) {
-                    $model->qosPolicy[$n++] = null !== $item ? qosPolicy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QosPolicy'] as $item1) {
+                    $model->qosPolicy[$n1] = qosPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

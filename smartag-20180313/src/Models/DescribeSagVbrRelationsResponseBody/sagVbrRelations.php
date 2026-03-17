@@ -4,14 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagVbrRelationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sagVbrRelations extends Model
 {
     /**
      * @var string
      */
-    public $vbrInstanceId;
+    public $sagInstanceId;
 
     /**
      * @var string
@@ -21,49 +21,54 @@ class sagVbrRelations extends Model
     /**
      * @var string
      */
-    public $sagInstanceId;
+    public $vbrInstanceId;
     protected $_name = [
-        'vbrInstanceId' => 'VbrInstanceId',
-        'sagUid'        => 'SagUid',
         'sagInstanceId' => 'SagInstanceId',
+        'sagUid' => 'SagUid',
+        'vbrInstanceId' => 'VbrInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->vbrInstanceId) {
-            $res['VbrInstanceId'] = $this->vbrInstanceId;
+        if (null !== $this->sagInstanceId) {
+            $res['SagInstanceId'] = $this->sagInstanceId;
         }
+
         if (null !== $this->sagUid) {
             $res['SagUid'] = $this->sagUid;
         }
-        if (null !== $this->sagInstanceId) {
-            $res['SagInstanceId'] = $this->sagInstanceId;
+
+        if (null !== $this->vbrInstanceId) {
+            $res['VbrInstanceId'] = $this->vbrInstanceId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sagVbrRelations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VbrInstanceId'])) {
-            $model->vbrInstanceId = $map['VbrInstanceId'];
+        if (isset($map['SagInstanceId'])) {
+            $model->sagInstanceId = $map['SagInstanceId'];
         }
+
         if (isset($map['SagUid'])) {
             $model->sagUid = $map['SagUid'];
         }
-        if (isset($map['SagInstanceId'])) {
-            $model->sagInstanceId = $map['SagInstanceId'];
+
+        if (isset($map['VbrInstanceId'])) {
+            $model->vbrInstanceId = $map['VbrInstanceId'];
         }
 
         return $model;

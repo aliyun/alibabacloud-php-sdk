@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSagRouteListResponseBody\routes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSagRouteListResponseBody extends Model
 {
@@ -20,25 +20,31 @@ class DescribeSagRouteListResponseBody extends Model
     public $routes;
     protected $_name = [
         'requestId' => 'RequestId',
-        'routes'    => 'Routes',
+        'routes' => 'Routes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->routes)) {
+            Model::validateArray($this->routes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routes) {
-            $res['Routes'] = [];
-            if (null !== $this->routes && \is_array($this->routes)) {
-                $n = 0;
-                foreach ($this->routes as $item) {
-                    $res['Routes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routes)) {
+                $res['Routes'] = [];
+                $n1 = 0;
+                foreach ($this->routes as $item1) {
+                    $res['Routes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -46,23 +52,25 @@ class DescribeSagRouteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSagRouteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Routes'])) {
             if (!empty($map['Routes'])) {
                 $model->routes = [];
-                $n             = 0;
-                foreach ($map['Routes'] as $item) {
-                    $model->routes[$n++] = null !== $item ? routes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Routes'] as $item1) {
+                    $model->routes[$n1] = routes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

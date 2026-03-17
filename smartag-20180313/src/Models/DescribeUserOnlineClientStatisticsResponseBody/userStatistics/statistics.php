@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientStatisticsResponseBody\userStatistics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statistics extends Model
 {
@@ -19,19 +19,21 @@ class statistics extends Model
     public $userName;
     protected $_name = [
         'onlineCount' => 'OnlineCount',
-        'userName'    => 'UserName',
+        'userName' => 'UserName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onlineCount) {
             $res['OnlineCount'] = $this->onlineCount;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -39,17 +41,18 @@ class statistics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnlineCount'])) {
             $model->onlineCount = $map['OnlineCount'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

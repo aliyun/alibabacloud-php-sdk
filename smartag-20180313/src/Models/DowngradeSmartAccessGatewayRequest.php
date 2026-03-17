@@ -4,10 +4,20 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DowngradeSmartAccessGatewayRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @var int
+     */
+    public $bandWidthSpec;
+
     /**
      * @var string
      */
@@ -17,6 +27,11 @@ class DowngradeSmartAccessGatewayRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -32,122 +47,98 @@ class DowngradeSmartAccessGatewayRequest extends Model
      * @var string
      */
     public $smartAGId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $bandWidthSpec;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @var int
-     */
-    public $dataPlan;
-
-    /**
-     * @var int
-     */
-    public $userCount;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'autoPay' => 'AutoPay',
+        'bandWidthSpec' => 'BandWidthSpec',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'smartAGId'            => 'SmartAGId',
-        'regionId'             => 'RegionId',
-        'bandWidthSpec'        => 'BandWidthSpec',
-        'autoPay'              => 'AutoPay',
-        'dataPlan'             => 'DataPlan',
-        'userCount'            => 'UserCount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->bandWidthSpec) {
-            $res['BandWidthSpec'] = $this->bandWidthSpec;
-        }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->dataPlan) {
-            $res['DataPlan'] = $this->dataPlan;
+
+        if (null !== $this->bandWidthSpec) {
+            $res['BandWidthSpec'] = $this->bandWidthSpec;
         }
-        if (null !== $this->userCount) {
-            $res['UserCount'] = $this->userCount;
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DowngradeSmartAccessGatewayRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['BandWidthSpec'])) {
-            $model->bandWidthSpec = $map['BandWidthSpec'];
-        }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['DataPlan'])) {
-            $model->dataPlan = $map['DataPlan'];
+
+        if (isset($map['BandWidthSpec'])) {
+            $model->bandWidthSpec = $map['BandWidthSpec'];
         }
-        if (isset($map['UserCount'])) {
-            $model->userCount = $map['UserCount'];
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
         }
 
         return $model;

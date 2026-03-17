@@ -4,43 +4,46 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeBindableSmartAccessGatewaysResponseBody\smartAccessGateways;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class smartAccessGateway extends Model
 {
     /**
      * @var string
      */
-    public $smartAGId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $smartAGId;
 
     /**
      * @var int
      */
     public $smartAGUid;
     protected $_name = [
-        'smartAGId'  => 'SmartAGId',
-        'name'       => 'Name',
+        'name' => 'Name',
+        'smartAGId' => 'SmartAGId',
         'smartAGUid' => 'SmartAGUid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
+        }
+
         if (null !== $this->smartAGUid) {
             $res['SmartAGUid'] = $this->smartAGUid;
         }
@@ -48,20 +51,22 @@ class smartAccessGateway extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return smartAccessGateway
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
+        }
+
         if (isset($map['SmartAGUid'])) {
             $model->smartAGUid = $map['SmartAGUid'];
         }

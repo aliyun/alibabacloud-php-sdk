@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosPoliciesResponseBody\qosPolicies\qosPolicy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dpiSignatureIds extends Model
 {
@@ -18,29 +18,45 @@ class dpiSignatureIds extends Model
 
     public function validate()
     {
+        if (\is_array($this->dpiSignatureId)) {
+            Model::validateArray($this->dpiSignatureId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dpiSignatureId) {
-            $res['DpiSignatureId'] = $this->dpiSignatureId;
+            if (\is_array($this->dpiSignatureId)) {
+                $res['DpiSignatureId'] = [];
+                $n1 = 0;
+                foreach ($this->dpiSignatureId as $item1) {
+                    $res['DpiSignatureId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dpiSignatureIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DpiSignatureId'])) {
             if (!empty($map['DpiSignatureId'])) {
-                $model->dpiSignatureId = $map['DpiSignatureId'];
+                $model->dpiSignatureId = [];
+                $n1 = 0;
+                foreach ($map['DpiSignatureId'] as $item1) {
+                    $model->dpiSignatureId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

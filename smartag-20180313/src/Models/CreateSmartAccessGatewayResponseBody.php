@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSmartAccessGatewayResponseBody extends Model
 {
@@ -16,7 +16,7 @@ class CreateSmartAccessGatewayResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $name;
 
     /**
      * @var string
@@ -26,68 +26,91 @@ class CreateSmartAccessGatewayResponseBody extends Model
     /**
      * @var string
      */
-    public $smartAGId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $name;
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $smartAGId;
     protected $_name = [
         'description' => 'Description',
-        'requestId'   => 'RequestId',
-        'orderId'     => 'OrderId',
-        'smartAGId'   => 'SmartAGId',
-        'name'        => 'Name',
+        'name' => 'Name',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'smartAGId' => 'SmartAGId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->smartAGId) {
             $res['SmartAGId'] = $this->smartAGId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSmartAccessGatewayResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['SmartAGId'])) {
             $model->smartAGId = $map['SmartAGId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

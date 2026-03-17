@@ -4,54 +4,57 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddDnatEntryResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $dnatEntryId;
 
     /**
      * @var string
      */
-    public $dnatEntryId;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'dnatEntryId' => 'DnatEntryId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dnatEntryId) {
             $res['DnatEntryId'] = $this->dnatEntryId;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddDnatEntryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DnatEntryId'])) {
             $model->dnatEntryId = $map['DnatEntryId'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

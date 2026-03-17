@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeQosesResponseBody\qoses\qos;
-use AlibabaCloud\Tea\Model;
 
 class qoses extends Model
 {
@@ -19,17 +19,22 @@ class qoses extends Model
 
     public function validate()
     {
+        if (\is_array($this->qos)) {
+            Model::validateArray($this->qos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qos) {
-            $res['Qos'] = [];
-            if (null !== $this->qos && \is_array($this->qos)) {
-                $n = 0;
-                foreach ($this->qos as $item) {
-                    $res['Qos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qos)) {
+                $res['Qos'] = [];
+                $n1 = 0;
+                foreach ($this->qos as $item1) {
+                    $res['Qos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class qoses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qoses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Qos'])) {
             if (!empty($map['Qos'])) {
                 $model->qos = [];
-                $n          = 0;
-                foreach ($map['Qos'] as $item) {
-                    $model->qos[$n++] = null !== $item ? qos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Qos'] as $item1) {
+                    $model->qos[$n1] = qos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

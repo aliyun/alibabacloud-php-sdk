@@ -4,10 +4,20 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSagExpressConnectInterfaceRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $IP;
+
+    /**
+     * @var string
+     */
+    public $mask;
+
     /**
      * @var string
      */
@@ -17,6 +27,16 @@ class CreateSagExpressConnectInterfaceRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $portName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -31,11 +51,6 @@ class CreateSagExpressConnectInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $smartAGId;
 
     /**
@@ -46,120 +61,126 @@ class CreateSagExpressConnectInterfaceRequest extends Model
     /**
      * @var string
      */
-    public $portName;
-
-    /**
-     * @var string
-     */
     public $vlan;
-
-    /**
-     * @var string
-     */
-    public $IP;
-
-    /**
-     * @var string
-     */
-    public $mask;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'IP' => 'IP',
+        'mask' => 'Mask',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'portName' => 'PortName',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'smartAGId'            => 'SmartAGId',
-        'smartAGSn'            => 'SmartAGSn',
-        'portName'             => 'PortName',
-        'vlan'                 => 'Vlan',
-        'IP'                   => 'IP',
-        'mask'                 => 'Mask',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'smartAGId' => 'SmartAGId',
+        'smartAGSn' => 'SmartAGSn',
+        'vlan' => 'Vlan',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->smartAGId) {
-            $res['SmartAGId'] = $this->smartAGId;
-        }
-        if (null !== $this->smartAGSn) {
-            $res['SmartAGSn'] = $this->smartAGSn;
-        }
-        if (null !== $this->portName) {
-            $res['PortName'] = $this->portName;
-        }
-        if (null !== $this->vlan) {
-            $res['Vlan'] = $this->vlan;
-        }
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
+
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
+        }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->portName) {
+            $res['PortName'] = $this->portName;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->smartAGId) {
+            $res['SmartAGId'] = $this->smartAGId;
+        }
+
+        if (null !== $this->smartAGSn) {
+            $res['SmartAGSn'] = $this->smartAGSn;
+        }
+
+        if (null !== $this->vlan) {
+            $res['Vlan'] = $this->vlan;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSagExpressConnectInterfaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SmartAGId'])) {
-            $model->smartAGId = $map['SmartAGId'];
-        }
-        if (isset($map['SmartAGSn'])) {
-            $model->smartAGSn = $map['SmartAGSn'];
-        }
-        if (isset($map['PortName'])) {
-            $model->portName = $map['PortName'];
-        }
-        if (isset($map['Vlan'])) {
-            $model->vlan = $map['Vlan'];
-        }
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
+
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
+        }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PortName'])) {
+            $model->portName = $map['PortName'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SmartAGId'])) {
+            $model->smartAGId = $map['SmartAGId'];
+        }
+
+        if (isset($map['SmartAGSn'])) {
+            $model->smartAGSn = $map['SmartAGSn'];
+        }
+
+        if (isset($map['Vlan'])) {
+            $model->vlan = $map['Vlan'];
         }
 
         return $model;

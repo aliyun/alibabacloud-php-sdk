@@ -4,24 +4,14 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewayAttributeResponseBody\devices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class device extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $serialNumber;
-
-    /**
-     * @var string
-     */
-    public $haState;
-
-    /**
-     * @var string
-     */
-    public $secretKey;
+    public $distributeSkStatus;
 
     /**
      * @var string
@@ -31,12 +21,12 @@ class device extends Model
     /**
      * @var string
      */
-    public $softwareVersion;
+    public $haState;
 
     /**
-     * @var int
+     * @var string
      */
-    public $distributeSkStatus;
+    public $hcState;
 
     /**
      * @var string
@@ -46,84 +36,109 @@ class device extends Model
     /**
      * @var string
      */
-    public $hcState;
+    public $secretKey;
+
+    /**
+     * @var string
+     */
+    public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $softwareVersion;
     protected $_name = [
-        'serialNumber'          => 'SerialNumber',
-        'haState'               => 'HaState',
-        'secretKey'             => 'SecretKey',
+        'distributeSkStatus' => 'DistributeSkStatus',
         'dpiSignatureDbVersion' => 'DpiSignatureDbVersion',
-        'softwareVersion'       => 'SoftwareVersion',
-        'distributeSkStatus'    => 'DistributeSkStatus',
-        'monitorVersion'        => 'MonitorVersion',
-        'hcState'               => 'HcState',
+        'haState' => 'HaState',
+        'hcState' => 'HcState',
+        'monitorVersion' => 'MonitorVersion',
+        'secretKey' => 'SecretKey',
+        'serialNumber' => 'SerialNumber',
+        'softwareVersion' => 'SoftwareVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->serialNumber) {
-            $res['SerialNumber'] = $this->serialNumber;
-        }
-        if (null !== $this->haState) {
-            $res['HaState'] = $this->haState;
-        }
-        if (null !== $this->secretKey) {
-            $res['SecretKey'] = $this->secretKey;
-        }
-        if (null !== $this->dpiSignatureDbVersion) {
-            $res['DpiSignatureDbVersion'] = $this->dpiSignatureDbVersion;
-        }
-        if (null !== $this->softwareVersion) {
-            $res['SoftwareVersion'] = $this->softwareVersion;
-        }
         if (null !== $this->distributeSkStatus) {
             $res['DistributeSkStatus'] = $this->distributeSkStatus;
         }
+
+        if (null !== $this->dpiSignatureDbVersion) {
+            $res['DpiSignatureDbVersion'] = $this->dpiSignatureDbVersion;
+        }
+
+        if (null !== $this->haState) {
+            $res['HaState'] = $this->haState;
+        }
+
+        if (null !== $this->hcState) {
+            $res['HcState'] = $this->hcState;
+        }
+
         if (null !== $this->monitorVersion) {
             $res['MonitorVersion'] = $this->monitorVersion;
         }
-        if (null !== $this->hcState) {
-            $res['HcState'] = $this->hcState;
+
+        if (null !== $this->secretKey) {
+            $res['SecretKey'] = $this->secretKey;
+        }
+
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
+        }
+
+        if (null !== $this->softwareVersion) {
+            $res['SoftwareVersion'] = $this->softwareVersion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return device
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SerialNumber'])) {
-            $model->serialNumber = $map['SerialNumber'];
-        }
-        if (isset($map['HaState'])) {
-            $model->haState = $map['HaState'];
-        }
-        if (isset($map['SecretKey'])) {
-            $model->secretKey = $map['SecretKey'];
-        }
-        if (isset($map['DpiSignatureDbVersion'])) {
-            $model->dpiSignatureDbVersion = $map['DpiSignatureDbVersion'];
-        }
-        if (isset($map['SoftwareVersion'])) {
-            $model->softwareVersion = $map['SoftwareVersion'];
-        }
         if (isset($map['DistributeSkStatus'])) {
             $model->distributeSkStatus = $map['DistributeSkStatus'];
         }
+
+        if (isset($map['DpiSignatureDbVersion'])) {
+            $model->dpiSignatureDbVersion = $map['DpiSignatureDbVersion'];
+        }
+
+        if (isset($map['HaState'])) {
+            $model->haState = $map['HaState'];
+        }
+
+        if (isset($map['HcState'])) {
+            $model->hcState = $map['HcState'];
+        }
+
         if (isset($map['MonitorVersion'])) {
             $model->monitorVersion = $map['MonitorVersion'];
         }
-        if (isset($map['HcState'])) {
-            $model->hcState = $map['HcState'];
+
+        if (isset($map['SecretKey'])) {
+            $model->secretKey = $map['SecretKey'];
+        }
+
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
+        }
+
+        if (isset($map['SoftwareVersion'])) {
+            $model->softwareVersion = $map['SoftwareVersion'];
         }
 
         return $model;

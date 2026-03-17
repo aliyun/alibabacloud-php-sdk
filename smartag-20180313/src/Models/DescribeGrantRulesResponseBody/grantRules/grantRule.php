@@ -4,10 +4,20 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeGrantRulesResponseBody\grantRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class grantRule extends Model
 {
+    /**
+     * @var string
+     */
+    public $ccnInstanceId;
+
+    /**
+     * @var int
+     */
+    public $ccnUid;
+
     /**
      * @var string
      */
@@ -24,6 +34,11 @@ class grantRule extends Model
     public $gmtCreate;
 
     /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
      * @var string
      */
     public $grantRuleId;
@@ -34,108 +49,110 @@ class grantRule extends Model
     public $grantTrafficService;
 
     /**
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
-     * @var int
-     */
-    public $ccnUid;
-
-    /**
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ccnInstanceId;
     protected $_name = [
-        'cenInstanceId'       => 'CenInstanceId',
-        'cenUid'              => 'CenUid',
-        'gmtCreate'           => 'GmtCreate',
-        'grantRuleId'         => 'GrantRuleId',
+        'ccnInstanceId' => 'CcnInstanceId',
+        'ccnUid' => 'CcnUid',
+        'cenInstanceId' => 'CenInstanceId',
+        'cenUid' => 'CenUid',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'grantRuleId' => 'GrantRuleId',
         'grantTrafficService' => 'GrantTrafficService',
-        'gmtModified'         => 'GmtModified',
-        'ccnUid'              => 'CcnUid',
-        'regionId'            => 'RegionId',
-        'ccnInstanceId'       => 'CcnInstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cenInstanceId) {
-            $res['CenInstanceId'] = $this->cenInstanceId;
+        if (null !== $this->ccnInstanceId) {
+            $res['CcnInstanceId'] = $this->ccnInstanceId;
         }
-        if (null !== $this->cenUid) {
-            $res['CenUid'] = $this->cenUid;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->grantRuleId) {
-            $res['GrantRuleId'] = $this->grantRuleId;
-        }
-        if (null !== $this->grantTrafficService) {
-            $res['GrantTrafficService'] = $this->grantTrafficService;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
+
         if (null !== $this->ccnUid) {
             $res['CcnUid'] = $this->ccnUid;
         }
+
+        if (null !== $this->cenInstanceId) {
+            $res['CenInstanceId'] = $this->cenInstanceId;
+        }
+
+        if (null !== $this->cenUid) {
+            $res['CenUid'] = $this->cenUid;
+        }
+
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->grantRuleId) {
+            $res['GrantRuleId'] = $this->grantRuleId;
+        }
+
+        if (null !== $this->grantTrafficService) {
+            $res['GrantTrafficService'] = $this->grantTrafficService;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ccnInstanceId) {
-            $res['CcnInstanceId'] = $this->ccnInstanceId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return grantRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CenInstanceId'])) {
-            $model->cenInstanceId = $map['CenInstanceId'];
+        if (isset($map['CcnInstanceId'])) {
+            $model->ccnInstanceId = $map['CcnInstanceId'];
         }
-        if (isset($map['CenUid'])) {
-            $model->cenUid = $map['CenUid'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GrantRuleId'])) {
-            $model->grantRuleId = $map['GrantRuleId'];
-        }
-        if (isset($map['GrantTrafficService'])) {
-            $model->grantTrafficService = $map['GrantTrafficService'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
+
         if (isset($map['CcnUid'])) {
             $model->ccnUid = $map['CcnUid'];
         }
+
+        if (isset($map['CenInstanceId'])) {
+            $model->cenInstanceId = $map['CenInstanceId'];
+        }
+
+        if (isset($map['CenUid'])) {
+            $model->cenUid = $map['CenUid'];
+        }
+
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['GrantRuleId'])) {
+            $model->grantRuleId = $map['GrantRuleId'];
+        }
+
+        if (isset($map['GrantTrafficService'])) {
+            $model->grantTrafficService = $map['GrantTrafficService'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['CcnInstanceId'])) {
-            $model->ccnInstanceId = $map['CcnInstanceId'];
         }
 
         return $model;

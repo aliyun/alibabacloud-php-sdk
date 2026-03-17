@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewaysResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeSmartAccessGatewaysResponseBody\smartAccessGateways\smartAccessGateway;
-use AlibabaCloud\Tea\Model;
 
 class smartAccessGateways extends Model
 {
@@ -19,17 +19,22 @@ class smartAccessGateways extends Model
 
     public function validate()
     {
+        if (\is_array($this->smartAccessGateway)) {
+            Model::validateArray($this->smartAccessGateway);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->smartAccessGateway) {
-            $res['SmartAccessGateway'] = [];
-            if (null !== $this->smartAccessGateway && \is_array($this->smartAccessGateway)) {
-                $n = 0;
-                foreach ($this->smartAccessGateway as $item) {
-                    $res['SmartAccessGateway'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->smartAccessGateway)) {
+                $res['SmartAccessGateway'] = [];
+                $n1 = 0;
+                foreach ($this->smartAccessGateway as $item1) {
+                    $res['SmartAccessGateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class smartAccessGateways extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return smartAccessGateways
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SmartAccessGateway'])) {
             if (!empty($map['SmartAccessGateway'])) {
                 $model->smartAccessGateway = [];
-                $n                         = 0;
-                foreach ($map['SmartAccessGateway'] as $item) {
-                    $model->smartAccessGateway[$n++] = null !== $item ? smartAccessGateway::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SmartAccessGateway'] as $item1) {
+                    $model->smartAccessGateway[$n1] = smartAccessGateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
