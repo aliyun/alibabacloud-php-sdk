@@ -17,6 +17,11 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $apiKey;
 
     /**
+     * @var bool
+     */
+    public $batchTask;
+
+    /**
      * @var contents[]
      */
     public $contents;
@@ -49,6 +54,11 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     /**
      * @var bool
      */
+    public $positiveFilter;
+
+    /**
+     * @var bool
+     */
     public $sourceTrace;
 
     /**
@@ -67,12 +77,14 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public $url;
     protected $_name = [
         'apiKey' => 'apiKey',
+        'batchTask' => 'batchTask',
         'contents' => 'contents',
         'extraInfo' => 'extraInfo',
         'fileKey' => 'fileKey',
         'filterTags' => 'filterTags',
         'modelId' => 'modelId',
         'outputFormat' => 'outputFormat',
+        'positiveFilter' => 'positiveFilter',
         'sourceTrace' => 'sourceTrace',
         'tags' => 'tags',
         'taskDescription' => 'taskDescription',
@@ -98,6 +110,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
         $res = [];
         if (null !== $this->apiKey) {
             $res['apiKey'] = $this->apiKey;
+        }
+
+        if (null !== $this->batchTask) {
+            $res['batchTask'] = $this->batchTask;
         }
 
         if (null !== $this->contents) {
@@ -138,6 +154,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
             $res['outputFormat'] = $this->outputFormat;
         }
 
+        if (null !== $this->positiveFilter) {
+            $res['positiveFilter'] = $this->positiveFilter;
+        }
+
         if (null !== $this->sourceTrace) {
             $res['sourceTrace'] = $this->sourceTrace;
         }
@@ -176,6 +196,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
             $model->apiKey = $map['apiKey'];
         }
 
+        if (isset($map['batchTask'])) {
+            $model->batchTask = $map['batchTask'];
+        }
+
         if (isset($map['contents'])) {
             if (!empty($map['contents'])) {
                 $model->contents = [];
@@ -212,6 +236,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
 
         if (isset($map['outputFormat'])) {
             $model->outputFormat = $map['outputFormat'];
+        }
+
+        if (isset($map['positiveFilter'])) {
+            $model->positiveFilter = $map['positiveFilter'];
         }
 
         if (isset($map['sourceTrace'])) {

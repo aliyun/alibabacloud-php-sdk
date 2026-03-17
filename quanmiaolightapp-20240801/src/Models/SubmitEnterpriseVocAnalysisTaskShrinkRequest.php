@@ -14,6 +14,11 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
     public $apiKey;
 
     /**
+     * @var bool
+     */
+    public $batchTask;
+
+    /**
      * @var string
      */
     public $contentsShrink;
@@ -46,6 +51,11 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $positiveFilter;
+
+    /**
+     * @var bool
+     */
     public $sourceTrace;
 
     /**
@@ -64,12 +74,14 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
     public $url;
     protected $_name = [
         'apiKey' => 'apiKey',
+        'batchTask' => 'batchTask',
         'contentsShrink' => 'contents',
         'extraInfo' => 'extraInfo',
         'fileKey' => 'fileKey',
         'filterTagsShrink' => 'filterTags',
         'modelId' => 'modelId',
         'outputFormat' => 'outputFormat',
+        'positiveFilter' => 'positiveFilter',
         'sourceTrace' => 'sourceTrace',
         'tagsShrink' => 'tags',
         'taskDescription' => 'taskDescription',
@@ -86,6 +98,10 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->apiKey) {
             $res['apiKey'] = $this->apiKey;
+        }
+
+        if (null !== $this->batchTask) {
+            $res['batchTask'] = $this->batchTask;
         }
 
         if (null !== $this->contentsShrink) {
@@ -110,6 +126,10 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
 
         if (null !== $this->outputFormat) {
             $res['outputFormat'] = $this->outputFormat;
+        }
+
+        if (null !== $this->positiveFilter) {
+            $res['positiveFilter'] = $this->positiveFilter;
         }
 
         if (null !== $this->sourceTrace) {
@@ -143,6 +163,10 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
             $model->apiKey = $map['apiKey'];
         }
 
+        if (isset($map['batchTask'])) {
+            $model->batchTask = $map['batchTask'];
+        }
+
         if (isset($map['contents'])) {
             $model->contentsShrink = $map['contents'];
         }
@@ -165,6 +189,10 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
 
         if (isset($map['outputFormat'])) {
             $model->outputFormat = $map['outputFormat'];
+        }
+
+        if (isset($map['positiveFilter'])) {
+            $model->positiveFilter = $map['positiveFilter'];
         }
 
         if (isset($map['sourceTrace'])) {

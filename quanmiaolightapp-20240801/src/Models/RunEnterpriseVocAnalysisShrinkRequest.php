@@ -46,6 +46,11 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $positiveFilter;
+
+    /**
+     * @var bool
+     */
     public $sourceTrace;
 
     /**
@@ -65,6 +70,7 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
         'filterTagsShrink' => 'filterTags',
         'modelId' => 'modelId',
         'outputFormat' => 'outputFormat',
+        'positiveFilter' => 'positiveFilter',
         'sourceTrace' => 'sourceTrace',
         'tagsShrink' => 'tags',
         'taskDescription' => 'taskDescription',
@@ -104,6 +110,10 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
 
         if (null !== $this->outputFormat) {
             $res['outputFormat'] = $this->outputFormat;
+        }
+
+        if (null !== $this->positiveFilter) {
+            $res['positiveFilter'] = $this->positiveFilter;
         }
 
         if (null !== $this->sourceTrace) {
@@ -155,6 +165,10 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
 
         if (isset($map['outputFormat'])) {
             $model->outputFormat = $map['outputFormat'];
+        }
+
+        if (isset($map['positiveFilter'])) {
+            $model->positiveFilter = $map['positiveFilter'];
         }
 
         if (isset($map['sourceTrace'])) {

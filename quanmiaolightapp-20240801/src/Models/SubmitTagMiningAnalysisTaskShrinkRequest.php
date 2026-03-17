@@ -14,6 +14,11 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
     public $apiKey;
 
     /**
+     * @var bool
+     */
+    public $batchTask;
+
+    /**
      * @var string
      */
     public $businessType;
@@ -54,6 +59,7 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
     public $url;
     protected $_name = [
         'apiKey' => 'apiKey',
+        'batchTask' => 'batchTask',
         'businessType' => 'businessType',
         'contentsShrink' => 'contents',
         'extraInfo' => 'extraInfo',
@@ -74,6 +80,10 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->apiKey) {
             $res['apiKey'] = $this->apiKey;
+        }
+
+        if (null !== $this->batchTask) {
+            $res['batchTask'] = $this->batchTask;
         }
 
         if (null !== $this->businessType) {
@@ -121,6 +131,10 @@ class SubmitTagMiningAnalysisTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['apiKey'])) {
             $model->apiKey = $map['apiKey'];
+        }
+
+        if (isset($map['batchTask'])) {
+            $model->batchTask = $map['batchTask'];
         }
 
         if (isset($map['businessType'])) {
