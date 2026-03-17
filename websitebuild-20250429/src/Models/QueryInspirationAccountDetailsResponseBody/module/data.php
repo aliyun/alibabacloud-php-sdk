@@ -42,6 +42,11 @@ class data extends Model
      * @var string
      */
     public $sourceTypeName;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'acquisitionTime' => 'AcquisitionTime',
         'balance' => 'Balance',
@@ -50,6 +55,7 @@ class data extends Model
         'initQuota' => 'InitQuota',
         'sourceType' => 'SourceType',
         'sourceTypeName' => 'SourceTypeName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class data extends Model
 
         if (null !== $this->sourceTypeName) {
             $res['SourceTypeName'] = $this->sourceTypeName;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class data extends Model
 
         if (isset($map['SourceTypeName'])) {
             $model->sourceTypeName = $map['SourceTypeName'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
