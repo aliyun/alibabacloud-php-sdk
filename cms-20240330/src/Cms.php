@@ -1858,6 +1858,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->attributes) {
+            @$body['attributes'] = $request->attributes;
+        }
+
         if (null !== $request->title) {
             @$body['title'] = $request->title;
         }
@@ -8790,6 +8794,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->attributes) {
+            @$body['attributes'] = $request->attributes;
+        }
+
         if (null !== $request->status) {
             @$body['status'] = $request->status;
         }

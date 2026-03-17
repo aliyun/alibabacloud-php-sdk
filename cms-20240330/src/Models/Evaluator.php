@@ -14,11 +14,6 @@ class Evaluator extends Model
     public $config;
 
     /**
-     * @var string
-     */
-    public $dataScope;
-
-    /**
      * @var string[]
      */
     public $filters;
@@ -44,7 +39,6 @@ class Evaluator extends Model
     public $variableMapping;
     protected $_name = [
         'config' => 'config',
-        'dataScope' => 'dataScope',
         'filters' => 'filters',
         'name' => 'name',
         'resultName' => 'resultName',
@@ -76,10 +70,6 @@ class Evaluator extends Model
                     $res['config'][$key1] = $value1;
                 }
             }
-        }
-
-        if (null !== $this->dataScope) {
-            $res['dataScope'] = $this->dataScope;
         }
 
         if (null !== $this->filters) {
@@ -130,10 +120,6 @@ class Evaluator extends Model
                     $model->config[$key1] = $value1;
                 }
             }
-        }
-
-        if (isset($map['dataScope'])) {
-            $model->dataScope = $map['dataScope'];
         }
 
         if (isset($map['filters'])) {

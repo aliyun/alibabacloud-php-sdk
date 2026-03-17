@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateThreadRequest\variables;
 class CreateThreadRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $attributes;
+
+    /**
      * @var string
      */
     public $title;
@@ -19,12 +24,16 @@ class CreateThreadRequest extends Model
      */
     public $variables;
     protected $_name = [
+        'attributes' => 'attributes',
         'title' => 'title',
         'variables' => 'variables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
         if (null !== $this->variables) {
             $this->variables->validate();
         }
@@ -34,6 +43,15 @@ class CreateThreadRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attributes) {
+            if (\is_array($this->attributes)) {
+                $res['attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['attributes'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -53,6 +71,15 @@ class CreateThreadRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attributes'])) {
+            if (!empty($map['attributes'])) {
+                $model->attributes = [];
+                foreach ($map['attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
