@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct;
 
 class messages extends Model
 {
@@ -20,9 +21,19 @@ class messages extends Model
     public $contentDesc;
 
     /**
+     * @var contentStruct
+     */
+    public $contentStruct;
+
+    /**
      * @var int
      */
     public $createAt;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -31,7 +42,9 @@ class messages extends Model
     protected $_name = [
         'content' => 'content',
         'contentDesc' => 'contentDesc',
+        'contentStruct' => 'contentStruct',
         'createAt' => 'createAt',
+        'id' => 'id',
         'role' => 'role',
     ];
 
@@ -39,6 +52,9 @@ class messages extends Model
     {
         if (null !== $this->content) {
             $this->content->validate();
+        }
+        if (null !== $this->contentStruct) {
+            $this->contentStruct->validate();
         }
         parent::validate();
     }
@@ -54,8 +70,16 @@ class messages extends Model
             $res['contentDesc'] = $this->contentDesc;
         }
 
+        if (null !== $this->contentStruct) {
+            $res['contentStruct'] = null !== $this->contentStruct ? $this->contentStruct->toArray($noStream) : $this->contentStruct;
+        }
+
         if (null !== $this->createAt) {
             $res['createAt'] = $this->createAt;
+        }
+
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
 
         if (null !== $this->role) {
@@ -81,8 +105,16 @@ class messages extends Model
             $model->contentDesc = $map['contentDesc'];
         }
 
+        if (isset($map['contentStruct'])) {
+            $model->contentStruct = contentStruct::fromMap($map['contentStruct']);
+        }
+
         if (isset($map['createAt'])) {
             $model->createAt = $map['createAt'];
+        }
+
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
 
         if (isset($map['role'])) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityResponseBody\capabilityAssessment;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityResponseBody\thread;
 
 class GetAssistantCapabilityResponseBody extends Model
 {
@@ -28,17 +29,26 @@ class GetAssistantCapabilityResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var thread
+     */
+    public $thread;
     protected $_name = [
         'assistantDescription' => 'assistantDescription',
         'canHandle' => 'canHandle',
         'capabilityAssessment' => 'capabilityAssessment',
         'requestId' => 'requestId',
+        'thread' => 'thread',
     ];
 
     public function validate()
     {
         if (null !== $this->capabilityAssessment) {
             $this->capabilityAssessment->validate();
+        }
+        if (null !== $this->thread) {
+            $this->thread->validate();
         }
         parent::validate();
     }
@@ -60,6 +70,10 @@ class GetAssistantCapabilityResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->thread) {
+            $res['thread'] = null !== $this->thread ? $this->thread->toArray($noStream) : $this->thread;
         }
 
         return $res;
@@ -87,6 +101,10 @@ class GetAssistantCapabilityResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['thread'])) {
+            $model->thread = thread::fromMap($map['thread']);
         }
 
         return $model;

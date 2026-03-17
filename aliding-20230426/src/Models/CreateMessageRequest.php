@@ -33,10 +33,20 @@ class CreateMessageRequest extends Model
     /**
      * @var string
      */
-    public $sourceIdOfOriginalAssistantId;
+    public $sourceIdOfAssistantId;
 
     /**
      * @var string
+     */
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var int
+     */
+    public $sourceTypeOfAssistantId;
+
+    /**
+     * @var int
      */
     public $sourceTypeOfOriginalAssistantId;
 
@@ -49,7 +59,9 @@ class CreateMessageRequest extends Model
         'extLoginUser' => 'extLoginUser',
         'messages' => 'messages',
         'originalAssistantId' => 'originalAssistantId',
+        'sourceIdOfAssistantId' => 'sourceIdOfAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfAssistantId' => 'sourceTypeOfAssistantId',
         'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
         'threadId' => 'threadId',
     ];
@@ -91,8 +103,16 @@ class CreateMessageRequest extends Model
             $res['originalAssistantId'] = $this->originalAssistantId;
         }
 
+        if (null !== $this->sourceIdOfAssistantId) {
+            $res['sourceIdOfAssistantId'] = $this->sourceIdOfAssistantId;
+        }
+
         if (null !== $this->sourceIdOfOriginalAssistantId) {
             $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfAssistantId) {
+            $res['sourceTypeOfAssistantId'] = $this->sourceTypeOfAssistantId;
         }
 
         if (null !== $this->sourceTypeOfOriginalAssistantId) {
@@ -137,8 +157,16 @@ class CreateMessageRequest extends Model
             $model->originalAssistantId = $map['originalAssistantId'];
         }
 
+        if (isset($map['sourceIdOfAssistantId'])) {
+            $model->sourceIdOfAssistantId = $map['sourceIdOfAssistantId'];
+        }
+
         if (isset($map['sourceIdOfOriginalAssistantId'])) {
             $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfAssistantId'])) {
+            $model->sourceTypeOfAssistantId = $map['sourceTypeOfAssistantId'];
         }
 
         if (isset($map['sourceTypeOfOriginalAssistantId'])) {

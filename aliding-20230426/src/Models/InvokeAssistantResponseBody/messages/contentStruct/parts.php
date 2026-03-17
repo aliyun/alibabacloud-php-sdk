@@ -2,15 +2,15 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct;
+namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\dataPart;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\infoPart;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\reasonPart;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\recommendPart;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\referencePart;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\textPart;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct\parts\dataPart;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct\parts\infoPart;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct\parts\reasonPart;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct\parts\recommendPart;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct\parts\referencePart;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\contentStruct\parts\textPart;
 
 class parts extends Model
 {

@@ -32,7 +32,17 @@ class CreateThreadRequest extends Model
     /**
      * @var string
      */
+    public $sourceIdOfAssistantId;
+
+    /**
+     * @var string
+     */
     public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var int
+     */
+    public $sourceTypeOfAssistantId;
 
     /**
      * @var int
@@ -43,7 +53,9 @@ class CreateThreadRequest extends Model
         'clientEnum' => 'clientEnum',
         'extLoginUser' => 'extLoginUser',
         'originalAssistantId' => 'originalAssistantId',
+        'sourceIdOfAssistantId' => 'sourceIdOfAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfAssistantId' => 'sourceTypeOfAssistantId',
         'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
     ];
 
@@ -74,8 +86,16 @@ class CreateThreadRequest extends Model
             $res['originalAssistantId'] = $this->originalAssistantId;
         }
 
+        if (null !== $this->sourceIdOfAssistantId) {
+            $res['sourceIdOfAssistantId'] = $this->sourceIdOfAssistantId;
+        }
+
         if (null !== $this->sourceIdOfOriginalAssistantId) {
             $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfAssistantId) {
+            $res['sourceTypeOfAssistantId'] = $this->sourceTypeOfAssistantId;
         }
 
         if (null !== $this->sourceTypeOfOriginalAssistantId) {
@@ -109,8 +129,16 @@ class CreateThreadRequest extends Model
             $model->originalAssistantId = $map['originalAssistantId'];
         }
 
+        if (isset($map['sourceIdOfAssistantId'])) {
+            $model->sourceIdOfAssistantId = $map['sourceIdOfAssistantId'];
+        }
+
         if (isset($map['sourceIdOfOriginalAssistantId'])) {
             $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfAssistantId'])) {
+            $model->sourceTypeOfAssistantId = $map['sourceTypeOfAssistantId'];
         }
 
         if (isset($map['sourceTypeOfOriginalAssistantId'])) {

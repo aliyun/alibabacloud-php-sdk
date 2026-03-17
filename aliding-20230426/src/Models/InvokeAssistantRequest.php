@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantRequest\messages;
 class InvokeAssistantRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowStructViewContent;
+
+    /**
      * @var string
      */
     public $assistantId;
@@ -43,10 +48,20 @@ class InvokeAssistantRequest extends Model
     /**
      * @var string
      */
-    public $sourceIdOfOriginalAssistantId;
+    public $sourceIdOfAssistantId;
 
     /**
      * @var string
+     */
+    public $sourceIdOfOriginalAssistantId;
+
+    /**
+     * @var int
+     */
+    public $sourceTypeOfAssistantId;
+
+    /**
+     * @var int
      */
     public $sourceTypeOfOriginalAssistantId;
 
@@ -55,13 +70,16 @@ class InvokeAssistantRequest extends Model
      */
     public $stream;
     protected $_name = [
+        'allowStructViewContent' => 'allowStructViewContent',
         'assistantId' => 'assistantId',
         'clientEnum' => 'clientEnum',
         'extLoginUser' => 'extLoginUser',
         'messages' => 'messages',
         'originalAssistantId' => 'originalAssistantId',
         'sessionId' => 'sessionId',
+        'sourceIdOfAssistantId' => 'sourceIdOfAssistantId',
         'sourceIdOfOriginalAssistantId' => 'sourceIdOfOriginalAssistantId',
+        'sourceTypeOfAssistantId' => 'sourceTypeOfAssistantId',
         'sourceTypeOfOriginalAssistantId' => 'sourceTypeOfOriginalAssistantId',
         'stream' => 'stream',
     ];
@@ -80,6 +98,10 @@ class InvokeAssistantRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowStructViewContent) {
+            $res['allowStructViewContent'] = $this->allowStructViewContent;
+        }
+
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
         }
@@ -111,8 +133,16 @@ class InvokeAssistantRequest extends Model
             $res['sessionId'] = $this->sessionId;
         }
 
+        if (null !== $this->sourceIdOfAssistantId) {
+            $res['sourceIdOfAssistantId'] = $this->sourceIdOfAssistantId;
+        }
+
         if (null !== $this->sourceIdOfOriginalAssistantId) {
             $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $this->sourceTypeOfAssistantId) {
+            $res['sourceTypeOfAssistantId'] = $this->sourceTypeOfAssistantId;
         }
 
         if (null !== $this->sourceTypeOfOriginalAssistantId) {
@@ -134,6 +164,10 @@ class InvokeAssistantRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowStructViewContent'])) {
+            $model->allowStructViewContent = $map['allowStructViewContent'];
+        }
+
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
         }
@@ -165,8 +199,16 @@ class InvokeAssistantRequest extends Model
             $model->sessionId = $map['sessionId'];
         }
 
+        if (isset($map['sourceIdOfAssistantId'])) {
+            $model->sourceIdOfAssistantId = $map['sourceIdOfAssistantId'];
+        }
+
         if (isset($map['sourceIdOfOriginalAssistantId'])) {
             $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
+        }
+
+        if (isset($map['sourceTypeOfAssistantId'])) {
+            $model->sourceTypeOfAssistantId = $map['sourceTypeOfAssistantId'];
         }
 
         if (isset($map['sourceTypeOfOriginalAssistantId'])) {

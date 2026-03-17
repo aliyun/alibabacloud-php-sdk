@@ -21,10 +21,16 @@ class InvokeAssistantHeaders extends Model
     /**
      * @var string
      */
+    public $aiLogContextJson;
+
+    /**
+     * @var string
+     */
     public $alidingSsoTicket;
     protected $_name = [
         'commonHeaders' => 'commonHeaders',
         'accountId' => 'accountId',
+        'aiLogContextJson' => 'aiLogContextJson',
         'alidingSsoTicket' => 'alidingSsoTicket',
     ];
 
@@ -50,6 +56,10 @@ class InvokeAssistantHeaders extends Model
 
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
+        }
+
+        if (null !== $this->aiLogContextJson) {
+            $res['aiLogContextJson'] = $this->aiLogContextJson;
         }
 
         if (null !== $this->alidingSsoTicket) {
@@ -78,6 +88,10 @@ class InvokeAssistantHeaders extends Model
 
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+
+        if (isset($map['aiLogContextJson'])) {
+            $model->aiLogContextJson = $map['aiLogContextJson'];
         }
 
         if (isset($map['alidingSsoTicket'])) {

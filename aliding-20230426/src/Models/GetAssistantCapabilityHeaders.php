@@ -17,9 +17,15 @@ class GetAssistantCapabilityHeaders extends Model
      * @var string
      */
     public $accountId;
+
+    /**
+     * @var string
+     */
+    public $aiLogContextJson;
     protected $_name = [
         'commonHeaders' => 'commonHeaders',
         'accountId' => 'accountId',
+        'aiLogContextJson' => 'aiLogContextJson',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class GetAssistantCapabilityHeaders extends Model
             $res['accountId'] = $this->accountId;
         }
 
+        if (null !== $this->aiLogContextJson) {
+            $res['aiLogContextJson'] = $this->aiLogContextJson;
+        }
+
         return $res;
     }
 
@@ -68,6 +78,10 @@ class GetAssistantCapabilityHeaders extends Model
 
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+
+        if (isset($map['aiLogContextJson'])) {
+            $model->aiLogContextJson = $map['aiLogContextJson'];
         }
 
         return $model;

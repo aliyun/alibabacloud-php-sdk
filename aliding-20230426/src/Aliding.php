@@ -5135,8 +5135,16 @@ class Aliding extends OpenApiClient
             @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         if (null !== $request->sourceIdOfOriginalAssistantId) {
             @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfAssistantId) {
+            @$body['sourceTypeOfAssistantId'] = $request->sourceTypeOfAssistantId;
         }
 
         if (null !== $request->sourceTypeOfOriginalAssistantId) {
@@ -5785,8 +5793,16 @@ class Aliding extends OpenApiClient
             @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         if (null !== $request->sourceIdOfOriginalAssistantId) {
             @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfAssistantId) {
+            @$body['sourceTypeOfAssistantId'] = $request->sourceTypeOfAssistantId;
         }
 
         if (null !== $request->sourceTypeOfOriginalAssistantId) {
@@ -5877,8 +5893,16 @@ class Aliding extends OpenApiClient
             @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         if (null !== $request->sourceIdOfOriginalAssistantId) {
             @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfAssistantId) {
+            @$body['sourceTypeOfAssistantId'] = $request->sourceTypeOfAssistantId;
         }
 
         if (null !== $request->sourceTypeOfOriginalAssistantId) {
@@ -6629,8 +6653,16 @@ class Aliding extends OpenApiClient
             @$body['originalAssistantId'] = $request->originalAssistantId;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         if (null !== $request->sourceIdOfOriginalAssistantId) {
             @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfAssistantId) {
+            @$body['sourceTypeOfAssistantId'] = $request->sourceTypeOfAssistantId;
         }
 
         if (null !== $request->sourceTypeOfOriginalAssistantId) {
@@ -10264,6 +10296,10 @@ class Aliding extends OpenApiClient
 
         if (null !== $headers->accountId) {
             @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        if (null !== $headers->aiLogContextJson) {
+            @$realHeaders['aiLogContextJson'] = '' . $headers->aiLogContextJson;
         }
 
         $req = new OpenApiRequest([
@@ -17595,6 +17631,10 @@ class Aliding extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->allowStructViewContent) {
+            @$body['allowStructViewContent'] = $request->allowStructViewContent;
+        }
+
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
         }
@@ -17619,8 +17659,16 @@ class Aliding extends OpenApiClient
             @$body['sessionId'] = $request->sessionId;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         if (null !== $request->sourceIdOfOriginalAssistantId) {
             @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfAssistantId) {
+            @$body['sourceTypeOfAssistantId'] = $request->sourceTypeOfAssistantId;
         }
 
         if (null !== $request->sourceTypeOfOriginalAssistantId) {
@@ -17638,6 +17686,10 @@ class Aliding extends OpenApiClient
 
         if (null !== $headers->accountId) {
             @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        if (null !== $headers->aiLogContextJson) {
+            @$realHeaders['aiLogContextJson'] = '' . $headers->aiLogContextJson;
         }
 
         if (null !== $headers->alidingSsoTicket) {
@@ -17695,6 +17747,10 @@ class Aliding extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->allowStructViewContent) {
+            @$body['allowStructViewContent'] = $request->allowStructViewContent;
+        }
+
         if (null !== $request->assistantId) {
             @$body['assistantId'] = $request->assistantId;
         }
@@ -17719,8 +17775,16 @@ class Aliding extends OpenApiClient
             @$body['sessionId'] = $request->sessionId;
         }
 
+        if (null !== $request->sourceIdOfAssistantId) {
+            @$body['sourceIdOfAssistantId'] = $request->sourceIdOfAssistantId;
+        }
+
         if (null !== $request->sourceIdOfOriginalAssistantId) {
             @$body['sourceIdOfOriginalAssistantId'] = $request->sourceIdOfOriginalAssistantId;
+        }
+
+        if (null !== $request->sourceTypeOfAssistantId) {
+            @$body['sourceTypeOfAssistantId'] = $request->sourceTypeOfAssistantId;
         }
 
         if (null !== $request->sourceTypeOfOriginalAssistantId) {
@@ -17738,6 +17802,10 @@ class Aliding extends OpenApiClient
 
         if (null !== $headers->accountId) {
             @$realHeaders['accountId'] = '' . $headers->accountId;
+        }
+
+        if (null !== $headers->aiLogContextJson) {
+            @$realHeaders['aiLogContextJson'] = '' . $headers->aiLogContextJson;
         }
 
         if (null !== $headers->alidingSsoTicket) {
