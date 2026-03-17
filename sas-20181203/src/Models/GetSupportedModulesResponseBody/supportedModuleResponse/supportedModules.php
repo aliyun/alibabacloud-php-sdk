@@ -14,11 +14,17 @@ class supportedModules extends Model
     public $module;
 
     /**
+     * @var bool
+     */
+    public $moduleAuth;
+
+    /**
      * @var string
      */
     public $moduleDisp;
     protected $_name = [
         'module' => 'Module',
+        'moduleAuth' => 'ModuleAuth',
         'moduleDisp' => 'ModuleDisp',
     ];
 
@@ -32,6 +38,10 @@ class supportedModules extends Model
         $res = [];
         if (null !== $this->module) {
             $res['Module'] = $this->module;
+        }
+
+        if (null !== $this->moduleAuth) {
+            $res['ModuleAuth'] = $this->moduleAuth;
         }
 
         if (null !== $this->moduleDisp) {
@@ -51,6 +61,10 @@ class supportedModules extends Model
         $model = new self();
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
+        }
+
+        if (isset($map['ModuleAuth'])) {
+            $model->moduleAuth = $map['ModuleAuth'];
         }
 
         if (isset($map['ModuleDisp'])) {

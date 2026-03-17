@@ -13280,7 +13280,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries created defense rules against brute-force attacks.
+     * Query the list of anti-brute force rules.
      *
      * @param request - DescribeAntiBruteForceRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13339,7 +13339,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries created defense rules against brute-force attacks.
+     * Query the list of anti-brute force rules.
      *
      * @param request - DescribeAntiBruteForceRulesRequest
      *
@@ -27184,7 +27184,7 @@ class Sas extends OpenApiClient
      * Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
      *
      * @remarks
-     * 该接口已下线，使用升级接口ListCheckInstanceResult替换。
+     * This interface has been deprecated. Use the upgraded interface ListCheckInstanceResult instead.
      *
      * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
      *
@@ -27249,7 +27249,7 @@ class Sas extends OpenApiClient
      * Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
      *
      * @remarks
-     * 该接口已下线，使用升级接口ListCheckInstanceResult替换。
+     * This interface has been deprecated. Use the upgraded interface ListCheckInstanceResult instead.
      *
      * @deprecated OpenAPI DescribeRiskCheckItemResult is deprecated
      *
@@ -37900,7 +37900,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取云资产概要
+     * Get Cloud Asset Summary.
      *
      * @param request - GetCloudAssetSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37943,7 +37943,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取云资产概要
+     * Get Cloud Asset Summary.
      *
      * @param request - GetCloudAssetSummaryRequest
      *
@@ -39252,7 +39252,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取蜜罐攻击事件的统计数据。
+     * Get honeypot attack statistics.
      *
      * @param request - GetHoneypotAttackStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39319,7 +39319,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取蜜罐攻击事件的统计数据。
+     * Get honeypot attack statistics.
      *
      * @param request - GetHoneypotAttackStatisticsRequest
      *
@@ -46319,7 +46319,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取云产品资产结构列表.
+     * Get the list of cloud product asset structure.
      *
      * @param request - ListCloudAssetSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -46378,7 +46378,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取云产品资产结构列表.
+     * Get the list of cloud product asset structure.
      *
      * @param request - ListCloudAssetSchemasRequest
      *
