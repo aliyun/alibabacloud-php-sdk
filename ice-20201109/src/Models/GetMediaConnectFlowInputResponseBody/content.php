@@ -21,6 +21,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $backupInnerInputUrl;
+
+    /**
+     * @var string
+     */
     public $backupInputName;
 
     /**
@@ -62,6 +67,11 @@ class content extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $innerInputUrl;
 
     /**
      * @var string
@@ -115,6 +125,7 @@ class content extends Model
     protected $_name = [
         'backupCidrs' => 'BackupCidrs',
         'backupCreateTime' => 'BackupCreateTime',
+        'backupInnerInputUrl' => 'BackupInnerInputUrl',
         'backupInputName' => 'BackupInputName',
         'backupInputStatus' => 'BackupInputStatus',
         'backupInputUrl' => 'BackupInputUrl',
@@ -124,6 +135,7 @@ class content extends Model
         'backupSrtPbkeyLen' => 'BackupSrtPbkeyLen',
         'cidrs' => 'Cidrs',
         'createTime' => 'CreateTime',
+        'innerInputUrl' => 'InnerInputUrl',
         'inputName' => 'InputName',
         'inputProtocol' => 'InputProtocol',
         'inputStatus' => 'InputStatus',
@@ -150,6 +162,10 @@ class content extends Model
 
         if (null !== $this->backupCreateTime) {
             $res['BackupCreateTime'] = $this->backupCreateTime;
+        }
+
+        if (null !== $this->backupInnerInputUrl) {
+            $res['BackupInnerInputUrl'] = $this->backupInnerInputUrl;
         }
 
         if (null !== $this->backupInputName) {
@@ -186,6 +202,10 @@ class content extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->innerInputUrl) {
+            $res['InnerInputUrl'] = $this->innerInputUrl;
         }
 
         if (null !== $this->inputName) {
@@ -247,6 +267,10 @@ class content extends Model
             $model->backupCreateTime = $map['BackupCreateTime'];
         }
 
+        if (isset($map['BackupInnerInputUrl'])) {
+            $model->backupInnerInputUrl = $map['BackupInnerInputUrl'];
+        }
+
         if (isset($map['BackupInputName'])) {
             $model->backupInputName = $map['BackupInputName'];
         }
@@ -281,6 +305,10 @@ class content extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['InnerInputUrl'])) {
+            $model->innerInputUrl = $map['InnerInputUrl'];
         }
 
         if (isset($map['InputName'])) {

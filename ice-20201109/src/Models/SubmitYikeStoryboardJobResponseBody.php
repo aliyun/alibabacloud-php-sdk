@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowInputResponseBody;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class content extends Model
+class SubmitYikeStoryboardJobResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $innerInputUrl;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $inputUrl;
+    public $requestId;
     protected $_name = [
-        'innerInputUrl' => 'InnerInputUrl',
-        'inputUrl' => 'InputUrl',
+        'jobId' => 'JobId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class content extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->innerInputUrl) {
-            $res['InnerInputUrl'] = $this->innerInputUrl;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
-        if (null !== $this->inputUrl) {
-            $res['InputUrl'] = $this->inputUrl;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InnerInputUrl'])) {
-            $model->innerInputUrl = $map['InnerInputUrl'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
-        if (isset($map['InputUrl'])) {
-            $model->inputUrl = $map['InputUrl'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

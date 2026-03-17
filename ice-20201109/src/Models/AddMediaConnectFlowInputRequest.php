@@ -62,6 +62,11 @@ class AddMediaConnectFlowInputRequest extends Model
      * @var string
      */
     public $srtPbkeyLen;
+
+    /**
+     * @var string
+     */
+    public $withInternalVip;
     protected $_name = [
         'cidrs' => 'Cidrs',
         'flowId' => 'FlowId',
@@ -74,6 +79,7 @@ class AddMediaConnectFlowInputRequest extends Model
         'srtLatency' => 'SrtLatency',
         'srtPassphrase' => 'SrtPassphrase',
         'srtPbkeyLen' => 'SrtPbkeyLen',
+        'withInternalVip' => 'WithInternalVip',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class AddMediaConnectFlowInputRequest extends Model
 
         if (null !== $this->srtPbkeyLen) {
             $res['SrtPbkeyLen'] = $this->srtPbkeyLen;
+        }
+
+        if (null !== $this->withInternalVip) {
+            $res['WithInternalVip'] = $this->withInternalVip;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class AddMediaConnectFlowInputRequest extends Model
 
         if (isset($map['SrtPbkeyLen'])) {
             $model->srtPbkeyLen = $map['SrtPbkeyLen'];
+        }
+
+        if (isset($map['WithInternalVip'])) {
+            $model->withInternalVip = $map['WithInternalVip'];
         }
 
         return $model;

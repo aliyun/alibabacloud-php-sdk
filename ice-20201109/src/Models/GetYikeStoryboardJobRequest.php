@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetMediaConnectFlowInputRequest extends Model
+class GetYikeStoryboardJobRequest extends Model
 {
     /**
      * @var string
      */
-    public $flowId;
-
-    /**
-     * @var string
-     */
-    public $withInternalVip;
+    public $jobId;
     protected $_name = [
-        'flowId' => 'FlowId',
-        'withInternalVip' => 'WithInternalVip',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class GetMediaConnectFlowInputRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
-
-        if (null !== $this->withInternalVip) {
-            $res['WithInternalVip'] = $this->withInternalVip;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class GetMediaConnectFlowInputRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
-
-        if (isset($map['WithInternalVip'])) {
-            $model->withInternalVip = $map['WithInternalVip'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

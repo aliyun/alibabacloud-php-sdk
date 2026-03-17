@@ -392,6 +392,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAIAppJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAIAppJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeStoryboardJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeStoryboardJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsRequest;
@@ -739,6 +741,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeAIAppJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeAIAppJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeStoryboardJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeStoryboardJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAdInsertionRequest;
@@ -1342,6 +1346,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->srtPbkeyLen) {
             @$query['SrtPbkeyLen'] = $request->srtPbkeyLen;
+        }
+
+        if (null !== $request->withInternalVip) {
+            @$query['WithInternalVip'] = $request->withInternalVip;
         }
 
         $req = new OpenApiRequest([
@@ -5223,6 +5231,10 @@ class ICE extends OpenApiClient
         $query = [];
         if (null !== $request->fileExt) {
             @$query['FileExt'] = $request->fileExt;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
         }
 
         $req = new OpenApiRequest([
@@ -11529,6 +11541,10 @@ class ICE extends OpenApiClient
             @$query['FlowId'] = $request->flowId;
         }
 
+        if (null !== $request->withInternalVip) {
+            @$query['WithInternalVip'] = $request->withInternalVip;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -13755,6 +13771,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getYikeAssetMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻AI应用任务
+     *
+     * @param request - GetYikeStoryboardJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeStoryboardJobResponse
+     *
+     * @param GetYikeStoryboardJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetYikeStoryboardJobResponse
+     */
+    public function getYikeStoryboardJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeStoryboardJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeStoryboardJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻AI应用任务
+     *
+     * @param request - GetYikeStoryboardJobRequest
+     *
+     * @returns GetYikeStoryboardJobResponse
+     *
+     * @param GetYikeStoryboardJobRequest $request
+     *
+     * @return GetYikeStoryboardJobResponse
+     */
+    public function getYikeStoryboardJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeStoryboardJobWithOptions($request, $runtime);
     }
 
     /**
@@ -26428,6 +26501,109 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitYikeAIAppJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交一刻AI应用任务
+     *
+     * @param request - SubmitYikeStoryboardJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitYikeStoryboardJobResponse
+     *
+     * @param SubmitYikeStoryboardJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitYikeStoryboardJobResponse
+     */
+    public function submitYikeStoryboardJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aspectRatio) {
+            @$query['AspectRatio'] = $request->aspectRatio;
+        }
+
+        if (null !== $request->modelParams) {
+            @$query['ModelParams'] = $request->modelParams;
+        }
+
+        if (null !== $request->narrationVoiceId) {
+            @$query['NarrationVoiceId'] = $request->narrationVoiceId;
+        }
+
+        if (null !== $request->resolution) {
+            @$query['Resolution'] = $request->resolution;
+        }
+
+        if (null !== $request->shotPromptMode) {
+            @$query['ShotPromptMode'] = $request->shotPromptMode;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        if (null !== $request->videoModel) {
+            @$query['VideoModel'] = $request->videoModel;
+        }
+
+        $body = [];
+        if (null !== $request->fileURL) {
+            @$body['FileURL'] = $request->fileURL;
+        }
+
+        if (null !== $request->shotSplitMode) {
+            @$body['ShotSplitMode'] = $request->shotSplitMode;
+        }
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->styleId) {
+            @$body['StyleId'] = $request->styleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitYikeStoryboardJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitYikeStoryboardJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交一刻AI应用任务
+     *
+     * @param request - SubmitYikeStoryboardJobRequest
+     *
+     * @returns SubmitYikeStoryboardJobResponse
+     *
+     * @param SubmitYikeStoryboardJobRequest $request
+     *
+     * @return SubmitYikeStoryboardJobResponse
+     */
+    public function submitYikeStoryboardJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitYikeStoryboardJobWithOptions($request, $runtime);
     }
 
     /**

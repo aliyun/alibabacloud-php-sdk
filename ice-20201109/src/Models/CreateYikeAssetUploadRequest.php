@@ -12,8 +12,14 @@ class CreateYikeAssetUploadRequest extends Model
      * @var string
      */
     public $fileExt;
+
+    /**
+     * @var string
+     */
+    public $fileType;
     protected $_name = [
         'fileExt' => 'FileExt',
+        'fileType' => 'FileType',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class CreateYikeAssetUploadRequest extends Model
         $res = [];
         if (null !== $this->fileExt) {
             $res['FileExt'] = $this->fileExt;
+        }
+
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class CreateYikeAssetUploadRequest extends Model
         $model = new self();
         if (isset($map['FileExt'])) {
             $model->fileExt = $map['FileExt'];
+        }
+
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
 
         return $model;
