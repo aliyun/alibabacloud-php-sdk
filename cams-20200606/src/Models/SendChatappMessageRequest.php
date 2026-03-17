@@ -18,6 +18,11 @@ class SendChatappMessageRequest extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $channelType;
 
     /**
@@ -176,6 +181,7 @@ class SendChatappMessageRequest extends Model
     public $type;
     protected $_name = [
         'adAccountId' => 'AdAccountId',
+        'category' => 'Category',
         'channelType' => 'ChannelType',
         'content' => 'Content',
         'contextMessageId' => 'ContextMessageId',
@@ -232,6 +238,10 @@ class SendChatappMessageRequest extends Model
         $res = [];
         if (null !== $this->adAccountId) {
             $res['AdAccountId'] = $this->adAccountId;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         if (null !== $this->channelType) {
@@ -387,6 +397,10 @@ class SendChatappMessageRequest extends Model
         $model = new self();
         if (isset($map['AdAccountId'])) {
             $model->adAccountId = $map['AdAccountId'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         if (isset($map['ChannelType'])) {

@@ -16,6 +16,11 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
     public $channelType;
 
     /**
@@ -174,6 +179,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $type;
     protected $_name = [
         'adAccountId' => 'AdAccountId',
+        'category' => 'Category',
         'channelType' => 'ChannelType',
         'content' => 'Content',
         'contextMessageId' => 'ContextMessageId',
@@ -218,6 +224,10 @@ class SendChatappMessageShrinkRequest extends Model
         $res = [];
         if (null !== $this->adAccountId) {
             $res['AdAccountId'] = $this->adAccountId;
+        }
+
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
 
         if (null !== $this->channelType) {
@@ -361,6 +371,10 @@ class SendChatappMessageShrinkRequest extends Model
         $model = new self();
         if (isset($map['AdAccountId'])) {
             $model->adAccountId = $map['AdAccountId'];
+        }
+
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
 
         if (isset($map['ChannelType'])) {

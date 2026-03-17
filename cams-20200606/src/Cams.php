@@ -9105,7 +9105,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ListFlowNodeGroup.
+     * 列举流程组件分组.
      *
      * @param request - ListFlowNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9160,7 +9160,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * ListFlowNodeGroup.
+     * 列举流程组件分组.
      *
      * @param request - ListFlowNodeGroupRequest
      *
@@ -12246,6 +12246,10 @@ class Cams extends OpenApiClient
         $query = [];
         if (null !== $request->adAccountId) {
             @$query['AdAccountId'] = $request->adAccountId;
+        }
+
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
 
         if (null !== $request->channelType) {
