@@ -2685,6 +2685,10 @@ class Polardb extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->AIDBClusterId) {
+            @$query['AIDBClusterId'] = $request->AIDBClusterId;
+        }
+
         if (null !== $request->applicationType) {
             @$query['ApplicationType'] = $request->applicationType;
         }
@@ -2727,6 +2731,26 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->memApplicationSpecShrink) {
             @$query['MemApplicationSpec'] = $request->memApplicationSpecShrink;
+        }
+
+        if (null !== $request->modelApi) {
+            @$query['ModelApi'] = $request->modelApi;
+        }
+
+        if (null !== $request->modelApiKey) {
+            @$query['ModelApiKey'] = $request->modelApiKey;
+        }
+
+        if (null !== $request->modelBaseUrl) {
+            @$query['ModelBaseUrl'] = $request->modelBaseUrl;
+        }
+
+        if (null !== $request->modelFrom) {
+            @$query['ModelFrom'] = $request->modelFrom;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
         }
 
         if (null !== $request->payType) {

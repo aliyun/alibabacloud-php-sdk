@@ -14,6 +14,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $AIDBClusterId;
+
+    /**
+     * @var string
+     */
     public $applicationType;
 
     /**
@@ -65,6 +70,31 @@ class CreateApplicationRequest extends Model
      * @var memApplicationSpec
      */
     public $memApplicationSpec;
+
+    /**
+     * @var string
+     */
+    public $modelApi;
+
+    /**
+     * @var string
+     */
+    public $modelApiKey;
+
+    /**
+     * @var string
+     */
+    public $modelBaseUrl;
+
+    /**
+     * @var string
+     */
+    public $modelFrom;
+
+    /**
+     * @var string
+     */
+    public $modelName;
 
     /**
      * @var string
@@ -121,6 +151,7 @@ class CreateApplicationRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'AIDBClusterId' => 'AIDBClusterId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
         'autoCreatePolarFs' => 'AutoCreatePolarFs',
@@ -132,6 +163,11 @@ class CreateApplicationRequest extends Model
         'dryRun' => 'DryRun',
         'endpoints' => 'Endpoints',
         'memApplicationSpec' => 'MemApplicationSpec',
+        'modelApi' => 'ModelApi',
+        'modelApiKey' => 'ModelApiKey',
+        'modelBaseUrl' => 'ModelBaseUrl',
+        'modelFrom' => 'ModelFrom',
+        'modelName' => 'ModelName',
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
@@ -162,6 +198,10 @@ class CreateApplicationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AIDBClusterId) {
+            $res['AIDBClusterId'] = $this->AIDBClusterId;
+        }
+
         if (null !== $this->applicationType) {
             $res['ApplicationType'] = $this->applicationType;
         }
@@ -220,6 +260,26 @@ class CreateApplicationRequest extends Model
             $res['MemApplicationSpec'] = null !== $this->memApplicationSpec ? $this->memApplicationSpec->toArray($noStream) : $this->memApplicationSpec;
         }
 
+        if (null !== $this->modelApi) {
+            $res['ModelApi'] = $this->modelApi;
+        }
+
+        if (null !== $this->modelApiKey) {
+            $res['ModelApiKey'] = $this->modelApiKey;
+        }
+
+        if (null !== $this->modelBaseUrl) {
+            $res['ModelBaseUrl'] = $this->modelBaseUrl;
+        }
+
+        if (null !== $this->modelFrom) {
+            $res['ModelFrom'] = $this->modelFrom;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
+        }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -275,6 +335,10 @@ class CreateApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AIDBClusterId'])) {
+            $model->AIDBClusterId = $map['AIDBClusterId'];
+        }
+
         if (isset($map['ApplicationType'])) {
             $model->applicationType = $map['ApplicationType'];
         }
@@ -331,6 +395,26 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['MemApplicationSpec'])) {
             $model->memApplicationSpec = memApplicationSpec::fromMap($map['MemApplicationSpec']);
+        }
+
+        if (isset($map['ModelApi'])) {
+            $model->modelApi = $map['ModelApi'];
+        }
+
+        if (isset($map['ModelApiKey'])) {
+            $model->modelApiKey = $map['ModelApiKey'];
+        }
+
+        if (isset($map['ModelBaseUrl'])) {
+            $model->modelBaseUrl = $map['ModelBaseUrl'];
+        }
+
+        if (isset($map['ModelFrom'])) {
+            $model->modelFrom = $map['ModelFrom'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['PayType'])) {
