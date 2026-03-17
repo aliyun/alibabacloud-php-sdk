@@ -16,9 +16,15 @@ class GetInspectionReportRequest extends Model
     /**
      * @var string
      */
+    public $reportType;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'reportType' => 'ReportType',
         'taskId' => 'TaskId',
     ];
 
@@ -32,6 +38,10 @@ class GetInspectionReportRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         if (null !== $this->taskId) {
@@ -51,6 +61,10 @@ class GetInspectionReportRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         if (isset($map['TaskId'])) {

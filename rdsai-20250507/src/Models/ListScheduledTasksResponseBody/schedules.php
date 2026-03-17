@@ -36,7 +36,17 @@ class schedules extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $reportLanguage;
+
+    /**
+     * @var string
+     */
+    public $reportType;
 
     /**
      * @var string
@@ -58,7 +68,9 @@ class schedules extends Model
         'frequency' => 'Frequency',
         'instanceCount' => 'InstanceCount',
         'name' => 'Name',
+        'regionId' => 'RegionId',
         'reportLanguage' => 'ReportLanguage',
+        'reportType' => 'ReportType',
         'scheduledId' => 'ScheduledId',
         'taskStartTime' => 'TaskStartTime',
         'timeRange' => 'TimeRange',
@@ -92,8 +104,16 @@ class schedules extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         if (null !== $this->reportLanguage) {
             $res['ReportLanguage'] = $this->reportLanguage;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         if (null !== $this->scheduledId) {
@@ -139,8 +159,16 @@ class schedules extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
         if (isset($map['ReportLanguage'])) {
             $model->reportLanguage = $map['ReportLanguage'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         if (isset($map['ScheduledId'])) {

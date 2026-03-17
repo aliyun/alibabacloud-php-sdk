@@ -16,6 +16,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateEdgeFunctionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateEdgeFunctionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateEdgeFunctionShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskRequest;
@@ -27,6 +30,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteEdgeFunctionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteEdgeFunctionResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteSkillRequest;
@@ -35,6 +40,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEdgeFunctionsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEdgeFunctionsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEventsListRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEventsListResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceAuthInfoRequest;
@@ -105,6 +112,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateEdgeFunctionRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateEdgeFunctionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateEdgeFunctionShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillShrinkRequest;
@@ -574,6 +584,101 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 创建边缘函数.
+     *
+     * @param tmpReq - CreateEdgeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEdgeFunctionResponse
+     *
+     * @param CreateEdgeFunctionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateEdgeFunctionResponse
+     */
+    public function createEdgeFunctionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateEdgeFunctionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->code) {
+            $request->codeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->code, 'Code', 'json');
+        }
+
+        if (null !== $tmpReq->customConfig) {
+            $request->customConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customConfig, 'CustomConfig', 'json');
+        }
+
+        if (null !== $tmpReq->envs) {
+            $request->envsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->codeShrink) {
+            @$query['Code'] = $request->codeShrink;
+        }
+
+        if (null !== $request->customConfigShrink) {
+            @$query['CustomConfig'] = $request->customConfigShrink;
+        }
+
+        if (null !== $request->edgeFunctionName) {
+            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
+        }
+
+        if (null !== $request->envsShrink) {
+            @$query['Envs'] = $request->envsShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEdgeFunction',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEdgeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建边缘函数.
+     *
+     * @param request - CreateEdgeFunctionRequest
+     *
+     * @returns CreateEdgeFunctionResponse
+     *
+     * @param CreateEdgeFunctionRequest $request
+     *
+     * @return CreateEdgeFunctionResponse
+     */
+    public function createEdgeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEdgeFunctionWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an inspection task for multiple instances.
      *
      * @param request - CreateInspectionTaskRequest
@@ -602,8 +707,16 @@ class RdsAi extends OpenApiClient
             @$query['InstanceIds'] = $request->instanceIds;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         if (null !== $request->reportLanguage) {
             @$query['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
 
         if (null !== $request->startTime) {
@@ -679,8 +792,16 @@ class RdsAi extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         if (null !== $request->reportLanguage) {
             @$query['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
 
         if (null !== $request->startTime) {
@@ -942,6 +1063,75 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除边缘函数.
+     *
+     * @param request - DeleteEdgeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEdgeFunctionResponse
+     *
+     * @param DeleteEdgeFunctionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteEdgeFunctionResponse
+     */
+    public function deleteEdgeFunctionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->edgeFunctionName) {
+            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEdgeFunction',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEdgeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除边缘函数.
+     *
+     * @param request - DeleteEdgeFunctionRequest
+     *
+     * @returns DeleteEdgeFunctionResponse
+     *
+     * @param DeleteEdgeFunctionRequest $request
+     *
+     * @return DeleteEdgeFunctionResponse
+     */
+    public function deleteEdgeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEdgeFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -1214,6 +1404,75 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询边缘函数列表.
+     *
+     * @param request - DescribeEdgeFunctionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEdgeFunctionsResponse
+     *
+     * @param DescribeEdgeFunctionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEdgeFunctionsResponse
+     */
+    public function describeEdgeFunctionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->edgeFunctionName) {
+            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEdgeFunctions',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEdgeFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询边缘函数列表.
+     *
+     * @param request - DescribeEdgeFunctionsRequest
+     *
+     * @returns DescribeEdgeFunctionsResponse
+     *
+     * @param DescribeEdgeFunctionsRequest $request
+     *
+     * @return DescribeEdgeFunctionsResponse
+     */
+    public function describeEdgeFunctions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEdgeFunctionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1872,6 +2131,10 @@ class RdsAi extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
+        }
+
         if (null !== $request->taskId) {
             @$query['TaskId'] = $request->taskId;
         }
@@ -2207,6 +2470,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
 
         if (null !== $request->startTime) {
@@ -3618,6 +3885,101 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新边缘函数.
+     *
+     * @param tmpReq - UpdateEdgeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEdgeFunctionResponse
+     *
+     * @param UpdateEdgeFunctionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateEdgeFunctionResponse
+     */
+    public function updateEdgeFunctionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateEdgeFunctionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->code) {
+            $request->codeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->code, 'Code', 'json');
+        }
+
+        if (null !== $tmpReq->customConfig) {
+            $request->customConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customConfig, 'CustomConfig', 'json');
+        }
+
+        if (null !== $tmpReq->envs) {
+            $request->envsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->codeShrink) {
+            @$query['Code'] = $request->codeShrink;
+        }
+
+        if (null !== $request->customConfigShrink) {
+            @$query['CustomConfig'] = $request->customConfigShrink;
+        }
+
+        if (null !== $request->edgeFunctionName) {
+            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
+        }
+
+        if (null !== $request->envsShrink) {
+            @$query['Envs'] = $request->envsShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEdgeFunction',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEdgeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新边缘函数.
+     *
+     * @param request - UpdateEdgeFunctionRequest
+     *
+     * @returns UpdateEdgeFunctionResponse
+     *
+     * @param UpdateEdgeFunctionRequest $request
+     *
+     * @return UpdateEdgeFunctionResponse
+     */
+    public function updateEdgeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEdgeFunctionWithOptions($request, $runtime);
     }
 
     /**

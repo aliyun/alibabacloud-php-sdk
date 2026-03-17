@@ -31,7 +31,17 @@ class CreateScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $reportLanguage;
+
+    /**
+     * @var string
+     */
+    public $reportType;
 
     /**
      * @var string
@@ -47,7 +57,9 @@ class CreateScheduledTaskRequest extends Model
         'frequency' => 'Frequency',
         'instanceIds' => 'InstanceIds',
         'name' => 'Name',
+        'regionId' => 'RegionId',
         'reportLanguage' => 'ReportLanguage',
+        'reportType' => 'ReportType',
         'startTime' => 'StartTime',
         'timeRange' => 'TimeRange',
     ];
@@ -76,8 +88,16 @@ class CreateScheduledTaskRequest extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         if (null !== $this->reportLanguage) {
             $res['ReportLanguage'] = $this->reportLanguage;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         if (null !== $this->startTime) {
@@ -115,8 +135,16 @@ class CreateScheduledTaskRequest extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
         if (isset($map['ReportLanguage'])) {
             $model->reportLanguage = $map['ReportLanguage'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         if (isset($map['StartTime'])) {

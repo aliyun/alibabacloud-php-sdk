@@ -21,7 +21,17 @@ class reports extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $reportLanguage;
+
+    /**
+     * @var string
+     */
+    public $reportType;
 
     /**
      * @var string
@@ -40,7 +50,9 @@ class reports extends Model
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'endTime' => 'EndTime',
+        'regionId' => 'RegionId',
         'reportLanguage' => 'ReportLanguage',
+        'reportType' => 'ReportType',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'taskId' => 'TaskId',
@@ -62,8 +74,16 @@ class reports extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         if (null !== $this->reportLanguage) {
             $res['ReportLanguage'] = $this->reportLanguage;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         if (null !== $this->startTime) {
@@ -97,8 +117,16 @@ class reports extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
         if (isset($map['ReportLanguage'])) {
             $model->reportLanguage = $map['ReportLanguage'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         if (isset($map['StartTime'])) {

@@ -26,11 +26,17 @@ class GetStandAloneReportsRequest extends Model
     /**
      * @var string
      */
+    public $reportType;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'reportType' => 'ReportType',
         'startTime' => 'StartTime',
     ];
 
@@ -52,6 +58,10 @@ class GetStandAloneReportsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->reportType) {
+            $res['ReportType'] = $this->reportType;
         }
 
         if (null !== $this->startTime) {
@@ -79,6 +89,10 @@ class GetStandAloneReportsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ReportType'])) {
+            $model->reportType = $map['ReportType'];
         }
 
         if (isset($map['StartTime'])) {
