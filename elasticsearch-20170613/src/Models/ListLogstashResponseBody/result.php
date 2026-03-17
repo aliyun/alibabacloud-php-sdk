@@ -27,6 +27,11 @@ class result extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -74,6 +79,7 @@ class result extends Model
         'tags' => 'Tags',
         'createdAt' => 'createdAt',
         'description' => 'description',
+        'endTime' => 'endTime',
         'instanceId' => 'instanceId',
         'networkConfig' => 'networkConfig',
         'nodeAmount' => 'nodeAmount',
@@ -119,6 +125,10 @@ class result extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
         }
 
         if (null !== $this->instanceId) {
@@ -185,6 +195,10 @@ class result extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
         }
 
         if (isset($map['instanceId'])) {

@@ -49,6 +49,11 @@ class result extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var endpointList[]
      */
     public $endpointList;
@@ -105,6 +110,7 @@ class result extends Model
         'config' => 'config',
         'createdAt' => 'createdAt',
         'description' => 'description',
+        'endTime' => 'endTime',
         'endpointList' => 'endpointList',
         'instanceId' => 'instanceId',
         'networkConfig' => 'networkConfig',
@@ -203,6 +209,10 @@ class result extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
         }
 
         if (null !== $this->endpointList) {
@@ -320,6 +330,10 @@ class result extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
         }
 
         if (isset($map['endpointList'])) {
