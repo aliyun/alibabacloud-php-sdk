@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetYaoChiAgentResponseBody\functionCall;
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetYaoChiAgentResponseBody\subAgentCall;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetYaoChiAgentResponseBody\uiFunctionCall;
 
 class GetYaoChiAgentResponseBody extends Model
@@ -19,6 +20,11 @@ class GetYaoChiAgentResponseBody extends Model
      * @var functionCall[]
      */
     public $functionCall;
+
+    /**
+     * @var string
+     */
+    public $parentId;
 
     /**
      * @var string
@@ -46,17 +52,24 @@ class GetYaoChiAgentResponseBody extends Model
     public $sessionId;
 
     /**
+     * @var subAgentCall[]
+     */
+    public $subAgentCall;
+
+    /**
      * @var uiFunctionCall[]
      */
     public $uiFunctionCall;
     protected $_name = [
         'content' => 'Content',
         'functionCall' => 'FunctionCall',
+        'parentId' => 'ParentId',
         'product' => 'Product',
         'queryId' => 'QueryId',
         'reasoningContent' => 'ReasoningContent',
         'requestId' => 'RequestId',
         'sessionId' => 'SessionId',
+        'subAgentCall' => 'SubAgentCall',
         'uiFunctionCall' => 'UiFunctionCall',
     ];
 
@@ -64,6 +77,9 @@ class GetYaoChiAgentResponseBody extends Model
     {
         if (\is_array($this->functionCall)) {
             Model::validateArray($this->functionCall);
+        }
+        if (\is_array($this->subAgentCall)) {
+            Model::validateArray($this->subAgentCall);
         }
         if (\is_array($this->uiFunctionCall)) {
             Model::validateArray($this->uiFunctionCall);
@@ -89,6 +105,10 @@ class GetYaoChiAgentResponseBody extends Model
             }
         }
 
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
@@ -107,6 +127,17 @@ class GetYaoChiAgentResponseBody extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->subAgentCall) {
+            if (\is_array($this->subAgentCall)) {
+                $res['SubAgentCall'] = [];
+                $n1 = 0;
+                foreach ($this->subAgentCall as $item1) {
+                    $res['SubAgentCall'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->uiFunctionCall) {
@@ -146,6 +177,10 @@ class GetYaoChiAgentResponseBody extends Model
             }
         }
 
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
@@ -164,6 +199,17 @@ class GetYaoChiAgentResponseBody extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['SubAgentCall'])) {
+            if (!empty($map['SubAgentCall'])) {
+                $model->subAgentCall = [];
+                $n1 = 0;
+                foreach ($map['SubAgentCall'] as $item1) {
+                    $model->subAgentCall[$n1] = subAgentCall::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UiFunctionCall'])) {
