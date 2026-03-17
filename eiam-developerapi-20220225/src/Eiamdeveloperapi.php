@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\EnableUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateDeviceCodeRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateDeviceCodeResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenByAuthorizationServerRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenByAuthorizationServerResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetApplicationProvisioningScopeHeaders;
@@ -1081,6 +1083,131 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = [];
 
         return $this->generateTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 实例级授权服务器 Token 端点.
+     *
+     * @param request - GenerateTokenByAuthorizationServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateTokenByAuthorizationServerResponse
+     *
+     * @param string                                    $instanceId
+     * @param string                                    $authorizationServerId
+     * @param GenerateTokenByAuthorizationServerRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GenerateTokenByAuthorizationServerResponse
+     */
+    public function generateTokenByAuthorizationServerWithOptions($instanceId, $authorizationServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationFederatedCredentialName) {
+            @$query['application_federated_credential_name'] = $request->applicationFederatedCredentialName;
+        }
+
+        if (null !== $request->clientAssertion) {
+            @$query['client_assertion'] = $request->clientAssertion;
+        }
+
+        if (null !== $request->clientAssertionType) {
+            @$query['client_assertion_type'] = $request->clientAssertionType;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['client_id'] = $request->clientId;
+        }
+
+        if (null !== $request->clientSecret) {
+            @$query['client_secret'] = $request->clientSecret;
+        }
+
+        if (null !== $request->clientX509) {
+            @$query['client_x509'] = $request->clientX509;
+        }
+
+        if (null !== $request->clientX509Chain) {
+            @$query['client_x509_chain'] = $request->clientX509Chain;
+        }
+
+        if (null !== $request->code) {
+            @$query['code'] = $request->code;
+        }
+
+        if (null !== $request->codeVerifier) {
+            @$query['code_verifier'] = $request->codeVerifier;
+        }
+
+        if (null !== $request->deviceCode) {
+            @$query['device_code'] = $request->deviceCode;
+        }
+
+        if (null !== $request->grantType) {
+            @$query['grant_type'] = $request->grantType;
+        }
+
+        if (null !== $request->password) {
+            @$query['password'] = $request->password;
+        }
+
+        if (null !== $request->redirectUri) {
+            @$query['redirect_uri'] = $request->redirectUri;
+        }
+
+        if (null !== $request->refreshToken) {
+            @$query['refresh_token'] = $request->refreshToken;
+        }
+
+        if (null !== $request->scope) {
+            @$query['scope'] = $request->scope;
+        }
+
+        if (null !== $request->username) {
+            @$query['username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateTokenByAuthorizationServer',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authorizationServer/' . Url::percentEncode($authorizationServerId) . '/oauth2/token',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateTokenByAuthorizationServerResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 实例级授权服务器 Token 端点.
+     *
+     * @param request - GenerateTokenByAuthorizationServerRequest
+     *
+     * @returns GenerateTokenByAuthorizationServerResponse
+     *
+     * @param string                                    $instanceId
+     * @param string                                    $authorizationServerId
+     * @param GenerateTokenByAuthorizationServerRequest $request
+     *
+     * @return GenerateTokenByAuthorizationServerResponse
+     */
+    public function generateTokenByAuthorizationServer($instanceId, $authorizationServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateTokenByAuthorizationServerWithOptions($instanceId, $authorizationServerId, $request, $headers, $runtime);
     }
 
     /**
