@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\callbackConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\executionConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\knowledgeConfigList;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponseBody\data\scheduleTaskConfig;
@@ -20,6 +21,11 @@ class data extends Model
      * @var string
      */
     public $aliyunUid;
+
+    /**
+     * @var callbackConfig
+     */
+    public $callbackConfig;
 
     /**
      * @var string
@@ -153,6 +159,7 @@ class data extends Model
     protected $_name = [
         'aliyunParentUid' => 'AliyunParentUid',
         'aliyunUid' => 'AliyunUid',
+        'callbackConfig' => 'CallbackConfig',
         'creatorUserName' => 'CreatorUserName',
         'customAgentId' => 'CustomAgentId',
         'DMSUnit' => 'DMSUnit',
@@ -183,6 +190,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->callbackConfig) {
+            $this->callbackConfig->validate();
+        }
         if (null !== $this->executionConfig) {
             $this->executionConfig->validate();
         }
@@ -204,6 +214,10 @@ class data extends Model
 
         if (null !== $this->aliyunUid) {
             $res['AliyunUid'] = $this->aliyunUid;
+        }
+
+        if (null !== $this->callbackConfig) {
+            $res['CallbackConfig'] = null !== $this->callbackConfig ? $this->callbackConfig->toArray($noStream) : $this->callbackConfig;
         }
 
         if (null !== $this->creatorUserName) {
@@ -334,6 +348,10 @@ class data extends Model
 
         if (isset($map['AliyunUid'])) {
             $model->aliyunUid = $map['AliyunUid'];
+        }
+
+        if (isset($map['CallbackConfig'])) {
+            $model->callbackConfig = callbackConfig::fromMap($map['CallbackConfig']);
         }
 
         if (isset($map['CreatorUserName'])) {

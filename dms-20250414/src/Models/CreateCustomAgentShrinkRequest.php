@@ -11,6 +11,11 @@ class CreateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $callbackConfigShrink;
+
+    /**
+     * @var string
+     */
     public $DMSUnit;
 
     /**
@@ -68,6 +73,7 @@ class CreateCustomAgentShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'callbackConfigShrink' => 'CallbackConfig',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
         'description' => 'Description',
@@ -90,6 +96,10 @@ class CreateCustomAgentShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callbackConfigShrink) {
+            $res['CallbackConfig'] = $this->callbackConfigShrink;
+        }
+
         if (null !== $this->DMSUnit) {
             $res['DMSUnit'] = $this->DMSUnit;
         }
@@ -149,6 +159,10 @@ class CreateCustomAgentShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallbackConfig'])) {
+            $model->callbackConfigShrink = $map['CallbackConfig'];
+        }
+
         if (isset($map['DMSUnit'])) {
             $model->DMSUnit = $map['DMSUnit'];
         }

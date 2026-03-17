@@ -711,6 +711,10 @@ class Dms extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateCustomAgentShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callbackConfig) {
+            $request->callbackConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callbackConfig, 'CallbackConfig', 'json');
+        }
+
         if (null !== $tmpReq->executionConfig) {
             $request->executionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executionConfig, 'ExecutionConfig', 'json');
         }
@@ -724,6 +728,10 @@ class Dms extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->callbackConfigShrink) {
+            @$query['CallbackConfig'] = $request->callbackConfigShrink;
+        }
+
         if (null !== $request->DMSUnit) {
             @$query['DMSUnit'] = $request->DMSUnit;
         }
@@ -4433,6 +4441,10 @@ class Dms extends OpenApiClient
         $tmpReq->validate();
         $request = new ModifyCustomAgentShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callbackConfig) {
+            $request->callbackConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callbackConfig, 'CallbackConfig', 'json');
+        }
+
         if (null !== $tmpReq->executionConfig) {
             $request->executionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executionConfig, 'ExecutionConfig', 'json');
         }
@@ -4446,6 +4458,10 @@ class Dms extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->callbackConfigShrink) {
+            @$query['CallbackConfig'] = $request->callbackConfigShrink;
+        }
+
         if (null !== $request->customAgentId) {
             @$query['CustomAgentId'] = $request->customAgentId;
         }

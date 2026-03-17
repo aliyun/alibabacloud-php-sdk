@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest\callbackConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest\executionConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest\knowledgeConfigList;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest\scheduleTaskConfig;
 
 class CreateCustomAgentRequest extends Model
 {
+    /**
+     * @var callbackConfig
+     */
+    public $callbackConfig;
+
     /**
      * @var string
      */
@@ -71,6 +77,7 @@ class CreateCustomAgentRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'callbackConfig' => 'CallbackConfig',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
         'description' => 'Description',
@@ -87,6 +94,9 @@ class CreateCustomAgentRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->callbackConfig) {
+            $this->callbackConfig->validate();
+        }
         if (null !== $this->executionConfig) {
             $this->executionConfig->validate();
         }
@@ -102,6 +112,10 @@ class CreateCustomAgentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callbackConfig) {
+            $res['CallbackConfig'] = null !== $this->callbackConfig ? $this->callbackConfig->toArray($noStream) : $this->callbackConfig;
+        }
+
         if (null !== $this->DMSUnit) {
             $res['DMSUnit'] = $this->DMSUnit;
         }
@@ -168,6 +182,10 @@ class CreateCustomAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallbackConfig'])) {
+            $model->callbackConfig = callbackConfig::fromMap($map['CallbackConfig']);
+        }
+
         if (isset($map['DMSUnit'])) {
             $model->DMSUnit = $map['DMSUnit'];
         }

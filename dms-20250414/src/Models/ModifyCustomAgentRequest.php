@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest\callbackConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest\executionConfig;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest\knowledgeConfigList;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest\scheduleTaskConfig;
 
 class ModifyCustomAgentRequest extends Model
 {
+    /**
+     * @var callbackConfig
+     */
+    public $callbackConfig;
+
     /**
      * @var string
      */
@@ -76,6 +82,7 @@ class ModifyCustomAgentRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'callbackConfig' => 'CallbackConfig',
         'customAgentId' => 'CustomAgentId',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
@@ -93,6 +100,9 @@ class ModifyCustomAgentRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->callbackConfig) {
+            $this->callbackConfig->validate();
+        }
         if (null !== $this->executionConfig) {
             $this->executionConfig->validate();
         }
@@ -108,6 +118,10 @@ class ModifyCustomAgentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callbackConfig) {
+            $res['CallbackConfig'] = null !== $this->callbackConfig ? $this->callbackConfig->toArray($noStream) : $this->callbackConfig;
+        }
+
         if (null !== $this->customAgentId) {
             $res['CustomAgentId'] = $this->customAgentId;
         }
@@ -178,6 +192,10 @@ class ModifyCustomAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallbackConfig'])) {
+            $model->callbackConfig = callbackConfig::fromMap($map['CallbackConfig']);
+        }
+
         if (isset($map['CustomAgentId'])) {
             $model->customAgentId = $map['CustomAgentId'];
         }
