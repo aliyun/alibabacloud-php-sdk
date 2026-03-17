@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupPlanRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupPlanResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteClientRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteClientResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteContainerClusterRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteContainerClusterResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteCrossAccountRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteCrossAccountResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteHanaBackupPlanRequest;
@@ -92,6 +94,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeClientsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeClientsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeContainerClusterResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeContainerResourceRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeContainerResourceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansRequest;
@@ -2490,6 +2494,63 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * @param request - DeleteContainerClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContainerClusterResponse
+     *
+     * @param DeleteContainerClusterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteContainerClusterResponse
+     */
+    public function deleteContainerClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContainerCluster',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContainerClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteContainerClusterRequest
+     *
+     * @returns DeleteContainerClusterResponse
+     *
+     * @param DeleteContainerClusterRequest $request
+     *
+     * @return DeleteContainerClusterResponse
+     */
+    public function deleteContainerCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContainerClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除跨账号信息.
      *
      * @param request - DeleteCrossAccountRequest
@@ -3590,6 +3651,75 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeContainerClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeContainerResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContainerResourceResponse
+     *
+     * @param DescribeContainerResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeContainerResourceResponse
+     */
+    public function describeContainerResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeContainerResource',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeContainerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeContainerResourceRequest
+     *
+     * @returns DescribeContainerResourceResponse
+     *
+     * @param DescribeContainerResourceRequest $request
+     *
+     * @return DescribeContainerResourceResponse
+     */
+    public function describeContainerResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeContainerResourceWithOptions($request, $runtime);
     }
 
     /**
