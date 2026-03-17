@@ -40,6 +40,11 @@ class ext extends Model
      * @var textTransform
      */
     public $textTransform;
+
+    /**
+     * @var string
+     */
+    public $trackingData;
     protected $_name = [
         'domainHint' => 'domainHint',
         'examples' => 'examples',
@@ -47,6 +52,7 @@ class ext extends Model
         'sensitives' => 'sensitives',
         'terminologies' => 'terminologies',
         'textTransform' => 'textTransform',
+        'trackingData' => 'trackingData',
     ];
 
     public function validate()
@@ -114,6 +120,10 @@ class ext extends Model
             $res['textTransform'] = null !== $this->textTransform ? $this->textTransform->toArray($noStream) : $this->textTransform;
         }
 
+        if (null !== $this->trackingData) {
+            $res['trackingData'] = $this->trackingData;
+        }
+
         return $res;
     }
 
@@ -168,6 +178,10 @@ class ext extends Model
 
         if (isset($map['textTransform'])) {
             $model->textTransform = textTransform::fromMap($map['textTransform']);
+        }
+
+        if (isset($map['trackingData'])) {
+            $model->trackingData = $map['trackingData'];
         }
 
         return $model;

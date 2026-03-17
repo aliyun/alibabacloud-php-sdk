@@ -17,9 +17,15 @@ class data extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $trackingData;
     protected $_name = [
         'status' => 'status',
         'taskId' => 'taskId',
+        'trackingData' => 'trackingData',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class data extends Model
 
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
+        }
+
+        if (null !== $this->trackingData) {
+            $res['trackingData'] = $this->trackingData;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class data extends Model
 
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
+        }
+
+        if (isset($map['trackingData'])) {
+            $model->trackingData = $map['trackingData'];
         }
 
         return $model;

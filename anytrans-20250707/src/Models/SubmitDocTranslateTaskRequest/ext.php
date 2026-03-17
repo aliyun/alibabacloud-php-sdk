@@ -29,11 +29,17 @@ class ext extends Model
      * @var terminologies[]
      */
     public $terminologies;
+
+    /**
+     * @var string
+     */
+    public $trackingData;
     protected $_name = [
         'config' => 'config',
         'domainHint' => 'domainHint',
         'paramMap' => 'paramMap',
         'terminologies' => 'terminologies',
+        'trackingData' => 'trackingData',
     ];
 
     public function validate()
@@ -73,6 +79,10 @@ class ext extends Model
             }
         }
 
+        if (null !== $this->trackingData) {
+            $res['trackingData'] = $this->trackingData;
+        }
+
         return $res;
     }
 
@@ -105,6 +115,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['trackingData'])) {
+            $model->trackingData = $map['trackingData'];
         }
 
         return $model;
