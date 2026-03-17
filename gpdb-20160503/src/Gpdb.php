@@ -445,6 +445,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataShrinkRequest;
@@ -474,6 +476,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceShrinkRequest;
@@ -17408,6 +17412,67 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 暂停Supabase实例.
+     *
+     * @param Request - PauseSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseSupabaseProjectResponse
+     *
+     * @param PauseSupabaseProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PauseSupabaseProjectResponse
+     */
+    public function pauseSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PauseSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停Supabase实例.
+     *
+     * @param Request - PauseSupabaseProjectRequest
+     *
+     * @returns PauseSupabaseProjectResponse
+     *
+     * @param PauseSupabaseProjectRequest $request
+     *
+     * @return PauseSupabaseProjectResponse
+     */
+    public function pauseSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Vector Data.
      *
      * @param tmpReq - QueryCollectionDataRequest
@@ -18549,6 +18614,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 恢复Supabase实例.
+     *
+     * @param Request - ResumeSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeSupabaseProjectResponse
+     *
+     * @param ResumeSupabaseProjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ResumeSupabaseProjectResponse
+     */
+    public function resumeSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复Supabase实例.
+     *
+     * @param Request - ResumeSupabaseProjectRequest
+     *
+     * @returns ResumeSupabaseProjectResponse
+     *
+     * @param ResumeSupabaseProjectRequest $request
+     *
+     * @return ResumeSupabaseProjectResponse
+     */
+    public function resumeSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeSupabaseProjectWithOptions($request, $runtime);
     }
 
     /**
