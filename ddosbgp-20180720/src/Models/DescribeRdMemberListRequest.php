@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRdMemberListRequest extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries per page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the resource directory.
-     *
-     * @example rd-x9bLhd
-     *
      * @var string
      */
     public $resourceDirectoryId;
     protected $_name = [
-        'pageNo'              => 'PageNo',
-        'pageSize'            => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceDirectoryId' => 'ResourceDirectoryId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceDirectoryId) {
             $res['ResourceDirectoryId'] = $this->resourceDirectoryId;
         }
@@ -60,20 +51,22 @@ class DescribeRdMemberListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRdMemberListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceDirectoryId'])) {
             $model->resourceDirectoryId = $map['ResourceDirectoryId'];
         }

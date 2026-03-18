@@ -4,79 +4,89 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DetachFromPolicyRequest\ipPortProtocolList;
-use AlibabaCloud\Tea\Model;
 
 class DetachFromPolicyRequest extends Model
 {
     /**
-     * @description The protected objects.
-     *
-     * This parameter is required.
      * @var ipPortProtocolList[]
      */
     public $ipPortProtocolList;
 
     /**
-     * @description The type of the policy. Valid values:
-     *
-     *   **default**: the default mitigation policies.
-     *   **l3**: IP-specific mitigation policies.
-     *   **l4**: port-specific mitigation policies.
-     *
-     * This parameter is required.
-     * @example l3
-     *
      * @var string
      */
     public $policyType;
+
+    /**
+     * @var string
+     */
+    public $portVersion;
     protected $_name = [
         'ipPortProtocolList' => 'IpPortProtocolList',
-        'policyType'         => 'PolicyType',
+        'policyType' => 'PolicyType',
+        'portVersion' => 'PortVersion',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ipPortProtocolList)) {
+            Model::validateArray($this->ipPortProtocolList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipPortProtocolList) {
-            $res['IpPortProtocolList'] = [];
-            if (null !== $this->ipPortProtocolList && \is_array($this->ipPortProtocolList)) {
-                $n = 0;
-                foreach ($this->ipPortProtocolList as $item) {
-                    $res['IpPortProtocolList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipPortProtocolList)) {
+                $res['IpPortProtocolList'] = [];
+                $n1 = 0;
+                foreach ($this->ipPortProtocolList as $item1) {
+                    $res['IpPortProtocolList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->portVersion) {
+            $res['PortVersion'] = $this->portVersion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachFromPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpPortProtocolList'])) {
             if (!empty($map['IpPortProtocolList'])) {
                 $model->ipPortProtocolList = [];
-                $n                         = 0;
-                foreach ($map['IpPortProtocolList'] as $item) {
-                    $model->ipPortProtocolList[$n++] = null !== $item ? ipPortProtocolList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpPortProtocolList'] as $item1) {
+                    $model->ipPortProtocolList[$n1] = ipPortProtocolList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['PortVersion'])) {
+            $model->portVersion = $map['PortVersion'];
         }
 
         return $model;

@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeTrafficResponseBody\flowList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTrafficResponseBody extends Model
 {
     /**
-     * @description The queried traffic statistics.
-     *
      * @var flowList[]
      */
     public $flowList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 6A507DC8-F657-4C13-84E2-D1D1B9400753
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'flowList'  => 'FlowList',
+        'flowList' => 'FlowList',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->flowList)) {
+            Model::validateArray($this->flowList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowList) {
-            $res['FlowList'] = [];
-            if (null !== $this->flowList && \is_array($this->flowList)) {
-                $n = 0;
-                foreach ($this->flowList as $item) {
-                    $res['FlowList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flowList)) {
+                $res['FlowList'] = [];
+                $n1 = 0;
+                foreach ($this->flowList as $item1) {
+                    $res['FlowList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +52,25 @@ class DescribeTrafficResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTrafficResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowList'])) {
             if (!empty($map['FlowList'])) {
                 $model->flowList = [];
-                $n               = 0;
-                foreach ($map['FlowList'] as $item) {
-                    $model->flowList[$n++] = null !== $item ? flowList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FlowList'] as $item1) {
+                    $model->flowList[$n1] = flowList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

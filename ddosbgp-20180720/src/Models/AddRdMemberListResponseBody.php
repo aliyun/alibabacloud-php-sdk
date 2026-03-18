@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddRdMemberListResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4C467B38-3910-447D-87BC-AC049166F216
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AddRdMemberListResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AddRdMemberListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddRdMemberListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

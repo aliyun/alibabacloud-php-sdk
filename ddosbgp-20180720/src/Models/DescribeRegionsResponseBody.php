@@ -4,76 +4,67 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The information about the regions of cloud assets that can be protected by Anti-DDoS Origin. The information includes region IDs and names.
-     *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description The request ID.
-     *
-     * @example F7CA8B4E-FB15-4336-A351-8DC29D66EA82
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'regions'   => 'Regions',
+        'code' => 'Code',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (\is_array($this->regions)) {
+            Model::validateArray($this->regions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->regions) {
-            $res['Regions'] = [];
-            if (null !== $this->regions && \is_array($this->regions)) {
-                $n = 0;
-                foreach ($this->regions as $item) {
-                    $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->regions)) {
+                $res['Regions'] = [];
+                $n1 = 0;
+                foreach ($this->regions as $item1) {
+                    $res['Regions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -81,29 +72,33 @@ class DescribeRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n              = 0;
-                foreach ($map['Regions'] as $item) {
-                    $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Regions'] as $item1) {
+                    $model->regions[$n1] = regions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,59 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyAttachmentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipPortProtocolList extends Model
 {
     /**
-     * @description The IP address of the protected object.
-     *
-     * This parameter is required.
-     * @example 47.118.172.***
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The port number of the protected object.
-     *
-     * @example 8*
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The protocol type of the protected object. Valid values:
-     *
-     *   **tcp**
-     *   **udp**
-     *
-     * @example tcp
-     *
+     * @var string
+     */
+    public $portRange;
+
+    /**
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'ip'       => 'Ip',
-        'port'     => 'Port',
+        'ip' => 'Ip',
+        'port' => 'Port',
+        'portRange' => 'PortRange',
         'protocol' => 'Protocol',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
+        if (null !== $this->portRange) {
+            $res['PortRange'] = $this->portRange;
+        }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -64,20 +61,26 @@ class ipPortProtocolList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipPortProtocolList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
+        if (isset($map['PortRange'])) {
+            $model->portRange = $map['PortRange'];
+        }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

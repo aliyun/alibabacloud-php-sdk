@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyResponseBody\policyList;
-use AlibabaCloud\Tea\Model;
 
 class ListPolicyResponseBody extends Model
 {
     /**
-     * @description The policies.
-     *
      * @var policyList[]
      */
     public $policyList;
 
     /**
-     * @description The request ID.
-     *
-     * @example B4B379C2-9319-4C6B-B579-FE36831B09F4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of policies.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'policyList' => 'PolicyList',
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->policyList)) {
+            Model::validateArray($this->policyList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyList) {
-            $res['PolicyList'] = [];
-            if (null !== $this->policyList && \is_array($this->policyList)) {
-                $n = 0;
-                foreach ($this->policyList as $item) {
-                    $res['PolicyList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyList)) {
+                $res['PolicyList'] = [];
+                $n1 = 0;
+                foreach ($this->policyList as $item1) {
+                    $res['PolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -65,26 +62,29 @@ class ListPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyList'])) {
             if (!empty($map['PolicyList'])) {
                 $model->policyList = [];
-                $n                 = 0;
-                foreach ($map['PolicyList'] as $item) {
-                    $model->policyList[$n++] = null !== $item ? policyList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PolicyList'] as $item1) {
+                    $model->policyList[$n1] = policyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRdMemberListResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example A2D6D5FB-FA07-41A8-B093-A2B7B26E72F2
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteRdMemberListResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteRdMemberListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRdMemberListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

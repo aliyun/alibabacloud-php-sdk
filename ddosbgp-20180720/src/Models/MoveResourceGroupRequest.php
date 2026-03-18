@@ -4,72 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoveResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which you want to move the resource.
-     *
-     * This parameter is required.
-     * @example rg-acfm3peow3k****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The resource ID.
-     *
-     * This parameter is required.
-     * @example ddos_originpre_public_cn-7213kxxxxx
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The region ID of the resource.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $resourceRegionId;
 
     /**
-     * @description The resource type. Set the value to **instance**.
-     *
-     * This parameter is required.
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceGroupId'  => 'ResourceGroupId',
-        'resourceId'       => 'ResourceId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -77,23 +61,26 @@ class MoveResourceGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoveResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

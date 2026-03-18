@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePolicyRequest extends Model
 {
     /**
-     * @description The name of the policy.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The type of the policy. Valid values:
-     *
-     *   **l3**: IP-specific mitigation policies.
-     *   **l4**: port-specific mitigation policies.
-     *
-     * This parameter is required.
-     * @example l3
-     *
+     * @var string
+     */
+    public $portVersion;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
         'name' => 'Name',
+        'portVersion' => 'PortVersion',
         'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
+        if (null !== $this->portVersion) {
+            $res['PortVersion'] = $this->portVersion;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -52,17 +51,22 @@ class CreatePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
+        if (isset($map['PortVersion'])) {
+            $model->portVersion = $map['PortVersion'];
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

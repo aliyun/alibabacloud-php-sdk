@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeRegionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regions extends Model
 {
     /**
-     * @description The English name of the region.
-     *
-     * @example China (Hangzhou)
-     *
      * @var string
      */
     public $regionEnName;
 
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The Chinese name of the region.
-     *
-     * @example 华东1（杭州）
-     *
      * @var string
      */
     public $regionName;
     protected $_name = [
         'regionEnName' => 'RegionEnName',
-        'regionId'     => 'RegionId',
-        'regionName'   => 'RegionName',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionEnName) {
             $res['RegionEnName'] = $this->regionEnName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
@@ -60,20 +51,22 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionEnName'])) {
             $model->regionEnName = $map['RegionEnName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }

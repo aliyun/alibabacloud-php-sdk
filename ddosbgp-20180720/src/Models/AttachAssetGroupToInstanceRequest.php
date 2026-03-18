@@ -4,63 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AttachAssetGroupToInstanceRequest\assetGroupList;
-use AlibabaCloud\Tea\Model;
 
 class AttachAssetGroupToInstanceRequest extends Model
 {
     /**
-     * @description The information about the asset to be associated.
-     *
-     * This parameter is required.
      * @var assetGroupList[]
      */
     public $assetGroupList;
 
     /**
-     * @description The ID of the instance to query.
-     *
-     * This parameter is required.
-     * @example ddosbgp-cn-n6w1r7nz****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the region in which the instance resides.
-     *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'assetGroupList' => 'AssetGroupList',
-        'instanceId'     => 'InstanceId',
-        'regionId'       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->assetGroupList)) {
+            Model::validateArray($this->assetGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetGroupList) {
-            $res['AssetGroupList'] = [];
-            if (null !== $this->assetGroupList && \is_array($this->assetGroupList)) {
-                $n = 0;
-                foreach ($this->assetGroupList as $item) {
-                    $res['AssetGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assetGroupList)) {
+                $res['AssetGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->assetGroupList as $item1) {
+                    $res['AssetGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -68,26 +62,29 @@ class AttachAssetGroupToInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachAssetGroupToInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetGroupList'])) {
             if (!empty($map['AssetGroupList'])) {
                 $model->assetGroupList = [];
-                $n                     = 0;
-                foreach ($map['AssetGroupList'] as $item) {
-                    $model->assetGroupList[$n++] = null !== $item ? assetGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssetGroupList'] as $item1) {
+                    $model->assetGroupList[$n1] = assetGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

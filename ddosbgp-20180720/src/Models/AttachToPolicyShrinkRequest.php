@@ -4,62 +4,71 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachToPolicyShrinkRequest extends Model
 {
     /**
-     * @description The protected objects.
-     *
-     * This parameter is required.
      * @var string
      */
     public $ipPortProtocolListShrink;
 
     /**
-     * @description The policy ID.
-     *
-     * This parameter is required.
-     * @example cd8b4d70-e4e0-413a-b390-e71d********
-     *
      * @var string
      */
     public $policyId;
+
+    /**
+     * @var string
+     */
+    public $portVersion;
     protected $_name = [
         'ipPortProtocolListShrink' => 'IpPortProtocolList',
-        'policyId'                 => 'PolicyId',
+        'policyId' => 'PolicyId',
+        'portVersion' => 'PortVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipPortProtocolListShrink) {
             $res['IpPortProtocolList'] = $this->ipPortProtocolListShrink;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
+        }
+
+        if (null !== $this->portVersion) {
+            $res['PortVersion'] = $this->portVersion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachToPolicyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpPortProtocolList'])) {
             $model->ipPortProtocolListShrink = $map['IpPortProtocolList'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
+        }
+
+        if (isset($map['PortVersion'])) {
+            $model->portVersion = $map['PortVersion'];
         }
 
         return $model;

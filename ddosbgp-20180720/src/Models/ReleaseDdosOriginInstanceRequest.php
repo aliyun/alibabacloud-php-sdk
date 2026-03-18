@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseDdosOriginInstanceRequest extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Origin instance that you want to release.
-     *
-     * This parameter is required.
-     * @example ddosorigin_cn-pe335v7gs01
-     *
      * @var string
      */
     public $instanceId;
@@ -23,9 +18,10 @@ class ReleaseDdosOriginInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -35,11 +31,11 @@ class ReleaseDdosOriginInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseDdosOriginInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

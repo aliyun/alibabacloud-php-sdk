@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddIpRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddIpResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\AddRdMemberListRequest;
@@ -21,12 +20,8 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckAccessLogAuthRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckAccessLogAuthResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckGrantRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CheckGrantResponse;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ConfigSchedruleOnDemandRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ConfigSchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreatePolicyResponse;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreateSchedruleOnDemandRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\CreateSchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteBlackholeRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteBlackholeResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteIpRequest;
@@ -36,8 +31,6 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteRdMemberListShrinkRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteSchedruleOnDemandRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DeleteSchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupToInstanceRequest;
@@ -52,10 +45,6 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceSpecsRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceSpecsResponse;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOnDemandDdosEventRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOnDemandDdosEventResponse;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOnDemandInstanceStatusRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOnDemandInstanceStatusResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOpEntitiesRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOpEntitiesResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribePackIpListRequest;
@@ -96,21 +85,16 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\MoveResourceGroupRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\MoveResourceGroupResponse;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ReleaseDdosOriginInstanceRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ReleaseDdosOriginInstanceResponse;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\SetInstanceModeOnDemandRequest;
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\SetInstanceModeOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ddosbgp extends OpenApiClient
 {
@@ -118,27 +102,27 @@ class Ddosbgp extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'            => 'ddosbgp.aliyuncs.com',
-            'cn-beijing'            => 'ddosbgp.aliyuncs.com',
-            'cn-zhangjiakou'        => 'ddosbgp.aliyuncs.com',
-            'cn-huhehaote'          => 'ddosbgp.aliyuncs.com',
-            'cn-hangzhou'           => 'ddosbgp.aliyuncs.com',
-            'cn-shanghai'           => 'ddosbgp.aliyuncs.com',
-            'cn-shenzhen'           => 'ddosbgp.aliyuncs.com',
-            'ap-northeast-1'        => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'            => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'        => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'        => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'cn-chengdu'            => 'ddosbgp.aliyuncs.com',
-            'eu-central-1'          => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'             => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'me-east-1'             => 'ddosbgp.ap-southeast-1.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'ddosbgp.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'ddosbgp.aliyuncs.com',
+            'cn-beijing' => 'ddosbgp.aliyuncs.com',
+            'cn-zhangjiakou' => 'ddosbgp.aliyuncs.com',
+            'cn-huhehaote' => 'ddosbgp.aliyuncs.com',
+            'cn-hangzhou' => 'ddosbgp.aliyuncs.com',
+            'cn-shanghai' => 'ddosbgp.aliyuncs.com',
+            'cn-shenzhen' => 'ddosbgp.aliyuncs.com',
+            'ap-northeast-1' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'cn-chengdu' => 'ddosbgp.aliyuncs.com',
+            'eu-central-1' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'ddosbgp.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'ddosbgp.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'ddosbgp.aliyuncs.com',
             'cn-shanghai-finance-1' => 'ddosbgp.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'ddosbgp.aliyuncs.com',
+            'cn-north-2-gov-1' => 'ddosbgp.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ddosbgp', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -157,64 +141,78 @@ class Ddosbgp extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds IP addresses to an Anti-DDoS Origin instance.
-     *  *
-     * @param AddIpRequest   $request AddIpRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Adds IP addresses to an Anti-DDoS Origin instance.
      *
-     * @return AddIpResponse AddIpResponse
+     * @param request - AddIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddIpResponse
+     *
+     * @param AddIpRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddIpResponse
      */
     public function addIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ipList)) {
-            $query['IpList'] = $request->ipList;
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddIp',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddIp',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds IP addresses to an Anti-DDoS Origin instance.
-     *  *
-     * @param AddIpRequest $request AddIpRequest
+     * Adds IP addresses to an Anti-DDoS Origin instance.
      *
-     * @return AddIpResponse AddIpResponse
+     * @param request - AddIpRequest
+     *
+     * @returns AddIpResponse
+     *
+     * @param AddIpRequest $request
+     *
+     * @return AddIpResponse
      */
     public function addIp($request)
     {
@@ -224,53 +222,66 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Adds members to a resource directory.
-     *  *
-     * @description Only a delegated administrator account or the management account of a resource directory can be used to add members to the resource directory.
-     *  *
-     * @param AddRdMemberListRequest $tmpReq  AddRdMemberListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Adds members to a resource directory.
      *
-     * @return AddRdMemberListResponse AddRdMemberListResponse
+     * @remarks
+     * Only a delegated administrator account or the management account of a resource directory can be used to add members to the resource directory.
+     *
+     * @param tmpReq - AddRdMemberListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRdMemberListResponse
+     *
+     * @param AddRdMemberListRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddRdMemberListResponse
      */
     public function addRdMemberListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddRdMemberListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->memberList)) {
-            $request->memberListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->memberList, 'MemberList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->memberList) {
+            $request->memberListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memberList, 'MemberList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->memberListShrink)) {
-            $query['MemberList'] = $request->memberListShrink;
+        if (null !== $request->memberListShrink) {
+            @$query['MemberList'] = $request->memberListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddRdMemberList',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRdMemberList',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddRdMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds members to a resource directory.
-     *  *
-     * @description Only a delegated administrator account or the management account of a resource directory can be used to add members to the resource directory.
-     *  *
-     * @param AddRdMemberListRequest $request AddRdMemberListRequest
+     * Adds members to a resource directory.
      *
-     * @return AddRdMemberListResponse AddRdMemberListResponse
+     * @remarks
+     * Only a delegated administrator account or the management account of a resource directory can be used to add members to the resource directory.
+     *
+     * @param request - AddRdMemberListRequest
+     *
+     * @returns AddRdMemberListResponse
+     *
+     * @param AddRdMemberListRequest $request
+     *
+     * @return AddRdMemberListResponse
      */
     public function addRdMemberList($request)
     {
@@ -280,55 +291,68 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Associates an asset with an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param AttachAssetGroupToInstanceRequest $tmpReq  AttachAssetGroupToInstanceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Associates an asset with an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return AttachAssetGroupToInstanceResponse AttachAssetGroupToInstanceResponse
+     * @param tmpReq - AttachAssetGroupToInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachAssetGroupToInstanceResponse
+     *
+     * @param AttachAssetGroupToInstanceRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AttachAssetGroupToInstanceResponse
      */
     public function attachAssetGroupToInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachAssetGroupToInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->assetGroupList)) {
-            $request->assetGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->assetGroupList, 'AssetGroupList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetGroupList) {
+            $request->assetGroupListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetGroupList, 'AssetGroupList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->assetGroupListShrink)) {
-            $query['AssetGroupList'] = $request->assetGroupListShrink;
+        if (null !== $request->assetGroupListShrink) {
+            @$query['AssetGroupList'] = $request->assetGroupListShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachAssetGroupToInstance',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachAssetGroupToInstance',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachAssetGroupToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates an asset with an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param AttachAssetGroupToInstanceRequest $request AttachAssetGroupToInstanceRequest
+     * Associates an asset with an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return AttachAssetGroupToInstanceResponse AttachAssetGroupToInstanceResponse
+     * @param request - AttachAssetGroupToInstanceRequest
+     *
+     * @returns AttachAssetGroupToInstanceResponse
+     *
+     * @param AttachAssetGroupToInstanceRequest $request
+     *
+     * @return AttachAssetGroupToInstanceResponse
      */
     public function attachAssetGroupToInstance($request)
     {
@@ -338,52 +362,68 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Associates a mitigation policy to a protected object.
-     *  *
-     * @param AttachToPolicyRequest $tmpReq  AttachToPolicyRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Associates a mitigation policy to a protected object.
      *
-     * @return AttachToPolicyResponse AttachToPolicyResponse
+     * @param tmpReq - AttachToPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachToPolicyResponse
+     *
+     * @param AttachToPolicyRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AttachToPolicyResponse
      */
     public function attachToPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachToPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ipPortProtocolList)) {
-            $request->ipPortProtocolListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ipPortProtocolList) {
+            $request->ipPortProtocolListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ipPortProtocolListShrink)) {
-            $query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
+        if (null !== $request->ipPortProtocolListShrink) {
+            @$query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
+        if (null !== $request->portVersion) {
+            @$query['PortVersion'] = $request->portVersion;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachToPolicy',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachToPolicy',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachToPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates a mitigation policy to a protected object.
-     *  *
-     * @param AttachToPolicyRequest $request AttachToPolicyRequest
+     * Associates a mitigation policy to a protected object.
      *
-     * @return AttachToPolicyResponse AttachToPolicyResponse
+     * @param request - AttachToPolicyRequest
+     *
+     * @returns AttachToPolicyResponse
+     *
+     * @param AttachToPolicyRequest $request
+     *
+     * @return AttachToPolicyResponse
      */
     public function attachToPolicy($request)
     {
@@ -393,47 +433,58 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Origin is authorized to access Simple Log Service.
-     *  *
-     * @param CheckAccessLogAuthRequest $request CheckAccessLogAuthRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries whether Anti-DDoS Origin is authorized to access Simple Log Service.
      *
-     * @return CheckAccessLogAuthResponse CheckAccessLogAuthResponse
+     * @param request - CheckAccessLogAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAccessLogAuthResponse
+     *
+     * @param CheckAccessLogAuthRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckAccessLogAuthResponse
      */
     public function checkAccessLogAuthWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckAccessLogAuth',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckAccessLogAuth',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckAccessLogAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Origin is authorized to access Simple Log Service.
-     *  *
-     * @param CheckAccessLogAuthRequest $request CheckAccessLogAuthRequest
+     * Queries whether Anti-DDoS Origin is authorized to access Simple Log Service.
      *
-     * @return CheckAccessLogAuthResponse CheckAccessLogAuthResponse
+     * @param request - CheckAccessLogAuthRequest
+     *
+     * @returns CheckAccessLogAuthResponse
+     *
+     * @param CheckAccessLogAuthRequest $request
+     *
+     * @return CheckAccessLogAuthResponse
      */
     public function checkAccessLogAuth($request)
     {
@@ -443,49 +494,60 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-     *  *
-     * @description You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     * Queries whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     *
+     * @remarks
+     * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CheckGrantRequest $request CheckGrantRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckGrantResponse CheckGrantResponse
+     * @param request - CheckGrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckGrantResponse
+     *
+     * @param CheckGrantRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CheckGrantResponse
      */
     public function checkGrantWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckGrant',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckGrant',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CheckGrantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
-     *  *
-     * @description You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     * Queries whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
+     *
+     * @remarks
+     * You can call the CheckGrant operation to query whether Anti-DDoS Origin is authorized to obtain information about the assets within the current Alibaba Cloud account.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CheckGrantRequest $request CheckGrantRequest
      *
-     * @return CheckGrantResponse CheckGrantResponse
+     * @param request - CheckGrantRequest
+     *
+     * @returns CheckGrantResponse
+     *
+     * @param CheckGrantRequest $request
+     *
+     * @return CheckGrantResponse
      */
     public function checkGrant($request)
     {
@@ -495,127 +557,62 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scheduling rule of an anti-DDoS diversion instance.
-     *  *
-     * @param ConfigSchedruleOnDemandRequest $request ConfigSchedruleOnDemandRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates a mitigation policy.
      *
-     * @return ConfigSchedruleOnDemandResponse ConfigSchedruleOnDemandResponse
-     */
-    public function configSchedruleOnDemandWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->ruleAction)) {
-            $query['RuleAction'] = $request->ruleAction;
-        }
-        if (!Utils::isUnset($request->ruleConditionCnt)) {
-            $query['RuleConditionCnt'] = $request->ruleConditionCnt;
-        }
-        if (!Utils::isUnset($request->ruleConditionKpps)) {
-            $query['RuleConditionKpps'] = $request->ruleConditionKpps;
-        }
-        if (!Utils::isUnset($request->ruleConditionMbps)) {
-            $query['RuleConditionMbps'] = $request->ruleConditionMbps;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
-        }
-        if (!Utils::isUnset($request->ruleSwitch)) {
-            $query['RuleSwitch'] = $request->ruleSwitch;
-        }
-        if (!Utils::isUnset($request->ruleUndoBeginTime)) {
-            $query['RuleUndoBeginTime'] = $request->ruleUndoBeginTime;
-        }
-        if (!Utils::isUnset($request->ruleUndoEndTime)) {
-            $query['RuleUndoEndTime'] = $request->ruleUndoEndTime;
-        }
-        if (!Utils::isUnset($request->ruleUndoMode)) {
-            $query['RuleUndoMode'] = $request->ruleUndoMode;
-        }
-        if (!Utils::isUnset($request->timeZone)) {
-            $query['TimeZone'] = $request->timeZone;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ConfigSchedruleOnDemand',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ConfigSchedruleOnDemandResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies a scheduling rule of an anti-DDoS diversion instance.
-     *  *
-     * @param ConfigSchedruleOnDemandRequest $request ConfigSchedruleOnDemandRequest
+     * @param request - CreatePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigSchedruleOnDemandResponse ConfigSchedruleOnDemandResponse
-     */
-    public function configSchedruleOnDemand($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->configSchedruleOnDemandWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Creates a mitigation policy.
-     *  *
-     * @param CreatePolicyRequest $request CreatePolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @returns CreatePolicyResponse
      *
-     * @return CreatePolicyResponse CreatePolicyResponse
+     * @param CreatePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePolicyResponse
      */
     public function createPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->portVersion) {
+            @$query['PortVersion'] = $request->portVersion;
         }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicy',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicy',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a mitigation policy.
-     *  *
-     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * Creates a mitigation policy.
      *
-     * @return CreatePolicyResponse CreatePolicyResponse
+     * @param request - CreatePolicyRequest
+     *
+     * @returns CreatePolicyResponse
+     *
+     * @param CreatePolicyRequest $request
+     *
+     * @return CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -625,143 +622,78 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduling rule for an anti-DDoS diversion instance.
-     *  *
-     * @param CreateSchedruleOnDemandRequest $request CreateSchedruleOnDemandRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deactivates blackhole filtering for a protected IP address.
      *
-     * @return CreateSchedruleOnDemandResponse CreateSchedruleOnDemandResponse
-     */
-    public function createSchedruleOnDemandWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->ruleAction)) {
-            $query['RuleAction'] = $request->ruleAction;
-        }
-        if (!Utils::isUnset($request->ruleConditionCnt)) {
-            $query['RuleConditionCnt'] = $request->ruleConditionCnt;
-        }
-        if (!Utils::isUnset($request->ruleConditionKpps)) {
-            $query['RuleConditionKpps'] = $request->ruleConditionKpps;
-        }
-        if (!Utils::isUnset($request->ruleConditionMbps)) {
-            $query['RuleConditionMbps'] = $request->ruleConditionMbps;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
-        }
-        if (!Utils::isUnset($request->ruleSwitch)) {
-            $query['RuleSwitch'] = $request->ruleSwitch;
-        }
-        if (!Utils::isUnset($request->ruleUndoBeginTime)) {
-            $query['RuleUndoBeginTime'] = $request->ruleUndoBeginTime;
-        }
-        if (!Utils::isUnset($request->ruleUndoEndTime)) {
-            $query['RuleUndoEndTime'] = $request->ruleUndoEndTime;
-        }
-        if (!Utils::isUnset($request->ruleUndoMode)) {
-            $query['RuleUndoMode'] = $request->ruleUndoMode;
-        }
-        if (!Utils::isUnset($request->timeZone)) {
-            $query['TimeZone'] = $request->timeZone;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSchedruleOnDemand',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateSchedruleOnDemandResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Creates a scheduling rule for an anti-DDoS diversion instance.
-     *  *
-     * @param CreateSchedruleOnDemandRequest $request CreateSchedruleOnDemandRequest
-     *
-     * @return CreateSchedruleOnDemandResponse CreateSchedruleOnDemandResponse
-     */
-    public function createSchedruleOnDemand($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSchedruleOnDemandWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Deactivates blackhole filtering for a protected IP address.
-     *  *
-     * @description You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
+     * @remarks
+     * You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
      * Before you call this operation, you can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
      * ### [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteBlackholeRequest $request DeleteBlackholeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBlackholeResponse DeleteBlackholeResponse
+     * @param request - DeleteBlackholeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBlackholeResponse
+     *
+     * @param DeleteBlackholeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteBlackholeResponse
      */
     public function deleteBlackholeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBlackhole',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBlackhole',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteBlackholeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deactivates blackhole filtering for a protected IP address.
-     *  *
-     * @description You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
+     * Deactivates blackhole filtering for a protected IP address.
+     *
+     * @remarks
+     * You can call the DeleteBlackhole operation to deactivate blackhole filtering for a protected IP address.
      * Before you call this operation, you can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query the protection status of the IP addresses that are protected by your Anti-DDoS Origin instance. For example, you can query whether blackhole filtering is triggered for an IP address.
      * ### [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteBlackholeRequest $request DeleteBlackholeRequest
      *
-     * @return DeleteBlackholeResponse DeleteBlackholeResponse
+     * @param request - DeleteBlackholeRequest
+     *
+     * @returns DeleteBlackholeResponse
+     *
+     * @param DeleteBlackholeRequest $request
+     *
+     * @return DeleteBlackholeResponse
      */
     public function deleteBlackhole($request)
     {
@@ -771,57 +703,72 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Removes specific IP addresses from an Anti-DDoS Origin instance.
-     *  *
-     * @description The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
-     *  *
-     * @param DeleteIpRequest $request DeleteIpRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Removes specific IP addresses from an Anti-DDoS Origin instance.
      *
-     * @return DeleteIpResponse DeleteIpResponse
+     * @remarks
+     * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
+     *
+     * @param request - DeleteIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIpResponse
+     *
+     * @param DeleteIpRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DeleteIpResponse
      */
     public function deleteIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ipList)) {
-            $query['IpList'] = $request->ipList;
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIp',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIp',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes specific IP addresses from an Anti-DDoS Origin instance.
-     *  *
-     * @description The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
-     *  *
-     * @param DeleteIpRequest $request DeleteIpRequest
+     * Removes specific IP addresses from an Anti-DDoS Origin instance.
      *
-     * @return DeleteIpResponse DeleteIpResponse
+     * @remarks
+     * The Anti-DDoS Origin Enterprise instance no longer protects the IP addresses that are removed.
+     *
+     * @param request - DeleteIpRequest
+     *
+     * @returns DeleteIpResponse
+     *
+     * @param DeleteIpRequest $request
+     *
+     * @return DeleteIpResponse
      */
     public function deleteIp($request)
     {
@@ -831,48 +778,60 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a mitigation policy.
-     *  *
-     * @description You cannot delete a mitigation policy to which a protected object is added.
-     *  *
-     * @param DeletePolicyRequest $request DeletePolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a mitigation policy.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @remarks
+     * You cannot delete a mitigation policy to which a protected object is added.
+     *
+     * @param request - DeletePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolicyResponse
+     *
+     * @param DeletePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicy',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicy',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a mitigation policy.
-     *  *
-     * @description You cannot delete a mitigation policy to which a protected object is added.
-     *  *
-     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * Deletes a mitigation policy.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @remarks
+     * You cannot delete a mitigation policy to which a protected object is added.
+     *
+     * @param request - DeletePolicyRequest
+     *
+     * @returns DeletePolicyResponse
+     *
+     * @param DeletePolicyRequest $request
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -882,53 +841,66 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Deletes members.
-     *  *
-     * @description Only a delegated administrator account or the management account of a resource directory can be used to delete members.
-     *  *
-     * @param DeleteRdMemberListRequest $tmpReq  DeleteRdMemberListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes members.
      *
-     * @return DeleteRdMemberListResponse DeleteRdMemberListResponse
+     * @remarks
+     * Only a delegated administrator account or the management account of a resource directory can be used to delete members.
+     *
+     * @param tmpReq - DeleteRdMemberListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRdMemberListResponse
+     *
+     * @param DeleteRdMemberListRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRdMemberListResponse
      */
     public function deleteRdMemberListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteRdMemberListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->memberList)) {
-            $request->memberListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->memberList, 'MemberList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->memberList) {
+            $request->memberListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memberList, 'MemberList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->memberListShrink)) {
-            $query['MemberList'] = $request->memberListShrink;
+        if (null !== $request->memberListShrink) {
+            @$query['MemberList'] = $request->memberListShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRdMemberList',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRdMemberList',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRdMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes members.
-     *  *
-     * @description Only a delegated administrator account or the management account of a resource directory can be used to delete members.
-     *  *
-     * @param DeleteRdMemberListRequest $request DeleteRdMemberListRequest
+     * Deletes members.
      *
-     * @return DeleteRdMemberListResponse DeleteRdMemberListResponse
+     * @remarks
+     * Only a delegated administrator account or the management account of a resource directory can be used to delete members.
+     *
+     * @param request - DeleteRdMemberListRequest
+     *
+     * @returns DeleteRdMemberListResponse
+     *
+     * @param DeleteRdMemberListRequest $request
+     *
+     * @return DeleteRdMemberListResponse
      */
     public function deleteRdMemberList($request)
     {
@@ -938,106 +910,66 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scheduling rule of an anti-DDoS diversion instance.
-     *  *
-     * @param DeleteSchedruleOnDemandRequest $request DeleteSchedruleOnDemandRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return DeleteSchedruleOnDemandResponse DeleteSchedruleOnDemandResponse
-     */
-    public function deleteSchedruleOnDemandWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSchedruleOnDemand',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteSchedruleOnDemandResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Deletes a scheduling rule of an anti-DDoS diversion instance.
-     *  *
-     * @param DeleteSchedruleOnDemandRequest $request DeleteSchedruleOnDemandRequest
+     * @param request - DescribeAssetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteSchedruleOnDemandResponse DeleteSchedruleOnDemandResponse
-     */
-    public function deleteSchedruleOnDemand($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSchedruleOnDemandWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param DescribeAssetGroupRequest $request DescribeAssetGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @returns DescribeAssetGroupResponse
      *
-     * @return DescribeAssetGroupResponse DescribeAssetGroupResponse
+     * @param DescribeAssetGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAssetGroupResponse
      */
     public function describeAssetGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAssetGroup',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAssetGroup',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAssetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param DescribeAssetGroupRequest $request DescribeAssetGroupRequest
+     * Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return DescribeAssetGroupResponse DescribeAssetGroupResponse
+     * @param request - DescribeAssetGroupRequest
+     *
+     * @returns DescribeAssetGroupResponse
+     *
+     * @param DescribeAssetGroupRequest $request
+     *
+     * @return DescribeAssetGroupResponse
      */
     public function describeAssetGroup($request)
     {
@@ -1047,59 +979,74 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param DescribeAssetGroupToInstanceRequest $request DescribeAssetGroupToInstanceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return DescribeAssetGroupToInstanceResponse DescribeAssetGroupToInstanceResponse
+     * @param request - DescribeAssetGroupToInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAssetGroupToInstanceResponse
+     *
+     * @param DescribeAssetGroupToInstanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAssetGroupToInstanceResponse
      */
     public function describeAssetGroupToInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberUid)) {
-            $query['MemberUid'] = $request->memberUid;
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAssetGroupToInstance',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAssetGroupToInstance',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAssetGroupToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param DescribeAssetGroupToInstanceRequest $request DescribeAssetGroupToInstanceRequest
+     * Queries the association between an asset and an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return DescribeAssetGroupToInstanceResponse DescribeAssetGroupToInstanceResponse
+     * @param request - DescribeAssetGroupToInstanceRequest
+     *
+     * @returns DescribeAssetGroupToInstanceResponse
+     *
+     * @param DescribeAssetGroupToInstanceRequest $request
+     *
+     * @return DescribeAssetGroupToInstanceResponse
      */
     public function describeAssetGroupToInstance($request)
     {
@@ -1109,73 +1056,92 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
+     * Queries the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
      * ### [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDdosEventRequest $request DescribeDdosEventRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDdosEventResponse DescribeDdosEventResponse
+     * @param request - DescribeDdosEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDdosEventResponse
+     *
+     * @param DescribeDdosEventRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDdosEventResponse
      */
     public function describeDdosEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDdosEvent',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDdosEvent',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDdosEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
+     * Queries the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the DescribeDdosEvent operation to query the details about the DDoS attack events that occurred on an Anti-DDoS Origin instance by page. The details include the start time, end time, attacked IP address, and status of each event.
      * ### [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDdosEventRequest $request DescribeDdosEventRequest
      *
-     * @return DescribeDdosEventResponse DescribeDdosEventResponse
+     * @param request - DescribeDdosEventRequest
+     *
+     * @returns DescribeDdosEventResponse
+     *
+     * @param DescribeDdosEventRequest $request
+     *
+     * @return DescribeDdosEventResponse
      */
     public function describeDdosEvent($request)
     {
@@ -1185,53 +1151,66 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bill of an Anti-DDoS Origin (Pay-as-you-go) instance.
-     *  *
-     * @param DescribeDdosOriginInstanceBillRequest $request DescribeDdosOriginInstanceBillRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the bill of an Anti-DDoS Origin (Pay-as-you-go) instance.
      *
-     * @return DescribeDdosOriginInstanceBillResponse DescribeDdosOriginInstanceBillResponse
+     * @param request - DescribeDdosOriginInstanceBillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDdosOriginInstanceBillResponse
+     *
+     * @param DescribeDdosOriginInstanceBillRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDdosOriginInstanceBillResponse
      */
     public function describeDdosOriginInstanceBillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->isShowList)) {
-            $query['IsShowList'] = $request->isShowList;
+
+        if (null !== $request->isShowList) {
+            @$query['IsShowList'] = $request->isShowList;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDdosOriginInstanceBill',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDdosOriginInstanceBill',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDdosOriginInstanceBillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bill of an Anti-DDoS Origin (Pay-as-you-go) instance.
-     *  *
-     * @param DescribeDdosOriginInstanceBillRequest $request DescribeDdosOriginInstanceBillRequest
+     * Queries the bill of an Anti-DDoS Origin (Pay-as-you-go) instance.
      *
-     * @return DescribeDdosOriginInstanceBillResponse DescribeDdosOriginInstanceBillResponse
+     * @param request - DescribeDdosOriginInstanceBillRequest
+     *
+     * @returns DescribeDdosOriginInstanceBillResponse
+     *
+     * @param DescribeDdosOriginInstanceBillRequest $request
+     *
+     * @return DescribeDdosOriginInstanceBillResponse
      */
     public function describeDdosOriginInstanceBill($request)
     {
@@ -1241,53 +1220,66 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
-     *  *
-     * @description ## Usage notes
-     * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
-     *  *
-     * @param DescribeExcpetionCountRequest $request DescribeExcpetionCountRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
      *
-     * @return DescribeExcpetionCountResponse DescribeExcpetionCountResponse
+     * @remarks
+     * ## Usage notes
+     * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
+     *
+     * @param request - DescribeExcpetionCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExcpetionCountResponse
+     *
+     * @param DescribeExcpetionCountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeExcpetionCountResponse
      */
     public function describeExcpetionCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExcpetionCount',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExcpetionCount',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExcpetionCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
-     *  *
-     * @description ## Usage notes
-     * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
-     *  *
-     * @param DescribeExcpetionCountRequest $request DescribeExcpetionCountRequest
+     * Queries the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire. The assets can be elastic IP addresses (EIPs). The assets can also be Elastic Compute Service (ECS) instances or Server Load Balancer (SLB) instances that are assigned public IP addresses.
      *
-     * @return DescribeExcpetionCountResponse DescribeExcpetionCountResponse
+     * @remarks
+     * ## Usage notes
+     * You can call the DescribeExcpetionCount operation to query the number of assets that are in an abnormal state and the number of Anti-DDoS Origin instances that are about to expire in a specific region. For example, if blackhole filtering is triggered for an IP address, the IP address is in an abnormal state. An instance whose remaining validity period is less than seven days is considered as an instance that is about to expire.
+     *
+     * @param request - DescribeExcpetionCountRequest
+     *
+     * @returns DescribeExcpetionCountResponse
+     *
+     * @param DescribeExcpetionCountRequest $request
+     *
+     * @return DescribeExcpetionCountResponse
      */
     public function describeExcpetionCount($request)
     {
@@ -1297,84 +1289,108 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of all Anti-DDoS Origin instances.
-     *  *
-     * @description Queries the details of all Anti-DDoS Origin instances.
-     *  *
-     * @param DescribeInstanceListRequest $request DescribeInstanceListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of all Anti-DDoS Origin instances.
      *
-     * @return DescribeInstanceListResponse DescribeInstanceListResponse
+     * @remarks
+     * Queries the details of all Anti-DDoS Origin instances.
+     *
+     * @param request - DescribeInstanceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceListResponse
+     *
+     * @param DescribeInstanceListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeInstanceListResponse
      */
     public function describeInstanceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->instanceTypeList)) {
-            $query['InstanceTypeList'] = $request->instanceTypeList;
+
+        if (null !== $request->instanceTypeList) {
+            @$query['InstanceTypeList'] = $request->instanceTypeList;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->ipVersion)) {
-            $query['IpVersion'] = $request->ipVersion;
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
-        if (!Utils::isUnset($request->orderby)) {
-            $query['Orderby'] = $request->orderby;
+
+        if (null !== $request->orderby) {
+            @$query['Orderby'] = $request->orderby;
         }
-        if (!Utils::isUnset($request->orderdire)) {
-            $query['Orderdire'] = $request->orderdire;
+
+        if (null !== $request->orderdire) {
+            @$query['Orderdire'] = $request->orderdire;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceList',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceList',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of all Anti-DDoS Origin instances.
-     *  *
-     * @description Queries the details of all Anti-DDoS Origin instances.
-     *  *
-     * @param DescribeInstanceListRequest $request DescribeInstanceListRequest
+     * Queries the details of all Anti-DDoS Origin instances.
      *
-     * @return DescribeInstanceListResponse DescribeInstanceListResponse
+     * @remarks
+     * Queries the details of all Anti-DDoS Origin instances.
+     *
+     * @param request - DescribeInstanceListRequest
+     *
+     * @returns DescribeInstanceListResponse
+     *
+     * @param DescribeInstanceListRequest $request
+     *
+     * @return DescribeInstanceListResponse
      */
     public function describeInstanceList($request)
     {
@@ -1384,50 +1400,62 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications of a specific Anti-DDoS Origin instance.
-     *  *
-     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the specifications of a specific Anti-DDoS Origin instance.
      *
-     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
+     * @param request - DescribeInstanceSpecsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceSpecsResponse
+     *
+     * @param DescribeInstanceSpecsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceSpecs',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceSpecs',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the specifications of a specific Anti-DDoS Origin instance.
-     *  *
-     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
+     * Queries the specifications of a specific Anti-DDoS Origin instance.
      *
-     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
+     * @param request - DescribeInstanceSpecsRequest
+     *
+     * @returns DescribeInstanceSpecsResponse
+     *
+     * @param DescribeInstanceSpecsRequest $request
+     *
+     * @return DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecs($request)
     {
@@ -1437,205 +1465,100 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the DDoS attack events recorded for the IP address of an anti-DDoS diversion instance of Anti-DDoS Origin.
-     *  *
-     * @description You can use this operation to query the details about the DDoS attack events that occurred on the IP address of an anti-DDoS diversion instance of Anti-DDoS Origin by page. The details include the start time, end time, volume of attack traffic, and status of each event.
-     * ### [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeOnDemandDdosEventRequest $request DescribeOnDemandDdosEventRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the operation logs of an Anti-DDoS Origin instance.
      *
-     * @return DescribeOnDemandDdosEventResponse DescribeOnDemandDdosEventResponse
-     */
-    public function describeOnDemandDdosEventWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeOnDemandDdosEvent',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeOnDemandDdosEventResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the DDoS attack events recorded for the IP address of an anti-DDoS diversion instance of Anti-DDoS Origin.
-     *  *
-     * @description You can use this operation to query the details about the DDoS attack events that occurred on the IP address of an anti-DDoS diversion instance of Anti-DDoS Origin by page. The details include the start time, end time, volume of attack traffic, and status of each event.
-     * ### [](#qps-)Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeOnDemandDdosEventRequest $request DescribeOnDemandDdosEventRequest
-     *
-     * @return DescribeOnDemandDdosEventResponse DescribeOnDemandDdosEventResponse
-     */
-    public function describeOnDemandDdosEvent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeOnDemandDdosEventWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the details of anti-DDoS diversion instances.
-     *  *
-     * @param DescribeOnDemandInstanceStatusRequest $request DescribeOnDemandInstanceStatusRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeOnDemandInstanceStatusResponse DescribeOnDemandInstanceStatusResponse
-     */
-    public function describeOnDemandInstanceStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeOnDemandInstanceStatus',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeOnDemandInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the details of anti-DDoS diversion instances.
-     *  *
-     * @param DescribeOnDemandInstanceStatusRequest $request DescribeOnDemandInstanceStatusRequest
-     *
-     * @return DescribeOnDemandInstanceStatusResponse DescribeOnDemandInstanceStatusResponse
-     */
-    public function describeOnDemandInstanceStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeOnDemandInstanceStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the operation logs of an Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the DescribeOpEntities operation to query the operation logs of an instance by page.
+     * @remarks
+     * You can call the DescribeOpEntities operation to query the operation logs of an instance by page.
      * ### Limit
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
+     * @param request - DescribeOpEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOpEntitiesResponse
+     *
+     * @param DescribeOpEntitiesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeOpEntitiesResponse
      */
     public function describeOpEntitiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->opAction)) {
-            $query['OpAction'] = $request->opAction;
+
+        if (null !== $request->opAction) {
+            @$query['OpAction'] = $request->opAction;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderDir)) {
-            $query['OrderDir'] = $request->orderDir;
+
+        if (null !== $request->orderDir) {
+            @$query['OrderDir'] = $request->orderDir;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOpEntities',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOpEntities',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the operation logs of an Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the DescribeOpEntities operation to query the operation logs of an instance by page.
+     * Queries the operation logs of an Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the DescribeOpEntities operation to query the operation logs of an instance by page.
      * ### Limit
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
      *
-     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
+     * @param request - DescribeOpEntitiesRequest
+     *
+     * @returns DescribeOpEntitiesResponse
+     *
+     * @param DescribeOpEntitiesRequest $request
+     *
+     * @return DescribeOpEntitiesResponse
      */
     public function describeOpEntities($request)
     {
@@ -1645,73 +1568,92 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.
+     * Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePackIpListRequest $request DescribePackIpListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePackIpListResponse DescribePackIpListResponse
+     * @param request - DescribePackIpListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePackIpListResponse
+     *
+     * @param DescribePackIpListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePackIpListResponse
      */
     public function describePackIpListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->memberUid)) {
-            $query['MemberUid'] = $request->memberUid;
+
+        if (null !== $request->memberUid) {
+            @$query['MemberUid'] = $request->memberUid;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productName)) {
-            $query['ProductName'] = $request->productName;
+
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePackIpList',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePackIpList',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePackIpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.
+     * Queries the IP addresses that are protected by a specific Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the DescribePackIpList operation to query the details about each IP address that is protected by a specific Anti-DDoS Origin instance by page. The details include the IP address and the type of the cloud asset to which the IP address belongs. The details also include the status of the IP address, such as whether blackhole filtering is triggered for the IP address.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePackIpListRequest $request DescribePackIpListRequest
      *
-     * @return DescribePackIpListResponse DescribePackIpListResponse
+     * @param request - DescribePackIpListRequest
+     *
+     * @returns DescribePackIpListResponse
+     *
+     * @param DescribePackIpListRequest $request
+     *
+     * @return DescribePackIpListResponse
      */
     public function describePackIpList($request)
     {
@@ -1721,50 +1663,62 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries members that are managed by using the multi-account management feature.
-     *  *
-     * @param DescribeRdMemberListRequest $request DescribeRdMemberListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries members in a resource directory.
      *
-     * @return DescribeRdMemberListResponse DescribeRdMemberListResponse
+     * @param request - DescribeRdMemberListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRdMemberListResponse
+     *
+     * @param DescribeRdMemberListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRdMemberListResponse
      */
     public function describeRdMemberListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceDirectoryId)) {
-            $query['ResourceDirectoryId'] = $request->resourceDirectoryId;
+
+        if (null !== $request->resourceDirectoryId) {
+            @$query['ResourceDirectoryId'] = $request->resourceDirectoryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRdMemberList',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRdMemberList',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRdMemberListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries members that are managed by using the multi-account management feature.
-     *  *
-     * @param DescribeRdMemberListRequest $request DescribeRdMemberListRequest
+     * Queries members in a resource directory.
      *
-     * @return DescribeRdMemberListResponse DescribeRdMemberListResponse
+     * @param request - DescribeRdMemberListRequest
+     *
+     * @returns DescribeRdMemberListResponse
+     *
+     * @param DescribeRdMemberListRequest $request
+     *
+     * @return DescribeRdMemberListResponse
      */
     public function describeRdMemberList($request)
     {
@@ -1774,34 +1728,41 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the multi-account management feature.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the multi-account management feature.
      *
-     * @return DescribeRdStatusResponse DescribeRdStatusResponse
+     * @param request - DescribeRdStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRdStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRdStatusResponse
      */
     public function describeRdStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeRdStatus',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRdStatus',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRdStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the multi-account management feature.
-     *  *
-     * @return DescribeRdStatusResponse DescribeRdStatusResponse
+     * Queries the status of the multi-account management feature.
+     *
+     * @returns DescribeRdStatusResponse
+     *
+     * @return DescribeRdStatusResponse
      */
     public function describeRdStatus()
     {
@@ -1811,47 +1772,58 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the regions of assets that can be protected by Anti-DDoS Origin Enterprise in a specific region.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1861,78 +1833,98 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
-     *  *
-     * @description You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     * Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     *
+     * @remarks
+     * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.
      * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.
      * ## Limits
      * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeTrafficRequest $request DescribeTrafficRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrafficResponse DescribeTrafficResponse
+     * @param request - DescribeTrafficRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTrafficResponse
+     *
+     * @param DescribeTrafficRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeTrafficResponse
      */
     public function describeTrafficWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->flowType)) {
-            $query['FlowType'] = $request->flowType;
+
+        if (null !== $request->flowType) {
+            @$query['FlowType'] = $request->flowType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->ipnet)) {
-            $query['Ipnet'] = $request->ipnet;
+
+        if (null !== $request->ipnet) {
+            @$query['Ipnet'] = $request->ipnet;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTraffic',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTraffic',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTrafficResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
-     *  *
-     * @description You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     * Queries traffic statistics of an Anti-DDoS Origin instance within a specific time period.
+     *
+     * @remarks
+     * You can call the DescribeTraffic operation to query traffic statistics of an Anti-DDoS Origin instance within a specific time period.
      * >  When you call this operation, you must configure the **InstanceId** parameter to specify the Anti-DDoS Origin instance whose traffic statistics you want to query.
      * ## Limits
      * You can call this operation once per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeTrafficRequest $request DescribeTrafficRequest
      *
-     * @return DescribeTrafficResponse DescribeTrafficResponse
+     * @param request - DescribeTrafficRequest
+     *
+     * @returns DescribeTrafficResponse
+     *
+     * @param DescribeTrafficRequest $request
+     *
+     * @return DescribeTrafficResponse
      */
     public function describeTraffic($request)
     {
@@ -1942,52 +1934,68 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Removes protected objects from a mitigation policy.
-     *  *
-     * @param DetachFromPolicyRequest $tmpReq  DetachFromPolicyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Removes protected objects from a mitigation policy.
      *
-     * @return DetachFromPolicyResponse DetachFromPolicyResponse
+     * @param tmpReq - DetachFromPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachFromPolicyResponse
+     *
+     * @param DetachFromPolicyRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetachFromPolicyResponse
      */
     public function detachFromPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetachFromPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ipPortProtocolList)) {
-            $request->ipPortProtocolListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ipPortProtocolList) {
+            $request->ipPortProtocolListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ipPortProtocolListShrink)) {
-            $query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
+        if (null !== $request->ipPortProtocolListShrink) {
+            @$query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
+        if (null !== $request->portVersion) {
+            @$query['PortVersion'] = $request->portVersion;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachFromPolicy',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachFromPolicy',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachFromPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes protected objects from a mitigation policy.
-     *  *
-     * @param DetachFromPolicyRequest $request DetachFromPolicyRequest
+     * Removes protected objects from a mitigation policy.
      *
-     * @return DetachFromPolicyResponse DetachFromPolicyResponse
+     * @param request - DetachFromPolicyRequest
+     *
+     * @returns DetachFromPolicyResponse
+     *
+     * @param DetachFromPolicyRequest $request
+     *
+     * @return DetachFromPolicyResponse
      */
     public function detachFromPolicy($request)
     {
@@ -1997,55 +2005,68 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param DettachAssetGroupToInstanceRequest $tmpReq  DettachAssetGroupToInstanceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return DettachAssetGroupToInstanceResponse DettachAssetGroupToInstanceResponse
+     * @param tmpReq - DettachAssetGroupToInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DettachAssetGroupToInstanceResponse
+     *
+     * @param DettachAssetGroupToInstanceRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DettachAssetGroupToInstanceResponse
      */
     public function dettachAssetGroupToInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DettachAssetGroupToInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->assetGroupList)) {
-            $request->assetGroupListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->assetGroupList, 'AssetGroupList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetGroupList) {
+            $request->assetGroupListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetGroupList, 'AssetGroupList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->assetGroupListShrink)) {
-            $query['AssetGroupList'] = $request->assetGroupListShrink;
+        if (null !== $request->assetGroupListShrink) {
+            @$query['AssetGroupList'] = $request->assetGroupListShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DettachAssetGroupToInstance',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DettachAssetGroupToInstance',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DettachAssetGroupToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
-     *  *
-     * @param DettachAssetGroupToInstanceRequest $request DettachAssetGroupToInstanceRequest
+     * Dissociates an asset from an Anti-DDoS Origin instance of a paid edition.
      *
-     * @return DettachAssetGroupToInstanceResponse DettachAssetGroupToInstanceResponse
+     * @param request - DettachAssetGroupToInstanceRequest
+     *
+     * @returns DettachAssetGroupToInstanceResponse
+     *
+     * @param DettachAssetGroupToInstanceRequest $request
+     *
+     * @return DettachAssetGroupToInstanceResponse
      */
     public function dettachAssetGroupToInstance($request)
     {
@@ -2055,47 +2076,58 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Simple Log Service is activated.
-     *  *
-     * @param GetSlsOpenStatusRequest $request GetSlsOpenStatusRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries whether Simple Log Service is activated.
      *
-     * @return GetSlsOpenStatusResponse GetSlsOpenStatusResponse
+     * @param request - GetSlsOpenStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSlsOpenStatusResponse
+     *
+     * @param GetSlsOpenStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSlsOpenStatusResponse
      */
     public function getSlsOpenStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSlsOpenStatus',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSlsOpenStatus',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Simple Log Service is activated.
-     *  *
-     * @param GetSlsOpenStatusRequest $request GetSlsOpenStatusRequest
+     * Queries whether Simple Log Service is activated.
      *
-     * @return GetSlsOpenStatusResponse GetSlsOpenStatusResponse
+     * @param request - GetSlsOpenStatusRequest
+     *
+     * @returns GetSlsOpenStatusResponse
+     *
+     * @param GetSlsOpenStatusRequest $request
+     *
+     * @return GetSlsOpenStatusResponse
      */
     public function getSlsOpenStatus($request)
     {
@@ -2105,50 +2137,62 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Anti-DDoS Origin instances for which log analysis is enabled.
-     *  *
-     * @param ListOpenedAccessLogInstancesRequest $request ListOpenedAccessLogInstancesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the Anti-DDoS Origin instances for which log analysis is enabled.
      *
-     * @return ListOpenedAccessLogInstancesResponse ListOpenedAccessLogInstancesResponse
+     * @param request - ListOpenedAccessLogInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOpenedAccessLogInstancesResponse
+     *
+     * @param ListOpenedAccessLogInstancesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListOpenedAccessLogInstancesResponse
      */
     public function listOpenedAccessLogInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOpenedAccessLogInstances',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOpenedAccessLogInstances',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListOpenedAccessLogInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Anti-DDoS Origin instances for which log analysis is enabled.
-     *  *
-     * @param ListOpenedAccessLogInstancesRequest $request ListOpenedAccessLogInstancesRequest
+     * Queries the Anti-DDoS Origin instances for which log analysis is enabled.
      *
-     * @return ListOpenedAccessLogInstancesResponse ListOpenedAccessLogInstancesResponse
+     * @param request - ListOpenedAccessLogInstancesRequest
+     *
+     * @returns ListOpenedAccessLogInstancesResponse
+     *
+     * @param ListOpenedAccessLogInstancesRequest $request
+     *
+     * @return ListOpenedAccessLogInstancesResponse
      */
     public function listOpenedAccessLogInstances($request)
     {
@@ -2158,56 +2202,70 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries mitigation policies.
-     *  *
-     * @param ListPolicyRequest $request ListPolicyRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries mitigation policies.
      *
-     * @return ListPolicyResponse ListPolicyResponse
+     * @param request - ListPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPolicyResponse
+     *
+     * @param ListPolicyRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListPolicyResponse
      */
     public function listPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicy',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicy',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries mitigation policies.
-     *  *
-     * @param ListPolicyRequest $request ListPolicyRequest
+     * Queries mitigation policies.
      *
-     * @return ListPolicyResponse ListPolicyResponse
+     * @param request - ListPolicyRequest
+     *
+     * @returns ListPolicyResponse
+     *
+     * @param ListPolicyRequest $request
+     *
+     * @return ListPolicyResponse
      */
     public function listPolicy($request)
     {
@@ -2217,61 +2275,80 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries attachments to mitigation policies.
-     *  *
-     * @param ListPolicyAttachmentRequest $tmpReq  ListPolicyAttachmentRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries attachments to mitigation policies.
      *
-     * @return ListPolicyAttachmentResponse ListPolicyAttachmentResponse
+     * @param tmpReq - ListPolicyAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPolicyAttachmentResponse
+     *
+     * @param ListPolicyAttachmentRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPolicyAttachmentResponse
      */
     public function listPolicyAttachmentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPolicyAttachmentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ipPortProtocolList)) {
-            $request->ipPortProtocolListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ipPortProtocolList) {
+            $request->ipPortProtocolListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ipPortProtocolList, 'IpPortProtocolList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->ipPortProtocolListShrink)) {
-            $query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
+        if (null !== $request->ipPortProtocolListShrink) {
+            @$query['IpPortProtocolList'] = $request->ipPortProtocolListShrink;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
+        if (null !== $request->portVersion) {
+            @$query['PortVersion'] = $request->portVersion;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicyAttachment',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicyAttachment',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries attachments to mitigation policies.
-     *  *
-     * @param ListPolicyAttachmentRequest $request ListPolicyAttachmentRequest
+     * Queries attachments to mitigation policies.
      *
-     * @return ListPolicyAttachmentResponse ListPolicyAttachmentResponse
+     * @param request - ListPolicyAttachmentRequest
+     *
+     * @returns ListPolicyAttachmentResponse
+     *
+     * @param ListPolicyAttachmentRequest $request
+     *
+     * @return ListPolicyAttachmentResponse
      */
     public function listPolicyAttachment($request)
     {
@@ -2281,56 +2358,70 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries all tags.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries all tags.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all tags.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * Queries all tags.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     *
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -2340,67 +2431,84 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the relationship between Anti-DDoS Origin instances and tags.
-     *  *
-     * @description You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
+     * Queries the relationship between Anti-DDoS Origin instances and tags.
+     *
+     * @remarks
+     * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
      * ### [](#qps-)Limits
      * You can call this API operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the relationship between Anti-DDoS Origin instances and tags.
-     *  *
-     * @description You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
+     * Queries the relationship between Anti-DDoS Origin instances and tags.
+     *
+     * @remarks
+     * You can call the ListTagResources operation to query the tags that are added to Anti-DDoS Origin instances at a time.
      * ### [](#qps-)Limits
      * You can call this API operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2410,62 +2518,82 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a mitigation policy.
-     *  *
-     * @description Modifies a mitigation policy.
-     *  *
-     * @param ModifyPolicyRequest $tmpReq  ModifyPolicyRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Modifies a mitigation policy.
      *
-     * @return ModifyPolicyResponse ModifyPolicyResponse
+     * @remarks
+     * Modifies a mitigation policy.
+     *
+     * @param tmpReq - ModifyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolicyResponse
+     *
+     * @param ModifyPolicyRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyPolicyResponse
      */
     public function modifyPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->content)) {
-            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->actionType)) {
-            $query['ActionType'] = $request->actionType;
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
         }
-        if (!Utils::isUnset($request->contentShrink)) {
-            $query['Content'] = $request->contentShrink;
+
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
+        if (null !== $request->portVersion) {
+            @$query['PortVersion'] = $request->portVersion;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPolicy',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPolicy',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a mitigation policy.
-     *  *
-     * @description Modifies a mitigation policy.
-     *  *
-     * @param ModifyPolicyRequest $request ModifyPolicyRequest
+     * Modifies a mitigation policy.
      *
-     * @return ModifyPolicyResponse ModifyPolicyResponse
+     * @remarks
+     * Modifies a mitigation policy.
+     *
+     * @param request - ModifyPolicyRequest
+     *
+     * @returns ModifyPolicyResponse
+     *
+     * @param ModifyPolicyRequest $request
+     *
+     * @return ModifyPolicyResponse
      */
     public function modifyPolicy($request)
     {
@@ -2475,59 +2603,78 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the content of the mitigation policy.
-     *  *
-     * @description Make sure that all request parameters are configured when you call this operation. If any parameter is left empty, the configuration is deleted.
-     *  *
-     * @param ModifyPolicyContentRequest $tmpReq  ModifyPolicyContentRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the content of the mitigation policy.
      *
-     * @return ModifyPolicyContentResponse ModifyPolicyContentResponse
+     * @remarks
+     * Make sure that all request parameters are configured when you call this operation. If any parameter is left empty, the configuration is deleted.
+     *
+     * @param tmpReq - ModifyPolicyContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolicyContentResponse
+     *
+     * @param ModifyPolicyContentRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyPolicyContentResponse
      */
     public function modifyPolicyContentWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyPolicyContentShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->content)) {
-            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->contentShrink)) {
-            $query['Content'] = $request->contentShrink;
+        if (null !== $request->contentShrink) {
+            @$query['Content'] = $request->contentShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
+        if (null !== $request->portVersion) {
+            @$query['PortVersion'] = $request->portVersion;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPolicyContent',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPolicyContent',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyPolicyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the content of the mitigation policy.
-     *  *
-     * @description Make sure that all request parameters are configured when you call this operation. If any parameter is left empty, the configuration is deleted.
-     *  *
-     * @param ModifyPolicyContentRequest $request ModifyPolicyContentRequest
+     * Modifies the content of the mitigation policy.
      *
-     * @return ModifyPolicyContentResponse ModifyPolicyContentResponse
+     * @remarks
+     * Make sure that all request parameters are configured when you call this operation. If any parameter is left empty, the configuration is deleted.
+     *
+     * @param request - ModifyPolicyContentRequest
+     *
+     * @returns ModifyPolicyContentResponse
+     *
+     * @param ModifyPolicyContentRequest $request
+     *
+     * @return ModifyPolicyContentResponse
      */
     public function modifyPolicyContent($request)
     {
@@ -2537,61 +2684,76 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Adds remarks for a single Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
+     * Adds remarks for a single Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
      * ### [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyRemarkRequest $request ModifyRemarkRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRemarkResponse ModifyRemarkResponse
+     * @param request - ModifyRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRemarkResponse
+     *
+     * @param ModifyRemarkRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyRemarkResponse
      */
     public function modifyRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRemark',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRemark',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds remarks for a single Anti-DDoS Origin instance.
-     *  *
-     * @description You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
+     * Adds remarks for a single Anti-DDoS Origin instance.
+     *
+     * @remarks
+     * You can call the ModifyRemark operation to add remarks for a single Anti-DDoS Origin instance.
      * ### [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyRemarkRequest $request ModifyRemarkRequest
      *
-     * @return ModifyRemarkResponse ModifyRemarkResponse
+     * @param request - ModifyRemarkRequest
+     *
+     * @returns ModifyRemarkResponse
+     *
+     * @param ModifyRemarkRequest $request
+     *
+     * @return ModifyRemarkResponse
      */
     public function modifyRemark($request)
     {
@@ -2601,53 +2763,66 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which a cloud resource belongs.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Changes the resource group to which a cloud resource belongs.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the resource group to which a cloud resource belongs.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Changes the resource group to which a cloud resource belongs.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     *
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -2657,94 +2832,54 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduling rule of an anti-DDoS diversion instance.
-     *  *
-     * @param QuerySchedruleOnDemandRequest $request QuerySchedruleOnDemandRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Releases a pay-as-you-go Anti-DDoS Origin instance.
      *
-     * @return QuerySchedruleOnDemandResponse QuerySchedruleOnDemandResponse
-     */
-    public function querySchedruleOnDemandWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySchedruleOnDemand',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return QuerySchedruleOnDemandResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the scheduling rule of an anti-DDoS diversion instance.
-     *  *
-     * @param QuerySchedruleOnDemandRequest $request QuerySchedruleOnDemandRequest
+     * @param request - ReleaseDdosOriginInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QuerySchedruleOnDemandResponse QuerySchedruleOnDemandResponse
-     */
-    public function querySchedruleOnDemand($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->querySchedruleOnDemandWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Releases a pay-as-you-go Anti-DDoS Origin instance.
-     *  *
-     * @param ReleaseDdosOriginInstanceRequest $request ReleaseDdosOriginInstanceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @returns ReleaseDdosOriginInstanceResponse
      *
-     * @return ReleaseDdosOriginInstanceResponse ReleaseDdosOriginInstanceResponse
+     * @param ReleaseDdosOriginInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ReleaseDdosOriginInstanceResponse
      */
     public function releaseDdosOriginInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseDdosOriginInstance',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseDdosOriginInstance',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleaseDdosOriginInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a pay-as-you-go Anti-DDoS Origin instance.
-     *  *
-     * @param ReleaseDdosOriginInstanceRequest $request ReleaseDdosOriginInstanceRequest
+     * Releases a pay-as-you-go Anti-DDoS Origin instance.
      *
-     * @return ReleaseDdosOriginInstanceResponse ReleaseDdosOriginInstanceResponse
+     * @param request - ReleaseDdosOriginInstanceRequest
+     *
+     * @returns ReleaseDdosOriginInstanceResponse
+     *
+     * @param ReleaseDdosOriginInstanceRequest $request
+     *
+     * @return ReleaseDdosOriginInstanceResponse
      */
     public function releaseDdosOriginInstance($request)
     {
@@ -2754,117 +2889,80 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Specifies the scheduling mode for on-demand instances.
-     *  *
-     * @param SetInstanceModeOnDemandRequest $request SetInstanceModeOnDemandRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Add tags to Anti-DDoS Origin instances.
      *
-     * @return SetInstanceModeOnDemandResponse SetInstanceModeOnDemandResponse
-     */
-    public function setInstanceModeOnDemandWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
-        }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetInstanceModeOnDemand',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetInstanceModeOnDemandResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Specifies the scheduling mode for on-demand instances.
-     *  *
-     * @param SetInstanceModeOnDemandRequest $request SetInstanceModeOnDemandRequest
-     *
-     * @return SetInstanceModeOnDemandResponse SetInstanceModeOnDemandResponse
-     */
-    public function setInstanceModeOnDemand($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setInstanceModeOnDemandWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Add tags to Anti-DDoS Origin instances.
-     *  *
-     * @description You can call the TagResources operation to add tags to instances.
+     * @remarks
+     * You can call the TagResources operation to add tags to instances.
      * ### Limit
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Add tags to Anti-DDoS Origin instances.
-     *  *
-     * @description You can call the TagResources operation to add tags to instances.
+     * Add tags to Anti-DDoS Origin instances.
+     *
+     * @remarks
+     * You can call the TagResources operation to add tags to instances.
      * ### Limit
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2874,59 +2972,74 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from Anti-DDoS Origin instances.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from Anti-DDoS Origin instances.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2018-07-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2018-07-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from Anti-DDoS Origin instances.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from Anti-DDoS Origin instances.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {

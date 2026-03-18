@@ -4,91 +4,66 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPolicyRequest extends Model
 {
     /**
-     * @description The name of the policy.
-     *
-     * @example test**
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries per page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The service type. Valid values:
-     *
-     *   **ecs**: Elastic Compute Service (ECS).
-     *   **slb**: Server Load Balancer (SLB).
-     *   **eip**: Elastic IP Address (EIP).
-     *   **gf-eip**: EIP with Anti-DDoS (Enhanced) enabled.
-     *
-     * >  This parameter is available only if Type is set to `default`.
-     * @example ecs
-     *
      * @var string
      */
     public $productType;
 
     /**
-     * @description The type of the policy. Valid values:
-     *
-     *   **default**: the default mitigation policy.
-     *   **l3**: IP-specific mitigation policies.
-     *   **l4**: port-specific mitigation policies.
-     *
-     * @example l3
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'        => 'Name',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
+        'name' => 'Name',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'productType' => 'ProductType',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -96,26 +71,30 @@ class ListPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

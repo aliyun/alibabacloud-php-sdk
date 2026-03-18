@@ -4,74 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAssetGroupRequest extends Model
 {
     /**
-     * @description The ID of the asset. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
-     *
-     * @example waf_v2_public_cn-lbj382l****
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The region ID of the asset.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The ID of the region in which the instance resides.
-     *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The type of the asset. Valid values:
-     *
-     *   **waf**: WAF instance
-     *   **ga**: Global Accelerator (GA) instance
-     *
-     * This parameter is required.
-     * @example waf
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'     => 'Name',
-        'region'   => 'Region',
+        'name' => 'Name',
+        'region' => 'Region',
         'regionId' => 'RegionId',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -79,23 +61,26 @@ class DescribeAssetGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAssetGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOpEntitiesResponseBody\opEntities;
-use AlibabaCloud\Tea\Model;
 
 class DescribeOpEntitiesResponseBody extends Model
 {
     /**
-     * @description The details of the operation log.
-     *
      * @var opEntities[]
      */
     public $opEntities;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 52C8ECB0-0B1A-4E66-A31C-B6A855120E82
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of operation logs.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'opEntities' => 'OpEntities',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->opEntities)) {
+            Model::validateArray($this->opEntities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opEntities) {
-            $res['OpEntities'] = [];
-            if (null !== $this->opEntities && \is_array($this->opEntities)) {
-                $n = 0;
-                foreach ($this->opEntities as $item) {
-                    $res['OpEntities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->opEntities)) {
+                $res['OpEntities'] = [];
+                $n1 = 0;
+                foreach ($this->opEntities as $item1) {
+                    $res['OpEntities'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +62,29 @@ class DescribeOpEntitiesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOpEntitiesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpEntities'])) {
             if (!empty($map['OpEntities'])) {
                 $model->opEntities = [];
-                $n                 = 0;
-                foreach ($map['OpEntities'] as $item) {
-                    $model->opEntities[$n++] = null !== $item ? opEntities::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OpEntities'] as $item1) {
+                    $model->opEntities[$n1] = opEntities::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

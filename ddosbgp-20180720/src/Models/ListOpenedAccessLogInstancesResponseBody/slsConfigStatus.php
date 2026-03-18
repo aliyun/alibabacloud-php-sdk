@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListOpenedAccessLogInstancesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slsConfigStatus extends Model
 {
     /**
-     * @description Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The ID of the Anti-DDoS Origin instance.
-     *
-     * @example ddosbgp-cn-m7r1zce2****
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'enable'     => 'Enable',
+        'enable' => 'Enable',
         'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -50,17 +41,18 @@ class slsConfigStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slsConfigStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

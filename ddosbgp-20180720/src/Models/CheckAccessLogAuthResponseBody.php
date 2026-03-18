@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckAccessLogAuthResponseBody extends Model
 {
     /**
-     * @description Indicates whether Anti-DDoS Origin was authorized to access Simple Log Service. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $accessLogAuth;
 
     /**
-     * @description The request ID.
-     *
-     * @example 864FE2F4-CB2E-4024-B9EF-D59FD08ABD41
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessLogAuth' => 'AccessLogAuth',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessLogAuth) {
             $res['AccessLogAuth'] = $this->accessLogAuth;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +41,18 @@ class CheckAccessLogAuthResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckAccessLogAuthResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessLogAuth'])) {
             $model->accessLogAuth = $map['AccessLogAuth'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

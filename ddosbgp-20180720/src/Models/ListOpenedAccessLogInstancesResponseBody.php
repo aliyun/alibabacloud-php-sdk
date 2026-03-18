@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListOpenedAccessLogInstancesResponseBody\slsConfigStatus;
-use AlibabaCloud\Tea\Model;
 
 class ListOpenedAccessLogInstancesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4DB64811-70A1-41C9-A0CE-CD8B260ED551
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The configuration of log analysis for the Anti-DDoS Origin instance.
-     *
      * @var slsConfigStatus[]
      */
     public $slsConfigStatus;
 
     /**
-     * @description The number of the Anti-DDoS Origin instances for which log analysis was enabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'slsConfigStatus' => 'SlsConfigStatus',
-        'totalCount'      => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->slsConfigStatus)) {
+            Model::validateArray($this->slsConfigStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slsConfigStatus) {
-            $res['SlsConfigStatus'] = [];
-            if (null !== $this->slsConfigStatus && \is_array($this->slsConfigStatus)) {
-                $n = 0;
-                foreach ($this->slsConfigStatus as $item) {
-                    $res['SlsConfigStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slsConfigStatus)) {
+                $res['SlsConfigStatus'] = [];
+                $n1 = 0;
+                foreach ($this->slsConfigStatus as $item1) {
+                    $res['SlsConfigStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +62,29 @@ class ListOpenedAccessLogInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOpenedAccessLogInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SlsConfigStatus'])) {
             if (!empty($map['SlsConfigStatus'])) {
                 $model->slsConfigStatus = [];
-                $n                      = 0;
-                foreach ($map['SlsConfigStatus'] as $item) {
-                    $model->slsConfigStatus[$n++] = null !== $item ? slsConfigStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlsConfigStatus'] as $item1) {
+                    $model->slsConfigStatus[$n1] = slsConfigStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

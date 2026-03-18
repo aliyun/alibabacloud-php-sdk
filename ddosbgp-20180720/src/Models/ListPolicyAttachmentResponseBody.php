@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListPolicyAttachmentResponseBody\attachmentList;
-use AlibabaCloud\Tea\Model;
 
 class ListPolicyAttachmentResponseBody extends Model
 {
     /**
-     * @description The records of attachments to the mitigation policy.
-     *
      * @var attachmentList[]
      */
     public $attachmentList;
 
     /**
-     * @description The request ID.
-     *
-     * @example B4B379C2-9319-4C6B-B579-FE36831B09F4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of attachments to the mitigation policy.
-     *
-     * @example 28
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'attachmentList' => 'AttachmentList',
-        'requestId'      => 'RequestId',
-        'total'          => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->attachmentList)) {
+            Model::validateArray($this->attachmentList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachmentList) {
-            $res['AttachmentList'] = [];
-            if (null !== $this->attachmentList && \is_array($this->attachmentList)) {
-                $n = 0;
-                foreach ($this->attachmentList as $item) {
-                    $res['AttachmentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attachmentList)) {
+                $res['AttachmentList'] = [];
+                $n1 = 0;
+                foreach ($this->attachmentList as $item1) {
+                    $res['AttachmentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -65,26 +62,29 @@ class ListPolicyAttachmentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPolicyAttachmentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachmentList'])) {
             if (!empty($map['AttachmentList'])) {
                 $model->attachmentList = [];
-                $n                     = 0;
-                foreach ($map['AttachmentList'] as $item) {
-                    $model->attachmentList[$n++] = null !== $item ? attachmentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AttachmentList'] as $item1) {
+                    $model->attachmentList[$n1] = attachmentList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListTagKeysResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagKeys extends Model
 {
     /**
-     * @description The total number of tag values that correspond to each key.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $tagCount;
 
     /**
-     * @description The tag key.
-     *
-     * @example a
-     *
      * @var string
      */
     public $tagKey;
     protected $_name = [
         'tagCount' => 'TagCount',
-        'tagKey'   => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagCount) {
             $res['TagCount'] = $this->tagCount;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
@@ -47,17 +41,18 @@ class tagKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagCount'])) {
             $model->tagCount = $map['TagCount'];
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }

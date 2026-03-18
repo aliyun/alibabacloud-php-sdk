@@ -4,272 +4,246 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\flowList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\ipCountOrFunctionList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\monthlySummaryList;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosOriginInstanceBillResponseBody\standardAssetsFlowList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDdosOriginInstanceBillResponseBody extends Model
 {
     /**
-     * @description The asset status.
-     *
-     *   **0**: No asset is added to the instance for protection.
-     *   **1**: Assets are added to the instance for protection.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $assetStatus;
 
     /**
-     * @description The payment status. Valid values:
-     *
-     *   **0**: The payment is not overdue.
-     *   **1**: The payment is overdue.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $debtStatus;
 
     /**
-     * @description The details about the traffic of EIPs with Anti-DDoS (Enhanced) enabled.
-     *
      * @var flowList[]
      */
     public $flowList;
 
     /**
-     * @description The traffic distribution of EIPs with Anti-DDoS (Enhanced) enabled by region.
-     *
-     * @example {\\"cn-hongkong\\": 166491566}
-     *
      * @var mixed[]
      */
     public $flowRegion;
 
     /**
-     * @description The ID of the Anti-DDoS Origin (Pay-as-you-go) instance to query.
-     *
-     * @example ddosorigin_cn-u7c3lcr9r02
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of protected IP addresses.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $ipCount;
 
     /**
-     * @description The protected IP addresses and enabled features.
-     *
      * @var ipCountOrFunctionList[]
      */
     public $ipCountOrFunctionList;
 
     /**
-     * @description The IP address distribution. The JSON struct contains the following fields:
-     *
-     *   **eipCnIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
-     *   **eipOvIpCount**: the number of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
-     *   **standardAssetsCnIpCount**: the number of IP addresses of regular Alibaba Cloud services in the Chinese mainland.
-     *   **standardAssetsOvIpCount**: the number of IP addresses of regular Alibaba Cloud services outside the Chinese mainland.
-     *
-     * @example {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
-     *
      * @var string
      */
     public $ipInfo;
 
     /**
-     * @description The information about the monthly summary bills.
-     *
      * @var monthlySummaryList[]
      */
     public $monthlySummaryList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 72155560-F343-55C8-82FE-ED4D7E4AA97E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details about the traffic of regular Alibaba Cloud services.
-     *
      * @var standardAssetsFlowList[]
      */
     public $standardAssetsFlowList;
 
     /**
-     * @description The traffic distribution of regular Alibaba Cloud services by region.
-     *
-     * @example {\\"cn-hongkong\\": 166491566}
-     *
      * @var mixed[]
      */
     public $standardAssetsFlowRegion;
 
     /**
-     * @description The total traffic of regular Alibaba Cloud services in the Chinese mainland in the current month.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $standardAssetsTotalFlowCn;
 
     /**
-     * @description The total traffic of regular Alibaba Cloud services outside the Chinese mainland in the current month.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $standardAssetsTotalFlowOv;
 
     /**
-     * @description The instance status. Valid values:
-     *
-     *   **1**: normal
-     *   **2**: expired
-     *   **3**: released
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
 
     /**
-     * @description The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland in the current month. Unit: bytes.
-     *
-     * @example 6302081067
-     *
      * @var int
      */
     public $totalFlowCn;
 
     /**
-     * @description The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland in the current month. Unit: bytes.
-     *
-     * @example 6204918019
-     *
      * @var int
      */
     public $totalFlowOv;
     protected $_name = [
-        'assetStatus'               => 'AssetStatus',
-        'debtStatus'                => 'DebtStatus',
-        'flowList'                  => 'FlowList',
-        'flowRegion'                => 'FlowRegion',
-        'instanceId'                => 'InstanceId',
-        'ipCount'                   => 'IpCount',
-        'ipCountOrFunctionList'     => 'IpCountOrFunctionList',
-        'ipInfo'                    => 'IpInfo',
-        'monthlySummaryList'        => 'MonthlySummaryList',
-        'requestId'                 => 'RequestId',
-        'standardAssetsFlowList'    => 'StandardAssetsFlowList',
-        'standardAssetsFlowRegion'  => 'StandardAssetsFlowRegion',
+        'assetStatus' => 'AssetStatus',
+        'debtStatus' => 'DebtStatus',
+        'flowList' => 'FlowList',
+        'flowRegion' => 'FlowRegion',
+        'instanceId' => 'InstanceId',
+        'ipCount' => 'IpCount',
+        'ipCountOrFunctionList' => 'IpCountOrFunctionList',
+        'ipInfo' => 'IpInfo',
+        'monthlySummaryList' => 'MonthlySummaryList',
+        'requestId' => 'RequestId',
+        'standardAssetsFlowList' => 'StandardAssetsFlowList',
+        'standardAssetsFlowRegion' => 'StandardAssetsFlowRegion',
         'standardAssetsTotalFlowCn' => 'StandardAssetsTotalFlowCn',
         'standardAssetsTotalFlowOv' => 'StandardAssetsTotalFlowOv',
-        'status'                    => 'Status',
-        'totalFlowCn'               => 'TotalFlowCn',
-        'totalFlowOv'               => 'TotalFlowOv',
+        'status' => 'Status',
+        'totalFlowCn' => 'TotalFlowCn',
+        'totalFlowOv' => 'TotalFlowOv',
     ];
 
     public function validate()
     {
+        if (\is_array($this->flowList)) {
+            Model::validateArray($this->flowList);
+        }
+        if (\is_array($this->flowRegion)) {
+            Model::validateArray($this->flowRegion);
+        }
+        if (\is_array($this->ipCountOrFunctionList)) {
+            Model::validateArray($this->ipCountOrFunctionList);
+        }
+        if (\is_array($this->monthlySummaryList)) {
+            Model::validateArray($this->monthlySummaryList);
+        }
+        if (\is_array($this->standardAssetsFlowList)) {
+            Model::validateArray($this->standardAssetsFlowList);
+        }
+        if (\is_array($this->standardAssetsFlowRegion)) {
+            Model::validateArray($this->standardAssetsFlowRegion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetStatus) {
             $res['AssetStatus'] = $this->assetStatus;
         }
+
         if (null !== $this->debtStatus) {
             $res['DebtStatus'] = $this->debtStatus;
         }
+
         if (null !== $this->flowList) {
-            $res['FlowList'] = [];
-            if (null !== $this->flowList && \is_array($this->flowList)) {
-                $n = 0;
-                foreach ($this->flowList as $item) {
-                    $res['FlowList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flowList)) {
+                $res['FlowList'] = [];
+                $n1 = 0;
+                foreach ($this->flowList as $item1) {
+                    $res['FlowList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->flowRegion) {
-            $res['FlowRegion'] = $this->flowRegion;
+            if (\is_array($this->flowRegion)) {
+                $res['FlowRegion'] = [];
+                foreach ($this->flowRegion as $key1 => $value1) {
+                    $res['FlowRegion'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ipCount) {
             $res['IpCount'] = $this->ipCount;
         }
+
         if (null !== $this->ipCountOrFunctionList) {
-            $res['IpCountOrFunctionList'] = [];
-            if (null !== $this->ipCountOrFunctionList && \is_array($this->ipCountOrFunctionList)) {
-                $n = 0;
-                foreach ($this->ipCountOrFunctionList as $item) {
-                    $res['IpCountOrFunctionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipCountOrFunctionList)) {
+                $res['IpCountOrFunctionList'] = [];
+                $n1 = 0;
+                foreach ($this->ipCountOrFunctionList as $item1) {
+                    $res['IpCountOrFunctionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ipInfo) {
             $res['IpInfo'] = $this->ipInfo;
         }
+
         if (null !== $this->monthlySummaryList) {
-            $res['MonthlySummaryList'] = [];
-            if (null !== $this->monthlySummaryList && \is_array($this->monthlySummaryList)) {
-                $n = 0;
-                foreach ($this->monthlySummaryList as $item) {
-                    $res['MonthlySummaryList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->monthlySummaryList)) {
+                $res['MonthlySummaryList'] = [];
+                $n1 = 0;
+                foreach ($this->monthlySummaryList as $item1) {
+                    $res['MonthlySummaryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->standardAssetsFlowList) {
-            $res['StandardAssetsFlowList'] = [];
-            if (null !== $this->standardAssetsFlowList && \is_array($this->standardAssetsFlowList)) {
-                $n = 0;
-                foreach ($this->standardAssetsFlowList as $item) {
-                    $res['StandardAssetsFlowList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->standardAssetsFlowList)) {
+                $res['StandardAssetsFlowList'] = [];
+                $n1 = 0;
+                foreach ($this->standardAssetsFlowList as $item1) {
+                    $res['StandardAssetsFlowList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->standardAssetsFlowRegion) {
-            $res['StandardAssetsFlowRegion'] = $this->standardAssetsFlowRegion;
+            if (\is_array($this->standardAssetsFlowRegion)) {
+                $res['StandardAssetsFlowRegion'] = [];
+                foreach ($this->standardAssetsFlowRegion as $key1 => $value1) {
+                    $res['StandardAssetsFlowRegion'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->standardAssetsTotalFlowCn) {
             $res['StandardAssetsTotalFlowCn'] = $this->standardAssetsTotalFlowCn;
         }
+
         if (null !== $this->standardAssetsTotalFlowOv) {
             $res['StandardAssetsTotalFlowOv'] = $this->standardAssetsTotalFlowOv;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->totalFlowCn) {
             $res['TotalFlowCn'] = $this->totalFlowCn;
         }
+
         if (null !== $this->totalFlowOv) {
             $res['TotalFlowOv'] = $this->totalFlowOv;
         }
@@ -277,86 +251,116 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDdosOriginInstanceBillResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetStatus'])) {
             $model->assetStatus = $map['AssetStatus'];
         }
+
         if (isset($map['DebtStatus'])) {
             $model->debtStatus = $map['DebtStatus'];
         }
+
         if (isset($map['FlowList'])) {
             if (!empty($map['FlowList'])) {
                 $model->flowList = [];
-                $n               = 0;
-                foreach ($map['FlowList'] as $item) {
-                    $model->flowList[$n++] = null !== $item ? flowList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FlowList'] as $item1) {
+                    $model->flowList[$n1] = flowList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['FlowRegion'])) {
-            $model->flowRegion = $map['FlowRegion'];
+            if (!empty($map['FlowRegion'])) {
+                $model->flowRegion = [];
+                foreach ($map['FlowRegion'] as $key1 => $value1) {
+                    $model->flowRegion[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IpCount'])) {
             $model->ipCount = $map['IpCount'];
         }
+
         if (isset($map['IpCountOrFunctionList'])) {
             if (!empty($map['IpCountOrFunctionList'])) {
                 $model->ipCountOrFunctionList = [];
-                $n                            = 0;
-                foreach ($map['IpCountOrFunctionList'] as $item) {
-                    $model->ipCountOrFunctionList[$n++] = null !== $item ? ipCountOrFunctionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpCountOrFunctionList'] as $item1) {
+                    $model->ipCountOrFunctionList[$n1] = ipCountOrFunctionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IpInfo'])) {
             $model->ipInfo = $map['IpInfo'];
         }
+
         if (isset($map['MonthlySummaryList'])) {
             if (!empty($map['MonthlySummaryList'])) {
                 $model->monthlySummaryList = [];
-                $n                         = 0;
-                foreach ($map['MonthlySummaryList'] as $item) {
-                    $model->monthlySummaryList[$n++] = null !== $item ? monthlySummaryList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MonthlySummaryList'] as $item1) {
+                    $model->monthlySummaryList[$n1] = monthlySummaryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StandardAssetsFlowList'])) {
             if (!empty($map['StandardAssetsFlowList'])) {
                 $model->standardAssetsFlowList = [];
-                $n                             = 0;
-                foreach ($map['StandardAssetsFlowList'] as $item) {
-                    $model->standardAssetsFlowList[$n++] = null !== $item ? standardAssetsFlowList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StandardAssetsFlowList'] as $item1) {
+                    $model->standardAssetsFlowList[$n1] = standardAssetsFlowList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['StandardAssetsFlowRegion'])) {
-            $model->standardAssetsFlowRegion = $map['StandardAssetsFlowRegion'];
+            if (!empty($map['StandardAssetsFlowRegion'])) {
+                $model->standardAssetsFlowRegion = [];
+                foreach ($map['StandardAssetsFlowRegion'] as $key1 => $value1) {
+                    $model->standardAssetsFlowRegion[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['StandardAssetsTotalFlowCn'])) {
             $model->standardAssetsTotalFlowCn = $map['StandardAssetsTotalFlowCn'];
         }
+
         if (isset($map['StandardAssetsTotalFlowOv'])) {
             $model->standardAssetsTotalFlowOv = $map['StandardAssetsTotalFlowOv'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TotalFlowCn'])) {
             $model->totalFlowCn = $map['TotalFlowCn'];
         }
+
         if (isset($map['TotalFlowOv'])) {
             $model->totalFlowOv = $map['TotalFlowOv'];
         }

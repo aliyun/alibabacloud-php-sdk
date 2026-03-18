@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeAssetGroupResponseBody\assetGroupList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAssetGroupResponseBody extends Model
 {
     /**
-     * @description The information about the asset.
-     *
      * @var assetGroupList[]
      */
     public $assetGroupList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 487EC0F7-8D14-504E-914E-3A1BC314B581
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'assetGroupList' => 'AssetGroupList',
-        'requestId'      => 'RequestId',
-        'total'          => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->assetGroupList)) {
+            Model::validateArray($this->assetGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetGroupList) {
-            $res['AssetGroupList'] = [];
-            if (null !== $this->assetGroupList && \is_array($this->assetGroupList)) {
-                $n = 0;
-                foreach ($this->assetGroupList as $item) {
-                    $res['AssetGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assetGroupList)) {
+                $res['AssetGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->assetGroupList as $item1) {
+                    $res['AssetGroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -65,26 +62,29 @@ class DescribeAssetGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAssetGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetGroupList'])) {
             if (!empty($map['AssetGroupList'])) {
                 $model->assetGroupList = [];
-                $n                     = 0;
-                foreach ($map['AssetGroupList'] as $item) {
-                    $model->assetGroupList[$n++] = null !== $item ? assetGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssetGroupList'] as $item1) {
+                    $model->assetGroupList[$n1] = assetGroupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

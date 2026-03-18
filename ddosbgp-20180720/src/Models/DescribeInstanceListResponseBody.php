@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListResponseBody\instanceList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceListResponseBody extends Model
 {
     /**
-     * @description The details about the Anti-DDoS Origin instances.
-     *
      * @var instanceList[]
      */
     public $instanceList;
 
     /**
-     * @description The details about the Anti-DDoS Origin instance.
-     *
-     * @example 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details about the Anti-DDoS Origin instances.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'instanceList' => 'InstanceList',
-        'requestId'    => 'RequestId',
-        'total'        => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceList)) {
+            Model::validateArray($this->instanceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceList) {
-            $res['InstanceList'] = [];
-            if (null !== $this->instanceList && \is_array($this->instanceList)) {
-                $n = 0;
-                foreach ($this->instanceList as $item) {
-                    $res['InstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceList)) {
+                $res['InstanceList'] = [];
+                $n1 = 0;
+                foreach ($this->instanceList as $item1) {
+                    $res['InstanceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -65,26 +62,29 @@ class DescribeInstanceListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = [];
-                $n                   = 0;
-                foreach ($map['InstanceList'] as $item) {
-                    $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceList'] as $item1) {
+                    $model->instanceList[$n1] = instanceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

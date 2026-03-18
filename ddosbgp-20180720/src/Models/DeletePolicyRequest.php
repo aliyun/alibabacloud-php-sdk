@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyRequest extends Model
 {
     /**
-     * @description The ID of the policy.
-     *
-     * This parameter is required.
-     * @example 90300b1a-ced8-4437-b4bf-f9a5*******
-     *
      * @var string
      */
     public $id;
@@ -23,9 +18,10 @@ class DeletePolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -35,11 +31,11 @@ class DeletePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

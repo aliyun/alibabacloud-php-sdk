@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRdMemberListShrinkRequest extends Model
 {
     /**
-     * @description The list of the members.
-     *
-     * This parameter is required.
      * @var string
      */
     public $memberListShrink;
@@ -21,9 +18,10 @@ class DeleteRdMemberListShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memberListShrink) {
@@ -33,11 +31,11 @@ class DeleteRdMemberListShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRdMemberListShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
