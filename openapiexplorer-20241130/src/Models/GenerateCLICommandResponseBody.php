@@ -17,9 +17,15 @@ class GenerateCLICommandResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $unifiedCli;
     protected $_name = [
         'cli' => 'cli',
         'requestId' => 'requestId',
+        'unifiedCli' => 'unifiedCli',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class GenerateCLICommandResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->unifiedCli) {
+            $res['unifiedCli'] = $this->unifiedCli;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class GenerateCLICommandResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['unifiedCli'])) {
+            $model->unifiedCli = $map['unifiedCli'];
         }
 
         return $model;
