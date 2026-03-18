@@ -31,8 +31,14 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DisableUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DisableUserResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\EnableUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\EnableUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\FetchOAuthAuthenticationTokenHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\FetchOAuthAuthenticationTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\FetchOAuthAuthenticationTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateDeviceCodeRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateDeviceCodeResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateJwtAuthenticationTokenHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateJwtAuthenticationTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateJwtAuthenticationTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenByAuthorizationServerRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenByAuthorizationServerResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenRequest;
@@ -62,6 +68,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUsernameRespon
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListAuthenticationTokensHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListAuthenticationTokensRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListAuthenticationTokensResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsForUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsForUserRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsForUserResponse;
@@ -85,6 +94,8 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAcc
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenByDerivedShortTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenByDerivedShortTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupResponse;
@@ -94,12 +105,24 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitRe
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ReinstateAuthenticationTokenByConsumerHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ReinstateAuthenticationTokenByConsumerRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ReinstateAuthenticationTokenByConsumerResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ReinstateAuthenticationTokenHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ReinstateAuthenticationTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ReinstateAuthenticationTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUsersFromGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUsersFromGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUsersFromGroupResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeAuthenticationTokenByConsumerHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeAuthenticationTokenByConsumerRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeAuthenticationTokenByConsumerResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeAuthenticationTokenHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeAuthenticationTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeAuthenticationTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeTokenRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\SetUserPrimaryOrganizationalUnitHeaders;
@@ -108,6 +131,8 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\SetUserPrimaryOrganizatio
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\UpdateUserPasswordHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\UpdateUserPasswordRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\UpdateUserPasswordResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ValidateAuthenticationTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ValidateAuthenticationTokenResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -906,6 +931,82 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * 拉取一个有效的OAuth认证令牌。
+     *
+     * @param request - FetchOAuthAuthenticationTokenRequest
+     * @param headers - FetchOAuthAuthenticationTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchOAuthAuthenticationTokenResponse
+     *
+     * @param string                               $instanceId
+     * @param FetchOAuthAuthenticationTokenRequest $request
+     * @param FetchOAuthAuthenticationTokenHeaders $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return FetchOAuthAuthenticationTokenResponse
+     */
+    public function fetchOAuthAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->credentialProviderIdentifier) {
+            @$body['credentialProviderIdentifier'] = $request->credentialProviderIdentifier;
+        }
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FetchOAuthAuthenticationToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/fetchOAuthAccessToken',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return FetchOAuthAuthenticationTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 拉取一个有效的OAuth认证令牌。
+     *
+     * @param request - FetchOAuthAuthenticationTokenRequest
+     *
+     * @returns FetchOAuthAuthenticationTokenResponse
+     *
+     * @param string                               $instanceId
+     * @param FetchOAuthAuthenticationTokenRequest $request
+     *
+     * @return FetchOAuthAuthenticationTokenResponse
+     */
+    public function fetchOAuthAuthenticationToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FetchOAuthAuthenticationTokenHeaders([]);
+
+        return $this->fetchOAuthAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Generates a device code.
      *
      * @param request - GenerateDeviceCodeRequest
@@ -968,6 +1069,102 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = [];
 
         return $this->generateDeviceCodeWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 生成一个有效的JWT认证令牌。
+     *
+     * @param request - GenerateJwtAuthenticationTokenRequest
+     * @param headers - GenerateJwtAuthenticationTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateJwtAuthenticationTokenResponse
+     *
+     * @param string                                $instanceId
+     * @param GenerateJwtAuthenticationTokenRequest $request
+     * @param GenerateJwtAuthenticationTokenHeaders $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GenerateJwtAuthenticationTokenResponse
+     */
+    public function generateJwtAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->audiences) {
+            @$body['audiences'] = $request->audiences;
+        }
+
+        if (null !== $request->credentialProviderIdentifier) {
+            @$body['credentialProviderIdentifier'] = $request->credentialProviderIdentifier;
+        }
+
+        if (null !== $request->customClaims) {
+            @$body['customClaims'] = $request->customClaims;
+        }
+
+        if (null !== $request->expiration) {
+            @$body['expiration'] = $request->expiration;
+        }
+
+        if (null !== $request->includeDerivedShortToken) {
+            @$body['includeDerivedShortToken'] = $request->includeDerivedShortToken;
+        }
+
+        if (null !== $request->issuer) {
+            @$body['issuer'] = $request->issuer;
+        }
+
+        if (null !== $request->subject) {
+            @$body['subject'] = $request->subject;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateJwtAuthenticationToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/generateJwt',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateJwtAuthenticationTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 生成一个有效的JWT认证令牌。
+     *
+     * @param request - GenerateJwtAuthenticationTokenRequest
+     *
+     * @returns GenerateJwtAuthenticationTokenResponse
+     *
+     * @param string                                $instanceId
+     * @param GenerateJwtAuthenticationTokenRequest $request
+     *
+     * @return GenerateJwtAuthenticationTokenResponse
+     */
+    public function generateJwtAuthenticationToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GenerateJwtAuthenticationTokenHeaders([]);
+
+        return $this->generateJwtAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1921,6 +2118,98 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * 列举认证令牌。
+     *
+     * @param request - ListAuthenticationTokensRequest
+     * @param headers - ListAuthenticationTokensHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthenticationTokensResponse
+     *
+     * @param string                          $instanceId
+     * @param ListAuthenticationTokensRequest $request
+     * @param ListAuthenticationTokensHeaders $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAuthenticationTokensResponse
+     */
+    public function listAuthenticationTokensWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerId) {
+            @$query['consumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->credentialProviderIdentifier) {
+            @$query['credentialProviderIdentifier'] = $request->credentialProviderIdentifier;
+        }
+
+        if (null !== $request->expired) {
+            @$query['expired'] = $request->expired;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->revoked) {
+            @$query['revoked'] = $request->revoked;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthenticationTokens',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthenticationTokensResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 列举认证令牌。
+     *
+     * @param request - ListAuthenticationTokensRequest
+     *
+     * @returns ListAuthenticationTokensResponse
+     *
+     * @param string                          $instanceId
+     * @param ListAuthenticationTokensRequest $request
+     *
+     * @return ListAuthenticationTokensResponse
+     */
+    public function listAuthenticationTokens($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListAuthenticationTokensHeaders([]);
+
+        return $this->listAuthenticationTokensWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries information about Employee Identity and Access Management (EIAM) groups by page.
      *
      * @param request - ListGroupsRequest
@@ -2535,6 +2824,69 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * 使用派生短令牌查询对应的JWT认证令牌详情。
+     *
+     * @param request - ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+     *
+     * @param string                                                 $instanceId
+     * @param ObtainJwtAuthenticationTokenByDerivedShortTokenRequest $request
+     * @param string[]                                               $headers
+     * @param RuntimeOptions                                         $runtime
+     *
+     * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+     */
+    public function obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->derivedShortToken) {
+            @$body['derivedShortToken'] = $request->derivedShortToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ObtainJwtAuthenticationTokenByDerivedShortToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/obtainJwtByDerivedShortToken',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 使用派生短令牌查询对应的JWT认证令牌详情。
+     *
+     * @param request - ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
+     *
+     * @returns ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+     *
+     * @param string                                                 $instanceId
+     * @param ObtainJwtAuthenticationTokenByDerivedShortTokenRequest $request
+     *
+     * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
+     */
+    public function obtainJwtAuthenticationTokenByDerivedShortToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Modifies information about an Employee Identity and Access Management (EIAM) group.
      *
      * @param request - PatchGroupRequest
@@ -2807,6 +3159,158 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * 恢复一个认证令牌。
+     *
+     * @param request - ReinstateAuthenticationTokenRequest
+     * @param headers - ReinstateAuthenticationTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReinstateAuthenticationTokenResponse
+     *
+     * @param string                              $instanceId
+     * @param ReinstateAuthenticationTokenRequest $request
+     * @param ReinstateAuthenticationTokenHeaders $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ReinstateAuthenticationTokenResponse
+     */
+    public function reinstateAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        if (null !== $request->tokenTypeHint) {
+            @$body['token_type_hint'] = $request->tokenTypeHint;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReinstateAuthenticationToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/reinstate',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return ReinstateAuthenticationTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 恢复一个认证令牌。
+     *
+     * @param request - ReinstateAuthenticationTokenRequest
+     *
+     * @returns ReinstateAuthenticationTokenResponse
+     *
+     * @param string                              $instanceId
+     * @param ReinstateAuthenticationTokenRequest $request
+     *
+     * @return ReinstateAuthenticationTokenResponse
+     */
+    public function reinstateAuthenticationToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ReinstateAuthenticationTokenHeaders([]);
+
+        return $this->reinstateAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 基于使用者吊销认证令牌。
+     *
+     * @param request - ReinstateAuthenticationTokenByConsumerRequest
+     * @param headers - ReinstateAuthenticationTokenByConsumerHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReinstateAuthenticationTokenByConsumerResponse
+     *
+     * @param string                                        $instanceId
+     * @param ReinstateAuthenticationTokenByConsumerRequest $request
+     * @param ReinstateAuthenticationTokenByConsumerHeaders $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ReinstateAuthenticationTokenByConsumerResponse
+     */
+    public function reinstateAuthenticationTokenByConsumerWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->consumerId) {
+            @$body['consumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->credentialProviderIdentifier) {
+            @$body['credentialProviderIdentifier'] = $request->credentialProviderIdentifier;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReinstateAuthenticationTokenByConsumer',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/reinstateByConsumer',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return ReinstateAuthenticationTokenByConsumerResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 基于使用者吊销认证令牌。
+     *
+     * @param request - ReinstateAuthenticationTokenByConsumerRequest
+     *
+     * @returns ReinstateAuthenticationTokenByConsumerResponse
+     *
+     * @param string                                        $instanceId
+     * @param ReinstateAuthenticationTokenByConsumerRequest $request
+     *
+     * @return ReinstateAuthenticationTokenByConsumerResponse
+     */
+    public function reinstateAuthenticationTokenByConsumer($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ReinstateAuthenticationTokenByConsumerHeaders([]);
+
+        return $this->reinstateAuthenticationTokenByConsumerWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 将账户从多个组织移除【不支持移除主组织】.
      *
      * @param request - RemoveUserFromOrganizationalUnitsRequest
@@ -2956,6 +3460,158 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new RemoveUsersFromGroupHeaders([]);
 
         return $this->removeUsersFromGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 吊销一个认证令牌。
+     *
+     * @param request - RevokeAuthenticationTokenRequest
+     * @param headers - RevokeAuthenticationTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeAuthenticationTokenResponse
+     *
+     * @param string                           $instanceId
+     * @param RevokeAuthenticationTokenRequest $request
+     * @param RevokeAuthenticationTokenHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RevokeAuthenticationTokenResponse
+     */
+    public function revokeAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        if (null !== $request->tokenTypeHint) {
+            @$body['token_type_hint'] = $request->tokenTypeHint;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeAuthenticationToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/revoke',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return RevokeAuthenticationTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 吊销一个认证令牌。
+     *
+     * @param request - RevokeAuthenticationTokenRequest
+     *
+     * @returns RevokeAuthenticationTokenResponse
+     *
+     * @param string                           $instanceId
+     * @param RevokeAuthenticationTokenRequest $request
+     *
+     * @return RevokeAuthenticationTokenResponse
+     */
+    public function revokeAuthenticationToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RevokeAuthenticationTokenHeaders([]);
+
+        return $this->revokeAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 基于使用者吊销认证令牌。
+     *
+     * @param request - RevokeAuthenticationTokenByConsumerRequest
+     * @param headers - RevokeAuthenticationTokenByConsumerHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeAuthenticationTokenByConsumerResponse
+     *
+     * @param string                                     $instanceId
+     * @param RevokeAuthenticationTokenByConsumerRequest $request
+     * @param RevokeAuthenticationTokenByConsumerHeaders $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RevokeAuthenticationTokenByConsumerResponse
+     */
+    public function revokeAuthenticationTokenByConsumerWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->consumerId) {
+            @$body['consumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->credentialProviderIdentifier) {
+            @$body['credentialProviderIdentifier'] = $request->credentialProviderIdentifier;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeAuthenticationTokenByConsumer',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/revokeByConsumer',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return RevokeAuthenticationTokenByConsumerResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 基于使用者吊销认证令牌。
+     *
+     * @param request - RevokeAuthenticationTokenByConsumerRequest
+     *
+     * @returns RevokeAuthenticationTokenByConsumerResponse
+     *
+     * @param string                                     $instanceId
+     * @param RevokeAuthenticationTokenByConsumerRequest $request
+     *
+     * @return RevokeAuthenticationTokenByConsumerResponse
+     */
+    public function revokeAuthenticationTokenByConsumer($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RevokeAuthenticationTokenByConsumerHeaders([]);
+
+        return $this->revokeAuthenticationTokenByConsumerWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3185,5 +3841,72 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new UpdateUserPasswordHeaders([]);
 
         return $this->updateUserPasswordWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 校验认证令牌是否有效。
+     *
+     * @param request - ValidateAuthenticationTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateAuthenticationTokenResponse
+     *
+     * @param string                             $instanceId
+     * @param ValidateAuthenticationTokenRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ValidateAuthenticationTokenResponse
+     */
+    public function validateAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->token) {
+            @$body['token'] = $request->token;
+        }
+
+        if (null !== $request->tokenTypeHint) {
+            @$body['token_type_hint'] = $request->tokenTypeHint;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateAuthenticationToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/validate',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateAuthenticationTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 校验认证令牌是否有效。
+     *
+     * @param request - ValidateAuthenticationTokenRequest
+     *
+     * @returns ValidateAuthenticationTokenResponse
+     *
+     * @param string                             $instanceId
+     * @param ValidateAuthenticationTokenRequest $request
+     *
+     * @return ValidateAuthenticationTokenResponse
+     */
+    public function validateAuthenticationToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->validateAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime);
     }
 }
