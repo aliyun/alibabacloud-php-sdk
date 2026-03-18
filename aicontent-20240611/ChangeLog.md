@@ -1,3 +1,6 @@
+2026-03-18 Version: 4.0.1
+- Generated php 20240611 for AiContent.
+
 2026-03-18 Version: 4.0.0
 - Support API AliyunConsoleOpenApiQueryPaidResource.
 - Support API ModelRouterChatCompletions.
