@@ -66,7 +66,8 @@ class PersonalizedTextToImageAddInferenceJobRequest extends Model
                 $res['imageUrl'] = [];
                 $n1 = 0;
                 foreach ($this->imageUrl as $item1) {
-                    $res['imageUrl'][$n1++] = $item1;
+                    $res['imageUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class PersonalizedTextToImageAddInferenceJobRequest extends Model
                 $model->imageUrl = [];
                 $n1 = 0;
                 foreach ($map['imageUrl'] as $item1) {
-                    $model->imageUrl[$n1++] = $item1;
+                    $model->imageUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

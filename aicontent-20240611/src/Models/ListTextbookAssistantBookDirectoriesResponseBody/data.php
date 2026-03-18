@@ -43,7 +43,8 @@ class data extends Model
                 $res['directoryTree'] = [];
                 $n1 = 0;
                 foreach ($this->directoryTree as $item1) {
-                    $res['directoryTree'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['directoryTree'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class data extends Model
                 $model->directoryTree = [];
                 $n1 = 0;
                 foreach ($map['directoryTree'] as $item1) {
-                    $model->directoryTree[$n1++] = directoryTree::fromMap($item1);
+                    $model->directoryTree[$n1] = directoryTree::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

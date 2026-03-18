@@ -99,7 +99,8 @@ class data extends Model
                 $res['questionList'] = [];
                 $n1 = 0;
                 foreach ($this->questionList as $item1) {
-                    $res['questionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['questionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class data extends Model
                 $res['sceneList'] = [];
                 $n1 = 0;
                 foreach ($this->sceneList as $item1) {
-                    $res['sceneList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sceneList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -119,7 +121,8 @@ class data extends Model
                 $res['sentenceList'] = [];
                 $n1 = 0;
                 foreach ($this->sentenceList as $item1) {
-                    $res['sentenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sentenceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -141,7 +144,8 @@ class data extends Model
                 $res['wordList'] = [];
                 $n1 = 0;
                 foreach ($this->wordList as $item1) {
-                    $res['wordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['wordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -166,7 +170,8 @@ class data extends Model
                 $model->questionList = [];
                 $n1 = 0;
                 foreach ($map['questionList'] as $item1) {
-                    $model->questionList[$n1++] = questionList::fromMap($item1);
+                    $model->questionList[$n1] = questionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -176,7 +181,8 @@ class data extends Model
                 $model->sceneList = [];
                 $n1 = 0;
                 foreach ($map['sceneList'] as $item1) {
-                    $model->sceneList[$n1++] = sceneList::fromMap($item1);
+                    $model->sceneList[$n1] = sceneList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -186,7 +192,8 @@ class data extends Model
                 $model->sentenceList = [];
                 $n1 = 0;
                 foreach ($map['sentenceList'] as $item1) {
-                    $model->sentenceList[$n1++] = sentenceList::fromMap($item1);
+                    $model->sentenceList[$n1] = sentenceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -208,7 +215,8 @@ class data extends Model
                 $model->wordList = [];
                 $n1 = 0;
                 foreach ($map['wordList'] as $item1) {
-                    $model->wordList[$n1++] = wordList::fromMap($item1);
+                    $model->wordList[$n1] = wordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

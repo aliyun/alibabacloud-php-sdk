@@ -39,7 +39,8 @@ class data extends Model
                 $res['gradeVolumes'] = [];
                 $n1 = 0;
                 foreach ($this->gradeVolumes as $item1) {
-                    $res['gradeVolumes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['gradeVolumes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class data extends Model
                 $model->gradeVolumes = [];
                 $n1 = 0;
                 foreach ($map['gradeVolumes'] as $item1) {
-                    $model->gradeVolumes[$n1++] = gradeVolumes::fromMap($item1);
+                    $model->gradeVolumes[$n1] = gradeVolumes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

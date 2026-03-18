@@ -71,7 +71,8 @@ class data extends Model
                 $res['ProjectApps'] = [];
                 $n1 = 0;
                 foreach ($this->projectApps as $item1) {
-                    $res['ProjectApps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProjectApps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class data extends Model
                 $res['ProjectSDK'] = [];
                 $n1 = 0;
                 foreach ($this->projectSDK as $item1) {
-                    $res['ProjectSDK'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProjectSDK'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +120,8 @@ class data extends Model
                 $model->projectApps = [];
                 $n1 = 0;
                 foreach ($map['ProjectApps'] as $item1) {
-                    $model->projectApps[$n1++] = projectApps::fromMap($item1);
+                    $model->projectApps[$n1] = projectApps::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +139,8 @@ class data extends Model
                 $model->projectSDK = [];
                 $n1 = 0;
                 foreach ($map['ProjectSDK'] as $item1) {
-                    $model->projectSDK[$n1++] = projectSDK::fromMap($item1);
+                    $model->projectSDK[$n1] = projectSDK::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

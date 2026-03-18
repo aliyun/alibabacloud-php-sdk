@@ -63,7 +63,8 @@ class unit extends Model
                 $res['section'] = [];
                 $n1 = 0;
                 foreach ($this->section as $item1) {
-                    $res['section'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['section'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class unit extends Model
                 $res['topic'] = [];
                 $n1 = 0;
                 foreach ($this->topic as $item1) {
-                    $res['topic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['topic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class unit extends Model
                 $model->section = [];
                 $n1 = 0;
                 foreach ($map['section'] as $item1) {
-                    $model->section[$n1++] = section::fromMap($item1);
+                    $model->section[$n1] = section::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class unit extends Model
                 $model->topic = [];
                 $n1 = 0;
                 foreach ($map['topic'] as $item1) {
-                    $model->topic[$n1++] = topic::fromMap($item1);
+                    $model->topic[$n1] = topic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

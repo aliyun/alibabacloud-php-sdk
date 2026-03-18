@@ -85,7 +85,8 @@ class Personalizedtxt2imgModelTrainJobInfoDTO extends Model
                 $res['ImageUrl'] = [];
                 $n1 = 0;
                 foreach ($this->imageUrl as $item1) {
-                    $res['ImageUrl'][$n1++] = $item1;
+                    $res['ImageUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class Personalizedtxt2imgModelTrainJobInfoDTO extends Model
                 $res['InferenceJobList'] = [];
                 $n1 = 0;
                 foreach ($this->inferenceJobList as $item1) {
-                    $res['InferenceJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InferenceJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +142,8 @@ class Personalizedtxt2imgModelTrainJobInfoDTO extends Model
                 $model->imageUrl = [];
                 $n1 = 0;
                 foreach ($map['ImageUrl'] as $item1) {
-                    $model->imageUrl[$n1++] = $item1;
+                    $model->imageUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class Personalizedtxt2imgModelTrainJobInfoDTO extends Model
                 $model->inferenceJobList = [];
                 $n1 = 0;
                 foreach ($map['InferenceJobList'] as $item1) {
-                    $model->inferenceJobList[$n1++] = Personalizedtxt2imgInferenceJobInfoDTO::fromMap($item1);
+                    $model->inferenceJobList[$n1] = Personalizedtxt2imgInferenceJobInfoDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

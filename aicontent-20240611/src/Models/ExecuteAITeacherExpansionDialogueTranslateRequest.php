@@ -81,7 +81,8 @@ class ExecuteAITeacherExpansionDialogueTranslateRequest extends Model
                 $res['dialogueTasks'] = [];
                 $n1 = 0;
                 foreach ($this->dialogueTasks as $item1) {
-                    $res['dialogueTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['dialogueTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ExecuteAITeacherExpansionDialogueTranslateRequest extends Model
                 $res['records'] = [];
                 $n1 = 0;
                 foreach ($this->records as $item1) {
-                    $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class ExecuteAITeacherExpansionDialogueTranslateRequest extends Model
                 $model->dialogueTasks = [];
                 $n1 = 0;
                 foreach ($map['dialogueTasks'] as $item1) {
-                    $model->dialogueTasks[$n1++] = dialogueTasks::fromMap($item1);
+                    $model->dialogueTasks[$n1] = dialogueTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class ExecuteAITeacherExpansionDialogueTranslateRequest extends Model
                 $model->records = [];
                 $n1 = 0;
                 foreach ($map['records'] as $item1) {
-                    $model->records[$n1++] = records::fromMap($item1);
+                    $model->records[$n1] = records::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

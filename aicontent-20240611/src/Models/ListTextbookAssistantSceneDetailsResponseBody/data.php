@@ -116,7 +116,8 @@ class data extends Model
                 $res['roleList'] = [];
                 $n1 = 0;
                 foreach ($this->roleList as $item1) {
-                    $res['roleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['roleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class data extends Model
                 $res['sceneImageList'] = [];
                 $n1 = 0;
                 foreach ($this->sceneImageList as $item1) {
-                    $res['sceneImageList'][$n1++] = $item1;
+                    $res['sceneImageList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +146,8 @@ class data extends Model
                 $res['sceneTaskList'] = [];
                 $n1 = 0;
                 foreach ($this->sceneTaskList as $item1) {
-                    $res['sceneTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sceneTaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +161,8 @@ class data extends Model
                 $res['sentenceList'] = [];
                 $n1 = 0;
                 foreach ($this->sentenceList as $item1) {
-                    $res['sentenceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['sentenceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -180,7 +184,8 @@ class data extends Model
                 $res['wordList'] = [];
                 $n1 = 0;
                 foreach ($this->wordList as $item1) {
-                    $res['wordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['wordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -201,7 +206,8 @@ class data extends Model
                 $model->roleList = [];
                 $n1 = 0;
                 foreach ($map['roleList'] as $item1) {
-                    $model->roleList[$n1++] = roleList::fromMap($item1);
+                    $model->roleList[$n1] = roleList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -219,7 +225,8 @@ class data extends Model
                 $model->sceneImageList = [];
                 $n1 = 0;
                 foreach ($map['sceneImageList'] as $item1) {
-                    $model->sceneImageList[$n1++] = $item1;
+                    $model->sceneImageList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -229,7 +236,8 @@ class data extends Model
                 $model->sceneTaskList = [];
                 $n1 = 0;
                 foreach ($map['sceneTaskList'] as $item1) {
-                    $model->sceneTaskList[$n1++] = sceneTaskList::fromMap($item1);
+                    $model->sceneTaskList[$n1] = sceneTaskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -243,7 +251,8 @@ class data extends Model
                 $model->sentenceList = [];
                 $n1 = 0;
                 foreach ($map['sentenceList'] as $item1) {
-                    $model->sentenceList[$n1++] = sentenceList::fromMap($item1);
+                    $model->sentenceList[$n1] = sentenceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -265,7 +274,8 @@ class data extends Model
                 $model->wordList = [];
                 $n1 = 0;
                 foreach ($map['wordList'] as $item1) {
-                    $model->wordList[$n1++] = wordList::fromMap($item1);
+                    $model->wordList[$n1] = wordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

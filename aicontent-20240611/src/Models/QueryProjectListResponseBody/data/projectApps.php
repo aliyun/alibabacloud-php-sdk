@@ -45,7 +45,8 @@ class projectApps extends Model
                 $res['ApplicationAccessIds'] = [];
                 $n1 = 0;
                 foreach ($this->applicationAccessIds as $item1) {
-                    $res['ApplicationAccessIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplicationAccessIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class projectApps extends Model
                 $model->applicationAccessIds = [];
                 $n1 = 0;
                 foreach ($map['ApplicationAccessIds'] as $item1) {
-                    $model->applicationAccessIds[$n1++] = applicationAccessIds::fromMap($item1);
+                    $model->applicationAccessIds[$n1] = applicationAccessIds::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

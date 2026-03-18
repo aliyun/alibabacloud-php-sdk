@@ -5,12 +5,15 @@
 namespace AlibabaCloud\SDK\AiContent\V20240611;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryPaidResourceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryPaidResourceResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsCallsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsCallsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\CountOralEvaluationStatisticsConcurrentRequest;
@@ -39,8 +42,6 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueRequ
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateResponse;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteHundredThousandWhysDialogueRequest;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteHundredThousandWhysDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDialogueRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDifficultyRequest;
@@ -77,6 +78,49 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolume
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCopyApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteClientResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelWithApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosProvidersRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosProvidersResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosTagsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosTagsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationChartsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationChartsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateConversationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetRequest;
@@ -416,6 +460,99 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 阿里云控制台/列出购买过的资源列表.
+     *
+     * @param request - AliyunConsoleOpenApiQueryPaidResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AliyunConsoleOpenApiQueryPaidResourceResponse
+     *
+     * @param AliyunConsoleOpenApiQueryPaidResourceRequest $request
+     * @param string[]                                     $headers
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return AliyunConsoleOpenApiQueryPaidResourceResponse
+     */
+    public function aliyunConsoleOpenApiQueryPaidResourceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AliyunConsoleOpenApiQueryPaidResource',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aliyunConsole/queryPaidResource',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AliyunConsoleOpenApiQueryPaidResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 阿里云控制台/列出购买过的资源列表.
+     *
+     * @param request - AliyunConsoleOpenApiQueryPaidResourceRequest
+     *
+     * @returns AliyunConsoleOpenApiQueryPaidResourceResponse
+     *
+     * @param AliyunConsoleOpenApiQueryPaidResourceRequest $request
+     *
+     * @return AliyunConsoleOpenApiQueryPaidResourceResponse
+     */
+    public function aliyunConsoleOpenApiQueryPaidResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aliyunConsoleOpenApiQueryPaidResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 智能批改/口语评测/统计/调用量.
      *
      * @param request - CountOralEvaluationStatisticsCallsRequest
@@ -744,6 +881,89 @@ class AiContent extends OpenApiClient
      *
      * @return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
      */
+    public function executeAITeacherChineseCompositionTutoringWorkflowRunWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->essayOutline) {
+            @$body['essayOutline'] = $request->essayOutline;
+        }
+
+        if (null !== $request->essayRequirements) {
+            @$body['essayRequirements'] = $request->essayRequirements;
+        }
+
+        if (null !== $request->essayTopic) {
+            @$body['essayTopic'] = $request->essayTopic;
+        }
+
+        if (null !== $request->essayType) {
+            @$body['essayType'] = $request->essayType;
+        }
+
+        if (null !== $request->essayWordCount) {
+            @$body['essayWordCount'] = $request->essayWordCount;
+        }
+
+        if (null !== $request->grade) {
+            @$body['grade'] = $request->grade;
+        }
+
+        if (null !== $request->responseMode) {
+            @$body['responseMode'] = $request->responseMode;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAITeacherChineseCompositionTutoringWorkflowRun',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/api/v1/intelligentAgent/chineseCompositionTutoring/workflowRun',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 中文作文辅导
+     *
+     * @param request - ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
+     *
+     * @param ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest $request
+     * @param string[]                                                     $headers
+     * @param RuntimeOptions                                               $runtime
+     *
+     * @return ExecuteAITeacherChineseCompositionTutoringWorkflowRunResponse
+     */
     public function executeAITeacherChineseCompositionTutoringWorkflowRunWithOptions($request, $headers, $runtime)
     {
         $request->validate();
@@ -833,6 +1053,89 @@ class AiContent extends OpenApiClient
      *
      * @return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
      */
+    public function executeAITeacherEnglishCompositionTutoringWorkflowRunWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->essayOutline) {
+            @$body['essayOutline'] = $request->essayOutline;
+        }
+
+        if (null !== $request->essayRequirements) {
+            @$body['essayRequirements'] = $request->essayRequirements;
+        }
+
+        if (null !== $request->essayTopic) {
+            @$body['essayTopic'] = $request->essayTopic;
+        }
+
+        if (null !== $request->essayType) {
+            @$body['essayType'] = $request->essayType;
+        }
+
+        if (null !== $request->essayWordCount) {
+            @$body['essayWordCount'] = $request->essayWordCount;
+        }
+
+        if (null !== $request->grade) {
+            @$body['grade'] = $request->grade;
+        }
+
+        if (null !== $request->responseMode) {
+            @$body['responseMode'] = $request->responseMode;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAITeacherEnglishCompositionTutoringWorkflowRun',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/api/v1/intelligentAgent/englishCompositionTutoring/workflowRun',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 英语作文辅导
+     *
+     * @param request - ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
+     *
+     * @param ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest $request
+     * @param string[]                                                     $headers
+     * @param RuntimeOptions                                               $runtime
+     *
+     * @return ExecuteAITeacherEnglishCompositionTutoringWorkflowRunResponse
+     */
     public function executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions($request, $headers, $runtime)
     {
         $request->validate();
@@ -905,6 +1208,89 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->executeAITeacherEnglishCompositionTutoringWorkflowRunWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 英文释义.
+     *
+     * @param request - ExecuteAITeacherEnglishParaphraseChatMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAITeacherEnglishParaphraseChatMessageResponse
+     *
+     * @param ExecuteAITeacherEnglishParaphraseChatMessageRequest $request
+     * @param string[]                                            $headers
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return ExecuteAITeacherEnglishParaphraseChatMessageResponse
+     */
+    public function executeAITeacherEnglishParaphraseChatMessageWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->grade) {
+            @$body['grade'] = $request->grade;
+        }
+
+        if (null !== $request->questionId) {
+            @$body['questionId'] = $request->questionId;
+        }
+
+        if (null !== $request->questionInfo) {
+            @$body['questionInfo'] = $request->questionInfo;
+        }
+
+        if (null !== $request->responseMode) {
+            @$body['responseMode'] = $request->responseMode;
+        }
+
+        if (null !== $request->userAnswer) {
+            @$body['userAnswer'] = $request->userAnswer;
+        }
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAITeacherEnglishParaphraseChatMessage',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/api/v1/intelligentAgent/englishParaphrase/chatMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ExecuteAITeacherEnglishParaphraseChatMessageResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
     }
 
     /**
@@ -1467,83 +1853,6 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 十万个为什么对话接入.
-     *
-     * @param request - ExecuteHundredThousandWhysDialogueRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExecuteHundredThousandWhysDialogueResponse
-     *
-     * @param ExecuteHundredThousandWhysDialogueRequest $request
-     * @param string[]                                  $headers
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ExecuteHundredThousandWhysDialogueResponse
-     */
-    public function executeHundredThousandWhysDialogueWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->ageGroup) {
-            @$body['ageGroup'] = $request->ageGroup;
-        }
-
-        if (null !== $request->chatId) {
-            @$body['chatId'] = $request->chatId;
-        }
-
-        if (null !== $request->deviceId) {
-            @$body['deviceId'] = $request->deviceId;
-        }
-
-        if (null !== $request->macAddress) {
-            @$body['macAddress'] = $request->macAddress;
-        }
-
-        if (null !== $request->messages) {
-            @$body['messages'] = $request->messages;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'ExecuteHundredThousandWhysDialogue',
-            'version' => '20240611',
-            'protocol' => 'HTTPS',
-            'pathname' => '/pop/api/v1/intelligentAgent/tenWWhys/executeDialogue',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return ExecuteHundredThousandWhysDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 十万个为什么对话接入.
-     *
-     * @param request - ExecuteHundredThousandWhysDialogueRequest
-     *
-     * @returns ExecuteHundredThousandWhysDialogueResponse
-     *
-     * @param ExecuteHundredThousandWhysDialogueRequest $request
-     *
-     * @return ExecuteHundredThousandWhysDialogueResponse
-     */
-    public function executeHundredThousandWhysDialogue($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->executeHundredThousandWhysDialogueWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * 进行AI对话.
      *
      * @param request - ExecuteTextbookAssistantDialogueRequest
@@ -1910,6 +2219,73 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->executeTextbookAssistantRetryConversationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 进行对话-流式输出.
+     *
+     * @param request - ExecuteTextbookAssistantSseDialogueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteTextbookAssistantSseDialogueResponse
+     *
+     * @param ExecuteTextbookAssistantSseDialogueRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ExecuteTextbookAssistantSseDialogueResponse
+     */
+    public function executeTextbookAssistantSseDialogueWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authToken) {
+            @$body['authToken'] = $request->authToken;
+        }
+
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->scenario) {
+            @$body['scenario'] = $request->scenario;
+        }
+
+        if (null !== $request->userMessage) {
+            @$body['userMessage'] = $request->userMessage;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteTextbookAssistantSseDialogue',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/textbookAssistant/dialogue/ExecuteSseDialogue',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ExecuteTextbookAssistantSseDialogueResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
     }
 
     /**
@@ -2839,6 +3215,2005 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->listTextbookAssistantSceneDetailsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 聊天/聊天接口.
+     *
+     * @param request - ModelRouterChatCompletionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterChatCompletionsResponse
+     *
+     * @param ModelRouterChatCompletionsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterChatCompletionsResponse
+     */
+    public function modelRouterChatCompletionsWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => $request->body,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterChatCompletions',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/chat/completions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ModelRouterChatCompletionsResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 聊天/聊天接口.
+     *
+     * @param request - ModelRouterChatCompletionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterChatCompletionsResponse
+     *
+     * @param ModelRouterChatCompletionsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterChatCompletionsResponse
+     */
+    public function modelRouterChatCompletionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => $request->body,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterChatCompletions',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/chat/completions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterChatCompletionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 聊天/聊天接口.
+     *
+     * @param request - ModelRouterChatCompletionsRequest
+     *
+     * @returns ModelRouterChatCompletionsResponse
+     *
+     * @param ModelRouterChatCompletionsRequest $request
+     *
+     * @return ModelRouterChatCompletionsResponse
+     */
+    public function modelRouterChatCompletions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterChatCompletionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * API密钥管理/复制API密钥.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCopyApiKeyResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterCopyApiKeyResponse
+     */
+    public function modelRouterCopyApiKeyWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCopyApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys/' . Url::percentEncode($id) . '/copy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCopyApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * API密钥管理/复制API密钥.
+     *
+     * @returns ModelRouterCopyApiKeyResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterCopyApiKeyResponse
+     */
+    public function modelRouterCopyApiKey($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCopyApiKeyWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * API密钥管理/创建API密钥.
+     *
+     * @param request - ModelRouterCreateApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateApiKeyResponse
+     *
+     * @param ModelRouterCreateApiKeyRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModelRouterCreateApiKeyResponse
+     */
+    public function modelRouterCreateApiKeyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientId) {
+            @$body['clientId'] = $request->clientId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * API密钥管理/创建API密钥.
+     *
+     * @param request - ModelRouterCreateApiKeyRequest
+     *
+     * @returns ModelRouterCreateApiKeyResponse
+     *
+     * @param ModelRouterCreateApiKeyRequest $request
+     *
+     * @return ModelRouterCreateApiKeyResponse
+     */
+    public function modelRouterCreateApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateApiKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/创建客户.
+     *
+     * @param request - ModelRouterCreateClientRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateClientResponse
+     *
+     * @param ModelRouterCreateClientRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModelRouterCreateClientResponse
+     */
+    public function modelRouterCreateClientWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->address) {
+            @$body['address'] = $request->address;
+        }
+
+        if (null !== $request->allowedModels) {
+            @$body['allowedModels'] = $request->allowedModels;
+        }
+
+        if (null !== $request->contact) {
+            @$body['contact'] = $request->contact;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateClient',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/创建客户.
+     *
+     * @param request - ModelRouterCreateClientRequest
+     *
+     * @returns ModelRouterCreateClientResponse
+     *
+     * @param ModelRouterCreateClientRequest $request
+     *
+     * @return ModelRouterCreateClientResponse
+     */
+    public function modelRouterCreateClient($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateClientWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 对话管理/创建对话.
+     *
+     * @param request - ModelRouterCreateConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateConversationResponse
+     *
+     * @param ModelRouterCreateConversationRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterCreateConversationResponse
+     */
+    public function modelRouterCreateConversationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chatData) {
+            @$body['chatData'] = $request->chatData;
+        }
+
+        if (null !== $request->modelIds) {
+            @$body['modelIds'] = $request->modelIds;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateConversation',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/conversations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对话管理/创建对话.
+     *
+     * @param request - ModelRouterCreateConversationRequest
+     *
+     * @returns ModelRouterCreateConversationResponse
+     *
+     * @param ModelRouterCreateConversationRequest $request
+     *
+     * @return ModelRouterCreateConversationResponse
+     */
+    public function modelRouterCreateConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateConversationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型管理/创建模型.
+     *
+     * @param request - ModelRouterCreateModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateModelResponse
+     *
+     * @param ModelRouterCreateModelRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModelRouterCreateModelResponse
+     */
+    public function modelRouterCreateModelWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$body['baseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelType) {
+            @$body['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->symbol) {
+            @$body['symbol'] = $request->symbol;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateModel',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型管理/创建模型.
+     *
+     * @param request - ModelRouterCreateModelRequest
+     *
+     * @returns ModelRouterCreateModelResponse
+     *
+     * @param ModelRouterCreateModelRequest $request
+     *
+     * @return ModelRouterCreateModelResponse
+     */
+    public function modelRouterCreateModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateModelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * API密钥管理/删除API密钥.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterDeleteApiKeyResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterDeleteApiKeyResponse
+     */
+    public function modelRouterDeleteApiKeyWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterDeleteApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys/' . Url::percentEncode($id) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterDeleteApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * API密钥管理/删除API密钥.
+     *
+     * @returns ModelRouterDeleteApiKeyResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterDeleteApiKeyResponse
+     */
+    public function modelRouterDeleteApiKey($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterDeleteApiKeyWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/删除客户.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterDeleteClientResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterDeleteClientResponse
+     */
+    public function modelRouterDeleteClientWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterDeleteClient',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterDeleteClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/删除客户.
+     *
+     * @returns ModelRouterDeleteClientResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterDeleteClientResponse
+     */
+    public function modelRouterDeleteClient($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterDeleteClientWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * 对话管理/删除对话.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterDeleteConversationResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterDeleteConversationResponse
+     */
+    public function modelRouterDeleteConversationWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterDeleteConversation',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/conversations/' . Url::percentEncode($id) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterDeleteConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对话管理/删除对话.
+     *
+     * @returns ModelRouterDeleteConversationResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterDeleteConversationResponse
+     */
+    public function modelRouterDeleteConversation($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterDeleteConversationWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * 模型管理/删除模型.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterDeleteModelResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterDeleteModelResponse
+     */
+    public function modelRouterDeleteModelWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterDeleteModel',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models/' . Url::percentEncode($id) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterDeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型管理/删除模型.
+     *
+     * @returns ModelRouterDeleteModelResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterDeleteModelResponse
+     */
+    public function modelRouterDeleteModel($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterDeleteModelWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * API密钥管理/获取API密钥详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryApiKeyResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterQueryApiKeyResponse
+     */
+    public function modelRouterQueryApiKeyWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys/' . Url::percentEncode($id) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * API密钥管理/获取API密钥详情.
+     *
+     * @returns ModelRouterQueryApiKeyResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterQueryApiKeyResponse
+     */
+    public function modelRouterQueryApiKey($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryApiKeyWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * API密钥管理/获取API密钥列表.
+     *
+     * @param request - ModelRouterQueryApiKeyListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryApiKeyListResponse
+     *
+     * @param ModelRouterQueryApiKeyListRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterQueryApiKeyListResponse
+     */
+    public function modelRouterQueryApiKeyListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryApiKeyList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/apikeys',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryApiKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * API密钥管理/获取API密钥列表.
+     *
+     * @param request - ModelRouterQueryApiKeyListRequest
+     *
+     * @returns ModelRouterQueryApiKeyListResponse
+     *
+     * @param ModelRouterQueryApiKeyListRequest $request
+     *
+     * @return ModelRouterQueryApiKeyListResponse
+     */
+    public function modelRouterQueryApiKeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryApiKeyListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/获取客户列表.
+     *
+     * @param request - ModelRouterQueryClientListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryClientListResponse
+     *
+     * @param ModelRouterQueryClientListRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterQueryClientListResponse
+     */
+    public function modelRouterQueryClientListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryClientList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryClientListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/获取客户列表.
+     *
+     * @param request - ModelRouterQueryClientListRequest
+     *
+     * @returns ModelRouterQueryClientListResponse
+     *
+     * @param ModelRouterQueryClientListRequest $request
+     *
+     * @return ModelRouterQueryClientListResponse
+     */
+    public function modelRouterQueryClientList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryClientListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 对话管理/获取对话详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryConversationResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterQueryConversationResponse
+     */
+    public function modelRouterQueryConversationWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryConversation',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/conversations/' . Url::percentEncode($id) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对话管理/获取对话详情.
+     *
+     * @returns ModelRouterQueryConversationResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterQueryConversationResponse
+     */
+    public function modelRouterQueryConversation($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryConversationWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * 对话管理/获取对话列表.
+     *
+     * @param request - ModelRouterQueryConversationListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryConversationListResponse
+     *
+     * @param ModelRouterQueryConversationListRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModelRouterQueryConversationListResponse
+     */
+    public function modelRouterQueryConversationListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryConversationList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/conversations',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryConversationListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对话管理/获取对话列表.
+     *
+     * @param request - ModelRouterQueryConversationListRequest
+     *
+     * @returns ModelRouterQueryConversationListResponse
+     *
+     * @param ModelRouterQueryConversationListRequest $request
+     *
+     * @return ModelRouterQueryConversationListResponse
+     */
+    public function modelRouterQueryConversationList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryConversationListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型管理/获取模型详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterQueryModelResponse
+     */
+    public function modelRouterQueryModelWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModel',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models/' . Url::percentEncode($id) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型管理/获取模型详情.
+     *
+     * @returns ModelRouterQueryModelResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterQueryModelResponse
+     */
+    public function modelRouterQueryModel($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * 模型管理/获取模型列表.
+     *
+     * @param request - ModelRouterQueryModelListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelListResponse
+     *
+     * @param ModelRouterQueryModelListRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModelRouterQueryModelListResponse
+     */
+    public function modelRouterQueryModelListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型管理/获取模型列表.
+     *
+     * @param request - ModelRouterQueryModelListRequest
+     *
+     * @returns ModelRouterQueryModelListResponse
+     *
+     * @param ModelRouterQueryModelListRequest $request
+     *
+     * @return ModelRouterQueryModelListResponse
+     */
+    public function modelRouterQueryModelList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型管理/获取模型及API密钥详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryModelWithApiKeyResponse
+     *
+     * @param string         $id
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ModelRouterQueryModelWithApiKeyResponse
+     */
+    public function modelRouterQueryModelWithApiKeyWithOptions($id, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryModelWithApiKey',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models/' . Url::percentEncode($id) . '/with-api-key',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryModelWithApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型管理/获取模型及API密钥详情.
+     *
+     * @returns ModelRouterQueryModelWithApiKeyResponse
+     *
+     * @param string $id
+     *
+     * @return ModelRouterQueryModelWithApiKeyResponse
+     */
+    public function modelRouterQueryModelWithApiKey($id)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryModelWithApiKeyWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * Nacos配置/获取Nacos服务提供者列表.
+     *
+     * @param request - ModelRouterQueryNacosProvidersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryNacosProvidersResponse
+     *
+     * @param ModelRouterQueryNacosProvidersRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModelRouterQueryNacosProvidersResponse
+     */
+    public function modelRouterQueryNacosProvidersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryNacosProviders',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/nacos/providers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryNacosProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Nacos配置/获取Nacos服务提供者列表.
+     *
+     * @param request - ModelRouterQueryNacosProvidersRequest
+     *
+     * @returns ModelRouterQueryNacosProvidersResponse
+     *
+     * @param ModelRouterQueryNacosProvidersRequest $request
+     *
+     * @return ModelRouterQueryNacosProvidersResponse
+     */
+    public function modelRouterQueryNacosProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryNacosProvidersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Nacos配置/获取Nacos标签列表.
+     *
+     * @param request - ModelRouterQueryNacosTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryNacosTagsResponse
+     *
+     * @param ModelRouterQueryNacosTagsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModelRouterQueryNacosTagsResponse
+     */
+    public function modelRouterQueryNacosTagsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryNacosTags',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/nacos/tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryNacosTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Nacos配置/获取Nacos标签列表.
+     *
+     * @param request - ModelRouterQueryNacosTagsRequest
+     *
+     * @returns ModelRouterQueryNacosTagsResponse
+     *
+     * @param ModelRouterQueryNacosTagsRequest $request
+     *
+     * @return ModelRouterQueryNacosTagsResponse
+     */
+    public function modelRouterQueryNacosTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryNacosTagsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型观测/获取观测图表数据.
+     *
+     * @param request - ModelRouterQueryObservationChartsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryObservationChartsResponse
+     *
+     * @param ModelRouterQueryObservationChartsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModelRouterQueryObservationChartsResponse
+     */
+    public function modelRouterQueryObservationChartsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['timeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryObservationCharts',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/observation/charts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryObservationChartsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型观测/获取观测图表数据.
+     *
+     * @param request - ModelRouterQueryObservationChartsRequest
+     *
+     * @returns ModelRouterQueryObservationChartsResponse
+     *
+     * @param ModelRouterQueryObservationChartsRequest $request
+     *
+     * @return ModelRouterQueryObservationChartsResponse
+     */
+    public function modelRouterQueryObservationCharts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryObservationChartsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型观测/获取观测日志列表.
+     *
+     * @param request - ModelRouterQueryObservationLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryObservationLogsResponse
+     *
+     * @param ModelRouterQueryObservationLogsRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModelRouterQueryObservationLogsResponse
+     */
+    public function modelRouterQueryObservationLogsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['timeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryObservationLogs',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/observation/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryObservationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型观测/获取观测日志列表.
+     *
+     * @param request - ModelRouterQueryObservationLogsRequest
+     *
+     * @returns ModelRouterQueryObservationLogsResponse
+     *
+     * @param ModelRouterQueryObservationLogsRequest $request
+     *
+     * @return ModelRouterQueryObservationLogsResponse
+     */
+    public function modelRouterQueryObservationLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryObservationLogsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 模型观测/获取观测指标数据.
+     *
+     * @param request - ModelRouterQueryObservationMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryObservationMetricsResponse
+     *
+     * @param ModelRouterQueryObservationMetricsRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModelRouterQueryObservationMetricsResponse
+     */
+    public function modelRouterQueryObservationMetricsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->groupBy) {
+            @$query['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$query['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$query['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['timeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryObservationMetrics',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/observation/metrics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryObservationMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型观测/获取观测指标数据.
+     *
+     * @param request - ModelRouterQueryObservationMetricsRequest
+     *
+     * @returns ModelRouterQueryObservationMetricsResponse
+     *
+     * @param ModelRouterQueryObservationMetricsRequest $request
+     *
+     * @return ModelRouterQueryObservationMetricsResponse
+     */
+    public function modelRouterQueryObservationMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryObservationMetricsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/更新客户.
+     *
+     * @param request - ModelRouterUpdateClientRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateClientResponse
+     *
+     * @param string                         $id
+     * @param ModelRouterUpdateClientRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModelRouterUpdateClientResponse
+     */
+    public function modelRouterUpdateClientWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->address) {
+            @$body['address'] = $request->address;
+        }
+
+        if (null !== $request->allowedModels) {
+            @$body['allowedModels'] = $request->allowedModels;
+        }
+
+        if (null !== $request->contact) {
+            @$body['contact'] = $request->contact;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateClient',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateClientResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/更新客户.
+     *
+     * @param request - ModelRouterUpdateClientRequest
+     *
+     * @returns ModelRouterUpdateClientResponse
+     *
+     * @param string                         $id
+     * @param ModelRouterUpdateClientRequest $request
+     *
+     * @return ModelRouterUpdateClientResponse
+     */
+    public function modelRouterUpdateClient($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateClientWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 对话管理/更新对话.
+     *
+     * @param request - ModelRouterUpdateConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateConversationResponse
+     *
+     * @param string                               $id
+     * @param ModelRouterUpdateConversationRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterUpdateConversationResponse
+     */
+    public function modelRouterUpdateConversationWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chatData) {
+            @$body['chatData'] = $request->chatData;
+        }
+
+        if (null !== $request->messageCount) {
+            @$body['messageCount'] = $request->messageCount;
+        }
+
+        if (null !== $request->modelIds) {
+            @$body['modelIds'] = $request->modelIds;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateConversation',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/conversations/' . Url::percentEncode($id) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对话管理/更新对话.
+     *
+     * @param request - ModelRouterUpdateConversationRequest
+     *
+     * @returns ModelRouterUpdateConversationResponse
+     *
+     * @param string                               $id
+     * @param ModelRouterUpdateConversationRequest $request
+     *
+     * @return ModelRouterUpdateConversationResponse
+     */
+    public function modelRouterUpdateConversation($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateConversationWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 模型管理/更新模型.
+     *
+     * @param request - ModelRouterUpdateModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateModelResponse
+     *
+     * @param string                        $id
+     * @param ModelRouterUpdateModelRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModelRouterUpdateModelResponse
+     */
+    public function modelRouterUpdateModelWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$body['baseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->maxInputLength) {
+            @$body['maxInputLength'] = $request->maxInputLength;
+        }
+
+        if (null !== $request->maxOutputLength) {
+            @$body['maxOutputLength'] = $request->maxOutputLength;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelType) {
+            @$body['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->symbol) {
+            @$body['symbol'] = $request->symbol;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateModel',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/models/' . Url::percentEncode($id) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型管理/更新模型.
+     *
+     * @param request - ModelRouterUpdateModelRequest
+     *
+     * @returns ModelRouterUpdateModelResponse
+     *
+     * @param string                        $id
+     * @param ModelRouterUpdateModelRequest $request
+     *
+     * @return ModelRouterUpdateModelResponse
+     */
+    public function modelRouterUpdateModel($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateModelWithOptions($id, $request, $headers, $runtime);
     }
 
     /**

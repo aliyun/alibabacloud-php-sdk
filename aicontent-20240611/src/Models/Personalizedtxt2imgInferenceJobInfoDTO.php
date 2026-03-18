@@ -72,7 +72,8 @@ class Personalizedtxt2imgInferenceJobInfoDTO extends Model
                 $res['resultImageUrl'] = [];
                 $n1 = 0;
                 foreach ($this->resultImageUrl as $item1) {
-                    $res['resultImageUrl'][$n1++] = $item1;
+                    $res['resultImageUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -109,7 +110,8 @@ class Personalizedtxt2imgInferenceJobInfoDTO extends Model
                 $model->resultImageUrl = [];
                 $n1 = 0;
                 foreach ($map['resultImageUrl'] as $item1) {
-                    $model->resultImageUrl[$n1++] = $item1;
+                    $model->resultImageUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

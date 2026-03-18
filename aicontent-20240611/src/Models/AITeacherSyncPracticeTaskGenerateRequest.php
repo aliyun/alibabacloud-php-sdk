@@ -81,7 +81,8 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
                 $res['keySentences'] = [];
                 $n1 = 0;
                 foreach ($this->keySentences as $item1) {
-                    $res['keySentences'][$n1++] = $item1;
+                    $res['keySentences'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
                 $res['keyWords'] = [];
                 $n1 = 0;
                 foreach ($this->keyWords as $item1) {
-                    $res['keyWords'][$n1++] = $item1;
+                    $res['keyWords'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +138,8 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
                 $model->keySentences = [];
                 $n1 = 0;
                 foreach ($map['keySentences'] as $item1) {
-                    $model->keySentences[$n1++] = $item1;
+                    $model->keySentences[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,7 +149,8 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
                 $model->keyWords = [];
                 $n1 = 0;
                 foreach ($map['keyWords'] as $item1) {
-                    $model->keyWords[$n1++] = $item1;
+                    $model->keyWords[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

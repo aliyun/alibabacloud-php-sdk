@@ -44,7 +44,8 @@ class theme extends Model
                 $res['themeImageList'] = [];
                 $n1 = 0;
                 foreach ($this->themeImageList as $item1) {
-                    $res['themeImageList'][$n1++] = $item1;
+                    $res['themeImageList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class theme extends Model
                 $model->themeImageList = [];
                 $n1 = 0;
                 foreach ($map['themeImageList'] as $item1) {
-                    $model->themeImageList[$n1++] = $item1;
+                    $model->themeImageList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

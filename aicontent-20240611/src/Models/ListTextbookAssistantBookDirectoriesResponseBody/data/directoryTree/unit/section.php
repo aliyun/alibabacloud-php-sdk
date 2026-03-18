@@ -63,7 +63,8 @@ class section extends Model
                 $res['topic'] = [];
                 $n1 = 0;
                 foreach ($this->topic as $item1) {
-                    $res['topic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['topic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class section extends Model
                 $model->topic = [];
                 $n1 = 0;
                 foreach ($map['topic'] as $item1) {
-                    $model->topic[$n1++] = topic::fromMap($item1);
+                    $model->topic[$n1] = topic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

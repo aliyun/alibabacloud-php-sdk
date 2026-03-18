@@ -38,7 +38,8 @@ class ListTextbookAssistantArticleDetailsRequest extends Model
                 $res['articleIdList'] = [];
                 $n1 = 0;
                 foreach ($this->articleIdList as $item1) {
-                    $res['articleIdList'][$n1++] = $item1;
+                    $res['articleIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class ListTextbookAssistantArticleDetailsRequest extends Model
                 $model->articleIdList = [];
                 $n1 = 0;
                 foreach ($map['articleIdList'] as $item1) {
-                    $model->articleIdList[$n1++] = $item1;
+                    $model->articleIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

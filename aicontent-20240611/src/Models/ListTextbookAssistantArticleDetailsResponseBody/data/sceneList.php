@@ -58,7 +58,8 @@ class sceneList extends Model
                 $res['sceneImageList'] = [];
                 $n1 = 0;
                 foreach ($this->sceneImageList as $item1) {
-                    $res['sceneImageList'][$n1++] = $item1;
+                    $res['sceneImageList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class sceneList extends Model
                 $model->sceneImageList = [];
                 $n1 = 0;
                 foreach ($map['sceneImageList'] as $item1) {
-                    $model->sceneImageList[$n1++] = $item1;
+                    $model->sceneImageList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

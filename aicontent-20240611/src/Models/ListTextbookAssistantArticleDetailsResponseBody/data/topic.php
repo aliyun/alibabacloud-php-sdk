@@ -44,7 +44,8 @@ class topic extends Model
                 $res['topicImageList'] = [];
                 $n1 = 0;
                 foreach ($this->topicImageList as $item1) {
-                    $res['topicImageList'][$n1++] = $item1;
+                    $res['topicImageList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class topic extends Model
                 $model->topicImageList = [];
                 $n1 = 0;
                 foreach ($map['topicImageList'] as $item1) {
-                    $model->topicImageList[$n1++] = $item1;
+                    $model->topicImageList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

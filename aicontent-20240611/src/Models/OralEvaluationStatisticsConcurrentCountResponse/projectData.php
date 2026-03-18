@@ -39,7 +39,8 @@ class projectData extends Model
                 $res['ApplicationData'] = [];
                 $n1 = 0;
                 foreach ($this->applicationData as $item1) {
-                    $res['ApplicationData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ApplicationData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class projectData extends Model
                 $model->applicationData = [];
                 $n1 = 0;
                 foreach ($map['ApplicationData'] as $item1) {
-                    $model->applicationData[$n1++] = applicationData::fromMap($item1);
+                    $model->applicationData[$n1] = applicationData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

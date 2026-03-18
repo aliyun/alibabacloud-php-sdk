@@ -70,7 +70,8 @@ class OralEvaluationStatisticsErrorCountRequest extends Model
                 $res['errorCode'] = [];
                 $n1 = 0;
                 foreach ($this->errorCode as $item1) {
-                    $res['errorCode'][$n1++] = $item1;
+                    $res['errorCode'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +112,8 @@ class OralEvaluationStatisticsErrorCountRequest extends Model
                 $model->errorCode = [];
                 $n1 = 0;
                 foreach ($map['errorCode'] as $item1) {
-                    $model->errorCode[$n1++] = $item1;
+                    $model->errorCode[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

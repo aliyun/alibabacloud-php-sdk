@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ExecuteHundredThousandWhysDialogueResponse extends Model
+class ModelRouterUpdateConversationResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ExecuteHundredThousandWhysDialogueResponse extends Model
     public $statusCode;
 
     /**
-     * @var ExecuteHundredThousandWhysDialogueResponseBody
+     * @var ModelRouterUpdateConversationResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class ExecuteHundredThousandWhysDialogueResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ExecuteHundredThousandWhysDialogueResponseBody::fromMap($map['body']);
+            $model->body = ModelRouterUpdateConversationResponseBody::fromMap($map['body']);
         }
 
         return $model;

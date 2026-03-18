@@ -42,7 +42,8 @@ class ListTextbookAssistantSceneDetailsRequest extends Model
                 $res['sceneIdList'] = [];
                 $n1 = 0;
                 foreach ($this->sceneIdList as $item1) {
-                    $res['sceneIdList'][$n1++] = $item1;
+                    $res['sceneIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class ListTextbookAssistantSceneDetailsRequest extends Model
                 $model->sceneIdList = [];
                 $n1 = 0;
                 foreach ($map['sceneIdList'] as $item1) {
-                    $model->sceneIdList[$n1++] = $item1;
+                    $model->sceneIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

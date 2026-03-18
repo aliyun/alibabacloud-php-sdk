@@ -92,7 +92,8 @@ class inferenceJobList extends Model
                 $res['resultImageUrl'] = [];
                 $n1 = 0;
                 foreach ($this->resultImageUrl as $item1) {
-                    $res['resultImageUrl'][$n1++] = $item1;
+                    $res['resultImageUrl'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -137,7 +138,8 @@ class inferenceJobList extends Model
                 $model->resultImageUrl = [];
                 $n1 = 0;
                 foreach ($map['resultImageUrl'] as $item1) {
-                    $model->resultImageUrl[$n1++] = $item1;
+                    $model->resultImageUrl[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

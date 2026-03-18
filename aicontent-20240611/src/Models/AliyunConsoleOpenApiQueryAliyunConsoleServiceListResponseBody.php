@@ -62,7 +62,8 @@ class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody extends Mode
                 $res['data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponseBody extends Mode
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1++] = AliyunConsoleServiceInfoDTO::fromMap($item1);
+                    $model->data[$n1] = AliyunConsoleServiceInfoDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

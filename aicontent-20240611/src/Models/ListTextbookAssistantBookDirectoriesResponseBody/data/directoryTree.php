@@ -63,7 +63,8 @@ class directoryTree extends Model
                 $res['topic'] = [];
                 $n1 = 0;
                 foreach ($this->topic as $item1) {
-                    $res['topic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['topic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class directoryTree extends Model
                 $res['unit'] = [];
                 $n1 = 0;
                 foreach ($this->unit as $item1) {
-                    $res['unit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['unit'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +104,8 @@ class directoryTree extends Model
                 $model->topic = [];
                 $n1 = 0;
                 foreach ($map['topic'] as $item1) {
-                    $model->topic[$n1++] = topic::fromMap($item1);
+                    $model->topic[$n1] = topic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +115,8 @@ class directoryTree extends Model
                 $model->unit = [];
                 $n1 = 0;
                 foreach ($map['unit'] as $item1) {
-                    $model->unit[$n1++] = unit::fromMap($item1);
+                    $model->unit[$n1] = unit::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

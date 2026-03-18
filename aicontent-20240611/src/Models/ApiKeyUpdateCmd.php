@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteHundredThousandWhysDialogueRequest;
+namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class messages extends Model
+class ApiKeyUpdateCmd extends Model
 {
     /**
      * @var string
      */
-    public $content;
+    public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $role;
+    public $status;
     protected $_name = [
-        'content' => 'content',
-        'role' => 'role',
+        'name' => 'name',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class messages extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->content) {
-            $res['content'] = $this->content;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
-        if (null !== $this->role) {
-            $res['role'] = $this->role;
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class messages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['content'])) {
-            $model->content = $map['content'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
-        if (isset($map['role'])) {
-            $model->role = $map['role'];
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;
