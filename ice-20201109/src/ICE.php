@@ -524,6 +524,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListYikeProductionsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListYikeProductionsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\OpenMediaConnectFlowFailoverRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\OpenMediaConnectFlowFailoverResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\PrecheckYikeAIAppJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\PrecheckYikeAIAppJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListRequest;
@@ -18799,6 +18801,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openMediaConnectFlowFailoverWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检查应用参数是否合法.
+     *
+     * @param request - PrecheckYikeAIAppJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PrecheckYikeAIAppJobResponse
+     *
+     * @param PrecheckYikeAIAppJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PrecheckYikeAIAppJobResponse
+     */
+    public function precheckYikeAIAppJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appParams) {
+            @$query['AppParams'] = $request->appParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PrecheckYikeAIAppJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PrecheckYikeAIAppJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查应用参数是否合法.
+     *
+     * @param request - PrecheckYikeAIAppJobRequest
+     *
+     * @returns PrecheckYikeAIAppJobResponse
+     *
+     * @param PrecheckYikeAIAppJobRequest $request
+     *
+     * @return PrecheckYikeAIAppJobResponse
+     */
+    public function precheckYikeAIAppJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->precheckYikeAIAppJobWithOptions($request, $runtime);
     }
 
     /**
