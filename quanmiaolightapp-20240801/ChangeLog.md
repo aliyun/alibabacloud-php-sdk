@@ -1,3 +1,6 @@
+2026-03-18 Version: 2.9.9
+- Generated php 2024-08-01 for QuanMiaoLightApp.
+
 2026-03-17 Version: 2.9.8
 - Update API RunEnterpriseVocAnalysis: add request parameters positiveFilter.
 - Update API SubmitEnterpriseVocAnalysisTask: add request parameters batchTask.
