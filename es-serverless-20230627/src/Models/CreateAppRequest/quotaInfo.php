@@ -19,12 +19,24 @@ class quotaInfo extends Model
     public $cu;
 
     /**
+     * @var bool
+     */
+    public $elastic;
+
+    /**
+     * @var int
+     */
+    public $minCu;
+
+    /**
      * @var int
      */
     public $storage;
     protected $_name = [
         'appType' => 'appType',
         'cu' => 'cu',
+        'elastic' => 'elastic',
+        'minCu' => 'minCu',
         'storage' => 'storage',
     ];
 
@@ -42,6 +54,14 @@ class quotaInfo extends Model
 
         if (null !== $this->cu) {
             $res['cu'] = $this->cu;
+        }
+
+        if (null !== $this->elastic) {
+            $res['elastic'] = $this->elastic;
+        }
+
+        if (null !== $this->minCu) {
+            $res['minCu'] = $this->minCu;
         }
 
         if (null !== $this->storage) {
@@ -65,6 +85,14 @@ class quotaInfo extends Model
 
         if (isset($map['cu'])) {
             $model->cu = $map['cu'];
+        }
+
+        if (isset($map['elastic'])) {
+            $model->elastic = $map['elastic'];
+        }
+
+        if (isset($map['minCu'])) {
+            $model->minCu = $map['minCu'];
         }
 
         if (isset($map['storage'])) {
