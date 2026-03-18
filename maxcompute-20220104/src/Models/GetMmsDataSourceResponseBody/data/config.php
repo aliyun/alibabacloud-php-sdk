@@ -44,6 +44,11 @@ class config extends Model
     public $required;
 
     /**
+     * @var mixed[]
+     */
+    public $subItems;
+
+    /**
      * @var string
      */
     public $subType;
@@ -65,6 +70,7 @@ class config extends Model
         'name' => 'name',
         'placeHolder' => 'placeHolder',
         'required' => 'required',
+        'subItems' => 'subItems',
         'subType' => 'subType',
         'type' => 'type',
         'value' => 'value',
@@ -74,6 +80,9 @@ class config extends Model
     {
         if (\is_array($this->enums)) {
             Model::validateArray($this->enums);
+        }
+        if (\is_array($this->subItems)) {
+            Model::validateArray($this->subItems);
         }
         parent::validate();
     }
@@ -114,6 +123,15 @@ class config extends Model
 
         if (null !== $this->required) {
             $res['required'] = $this->required;
+        }
+
+        if (null !== $this->subItems) {
+            if (\is_array($this->subItems)) {
+                $res['subItems'] = [];
+                foreach ($this->subItems as $key1 => $value1) {
+                    $res['subItems'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->subType) {
@@ -172,6 +190,15 @@ class config extends Model
 
         if (isset($map['required'])) {
             $model->required = $map['required'];
+        }
+
+        if (isset($map['subItems'])) {
+            if (!empty($map['subItems'])) {
+                $model->subItems = [];
+                foreach ($map['subItems'] as $key1 => $value1) {
+                    $model->subItems[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['subType'])) {

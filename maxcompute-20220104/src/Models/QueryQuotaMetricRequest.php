@@ -21,6 +21,11 @@ class QueryQuotaMetricRequest extends Model
     /**
      * @var string
      */
+    public $subMetric;
+
+    /**
+     * @var string
+     */
     public $subQuotaNickname;
 
     /**
@@ -40,6 +45,7 @@ class QueryQuotaMetricRequest extends Model
     protected $_name = [
         'interval' => 'interval',
         'nickname' => 'nickname',
+        'subMetric' => 'subMetric',
         'subQuotaNickname' => 'subQuotaNickname',
         'endTime' => 'endTime',
         'startTime' => 'startTime',
@@ -60,6 +66,10 @@ class QueryQuotaMetricRequest extends Model
 
         if (null !== $this->nickname) {
             $res['nickname'] = $this->nickname;
+        }
+
+        if (null !== $this->subMetric) {
+            $res['subMetric'] = $this->subMetric;
         }
 
         if (null !== $this->subQuotaNickname) {
@@ -95,6 +105,10 @@ class QueryQuotaMetricRequest extends Model
 
         if (isset($map['nickname'])) {
             $model->nickname = $map['nickname'];
+        }
+
+        if (isset($map['subMetric'])) {
+            $model->subMetric = $map['subMetric'];
         }
 
         if (isset($map['subQuotaNickname'])) {
