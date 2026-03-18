@@ -175,6 +175,11 @@ class GetJobResponseBody extends Model
     public $restartTimes;
 
     /**
+     * @var mixed[][]
+     */
+    public $roleSystemEnvs;
+
+    /**
      * @var JobSettings
      */
     public $settings;
@@ -266,6 +271,7 @@ class GetJobResponseBody extends Model
         'resourceType' => 'ResourceType',
         'restartRecord' => 'RestartRecord',
         'restartTimes' => 'RestartTimes',
+        'roleSystemEnvs' => 'RoleSystemEnvs',
         'settings' => 'Settings',
         'status' => 'Status',
         'statusHistory' => 'StatusHistory',
@@ -311,6 +317,9 @@ class GetJobResponseBody extends Model
         }
         if (\is_array($this->restartRecord)) {
             Model::validateArray($this->restartRecord);
+        }
+        if (\is_array($this->roleSystemEnvs)) {
+            Model::validateArray($this->roleSystemEnvs);
         }
         if (null !== $this->settings) {
             $this->settings->validate();
@@ -503,6 +512,15 @@ class GetJobResponseBody extends Model
 
         if (null !== $this->restartTimes) {
             $res['RestartTimes'] = $this->restartTimes;
+        }
+
+        if (null !== $this->roleSystemEnvs) {
+            if (\is_array($this->roleSystemEnvs)) {
+                $res['RoleSystemEnvs'] = [];
+                foreach ($this->roleSystemEnvs as $key1 => $value1) {
+                    $res['RoleSystemEnvs'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->settings) {
@@ -751,6 +769,15 @@ class GetJobResponseBody extends Model
 
         if (isset($map['RestartTimes'])) {
             $model->restartTimes = $map['RestartTimes'];
+        }
+
+        if (isset($map['RoleSystemEnvs'])) {
+            if (!empty($map['RoleSystemEnvs'])) {
+                $model->roleSystemEnvs = [];
+                foreach ($map['RoleSystemEnvs'] as $key1 => $value1) {
+                    $model->roleSystemEnvs[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['Settings'])) {

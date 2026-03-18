@@ -11,6 +11,11 @@ class dataSources extends Model
     /**
      * @var string
      */
+    public $accessPointId;
+
+    /**
+     * @var string
+     */
     public $dataSourceId;
 
     /**
@@ -41,14 +46,21 @@ class dataSources extends Model
     /**
      * @var string
      */
+    public $roleChain;
+
+    /**
+     * @var string
+     */
     public $uri;
     protected $_name = [
+        'accessPointId' => 'AccessPointId',
         'dataSourceId' => 'DataSourceId',
         'dataSourceVersion' => 'DataSourceVersion',
         'enableCache' => 'EnableCache',
         'mountAccess' => 'MountAccess',
         'mountPath' => 'MountPath',
         'options' => 'Options',
+        'roleChain' => 'RoleChain',
         'uri' => 'Uri',
     ];
 
@@ -60,6 +72,10 @@ class dataSources extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessPointId) {
+            $res['AccessPointId'] = $this->accessPointId;
+        }
+
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
@@ -84,6 +100,10 @@ class dataSources extends Model
             $res['Options'] = $this->options;
         }
 
+        if (null !== $this->roleChain) {
+            $res['RoleChain'] = $this->roleChain;
+        }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -99,6 +119,10 @@ class dataSources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessPointId'])) {
+            $model->accessPointId = $map['AccessPointId'];
+        }
+
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
@@ -121,6 +145,10 @@ class dataSources extends Model
 
         if (isset($map['Options'])) {
             $model->options = $map['Options'];
+        }
+
+        if (isset($map['RoleChain'])) {
+            $model->roleChain = $map['RoleChain'];
         }
 
         if (isset($map['Uri'])) {

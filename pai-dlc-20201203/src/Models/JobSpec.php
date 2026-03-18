@@ -59,6 +59,11 @@ class JobSpec extends Model
     public $podCount;
 
     /**
+     * @var string
+     */
+    public $quotaId;
+
+    /**
      * @var ResourceConfig
      */
     public $resourceConfig;
@@ -108,6 +113,7 @@ class JobSpec extends Model
         'isChief' => 'IsChief',
         'localMountSpecs' => 'LocalMountSpecs',
         'podCount' => 'PodCount',
+        'quotaId' => 'QuotaId',
         'resourceConfig' => 'ResourceConfig',
         'restartPolicy' => 'RestartPolicy',
         'serviceSpec' => 'ServiceSpec',
@@ -201,6 +207,10 @@ class JobSpec extends Model
 
         if (null !== $this->podCount) {
             $res['PodCount'] = $this->podCount;
+        }
+
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
         }
 
         if (null !== $this->resourceConfig) {
@@ -298,6 +308,10 @@ class JobSpec extends Model
 
         if (isset($map['PodCount'])) {
             $model->podCount = $map['PodCount'];
+        }
+
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
         }
 
         if (isset($map['ResourceConfig'])) {
