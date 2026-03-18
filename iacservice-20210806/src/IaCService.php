@@ -83,6 +83,7 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceTypeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceTypeResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackExecutionResultResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListExplorerRegistryModuleExamplesRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListExplorerRegistryModuleExamplesResponse;
@@ -138,6 +139,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\PublishRegistryModuleVersionRes
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsShrinkRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\TriggerStackExecutionRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\TriggerStackExecutionResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateExplorerModuleAttributeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateExplorerModuleAttributeResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateGroupRequest;
@@ -3146,6 +3149,57 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 获取资源栈部署结果.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStackExecutionResultResponse
+     *
+     * @param string         $triggerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetStackExecutionResultResponse
+     */
+    public function getStackExecutionResultWithOptions($triggerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetStackExecutionResult',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/trigger/' . Url::percentEncode($triggerId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStackExecutionResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取资源栈部署结果.
+     *
+     * @returns GetStackExecutionResultResponse
+     *
+     * @param string $triggerId
+     *
+     * @return GetStackExecutionResultResponse
+     */
+    public function getStackExecutionResult($triggerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStackExecutionResultWithOptions($triggerId, $headers, $runtime);
+    }
+
+    /**
      * 查询任务详情.
      *
      * @param headers - map
@@ -5094,6 +5148,83 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->removeSharedAccountsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 触发资源栈部署.
+     *
+     * @param Request - TriggerStackExecutionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerStackExecutionResponse
+     *
+     * @param TriggerStackExecutionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TriggerStackExecutionResponse
+     */
+    public function triggerStackExecutionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->changedFolders) {
+            @$body['changedFolders'] = $request->changedFolders;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->codePackagePath) {
+            @$body['codePackagePath'] = $request->codePackagePath;
+        }
+
+        if (null !== $request->codeVersionId) {
+            @$body['codeVersionId'] = $request->codeVersionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TriggerStackExecution',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/trigger',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TriggerStackExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 触发资源栈部署.
+     *
+     * @param Request - TriggerStackExecutionRequest
+     *
+     * @returns TriggerStackExecutionResponse
+     *
+     * @param TriggerStackExecutionRequest $request
+     *
+     * @return TriggerStackExecutionResponse
+     */
+    public function triggerStackExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->triggerStackExecutionWithOptions($request, $headers, $runtime);
     }
 
     /**

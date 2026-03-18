@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UploadModuleResponseBody extends Model
+class TriggerStackExecutionResponseBody extends Model
 {
     /**
      * @var string
@@ -16,10 +16,10 @@ class UploadModuleResponseBody extends Model
     /**
      * @var string
      */
-    public $version;
+    public $triggerId;
     protected $_name = [
         'requestId' => 'requestId',
-        'version' => 'version',
+        'triggerId' => 'triggerId',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class UploadModuleResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
+        if (null !== $this->triggerId) {
+            $res['triggerId'] = $this->triggerId;
         }
 
         return $res;
@@ -53,8 +53,8 @@ class UploadModuleResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
+        if (isset($map['triggerId'])) {
+            $model->triggerId = $map['triggerId'];
         }
 
         return $model;
