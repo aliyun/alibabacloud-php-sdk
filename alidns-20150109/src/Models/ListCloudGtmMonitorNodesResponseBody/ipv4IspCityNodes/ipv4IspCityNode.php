@@ -37,6 +37,11 @@ class ipv4IspCityNode extends Model
     /**
      * @var string
      */
+    public $enableStatus;
+
+    /**
+     * @var string
+     */
     public $groupName;
 
     /**
@@ -69,6 +74,7 @@ class ipv4IspCityNode extends Model
         'countryCode' => 'CountryCode',
         'countryName' => 'CountryName',
         'defaultSelected' => 'DefaultSelected',
+        'enableStatus' => 'EnableStatus',
         'groupName' => 'GroupName',
         'groupType' => 'GroupType',
         'ips' => 'Ips',
@@ -106,6 +112,10 @@ class ipv4IspCityNode extends Model
 
         if (null !== $this->defaultSelected) {
             $res['DefaultSelected'] = $this->defaultSelected;
+        }
+
+        if (null !== $this->enableStatus) {
+            $res['EnableStatus'] = $this->enableStatus;
         }
 
         if (null !== $this->groupName) {
@@ -161,6 +171,10 @@ class ipv4IspCityNode extends Model
 
         if (isset($map['DefaultSelected'])) {
             $model->defaultSelected = $map['DefaultSelected'];
+        }
+
+        if (isset($map['EnableStatus'])) {
+            $model->enableStatus = $map['EnableStatus'];
         }
 
         if (isset($map['GroupName'])) {

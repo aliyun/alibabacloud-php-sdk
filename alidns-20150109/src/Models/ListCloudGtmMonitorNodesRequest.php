@@ -12,8 +12,14 @@ class ListCloudGtmMonitorNodesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
+    /**
+     * @var bool
+     */
+    public $showDisabledNodes;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'showDisabledNodes' => 'ShowDisabledNodes',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class ListCloudGtmMonitorNodesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+
+        if (null !== $this->showDisabledNodes) {
+            $res['ShowDisabledNodes'] = $this->showDisabledNodes;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class ListCloudGtmMonitorNodesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+
+        if (isset($map['ShowDisabledNodes'])) {
+            $model->showDisabledNodes = $map['ShowDisabledNodes'];
         }
 
         return $model;
