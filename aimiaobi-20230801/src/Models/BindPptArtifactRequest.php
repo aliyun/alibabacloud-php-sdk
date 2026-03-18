@@ -16,6 +16,11 @@ class BindPptArtifactRequest extends Model
     /**
      * @var string
      */
+    public $externalUserId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -24,6 +29,7 @@ class BindPptArtifactRequest extends Model
     public $workspaceId;
     protected $_name = [
         'artifactId' => 'ArtifactId',
+        'externalUserId' => 'ExternalUserId',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -38,6 +44,10 @@ class BindPptArtifactRequest extends Model
         $res = [];
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
+        }
+
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
         }
 
         if (null !== $this->taskId) {
@@ -61,6 +71,10 @@ class BindPptArtifactRequest extends Model
         $model = new self();
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
+        }
+
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
         }
 
         if (isset($map['TaskId'])) {

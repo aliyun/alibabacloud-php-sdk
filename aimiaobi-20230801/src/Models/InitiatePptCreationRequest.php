@@ -11,6 +11,11 @@ class InitiatePptCreationRequest extends Model
     /**
      * @var string
      */
+    public $externalUserId;
+
+    /**
+     * @var string
+     */
     public $outline;
 
     /**
@@ -23,6 +28,7 @@ class InitiatePptCreationRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'externalUserId' => 'ExternalUserId',
         'outline' => 'Outline',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
@@ -36,6 +42,10 @@ class InitiatePptCreationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
+        }
+
         if (null !== $this->outline) {
             $res['Outline'] = $this->outline;
         }
@@ -59,6 +69,10 @@ class InitiatePptCreationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
+        }
+
         if (isset($map['Outline'])) {
             $model->outline = $map['Outline'];
         }

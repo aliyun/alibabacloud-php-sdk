@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetPptArtifactRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $externalUserId;
+
+    /**
      * @var int
      */
     public $pptArtifactId;
@@ -18,6 +23,7 @@ class GetPptArtifactRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'externalUserId' => 'ExternalUserId',
         'pptArtifactId' => 'PptArtifactId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -30,6 +36,10 @@ class GetPptArtifactRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
+        }
+
         if (null !== $this->pptArtifactId) {
             $res['PptArtifactId'] = $this->pptArtifactId;
         }
@@ -49,6 +59,10 @@ class GetPptArtifactRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
+        }
+
         if (isset($map['PptArtifactId'])) {
             $model->pptArtifactId = $map['PptArtifactId'];
         }

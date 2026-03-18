@@ -1283,6 +1283,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['ArtifactId'] = $request->artifactId;
         }
 
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
         }
@@ -2802,6 +2806,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->pptArtifactId) {
             @$body['PptArtifactId'] = $request->pptArtifactId;
         }
@@ -6327,6 +6335,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->pptArtifactId) {
             @$body['PptArtifactId'] = $request->pptArtifactId;
         }
@@ -6388,6 +6400,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -6955,6 +6971,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->outline) {
             @$body['Outline'] = $request->outline;
         }
@@ -9538,6 +9558,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->nextToken) {
             @$body['NextToken'] = $request->nextToken;
         }
@@ -13941,6 +13965,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->prompt) {
             @$body['Prompt'] = $request->prompt;
         }
@@ -13997,6 +14025,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->prompt) {
             @$body['Prompt'] = $request->prompt;
         }

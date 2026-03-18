@@ -11,6 +11,11 @@ class RunPptOutlineGenerationRequest extends Model
     /**
      * @var string
      */
+    public $externalUserId;
+
+    /**
+     * @var string
+     */
     public $prompt;
 
     /**
@@ -18,6 +23,7 @@ class RunPptOutlineGenerationRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'externalUserId' => 'ExternalUserId',
         'prompt' => 'Prompt',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -30,6 +36,10 @@ class RunPptOutlineGenerationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
+        }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
@@ -49,6 +59,10 @@ class RunPptOutlineGenerationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
+        }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }

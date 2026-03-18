@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListPptArtifactsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $externalUserId;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -28,6 +33,7 @@ class ListPptArtifactsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'externalUserId' => 'ExternalUserId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'query' => 'Query',
@@ -42,6 +48,10 @@ class ListPptArtifactsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -69,6 +79,10 @@ class ListPptArtifactsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
