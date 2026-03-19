@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddCrossAccountRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddCrossAccountResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\BrowseFilesRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\BrowseFilesResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelRestoreJobRequest;
@@ -149,6 +151,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\ExecutePolicyV2Request;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\ExecutePolicyV2Response;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GenerateRamPolicyRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GenerateRamPolicyResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\GetBasicStatisticsRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\GetBasicStatisticsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTempFileDownloadLinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\GetTempFileDownloadLinkResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsRequest;
@@ -409,6 +413,115 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCrossAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 浏览备份文件.
+     *
+     * @param request - BrowseFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BrowseFilesResponse
+     *
+     * @param BrowseFilesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BrowseFilesResponse
+     */
+    public function browseFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->absolutePath) {
+            @$query['AbsolutePath'] = $request->absolutePath;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
+        }
+
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->restoreId) {
+            @$query['RestoreId'] = $request->restoreId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->snapshotHash) {
+            @$query['SnapshotHash'] = $request->snapshotHash;
+        }
+
+        if (null !== $request->storageClass) {
+            @$query['StorageClass'] = $request->storageClass;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        if (null !== $request->vaultId) {
+            @$query['VaultId'] = $request->vaultId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BrowseFiles',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BrowseFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 浏览备份文件.
+     *
+     * @param request - BrowseFilesRequest
+     *
+     * @returns BrowseFilesResponse
+     *
+     * @param BrowseFilesRequest $request
+     *
+     * @return BrowseFilesResponse
+     */
+    public function browseFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->browseFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -899,6 +1012,10 @@ class Hbr extends OpenApiClient
 
         if (null !== $request->disabled) {
             @$query['Disabled'] = $request->disabled;
+        }
+
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
 
         if (null !== $request->fileSystemId) {
@@ -5714,6 +5831,63 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateRamPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Obtains basic backup statistics.
+     *
+     * @param request - GetBasicStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBasicStatisticsResponse
+     *
+     * @param GetBasicStatisticsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetBasicStatisticsResponse
+     */
+    public function getBasicStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBasicStatistics',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBasicStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Obtains basic backup statistics.
+     *
+     * @param request - GetBasicStatisticsRequest
+     *
+     * @returns GetBasicStatisticsResponse
+     *
+     * @param GetBasicStatisticsRequest $request
+     *
+     * @return GetBasicStatisticsResponse
+     */
+    public function getBasicStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicStatisticsWithOptions($request, $runtime);
     }
 
     /**

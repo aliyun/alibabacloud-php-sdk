@@ -82,6 +82,11 @@ class CreateBackupPlanShrinkRequest extends Model
     /**
      * @var string
      */
+    public $edition;
+
+    /**
+     * @var string
+     */
     public $exclude;
 
     /**
@@ -183,6 +188,7 @@ class CreateBackupPlanShrinkRequest extends Model
         'destSourceType' => 'DestSourceType',
         'detailShrink' => 'Detail',
         'disabled' => 'Disabled',
+        'edition' => 'Edition',
         'exclude' => 'Exclude',
         'fileSystemId' => 'FileSystemId',
         'include' => 'Include',
@@ -271,6 +277,10 @@ class CreateBackupPlanShrinkRequest extends Model
 
         if (null !== $this->disabled) {
             $res['Disabled'] = $this->disabled;
+        }
+
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
         }
 
         if (null !== $this->exclude) {
@@ -424,6 +434,10 @@ class CreateBackupPlanShrinkRequest extends Model
 
         if (isset($map['Disabled'])) {
             $model->disabled = $map['Disabled'];
+        }
+
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
         }
 
         if (isset($map['Exclude'])) {
