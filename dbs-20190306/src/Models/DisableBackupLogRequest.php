@@ -21,10 +21,16 @@ class DisableBackupLogRequest extends Model
     /**
      * @var string
      */
+    public $disableMysqlPhysicalBackupBinlogOnly;
+
+    /**
+     * @var string
+     */
     public $ownerId;
     protected $_name = [
         'backupPlanId' => 'BackupPlanId',
         'clientToken' => 'ClientToken',
+        'disableMysqlPhysicalBackupBinlogOnly' => 'DisableMysqlPhysicalBackupBinlogOnly',
         'ownerId' => 'OwnerId',
     ];
 
@@ -42,6 +48,10 @@ class DisableBackupLogRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->disableMysqlPhysicalBackupBinlogOnly) {
+            $res['DisableMysqlPhysicalBackupBinlogOnly'] = $this->disableMysqlPhysicalBackupBinlogOnly;
         }
 
         if (null !== $this->ownerId) {
@@ -65,6 +75,10 @@ class DisableBackupLogRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DisableMysqlPhysicalBackupBinlogOnly'])) {
+            $model->disableMysqlPhysicalBackupBinlogOnly = $map['DisableMysqlPhysicalBackupBinlogOnly'];
         }
 
         if (isset($map['OwnerId'])) {

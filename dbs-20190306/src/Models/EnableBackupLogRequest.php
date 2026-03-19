@@ -21,10 +21,16 @@ class EnableBackupLogRequest extends Model
     /**
      * @var string
      */
+    public $enableMysqlPhysicalBackupBinlog;
+
+    /**
+     * @var string
+     */
     public $ownerId;
     protected $_name = [
         'backupPlanId' => 'BackupPlanId',
         'clientToken' => 'ClientToken',
+        'enableMysqlPhysicalBackupBinlog' => 'EnableMysqlPhysicalBackupBinlog',
         'ownerId' => 'OwnerId',
     ];
 
@@ -42,6 +48,10 @@ class EnableBackupLogRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->enableMysqlPhysicalBackupBinlog) {
+            $res['EnableMysqlPhysicalBackupBinlog'] = $this->enableMysqlPhysicalBackupBinlog;
         }
 
         if (null !== $this->ownerId) {
@@ -65,6 +75,10 @@ class EnableBackupLogRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['EnableMysqlPhysicalBackupBinlog'])) {
+            $model->enableMysqlPhysicalBackupBinlog = $map['EnableMysqlPhysicalBackupBinlog'];
         }
 
         if (isset($map['OwnerId'])) {

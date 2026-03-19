@@ -21,6 +21,11 @@ class DescribeFullBackupListRequest extends Model
     /**
      * @var string
      */
+    public $backupSetStatus;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -44,6 +49,11 @@ class DescribeFullBackupListRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $showProgress;
+
+    /**
      * @var bool
      */
     public $showStorageType;
@@ -55,11 +65,13 @@ class DescribeFullBackupListRequest extends Model
     protected $_name = [
         'backupPlanId' => 'BackupPlanId',
         'backupSetId' => 'BackupSetId',
+        'backupSetStatus' => 'BackupSetStatus',
         'clientToken' => 'ClientToken',
         'endTimestamp' => 'EndTimestamp',
         'ownerId' => 'OwnerId',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
+        'showProgress' => 'ShowProgress',
         'showStorageType' => 'ShowStorageType',
         'startTimestamp' => 'StartTimestamp',
     ];
@@ -80,6 +92,10 @@ class DescribeFullBackupListRequest extends Model
             $res['BackupSetId'] = $this->backupSetId;
         }
 
+        if (null !== $this->backupSetStatus) {
+            $res['BackupSetStatus'] = $this->backupSetStatus;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -98,6 +114,10 @@ class DescribeFullBackupListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->showProgress) {
+            $res['ShowProgress'] = $this->showProgress;
         }
 
         if (null !== $this->showStorageType) {
@@ -127,6 +147,10 @@ class DescribeFullBackupListRequest extends Model
             $model->backupSetId = $map['BackupSetId'];
         }
 
+        if (isset($map['BackupSetStatus'])) {
+            $model->backupSetStatus = $map['BackupSetStatus'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -145,6 +169,10 @@ class DescribeFullBackupListRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ShowProgress'])) {
+            $model->showProgress = $map['ShowProgress'];
         }
 
         if (isset($map['ShowStorageType'])) {

@@ -11,6 +11,11 @@ class DescribeBackupPlanListRequest extends Model
     /**
      * @var string
      */
+    public $backupMethod;
+
+    /**
+     * @var string
+     */
     public $backupPlanId;
 
     /**
@@ -52,7 +57,23 @@ class DescribeBackupPlanListRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var bool
+     */
+    public $showBackupStrategyInfo;
+
+    /**
+     * @var bool
+     */
+    public $showRecoverTimeRange;
+
+    /**
+     * @var bool
+     */
+    public $showStorageStrategyInfo;
     protected $_name = [
+        'backupMethod' => 'BackupMethod',
         'backupPlanId' => 'BackupPlanId',
         'backupPlanName' => 'BackupPlanName',
         'backupPlanStatus' => 'BackupPlanStatus',
@@ -62,6 +83,9 @@ class DescribeBackupPlanListRequest extends Model
         'pageSize' => 'PageSize',
         'region' => 'Region',
         'resourceGroupId' => 'ResourceGroupId',
+        'showBackupStrategyInfo' => 'ShowBackupStrategyInfo',
+        'showRecoverTimeRange' => 'ShowRecoverTimeRange',
+        'showStorageStrategyInfo' => 'ShowStorageStrategyInfo',
     ];
 
     public function validate()
@@ -72,6 +96,10 @@ class DescribeBackupPlanListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backupMethod) {
+            $res['BackupMethod'] = $this->backupMethod;
+        }
+
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
@@ -108,6 +136,18 @@ class DescribeBackupPlanListRequest extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->showBackupStrategyInfo) {
+            $res['ShowBackupStrategyInfo'] = $this->showBackupStrategyInfo;
+        }
+
+        if (null !== $this->showRecoverTimeRange) {
+            $res['ShowRecoverTimeRange'] = $this->showRecoverTimeRange;
+        }
+
+        if (null !== $this->showStorageStrategyInfo) {
+            $res['ShowStorageStrategyInfo'] = $this->showStorageStrategyInfo;
+        }
+
         return $res;
     }
 
@@ -119,6 +159,10 @@ class DescribeBackupPlanListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupMethod'])) {
+            $model->backupMethod = $map['BackupMethod'];
+        }
+
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
@@ -153,6 +197,18 @@ class DescribeBackupPlanListRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ShowBackupStrategyInfo'])) {
+            $model->showBackupStrategyInfo = $map['ShowBackupStrategyInfo'];
+        }
+
+        if (isset($map['ShowRecoverTimeRange'])) {
+            $model->showRecoverTimeRange = $map['ShowRecoverTimeRange'];
+        }
+
+        if (isset($map['ShowStorageStrategyInfo'])) {
+            $model->showStorageStrategyInfo = $map['ShowStorageStrategyInfo'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class CreateRestoreTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoOpenDatabase;
+
+    /**
+     * @var string
+     */
+    public $autoShutdownDatabase;
+
+    /**
      * @var int
      */
     public $backupGatewayId;
@@ -37,6 +47,41 @@ class CreateRestoreTaskRequest extends Model
      * @var string
      */
     public $crossRoleName;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceClass;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceDatabaseVersion;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceRegion;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceStorageSize;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceType;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceVSwitch;
+
+    /**
+     * @var string
+     */
+    public $destDatabaseInstanceVpc;
 
     /**
      * @var string
@@ -89,9 +134,19 @@ class CreateRestoreTaskRequest extends Model
     public $duplicateConflict;
 
     /**
+     * @var bool
+     */
+    public $enableDestinationEndpointSsl;
+
+    /**
      * @var string
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $restoreDestinationMode;
 
     /**
      * @var string
@@ -117,13 +172,27 @@ class CreateRestoreTaskRequest extends Model
      * @var int
      */
     public $restoreTime;
+
+    /**
+     * @var string
+     */
+    public $sslCaPem;
     protected $_name = [
+        'autoOpenDatabase' => 'AutoOpenDatabase',
+        'autoShutdownDatabase' => 'AutoShutdownDatabase',
         'backupGatewayId' => 'BackupGatewayId',
         'backupPlanId' => 'BackupPlanId',
         'backupSetId' => 'BackupSetId',
         'clientToken' => 'ClientToken',
         'crossAliyunId' => 'CrossAliyunId',
         'crossRoleName' => 'CrossRoleName',
+        'destDatabaseInstanceClass' => 'DestDatabaseInstanceClass',
+        'destDatabaseInstanceDatabaseVersion' => 'DestDatabaseInstanceDatabaseVersion',
+        'destDatabaseInstanceRegion' => 'DestDatabaseInstanceRegion',
+        'destDatabaseInstanceStorageSize' => 'DestDatabaseInstanceStorageSize',
+        'destDatabaseInstanceType' => 'DestDatabaseInstanceType',
+        'destDatabaseInstanceVSwitch' => 'DestDatabaseInstanceVSwitch',
+        'destDatabaseInstanceVpc' => 'DestDatabaseInstanceVpc',
         'destinationEndpointDatabaseName' => 'DestinationEndpointDatabaseName',
         'destinationEndpointIP' => 'DestinationEndpointIP',
         'destinationEndpointInstanceID' => 'DestinationEndpointInstanceID',
@@ -134,12 +203,15 @@ class CreateRestoreTaskRequest extends Model
         'destinationEndpointRegion' => 'DestinationEndpointRegion',
         'destinationEndpointUserName' => 'DestinationEndpointUserName',
         'duplicateConflict' => 'DuplicateConflict',
+        'enableDestinationEndpointSsl' => 'EnableDestinationEndpointSsl',
         'ownerId' => 'OwnerId',
+        'restoreDestinationMode' => 'RestoreDestinationMode',
         'restoreDir' => 'RestoreDir',
         'restoreHome' => 'RestoreHome',
         'restoreObjects' => 'RestoreObjects',
         'restoreTaskName' => 'RestoreTaskName',
         'restoreTime' => 'RestoreTime',
+        'sslCaPem' => 'SslCaPem',
     ];
 
     public function validate()
@@ -150,6 +222,14 @@ class CreateRestoreTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoOpenDatabase) {
+            $res['AutoOpenDatabase'] = $this->autoOpenDatabase;
+        }
+
+        if (null !== $this->autoShutdownDatabase) {
+            $res['AutoShutdownDatabase'] = $this->autoShutdownDatabase;
+        }
+
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
         }
@@ -172,6 +252,34 @@ class CreateRestoreTaskRequest extends Model
 
         if (null !== $this->crossRoleName) {
             $res['CrossRoleName'] = $this->crossRoleName;
+        }
+
+        if (null !== $this->destDatabaseInstanceClass) {
+            $res['DestDatabaseInstanceClass'] = $this->destDatabaseInstanceClass;
+        }
+
+        if (null !== $this->destDatabaseInstanceDatabaseVersion) {
+            $res['DestDatabaseInstanceDatabaseVersion'] = $this->destDatabaseInstanceDatabaseVersion;
+        }
+
+        if (null !== $this->destDatabaseInstanceRegion) {
+            $res['DestDatabaseInstanceRegion'] = $this->destDatabaseInstanceRegion;
+        }
+
+        if (null !== $this->destDatabaseInstanceStorageSize) {
+            $res['DestDatabaseInstanceStorageSize'] = $this->destDatabaseInstanceStorageSize;
+        }
+
+        if (null !== $this->destDatabaseInstanceType) {
+            $res['DestDatabaseInstanceType'] = $this->destDatabaseInstanceType;
+        }
+
+        if (null !== $this->destDatabaseInstanceVSwitch) {
+            $res['DestDatabaseInstanceVSwitch'] = $this->destDatabaseInstanceVSwitch;
+        }
+
+        if (null !== $this->destDatabaseInstanceVpc) {
+            $res['DestDatabaseInstanceVpc'] = $this->destDatabaseInstanceVpc;
         }
 
         if (null !== $this->destinationEndpointDatabaseName) {
@@ -214,8 +322,16 @@ class CreateRestoreTaskRequest extends Model
             $res['DuplicateConflict'] = $this->duplicateConflict;
         }
 
+        if (null !== $this->enableDestinationEndpointSsl) {
+            $res['EnableDestinationEndpointSsl'] = $this->enableDestinationEndpointSsl;
+        }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->restoreDestinationMode) {
+            $res['RestoreDestinationMode'] = $this->restoreDestinationMode;
         }
 
         if (null !== $this->restoreDir) {
@@ -238,6 +354,10 @@ class CreateRestoreTaskRequest extends Model
             $res['RestoreTime'] = $this->restoreTime;
         }
 
+        if (null !== $this->sslCaPem) {
+            $res['SslCaPem'] = $this->sslCaPem;
+        }
+
         return $res;
     }
 
@@ -249,6 +369,14 @@ class CreateRestoreTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoOpenDatabase'])) {
+            $model->autoOpenDatabase = $map['AutoOpenDatabase'];
+        }
+
+        if (isset($map['AutoShutdownDatabase'])) {
+            $model->autoShutdownDatabase = $map['AutoShutdownDatabase'];
+        }
+
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
         }
@@ -271,6 +399,34 @@ class CreateRestoreTaskRequest extends Model
 
         if (isset($map['CrossRoleName'])) {
             $model->crossRoleName = $map['CrossRoleName'];
+        }
+
+        if (isset($map['DestDatabaseInstanceClass'])) {
+            $model->destDatabaseInstanceClass = $map['DestDatabaseInstanceClass'];
+        }
+
+        if (isset($map['DestDatabaseInstanceDatabaseVersion'])) {
+            $model->destDatabaseInstanceDatabaseVersion = $map['DestDatabaseInstanceDatabaseVersion'];
+        }
+
+        if (isset($map['DestDatabaseInstanceRegion'])) {
+            $model->destDatabaseInstanceRegion = $map['DestDatabaseInstanceRegion'];
+        }
+
+        if (isset($map['DestDatabaseInstanceStorageSize'])) {
+            $model->destDatabaseInstanceStorageSize = $map['DestDatabaseInstanceStorageSize'];
+        }
+
+        if (isset($map['DestDatabaseInstanceType'])) {
+            $model->destDatabaseInstanceType = $map['DestDatabaseInstanceType'];
+        }
+
+        if (isset($map['DestDatabaseInstanceVSwitch'])) {
+            $model->destDatabaseInstanceVSwitch = $map['DestDatabaseInstanceVSwitch'];
+        }
+
+        if (isset($map['DestDatabaseInstanceVpc'])) {
+            $model->destDatabaseInstanceVpc = $map['DestDatabaseInstanceVpc'];
         }
 
         if (isset($map['DestinationEndpointDatabaseName'])) {
@@ -313,8 +469,16 @@ class CreateRestoreTaskRequest extends Model
             $model->duplicateConflict = $map['DuplicateConflict'];
         }
 
+        if (isset($map['EnableDestinationEndpointSsl'])) {
+            $model->enableDestinationEndpointSsl = $map['EnableDestinationEndpointSsl'];
+        }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['RestoreDestinationMode'])) {
+            $model->restoreDestinationMode = $map['RestoreDestinationMode'];
         }
 
         if (isset($map['RestoreDir'])) {
@@ -335,6 +499,10 @@ class CreateRestoreTaskRequest extends Model
 
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
+        }
+
+        if (isset($map['SslCaPem'])) {
+            $model->sslCaPem = $map['SslCaPem'];
         }
 
         return $model;

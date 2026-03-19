@@ -66,6 +66,11 @@ class ConfigureBackupPlanRequest extends Model
     /**
      * @var string
      */
+    public $backupStorageEncryptMethod;
+
+    /**
+     * @var string
+     */
     public $backupStorageType;
 
     /**
@@ -106,6 +111,16 @@ class ConfigureBackupPlanRequest extends Model
     /**
      * @var string
      */
+    public $enableMysqlPhysicalBackupBinlog;
+
+    /**
+     * @var string
+     */
+    public $enableSourceEndpointSsl;
+
+    /**
+     * @var string
+     */
     public $OSSBucketName;
 
     /**
@@ -141,6 +156,11 @@ class ConfigureBackupPlanRequest extends Model
     /**
      * @var string
      */
+    public $sourceEndpointOracleHome;
+
+    /**
+     * @var string
+     */
     public $sourceEndpointOracleSID;
 
     /**
@@ -162,6 +182,11 @@ class ConfigureBackupPlanRequest extends Model
      * @var string
      */
     public $sourceEndpointUserName;
+
+    /**
+     * @var string
+     */
+    public $sslCaPem;
     protected $_name = [
         'autoStartBackup' => 'AutoStartBackup',
         'backupGatewayId' => 'BackupGatewayId',
@@ -174,6 +199,7 @@ class ConfigureBackupPlanRequest extends Model
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'backupSpeedLimit' => 'BackupSpeedLimit',
         'backupStartTime' => 'BackupStartTime',
+        'backupStorageEncryptMethod' => 'BackupStorageEncryptMethod',
         'backupStorageType' => 'BackupStorageType',
         'backupStrategyType' => 'BackupStrategyType',
         'clientToken' => 'ClientToken',
@@ -182,6 +208,8 @@ class ConfigureBackupPlanRequest extends Model
         'duplicationArchivePeriod' => 'DuplicationArchivePeriod',
         'duplicationInfrequentAccessPeriod' => 'DuplicationInfrequentAccessPeriod',
         'enableBackupLog' => 'EnableBackupLog',
+        'enableMysqlPhysicalBackupBinlog' => 'EnableMysqlPhysicalBackupBinlog',
+        'enableSourceEndpointSsl' => 'EnableSourceEndpointSsl',
         'OSSBucketName' => 'OSSBucketName',
         'ownerId' => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -189,11 +217,13 @@ class ConfigureBackupPlanRequest extends Model
         'sourceEndpointIP' => 'SourceEndpointIP',
         'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
         'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
+        'sourceEndpointOracleHome' => 'SourceEndpointOracleHome',
         'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
         'sourceEndpointPassword' => 'SourceEndpointPassword',
         'sourceEndpointPort' => 'SourceEndpointPort',
         'sourceEndpointRegion' => 'SourceEndpointRegion',
         'sourceEndpointUserName' => 'SourceEndpointUserName',
+        'sslCaPem' => 'SslCaPem',
     ];
 
     public function validate()
@@ -248,6 +278,10 @@ class ConfigureBackupPlanRequest extends Model
             $res['BackupStartTime'] = $this->backupStartTime;
         }
 
+        if (null !== $this->backupStorageEncryptMethod) {
+            $res['BackupStorageEncryptMethod'] = $this->backupStorageEncryptMethod;
+        }
+
         if (null !== $this->backupStorageType) {
             $res['BackupStorageType'] = $this->backupStorageType;
         }
@@ -280,6 +314,14 @@ class ConfigureBackupPlanRequest extends Model
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
 
+        if (null !== $this->enableMysqlPhysicalBackupBinlog) {
+            $res['EnableMysqlPhysicalBackupBinlog'] = $this->enableMysqlPhysicalBackupBinlog;
+        }
+
+        if (null !== $this->enableSourceEndpointSsl) {
+            $res['EnableSourceEndpointSsl'] = $this->enableSourceEndpointSsl;
+        }
+
         if (null !== $this->OSSBucketName) {
             $res['OSSBucketName'] = $this->OSSBucketName;
         }
@@ -308,6 +350,10 @@ class ConfigureBackupPlanRequest extends Model
             $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
         }
 
+        if (null !== $this->sourceEndpointOracleHome) {
+            $res['SourceEndpointOracleHome'] = $this->sourceEndpointOracleHome;
+        }
+
         if (null !== $this->sourceEndpointOracleSID) {
             $res['SourceEndpointOracleSID'] = $this->sourceEndpointOracleSID;
         }
@@ -326,6 +372,10 @@ class ConfigureBackupPlanRequest extends Model
 
         if (null !== $this->sourceEndpointUserName) {
             $res['SourceEndpointUserName'] = $this->sourceEndpointUserName;
+        }
+
+        if (null !== $this->sslCaPem) {
+            $res['SslCaPem'] = $this->sslCaPem;
         }
 
         return $res;
@@ -383,6 +433,10 @@ class ConfigureBackupPlanRequest extends Model
             $model->backupStartTime = $map['BackupStartTime'];
         }
 
+        if (isset($map['BackupStorageEncryptMethod'])) {
+            $model->backupStorageEncryptMethod = $map['BackupStorageEncryptMethod'];
+        }
+
         if (isset($map['BackupStorageType'])) {
             $model->backupStorageType = $map['BackupStorageType'];
         }
@@ -415,6 +469,14 @@ class ConfigureBackupPlanRequest extends Model
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
 
+        if (isset($map['EnableMysqlPhysicalBackupBinlog'])) {
+            $model->enableMysqlPhysicalBackupBinlog = $map['EnableMysqlPhysicalBackupBinlog'];
+        }
+
+        if (isset($map['EnableSourceEndpointSsl'])) {
+            $model->enableSourceEndpointSsl = $map['EnableSourceEndpointSsl'];
+        }
+
         if (isset($map['OSSBucketName'])) {
             $model->OSSBucketName = $map['OSSBucketName'];
         }
@@ -443,6 +505,10 @@ class ConfigureBackupPlanRequest extends Model
             $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
         }
 
+        if (isset($map['SourceEndpointOracleHome'])) {
+            $model->sourceEndpointOracleHome = $map['SourceEndpointOracleHome'];
+        }
+
         if (isset($map['SourceEndpointOracleSID'])) {
             $model->sourceEndpointOracleSID = $map['SourceEndpointOracleSID'];
         }
@@ -461,6 +527,10 @@ class ConfigureBackupPlanRequest extends Model
 
         if (isset($map['SourceEndpointUserName'])) {
             $model->sourceEndpointUserName = $map['SourceEndpointUserName'];
+        }
+
+        if (isset($map['SslCaPem'])) {
+            $model->sslCaPem = $map['SslCaPem'];
         }
 
         return $model;

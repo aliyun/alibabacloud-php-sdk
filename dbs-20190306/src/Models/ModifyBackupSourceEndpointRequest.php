@@ -41,6 +41,11 @@ class ModifyBackupSourceEndpointRequest extends Model
     /**
      * @var string
      */
+    public $enableSourceEndpointSsl;
+
+    /**
+     * @var string
+     */
     public $ownerId;
 
     /**
@@ -66,6 +71,11 @@ class ModifyBackupSourceEndpointRequest extends Model
     /**
      * @var string
      */
+    public $sourceEndpointOracleHome;
+
+    /**
+     * @var string
+     */
     public $sourceEndpointOracleSID;
 
     /**
@@ -87,6 +97,11 @@ class ModifyBackupSourceEndpointRequest extends Model
      * @var string
      */
     public $sourceEndpointUserName;
+
+    /**
+     * @var string
+     */
+    public $sslCaPem;
     protected $_name = [
         'backupGatewayId' => 'BackupGatewayId',
         'backupObjects' => 'BackupObjects',
@@ -94,16 +109,19 @@ class ModifyBackupSourceEndpointRequest extends Model
         'clientToken' => 'ClientToken',
         'crossAliyunId' => 'CrossAliyunId',
         'crossRoleName' => 'CrossRoleName',
+        'enableSourceEndpointSsl' => 'EnableSourceEndpointSsl',
         'ownerId' => 'OwnerId',
         'sourceEndpointDatabaseName' => 'SourceEndpointDatabaseName',
         'sourceEndpointIP' => 'SourceEndpointIP',
         'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
         'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
+        'sourceEndpointOracleHome' => 'SourceEndpointOracleHome',
         'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
         'sourceEndpointPassword' => 'SourceEndpointPassword',
         'sourceEndpointPort' => 'SourceEndpointPort',
         'sourceEndpointRegion' => 'SourceEndpointRegion',
         'sourceEndpointUserName' => 'SourceEndpointUserName',
+        'sslCaPem' => 'SslCaPem',
     ];
 
     public function validate()
@@ -138,6 +156,10 @@ class ModifyBackupSourceEndpointRequest extends Model
             $res['CrossRoleName'] = $this->crossRoleName;
         }
 
+        if (null !== $this->enableSourceEndpointSsl) {
+            $res['EnableSourceEndpointSsl'] = $this->enableSourceEndpointSsl;
+        }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -158,6 +180,10 @@ class ModifyBackupSourceEndpointRequest extends Model
             $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
         }
 
+        if (null !== $this->sourceEndpointOracleHome) {
+            $res['SourceEndpointOracleHome'] = $this->sourceEndpointOracleHome;
+        }
+
         if (null !== $this->sourceEndpointOracleSID) {
             $res['SourceEndpointOracleSID'] = $this->sourceEndpointOracleSID;
         }
@@ -176,6 +202,10 @@ class ModifyBackupSourceEndpointRequest extends Model
 
         if (null !== $this->sourceEndpointUserName) {
             $res['SourceEndpointUserName'] = $this->sourceEndpointUserName;
+        }
+
+        if (null !== $this->sslCaPem) {
+            $res['SslCaPem'] = $this->sslCaPem;
         }
 
         return $res;
@@ -213,6 +243,10 @@ class ModifyBackupSourceEndpointRequest extends Model
             $model->crossRoleName = $map['CrossRoleName'];
         }
 
+        if (isset($map['EnableSourceEndpointSsl'])) {
+            $model->enableSourceEndpointSsl = $map['EnableSourceEndpointSsl'];
+        }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -233,6 +267,10 @@ class ModifyBackupSourceEndpointRequest extends Model
             $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
         }
 
+        if (isset($map['SourceEndpointOracleHome'])) {
+            $model->sourceEndpointOracleHome = $map['SourceEndpointOracleHome'];
+        }
+
         if (isset($map['SourceEndpointOracleSID'])) {
             $model->sourceEndpointOracleSID = $map['SourceEndpointOracleSID'];
         }
@@ -251,6 +289,10 @@ class ModifyBackupSourceEndpointRequest extends Model
 
         if (isset($map['SourceEndpointUserName'])) {
             $model->sourceEndpointUserName = $map['SourceEndpointUserName'];
+        }
+
+        if (isset($map['SslCaPem'])) {
+            $model->sslCaPem = $map['SslCaPem'];
         }
 
         return $model;

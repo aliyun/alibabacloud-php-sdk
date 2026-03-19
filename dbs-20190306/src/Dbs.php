@@ -141,7 +141,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Configures a DBS backup schedule.
+     * This API is used to configure a DBS backup plan.
      *
      * @param request - ConfigureBackupPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -201,6 +201,10 @@ class Dbs extends OpenApiClient
             @$query['BackupStartTime'] = $request->backupStartTime;
         }
 
+        if (null !== $request->backupStorageEncryptMethod) {
+            @$query['BackupStorageEncryptMethod'] = $request->backupStorageEncryptMethod;
+        }
+
         if (null !== $request->backupStorageType) {
             @$query['BackupStorageType'] = $request->backupStorageType;
         }
@@ -233,6 +237,14 @@ class Dbs extends OpenApiClient
             @$query['EnableBackupLog'] = $request->enableBackupLog;
         }
 
+        if (null !== $request->enableMysqlPhysicalBackupBinlog) {
+            @$query['EnableMysqlPhysicalBackupBinlog'] = $request->enableMysqlPhysicalBackupBinlog;
+        }
+
+        if (null !== $request->enableSourceEndpointSsl) {
+            @$query['EnableSourceEndpointSsl'] = $request->enableSourceEndpointSsl;
+        }
+
         if (null !== $request->OSSBucketName) {
             @$query['OSSBucketName'] = $request->OSSBucketName;
         }
@@ -261,6 +273,10 @@ class Dbs extends OpenApiClient
             @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
 
+        if (null !== $request->sourceEndpointOracleHome) {
+            @$query['SourceEndpointOracleHome'] = $request->sourceEndpointOracleHome;
+        }
+
         if (null !== $request->sourceEndpointOracleSID) {
             @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
@@ -279,6 +295,10 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->sourceEndpointUserName) {
             @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+        }
+
+        if (null !== $request->sslCaPem) {
+            @$query['SslCaPem'] = $request->sslCaPem;
         }
 
         $req = new OpenApiRequest([
@@ -300,7 +320,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Configures a DBS backup schedule.
+     * This API is used to configure a DBS backup plan.
      *
      * @param request - ConfigureBackupPlanRequest
      *
@@ -318,10 +338,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates, configures, and starts a backup schedule.
+     * Creates, configures, and starts a backup plan.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+     * Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
      *
      * @param request - CreateAndStartBackupPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -524,10 +544,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates, configures, and starts a backup schedule.
+     * Creates, configures, and starts a backup plan.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
+     * Before you call this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/70005.html) of Database Backup (DBS).
      *
      * @param request - CreateAndStartBackupPlanRequest
      *
@@ -545,10 +565,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates a backup schedule.
+     * Creates a Database Backup Service (DBS) backup plan.
      *
      * @remarks
-     * For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+     * To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
      *
      * @param request - CreateBackupPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -643,10 +663,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates a backup schedule.
+     * Creates a Database Backup Service (DBS) backup plan.
      *
      * @remarks
-     * For more information about how to create a backup schedule in the Database Backup (DBS) console, see [Purchase a backup schedule](https://help.aliyun.com/document_detail/65909.html).
+     * To perform this operation in the console, see [Purchase a backup plan](https://help.aliyun.com/document_detail/65909.html).
      *
      * @param request - CreateBackupPlanRequest
      *
@@ -664,7 +684,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates and starts a full backup set download task.
+     * This operation creates a task to download a full backup set.
      *
      * @param request - CreateFullBackupSetDownloadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -715,7 +735,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates and starts a full backup set download task.
+     * This operation creates a task to download a full backup set.
      *
      * @param request - CreateFullBackupSetDownloadRequest
      *
@@ -893,7 +913,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates a restoration task.
+     * This interface creates DBS restore jobs.
+     *
+     * @remarks
+     * ### Related operations
+     * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+     * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
      *
      * @param request - CreateRestoreTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -909,6 +934,14 @@ class Dbs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoOpenDatabase) {
+            @$query['AutoOpenDatabase'] = $request->autoOpenDatabase;
+        }
+
+        if (null !== $request->autoShutdownDatabase) {
+            @$query['AutoShutdownDatabase'] = $request->autoShutdownDatabase;
+        }
+
         if (null !== $request->backupGatewayId) {
             @$query['BackupGatewayId'] = $request->backupGatewayId;
         }
@@ -931,6 +964,34 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->crossRoleName) {
             @$query['CrossRoleName'] = $request->crossRoleName;
+        }
+
+        if (null !== $request->destDatabaseInstanceClass) {
+            @$query['DestDatabaseInstanceClass'] = $request->destDatabaseInstanceClass;
+        }
+
+        if (null !== $request->destDatabaseInstanceDatabaseVersion) {
+            @$query['DestDatabaseInstanceDatabaseVersion'] = $request->destDatabaseInstanceDatabaseVersion;
+        }
+
+        if (null !== $request->destDatabaseInstanceRegion) {
+            @$query['DestDatabaseInstanceRegion'] = $request->destDatabaseInstanceRegion;
+        }
+
+        if (null !== $request->destDatabaseInstanceStorageSize) {
+            @$query['DestDatabaseInstanceStorageSize'] = $request->destDatabaseInstanceStorageSize;
+        }
+
+        if (null !== $request->destDatabaseInstanceType) {
+            @$query['DestDatabaseInstanceType'] = $request->destDatabaseInstanceType;
+        }
+
+        if (null !== $request->destDatabaseInstanceVSwitch) {
+            @$query['DestDatabaseInstanceVSwitch'] = $request->destDatabaseInstanceVSwitch;
+        }
+
+        if (null !== $request->destDatabaseInstanceVpc) {
+            @$query['DestDatabaseInstanceVpc'] = $request->destDatabaseInstanceVpc;
         }
 
         if (null !== $request->destinationEndpointDatabaseName) {
@@ -973,8 +1034,16 @@ class Dbs extends OpenApiClient
             @$query['DuplicateConflict'] = $request->duplicateConflict;
         }
 
+        if (null !== $request->enableDestinationEndpointSsl) {
+            @$query['EnableDestinationEndpointSsl'] = $request->enableDestinationEndpointSsl;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->restoreDestinationMode) {
+            @$query['RestoreDestinationMode'] = $request->restoreDestinationMode;
         }
 
         if (null !== $request->restoreDir) {
@@ -997,6 +1066,10 @@ class Dbs extends OpenApiClient
             @$query['RestoreTime'] = $request->restoreTime;
         }
 
+        if (null !== $request->sslCaPem) {
+            @$query['SslCaPem'] = $request->sslCaPem;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1016,7 +1089,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Creates a restoration task.
+     * This interface creates DBS restore jobs.
+     *
+     * @remarks
+     * ### Related operations
+     * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
+     * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
      *
      * @param request - CreateRestoreTaskRequest
      *
@@ -1034,7 +1112,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries backup gateways.
+     * Queries a list of backup gateways in Database Backup Service (DBS).
      *
      * @param request - DescribeBackupGatewayListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1093,7 +1171,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries backup gateways.
+     * Queries a list of backup gateways in Database Backup Service (DBS).
      *
      * @param request - DescribeBackupGatewayListRequest
      *
@@ -1111,7 +1189,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the billing information of a backup schedule.
+     * This operation queries the billing information of a backup plan.
      *
      * @param request - DescribeBackupPlanBillingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1162,7 +1240,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the billing information of a backup schedule.
+     * This operation queries the billing information of a backup plan.
      *
      * @param request - DescribeBackupPlanBillingRequest
      *
@@ -1180,10 +1258,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Query the list of backup plans.
+     * This operation lets you view a DBS backup plan.
      *
      * @remarks
-     * Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+     * Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
      *
      * @param request - DescribeBackupPlanListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1199,6 +1277,10 @@ class Dbs extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->backupMethod) {
+            @$query['BackupMethod'] = $request->backupMethod;
+        }
+
         if (null !== $request->backupPlanId) {
             @$query['BackupPlanId'] = $request->backupPlanId;
         }
@@ -1235,6 +1317,18 @@ class Dbs extends OpenApiClient
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->showBackupStrategyInfo) {
+            @$query['ShowBackupStrategyInfo'] = $request->showBackupStrategyInfo;
+        }
+
+        if (null !== $request->showRecoverTimeRange) {
+            @$query['ShowRecoverTimeRange'] = $request->showRecoverTimeRange;
+        }
+
+        if (null !== $request->showStorageStrategyInfo) {
+            @$query['ShowStorageStrategyInfo'] = $request->showStorageStrategyInfo;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1254,10 +1348,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Query the list of backup plans.
+     * This operation lets you view a DBS backup plan.
      *
      * @remarks
-     * Before using this interface, please activate the OSS service in advance. For more information, see [Object Storage Service (OSS)](https://help.aliyun.com/document_detail/31817.html).
+     * Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
      *
      * @param request - DescribeBackupPlanListRequest
      *
@@ -1275,7 +1369,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries backup set download tasks.
+     * Queries the list of download tasks for backup sets in Database Backup Service (DBS).
      *
      * @param request - DescribeBackupSetDownloadTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1334,7 +1428,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries backup set download tasks.
+     * Queries the list of download tasks for backup sets in Database Backup Service (DBS).
      *
      * @param request - DescribeBackupSetDownloadTaskListRequest
      *
@@ -1417,7 +1511,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * cn-hangzhou.
+     * You can call this operation to list full backup jobs in Database Backup Service (DBS).
      *
      * @param request - DescribeFullBackupListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1441,6 +1535,10 @@ class Dbs extends OpenApiClient
             @$query['BackupSetId'] = $request->backupSetId;
         }
 
+        if (null !== $request->backupSetStatus) {
+            @$query['BackupSetStatus'] = $request->backupSetStatus;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -1459,6 +1557,10 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->showProgress) {
+            @$query['ShowProgress'] = $request->showProgress;
         }
 
         if (null !== $request->showStorageType) {
@@ -1488,7 +1590,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * cn-hangzhou.
+     * You can call this operation to list full backup jobs in Database Backup Service (DBS).
      *
      * @param request - DescribeFullBackupListRequest
      *
@@ -1506,7 +1608,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries incremental backup tasks.
+     * This operation queries the list of incremental backup tasks for DBS.
      *
      * @param request - DescribeIncrementBackupListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1573,7 +1675,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries incremental backup tasks.
+     * This operation queries the list of incremental backup tasks for DBS.
      *
      * @param request - DescribeIncrementBackupListRequest
      *
@@ -1591,7 +1693,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the error information of a Database Backup (DBS) task.
+     * Queries the error code of a Database Backup Service (DBS) job.
      *
      * @param request - DescribeJobErrorCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1642,7 +1744,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the error information of a Database Backup (DBS) task.
+     * Queries the error code of a Database Backup Service (DBS) job.
      *
      * @param request - DescribeJobErrorCodeRequest
      *
@@ -1725,7 +1827,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the precheck progress of a backup schedule or a restore task.
+     * This operation queries the precheck progress for a backup plan or a restore job.
      *
      * @param request - DescribePreCheckProgressListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1776,7 +1878,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the precheck progress of a backup schedule or a restore task.
+     * This operation queries the precheck progress for a backup plan or a restore job.
      *
      * @param request - DescribePreCheckProgressListRequest
      *
@@ -1794,7 +1896,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the regions that Database Backup (DBS) supports.
+     * Queries the regions where DBS is available.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1837,7 +1939,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the regions that Database Backup (DBS) supports.
+     * Queries the regions where DBS is available.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -1855,7 +1957,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the range of time to which you can restore data in a backup schedule.
+     * This operation returns the time ranges available for restoring data from a backup plan.
      *
      * @param request - DescribeRestoreRangeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1914,7 +2016,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries the range of time to which you can restore data in a backup schedule.
+     * This operation returns the time ranges available for restoring data from a backup plan.
      *
      * @param request - DescribeRestoreRangeInfoRequest
      *
@@ -1932,7 +2034,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries restore tasks.
+     * Queries restore jobs in Database Backup Service (DBS).
      *
      * @param request - DescribeRestoreTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1999,7 +2101,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Queries restore tasks.
+     * Queries restore jobs in Database Backup Service (DBS).
      *
      * @param request - DescribeRestoreTaskListRequest
      *
@@ -2017,11 +2119,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Disables incremental backup for a backup schedule.
+     * Disable incremental backup for a backup plan.
      *
      * @remarks
-     * ### Impact
-     * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+     * ## Impact
+     * After you disable incremental backup, the backup plan no longer performs incremental backups.
      *
      * @param request - DisableBackupLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2043,6 +2145,10 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->disableMysqlPhysicalBackupBinlogOnly) {
+            @$query['DisableMysqlPhysicalBackupBinlogOnly'] = $request->disableMysqlPhysicalBackupBinlogOnly;
         }
 
         if (null !== $request->ownerId) {
@@ -2068,11 +2174,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Disables incremental backup for a backup schedule.
+     * Disable incremental backup for a backup plan.
      *
      * @remarks
-     * ### Impact
-     * After you disable the incremental log backup feature, your backup schedule no longer performs incremental log backups.
+     * ## Impact
+     * After you disable incremental backup, the backup plan no longer performs incremental backups.
      *
      * @param request - DisableBackupLogRequest
      *
@@ -2090,11 +2196,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Enables incremental backup for a backup schedule.
+     * This operation enables incremental backup for a backup plan.
      *
      * @remarks
      * ## Impact
-     * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+     * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
      *
      * @param request - EnableBackupLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2116,6 +2222,10 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->enableMysqlPhysicalBackupBinlog) {
+            @$query['EnableMysqlPhysicalBackupBinlog'] = $request->enableMysqlPhysicalBackupBinlog;
         }
 
         if (null !== $request->ownerId) {
@@ -2141,11 +2251,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Enables incremental backup for a backup schedule.
+     * This operation enables incremental backup for a backup plan.
      *
      * @remarks
      * ## Impact
-     * It is free to enable the incremental log backup feature. However, the backup traffic and storage capacity generated by the feature are billed in the same way as the full backup feature, and can be offset by the free quota of backup schedules or storage plans.
+     * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
      *
      * @param request - EnableBackupLogRequest
      *
@@ -2164,6 +2274,9 @@ class Dbs extends OpenApiClient
 
     /**
      * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+     *
+     * @remarks
+     * 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
      *
      * @param request - GetDBListFromAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2220,6 +2333,9 @@ class Dbs extends OpenApiClient
     /**
      * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
      *
+     * @remarks
+     * 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+     *
      * @param request - GetDBListFromAgentRequest
      *
      * @returns GetDBListFromAgentResponse
@@ -2236,7 +2352,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+     * Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+     *
+     * @remarks
+     * DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
      *
      * @param request - InitializeDbsServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2266,7 +2385,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Grants the AliyunServiceRoleForDBS role to Database Backup (DBS).
+     * Grants the service-linked role (AliyunServiceRoleForDBS) to Database Backup (DBS).
+     *
+     * @remarks
+     * DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
      *
      * @returns InitializeDbsServiceLinkedRoleResponse
      *
@@ -2280,7 +2402,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Modifies backup objects of a backup schedule in Database Backup (DBS).
+     * Modifies the objects included in a Database Backup Service (DBS) backup plan.
      *
      * @param request - ModifyBackupObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2331,7 +2453,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Modifies backup objects of a backup schedule in Database Backup (DBS).
+     * Modifies the objects included in a Database Backup Service (DBS) backup plan.
      *
      * @param request - ModifyBackupObjectsRequest
      *
@@ -2349,7 +2471,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Changes the name of a backup schedule.
+     * Modifies the name of a backup plan.
      *
      * @param request - ModifyBackupPlanNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2400,7 +2522,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Changes the name of a backup schedule.
+     * Modifies the name of a backup plan.
      *
      * @param request - ModifyBackupPlanNameRequest
      *
@@ -2419,6 +2541,9 @@ class Dbs extends OpenApiClient
 
     /**
      * Enables, configures, or disables the automatic download feature.
+     *
+     * @remarks
+     * 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
      *
      * @param request - ModifyBackupSetDownloadRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2495,6 +2620,9 @@ class Dbs extends OpenApiClient
     /**
      * Enables, configures, or disables the automatic download feature.
      *
+     * @remarks
+     * 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+     *
      * @param request - ModifyBackupSetDownloadRulesRequest
      *
      * @returns ModifyBackupSetDownloadRulesResponse
@@ -2511,7 +2639,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Modifies the data source of a backup schedule.
+     * This operation modifies a Database Backup source endpoint.
      *
      * @param request - ModifyBackupSourceEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2551,6 +2679,10 @@ class Dbs extends OpenApiClient
             @$query['CrossRoleName'] = $request->crossRoleName;
         }
 
+        if (null !== $request->enableSourceEndpointSsl) {
+            @$query['EnableSourceEndpointSsl'] = $request->enableSourceEndpointSsl;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
@@ -2569,6 +2701,10 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->sourceEndpointInstanceType) {
             @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+        }
+
+        if (null !== $request->sourceEndpointOracleHome) {
+            @$query['SourceEndpointOracleHome'] = $request->sourceEndpointOracleHome;
         }
 
         if (null !== $request->sourceEndpointOracleSID) {
@@ -2591,6 +2727,10 @@ class Dbs extends OpenApiClient
             @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
 
+        if (null !== $request->sslCaPem) {
+            @$query['SslCaPem'] = $request->sslCaPem;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2610,7 +2750,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Modifies the data source of a backup schedule.
+     * This operation modifies a Database Backup source endpoint.
      *
      * @param request - ModifyBackupSourceEndpointRequest
      *
@@ -2709,7 +2849,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Modifies the lifecycle of data that is backed up based on a backup schedule.
+     * Modify the lifecycle of stored data in a backup plan.
      *
      * @param request - ModifyStorageStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2733,6 +2873,10 @@ class Dbs extends OpenApiClient
             @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
 
+        if (null !== $request->backupStorageEncryptMethod) {
+            @$query['BackupStorageEncryptMethod'] = $request->backupStorageEncryptMethod;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -2743,6 +2887,30 @@ class Dbs extends OpenApiClient
 
         if (null !== $request->duplicationInfrequentAccessPeriod) {
             @$query['DuplicationInfrequentAccessPeriod'] = $request->duplicationInfrequentAccessPeriod;
+        }
+
+        if (null !== $request->incrementBackupRetentionPeriod) {
+            @$query['IncrementBackupRetentionPeriod'] = $request->incrementBackupRetentionPeriod;
+        }
+
+        if (null !== $request->incrementDuplicationArchivePeriod) {
+            @$query['IncrementDuplicationArchivePeriod'] = $request->incrementDuplicationArchivePeriod;
+        }
+
+        if (null !== $request->incrementDuplicationInfrequentAccessPeriod) {
+            @$query['IncrementDuplicationInfrequentAccessPeriod'] = $request->incrementDuplicationInfrequentAccessPeriod;
+        }
+
+        if (null !== $request->logBackupRetentionPeriod) {
+            @$query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
+        }
+
+        if (null !== $request->logDuplicationArchivePeriod) {
+            @$query['LogDuplicationArchivePeriod'] = $request->logDuplicationArchivePeriod;
+        }
+
+        if (null !== $request->logDuplicationInfrequentAccessPeriod) {
+            @$query['LogDuplicationInfrequentAccessPeriod'] = $request->logDuplicationInfrequentAccessPeriod;
         }
 
         if (null !== $request->ownerId) {
@@ -2768,7 +2936,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Modifies the lifecycle of data that is backed up based on a backup schedule.
+     * Modify the lifecycle of stored data in a backup plan.
      *
      * @param request - ModifyStorageStrategyRequest
      *
@@ -2786,11 +2954,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go backup schedule.
+     * This operation releases a pay-as-you-go backup plan.
      *
      * @remarks
-     * ## Impacts
-     * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+     * ## Impact
+     * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
      *
      * @param request - ReleaseBackupPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2837,11 +3005,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go backup schedule.
+     * This operation releases a pay-as-you-go backup plan.
      *
      * @remarks
-     * ## Impacts
-     * After a pay-as-you-go backup schedule is released, it stops providing services. Database Backup (DBS) no longer charges you fees for this backup schedule.
+     * ## Impact
+     * After you release a backup plan, the service for the backup instance is stopped and you are no longer charged for the instance.
      *
      * @param request - ReleaseBackupPlanRequest
      *
@@ -2932,7 +3100,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Starts a backup schedule.
+     * This operation starts a DBS backup plan.
      *
      * @param request - StartBackupPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2979,7 +3147,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Starts a backup schedule.
+     * This operation starts a DBS backup plan.
      *
      * @param request - StartBackupPlanRequest
      *
@@ -2997,7 +3165,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Starts a restore task.
+     * Starts a DBS restore job.
      *
      * @param request - StartRestoreTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3044,7 +3212,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Starts a restore task.
+     * Starts a DBS restore job.
      *
      * @param request - StartRestoreTaskRequest
      *
@@ -3062,7 +3230,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Stops a backup schedule.
+     * This operation pauses a DBS backup plan.
      *
      * @param request - StopBackupPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3113,7 +3281,7 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Stops a backup schedule.
+     * This operation pauses a DBS backup plan.
      *
      * @param request - StopBackupPlanRequest
      *

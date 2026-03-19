@@ -16,12 +16,22 @@ class restoreTaskDetail extends Model
     /**
      * @var string
      */
+    public $backupGatewayIdentifier;
+
+    /**
+     * @var string
+     */
     public $backupPlanId;
 
     /**
      * @var string
      */
     public $backupSetId;
+
+    /**
+     * @var string
+     */
+    public $backupSourceOssRegion;
 
     /**
      * @var int
@@ -46,6 +56,16 @@ class restoreTaskDetail extends Model
     /**
      * @var string
      */
+    public $destinationEndpointEnableSsl;
+
+    /**
+     * @var string
+     */
+    public $destinationEndpointHost;
+
+    /**
+     * @var string
+     */
     public $destinationEndpointInstanceID;
 
     /**
@@ -62,6 +82,11 @@ class restoreTaskDetail extends Model
      * @var string
      */
     public $destinationEndpointOracleSID;
+
+    /**
+     * @var string
+     */
+    public $destinationEndpointPort;
 
     /**
      * @var string
@@ -92,6 +117,36 @@ class restoreTaskDetail extends Model
      * @var int
      */
     public $fullStruforeRestoreProgress;
+
+    /**
+     * @var int
+     */
+    public $physicalBackupRecoverProgress;
+
+    /**
+     * @var int
+     */
+    public $physicalDatabaseOnlineProgress;
+
+    /**
+     * @var int
+     */
+    public $physicalFullAndIncrementBackupRecoverProgress;
+
+    /**
+     * @var int
+     */
+    public $physicalFullBackupRecoverProgress;
+
+    /**
+     * @var int
+     */
+    public $physicalIncrementBackupRecoverProgress;
+
+    /**
+     * @var string
+     */
+    public $restoreDestinationMode;
 
     /**
      * @var string
@@ -134,22 +189,33 @@ class restoreTaskDetail extends Model
     public $restoreTime;
     protected $_name = [
         'backupGatewayId' => 'BackupGatewayId',
+        'backupGatewayIdentifier' => 'BackupGatewayIdentifier',
         'backupPlanId' => 'BackupPlanId',
         'backupSetId' => 'BackupSetId',
+        'backupSourceOssRegion' => 'BackupSourceOssRegion',
         'continuousRestoreProgress' => 'ContinuousRestoreProgress',
         'crossAliyunId' => 'CrossAliyunId',
         'crossRoleName' => 'CrossRoleName',
         'destinationEndpointDatabaseName' => 'DestinationEndpointDatabaseName',
+        'destinationEndpointEnableSsl' => 'DestinationEndpointEnableSsl',
+        'destinationEndpointHost' => 'DestinationEndpointHost',
         'destinationEndpointInstanceID' => 'DestinationEndpointInstanceID',
         'destinationEndpointInstanceType' => 'DestinationEndpointInstanceType',
         'destinationEndpointIpPort' => 'DestinationEndpointIpPort',
         'destinationEndpointOracleSID' => 'DestinationEndpointOracleSID',
+        'destinationEndpointPort' => 'DestinationEndpointPort',
         'destinationEndpointRegion' => 'DestinationEndpointRegion',
         'destinationEndpointUserName' => 'DestinationEndpointUserName',
         'errMessage' => 'ErrMessage',
         'fullDataRestoreProgress' => 'FullDataRestoreProgress',
         'fullStruAfterRestoreProgress' => 'FullStruAfterRestoreProgress',
         'fullStruforeRestoreProgress' => 'FullStruforeRestoreProgress',
+        'physicalBackupRecoverProgress' => 'PhysicalBackupRecoverProgress',
+        'physicalDatabaseOnlineProgress' => 'PhysicalDatabaseOnlineProgress',
+        'physicalFullAndIncrementBackupRecoverProgress' => 'PhysicalFullAndIncrementBackupRecoverProgress',
+        'physicalFullBackupRecoverProgress' => 'PhysicalFullBackupRecoverProgress',
+        'physicalIncrementBackupRecoverProgress' => 'PhysicalIncrementBackupRecoverProgress',
+        'restoreDestinationMode' => 'RestoreDestinationMode',
         'restoreDir' => 'RestoreDir',
         'restoreObjects' => 'RestoreObjects',
         'restoreStatus' => 'RestoreStatus',
@@ -172,12 +238,20 @@ class restoreTaskDetail extends Model
             $res['BackupGatewayId'] = $this->backupGatewayId;
         }
 
+        if (null !== $this->backupGatewayIdentifier) {
+            $res['BackupGatewayIdentifier'] = $this->backupGatewayIdentifier;
+        }
+
         if (null !== $this->backupPlanId) {
             $res['BackupPlanId'] = $this->backupPlanId;
         }
 
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
+        }
+
+        if (null !== $this->backupSourceOssRegion) {
+            $res['BackupSourceOssRegion'] = $this->backupSourceOssRegion;
         }
 
         if (null !== $this->continuousRestoreProgress) {
@@ -196,6 +270,14 @@ class restoreTaskDetail extends Model
             $res['DestinationEndpointDatabaseName'] = $this->destinationEndpointDatabaseName;
         }
 
+        if (null !== $this->destinationEndpointEnableSsl) {
+            $res['DestinationEndpointEnableSsl'] = $this->destinationEndpointEnableSsl;
+        }
+
+        if (null !== $this->destinationEndpointHost) {
+            $res['DestinationEndpointHost'] = $this->destinationEndpointHost;
+        }
+
         if (null !== $this->destinationEndpointInstanceID) {
             $res['DestinationEndpointInstanceID'] = $this->destinationEndpointInstanceID;
         }
@@ -210,6 +292,10 @@ class restoreTaskDetail extends Model
 
         if (null !== $this->destinationEndpointOracleSID) {
             $res['DestinationEndpointOracleSID'] = $this->destinationEndpointOracleSID;
+        }
+
+        if (null !== $this->destinationEndpointPort) {
+            $res['DestinationEndpointPort'] = $this->destinationEndpointPort;
         }
 
         if (null !== $this->destinationEndpointRegion) {
@@ -234,6 +320,30 @@ class restoreTaskDetail extends Model
 
         if (null !== $this->fullStruforeRestoreProgress) {
             $res['FullStruforeRestoreProgress'] = $this->fullStruforeRestoreProgress;
+        }
+
+        if (null !== $this->physicalBackupRecoverProgress) {
+            $res['PhysicalBackupRecoverProgress'] = $this->physicalBackupRecoverProgress;
+        }
+
+        if (null !== $this->physicalDatabaseOnlineProgress) {
+            $res['PhysicalDatabaseOnlineProgress'] = $this->physicalDatabaseOnlineProgress;
+        }
+
+        if (null !== $this->physicalFullAndIncrementBackupRecoverProgress) {
+            $res['PhysicalFullAndIncrementBackupRecoverProgress'] = $this->physicalFullAndIncrementBackupRecoverProgress;
+        }
+
+        if (null !== $this->physicalFullBackupRecoverProgress) {
+            $res['PhysicalFullBackupRecoverProgress'] = $this->physicalFullBackupRecoverProgress;
+        }
+
+        if (null !== $this->physicalIncrementBackupRecoverProgress) {
+            $res['PhysicalIncrementBackupRecoverProgress'] = $this->physicalIncrementBackupRecoverProgress;
+        }
+
+        if (null !== $this->restoreDestinationMode) {
+            $res['RestoreDestinationMode'] = $this->restoreDestinationMode;
         }
 
         if (null !== $this->restoreDir) {
@@ -283,12 +393,20 @@ class restoreTaskDetail extends Model
             $model->backupGatewayId = $map['BackupGatewayId'];
         }
 
+        if (isset($map['BackupGatewayIdentifier'])) {
+            $model->backupGatewayIdentifier = $map['BackupGatewayIdentifier'];
+        }
+
         if (isset($map['BackupPlanId'])) {
             $model->backupPlanId = $map['BackupPlanId'];
         }
 
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
+        }
+
+        if (isset($map['BackupSourceOssRegion'])) {
+            $model->backupSourceOssRegion = $map['BackupSourceOssRegion'];
         }
 
         if (isset($map['ContinuousRestoreProgress'])) {
@@ -307,6 +425,14 @@ class restoreTaskDetail extends Model
             $model->destinationEndpointDatabaseName = $map['DestinationEndpointDatabaseName'];
         }
 
+        if (isset($map['DestinationEndpointEnableSsl'])) {
+            $model->destinationEndpointEnableSsl = $map['DestinationEndpointEnableSsl'];
+        }
+
+        if (isset($map['DestinationEndpointHost'])) {
+            $model->destinationEndpointHost = $map['DestinationEndpointHost'];
+        }
+
         if (isset($map['DestinationEndpointInstanceID'])) {
             $model->destinationEndpointInstanceID = $map['DestinationEndpointInstanceID'];
         }
@@ -321,6 +447,10 @@ class restoreTaskDetail extends Model
 
         if (isset($map['DestinationEndpointOracleSID'])) {
             $model->destinationEndpointOracleSID = $map['DestinationEndpointOracleSID'];
+        }
+
+        if (isset($map['DestinationEndpointPort'])) {
+            $model->destinationEndpointPort = $map['DestinationEndpointPort'];
         }
 
         if (isset($map['DestinationEndpointRegion'])) {
@@ -345,6 +475,30 @@ class restoreTaskDetail extends Model
 
         if (isset($map['FullStruforeRestoreProgress'])) {
             $model->fullStruforeRestoreProgress = $map['FullStruforeRestoreProgress'];
+        }
+
+        if (isset($map['PhysicalBackupRecoverProgress'])) {
+            $model->physicalBackupRecoverProgress = $map['PhysicalBackupRecoverProgress'];
+        }
+
+        if (isset($map['PhysicalDatabaseOnlineProgress'])) {
+            $model->physicalDatabaseOnlineProgress = $map['PhysicalDatabaseOnlineProgress'];
+        }
+
+        if (isset($map['PhysicalFullAndIncrementBackupRecoverProgress'])) {
+            $model->physicalFullAndIncrementBackupRecoverProgress = $map['PhysicalFullAndIncrementBackupRecoverProgress'];
+        }
+
+        if (isset($map['PhysicalFullBackupRecoverProgress'])) {
+            $model->physicalFullBackupRecoverProgress = $map['PhysicalFullBackupRecoverProgress'];
+        }
+
+        if (isset($map['PhysicalIncrementBackupRecoverProgress'])) {
+            $model->physicalIncrementBackupRecoverProgress = $map['PhysicalIncrementBackupRecoverProgress'];
+        }
+
+        if (isset($map['RestoreDestinationMode'])) {
+            $model->restoreDestinationMode = $map['RestoreDestinationMode'];
         }
 
         if (isset($map['RestoreDir'])) {

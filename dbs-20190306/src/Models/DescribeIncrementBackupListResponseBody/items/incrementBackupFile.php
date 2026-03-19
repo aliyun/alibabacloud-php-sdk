@@ -41,7 +41,32 @@ class incrementBackupFile extends Model
     /**
      * @var string
      */
+    public $sourceEndpointHost;
+
+    /**
+     * @var string
+     */
+    public $sourceEndpointInstanceId;
+
+    /**
+     * @var string
+     */
+    public $sourceEndpointInstanceType;
+
+    /**
+     * @var string
+     */
     public $sourceEndpointIpPort;
+
+    /**
+     * @var string
+     */
+    public $sourceEndpointPort;
+
+    /**
+     * @var string
+     */
+    public $sourceEndpointRegion;
 
     /**
      * @var int
@@ -59,7 +84,12 @@ class incrementBackupFile extends Model
         'backupSize' => 'BackupSize',
         'backupStatus' => 'BackupStatus',
         'endTime' => 'EndTime',
+        'sourceEndpointHost' => 'SourceEndpointHost',
+        'sourceEndpointInstanceId' => 'SourceEndpointInstanceId',
+        'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
         'sourceEndpointIpPort' => 'SourceEndpointIpPort',
+        'sourceEndpointPort' => 'SourceEndpointPort',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
         'startTime' => 'StartTime',
         'storageMethod' => 'StorageMethod',
     ];
@@ -96,8 +126,28 @@ class incrementBackupFile extends Model
             $res['EndTime'] = $this->endTime;
         }
 
+        if (null !== $this->sourceEndpointHost) {
+            $res['SourceEndpointHost'] = $this->sourceEndpointHost;
+        }
+
+        if (null !== $this->sourceEndpointInstanceId) {
+            $res['SourceEndpointInstanceId'] = $this->sourceEndpointInstanceId;
+        }
+
+        if (null !== $this->sourceEndpointInstanceType) {
+            $res['SourceEndpointInstanceType'] = $this->sourceEndpointInstanceType;
+        }
+
         if (null !== $this->sourceEndpointIpPort) {
             $res['SourceEndpointIpPort'] = $this->sourceEndpointIpPort;
+        }
+
+        if (null !== $this->sourceEndpointPort) {
+            $res['SourceEndpointPort'] = $this->sourceEndpointPort;
+        }
+
+        if (null !== $this->sourceEndpointRegion) {
+            $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
         }
 
         if (null !== $this->startTime) {
@@ -143,8 +193,28 @@ class incrementBackupFile extends Model
             $model->endTime = $map['EndTime'];
         }
 
+        if (isset($map['SourceEndpointHost'])) {
+            $model->sourceEndpointHost = $map['SourceEndpointHost'];
+        }
+
+        if (isset($map['SourceEndpointInstanceId'])) {
+            $model->sourceEndpointInstanceId = $map['SourceEndpointInstanceId'];
+        }
+
+        if (isset($map['SourceEndpointInstanceType'])) {
+            $model->sourceEndpointInstanceType = $map['SourceEndpointInstanceType'];
+        }
+
         if (isset($map['SourceEndpointIpPort'])) {
             $model->sourceEndpointIpPort = $map['SourceEndpointIpPort'];
+        }
+
+        if (isset($map['SourceEndpointPort'])) {
+            $model->sourceEndpointPort = $map['SourceEndpointPort'];
+        }
+
+        if (isset($map['SourceEndpointRegion'])) {
+            $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
         }
 
         if (isset($map['StartTime'])) {

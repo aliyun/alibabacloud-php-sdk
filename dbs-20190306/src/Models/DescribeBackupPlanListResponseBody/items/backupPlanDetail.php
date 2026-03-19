@@ -16,6 +16,11 @@ class backupPlanDetail extends Model
     /**
      * @var string
      */
+    public $backupGatewayIdentifier;
+
+    /**
+     * @var string
+     */
     public $backupMethod;
 
     /**
@@ -42,6 +47,11 @@ class backupPlanDetail extends Model
      * @var string
      */
     public $backupPlanName;
+
+    /**
+     * @var string
+     */
+    public $backupPlanRegion;
 
     /**
      * @var string
@@ -124,6 +134,11 @@ class backupPlanDetail extends Model
     public $enableBackupLog;
 
     /**
+     * @var bool
+     */
+    public $enableMysqlPhysicalBackupBinLog;
+
+    /**
      * @var int
      */
     public $endTimestampForRestore;
@@ -136,7 +151,47 @@ class backupPlanDetail extends Model
     /**
      * @var string
      */
+    public $incrementBackupRetentionPeriod;
+
+    /**
+     * @var string
+     */
+    public $incrementDuplicationArchivePeriod;
+
+    /**
+     * @var string
+     */
+    public $incrementDuplicationInfrequentAccessPeriod;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
     public $instanceClass;
+
+    /**
+     * @var int
+     */
+    public $instanceExpiredTimestamp;
+
+    /**
+     * @var string
+     */
+    public $logBackupRetentionPeriod;
+
+    /**
+     * @var string
+     */
+    public $logDuplicationArchivePeriod;
+
+    /**
+     * @var string
+     */
+    public $logDuplicationInfrequentAccessPeriod;
 
     /**
      * @var string
@@ -166,6 +221,16 @@ class backupPlanDetail extends Model
     /**
      * @var string
      */
+    public $sourceEndpointEnableSsl;
+
+    /**
+     * @var string
+     */
+    public $sourceEndpointHost;
+
+    /**
+     * @var string
+     */
     public $sourceEndpointInstanceID;
 
     /**
@@ -186,20 +251,32 @@ class backupPlanDetail extends Model
     /**
      * @var string
      */
+    public $sourceEndpointPort;
+
+    /**
+     * @var string
+     */
     public $sourceEndpointRegion;
 
     /**
      * @var string
      */
     public $sourceEndpointUserName;
+
+    /**
+     * @var string
+     */
+    public $storageEncryptMethod;
     protected $_name = [
         'backupGatewayId' => 'BackupGatewayId',
+        'backupGatewayIdentifier' => 'BackupGatewayIdentifier',
         'backupMethod' => 'BackupMethod',
         'backupObjects' => 'BackupObjects',
         'backupPeriod' => 'BackupPeriod',
         'backupPlanCreateTime' => 'BackupPlanCreateTime',
         'backupPlanId' => 'BackupPlanId',
         'backupPlanName' => 'BackupPlanName',
+        'backupPlanRegion' => 'BackupPlanRegion',
         'backupPlanStatus' => 'BackupPlanStatus',
         'backupRetentionPeriod' => 'BackupRetentionPeriod',
         'backupSetDownloadDir' => 'BackupSetDownloadDir',
@@ -216,20 +293,33 @@ class backupPlanDetail extends Model
         'duplicationArchivePeriod' => 'DuplicationArchivePeriod',
         'duplicationInfrequentAccessPeriod' => 'DuplicationInfrequentAccessPeriod',
         'enableBackupLog' => 'EnableBackupLog',
+        'enableMysqlPhysicalBackupBinLog' => 'EnableMysqlPhysicalBackupBinLog',
         'endTimestampForRestore' => 'EndTimestampForRestore',
         'errMessage' => 'ErrMessage',
+        'incrementBackupRetentionPeriod' => 'IncrementBackupRetentionPeriod',
+        'incrementDuplicationArchivePeriod' => 'IncrementDuplicationArchivePeriod',
+        'incrementDuplicationInfrequentAccessPeriod' => 'IncrementDuplicationInfrequentAccessPeriod',
+        'instanceChargeType' => 'InstanceChargeType',
         'instanceClass' => 'InstanceClass',
+        'instanceExpiredTimestamp' => 'InstanceExpiredTimestamp',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'logDuplicationArchivePeriod' => 'LogDuplicationArchivePeriod',
+        'logDuplicationInfrequentAccessPeriod' => 'LogDuplicationInfrequentAccessPeriod',
         'OSSBucketName' => 'OSSBucketName',
         'OSSBucketRegion' => 'OSSBucketRegion',
         'openBackupSetAutoDownload' => 'OpenBackupSetAutoDownload',
         'resourceGroupId' => 'ResourceGroupId',
         'sourceEndpointDatabaseName' => 'SourceEndpointDatabaseName',
+        'sourceEndpointEnableSsl' => 'SourceEndpointEnableSsl',
+        'sourceEndpointHost' => 'SourceEndpointHost',
         'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
         'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
         'sourceEndpointIpPort' => 'SourceEndpointIpPort',
         'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
+        'sourceEndpointPort' => 'SourceEndpointPort',
         'sourceEndpointRegion' => 'SourceEndpointRegion',
         'sourceEndpointUserName' => 'SourceEndpointUserName',
+        'storageEncryptMethod' => 'StorageEncryptMethod',
     ];
 
     public function validate()
@@ -242,6 +332,10 @@ class backupPlanDetail extends Model
         $res = [];
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
+        }
+
+        if (null !== $this->backupGatewayIdentifier) {
+            $res['BackupGatewayIdentifier'] = $this->backupGatewayIdentifier;
         }
 
         if (null !== $this->backupMethod) {
@@ -266,6 +360,10 @@ class backupPlanDetail extends Model
 
         if (null !== $this->backupPlanName) {
             $res['BackupPlanName'] = $this->backupPlanName;
+        }
+
+        if (null !== $this->backupPlanRegion) {
+            $res['BackupPlanRegion'] = $this->backupPlanRegion;
         }
 
         if (null !== $this->backupPlanStatus) {
@@ -332,6 +430,10 @@ class backupPlanDetail extends Model
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
 
+        if (null !== $this->enableMysqlPhysicalBackupBinLog) {
+            $res['EnableMysqlPhysicalBackupBinLog'] = $this->enableMysqlPhysicalBackupBinLog;
+        }
+
         if (null !== $this->endTimestampForRestore) {
             $res['EndTimestampForRestore'] = $this->endTimestampForRestore;
         }
@@ -340,8 +442,40 @@ class backupPlanDetail extends Model
             $res['ErrMessage'] = $this->errMessage;
         }
 
+        if (null !== $this->incrementBackupRetentionPeriod) {
+            $res['IncrementBackupRetentionPeriod'] = $this->incrementBackupRetentionPeriod;
+        }
+
+        if (null !== $this->incrementDuplicationArchivePeriod) {
+            $res['IncrementDuplicationArchivePeriod'] = $this->incrementDuplicationArchivePeriod;
+        }
+
+        if (null !== $this->incrementDuplicationInfrequentAccessPeriod) {
+            $res['IncrementDuplicationInfrequentAccessPeriod'] = $this->incrementDuplicationInfrequentAccessPeriod;
+        }
+
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
+        }
+
+        if (null !== $this->instanceExpiredTimestamp) {
+            $res['InstanceExpiredTimestamp'] = $this->instanceExpiredTimestamp;
+        }
+
+        if (null !== $this->logBackupRetentionPeriod) {
+            $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
+        }
+
+        if (null !== $this->logDuplicationArchivePeriod) {
+            $res['LogDuplicationArchivePeriod'] = $this->logDuplicationArchivePeriod;
+        }
+
+        if (null !== $this->logDuplicationInfrequentAccessPeriod) {
+            $res['LogDuplicationInfrequentAccessPeriod'] = $this->logDuplicationInfrequentAccessPeriod;
         }
 
         if (null !== $this->OSSBucketName) {
@@ -364,6 +498,14 @@ class backupPlanDetail extends Model
             $res['SourceEndpointDatabaseName'] = $this->sourceEndpointDatabaseName;
         }
 
+        if (null !== $this->sourceEndpointEnableSsl) {
+            $res['SourceEndpointEnableSsl'] = $this->sourceEndpointEnableSsl;
+        }
+
+        if (null !== $this->sourceEndpointHost) {
+            $res['SourceEndpointHost'] = $this->sourceEndpointHost;
+        }
+
         if (null !== $this->sourceEndpointInstanceID) {
             $res['SourceEndpointInstanceID'] = $this->sourceEndpointInstanceID;
         }
@@ -380,12 +522,20 @@ class backupPlanDetail extends Model
             $res['SourceEndpointOracleSID'] = $this->sourceEndpointOracleSID;
         }
 
+        if (null !== $this->sourceEndpointPort) {
+            $res['SourceEndpointPort'] = $this->sourceEndpointPort;
+        }
+
         if (null !== $this->sourceEndpointRegion) {
             $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
         }
 
         if (null !== $this->sourceEndpointUserName) {
             $res['SourceEndpointUserName'] = $this->sourceEndpointUserName;
+        }
+
+        if (null !== $this->storageEncryptMethod) {
+            $res['StorageEncryptMethod'] = $this->storageEncryptMethod;
         }
 
         return $res;
@@ -401,6 +551,10 @@ class backupPlanDetail extends Model
         $model = new self();
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
+        }
+
+        if (isset($map['BackupGatewayIdentifier'])) {
+            $model->backupGatewayIdentifier = $map['BackupGatewayIdentifier'];
         }
 
         if (isset($map['BackupMethod'])) {
@@ -425,6 +579,10 @@ class backupPlanDetail extends Model
 
         if (isset($map['BackupPlanName'])) {
             $model->backupPlanName = $map['BackupPlanName'];
+        }
+
+        if (isset($map['BackupPlanRegion'])) {
+            $model->backupPlanRegion = $map['BackupPlanRegion'];
         }
 
         if (isset($map['BackupPlanStatus'])) {
@@ -491,6 +649,10 @@ class backupPlanDetail extends Model
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
 
+        if (isset($map['EnableMysqlPhysicalBackupBinLog'])) {
+            $model->enableMysqlPhysicalBackupBinLog = $map['EnableMysqlPhysicalBackupBinLog'];
+        }
+
         if (isset($map['EndTimestampForRestore'])) {
             $model->endTimestampForRestore = $map['EndTimestampForRestore'];
         }
@@ -499,8 +661,40 @@ class backupPlanDetail extends Model
             $model->errMessage = $map['ErrMessage'];
         }
 
+        if (isset($map['IncrementBackupRetentionPeriod'])) {
+            $model->incrementBackupRetentionPeriod = $map['IncrementBackupRetentionPeriod'];
+        }
+
+        if (isset($map['IncrementDuplicationArchivePeriod'])) {
+            $model->incrementDuplicationArchivePeriod = $map['IncrementDuplicationArchivePeriod'];
+        }
+
+        if (isset($map['IncrementDuplicationInfrequentAccessPeriod'])) {
+            $model->incrementDuplicationInfrequentAccessPeriod = $map['IncrementDuplicationInfrequentAccessPeriod'];
+        }
+
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
+        }
+
+        if (isset($map['InstanceExpiredTimestamp'])) {
+            $model->instanceExpiredTimestamp = $map['InstanceExpiredTimestamp'];
+        }
+
+        if (isset($map['LogBackupRetentionPeriod'])) {
+            $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
+        }
+
+        if (isset($map['LogDuplicationArchivePeriod'])) {
+            $model->logDuplicationArchivePeriod = $map['LogDuplicationArchivePeriod'];
+        }
+
+        if (isset($map['LogDuplicationInfrequentAccessPeriod'])) {
+            $model->logDuplicationInfrequentAccessPeriod = $map['LogDuplicationInfrequentAccessPeriod'];
         }
 
         if (isset($map['OSSBucketName'])) {
@@ -523,6 +717,14 @@ class backupPlanDetail extends Model
             $model->sourceEndpointDatabaseName = $map['SourceEndpointDatabaseName'];
         }
 
+        if (isset($map['SourceEndpointEnableSsl'])) {
+            $model->sourceEndpointEnableSsl = $map['SourceEndpointEnableSsl'];
+        }
+
+        if (isset($map['SourceEndpointHost'])) {
+            $model->sourceEndpointHost = $map['SourceEndpointHost'];
+        }
+
         if (isset($map['SourceEndpointInstanceID'])) {
             $model->sourceEndpointInstanceID = $map['SourceEndpointInstanceID'];
         }
@@ -539,12 +741,20 @@ class backupPlanDetail extends Model
             $model->sourceEndpointOracleSID = $map['SourceEndpointOracleSID'];
         }
 
+        if (isset($map['SourceEndpointPort'])) {
+            $model->sourceEndpointPort = $map['SourceEndpointPort'];
+        }
+
         if (isset($map['SourceEndpointRegion'])) {
             $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
         }
 
         if (isset($map['SourceEndpointUserName'])) {
             $model->sourceEndpointUserName = $map['SourceEndpointUserName'];
+        }
+
+        if (isset($map['StorageEncryptMethod'])) {
+            $model->storageEncryptMethod = $map['StorageEncryptMethod'];
         }
 
         return $model;

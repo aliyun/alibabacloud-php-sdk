@@ -10,6 +10,26 @@ use AlibabaCloud\SDK\Dbs\V20190306\Models\DescribeRestoreRangeInfoResponseBody\i
 class DBSRecoverRange extends Model
 {
     /**
+     * @var string
+     */
+    public $backupSourceHost;
+
+    /**
+     * @var string
+     */
+    public $backupSourceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $backupSourceInstanceType;
+
+    /**
+     * @var string
+     */
+    public $backupSourcePort;
+
+    /**
      * @var int
      */
     public $beginTimestampForRestore;
@@ -39,6 +59,10 @@ class DBSRecoverRange extends Model
      */
     public $sourceEndpointInstanceType;
     protected $_name = [
+        'backupSourceHost' => 'BackupSourceHost',
+        'backupSourceInstanceId' => 'BackupSourceInstanceId',
+        'backupSourceInstanceType' => 'BackupSourceInstanceType',
+        'backupSourcePort' => 'BackupSourcePort',
         'beginTimestampForRestore' => 'BeginTimestampForRestore',
         'endTimestampForRestore' => 'EndTimestampForRestore',
         'fullBackupList' => 'FullBackupList',
@@ -58,6 +82,22 @@ class DBSRecoverRange extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backupSourceHost) {
+            $res['BackupSourceHost'] = $this->backupSourceHost;
+        }
+
+        if (null !== $this->backupSourceInstanceId) {
+            $res['BackupSourceInstanceId'] = $this->backupSourceInstanceId;
+        }
+
+        if (null !== $this->backupSourceInstanceType) {
+            $res['BackupSourceInstanceType'] = $this->backupSourceInstanceType;
+        }
+
+        if (null !== $this->backupSourcePort) {
+            $res['BackupSourcePort'] = $this->backupSourcePort;
+        }
+
         if (null !== $this->beginTimestampForRestore) {
             $res['BeginTimestampForRestore'] = $this->beginTimestampForRestore;
         }
@@ -93,6 +133,22 @@ class DBSRecoverRange extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupSourceHost'])) {
+            $model->backupSourceHost = $map['BackupSourceHost'];
+        }
+
+        if (isset($map['BackupSourceInstanceId'])) {
+            $model->backupSourceInstanceId = $map['BackupSourceInstanceId'];
+        }
+
+        if (isset($map['BackupSourceInstanceType'])) {
+            $model->backupSourceInstanceType = $map['BackupSourceInstanceType'];
+        }
+
+        if (isset($map['BackupSourcePort'])) {
+            $model->backupSourcePort = $map['BackupSourcePort'];
+        }
+
         if (isset($map['BeginTimestampForRestore'])) {
             $model->beginTimestampForRestore = $map['BeginTimestampForRestore'];
         }
