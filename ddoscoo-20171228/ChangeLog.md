@@ -1,3 +1,7 @@
+2026-03-19 Version: 1.0.8
+- Update API DescribleCertList: add request parameters DomainList.
+
+
 2025-09-23 Version: 1.0.7
 - Update API ConfigLayer4RuleAttribute: add request parameters Module.
 

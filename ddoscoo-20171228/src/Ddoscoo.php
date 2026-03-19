@@ -185,6 +185,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 增加CC规则.
+     *
      * @param request - AddLayer7CCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -254,6 +256,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 增加CC规则.
+     *
      * @param request - AddLayer7CCRuleRequest
      *
      * @returns AddLayer7CCRuleResponse
@@ -270,6 +274,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 关闭日志分发.
+     *
      * @param request - CloseDomainSlsConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -319,6 +325,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 关闭日志分发.
+     *
      * @param request - CloseDomainSlsConfigRequest
      *
      * @returns CloseDomainSlsConfigResponse
@@ -335,6 +343,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改健康检查.
+     *
      * @param request - ConfigHealthCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -384,6 +394,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改健康检查.
+     *
      * @param request - ConfigHealthCheckRequest
      *
      * @returns ConfigHealthCheckResponse
@@ -400,6 +412,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改端口规则.
+     *
      * @param tmpReq - ConfigLayer4RuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -451,6 +465,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改端口规则.
+     *
      * @param request - ConfigLayer4RuleRequest
      *
      * @returns ConfigLayer4RuleResponse
@@ -467,6 +483,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改端口规则属性.
+     *
      * @param request - ConfigLayer4RuleAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -520,6 +538,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改端口规则属性.
+     *
      * @param request - ConfigLayer4RuleAttributeRequest
      *
      * @returns ConfigLayer4RuleAttributeResponse
@@ -536,6 +556,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改黑白名单.
+     *
      * @param request - ConfigLayer7BlackWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -585,6 +607,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改黑白名单.
+     *
      * @param request - ConfigLayer7BlackWhiteListRequest
      *
      * @returns ConfigLayer7BlackWhiteListResponse
@@ -601,6 +625,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改CC规则.
+     *
      * @param request - ConfigLayer7CCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -670,6 +696,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改CC规则.
+     *
      * @param request - ConfigLayer7CCRuleRequest
      *
      * @returns ConfigLayer7CCRuleResponse
@@ -686,6 +714,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改CC模板
+     *
      * @param request - ConfigLayer7CCTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -731,6 +761,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改CC模板
+     *
      * @param request - ConfigLayer7CCTemplateRequest
      *
      * @returns ConfigLayer7CCTemplateResponse
@@ -747,6 +779,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改证书.
+     *
      * @param request - ConfigLayer7CertRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -812,6 +846,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改证书.
+     *
      * @param request - ConfigLayer7CertRequest
      *
      * @returns ConfigLayer7CertResponse
@@ -828,6 +864,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改域名接入规则.
+     *
      * @param request - ConfigLayer7RuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -889,6 +927,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改域名接入规则.
+     *
      * @param request - ConfigLayer7RuleRequest
      *
      * @returns ConfigLayer7RuleResponse
@@ -905,6 +945,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 创建异步任务
+     *
      * @param request - CreateAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -950,6 +992,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 创建异步任务
+     *
      * @param request - CreateAsyncTaskRequest
      *
      * @returns CreateAsyncTaskResponse
@@ -966,6 +1010,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 创建端口接入.
+     *
      * @param tmpReq - CreateLayer4RuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1017,6 +1063,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 创建端口接入.
+     *
      * @param request - CreateLayer4RuleRequest
      *
      * @returns CreateLayer4RuleResponse
@@ -1033,6 +1081,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 创建域名接入规则.
+     *
      * @param request - CreateLayer7RuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1086,6 +1136,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 创建域名接入规则.
+     *
      * @param request - CreateLayer7RuleRequest
      *
      * @returns CreateLayer7RuleResponse
@@ -1102,6 +1154,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除异步任务
+     *
      * @param request - DeleteAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1143,6 +1197,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除异步任务
+     *
      * @param request - DeleteAsyncTaskRequest
      *
      * @returns DeleteAsyncTaskResponse
@@ -1159,6 +1215,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除端口接入规则.
+     *
      * @param request - DeleteLayer4RuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1196,6 +1254,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除端口接入规则.
+     *
      * @param request - DeleteLayer4RuleRequest
      *
      * @returns DeleteLayer4RuleResponse
@@ -1212,6 +1272,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除CC规则.
+     *
      * @param request - DeleteLayer7CCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1257,6 +1319,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除CC规则.
+     *
      * @param request - DeleteLayer7CCRuleRequest
      *
      * @returns DeleteLayer7CCRuleResponse
@@ -1273,6 +1337,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除域名接入规则.
+     *
      * @param request - DeleteLayer7RuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1314,6 +1380,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 删除域名接入规则.
+     *
      * @param request - DeleteLayer7RuleRequest
      *
      * @returns DeleteLayer7RuleResponse
@@ -1330,6 +1398,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询回源网段.
+     *
      * @param request - DescribeBackSourceCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1379,6 +1449,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询回源网段.
+     *
      * @param request - DescribeBackSourceCidrRequest
      *
      * @returns DescribeBackSourceCidrResponse
@@ -1468,6 +1540,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询事件.
+     *
      * @param request - DescribeDDoSEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1529,6 +1603,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询事件.
+     *
      * @param request - DescribeDDoSEventsRequest
      *
      * @returns DescribeDDoSEventsResponse
@@ -1545,6 +1621,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询流量.
+     *
      * @param request - DescribeDDoSTrafficRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1602,6 +1680,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询流量.
+     *
      * @param request - DescribeDDoSTrafficRequest
      *
      * @returns DescribeDDoSTrafficResponse
@@ -1618,6 +1698,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询防护次数.
+     *
      * @param request - DescribeDefenseCountStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1659,6 +1741,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询防护次数.
+     *
      * @param request - DescribeDefenseCountStatisticsRequest
      *
      * @returns DescribeDefenseCountStatisticsResponse
@@ -1675,6 +1759,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名接入模式.
+     *
      * @param request - DescribeDomainAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1716,6 +1802,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名接入模式.
+     *
      * @param request - DescribeDomainAccessModeRequest
      *
      * @returns DescribeDomainAccessModeResponse
@@ -1732,6 +1820,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名攻击事件.
+     *
      * @param request - DescribeDomainAttackEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1789,6 +1879,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名攻击事件.
+     *
      * @param request - DescribeDomainAttackEventListRequest
      *
      * @returns DescribeDomainAttackEventListResponse
@@ -1805,6 +1897,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名攻击最大QPS.
+     *
      * @param request - DescribeDomainAttackMaxQpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1854,6 +1948,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名攻击最大QPS.
+     *
      * @param request - DescribeDomainAttackMaxQpsRequest
      *
      * @returns DescribeDomainAttackMaxQpsResponse
@@ -1870,6 +1966,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 域名概览.
+     *
      * @param request - DescribeDomainOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1919,6 +2017,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 域名概览.
+     *
      * @param request - DescribeDomainOverviewRequest
      *
      * @returns DescribeDomainOverviewResponse
@@ -1935,6 +2035,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名QPS.
+     *
      * @param request - DescribeDomainQpsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1988,6 +2090,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名QPS.
+     *
      * @param request - DescribeDomainQpsListRequest
      *
      * @returns DescribeDomainQpsListResponse
@@ -2004,6 +2108,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询qps.
+     *
      * @param request - DescribeDomainQpsWithCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2057,6 +2163,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询qps.
+     *
      * @param request - DescribeDomainQpsWithCacheRequest
      *
      * @returns DescribeDomainQpsWithCacheResponse
@@ -2073,6 +2181,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询日志分发状态
+     *
      * @param request - DescribeDomainSlsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2122,6 +2232,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询日志分发状态
+     *
      * @param request - DescribeDomainSlsStatusRequest
      *
      * @returns DescribeDomainSlsStatusResponse
@@ -2215,6 +2327,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名.
+     *
      * @param request - DescribeDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2276,6 +2390,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名.
+     *
      * @param request - DescribeDomainsRequest
      *
      * @returns DescribeDomainsResponse
@@ -2292,6 +2408,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询弹性带宽规格
+     *
      * @param request - DescribeElasticBandwidthSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2333,6 +2451,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询弹性带宽规格
+     *
      * @param request - DescribeElasticBandwidthSpecRequest
      *
      * @returns DescribeElasticBandwidthSpecResponse
@@ -2349,6 +2469,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询健康检查列表.
+     *
      * @param request - DescribeHealthCheckListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2390,6 +2512,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询健康检查列表.
+     *
      * @param request - DescribeHealthCheckListRequest
      *
      * @returns DescribeHealthCheckListResponse
@@ -2406,6 +2530,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询监控检查状态
+     *
      * @param request - DescribeHealthCheckStatusListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2447,6 +2573,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询监控检查状态
+     *
      * @param request - DescribeHealthCheckStatusListRequest
      *
      * @returns DescribeHealthCheckStatusListResponse
@@ -2463,6 +2591,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例详情.
+     *
      * @param request - DescribeInstanceDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2504,6 +2634,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例详情.
+     *
      * @param request - DescribeInstanceDetailsRequest
      *
      * @returns DescribeInstanceDetailsResponse
@@ -2520,6 +2652,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例规格
+     *
      * @param request - DescribeInstanceSpecsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2561,6 +2695,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例规格
+     *
      * @param request - DescribeInstanceSpecsRequest
      *
      * @returns DescribeInstanceSpecsResponse
@@ -2577,6 +2713,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例统计
+     *
      * @param request - DescribeInstanceStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2618,6 +2756,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例统计
+     *
      * @param request - DescribeInstanceStatisticsRequest
      *
      * @returns DescribeInstanceStatisticsResponse
@@ -2634,6 +2774,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例.
+     *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2719,6 +2861,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询实例.
+     *
      * @param request - DescribeInstancesRequest
      *
      * @returns DescribeInstancesResponse
@@ -2735,6 +2879,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询流量.
+     *
      * @param request - DescribeIpTrafficRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2800,6 +2946,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询流量.
+     *
      * @param request - DescribeIpTrafficRequest
      *
      * @returns DescribeIpTrafficResponse
@@ -2816,6 +2964,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询端口规则属性.
+     *
      * @param request - DescribeLayer4RuleAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2857,6 +3007,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询端口规则属性.
+     *
      * @param request - DescribeLayer4RuleAttributesRequest
      *
      * @returns DescribeLayer4RuleAttributesResponse
@@ -2950,6 +3102,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询CC规则.
+     *
      * @param request - DescribeLayer7CCRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3003,6 +3157,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询CC规则.
+     *
      * @param request - DescribeLayer7CCRulesRequest
      *
      * @returns DescribeLayer7CCRulesResponse
@@ -3019,6 +3175,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询日志库存在状态
+     *
      * @param request - DescribeLogStoreExistStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3064,6 +3222,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询日志库存在状态
+     *
      * @param request - DescribeLogStoreExistStatusRequest
      *
      * @returns DescribeLogStoreExistStatusResponse
@@ -3080,6 +3240,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询操作日志.
+     *
      * @param request - DescribeOpEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3149,6 +3311,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询操作日志.
+     *
      * @param request - DescribeOpEntitiesRequest
      *
      * @returns DescribeOpEntitiesResponse
@@ -3165,6 +3329,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名.
+     *
      * @param request - DescribeSimpleDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3214,6 +3380,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名.
+     *
      * @param request - DescribeSimpleDomainsRequest
      *
      * @returns DescribeSimpleDomainsResponse
@@ -3230,6 +3398,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询sls授权状态
+     *
      * @param request - DescribeSlsAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3275,6 +3445,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询sls授权状态
+     *
      * @param request - DescribeSlsAuthStatusRequest
      *
      * @returns DescribeSlsAuthStatusResponse
@@ -3291,6 +3463,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询清空次数.
+     *
      * @param request - DescribeSlsEmptyCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3336,6 +3510,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询清空次数.
+     *
      * @param request - DescribeSlsEmptyCountRequest
      *
      * @returns DescribeSlsEmptyCountResponse
@@ -3352,6 +3528,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询全量日志信息.
+     *
      * @param request - DescribeSlsLogstoreInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3397,6 +3575,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询全量日志信息.
+     *
      * @param request - DescribeSlsLogstoreInfoRequest
      *
      * @returns DescribeSlsLogstoreInfoResponse
@@ -3413,6 +3593,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询sls开通状态
+     *
      * @param request - DescribeSlsOpenStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3458,6 +3640,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询sls开通状态
+     *
      * @param request - DescribeSlsOpenStatusRequest
      *
      * @returns DescribeSlsOpenStatusResponse
@@ -3474,6 +3658,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询证书列表.
+     *
      * @param request - DescribleCertListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3490,6 +3676,10 @@ class Ddoscoo extends OpenApiClient
         $query = [];
         if (null !== $request->domain) {
             @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->domainList) {
+            @$query['DomainList'] = $request->domainList;
         }
 
         if (null !== $request->resourceGroupId) {
@@ -3519,6 +3709,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询证书列表.
+     *
      * @param request - DescribleCertListRequest
      *
      * @returns DescribleCertListResponse
@@ -3535,6 +3727,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名实例关系.
+     *
      * @param request - DescribleLayer7InstanceRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3580,6 +3774,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名实例关系.
+     *
      * @param request - DescribleLayer7InstanceRelationsRequest
      *
      * @returns DescribleLayer7InstanceRelationsResponse
@@ -3596,6 +3792,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 关闭CC.
+     *
      * @param request - DisableLayer7CCRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3641,6 +3839,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 关闭CC.
+     *
      * @param request - DisableLayer7CCRequest
      *
      * @returns DisableLayer7CCResponse
@@ -3657,6 +3857,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 关闭CC规则.
+     *
      * @param request - DisableLayer7CCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3702,6 +3904,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 关闭CC规则.
+     *
      * @param request - DisableLayer7CCRuleRequest
      *
      * @returns DisableLayer7CCRuleResponse
@@ -3718,6 +3922,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 清除SLS日志库.
+     *
      * @param request - EmptySlsLogstoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3763,6 +3969,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 清除SLS日志库.
+     *
      * @param request - EmptySlsLogstoreRequest
      *
      * @returns EmptySlsLogstoreResponse
@@ -3779,6 +3987,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 开启CC.
+     *
      * @param request - EnableLayer7CCRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3824,6 +4034,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 开启CC.
+     *
      * @param request - EnableLayer7CCRequest
      *
      * @returns EnableLayer7CCResponse
@@ -3840,6 +4052,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 开启CC规则.
+     *
      * @param request - EnableLayer7CCRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3885,6 +4099,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 开启CC规则.
+     *
      * @param request - EnableLayer7CCRuleRequest
      *
      * @returns EnableLayer7CCRuleResponse
@@ -3901,6 +4117,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询异步任务
+     *
      * @param request - ListAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3954,6 +4172,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询异步任务
+     *
      * @param request - ListAsyncTaskRequest
      *
      * @returns ListAsyncTaskResponse
@@ -3970,6 +4190,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名接入端口.
+     *
      * @param request - ListLayer7CustomPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4015,6 +4237,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询域名接入端口.
+     *
      * @param request - ListLayer7CustomPortsRequest
      *
      * @returns ListLayer7CustomPortsResponse
@@ -4031,6 +4255,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 列出tag.
+     *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4084,6 +4310,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 列出tag.
+     *
      * @param request - ListTagKeysRequest
      *
      * @returns ListTagKeysResponse
@@ -4100,6 +4328,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询资源.
+     *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4157,6 +4387,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询资源.
+     *
      * @param request - ListTagResourcesRequest
      *
      * @returns ListTagResourcesResponse
@@ -4173,6 +4405,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询日志实例.
+     *
      * @param request - ListValueAddedRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4214,6 +4448,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 查询日志实例.
+     *
      * @param request - ListValueAddedRequest
      *
      * @returns ListValueAddedResponse
@@ -4230,6 +4466,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改弹性业务带宽.
+     *
      * @param request - ModifyElasticBandWidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4275,6 +4513,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改弹性业务带宽.
+     *
      * @param request - ModifyElasticBandWidthRequest
      *
      * @returns ModifyElasticBandWidthResponse
@@ -4291,6 +4531,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改日志存储时长
+     *
      * @param request - ModifyFullLogTtlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4340,6 +4582,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改日志存储时长
+     *
      * @param request - ModifyFullLogTtlRequest
      *
      * @returns ModifyFullLogTtlResponse
@@ -4356,6 +4600,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改实例备注.
+     *
      * @param request - ModifyInstanceRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4401,6 +4647,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 修改实例备注.
+     *
      * @param request - ModifyInstanceRemarkRequest
      *
      * @returns ModifyInstanceRemarkResponse
@@ -4417,6 +4665,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 开启日志分发.
+     *
      * @param request - OpenDomainSlsConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4466,6 +4716,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 开启日志分发.
+     *
      * @param request - OpenDomainSlsConfigRequest
      *
      * @returns OpenDomainSlsConfigResponse
@@ -4482,6 +4734,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 释放实例.
+     *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4523,6 +4777,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 释放实例.
+     *
      * @param request - ReleaseInstanceRequest
      *
      * @returns ReleaseInstanceResponse
@@ -4539,6 +4795,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 释放日志实例.
+     *
      * @param request - ReleaseValueAddedRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4580,6 +4838,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 释放日志实例.
+     *
      * @param request - ReleaseValueAddedRequest
      *
      * @returns ReleaseValueAddedResponse
@@ -4596,6 +4856,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 标签资源.
+     *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4649,6 +4911,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 标签资源.
+     *
      * @param request - TagResourcesRequest
      *
      * @returns TagResourcesResponse
@@ -4665,6 +4929,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 解除资源标签.
+     *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4722,6 +4988,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * 解除资源标签.
+     *
      * @param request - UntagResourcesRequest
      *
      * @returns UntagResourcesResponse

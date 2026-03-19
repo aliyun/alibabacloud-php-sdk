@@ -16,6 +16,11 @@ class DescribleCertListRequest extends Model
     /**
      * @var string
      */
+    public $domainList;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -24,6 +29,7 @@ class DescribleCertListRequest extends Model
     public $sourceIp;
     protected $_name = [
         'domain' => 'Domain',
+        'domainList' => 'DomainList',
         'resourceGroupId' => 'ResourceGroupId',
         'sourceIp' => 'SourceIp',
     ];
@@ -38,6 +44,10 @@ class DescribleCertListRequest extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->domainList) {
+            $res['DomainList'] = $this->domainList;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -61,6 +71,10 @@ class DescribleCertListRequest extends Model
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['DomainList'])) {
+            $model->domainList = $map['DomainList'];
         }
 
         if (isset($map['ResourceGroupId'])) {
