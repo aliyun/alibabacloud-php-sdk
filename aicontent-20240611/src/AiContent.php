@@ -104,7 +104,6 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationResp
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelResponse;
-use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelWithApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosProvidersRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosProvidersResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosTagsRequest;
@@ -3513,7 +3512,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/创建对话.
+     * 对话管理/新建对话.
      *
      * @param request - ModelRouterCreateConversationRequest
      * @param headers - map
@@ -3563,7 +3562,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/创建对话.
+     * 对话管理/新建对话.
      *
      * @param request - ModelRouterCreateConversationRequest
      *
@@ -3610,6 +3609,14 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->maxInputLength) {
+            @$body['maxInputLength'] = $request->maxInputLength;
+        }
+
+        if (null !== $request->maxOutputLength) {
+            @$body['maxOutputLength'] = $request->maxOutputLength;
         }
 
         if (null !== $request->modelId) {
@@ -4417,57 +4424,6 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryModelListWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * 模型管理/获取模型及API密钥详情.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModelRouterQueryModelWithApiKeyResponse
-     *
-     * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return ModelRouterQueryModelWithApiKeyResponse
-     */
-    public function modelRouterQueryModelWithApiKeyWithOptions($id, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action' => 'ModelRouterQueryModelWithApiKey',
-            'version' => '20240611',
-            'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/modelRouter/open/models/' . Url::percentEncode($id) . '/with-api-key',
-            'method' => 'GET',
-            'authType' => 'AK',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return ModelRouterQueryModelWithApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 模型管理/获取模型及API密钥详情.
-     *
-     * @returns ModelRouterQueryModelWithApiKeyResponse
-     *
-     * @param string $id
-     *
-     * @return ModelRouterQueryModelWithApiKeyResponse
-     */
-    public function modelRouterQueryModelWithApiKey($id)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->modelRouterQueryModelWithApiKeyWithOptions($id, $headers, $runtime);
     }
 
     /**
