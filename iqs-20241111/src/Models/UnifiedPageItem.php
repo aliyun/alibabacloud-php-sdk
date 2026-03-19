@@ -74,6 +74,11 @@ class UnifiedPageItem extends Model
     public $summary;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $title;
@@ -96,6 +101,7 @@ class UnifiedPageItem extends Model
         'richMainBody' => 'richMainBody',
         'snippet' => 'snippet',
         'summary' => 'summary',
+        'tags' => 'tags',
         'title' => 'title',
         'websiteAuthorityScore' => 'websiteAuthorityScore',
     ];
@@ -104,6 +110,9 @@ class UnifiedPageItem extends Model
     {
         if (\is_array($this->images)) {
             Model::validateArray($this->images);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -168,6 +177,15 @@ class UnifiedPageItem extends Model
 
         if (null !== $this->summary) {
             $res['summary'] = $this->summary;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['tags'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->title) {
@@ -246,6 +264,15 @@ class UnifiedPageItem extends Model
 
         if (isset($map['summary'])) {
             $model->summary = $map['summary'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                foreach ($map['tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['title'])) {
