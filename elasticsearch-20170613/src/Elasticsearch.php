@@ -177,6 +177,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEventRecordsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEventRecordsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListExtendfilesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListILMPoliciesResponse;
@@ -211,6 +213,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSearchLogResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListShardRecoveriesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListShardRecoveriesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSnapshotReposByInstanceIdResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListStatsEventRecordsRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListStatsEventRecordsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagsRequest;
@@ -225,6 +229,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyElastictaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyElastictaskResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyInstanceMaintainTimeResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyScheduleExecuteTimeRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyScheduleExecuteTimeResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyWhiteIpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ModifyWhiteIpsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\MoveResourceGroupRequest;
@@ -6684,6 +6690,89 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 获取事件列表.
+     *
+     * @param request - ListEventRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventRecordsResponse
+     *
+     * @param string                  $eventType
+     * @param ListEventRecordsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListEventRecordsResponse
+     */
+    public function listEventRecordsWithOptions($eventType, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->beginTime) {
+            @$query['beginTime'] = $request->beginTime;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->termContent) {
+            @$query['termContent'] = $request->termContent;
+        }
+
+        if (null !== $request->termType) {
+            @$query['termType'] = $request->termType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEventRecords',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/' . Url::percentEncode($eventType) . '/listEventRecords',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEventRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取事件列表.
+     *
+     * @param request - ListEventRecordsRequest
+     *
+     * @returns ListEventRecordsResponse
+     *
+     * @param string                  $eventType
+     * @param ListEventRecordsRequest $request
+     *
+     * @return ListEventRecordsResponse
+     */
+    public function listEventRecords($eventType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEventRecordsWithOptions($eventType, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the extended file configuration of a Logstash instance.
      *
      * @param headers - map
@@ -8020,6 +8109,75 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 统计事件记录.
+     *
+     * @param request - ListStatsEventRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStatsEventRecordsResponse
+     *
+     * @param ListStatsEventRecordsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListStatsEventRecordsResponse
+     */
+    public function listStatsEventRecordsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventType) {
+            @$query['eventType'] = $request->eventType;
+        }
+
+        if (null !== $request->level) {
+            @$query['level'] = $request->level;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStatsEventRecords',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/event/statsEventRecords',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStatsEventRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 统计事件记录.
+     *
+     * @param request - ListStatsEventRecordsRequest
+     *
+     * @returns ListStatsEventRecordsResponse
+     *
+     * @param ListStatsEventRecordsRequest $request
+     *
+     * @return ListStatsEventRecordsResponse
+     */
+    public function listStatsEventRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listStatsEventRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the tags that are added to one or more resources.
      *
      * @param request - ListTagResourcesRequest
@@ -8496,6 +8654,73 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->modifyInstanceMaintainTimeWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改计划执行时间.
+     *
+     * @param request - ModifyScheduleExecuteTimeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyScheduleExecuteTimeResponse
+     *
+     * @param string                           $instanceId
+     * @param ModifyScheduleExecuteTimeRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyScheduleExecuteTimeResponse
+     */
+    public function modifyScheduleExecuteTimeWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['eventId'] = $request->eventId;
+        }
+
+        if (null !== $request->scheduleExecuteTime) {
+            @$query['scheduleExecuteTime'] = $request->scheduleExecuteTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyScheduleExecuteTime',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/event/' . Url::percentEncode($instanceId) . '/actions/modify-execute-time',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyScheduleExecuteTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改计划执行时间.
+     *
+     * @param request - ModifyScheduleExecuteTimeRequest
+     *
+     * @returns ModifyScheduleExecuteTimeResponse
+     *
+     * @param string                           $instanceId
+     * @param ModifyScheduleExecuteTimeRequest $request
+     *
+     * @return ModifyScheduleExecuteTimeResponse
+     */
+    public function modifyScheduleExecuteTime($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyScheduleExecuteTimeWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
