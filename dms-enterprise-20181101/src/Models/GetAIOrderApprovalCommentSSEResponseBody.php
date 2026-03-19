@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAIOrderApprovalCommentSSEResponseBody\output;
 
 class GetAIOrderApprovalCommentSSEResponseBody extends Model
 {
@@ -24,6 +25,11 @@ class GetAIOrderApprovalCommentSSEResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @var output
+     */
+    public $output;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -36,12 +42,16 @@ class GetAIOrderApprovalCommentSSEResponseBody extends Model
         'data' => 'Data',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'output' => 'Output',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->output) {
+            $this->output->validate();
+        }
         parent::validate();
     }
 
@@ -58,6 +68,10 @@ class GetAIOrderApprovalCommentSSEResponseBody extends Model
 
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->output) {
+            $res['Output'] = null !== $this->output ? $this->output->toArray($noStream) : $this->output;
         }
 
         if (null !== $this->requestId) {
@@ -89,6 +103,10 @@ class GetAIOrderApprovalCommentSSEResponseBody extends Model
 
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+
+        if (isset($map['Output'])) {
+            $model->output = output::fromMap($map['Output']);
         }
 
         if (isset($map['RequestId'])) {
