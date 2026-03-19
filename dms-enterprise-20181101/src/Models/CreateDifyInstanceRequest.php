@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDifyInstanceRequest\tag;
 
 class CreateDifyInstanceRequest extends Model
 {
@@ -82,6 +83,11 @@ class CreateDifyInstanceRequest extends Model
      * @var string
      */
     public $dbStorageType;
+
+    /**
+     * @var string
+     */
+    public $difyInstanceName;
 
     /**
      * @var bool
@@ -224,6 +230,11 @@ class CreateDifyInstanceRequest extends Model
     public $storageType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -323,6 +334,7 @@ class CreateDifyInstanceRequest extends Model
         'dbResourceId' => 'DbResourceId',
         'dbStorageSize' => 'DbStorageSize',
         'dbStorageType' => 'DbStorageType',
+        'difyInstanceName' => 'DifyInstanceName',
         'dryRun' => 'DryRun',
         'edition' => 'Edition',
         'enableExtraEndpoint' => 'EnableExtraEndpoint',
@@ -351,6 +363,7 @@ class CreateDifyInstanceRequest extends Model
         'segDiskPerformanceLevel' => 'SegDiskPerformanceLevel',
         'segNodeNum' => 'SegNodeNum',
         'storageType' => 'StorageType',
+        'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
         'vectordbAccount' => 'VectordbAccount',
         'vectordbCategory' => 'VectordbCategory',
@@ -372,6 +385,9 @@ class CreateDifyInstanceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -436,6 +452,10 @@ class CreateDifyInstanceRequest extends Model
 
         if (null !== $this->dbStorageType) {
             $res['DbStorageType'] = $this->dbStorageType;
+        }
+
+        if (null !== $this->difyInstanceName) {
+            $res['DifyInstanceName'] = $this->difyInstanceName;
         }
 
         if (null !== $this->dryRun) {
@@ -548,6 +568,17 @@ class CreateDifyInstanceRequest extends Model
 
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vSwitchId) {
@@ -689,6 +720,10 @@ class CreateDifyInstanceRequest extends Model
             $model->dbStorageType = $map['DbStorageType'];
         }
 
+        if (isset($map['DifyInstanceName'])) {
+            $model->difyInstanceName = $map['DifyInstanceName'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
@@ -799,6 +834,17 @@ class CreateDifyInstanceRequest extends Model
 
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VSwitchId'])) {

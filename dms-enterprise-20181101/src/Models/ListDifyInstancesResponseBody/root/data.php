@@ -26,6 +26,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $difyInstanceId;
+
+    /**
+     * @var string
+     */
+    public $difyInstanceName;
+
+    /**
+     * @var string
+     */
     public $edition;
 
     /**
@@ -71,6 +81,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -101,6 +116,8 @@ class data extends Model
         'appUuid' => 'AppUuid',
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
+        'difyInstanceId' => 'DifyInstanceId',
+        'difyInstanceName' => 'DifyInstanceName',
         'edition' => 'Edition',
         'enterpriseInternetUrl' => 'EnterpriseInternetUrl',
         'enterpriseIntranetUrl' => 'EnterpriseIntranetUrl',
@@ -110,6 +127,7 @@ class data extends Model
         'intranetUrl' => 'IntranetUrl',
         'majorVersion' => 'MajorVersion',
         'regionCode' => 'RegionCode',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
         'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
@@ -136,6 +154,14 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->difyInstanceId) {
+            $res['DifyInstanceId'] = $this->difyInstanceId;
+        }
+
+        if (null !== $this->difyInstanceName) {
+            $res['DifyInstanceName'] = $this->difyInstanceName;
         }
 
         if (null !== $this->edition) {
@@ -172,6 +198,10 @@ class data extends Model
 
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->securityGroupId) {
@@ -221,6 +251,14 @@ class data extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['DifyInstanceId'])) {
+            $model->difyInstanceId = $map['DifyInstanceId'];
+        }
+
+        if (isset($map['DifyInstanceName'])) {
+            $model->difyInstanceName = $map['DifyInstanceName'];
+        }
+
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
@@ -255,6 +293,10 @@ class data extends Model
 
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['SecurityGroupId'])) {

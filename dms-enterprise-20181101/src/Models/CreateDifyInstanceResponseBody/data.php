@@ -16,6 +16,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $difyInstanceId;
+
+    /**
+     * @var string
+     */
+    public $difyInstanceName;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -64,6 +74,8 @@ class data extends Model
     public $zoneId;
     protected $_name = [
         'appUuid' => 'AppUuid',
+        'difyInstanceId' => 'DifyInstanceId',
+        'difyInstanceName' => 'DifyInstanceName',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'replicas' => 'Replicas',
@@ -86,6 +98,14 @@ class data extends Model
         $res = [];
         if (null !== $this->appUuid) {
             $res['AppUuid'] = $this->appUuid;
+        }
+
+        if (null !== $this->difyInstanceId) {
+            $res['DifyInstanceId'] = $this->difyInstanceId;
+        }
+
+        if (null !== $this->difyInstanceName) {
+            $res['DifyInstanceName'] = $this->difyInstanceName;
         }
 
         if (null !== $this->instanceId) {
@@ -141,6 +161,14 @@ class data extends Model
         $model = new self();
         if (isset($map['AppUuid'])) {
             $model->appUuid = $map['AppUuid'];
+        }
+
+        if (isset($map['DifyInstanceId'])) {
+            $model->difyInstanceId = $map['DifyInstanceId'];
+        }
+
+        if (isset($map['DifyInstanceName'])) {
+            $model->difyInstanceName = $map['DifyInstanceName'];
         }
 
         if (isset($map['InstanceId'])) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDifyInstancesResponseBody\root;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDifyInstancesResponseBody\tags;
 
 class ListDifyInstancesResponseBody extends Model
 {
@@ -53,6 +54,11 @@ class ListDifyInstancesResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'code' => 'Code',
         'errorCode' => 'ErrorCode',
@@ -63,12 +69,16 @@ class ListDifyInstancesResponseBody extends Model
         'requestId' => 'RequestId',
         'root' => 'Root',
         'success' => 'Success',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
         if (null !== $this->root) {
             $this->root->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -110,6 +120,17 @@ class ListDifyInstancesResponseBody extends Model
 
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -157,6 +178,17 @@ class ListDifyInstancesResponseBody extends Model
 
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ChatWithDesensitizeSSEResponse extends Model
+class GetAIOrderApprovalCommentSSEResponse extends Model
 {
     /**
      * @var string[]
@@ -29,7 +29,7 @@ class ChatWithDesensitizeSSEResponse extends Model
     public $event;
 
     /**
-     * @var ChatWithDesensitizeSSEResponseBody
+     * @var GetAIOrderApprovalCommentSSEResponseBody
      */
     public $body;
     protected $_name = [
@@ -112,7 +112,7 @@ class ChatWithDesensitizeSSEResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ChatWithDesensitizeSSEResponseBody::fromMap($map['body']);
+            $model->body = GetAIOrderApprovalCommentSSEResponseBody::fromMap($map['body']);
         }
 
         return $model;

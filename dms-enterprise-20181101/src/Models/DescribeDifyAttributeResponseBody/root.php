@@ -11,6 +11,11 @@ class root extends Model
     /**
      * @var string
      */
+    public $appType;
+
+    /**
+     * @var string
+     */
     public $appUuid;
 
     /**
@@ -24,9 +29,24 @@ class root extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $difyInstanceId;
+
+    /**
+     * @var string
+     */
+    public $difyInstanceName;
+
+    /**
      * @var int
      */
     public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -73,10 +93,14 @@ class root extends Model
      */
     public $zoneId;
     protected $_name = [
+        'appType' => 'AppType',
         'appUuid' => 'AppUuid',
         'billingInstanceId' => 'BillingInstanceId',
         'chargeType' => 'ChargeType',
+        'difyInstanceId' => 'DifyInstanceId',
+        'difyInstanceName' => 'DifyInstanceName',
         'expireTime' => 'ExpireTime',
+        'regionId' => 'RegionId',
         'replicas' => 'Replicas',
         'resourceQuota' => 'ResourceQuota',
         'securityGroupId' => 'SecurityGroupId',
@@ -96,6 +120,10 @@ class root extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
+
         if (null !== $this->appUuid) {
             $res['AppUuid'] = $this->appUuid;
         }
@@ -108,8 +136,20 @@ class root extends Model
             $res['ChargeType'] = $this->chargeType;
         }
 
+        if (null !== $this->difyInstanceId) {
+            $res['DifyInstanceId'] = $this->difyInstanceId;
+        }
+
+        if (null !== $this->difyInstanceName) {
+            $res['DifyInstanceName'] = $this->difyInstanceName;
+        }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->replicas) {
@@ -159,6 +199,10 @@ class root extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
+
         if (isset($map['AppUuid'])) {
             $model->appUuid = $map['AppUuid'];
         }
@@ -171,8 +215,20 @@ class root extends Model
             $model->chargeType = $map['ChargeType'];
         }
 
+        if (isset($map['DifyInstanceId'])) {
+            $model->difyInstanceId = $map['DifyInstanceId'];
+        }
+
+        if (isset($map['DifyInstanceName'])) {
+            $model->difyInstanceName = $map['DifyInstanceName'];
+        }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['Replicas'])) {

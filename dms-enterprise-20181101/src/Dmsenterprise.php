@@ -227,6 +227,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenMetaKnowledgeAssetRequest
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GenMetaKnowledgeAssetResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAbacPolicyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAbacPolicyResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAIOrderApprovalCommentSSERequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAIOrderApprovalCommentSSEResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequest;
@@ -1272,7 +1274,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Adds directed edges for an existing task node.
+     * Creates directed edges for the existing task nodes of a task flow.
      *
      * @remarks
      * When you add directed edges for a task node, take note of the following limits:
@@ -1330,7 +1332,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Adds directed edges for an existing task node.
+     * Creates directed edges for the existing task nodes of a task flow.
      *
      * @remarks
      * When you add directed edges for a task node, take note of the following limits:
@@ -1592,7 +1594,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Backfills data for task orchestration.
+     * Backfills data for a task flow.
      *
      * @remarks
      * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
@@ -1684,7 +1686,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Backfills data for task orchestration.
+     * Backfills data for a task flow.
      *
      * @remarks
      * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
@@ -2045,7 +2047,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Adjusts the sensitivity level of one or more fields.
+     * Adjusts the sensitivity level of fields.
      *
      * @param request - ChangeColumnSecLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2108,7 +2110,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Adjusts the sensitivity level of one or more fields.
+     * Adjusts the sensitivity level of fields.
      *
      * @param request - ChangeColumnSecLevelRequest
      *
@@ -2207,7 +2209,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 移交数仓开发任务流
+     * Transfers the ownership of a task flow in a workspace of Data Management (DMS).
      *
      * @remarks
      * Usage notes:
@@ -2259,7 +2261,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 移交数仓开发任务流
+     * Transfers the ownership of a task flow in a workspace of Data Management (DMS).
      *
      * @remarks
      * Usage notes:
@@ -2629,16 +2631,17 @@ class Dmsenterprise extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield ChatWithDesensitizeSSEResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield ChatWithDesensitizeSSEResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -4284,6 +4287,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['DbStorageType'] = $request->dbStorageType;
         }
 
+        if (null !== $request->difyInstanceName) {
+            @$query['DifyInstanceName'] = $request->difyInstanceName;
+        }
+
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
         }
@@ -4394,6 +4401,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->storageType) {
             @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
 
         if (null !== $request->vSwitchId) {
@@ -4511,7 +4522,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 创建无锁变更工单.
+     * Creates a lock-free change ticket.
      *
      * @remarks
      * For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
@@ -4584,7 +4595,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 创建无锁变更工单.
+     * Creates a lock-free change ticket.
      *
      * @remarks
      * For more information about the lock-free change feature, see [Overview](https://help.aliyun.com/document_detail/207847.html).
@@ -4699,7 +4710,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Creates a logical database in Database Management (DMS).
+     * Creates a logical database in Data Management (DMS).
      *
      * @param tmpReq - CreateLogicDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4752,7 +4763,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Creates a logical database in Database Management (DMS).
+     * Creates a logical database in Data Management (DMS).
      *
      * @param request - CreateLogicDatabaseRequest
      *
@@ -4853,7 +4864,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Creates a ticket in Data Management (DMS).
+     * Creates a ticket.
      *
      * @remarks
      * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
@@ -4931,7 +4942,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Creates a ticket in Data Management (DMS).
+     * Creates a ticket.
      *
      * @remarks
      * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
@@ -5124,7 +5135,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+     * Grants a user the permissions to access a database instance by using the secure access proxy feature.
      *
      * @remarks
      * - The data security protection feature is enabled for the instance.
@@ -5183,7 +5194,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call the CreateProxyAccess to authorize users to access the DB instance through the Data Security Protection agent.
+     * Grants a user the permissions to access a database instance by using the secure access proxy feature.
      *
      * @remarks
      * - The data security protection feature is enabled for the instance.
@@ -5740,7 +5751,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 创建上传附件任务
+     * Creates a task to upload an attachment file.
      *
      * @param request - CreateUploadFileJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5791,7 +5802,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 创建上传附件任务
+     * Creates a task to upload an attachment file.
      *
      * @param request - CreateUploadFileJobRequest
      *
@@ -6610,7 +6621,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 删除数仓空间成员.
+     * Removes a workspace member or a task flow developer in Data Management (DMS).
      *
      * @remarks
      * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
@@ -6671,7 +6682,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 删除数仓空间成员.
+     * Removes a workspace member or a task flow developer in Data Management (DMS).
      *
      * @remarks
      * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
@@ -6693,7 +6704,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+     * Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
      *
      * @param request - DeleteLogicDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6736,7 +6747,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Deletes a logical database in Database Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
+     * Deletes a logical database from Data Management (DMS). This operation only deletes the specified logical database but does not delete physical databases.
      *
      * @param request - DeleteLogicDatabaseRequest
      *
@@ -6754,7 +6765,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Deletes the routing algorithm of a logical table.
+     * Deletes a routing algorithm from a logical table.
      *
      * @param request - DeleteLogicTableRouteConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6801,7 +6812,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Deletes the routing algorithm of a logical table.
+     * Deletes a routing algorithm from a logical table.
      *
      * @param request - DeleteLogicTableRouteConfigRequest
      *
@@ -6947,7 +6958,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+     * Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
      *
      * @param request - DeleteProxyAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6990,7 +7001,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call this operation to DeleteProxyAccess reclaim the data security protection authorization of the target user.
+     * Revokes the permissions to access a database instance by using the secure access proxy feature from a user.
      *
      * @param request - DeleteProxyAccessRequest
      *
@@ -7469,7 +7480,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 用于创建DIFY实例及相关资源，支持自定义配置。
+     * Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
      *
      * @remarks
      * ## 请求说明
@@ -7530,7 +7541,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 用于创建DIFY实例及相关资源，支持自定义配置。
+     * Queries the information about the Dify instance and related resources, including the Dify instance status, associated VPC, and computing resource specifications.
      *
      * @remarks
      * ## 请求说明
@@ -7805,7 +7816,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+     * Disables a user that is temporarily not used in Data Management (DMS).
      *
      * @remarks
      * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
@@ -7852,7 +7863,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call this operation to disable a user that is temporarily not used in Data Management (DMS) Enterprise.
+     * Disables a user that is temporarily not used in Data Management (DMS).
      *
      * @remarks
      * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
@@ -7981,7 +7992,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a logical database.
+     * Edits the information about a logical database.
      *
      * @param tmpReq - EditLogicDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8038,7 +8049,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a logical database.
+     * Edits the information about a logical database.
      *
      * @param request - EditLogicDatabaseRequest
      *
@@ -8135,7 +8146,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+     * Enables a user that is disabled.
      *
      * @remarks
      * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
@@ -8182,7 +8193,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable a user that has been disabled in Data Management (DMS) Enterprise.
+     * Enables a user that is disabled.
      *
      * @remarks
      * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
@@ -8638,7 +8649,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+     * Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
      *
      * @remarks
      * ## 请求说明
@@ -8714,7 +8725,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 根据用户提供的自然语言描述和数据库信息生成对应的SQL语句。
+     * Automatically retrieves relevant database and business information and generates the executable SQL statement based on the natural language description provided.
      *
      * @remarks
      * ## 请求说明
@@ -8738,6 +8749,123 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateSqlFromNLWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取大模型工单审批建议.
+     *
+     * @param request - GetAIOrderApprovalCommentSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIOrderApprovalCommentSSEResponse
+     *
+     * @param GetAIOrderApprovalCommentSSERequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAIOrderApprovalCommentSSEResponse
+     */
+    public function getAIOrderApprovalCommentSSEWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAIOrderApprovalCommentSSE',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield GetAIOrderApprovalCommentSSEResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 获取大模型工单审批建议.
+     *
+     * @param request - GetAIOrderApprovalCommentSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIOrderApprovalCommentSSEResponse
+     *
+     * @param GetAIOrderApprovalCommentSSERequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAIOrderApprovalCommentSSEResponse
+     */
+    public function getAIOrderApprovalCommentSSEWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAIOrderApprovalCommentSSE',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAIOrderApprovalCommentSSEResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取大模型工单审批建议.
+     *
+     * @param request - GetAIOrderApprovalCommentSSERequest
+     *
+     * @returns GetAIOrderApprovalCommentSSEResponse
+     *
+     * @param GetAIOrderApprovalCommentSSERequest $request
+     *
+     * @return GetAIOrderApprovalCommentSSEResponse
+     */
+    public function getAIOrderApprovalCommentSSE($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAIOrderApprovalCommentSSEWithOptions($request, $runtime);
     }
 
     /**
@@ -9314,7 +9442,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+     * Obtains the download URL of the backup file for the specified ticket.
      *
      * @param tmpReq - GetDataCorrectBackupFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9367,7 +9495,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the download URL of the backup file for a data change ticket in Data Management (DMS).
+     * Obtains the download URL of the backup file for the specified ticket.
      *
      * @param request - GetDataCorrectBackupFilesRequest
      *
@@ -12854,7 +12982,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the information about the nodes in an execution record of a task flow.
+     * Queries the task nodes of a task flow instance.
      *
      * @param request - GetTaskInstanceRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12901,7 +13029,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the information about the nodes in an execution record of a task flow.
+     * Queries the task nodes of a task flow instance.
      *
      * @param request - GetTaskInstanceRelationRequest
      *
@@ -14390,7 +14518,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the precheck information about an SQL statement that is specified in a data change ticket.
+     * Queries the information about SQL statements that are involved in the precheck of a data change ticket.
      *
      * @remarks
      * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
@@ -14448,7 +14576,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the precheck information about an SQL statement that is specified in a data change ticket.
+     * Queries the information about SQL statements that are involved in the precheck of a data change ticket.
      *
      * @remarks
      * For more information about the Normal Data Modify feature, see [Change regular data](https://help.aliyun.com/document_detail/58419.html).
@@ -15690,7 +15818,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries masking rules.
+     * Queries a list of masking rules.
      *
      * @param request - ListDesensitizationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15753,7 +15881,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries masking rules.
+     * Queries a list of masking rules.
      *
      * @param request - ListDesensitizationRuleRequest
      *
@@ -16063,7 +16191,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of a user on a specific instance.
+     * Queries the permissions of a user on an instance.
      *
      * @param request - ListInstanceUserPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16118,7 +16246,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of a user on a specific instance.
+     * Queries the permissions of a user on an instance.
      *
      * @param request - ListInstanceUserPermissionsRequest
      *
@@ -16233,7 +16361,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+     * Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
      *
      * @remarks
      *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
@@ -16284,7 +16412,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the task flows corresponding to a specific business scenario in a workspace in Data Management (DMS).
+     * Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
      *
      * @remarks
      *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
@@ -16306,7 +16434,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the details of logical databases.
+     * Queries the detailed information about logical databases.
      *
      * @param request - ListLogicDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16353,7 +16481,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the details of logical databases.
+     * Queries the detailed information about logical databases.
      *
      * @param request - ListLogicDatabasesRequest
      *
@@ -16578,7 +16706,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries tickets in Data Management (DMS).
+     * Queries tickets.
      *
      * @param request - ListOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16653,7 +16781,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries tickets in Data Management (DMS).
+     * Queries tickets.
      *
      * @param request - ListOrdersRequest
      *
@@ -16789,7 +16917,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 操作审计-数据安全代理SQL执行列表.
+     * Queries the audit logs generated by the secure access proxy feature.
      *
      * @param request - ListProxySQLExecAuditLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16860,7 +16988,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 操作审计-数据安全代理SQL执行列表.
+     * Queries the audit logs generated by the secure access proxy feature.
      *
      * @param request - ListProxySQLExecAuditLogRequest
      *
@@ -16878,7 +17006,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the custom service level agreement (SLA) rules.
+     * Queries the custom service level agreement (SLA) rules of a task flow.
      *
      * @param request - ListSLARulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16921,7 +17049,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the custom service level agreement (SLA) rules.
+     * Queries the custom service level agreement (SLA) rules of a task flow.
      *
      * @param request - ListSLARulesRequest
      *
@@ -16939,7 +17067,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries SQL statements that were written on the SQLConsole tab.
+     * Queries the audit logs of SQL statements that are executed in Data Management (DMS).
      *
      * @param request - ListSQLExecAuditLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17010,7 +17138,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries SQL statements that were written on the SQLConsole tab.
+     * Queries the audit logs of SQL statements that are executed in Data Management (DMS).
      *
      * @param request - ListSQLExecAuditLogRequest
      *
@@ -17837,7 +17965,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 任务编排获取任务流列表.
+     * Queries a list of task flows.
      *
      * @param request - ListTaskFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17876,7 +18004,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 任务编排获取任务流列表.
+     * Queries a list of task flows.
      *
      * @param request - ListTaskFlowRequest
      *
@@ -17955,7 +18083,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the users that are involved in a specified task flow.
+     * Queries a list of users that are involved in a task flow.
      *
      * @param request - ListTaskFlowCooperatorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17998,7 +18126,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the users that are involved in a specified task flow.
+     * Queries a list of users that are involved in a task flow.
      *
      * @param request - ListTaskFlowCooperatorsRequest
      *
@@ -18016,7 +18144,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+     * Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
      *
      * @remarks
      * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
@@ -18074,7 +18202,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the edges of the directed acyclic graph (DAG) for a specified task flow based on multiple conditions.
+     * Queries the edges of the directed acyclic graph (DAG) for a task flow based on multiple conditions.
      *
      * @remarks
      * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
@@ -18245,7 +18373,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries task flows by page.
+     * Queries the details of task flows by page.
      *
      * @param tmpReq - ListTaskFlowsByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18310,7 +18438,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries task flows by page.
+     * Queries the details of task flows by page.
      *
      * @param request - ListTaskFlowsByPageRequest
      *
@@ -18478,7 +18606,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of a specific user on a database or a table.
+     * Queries the permissions of a user on databases and tables.
      *
      * @param request - ListUserPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18553,7 +18681,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of a specific user on a database or a table.
+     * Queries the permissions of a user on databases and tables.
      *
      * @param request - ListUserPermissionsRequest
      *
@@ -18571,7 +18699,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 获取用户租户列表.
+     * Queries tenants.
      *
      * @param request - ListUserTenantsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18610,7 +18738,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 获取用户租户列表.
+     * Queries tenants.
      *
      * @param request - ListUserTenantsRequest
      *
@@ -19377,7 +19505,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Unpublishes a published task flow.
+     * Unpublishes a published task flow in Data Management (DMS).
      *
      * @param request - OfflineTaskFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19420,7 +19548,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Unpublishes a published task flow.
+     * Unpublishes a published task flow in Data Management (DMS).
      *
      * @param request - OfflineTaskFlowRequest
      *
@@ -19844,7 +19972,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 部署任务流的历史版本.
+     * Redeploys the published versions of a task flow.
      *
      * @param request - ReDeployLhDagVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19891,7 +20019,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 部署任务流的历史版本.
+     * Redeploys the published versions of a task flow.
      *
      * @param request - ReDeployLhDagVersionRequest
      *
@@ -20299,7 +20427,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Registers a user for your enterprise.
+     * Adds a user of your enterprise.
      *
      * @remarks
      * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
@@ -20357,7 +20485,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Registers a user for your enterprise.
+     * Adds a user of your enterprise.
      *
      * @remarks
      * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
@@ -20654,7 +20782,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Resumes a suspended task flow.
+     * Resumes a suspended task flow instance.
      *
      * @remarks
      * You can call this operation only for task flows that are suspended.
@@ -20708,7 +20836,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Resumes a suspended task flow.
+     * Resumes a suspended task flow instance.
      *
      * @remarks
      * You can call this operation only for task flows that are suspended.
@@ -21395,7 +21523,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 添加实例.
+     * This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
      *
      * @param request - SimplyAddInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21458,7 +21586,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 添加实例.
+     * This operation is suitable for special scenarios and is not recommended. To register an instance with DMS, we recommend that you call the AddInstance operation first.
      *
      * @param request - SimplyAddInstanceRequest
      *
@@ -22819,7 +22947,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the service level agreement (SLA) timeout reminder for a task flow.
+     * Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
      *
      * @remarks
      * SLA rules take effect after task flows are deployed and published.
@@ -22875,7 +23003,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the service level agreement (SLA) timeout reminder for a task flow.
+     * Updates the timeout reminder for the service level agreement (SLA) rules of a task flow.
      *
      * @remarks
      * SLA rules take effect after task flows are deployed and published.
@@ -23316,7 +23444,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the IDs of the users who are involved in the task flow.
+     * Updates the IDs of the users that are involved in a task flow.
      *
      * @param tmpReq - UpdateTaskFlowCooperatorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23369,7 +23497,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the IDs of the users who are involved in the task flow.
+     * Updates the IDs of the users that are involved in a task flow.
      *
      * @param request - UpdateTaskFlowCooperatorsRequest
      *
@@ -23541,7 +23669,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the notification settings for task flows.
+     * Updates the notification settings for a task flow.
      *
      * @param request - UpdateTaskFlowNotificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23596,7 +23724,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the notification settings for task flows.
+     * Updates the notification settings for a task flow.
      *
      * @param request - UpdateTaskFlowNotificationRequest
      *
@@ -23993,7 +24121,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the output variables for a specified task node.
+     * Updates the output variables for a task node.
      *
      * @remarks
      * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
@@ -24043,7 +24171,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Updates the output variables for a specified task node.
+     * Updates the output variables for a task node.
      *
      * @remarks
      * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
