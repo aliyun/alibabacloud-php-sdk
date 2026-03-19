@@ -107,6 +107,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsRe
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportPptArtifactRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportPptArtifactResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FeedbackDialogueShrinkRequest;
@@ -193,10 +195,14 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlReques
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetInterveneTemplateFileUrlResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactExportResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactExportResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptTemplateSelectorRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptTemplateSelectorResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartAuditResultRequest;
@@ -286,6 +292,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPlanningProposalShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPptArtifactsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPptArtifactsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPptTemplatesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListPptTemplatesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialogueDatasResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesRequest;
@@ -3679,6 +3687,79 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 导出PPT作品
+     *
+     * @param request - ExportPptArtifactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportPptArtifactResponse
+     *
+     * @param ExportPptArtifactRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExportPptArtifactResponse
+     */
+    public function exportPptArtifactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->edit) {
+            @$body['Edit'] = $request->edit;
+        }
+
+        if (null !== $request->exportFileType) {
+            @$body['ExportFileType'] = $request->exportFileType;
+        }
+
+        if (null !== $request->pptArtifactId) {
+            @$body['PptArtifactId'] = $request->pptArtifactId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->zip) {
+            @$body['Zip'] = $request->zip;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportPptArtifact',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportPptArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出PPT作品
+     *
+     * @param request - ExportPptArtifactRequest
+     *
+     * @returns ExportPptArtifactResponse
+     *
+     * @param ExportPptArtifactRequest $request
+     *
+     * @return ExportPptArtifactResponse
+     */
+    public function exportPptArtifact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportPptArtifactWithOptions($request, $runtime);
+    }
+
+    /**
      * 反馈某次生成的结果.
      *
      * @param tmpReq - FeedbackDialogueRequest
@@ -6384,6 +6465,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 查询PPT导出任务的结果.
+     *
+     * @param request - GetPptArtifactExportResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPptArtifactExportResultResponse
+     *
+     * @param GetPptArtifactExportResultRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetPptArtifactExportResultResponse
+     */
+    public function getPptArtifactExportResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->exportTaskId) {
+            @$body['ExportTaskId'] = $request->exportTaskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPptArtifactExportResult',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPptArtifactExportResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PPT导出任务的结果.
+     *
+     * @param request - GetPptArtifactExportResultRequest
+     *
+     * @returns GetPptArtifactExportResultResponse
+     *
+     * @param GetPptArtifactExportResultRequest $request
+     *
+     * @return GetPptArtifactExportResultResponse
+     */
+    public function getPptArtifactExportResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPptArtifactExportResultWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取PPT组件的配置.
      *
      * @param request - GetPptConfigRequest
@@ -6442,6 +6584,63 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPptConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PPT模板筛选器.
+     *
+     * @param request - GetPptTemplateSelectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPptTemplateSelectorResponse
+     *
+     * @param GetPptTemplateSelectorRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPptTemplateSelectorResponse
+     */
+    public function getPptTemplateSelectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPptTemplateSelector',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPptTemplateSelectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PPT模板筛选器.
+     *
+     * @param request - GetPptTemplateSelectorRequest
+     *
+     * @returns GetPptTemplateSelectorResponse
+     *
+     * @param GetPptTemplateSelectorRequest $request
+     *
+     * @return GetPptTemplateSelectorResponse
+     */
+    public function getPptTemplateSelector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPptTemplateSelectorWithOptions($request, $runtime);
     }
 
     /**
@@ -9609,6 +9808,89 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPptArtifactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PPT模板列表.
+     *
+     * @param request - ListPptTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPptTemplatesResponse
+     *
+     * @param ListPptTemplatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPptTemplatesResponse
+     */
+    public function listPptTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        $body = [];
+        if (null !== $request->careerId) {
+            @$body['CareerId'] = $request->careerId;
+        }
+
+        if (null !== $request->colourId) {
+            @$body['ColourId'] = $request->colourId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->styleId) {
+            @$body['StyleId'] = $request->styleId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPptTemplates',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PPT模板列表.
+     *
+     * @param request - ListPptTemplatesRequest
+     *
+     * @returns ListPptTemplatesResponse
+     *
+     * @param ListPptTemplatesRequest $request
+     *
+     * @return ListPptTemplatesResponse
+     */
+    public function listPptTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPptTemplatesWithOptions($request, $runtime);
     }
 
     /**
