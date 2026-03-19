@@ -28,11 +28,17 @@ class ListMemoryStoresResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'maxResults' => 'maxResults',
         'memoryStores' => 'memoryStores',
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
+        'total' => 'total',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class ListMemoryStoresResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
+        if (null !== $this->total) {
+            $res['total'] = $this->total;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class ListMemoryStoresResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['total'])) {
+            $model->total = $map['total'];
         }
 
         return $model;

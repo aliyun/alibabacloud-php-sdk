@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponseBody\shortTermStorage;
 
 class GetMemoryStoreResponseBody extends Model
 {
@@ -44,6 +45,11 @@ class GetMemoryStoreResponseBody extends Model
     public $requestId;
 
     /**
+     * @var shortTermStorage
+     */
+    public $shortTermStorage;
+
+    /**
      * @var int
      */
     public $shortTermTtl;
@@ -65,6 +71,7 @@ class GetMemoryStoreResponseBody extends Model
         'memoryStoreName' => 'memoryStoreName',
         'regionId' => 'regionId',
         'requestId' => 'requestId',
+        'shortTermStorage' => 'shortTermStorage',
         'shortTermTtl' => 'shortTermTtl',
         'updateTime' => 'updateTime',
         'workspace' => 'workspace',
@@ -77,6 +84,9 @@ class GetMemoryStoreResponseBody extends Model
         }
         if (\is_array($this->extractionStrategies)) {
             Model::validateArray($this->extractionStrategies);
+        }
+        if (null !== $this->shortTermStorage) {
+            $this->shortTermStorage->validate();
         }
         parent::validate();
     }
@@ -124,6 +134,10 @@ class GetMemoryStoreResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->shortTermStorage) {
+            $res['shortTermStorage'] = null !== $this->shortTermStorage ? $this->shortTermStorage->toArray($noStream) : $this->shortTermStorage;
         }
 
         if (null !== $this->shortTermTtl) {
@@ -189,6 +203,10 @@ class GetMemoryStoreResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['shortTermStorage'])) {
+            $model->shortTermStorage = shortTermStorage::fromMap($map['shortTermStorage']);
         }
 
         if (isset($map['shortTermTtl'])) {
