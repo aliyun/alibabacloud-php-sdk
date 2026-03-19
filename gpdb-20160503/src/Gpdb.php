@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CloneDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CloneDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAIServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAIServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
@@ -102,6 +104,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAINodeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAINodeResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
@@ -158,6 +162,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAIServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAIServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupJobRequest;
@@ -339,6 +345,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAINodePoolsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAINodePoolsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
@@ -389,6 +397,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAIServiceSecurityIpsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAIServiceSecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyCollectionRequest;
@@ -1817,6 +1827,83 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloneDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 AI 服务
+     *
+     * @param Request - CreateAIServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIServiceResponse
+     *
+     * @param CreateAIServiceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAIServiceResponse
+     */
+    public function createAIServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->serviceAccount) {
+            @$query['ServiceAccount'] = $request->serviceAccount;
+        }
+
+        if (null !== $request->serviceAccountPassword) {
+            @$query['ServiceAccountPassword'] = $request->serviceAccountPassword;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 AI 服务
+     *
+     * @param Request - CreateAIServiceRequest
+     *
+     * @returns CreateAIServiceResponse
+     *
+     * @param CreateAIServiceRequest $request
+     *
+     * @return CreateAIServiceResponse
+     */
+    public function createAIService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -4400,6 +4487,71 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 删除 AI 服务
+     *
+     * @param Request - DeleteAIServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIServiceResponse
+     *
+     * @param DeleteAIServiceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAIServiceResponse
+     */
+    public function deleteAIServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAIService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 AI 服务
+     *
+     * @param Request - DeleteAIServiceRequest
+     *
+     * @returns DeleteAIServiceResponse
+     *
+     * @param DeleteAIServiceRequest $request
+     *
+     * @return DeleteAIServiceResponse
+     */
+    public function deleteAIService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a database account.
      *
      * @param Request - DeleteAccountRequest
@@ -6306,6 +6458,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deployPrivateRAGServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取 AI 服务详情.
+     *
+     * @param Request - DescribeAIServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIServiceResponse
+     *
+     * @param DescribeAIServiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAIServiceResponse
+     */
+    public function describeAIServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 AI 服务详情.
+     *
+     * @param Request - DescribeAIServiceRequest
+     *
+     * @returns DescribeAIServiceResponse
+     *
+     * @param DescribeAIServiceRequest $request
+     *
+     * @return DescribeAIServiceResponse
+     */
+    public function describeAIService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -13402,6 +13619,75 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 获取 AI 服务列表.
+     *
+     * @param Request - ListAIServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIServicesResponse
+     *
+     * @param ListAIServicesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAIServicesResponse
+     */
+    public function listAIServicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAIServices',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAIServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 AI 服务列表.
+     *
+     * @param Request - ListAIServicesRequest
+     *
+     * @returns ListAIServicesResponse
+     *
+     * @param ListAIServicesRequest $request
+     *
+     * @return ListAIServicesResponse
+     */
+    public function listAIServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of backup jobs.
      *
      * @param Request - ListBackupJobsRequest
@@ -15203,6 +15489,75 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改 AI 服务白名单.
+     *
+     * @param Request - ModifyAIServiceSecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAIServiceSecurityIpsResponse
+     *
+     * @param ModifyAIServiceSecurityIpsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyAIServiceSecurityIpsResponse
+     */
+    public function modifyAIServiceSecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAIServiceSecurityIps',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAIServiceSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改 AI 服务白名单.
+     *
+     * @param Request - ModifyAIServiceSecurityIpsRequest
+     *
+     * @returns ModifyAIServiceSecurityIpsResponse
+     *
+     * @param ModifyAIServiceSecurityIpsRequest $request
+     *
+     * @return ModifyAIServiceSecurityIpsResponse
+     */
+    public function modifyAIServiceSecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAIServiceSecurityIpsWithOptions($request, $runtime);
     }
 
     /**
