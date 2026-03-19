@@ -14,6 +14,11 @@ class CreateResourceGroupRequest extends Model
     public $businessChannel;
 
     /**
+     * @var bool
+     */
+    public $enableAliyunResourceGroup;
+
+    /**
      * @var int
      */
     public $isResourceGroupWithOfficeSite;
@@ -29,6 +34,7 @@ class CreateResourceGroupRequest extends Model
     public $resourceGroupName;
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
+        'enableAliyunResourceGroup' => 'EnableAliyunResourceGroup',
         'isResourceGroupWithOfficeSite' => 'IsResourceGroupWithOfficeSite',
         'platform' => 'Platform',
         'resourceGroupName' => 'ResourceGroupName',
@@ -44,6 +50,10 @@ class CreateResourceGroupRequest extends Model
         $res = [];
         if (null !== $this->businessChannel) {
             $res['BusinessChannel'] = $this->businessChannel;
+        }
+
+        if (null !== $this->enableAliyunResourceGroup) {
+            $res['EnableAliyunResourceGroup'] = $this->enableAliyunResourceGroup;
         }
 
         if (null !== $this->isResourceGroupWithOfficeSite) {
@@ -71,6 +81,10 @@ class CreateResourceGroupRequest extends Model
         $model = new self();
         if (isset($map['BusinessChannel'])) {
             $model->businessChannel = $map['BusinessChannel'];
+        }
+
+        if (isset($map['EnableAliyunResourceGroup'])) {
+            $model->enableAliyunResourceGroup = $map['EnableAliyunResourceGroup'];
         }
 
         if (isset($map['IsResourceGroupWithOfficeSite'])) {

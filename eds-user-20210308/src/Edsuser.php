@@ -630,6 +630,10 @@ class Edsuser extends OpenApiClient
             @$query['BusinessChannel'] = $request->businessChannel;
         }
 
+        if (null !== $request->enableAliyunResourceGroup) {
+            @$query['EnableAliyunResourceGroup'] = $request->enableAliyunResourceGroup;
+        }
+
         if (null !== $request->isResourceGroupWithOfficeSite) {
             @$query['IsResourceGroupWithOfficeSite'] = $request->isResourceGroupWithOfficeSite;
         }
@@ -2182,7 +2186,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Updates the contact information of a convenience account.
+     * Modifies user information.
      *
      * @param request - ModifyUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2233,7 +2237,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Updates the contact information of a convenience account.
+     * Modifies user information.
      *
      * @param request - ModifyUserRequest
      *
