@@ -5,6 +5,14 @@
 namespace AlibabaCloud\SDK\Datahub\V20240620;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateTopicRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateTopicResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteTopicRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteTopicResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetConnectorRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetConnectorResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetGroupRequest;
@@ -34,6 +42,10 @@ use AlibabaCloud\SDK\Datahub\V20240620\Models\ListTopicsResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\PutRecordsRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\PutRecordsResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\PutRecordsShrinkRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\UpdateProjectRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\UpdateTopicRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\UpdateTopicResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -71,6 +83,274 @@ class Datahub extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建Project资源.
+     *
+     * @param request - CreateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProject',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Project资源.
+     *
+     * @param request - CreateProjectRequest
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建Topic资源.
+     *
+     * @param request - CreateTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTopicResponse
+     *
+     * @param CreateTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTopicResponse
+     */
+    public function createTopicWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->enableSchemaRegistry) {
+            @$query['EnableSchemaRegistry'] = $request->enableSchemaRegistry;
+        }
+
+        if (null !== $request->expandMode) {
+            @$query['ExpandMode'] = $request->expandMode;
+        }
+
+        if (null !== $request->lifecycle) {
+            @$query['Lifecycle'] = $request->lifecycle;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->recordSchema) {
+            @$query['RecordSchema'] = $request->recordSchema;
+        }
+
+        if (null !== $request->recordType) {
+            @$query['RecordType'] = $request->recordType;
+        }
+
+        if (null !== $request->shardCount) {
+            @$query['ShardCount'] = $request->shardCount;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTopic',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Topic资源.
+     *
+     * @param request - CreateTopicRequest
+     *
+     * @returns CreateTopicResponse
+     *
+     * @param CreateTopicRequest $request
+     *
+     * @return CreateTopicResponse
+     */
+    public function createTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTopicWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Project资源.
+     *
+     * @param request - DeleteProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProject',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Project资源.
+     *
+     * @param request - DeleteProjectRequest
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Topic资源.
+     *
+     * @param request - DeleteTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTopicResponse
+     *
+     * @param DeleteTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteTopicResponse
+     */
+    public function deleteTopicWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTopic',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Topic资源.
+     *
+     * @param request - DeleteTopicRequest
+     *
+     * @returns DeleteTopicResponse
+     *
+     * @param DeleteTopicRequest $request
+     *
+     * @return DeleteTopicResponse
+     */
+    public function deleteTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTopicWithOptions($request, $runtime);
     }
 
     /**
@@ -1047,5 +1327,131 @@ class Datahub extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Project资源属性.
+     *
+     * @param request - UpdateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProject',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Project资源属性.
+     *
+     * @param request - UpdateProjectRequest
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Topic资源属性.
+     *
+     * @param request - UpdateTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTopicResponse
+     *
+     * @param UpdateTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateTopicResponse
+     */
+    public function updateTopicWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTopic',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Topic资源属性.
+     *
+     * @param request - UpdateTopicRequest
+     *
+     * @returns UpdateTopicResponse
+     *
+     * @param UpdateTopicRequest $request
+     *
+     * @return UpdateTopicResponse
+     */
+    public function updateTopic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTopicWithOptions($request, $runtime);
     }
 }
