@@ -19,12 +19,18 @@ class interruptConfig extends Model
     public $interruptWords;
 
     /**
+     * @var bool
+     */
+    public $keepInterruptWordsForLLM;
+
+    /**
      * @var string
      */
     public $noInterruptMode;
     protected $_name = [
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
         'interruptWords' => 'InterruptWords',
+        'keepInterruptWordsForLLM' => 'KeepInterruptWordsForLLM',
         'noInterruptMode' => 'NoInterruptMode',
     ];
 
@@ -52,6 +58,10 @@ class interruptConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->keepInterruptWordsForLLM) {
+            $res['KeepInterruptWordsForLLM'] = $this->keepInterruptWordsForLLM;
         }
 
         if (null !== $this->noInterruptMode) {
@@ -82,6 +92,10 @@ class interruptConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['KeepInterruptWordsForLLM'])) {
+            $model->keepInterruptWordsForLLM = $map['KeepInterruptWordsForLLM'];
         }
 
         if (isset($map['NoInterruptMode'])) {
