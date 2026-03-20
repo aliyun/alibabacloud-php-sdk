@@ -86,6 +86,11 @@ class Node extends Model
     /**
      * @var string
      */
+    public $gmtCreatedTime;
+
+    /**
+     * @var string
+     */
     public $gmtExpiredTime;
 
     /**
@@ -233,6 +238,7 @@ class Node extends Model
         'GPUMemory' => 'GPUMemory',
         'GPUType' => 'GPUType',
         'gmtCreateTime' => 'GmtCreateTime',
+        'gmtCreatedTime' => 'GmtCreatedTime',
         'gmtExpiredTime' => 'GmtExpiredTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'hyperZone' => 'HyperZone',
@@ -344,6 +350,10 @@ class Node extends Model
 
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
+        }
+
+        if (null !== $this->gmtCreatedTime) {
+            $res['GmtCreatedTime'] = $this->gmtCreatedTime;
         }
 
         if (null !== $this->gmtExpiredTime) {
@@ -544,6 +554,10 @@ class Node extends Model
 
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
+        }
+
+        if (isset($map['GmtCreatedTime'])) {
+            $model->gmtCreatedTime = $map['GmtCreatedTime'];
         }
 
         if (isset($map['GmtExpiredTime'])) {
