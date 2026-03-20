@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\createAckEdgeParam;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\dataDisk;
+use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\networkOptions;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\systemDisk;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\tag;
 
@@ -126,6 +127,11 @@ class RunRCInstancesRequest extends Model
      * @var string
      */
     public $keyPairName;
+
+    /**
+     * @var networkOptions
+     */
+    public $networkOptions;
 
     /**
      * @var string
@@ -250,6 +256,7 @@ class RunRCInstancesRequest extends Model
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'ioOptimized' => 'IoOptimized',
         'keyPairName' => 'KeyPairName',
+        'networkOptions' => 'NetworkOptions',
         'password' => 'Password',
         'passwordInherit' => 'PasswordInherit',
         'period' => 'Period',
@@ -279,6 +286,9 @@ class RunRCInstancesRequest extends Model
         }
         if (\is_array($this->dataDisk)) {
             Model::validateArray($this->dataDisk);
+        }
+        if (null !== $this->networkOptions) {
+            $this->networkOptions->validate();
         }
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
@@ -392,6 +402,10 @@ class RunRCInstancesRequest extends Model
 
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+
+        if (null !== $this->networkOptions) {
+            $res['NetworkOptions'] = null !== $this->networkOptions ? $this->networkOptions->toArray($noStream) : $this->networkOptions;
         }
 
         if (null !== $this->password) {
@@ -596,6 +610,10 @@ class RunRCInstancesRequest extends Model
 
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+
+        if (isset($map['NetworkOptions'])) {
+            $model->networkOptions = networkOptions::fromMap($map['NetworkOptions']);
         }
 
         if (isset($map['Password'])) {

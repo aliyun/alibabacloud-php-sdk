@@ -29,6 +29,11 @@ class instanceType extends Model
     public $instanceTypeId;
 
     /**
+     * @var bool
+     */
+    public $jumboFrameSupport;
+
+    /**
      * @var int
      */
     public $memorySize;
@@ -37,6 +42,7 @@ class instanceType extends Model
         'diskQuantity' => 'DiskQuantity',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'instanceTypeId' => 'InstanceTypeId',
+        'jumboFrameSupport' => 'JumboFrameSupport',
         'memorySize' => 'MemorySize',
     ];
 
@@ -62,6 +68,10 @@ class instanceType extends Model
 
         if (null !== $this->instanceTypeId) {
             $res['InstanceTypeId'] = $this->instanceTypeId;
+        }
+
+        if (null !== $this->jumboFrameSupport) {
+            $res['JumboFrameSupport'] = $this->jumboFrameSupport;
         }
 
         if (null !== $this->memorySize) {
@@ -93,6 +103,10 @@ class instanceType extends Model
 
         if (isset($map['InstanceTypeId'])) {
             $model->instanceTypeId = $map['InstanceTypeId'];
+        }
+
+        if (isset($map['JumboFrameSupport'])) {
+            $model->jumboFrameSupport = $map['JumboFrameSupport'];
         }
 
         if (isset($map['MemorySize'])) {

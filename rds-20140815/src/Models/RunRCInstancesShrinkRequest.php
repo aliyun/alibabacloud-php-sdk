@@ -127,6 +127,11 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $networkOptionsShrink;
+
+    /**
+     * @var string
+     */
     public $password;
 
     /**
@@ -247,6 +252,7 @@ class RunRCInstancesShrinkRequest extends Model
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'ioOptimized' => 'IoOptimized',
         'keyPairName' => 'KeyPairName',
+        'networkOptionsShrink' => 'NetworkOptions',
         'password' => 'Password',
         'passwordInherit' => 'PasswordInherit',
         'period' => 'Period',
@@ -370,6 +376,10 @@ class RunRCInstancesShrinkRequest extends Model
 
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+
+        if (null !== $this->networkOptionsShrink) {
+            $res['NetworkOptions'] = $this->networkOptionsShrink;
         }
 
         if (null !== $this->password) {
@@ -560,6 +570,10 @@ class RunRCInstancesShrinkRequest extends Model
 
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+
+        if (isset($map['NetworkOptions'])) {
+            $model->networkOptionsShrink = $map['NetworkOptions'];
         }
 
         if (isset($map['Password'])) {

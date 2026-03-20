@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSpecRequest\serverless
 class ModifyDBInstanceSpecRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $allocateStrategy;
+
+    /**
      * @var bool
      */
     public $allowMajorVersionUpgrade;
@@ -169,6 +174,7 @@ class ModifyDBInstanceSpecRequest extends Model
      */
     public $zoneIdSlave1;
     protected $_name = [
+        'allocateStrategy' => 'AllocateStrategy',
         'allowMajorVersionUpgrade' => 'AllowMajorVersionUpgrade',
         'autoUseCoupon' => 'AutoUseCoupon',
         'burstingEnabled' => 'BurstingEnabled',
@@ -214,6 +220,10 @@ class ModifyDBInstanceSpecRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allocateStrategy) {
+            $res['AllocateStrategy'] = $this->allocateStrategy;
+        }
+
         if (null !== $this->allowMajorVersionUpgrade) {
             $res['AllowMajorVersionUpgrade'] = $this->allowMajorVersionUpgrade;
         }
@@ -353,6 +363,10 @@ class ModifyDBInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocateStrategy'])) {
+            $model->allocateStrategy = $map['AllocateStrategy'];
+        }
+
         if (isset($map['AllowMajorVersionUpgrade'])) {
             $model->allowMajorVersionUpgrade = $map['AllowMajorVersionUpgrade'];
         }

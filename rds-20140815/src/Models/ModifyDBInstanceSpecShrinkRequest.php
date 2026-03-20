@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyDBInstanceSpecShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $allocateStrategy;
+
+    /**
      * @var bool
      */
     public $allowMajorVersionUpgrade;
@@ -168,6 +173,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
      */
     public $zoneIdSlave1;
     protected $_name = [
+        'allocateStrategy' => 'AllocateStrategy',
         'allowMajorVersionUpgrade' => 'AllowMajorVersionUpgrade',
         'autoUseCoupon' => 'AutoUseCoupon',
         'burstingEnabled' => 'BurstingEnabled',
@@ -210,6 +216,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allocateStrategy) {
+            $res['AllocateStrategy'] = $this->allocateStrategy;
+        }
+
         if (null !== $this->allowMajorVersionUpgrade) {
             $res['AllowMajorVersionUpgrade'] = $this->allowMajorVersionUpgrade;
         }
@@ -349,6 +359,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllocateStrategy'])) {
+            $model->allocateStrategy = $map['AllocateStrategy'];
+        }
+
         if (isset($map['AllowMajorVersionUpgrade'])) {
             $model->allowMajorVersionUpgrade = $map['AllowMajorVersionUpgrade'];
         }

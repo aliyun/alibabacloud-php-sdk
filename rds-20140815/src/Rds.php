@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\AttachRCInstancesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachRCInstancesShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AuthorizeBackupEncryptionRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AuthorizeBackupEncryptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AuthorizeRCSecurityGroupPermissionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AuthorizeRCSecurityGroupPermissionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AuthorizeRCSecurityGroupPermissionShrinkRequest;
@@ -33,6 +35,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckAccountNameAvailableResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckBackupEncryptionAuthorizedRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckBackupEncryptionAuthorizedResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckCreateDdrDBInstanceRequest;
@@ -43,6 +47,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CheckInstanceExistRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckInstanceExistResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckRdsCustomInitRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckRdsCustomInitResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckRegionSupportBackupEncryptionRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CheckRegionSupportBackupEncryptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CloneDBInstanceRequest;
@@ -503,6 +509,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionPrecheckTas
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionPrecheckTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVpcsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVpcsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchListRequest;
@@ -519,6 +527,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DetachRCDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachRCDiskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachWhitelistTemplateToInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachWhitelistTemplateToInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\EnableBackupEncryptionRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\EnableBackupEncryptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateLocalExtendDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\EvaluateLocalExtendDiskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyRequest;
@@ -673,6 +683,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterTimedScheduleTaskReques
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyParameterTimedScheduleTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyPGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDeploymentSetAttributeRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDeploymentSetAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskAttributeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCDiskChargeTypeRequest;
@@ -1770,6 +1782,67 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 检查备份加密信息.
+     *
+     * @param request - AuthorizeBackupEncryptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeBackupEncryptionResponse
+     *
+     * @param AuthorizeBackupEncryptionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AuthorizeBackupEncryptionResponse
+     */
+    public function authorizeBackupEncryptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeBackupEncryption',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeBackupEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查备份加密信息.
+     *
+     * @param request - AuthorizeBackupEncryptionRequest
+     *
+     * @returns AuthorizeBackupEncryptionResponse
+     *
+     * @param AuthorizeBackupEncryptionRequest $request
+     *
+     * @return AuthorizeBackupEncryptionResponse
+     */
+    public function authorizeBackupEncryption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeBackupEncryptionWithOptions($request, $runtime);
+    }
+
+    /**
      * Adds rules to the specified security group.
      *
      * @param tmpReq - AuthorizeRCSecurityGroupPermissionRequest
@@ -2135,6 +2208,67 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkAccountNameAvailableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检查备份加密授权.
+     *
+     * @param request - CheckBackupEncryptionAuthorizedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckBackupEncryptionAuthorizedResponse
+     *
+     * @param CheckBackupEncryptionAuthorizedRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CheckBackupEncryptionAuthorizedResponse
+     */
+    public function checkBackupEncryptionAuthorizedWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckBackupEncryptionAuthorized',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckBackupEncryptionAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查备份加密授权.
+     *
+     * @param request - CheckBackupEncryptionAuthorizedRequest
+     *
+     * @returns CheckBackupEncryptionAuthorizedResponse
+     *
+     * @param CheckBackupEncryptionAuthorizedRequest $request
+     *
+     * @return CheckBackupEncryptionAuthorizedResponse
+     */
+    public function checkBackupEncryptionAuthorized($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkBackupEncryptionAuthorizedWithOptions($request, $runtime);
     }
 
     /**
@@ -2600,6 +2734,71 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkRdsCustomInitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检查地域是否支持备份加密.
+     *
+     * @param request - CheckRegionSupportBackupEncryptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckRegionSupportBackupEncryptionResponse
+     *
+     * @param CheckRegionSupportBackupEncryptionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CheckRegionSupportBackupEncryptionResponse
+     */
+    public function checkRegionSupportBackupEncryptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceID) {
+            @$query['DBInstanceID'] = $request->DBInstanceID;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckRegionSupportBackupEncryption',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckRegionSupportBackupEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查地域是否支持备份加密.
+     *
+     * @param request - CheckRegionSupportBackupEncryptionRequest
+     *
+     * @returns CheckRegionSupportBackupEncryptionResponse
+     *
+     * @param CheckRegionSupportBackupEncryptionRequest $request
+     *
+     * @return CheckRegionSupportBackupEncryptionResponse
+     */
+    public function checkRegionSupportBackupEncryption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkRegionSupportBackupEncryptionWithOptions($request, $runtime);
     }
 
     /**
@@ -24451,6 +24650,107 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 查询VPC列表.
+     *
+     * @param request - DescribeVpcsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcsResponse
+     *
+     * @param DescribeVpcsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeVpcsResponse
+     */
+    public function describeVpcsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcs',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询VPC列表.
+     *
+     * @param request - DescribeVpcsRequest
+     *
+     * @returns DescribeVpcsResponse
+     *
+     * @param DescribeVpcsRequest $request
+     *
+     * @return DescribeVpcsResponse
+     */
+    public function describeVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about the specified IP whitelist.
      *
      * @remarks
@@ -24942,6 +25242,71 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachWhitelistTemplateToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开启备份加密.
+     *
+     * @param request - EnableBackupEncryptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableBackupEncryptionResponse
+     *
+     * @param EnableBackupEncryptionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableBackupEncryptionResponse
+     */
+    public function enableBackupEncryptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->encryptionKey) {
+            @$query['EncryptionKey'] = $request->encryptionKey;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableBackupEncryption',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableBackupEncryptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启备份加密.
+     *
+     * @param request - EnableBackupEncryptionRequest
+     *
+     * @returns EnableBackupEncryptionResponse
+     *
+     * @param EnableBackupEncryptionRequest $request
+     *
+     * @return EnableBackupEncryptionResponse
+     */
+    public function enableBackupEncryption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableBackupEncryptionWithOptions($request, $runtime);
     }
 
     /**
@@ -29987,6 +30352,10 @@ class Rds extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->allocateStrategy) {
+            @$query['AllocateStrategy'] = $request->allocateStrategy;
+        }
+
         if (null !== $request->allowMajorVersionUpgrade) {
             @$query['AllowMajorVersionUpgrade'] = $request->allowMajorVersionUpgrade;
         }
@@ -32510,6 +32879,75 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * 修改部署集的名称和描述信息.
+     *
+     * @param request - ModifyRCDeploymentSetAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRCDeploymentSetAttributeResponse
+     *
+     * @param ModifyRCDeploymentSetAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyRCDeploymentSetAttributeResponse
+     */
+    public function modifyRCDeploymentSetAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentSetId) {
+            @$query['DeploymentSetId'] = $request->deploymentSetId;
+        }
+
+        if (null !== $request->deploymentSetName) {
+            @$query['DeploymentSetName'] = $request->deploymentSetName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRCDeploymentSetAttribute',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRCDeploymentSetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改部署集的名称和描述信息.
+     *
+     * @param request - ModifyRCDeploymentSetAttributeRequest
+     *
+     * @returns ModifyRCDeploymentSetAttributeResponse
+     *
+     * @param ModifyRCDeploymentSetAttributeRequest $request
+     *
+     * @return ModifyRCDeploymentSetAttributeResponse
+     */
+    public function modifyRCDeploymentSetAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRCDeploymentSetAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改块存储属性.
      *
      * @param request - ModifyRCDiskAttributeRequest
@@ -32993,6 +33431,10 @@ class Rds extends OpenApiClient
         $query = [];
         if (null !== $request->deletionProtection) {
             @$query['DeletionProtection'] = $request->deletionProtection;
+        }
+
+        if (null !== $request->enableJumboFrame) {
+            @$query['EnableJumboFrame'] = $request->enableJumboFrame;
         }
 
         if (null !== $request->hostName) {
@@ -37536,6 +37978,10 @@ class Rds extends OpenApiClient
             $request->dataDiskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataDisk, 'DataDisk', 'json');
         }
 
+        if (null !== $tmpReq->networkOptions) {
+            $request->networkOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkOptions, 'NetworkOptions', 'json');
+        }
+
         if (null !== $tmpReq->securityGroupIds) {
             $request->securityGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityGroupIds, 'SecurityGroupIds', 'json');
         }
@@ -37635,6 +38081,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->keyPairName) {
             @$query['KeyPairName'] = $request->keyPairName;
+        }
+
+        if (null !== $request->networkOptionsShrink) {
+            @$query['NetworkOptions'] = $request->networkOptionsShrink;
         }
 
         if (null !== $request->password) {

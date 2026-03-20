@@ -14,6 +14,11 @@ class ModifyRCInstanceAttributeShrinkRequest extends Model
     public $deletionProtection;
 
     /**
+     * @var bool
+     */
+    public $enableJumboFrame;
+
+    /**
      * @var string
      */
     public $hostName;
@@ -59,6 +64,7 @@ class ModifyRCInstanceAttributeShrinkRequest extends Model
     public $securityGroupIdsShrink;
     protected $_name = [
         'deletionProtection' => 'DeletionProtection',
+        'enableJumboFrame' => 'EnableJumboFrame',
         'hostName' => 'HostName',
         'instanceId' => 'InstanceId',
         'instanceIdsShrink' => 'InstanceIds',
@@ -80,6 +86,10 @@ class ModifyRCInstanceAttributeShrinkRequest extends Model
         $res = [];
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
+        }
+
+        if (null !== $this->enableJumboFrame) {
+            $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
 
         if (null !== $this->hostName) {
@@ -131,6 +141,10 @@ class ModifyRCInstanceAttributeShrinkRequest extends Model
         $model = new self();
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
+        }
+
+        if (isset($map['EnableJumboFrame'])) {
+            $model->enableJumboFrame = $map['EnableJumboFrame'];
         }
 
         if (isset($map['HostName'])) {
