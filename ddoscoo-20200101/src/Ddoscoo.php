@@ -433,6 +433,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
      * @param request - AddAutoCcBlacklistRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -478,6 +480,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Adds IP addresses to the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
      * @param request - AddAutoCcBlacklistRequest
      *
      * @returns AddAutoCcBlacklistResponse
@@ -782,7 +786,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 配置全局模板规则.
+     * Configures an Anti-DDoS global mitigation policy.
      *
      * @param request - ConfigL7GlobalRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -825,7 +829,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 配置全局模板规则.
+     * Configures an Anti-DDoS global mitigation policy.
      *
      * @param request - ConfigL7GlobalRuleRequest
      *
@@ -1412,7 +1416,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 配置新版基于匹配条件的cc规则.
+     * Creates or modifies the custom frequency control rule of a website.
      *
      * @param request - ConfigWebCCRuleV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1459,7 +1463,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 配置新版基于匹配条件的cc规则.
+     * Creates or modifies the custom frequency control rule of a website.
      *
      * @param request - ConfigWebCCRuleV2Request
      *
@@ -3890,6 +3894,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Queries the CNAME reuse information about websites.
+     *
      * @param request - DescribeCnameReusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3931,6 +3937,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Queries the CNAME reuse information about websites.
+     *
      * @param request - DescribeCnameReusesRequest
      *
      * @returns DescribeCnameReusesResponse
@@ -4932,6 +4940,10 @@ class Ddoscoo extends OpenApiClient
             @$query['Limit'] = $request->limit;
         }
 
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
@@ -5504,6 +5516,10 @@ class Ddoscoo extends OpenApiClient
             @$query['Limit'] = $request->limit;
         }
 
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
         if (null !== $request->region) {
             @$query['Region'] = $request->region;
         }
@@ -5575,6 +5591,10 @@ class Ddoscoo extends OpenApiClient
 
         if (null !== $request->limit) {
             @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
 
         if (null !== $request->region) {
@@ -5650,6 +5670,10 @@ class Ddoscoo extends OpenApiClient
             @$query['Limit'] = $request->limit;
         }
 
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
         if (null !== $request->region) {
             @$query['Region'] = $request->region;
         }
@@ -5721,6 +5745,10 @@ class Ddoscoo extends OpenApiClient
 
         if (null !== $request->limit) {
             @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
 
         if (null !== $request->region) {
@@ -6982,7 +7010,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 展示全局模板规则.
+     * Queries an Anti-DDoS global mitigation policy.
      *
      * @param request - DescribeL7GlobalRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7025,7 +7053,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * 展示全局模板规则.
+     * Queries an Anti-DDoS global mitigation policy.
      *
      * @param request - DescribeL7GlobalRuleRequest
      *
@@ -7989,7 +8017,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+     * Queries the traffic data of one or more Anti-DDoS Proxy instances.
      *
      * @param request - DescribePortFlowListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8044,7 +8072,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+     * Queries the traffic data of one or more Anti-DDoS Proxy instances.
      *
      * @param request - DescribePortFlowListRequest
      *
@@ -8498,6 +8526,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Queries the scheduling rules of Sec-Traffic Manager.
+     *
      * @param request - DescribeSchedulerRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8547,6 +8577,8 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
+     * Queries the scheduling rules of Sec-Traffic Manager.
+     *
      * @param request - DescribeSchedulerRulesRequest
      *
      * @returns DescribeSchedulerRulesResponse
@@ -13597,8 +13629,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * The ID of the instance that you want to release.
-     * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+     * Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @remarks
      * The ID of the request, which is used to locate and troubleshoot issues.
@@ -13640,8 +13671,7 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * The ID of the instance that you want to release.
-     * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
+     * Releases an expired Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
      * @remarks
      * The ID of the request, which is used to locate and troubleshoot issues.

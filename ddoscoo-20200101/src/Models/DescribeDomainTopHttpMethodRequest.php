@@ -26,6 +26,11 @@ class DescribeDomainTopHttpMethodRequest extends Model
     /**
      * @var string
      */
+    public $queryType;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -36,6 +41,7 @@ class DescribeDomainTopHttpMethodRequest extends Model
         'domain' => 'Domain',
         'endTime' => 'EndTime',
         'limit' => 'Limit',
+        'queryType' => 'QueryType',
         'region' => 'Region',
         'startTime' => 'StartTime',
     ];
@@ -58,6 +64,10 @@ class DescribeDomainTopHttpMethodRequest extends Model
 
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->queryType) {
+            $res['QueryType'] = $this->queryType;
         }
 
         if (null !== $this->region) {
@@ -89,6 +99,10 @@ class DescribeDomainTopHttpMethodRequest extends Model
 
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['QueryType'])) {
+            $model->queryType = $map['QueryType'];
         }
 
         if (isset($map['Region'])) {

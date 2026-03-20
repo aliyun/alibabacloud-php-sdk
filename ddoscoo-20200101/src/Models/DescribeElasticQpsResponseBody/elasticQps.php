@@ -46,6 +46,11 @@ class elasticQps extends Model
     /**
      * @var int
      */
+    public $status410Pv;
+
+    /**
+     * @var int
+     */
     public $status5;
 
     /**
@@ -60,6 +65,7 @@ class elasticQps extends Model
         'status2' => 'Status2',
         'status3' => 'Status3',
         'status4' => 'Status4',
+        'status410Pv' => 'Status410Pv',
         'status5' => 'Status5',
         'ups' => 'Ups',
     ];
@@ -98,6 +104,10 @@ class elasticQps extends Model
 
         if (null !== $this->status4) {
             $res['Status4'] = $this->status4;
+        }
+
+        if (null !== $this->status410Pv) {
+            $res['Status410Pv'] = $this->status410Pv;
         }
 
         if (null !== $this->status5) {
@@ -145,6 +155,10 @@ class elasticQps extends Model
 
         if (isset($map['Status4'])) {
             $model->status4 = $map['Status4'];
+        }
+
+        if (isset($map['Status410Pv'])) {
+            $model->status410Pv = $map['Status410Pv'];
         }
 
         if (isset($map['Status5'])) {

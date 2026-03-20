@@ -31,6 +31,11 @@ class DescribeDomainTopFingerprintRequest extends Model
     /**
      * @var string
      */
+    public $queryType;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -42,6 +47,7 @@ class DescribeDomainTopFingerprintRequest extends Model
         'endTime' => 'EndTime',
         'interval' => 'Interval',
         'limit' => 'Limit',
+        'queryType' => 'QueryType',
         'region' => 'Region',
         'startTime' => 'StartTime',
     ];
@@ -68,6 +74,10 @@ class DescribeDomainTopFingerprintRequest extends Model
 
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->queryType) {
+            $res['QueryType'] = $this->queryType;
         }
 
         if (null !== $this->region) {
@@ -103,6 +113,10 @@ class DescribeDomainTopFingerprintRequest extends Model
 
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['QueryType'])) {
+            $model->queryType = $map['QueryType'];
         }
 
         if (isset($map['Region'])) {
