@@ -14,6 +14,11 @@ class videoOptions extends Model
     public $fps;
 
     /**
+     * @var string[]
+     */
+    public $languageHints;
+
+    /**
      * @var string
      */
     public $resolution;
@@ -24,12 +29,16 @@ class videoOptions extends Model
     public $watermark;
     protected $_name = [
         'fps' => 'fps',
+        'languageHints' => 'languageHints',
         'resolution' => 'resolution',
         'watermark' => 'watermark',
     ];
 
     public function validate()
     {
+        if (\is_array($this->languageHints)) {
+            Model::validateArray($this->languageHints);
+        }
         parent::validate();
     }
 
@@ -38,6 +47,17 @@ class videoOptions extends Model
         $res = [];
         if (null !== $this->fps) {
             $res['fps'] = $this->fps;
+        }
+
+        if (null !== $this->languageHints) {
+            if (\is_array($this->languageHints)) {
+                $res['languageHints'] = [];
+                $n1 = 0;
+                foreach ($this->languageHints as $item1) {
+                    $res['languageHints'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->resolution) {
@@ -61,6 +81,17 @@ class videoOptions extends Model
         $model = new self();
         if (isset($map['fps'])) {
             $model->fps = $map['fps'];
+        }
+
+        if (isset($map['languageHints'])) {
+            if (!empty($map['languageHints'])) {
+                $model->languageHints = [];
+                $n1 = 0;
+                foreach ($map['languageHints'] as $item1) {
+                    $model->languageHints[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['resolution'])) {
