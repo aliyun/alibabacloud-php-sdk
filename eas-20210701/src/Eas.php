@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceCronScalerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceCronScalerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceInstanceTokenRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceInstanceTokenResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceRequest;
@@ -1480,6 +1482,77 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * 创建连接服务的token.
+     *
+     * @param request - CreateServiceInstanceTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceInstanceTokenResponse
+     *
+     * @param string                            $ClusterId
+     * @param string                            $ServiceName
+     * @param string                            $InstanceName
+     * @param CreateServiceInstanceTokenRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateServiceInstanceTokenResponse
+     */
+    public function createServiceInstanceTokenWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
+        }
+
+        if (null !== $request->workerName) {
+            @$query['WorkerName'] = $request->workerName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceInstanceToken',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/token',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceInstanceTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建连接服务的token.
+     *
+     * @param request - CreateServiceInstanceTokenRequest
+     *
+     * @returns CreateServiceInstanceTokenResponse
+     *
+     * @param string                            $ClusterId
+     * @param string                            $ServiceName
+     * @param string                            $InstanceName
+     * @param CreateServiceInstanceTokenRequest $request
+     *
+     * @return CreateServiceInstanceTokenResponse
+     */
+    public function createServiceInstanceToken($ClusterId, $ServiceName, $InstanceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceInstanceTokenWithOptions($ClusterId, $ServiceName, $InstanceName, $request, $headers, $runtime);
+    }
+
+    /**
      * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
      *
      * @param request - CreateServiceMirrorRequest
@@ -1856,7 +1929,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 删除网关内网访问端点.
+     * Deletes an internal endpoint of a private gateway.
      *
      * @param request - DeleteGatewayIntranetLinkedVpcRequest
      * @param headers - map
@@ -1904,7 +1977,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 删除网关内网访问端点.
+     * Deletes an internal endpoint of a private gateway.
      *
      * @param request - DeleteGatewayIntranetLinkedVpcRequest
      *
