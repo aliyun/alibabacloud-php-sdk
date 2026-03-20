@@ -29,6 +29,11 @@ class healthCheckConfig extends Model
     public $healthCheckEnabled;
 
     /**
+     * @var string
+     */
+    public $healthCheckExp;
+
+    /**
      * @var string[]
      */
     public $healthCheckHttpCode;
@@ -49,6 +54,11 @@ class healthCheckConfig extends Model
     public $healthCheckProtocol;
 
     /**
+     * @var string
+     */
+    public $healthCheckReq;
+
+    /**
      * @var int
      */
     public $healthyThreshold;
@@ -62,10 +72,12 @@ class healthCheckConfig extends Model
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
         'healthCheckDomain' => 'HealthCheckDomain',
         'healthCheckEnabled' => 'HealthCheckEnabled',
+        'healthCheckExp' => 'HealthCheckExp',
         'healthCheckHttpCode' => 'HealthCheckHttpCode',
         'healthCheckInterval' => 'HealthCheckInterval',
         'healthCheckPath' => 'HealthCheckPath',
         'healthCheckProtocol' => 'HealthCheckProtocol',
+        'healthCheckReq' => 'HealthCheckReq',
         'healthyThreshold' => 'HealthyThreshold',
         'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
@@ -97,6 +109,10 @@ class healthCheckConfig extends Model
             $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
 
+        if (null !== $this->healthCheckExp) {
+            $res['HealthCheckExp'] = $this->healthCheckExp;
+        }
+
         if (null !== $this->healthCheckHttpCode) {
             if (\is_array($this->healthCheckHttpCode)) {
                 $res['HealthCheckHttpCode'] = [];
@@ -118,6 +134,10 @@ class healthCheckConfig extends Model
 
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
+        }
+
+        if (null !== $this->healthCheckReq) {
+            $res['HealthCheckReq'] = $this->healthCheckReq;
         }
 
         if (null !== $this->healthyThreshold) {
@@ -155,6 +175,10 @@ class healthCheckConfig extends Model
             $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
 
+        if (isset($map['HealthCheckExp'])) {
+            $model->healthCheckExp = $map['HealthCheckExp'];
+        }
+
         if (isset($map['HealthCheckHttpCode'])) {
             if (!empty($map['HealthCheckHttpCode'])) {
                 $model->healthCheckHttpCode = [];
@@ -176,6 +200,10 @@ class healthCheckConfig extends Model
 
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
+        }
+
+        if (isset($map['HealthCheckReq'])) {
+            $model->healthCheckReq = $map['HealthCheckReq'];
         }
 
         if (isset($map['HealthyThreshold'])) {
