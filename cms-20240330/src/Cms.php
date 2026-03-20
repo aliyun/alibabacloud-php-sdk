@@ -321,6 +321,10 @@ class Cms extends OpenApiClient
             @$body['runId'] = $request->runId;
         }
 
+        if (null !== $request->timestamp) {
+            @$body['timestamp'] = $request->timestamp;
+        }
+
         if (null !== $request->userId) {
             @$body['userId'] = $request->userId;
         }

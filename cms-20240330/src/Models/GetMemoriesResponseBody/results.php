@@ -21,6 +21,11 @@ class results extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $createdAt;
 
     /**
@@ -70,6 +75,7 @@ class results extends Model
     protected $_name = [
         'actorId' => 'actorId',
         'agentId' => 'agentId',
+        'appId' => 'appId',
         'createdAt' => 'createdAt',
         'hash' => 'hash',
         'id' => 'id',
@@ -99,6 +105,10 @@ class results extends Model
 
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
+        }
+
+        if (null !== $this->appId) {
+            $res['appId'] = $this->appId;
         }
 
         if (null !== $this->createdAt) {
@@ -163,6 +173,10 @@ class results extends Model
 
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
+        }
+
+        if (isset($map['appId'])) {
+            $model->appId = $map['appId'];
         }
 
         if (isset($map['createdAt'])) {

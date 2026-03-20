@@ -11,6 +11,16 @@ class GetMemoryResponseBody extends Model
     /**
      * @var string
      */
+    public $agentId;
+
+    /**
+     * @var string
+     */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $createdAt;
 
     /**
@@ -56,8 +66,20 @@ class GetMemoryResponseBody extends Model
     /**
      * @var string
      */
+    public $runId;
+
+    /**
+     * @var string
+     */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
+        'agentId' => 'agentId',
+        'appId' => 'appId',
         'createdAt' => 'createdAt',
         'expirationDate' => 'expirationDate',
         'id' => 'id',
@@ -67,7 +89,9 @@ class GetMemoryResponseBody extends Model
         'organization' => 'organization',
         'owner' => 'owner',
         'requestId' => 'requestId',
+        'runId' => 'runId',
         'updatedAt' => 'updatedAt',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -78,6 +102,14 @@ class GetMemoryResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['agentId'] = $this->agentId;
+        }
+
+        if (null !== $this->appId) {
+            $res['appId'] = $this->appId;
+        }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -114,8 +146,16 @@ class GetMemoryResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
+        if (null !== $this->runId) {
+            $res['runId'] = $this->runId;
+        }
+
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
+        }
+
+        if (null !== $this->userId) {
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -129,6 +169,14 @@ class GetMemoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentId'])) {
+            $model->agentId = $map['agentId'];
+        }
+
+        if (isset($map['appId'])) {
+            $model->appId = $map['appId'];
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -165,8 +213,16 @@ class GetMemoryResponseBody extends Model
             $model->requestId = $map['requestId'];
         }
 
+        if (isset($map['runId'])) {
+            $model->runId = $map['runId'];
+        }
+
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

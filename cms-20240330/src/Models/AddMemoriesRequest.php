@@ -50,6 +50,11 @@ class AddMemoriesRequest extends Model
     public $runId;
 
     /**
+     * @var int
+     */
+    public $timestamp;
+
+    /**
      * @var string
      */
     public $userId;
@@ -62,6 +67,7 @@ class AddMemoriesRequest extends Model
         'messages' => 'messages',
         'metadata' => 'metadata',
         'runId' => 'runId',
+        'timestamp' => 'timestamp',
         'userId' => 'userId',
     ];
 
@@ -123,6 +129,10 @@ class AddMemoriesRequest extends Model
             $res['runId'] = $this->runId;
         }
 
+        if (null !== $this->timestamp) {
+            $res['timestamp'] = $this->timestamp;
+        }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -180,6 +190,10 @@ class AddMemoriesRequest extends Model
 
         if (isset($map['runId'])) {
             $model->runId = $map['runId'];
+        }
+
+        if (isset($map['timestamp'])) {
+            $model->timestamp = $map['timestamp'];
         }
 
         if (isset($map['userId'])) {
