@@ -13,8 +13,26 @@ class data extends Model
      * @var jobs[]
      */
     public $jobs;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'jobs' => 'Jobs',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -39,6 +57,18 @@ class data extends Model
             }
         }
 
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
+        }
+
         return $res;
     }
 
@@ -59,6 +89,18 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

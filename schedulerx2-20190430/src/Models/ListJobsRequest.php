@@ -29,6 +29,16 @@ class ListJobsRequest extends Model
     public $namespaceSource;
 
     /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -42,6 +52,8 @@ class ListJobsRequest extends Model
         'jobName' => 'JobName',
         'namespace' => 'Namespace',
         'namespaceSource' => 'NamespaceSource',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'status' => 'Status',
     ];
@@ -68,6 +80,14 @@ class ListJobsRequest extends Model
 
         if (null !== $this->namespaceSource) {
             $res['NamespaceSource'] = $this->namespaceSource;
+        }
+
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->regionId) {
@@ -103,6 +123,14 @@ class ListJobsRequest extends Model
 
         if (isset($map['NamespaceSource'])) {
             $model->namespaceSource = $map['NamespaceSource'];
+        }
+
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['RegionId'])) {

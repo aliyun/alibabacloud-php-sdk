@@ -269,7 +269,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * Deletes multiple routing policies at a time.
      *
      * @param request - BatchDeleteRouteStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -322,7 +322,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * Deletes multiple routing policies at a time.
      *
      * @param request - BatchDeleteRouteStrategyRequest
      *
@@ -1171,7 +1171,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * Deletes an application group.
      *
      * @param request - DeleteAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1222,7 +1222,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The additional information that is returned.
+     * Deletes an application group.
      *
      * @param request - DeleteAppGroupRequest
      *
@@ -1712,7 +1712,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a job.
+     * Disables a specified task.
      *
      * @param request - DisableJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1747,7 +1747,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a job.
+     * Disables a specified task.
      *
      * @param request - DisableJobRequest
      *
@@ -2036,7 +2036,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+     * The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
      *
      * @param request - GetAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,7 +2083,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The configuration of the alert. The value is a JSON string. For more information, see \\\\*\\\\*the additional information about response parameters below this table\\\\*\\\\*.
+     * The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
      *
      * @param request - GetAppGroupRequest
      *
