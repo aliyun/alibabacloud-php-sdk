@@ -94,6 +94,11 @@ class deductions extends Model
     public $usedTime;
 
     /**
+     * @var string
+     */
+    public $usedTimeDecimal;
+
+    /**
      * @var int
      */
     public $usedTimeWithScale;
@@ -115,6 +120,7 @@ class deductions extends Model
         'staTime' => 'StaTime',
         'usedCoreTime' => 'UsedCoreTime',
         'usedTime' => 'UsedTime',
+        'usedTimeDecimal' => 'UsedTimeDecimal',
         'usedTimeWithScale' => 'UsedTimeWithScale',
     ];
 
@@ -192,6 +198,10 @@ class deductions extends Model
 
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
+        }
+
+        if (null !== $this->usedTimeDecimal) {
+            $res['UsedTimeDecimal'] = $this->usedTimeDecimal;
         }
 
         if (null !== $this->usedTimeWithScale) {
@@ -275,6 +285,10 @@ class deductions extends Model
 
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];
+        }
+
+        if (isset($map['UsedTimeDecimal'])) {
+            $model->usedTimeDecimal = $map['UsedTimeDecimal'];
         }
 
         if (isset($map['UsedTimeWithScale'])) {

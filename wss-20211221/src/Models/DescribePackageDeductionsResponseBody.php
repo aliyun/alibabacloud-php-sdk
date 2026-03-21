@@ -43,6 +43,11 @@ class DescribePackageDeductionsResponseBody extends Model
      * @var int
      */
     public $totalUsedTime;
+
+    /**
+     * @var string
+     */
+    public $totalUsedTimeDecimal;
     protected $_name = [
         'deductions' => 'Deductions',
         'pageNum' => 'PageNum',
@@ -51,6 +56,7 @@ class DescribePackageDeductionsResponseBody extends Model
         'totalCount' => 'TotalCount',
         'totalUsedCoreTime' => 'TotalUsedCoreTime',
         'totalUsedTime' => 'TotalUsedTime',
+        'totalUsedTimeDecimal' => 'TotalUsedTimeDecimal',
     ];
 
     public function validate()
@@ -99,6 +105,10 @@ class DescribePackageDeductionsResponseBody extends Model
             $res['TotalUsedTime'] = $this->totalUsedTime;
         }
 
+        if (null !== $this->totalUsedTimeDecimal) {
+            $res['TotalUsedTimeDecimal'] = $this->totalUsedTimeDecimal;
+        }
+
         return $res;
     }
 
@@ -143,6 +153,10 @@ class DescribePackageDeductionsResponseBody extends Model
 
         if (isset($map['TotalUsedTime'])) {
             $model->totalUsedTime = $map['TotalUsedTime'];
+        }
+
+        if (isset($map['TotalUsedTimeDecimal'])) {
+            $model->totalUsedTimeDecimal = $map['TotalUsedTimeDecimal'];
         }
 
         return $model;
