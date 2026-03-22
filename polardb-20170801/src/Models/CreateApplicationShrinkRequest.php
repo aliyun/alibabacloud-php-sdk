@@ -26,6 +26,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $autoAllocatePublicEip;
+
+    /**
+     * @var bool
+     */
     public $autoCreatePolarFs;
 
     /**
@@ -151,6 +156,7 @@ class CreateApplicationShrinkRequest extends Model
         'AIDBClusterId' => 'AIDBClusterId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
+        'autoAllocatePublicEip' => 'AutoAllocatePublicEip',
         'autoCreatePolarFs' => 'AutoCreatePolarFs',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
@@ -196,6 +202,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+
+        if (null !== $this->autoAllocatePublicEip) {
+            $res['AutoAllocatePublicEip'] = $this->autoAllocatePublicEip;
         }
 
         if (null !== $this->autoCreatePolarFs) {
@@ -319,6 +329,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+
+        if (isset($map['AutoAllocatePublicEip'])) {
+            $model->autoAllocatePublicEip = $map['AutoAllocatePublicEip'];
         }
 
         if (isset($map['AutoCreatePolarFs'])) {

@@ -2697,6 +2697,10 @@ class Polardb extends OpenApiClient
             @$query['Architecture'] = $request->architecture;
         }
 
+        if (null !== $request->autoAllocatePublicEip) {
+            @$query['AutoAllocatePublicEip'] = $request->autoAllocatePublicEip;
+        }
+
         if (null !== $request->autoCreatePolarFs) {
             @$query['AutoCreatePolarFs'] = $request->autoCreatePolarFs;
         }

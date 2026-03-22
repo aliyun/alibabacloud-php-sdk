@@ -29,6 +29,11 @@ class CreateApplicationRequest extends Model
     /**
      * @var bool
      */
+    public $autoAllocatePublicEip;
+
+    /**
+     * @var bool
+     */
     public $autoCreatePolarFs;
 
     /**
@@ -154,6 +159,7 @@ class CreateApplicationRequest extends Model
         'AIDBClusterId' => 'AIDBClusterId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
+        'autoAllocatePublicEip' => 'AutoAllocatePublicEip',
         'autoCreatePolarFs' => 'AutoCreatePolarFs',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
@@ -208,6 +214,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+
+        if (null !== $this->autoAllocatePublicEip) {
+            $res['AutoAllocatePublicEip'] = $this->autoAllocatePublicEip;
         }
 
         if (null !== $this->autoCreatePolarFs) {
@@ -345,6 +355,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+
+        if (isset($map['AutoAllocatePublicEip'])) {
+            $model->autoAllocatePublicEip = $map['AutoAllocatePublicEip'];
         }
 
         if (isset($map['AutoCreatePolarFs'])) {

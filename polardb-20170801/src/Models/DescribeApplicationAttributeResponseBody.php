@@ -64,6 +64,16 @@ class DescribeApplicationAttributeResponseBody extends Model
     public $expired;
 
     /**
+     * @var bool
+     */
+    public $isLatestVersion;
+
+    /**
+     * @var string
+     */
+    public $latestVersion;
+
+    /**
      * @var string
      */
     public $lockMode;
@@ -82,6 +92,11 @@ class DescribeApplicationAttributeResponseBody extends Model
      * @var memApplicationAttribute
      */
     public $memApplicationAttribute;
+
+    /**
+     * @var string
+     */
+    public $minorVersion;
 
     /**
      * @var string
@@ -158,10 +173,13 @@ class DescribeApplicationAttributeResponseBody extends Model
         'endpoints' => 'Endpoints',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
+        'isLatestVersion' => 'IsLatestVersion',
+        'latestVersion' => 'LatestVersion',
         'lockMode' => 'LockMode',
         'maintainEndTime' => 'MaintainEndTime',
         'maintainStartTime' => 'MaintainStartTime',
         'memApplicationAttribute' => 'MemApplicationAttribute',
+        'minorVersion' => 'MinorVersion',
         'payType' => 'PayType',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'regionId' => 'RegionId',
@@ -254,6 +272,14 @@ class DescribeApplicationAttributeResponseBody extends Model
             $res['Expired'] = $this->expired;
         }
 
+        if (null !== $this->isLatestVersion) {
+            $res['IsLatestVersion'] = $this->isLatestVersion;
+        }
+
+        if (null !== $this->latestVersion) {
+            $res['LatestVersion'] = $this->latestVersion;
+        }
+
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
@@ -268,6 +294,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->memApplicationAttribute) {
             $res['MemApplicationAttribute'] = null !== $this->memApplicationAttribute ? $this->memApplicationAttribute->toArray($noStream) : $this->memApplicationAttribute;
+        }
+
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
         }
 
         if (null !== $this->payType) {
@@ -401,6 +431,14 @@ class DescribeApplicationAttributeResponseBody extends Model
             $model->expired = $map['Expired'];
         }
 
+        if (isset($map['IsLatestVersion'])) {
+            $model->isLatestVersion = $map['IsLatestVersion'];
+        }
+
+        if (isset($map['LatestVersion'])) {
+            $model->latestVersion = $map['LatestVersion'];
+        }
+
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
@@ -415,6 +453,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['MemApplicationAttribute'])) {
             $model->memApplicationAttribute = memApplicationAttribute::fromMap($map['MemApplicationAttribute']);
+        }
+
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
         }
 
         if (isset($map['PayType'])) {
