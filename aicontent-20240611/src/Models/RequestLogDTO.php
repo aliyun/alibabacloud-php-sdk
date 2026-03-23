@@ -19,6 +19,11 @@ class RequestLogDTO extends Model
     public $clientId;
 
     /**
+     * @var string
+     */
+    public $clientUuid;
+
+    /**
      * @var int
      */
     public $completionTokens;
@@ -42,6 +47,11 @@ class RequestLogDTO extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $modelCode;
 
     /**
      * @var int
@@ -84,9 +94,19 @@ class RequestLogDTO extends Model
     public $responseTimeMs;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var string
+     */
+    public $symbol;
 
     /**
      * @var int
@@ -95,11 +115,13 @@ class RequestLogDTO extends Model
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
+        'clientUuid' => 'clientUuid',
         'completionTokens' => 'completionTokens',
         'deleteTag' => 'deleteTag',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
+        'modelCode' => 'modelCode',
         'modelId' => 'modelId',
         'modelName' => 'modelName',
         'promptTokens' => 'promptTokens',
@@ -108,7 +130,9 @@ class RequestLogDTO extends Model
         'requestTime' => 'requestTime',
         'responseBody' => 'responseBody',
         'responseTimeMs' => 'responseTimeMs',
+        'status' => 'status',
         'statusCode' => 'statusCode',
+        'symbol' => 'symbol',
         'totalTokens' => 'totalTokens',
     ];
 
@@ -126,6 +150,10 @@ class RequestLogDTO extends Model
 
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
+        }
+
+        if (null !== $this->clientUuid) {
+            $res['clientUuid'] = $this->clientUuid;
         }
 
         if (null !== $this->completionTokens) {
@@ -146,6 +174,10 @@ class RequestLogDTO extends Model
 
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->modelCode) {
+            $res['modelCode'] = $this->modelCode;
         }
 
         if (null !== $this->modelId) {
@@ -180,8 +212,16 @@ class RequestLogDTO extends Model
             $res['responseTimeMs'] = $this->responseTimeMs;
         }
 
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
+        }
+
+        if (null !== $this->symbol) {
+            $res['symbol'] = $this->symbol;
         }
 
         if (null !== $this->totalTokens) {
@@ -207,6 +247,10 @@ class RequestLogDTO extends Model
             $model->clientId = $map['clientId'];
         }
 
+        if (isset($map['clientUuid'])) {
+            $model->clientUuid = $map['clientUuid'];
+        }
+
         if (isset($map['completionTokens'])) {
             $model->completionTokens = $map['completionTokens'];
         }
@@ -225,6 +269,10 @@ class RequestLogDTO extends Model
 
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['modelCode'])) {
+            $model->modelCode = $map['modelCode'];
         }
 
         if (isset($map['modelId'])) {
@@ -259,8 +307,16 @@ class RequestLogDTO extends Model
             $model->responseTimeMs = $map['responseTimeMs'];
         }
 
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+
+        if (isset($map['symbol'])) {
+            $model->symbol = $map['symbol'];
         }
 
         if (isset($map['totalTokens'])) {

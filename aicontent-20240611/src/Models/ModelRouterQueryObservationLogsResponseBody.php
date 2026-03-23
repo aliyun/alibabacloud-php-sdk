@@ -5,11 +5,12 @@
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsResponseBody\data;
 
 class ModelRouterQueryObservationLogsResponseBody extends Model
 {
     /**
-     * @var RequestLogDTO[]
+     * @var data
      */
     public $data;
 
@@ -39,34 +40,14 @@ class ModelRouterQueryObservationLogsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @var int
-     */
-    public $pageIndex;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $skip;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'data' => 'data',
         'errCode' => 'errCode',
@@ -74,18 +55,14 @@ class ModelRouterQueryObservationLogsResponseBody extends Model
         'httpStatusCode' => 'httpStatusCode',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
-        'pageIndex' => 'pageIndex',
-        'pageSize' => 'pageSize',
         'requestId' => 'requestId',
-        'skip' => 'skip',
         'success' => 'success',
-        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         parent::validate();
     }
@@ -94,14 +71,7 @@ class ModelRouterQueryObservationLogsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->errCode) {
@@ -124,28 +94,12 @@ class ModelRouterQueryObservationLogsResponseBody extends Model
             $res['nextToken'] = $this->nextToken;
         }
 
-        if (null !== $this->pageIndex) {
-            $res['pageIndex'] = $this->pageIndex;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->skip) {
-            $res['skip'] = $this->skip;
-        }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
-        }
-
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -160,14 +114,7 @@ class ModelRouterQueryObservationLogsResponseBody extends Model
     {
         $model = new self();
         if (isset($map['data'])) {
-            if (!empty($map['data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['data'] as $item1) {
-                    $model->data[$n1] = RequestLogDTO::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->data = data::fromMap($map['data']);
         }
 
         if (isset($map['errCode'])) {
@@ -190,28 +137,12 @@ class ModelRouterQueryObservationLogsResponseBody extends Model
             $model->nextToken = $map['nextToken'];
         }
 
-        if (isset($map['pageIndex'])) {
-            $model->pageIndex = $map['pageIndex'];
-        }
-
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['skip'])) {
-            $model->skip = $map['skip'];
-        }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
-        }
-
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

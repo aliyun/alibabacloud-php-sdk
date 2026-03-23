@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ObservationChartsDTO\successRate;
 
 class ObservationChartsDTO extends Model
 {
@@ -29,7 +30,7 @@ class ObservationChartsDTO extends Model
     public $responseTime;
 
     /**
-     * @var TimeSeriesPointDTO[]
+     * @var successRate[]
      */
     public $successRate;
 
@@ -198,7 +199,7 @@ class ObservationChartsDTO extends Model
                 $model->successRate = [];
                 $n1 = 0;
                 foreach ($map['successRate'] as $item1) {
-                    $model->successRate[$n1] = TimeSeriesPointDTO::fromMap($item1);
+                    $model->successRate[$n1] = successRate::fromMap($item1);
                     ++$n1;
                 }
             }

@@ -87,6 +87,11 @@ class ModelDTO extends Model
      * @var string
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $version;
     protected $_name = [
         'apiKeyPreview' => 'apiKeyPreview',
         'baseUrl' => 'baseUrl',
@@ -104,6 +109,7 @@ class ModelDTO extends Model
         'symbol' => 'symbol',
         'tagNames' => 'tagNames',
         'tags' => 'tags',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -176,6 +182,10 @@ class ModelDTO extends Model
 
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -251,6 +261,10 @@ class ModelDTO extends Model
 
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

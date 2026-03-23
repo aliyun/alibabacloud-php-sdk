@@ -19,6 +19,11 @@ class ApiKeyDTO extends Model
     public $clientId;
 
     /**
+     * @var int
+     */
+    public $deleteTag;
+
+    /**
      * @var string
      */
     public $gmtCreate;
@@ -36,6 +41,11 @@ class ApiKeyDTO extends Model
     /**
      * @var string
      */
+    public $key;
+
+    /**
+     * @var string
+     */
     public $keyPreview;
 
     /**
@@ -45,9 +55,11 @@ class ApiKeyDTO extends Model
     protected $_name = [
         'client' => 'client',
         'clientId' => 'clientId',
+        'deleteTag' => 'deleteTag',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
+        'key' => 'key',
         'keyPreview' => 'keyPreview',
         'name' => 'name',
     ];
@@ -71,6 +83,10 @@ class ApiKeyDTO extends Model
             $res['clientId'] = $this->clientId;
         }
 
+        if (null !== $this->deleteTag) {
+            $res['deleteTag'] = $this->deleteTag;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
@@ -81,6 +97,10 @@ class ApiKeyDTO extends Model
 
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->key) {
+            $res['key'] = $this->key;
         }
 
         if (null !== $this->keyPreview) {
@@ -110,6 +130,10 @@ class ApiKeyDTO extends Model
             $model->clientId = $map['clientId'];
         }
 
+        if (isset($map['deleteTag'])) {
+            $model->deleteTag = $map['deleteTag'];
+        }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
@@ -120,6 +144,10 @@ class ApiKeyDTO extends Model
 
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['key'])) {
+            $model->key = $map['key'];
         }
 
         if (isset($map['keyPreview'])) {

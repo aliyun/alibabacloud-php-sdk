@@ -5,11 +5,12 @@
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosTagsResponseBody\data;
 
 class ModelRouterQueryNacosTagsResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @var data[]
      */
     public $data;
 
@@ -29,57 +30,21 @@ class ModelRouterQueryNacosTagsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $pageIndex;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var string
      */
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $skip;
-
-    /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'data' => 'data',
         'errCode' => 'errCode',
         'errMessage' => 'errMessage',
         'httpStatusCode' => 'httpStatusCode',
-        'maxResults' => 'maxResults',
-        'nextToken' => 'nextToken',
-        'pageIndex' => 'pageIndex',
-        'pageSize' => 'pageSize',
         'requestId' => 'requestId',
-        'skip' => 'skip',
         'success' => 'success',
-        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -98,7 +63,7 @@ class ModelRouterQueryNacosTagsResponseBody extends Model
                 $res['data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['data'][$n1] = $item1;
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -116,36 +81,12 @@ class ModelRouterQueryNacosTagsResponseBody extends Model
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
 
-        if (null !== $this->maxResults) {
-            $res['maxResults'] = $this->maxResults;
-        }
-
-        if (null !== $this->nextToken) {
-            $res['nextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->pageIndex) {
-            $res['pageIndex'] = $this->pageIndex;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
-        }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->skip) {
-            $res['skip'] = $this->skip;
-        }
-
         if (null !== $this->success) {
             $res['success'] = $this->success;
-        }
-
-        if (null !== $this->totalCount) {
-            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -164,7 +105,7 @@ class ModelRouterQueryNacosTagsResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['data'] as $item1) {
-                    $model->data[$n1] = $item1;
+                    $model->data[$n1] = data::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -182,36 +123,12 @@ class ModelRouterQueryNacosTagsResponseBody extends Model
             $model->httpStatusCode = $map['httpStatusCode'];
         }
 
-        if (isset($map['maxResults'])) {
-            $model->maxResults = $map['maxResults'];
-        }
-
-        if (isset($map['nextToken'])) {
-            $model->nextToken = $map['nextToken'];
-        }
-
-        if (isset($map['pageIndex'])) {
-            $model->pageIndex = $map['pageIndex'];
-        }
-
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
-        }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['skip'])) {
-            $model->skip = $map['skip'];
-        }
-
         if (isset($map['success'])) {
             $model->success = $map['success'];
-        }
-
-        if (isset($map['totalCount'])) {
-            $model->totalCount = $map['totalCount'];
         }
 
         return $model;
