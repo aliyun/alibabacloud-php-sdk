@@ -491,6 +491,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesInCategoryRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesInCategoryResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTagMetaAssetRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTagMetaAssetResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowCooperatorsRequest;
@@ -17962,6 +17964,87 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTablesInCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询绑定特定标签的资产列表.
+     *
+     * @param request - ListTagMetaAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagMetaAssetResponse
+     *
+     * @param ListTagMetaAssetRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagMetaAssetResponse
+     */
+    public function listTagMetaAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->metaParentId) {
+            @$query['MetaParentId'] = $request->metaParentId;
+        }
+
+        if (null !== $request->metaType) {
+            @$query['MetaType'] = $request->metaType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagMetaAsset',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagMetaAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询绑定特定标签的资产列表.
+     *
+     * @param request - ListTagMetaAssetRequest
+     *
+     * @returns ListTagMetaAssetResponse
+     *
+     * @param ListTagMetaAssetRequest $request
+     *
+     * @return ListTagMetaAssetResponse
+     */
+    public function listTagMetaAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagMetaAssetWithOptions($request, $runtime);
     }
 
     /**
