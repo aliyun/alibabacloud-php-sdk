@@ -23,10 +23,16 @@ class GetStackExecutionResultResponseBody extends Model
      * @var string
      */
     public $triggerId;
+
+    /**
+     * @var string
+     */
+    public $triggeredStatus;
     protected $_name = [
         'requestId' => 'requestId',
         'stackResults' => 'stackResults',
         'triggerId' => 'triggerId',
+        'triggeredStatus' => 'triggeredStatus',
     ];
 
     public function validate()
@@ -59,6 +65,10 @@ class GetStackExecutionResultResponseBody extends Model
             $res['triggerId'] = $this->triggerId;
         }
 
+        if (null !== $this->triggeredStatus) {
+            $res['triggeredStatus'] = $this->triggeredStatus;
+        }
+
         return $res;
     }
 
@@ -87,6 +97,10 @@ class GetStackExecutionResultResponseBody extends Model
 
         if (isset($map['triggerId'])) {
             $model->triggerId = $map['triggerId'];
+        }
+
+        if (isset($map['triggeredStatus'])) {
+            $model->triggeredStatus = $map['triggeredStatus'];
         }
 
         return $model;
