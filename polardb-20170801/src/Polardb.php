@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
@@ -57,6 +60,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationPromptRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationPromptResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationShrinkRequest;
@@ -110,6 +115,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAINodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationPromptRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationPromptResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupRequest;
@@ -181,6 +188,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRespon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPromptsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPromptsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
@@ -437,6 +446,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionRespon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationPromptRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationPromptResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationServerlessConfRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationWhitelistRequest;
@@ -1054,6 +1065,81 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addSQLRateLimitingRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用提示词策略到实例.
+     *
+     * @param tmpReq - ApplyApplicationPromptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyApplicationPromptsResponse
+     *
+     * @param ApplyApplicationPromptsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ApplyApplicationPromptsResponse
+     */
+    public function applyApplicationPromptsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ApplyApplicationPromptsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->disabledPromptIds) {
+            $request->disabledPromptIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->disabledPromptIds, 'DisabledPromptIds', 'json');
+        }
+
+        if (null !== $tmpReq->enabledPromptIds) {
+            $request->enabledPromptIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->enabledPromptIds, 'EnabledPromptIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->disabledPromptIdsShrink) {
+            @$query['DisabledPromptIds'] = $request->disabledPromptIdsShrink;
+        }
+
+        if (null !== $request->enabledPromptIdsShrink) {
+            @$query['EnabledPromptIds'] = $request->enabledPromptIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyApplicationPrompts',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyApplicationPromptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用提示词策略到实例.
+     *
+     * @param request - ApplyApplicationPromptsRequest
+     *
+     * @returns ApplyApplicationPromptsResponse
+     *
+     * @param ApplyApplicationPromptsRequest $request
+     *
+     * @return ApplyApplicationPromptsResponse
+     */
+    public function applyApplicationPrompts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyApplicationPromptsWithOptions($request, $runtime);
     }
 
     /**
@@ -2900,6 +2986,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationEndpointAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用提示词策略.
+     *
+     * @param request - CreateApplicationPromptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationPromptResponse
+     *
+     * @param CreateApplicationPromptRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateApplicationPromptResponse
+     */
+    public function createApplicationPromptWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->promptName) {
+            @$query['PromptName'] = $request->promptName;
+        }
+
+        if (null !== $request->promptType) {
+            @$query['PromptType'] = $request->promptType;
+        }
+
+        if (null !== $request->promptValue) {
+            @$query['PromptValue'] = $request->promptValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationPrompt',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationPromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用提示词策略.
+     *
+     * @param request - CreateApplicationPromptRequest
+     *
+     * @returns CreateApplicationPromptResponse
+     *
+     * @param CreateApplicationPromptRequest $request
+     *
+     * @return CreateApplicationPromptResponse
+     */
+    public function createApplicationPrompt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationPromptWithOptions($request, $runtime);
     }
 
     /**
@@ -5554,6 +5709,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationEndpointAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除应用提示词策略.
+     *
+     * @param request - DeleteApplicationPromptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationPromptResponse
+     *
+     * @param DeleteApplicationPromptRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteApplicationPromptResponse
+     */
+    public function deleteApplicationPromptWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->promptId) {
+            @$query['PromptId'] = $request->promptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationPrompt',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationPromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用提示词策略.
+     *
+     * @param request - DeleteApplicationPromptRequest
+     *
+     * @returns DeleteApplicationPromptResponse
+     *
+     * @param DeleteApplicationPromptRequest $request
+     *
+     * @return DeleteApplicationPromptResponse
+     */
+    public function deleteApplicationPrompt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationPromptWithOptions($request, $runtime);
     }
 
     /**
@@ -8318,6 +8534,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询当前应用下所有的应用提示词策略列表.
+     *
+     * @param request - DescribeApplicationPromptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationPromptsResponse
+     *
+     * @param DescribeApplicationPromptsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeApplicationPromptsResponse
+     */
+    public function describeApplicationPromptsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationPrompts',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationPromptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前应用下所有的应用提示词策略列表.
+     *
+     * @param request - DescribeApplicationPromptsRequest
+     *
+     * @returns DescribeApplicationPromptsResponse
+     *
+     * @param DescribeApplicationPromptsRequest $request
+     *
+     * @return DescribeApplicationPromptsResponse
+     */
+    public function describeApplicationPrompts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationPromptsWithOptions($request, $runtime);
     }
 
     /**
@@ -19133,6 +19414,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyApplicationParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用提示词策略.
+     *
+     * @param request - ModifyApplicationPromptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationPromptResponse
+     *
+     * @param ModifyApplicationPromptRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyApplicationPromptResponse
+     */
+    public function modifyApplicationPromptWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->promptId) {
+            @$query['PromptId'] = $request->promptId;
+        }
+
+        if (null !== $request->promptName) {
+            @$query['PromptName'] = $request->promptName;
+        }
+
+        if (null !== $request->promptValue) {
+            @$query['PromptValue'] = $request->promptValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationPrompt',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationPromptResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用提示词策略.
+     *
+     * @param request - ModifyApplicationPromptRequest
+     *
+     * @returns ModifyApplicationPromptResponse
+     *
+     * @param ModifyApplicationPromptRequest $request
+     *
+     * @return ModifyApplicationPromptResponse
+     */
+    public function modifyApplicationPrompt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationPromptWithOptions($request, $runtime);
     }
 
     /**
