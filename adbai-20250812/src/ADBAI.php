@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateAgentPlatformShrinkRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\CreateEmbodiedAIPlatformShrinkRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteAgentPlatformRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteAgentPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsRequest;
@@ -214,6 +216,71 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEmbodiedAIPlatformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指标平台.
+     *
+     * @param request - DeleteAgentPlatformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentPlatformResponse
+     *
+     * @param DeleteAgentPlatformRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAgentPlatformResponse
+     */
+    public function deleteAgentPlatformWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentPlatform',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指标平台.
+     *
+     * @param request - DeleteAgentPlatformRequest
+     *
+     * @returns DeleteAgentPlatformResponse
+     *
+     * @param DeleteAgentPlatformRequest $request
+     *
+     * @return DeleteAgentPlatformResponse
+     */
+    public function deleteAgentPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgentPlatformWithOptions($request, $runtime);
     }
 
     /**
