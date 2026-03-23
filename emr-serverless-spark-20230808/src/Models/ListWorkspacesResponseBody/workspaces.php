@@ -57,6 +57,11 @@ class workspaces extends Model
     public $failReason;
 
     /**
+     * @var string[]
+     */
+    public $gpuSpec;
+
+    /**
      * @var string
      */
     public $paymentDurationUnit;
@@ -135,6 +140,7 @@ class workspaces extends Model
         'duration' => 'duration',
         'endTime' => 'endTime',
         'failReason' => 'failReason',
+        'gpuSpec' => 'gpuSpec',
         'paymentDurationUnit' => 'paymentDurationUnit',
         'paymentStatus' => 'paymentStatus',
         'paymentType' => 'paymentType',
@@ -153,6 +159,9 @@ class workspaces extends Model
 
     public function validate()
     {
+        if (\is_array($this->gpuSpec)) {
+            Model::validateArray($this->gpuSpec);
+        }
         if (null !== $this->prePaidQuota) {
             $this->prePaidQuota->validate();
         }
@@ -202,6 +211,17 @@ class workspaces extends Model
 
         if (null !== $this->failReason) {
             $res['failReason'] = $this->failReason;
+        }
+
+        if (null !== $this->gpuSpec) {
+            if (\is_array($this->gpuSpec)) {
+                $res['gpuSpec'] = [];
+                $n1 = 0;
+                foreach ($this->gpuSpec as $item1) {
+                    $res['gpuSpec'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->paymentDurationUnit) {
@@ -312,6 +332,17 @@ class workspaces extends Model
 
         if (isset($map['failReason'])) {
             $model->failReason = $map['failReason'];
+        }
+
+        if (isset($map['gpuSpec'])) {
+            if (!empty($map['gpuSpec'])) {
+                $model->gpuSpec = [];
+                $n1 = 0;
+                foreach ($map['gpuSpec'] as $item1) {
+                    $model->gpuSpec[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['paymentDurationUnit'])) {

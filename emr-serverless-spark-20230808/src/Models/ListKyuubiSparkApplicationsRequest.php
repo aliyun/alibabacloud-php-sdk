@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsRequest\endTime;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListKyuubiSparkApplicationsRequest\startTime;
 
 class ListKyuubiSparkApplicationsRequest extends Model
@@ -18,6 +19,16 @@ class ListKyuubiSparkApplicationsRequest extends Model
      * @var string
      */
     public $applicationName;
+
+    /**
+     * @var endTime
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $latestSqlStatementStatuses;
 
     /**
      * @var int
@@ -53,9 +64,16 @@ class ListKyuubiSparkApplicationsRequest extends Model
      * @var startTime
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $states;
     protected $_name = [
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
+        'endTime' => 'endTime',
+        'latestSqlStatementStatuses' => 'latestSqlStatementStatuses',
         'maxResults' => 'maxResults',
         'minDuration' => 'minDuration',
         'nextToken' => 'nextToken',
@@ -63,10 +81,14 @@ class ListKyuubiSparkApplicationsRequest extends Model
         'resourceQueueId' => 'resourceQueueId',
         'sort' => 'sort',
         'startTime' => 'startTime',
+        'states' => 'states',
     ];
 
     public function validate()
     {
+        if (null !== $this->endTime) {
+            $this->endTime->validate();
+        }
         if (\is_array($this->orderBy)) {
             Model::validateArray($this->orderBy);
         }
@@ -85,6 +107,14 @@ class ListKyuubiSparkApplicationsRequest extends Model
 
         if (null !== $this->applicationName) {
             $res['applicationName'] = $this->applicationName;
+        }
+
+        if (null !== $this->endTime) {
+            $res['endTime'] = null !== $this->endTime ? $this->endTime->toArray($noStream) : $this->endTime;
+        }
+
+        if (null !== $this->latestSqlStatementStatuses) {
+            $res['latestSqlStatementStatuses'] = $this->latestSqlStatementStatuses;
         }
 
         if (null !== $this->maxResults) {
@@ -122,6 +152,10 @@ class ListKyuubiSparkApplicationsRequest extends Model
             $res['startTime'] = null !== $this->startTime ? $this->startTime->toArray($noStream) : $this->startTime;
         }
 
+        if (null !== $this->states) {
+            $res['states'] = $this->states;
+        }
+
         return $res;
     }
 
@@ -139,6 +173,14 @@ class ListKyuubiSparkApplicationsRequest extends Model
 
         if (isset($map['applicationName'])) {
             $model->applicationName = $map['applicationName'];
+        }
+
+        if (isset($map['endTime'])) {
+            $model->endTime = endTime::fromMap($map['endTime']);
+        }
+
+        if (isset($map['latestSqlStatementStatuses'])) {
+            $model->latestSqlStatementStatuses = $map['latestSqlStatementStatuses'];
         }
 
         if (isset($map['maxResults'])) {
@@ -174,6 +216,10 @@ class ListKyuubiSparkApplicationsRequest extends Model
 
         if (isset($map['startTime'])) {
             $model->startTime = startTime::fromMap($map['startTime']);
+        }
+
+        if (isset($map['states'])) {
+            $model->states = $map['states'];
         }
 
         return $model;

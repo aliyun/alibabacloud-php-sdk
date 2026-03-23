@@ -955,6 +955,10 @@ class Emrserverlessspark extends OpenApiClient
             @$body['networkServiceName'] = $request->networkServiceName;
         }
 
+        if (null !== $request->volumeIds) {
+            @$body['volumeIds'] = $request->volumeIds;
+        }
+
         if (null !== $request->workerSpec) {
             @$body['workerSpec'] = $request->workerSpec;
         }
@@ -1254,6 +1258,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->duration) {
             @$body['duration'] = $request->duration;
+        }
+
+        if (null !== $request->gpuSpec) {
+            @$body['gpuSpec'] = $request->gpuSpec;
         }
 
         if (null !== $request->ossBucket) {
@@ -1662,6 +1670,10 @@ class Emrserverlessspark extends OpenApiClient
         $body = [];
         if (null !== $request->environments) {
             @$body['environments'] = $request->environments;
+        }
+
+        if (null !== $request->gpuSpec) {
+            @$body['gpuSpec'] = $request->gpuSpec;
         }
 
         if (null !== $request->resourceSpec) {
@@ -2997,6 +3009,10 @@ class Emrserverlessspark extends OpenApiClient
         $tmpReq->validate();
         $request = new ListKyuubiSparkApplicationsShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->endTime) {
+            $request->endTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endTime, 'endTime', 'json');
+        }
+
         if (null !== $tmpReq->orderBy) {
             $request->orderByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderBy, 'orderBy', 'json');
         }
@@ -3012,6 +3028,14 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->applicationName) {
             @$query['applicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->endTimeShrink) {
+            @$query['endTime'] = $request->endTimeShrink;
+        }
+
+        if (null !== $request->latestSqlStatementStatuses) {
+            @$query['latestSqlStatementStatuses'] = $request->latestSqlStatementStatuses;
         }
 
         if (null !== $request->maxResults) {
@@ -3040,6 +3064,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->startTimeShrink) {
             @$query['startTime'] = $request->startTimeShrink;
+        }
+
+        if (null !== $request->states) {
+            @$query['states'] = $request->states;
         }
 
         $req = new OpenApiRequest([
@@ -5406,6 +5434,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->networkServiceName) {
             @$body['networkServiceName'] = $request->networkServiceName;
+        }
+
+        if (null !== $request->volumeIds) {
+            @$body['volumeIds'] = $request->volumeIds;
         }
 
         if (null !== $request->workerSpec) {

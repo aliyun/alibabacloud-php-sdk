@@ -30,6 +30,11 @@ class queues extends Model
     public $environments;
 
     /**
+     * @var string[]
+     */
+    public $gpuSpec;
+
+    /**
      * @var string
      */
     public $maxResource;
@@ -53,6 +58,11 @@ class queues extends Model
      * @var string
      */
     public $properties;
+
+    /**
+     * @var string
+     */
+    public $queueCategory;
 
     /**
      * @var string
@@ -93,11 +103,13 @@ class queues extends Model
         'createTime' => 'createTime',
         'creator' => 'creator',
         'environments' => 'environments',
+        'gpuSpec' => 'gpuSpec',
         'maxResource' => 'maxResource',
         'minResource' => 'minResource',
         'paymentType' => 'paymentType',
         'preheat' => 'preheat',
         'properties' => 'properties',
+        'queueCategory' => 'queueCategory',
         'queueName' => 'queueName',
         'queueScope' => 'queueScope',
         'queueStatus' => 'queueStatus',
@@ -114,6 +126,9 @@ class queues extends Model
         }
         if (\is_array($this->environments)) {
             Model::validateArray($this->environments);
+        }
+        if (\is_array($this->gpuSpec)) {
+            Model::validateArray($this->gpuSpec);
         }
         parent::validate();
     }
@@ -151,6 +166,17 @@ class queues extends Model
             }
         }
 
+        if (null !== $this->gpuSpec) {
+            if (\is_array($this->gpuSpec)) {
+                $res['gpuSpec'] = [];
+                $n1 = 0;
+                foreach ($this->gpuSpec as $item1) {
+                    $res['gpuSpec'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->maxResource) {
             $res['maxResource'] = $this->maxResource;
         }
@@ -169,6 +195,10 @@ class queues extends Model
 
         if (null !== $this->properties) {
             $res['properties'] = $this->properties;
+        }
+
+        if (null !== $this->queueCategory) {
+            $res['queueCategory'] = $this->queueCategory;
         }
 
         if (null !== $this->queueName) {
@@ -240,6 +270,17 @@ class queues extends Model
             }
         }
 
+        if (isset($map['gpuSpec'])) {
+            if (!empty($map['gpuSpec'])) {
+                $model->gpuSpec = [];
+                $n1 = 0;
+                foreach ($map['gpuSpec'] as $item1) {
+                    $model->gpuSpec[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['maxResource'])) {
             $model->maxResource = $map['maxResource'];
         }
@@ -258,6 +299,10 @@ class queues extends Model
 
         if (isset($map['properties'])) {
             $model->properties = $map['properties'];
+        }
+
+        if (isset($map['queueCategory'])) {
+            $model->queueCategory = $map['queueCategory'];
         }
 
         if (isset($map['queueName'])) {

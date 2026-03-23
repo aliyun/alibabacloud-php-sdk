@@ -79,6 +79,11 @@ class GetRayClusterResponseBody extends Model
     /**
      * @var string
      */
+    public $jobUrlInner;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -137,6 +142,11 @@ class GetRayClusterResponseBody extends Model
     public $userId;
 
     /**
+     * @var string[]
+     */
+    public $volumeIds;
+
+    /**
      * @var workerSpec[]
      */
     public $workerSpec;
@@ -154,6 +164,7 @@ class GetRayClusterResponseBody extends Model
         'instanceId' => 'instanceId',
         'instances' => 'instances',
         'jobUrl' => 'jobUrl',
+        'jobUrlInner' => 'jobUrlInner',
         'message' => 'message',
         'modified' => 'modified',
         'modifiedTime' => 'modifiedTime',
@@ -166,6 +177,7 @@ class GetRayClusterResponseBody extends Model
         'state' => 'state',
         'submitToken' => 'submitToken',
         'userId' => 'userId',
+        'volumeIds' => 'volumeIds',
         'workerSpec' => 'workerSpec',
     ];
 
@@ -176,6 +188,9 @@ class GetRayClusterResponseBody extends Model
         }
         if (\is_array($this->instances)) {
             Model::validateArray($this->instances);
+        }
+        if (\is_array($this->volumeIds)) {
+            Model::validateArray($this->volumeIds);
         }
         if (\is_array($this->workerSpec)) {
             Model::validateArray($this->workerSpec);
@@ -245,6 +260,10 @@ class GetRayClusterResponseBody extends Model
             $res['jobUrl'] = $this->jobUrl;
         }
 
+        if (null !== $this->jobUrlInner) {
+            $res['jobUrlInner'] = $this->jobUrlInner;
+        }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -291,6 +310,17 @@ class GetRayClusterResponseBody extends Model
 
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
+        }
+
+        if (null !== $this->volumeIds) {
+            if (\is_array($this->volumeIds)) {
+                $res['volumeIds'] = [];
+                $n1 = 0;
+                foreach ($this->volumeIds as $item1) {
+                    $res['volumeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workerSpec) {
@@ -374,6 +404,10 @@ class GetRayClusterResponseBody extends Model
             $model->jobUrl = $map['jobUrl'];
         }
 
+        if (isset($map['jobUrlInner'])) {
+            $model->jobUrlInner = $map['jobUrlInner'];
+        }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
@@ -420,6 +454,17 @@ class GetRayClusterResponseBody extends Model
 
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
+        }
+
+        if (isset($map['volumeIds'])) {
+            if (!empty($map['volumeIds'])) {
+                $model->volumeIds = [];
+                $n1 = 0;
+                foreach ($map['volumeIds'] as $item1) {
+                    $model->volumeIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['workerSpec'])) {

@@ -51,6 +51,11 @@ class CreateWorkspaceRequest extends Model
     public $duration;
 
     /**
+     * @var string[]
+     */
+    public $gpuSpec;
+
+    /**
      * @var string
      */
     public $ossBucket;
@@ -108,6 +113,7 @@ class CreateWorkspaceRequest extends Model
         'dlfCatalogId' => 'dlfCatalogId',
         'dlfType' => 'dlfType',
         'duration' => 'duration',
+        'gpuSpec' => 'gpuSpec',
         'ossBucket' => 'ossBucket',
         'paymentDurationUnit' => 'paymentDurationUnit',
         'paymentType' => 'paymentType',
@@ -122,6 +128,9 @@ class CreateWorkspaceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->gpuSpec)) {
+            Model::validateArray($this->gpuSpec);
+        }
         if (null !== $this->resourceSpec) {
             $this->resourceSpec->validate();
         }
@@ -164,6 +173,17 @@ class CreateWorkspaceRequest extends Model
 
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
+        }
+
+        if (null !== $this->gpuSpec) {
+            if (\is_array($this->gpuSpec)) {
+                $res['gpuSpec'] = [];
+                $n1 = 0;
+                foreach ($this->gpuSpec as $item1) {
+                    $res['gpuSpec'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ossBucket) {
@@ -254,6 +274,17 @@ class CreateWorkspaceRequest extends Model
 
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
+        }
+
+        if (isset($map['gpuSpec'])) {
+            if (!empty($map['gpuSpec'])) {
+                $model->gpuSpec = [];
+                $n1 = 0;
+                foreach ($map['gpuSpec'] as $item1) {
+                    $model->gpuSpec[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ossBucket'])) {

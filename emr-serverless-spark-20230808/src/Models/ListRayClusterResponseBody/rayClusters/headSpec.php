@@ -19,6 +19,11 @@ class headSpec extends Model
     public $enableAutoScaling;
 
     /**
+     * @var string
+     */
+    public $gpuSpec;
+
+    /**
      * @var int
      */
     public $idleTimeoutSeconds;
@@ -40,6 +45,7 @@ class headSpec extends Model
     protected $_name = [
         'cpu' => 'cpu',
         'enableAutoScaling' => 'enableAutoScaling',
+        'gpuSpec' => 'gpuSpec',
         'idleTimeoutSeconds' => 'idleTimeoutSeconds',
         'memory' => 'memory',
         'queueName' => 'queueName',
@@ -60,6 +66,10 @@ class headSpec extends Model
 
         if (null !== $this->enableAutoScaling) {
             $res['enableAutoScaling'] = $this->enableAutoScaling;
+        }
+
+        if (null !== $this->gpuSpec) {
+            $res['gpuSpec'] = $this->gpuSpec;
         }
 
         if (null !== $this->idleTimeoutSeconds) {
@@ -95,6 +105,10 @@ class headSpec extends Model
 
         if (isset($map['enableAutoScaling'])) {
             $model->enableAutoScaling = $map['enableAutoScaling'];
+        }
+
+        if (isset($map['gpuSpec'])) {
+            $model->gpuSpec = $map['gpuSpec'];
         }
 
         if (isset($map['idleTimeoutSeconds'])) {

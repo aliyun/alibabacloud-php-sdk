@@ -41,6 +41,11 @@ class UpdateRayClusterRequest extends Model
     public $networkServiceName;
 
     /**
+     * @var string[]
+     */
+    public $volumeIds;
+
+    /**
      * @var workerSpec[]
      */
     public $workerSpec;
@@ -51,6 +56,7 @@ class UpdateRayClusterRequest extends Model
         'headSpec' => 'headSpec',
         'name' => 'name',
         'networkServiceName' => 'networkServiceName',
+        'volumeIds' => 'volumeIds',
         'workerSpec' => 'workerSpec',
     ];
 
@@ -58,6 +64,9 @@ class UpdateRayClusterRequest extends Model
     {
         if (null !== $this->headSpec) {
             $this->headSpec->validate();
+        }
+        if (\is_array($this->volumeIds)) {
+            Model::validateArray($this->volumeIds);
         }
         if (\is_array($this->workerSpec)) {
             Model::validateArray($this->workerSpec);
@@ -90,6 +99,17 @@ class UpdateRayClusterRequest extends Model
 
         if (null !== $this->networkServiceName) {
             $res['networkServiceName'] = $this->networkServiceName;
+        }
+
+        if (null !== $this->volumeIds) {
+            if (\is_array($this->volumeIds)) {
+                $res['volumeIds'] = [];
+                $n1 = 0;
+                foreach ($this->volumeIds as $item1) {
+                    $res['volumeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workerSpec) {
@@ -136,6 +156,17 @@ class UpdateRayClusterRequest extends Model
 
         if (isset($map['networkServiceName'])) {
             $model->networkServiceName = $map['networkServiceName'];
+        }
+
+        if (isset($map['volumeIds'])) {
+            if (!empty($map['volumeIds'])) {
+                $model->volumeIds = [];
+                $n1 = 0;
+                foreach ($map['volumeIds'] as $item1) {
+                    $model->volumeIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['workerSpec'])) {

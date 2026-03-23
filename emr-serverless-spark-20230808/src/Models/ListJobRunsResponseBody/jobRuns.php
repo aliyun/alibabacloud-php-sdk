@@ -81,6 +81,11 @@ class jobRuns extends Model
     /**
      * @var string
      */
+    public $priority;
+
+    /**
+     * @var string
+     */
     public $releaseVersion;
 
     /**
@@ -136,6 +141,7 @@ class jobRuns extends Model
         'log' => 'log',
         'mbSeconds' => 'mbSeconds',
         'name' => 'name',
+        'priority' => 'priority',
         'releaseVersion' => 'releaseVersion',
         'resourceQueueId' => 'resourceQueueId',
         'state' => 'state',
@@ -220,6 +226,10 @@ class jobRuns extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->priority) {
+            $res['priority'] = $this->priority;
         }
 
         if (null !== $this->releaseVersion) {
@@ -326,6 +336,10 @@ class jobRuns extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['priority'])) {
+            $model->priority = $map['priority'];
         }
 
         if (isset($map['releaseVersion'])) {

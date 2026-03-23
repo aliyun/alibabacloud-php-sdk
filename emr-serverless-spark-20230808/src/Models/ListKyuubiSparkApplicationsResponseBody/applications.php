@@ -53,6 +53,11 @@ class applications extends Model
     /**
      * @var string
      */
+    public $priority;
+
+    /**
+     * @var string
+     */
     public $resourceQueueId;
 
     /**
@@ -93,6 +98,7 @@ class applications extends Model
         'kyuubiServiceId' => 'kyuubiServiceId',
         'latestSqlStatementStatus' => 'latestSqlStatementStatus',
         'mbSeconds' => 'mbSeconds',
+        'priority' => 'priority',
         'resourceQueueId' => 'resourceQueueId',
         'runLog' => 'runLog',
         'startTime' => 'startTime',
@@ -146,6 +152,10 @@ class applications extends Model
 
         if (null !== $this->mbSeconds) {
             $res['mbSeconds'] = $this->mbSeconds;
+        }
+
+        if (null !== $this->priority) {
+            $res['priority'] = $this->priority;
         }
 
         if (null !== $this->resourceQueueId) {
@@ -224,6 +234,10 @@ class applications extends Model
 
         if (isset($map['mbSeconds'])) {
             $model->mbSeconds = $map['mbSeconds'];
+        }
+
+        if (isset($map['priority'])) {
+            $model->priority = $map['priority'];
         }
 
         if (isset($map['resourceQueueId'])) {

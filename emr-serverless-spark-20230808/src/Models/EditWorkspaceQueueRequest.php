@@ -15,6 +15,11 @@ class EditWorkspaceQueueRequest extends Model
     public $environments;
 
     /**
+     * @var string[]
+     */
+    public $gpuSpec;
+
+    /**
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -35,6 +40,7 @@ class EditWorkspaceQueueRequest extends Model
     public $regionId;
     protected $_name = [
         'environments' => 'environments',
+        'gpuSpec' => 'gpuSpec',
         'resourceSpec' => 'resourceSpec',
         'workspaceId' => 'workspaceId',
         'workspaceQueueName' => 'workspaceQueueName',
@@ -45,6 +51,9 @@ class EditWorkspaceQueueRequest extends Model
     {
         if (\is_array($this->environments)) {
             Model::validateArray($this->environments);
+        }
+        if (\is_array($this->gpuSpec)) {
+            Model::validateArray($this->gpuSpec);
         }
         if (null !== $this->resourceSpec) {
             $this->resourceSpec->validate();
@@ -61,6 +70,17 @@ class EditWorkspaceQueueRequest extends Model
                 $n1 = 0;
                 foreach ($this->environments as $item1) {
                     $res['environments'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->gpuSpec) {
+            if (\is_array($this->gpuSpec)) {
+                $res['gpuSpec'] = [];
+                $n1 = 0;
+                foreach ($this->gpuSpec as $item1) {
+                    $res['gpuSpec'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -99,6 +119,17 @@ class EditWorkspaceQueueRequest extends Model
                 $n1 = 0;
                 foreach ($map['environments'] as $item1) {
                     $model->environments[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['gpuSpec'])) {
+            if (!empty($map['gpuSpec'])) {
+                $model->gpuSpec = [];
+                $n1 = 0;
+                foreach ($map['gpuSpec'] as $item1) {
+                    $model->gpuSpec[$n1] = $item1;
                     ++$n1;
                 }
             }

@@ -12,8 +12,14 @@ class resourceSpec extends Model
      * @var string
      */
     public $cu;
+
+    /**
+     * @var int
+     */
+    public $gpu;
     protected $_name = [
         'cu' => 'cu',
+        'gpu' => 'gpu',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class resourceSpec extends Model
         $res = [];
         if (null !== $this->cu) {
             $res['cu'] = $this->cu;
+        }
+
+        if (null !== $this->gpu) {
+            $res['gpu'] = $this->gpu;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class resourceSpec extends Model
         $model = new self();
         if (isset($map['cu'])) {
             $model->cu = $map['cu'];
+        }
+
+        if (isset($map['gpu'])) {
+            $model->gpu = $map['gpu'];
         }
 
         return $model;

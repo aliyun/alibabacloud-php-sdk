@@ -19,6 +19,16 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
     public $applicationName;
 
     /**
+     * @var string
+     */
+    public $endTimeShrink;
+
+    /**
+     * @var string
+     */
+    public $latestSqlStatementStatuses;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -52,9 +62,16 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
      * @var string
      */
     public $startTimeShrink;
+
+    /**
+     * @var string
+     */
+    public $states;
     protected $_name = [
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
+        'endTimeShrink' => 'endTime',
+        'latestSqlStatementStatuses' => 'latestSqlStatementStatuses',
         'maxResults' => 'maxResults',
         'minDuration' => 'minDuration',
         'nextToken' => 'nextToken',
@@ -62,6 +79,7 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
         'resourceQueueId' => 'resourceQueueId',
         'sort' => 'sort',
         'startTimeShrink' => 'startTime',
+        'states' => 'states',
     ];
 
     public function validate()
@@ -78,6 +96,14 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
 
         if (null !== $this->applicationName) {
             $res['applicationName'] = $this->applicationName;
+        }
+
+        if (null !== $this->endTimeShrink) {
+            $res['endTime'] = $this->endTimeShrink;
+        }
+
+        if (null !== $this->latestSqlStatementStatuses) {
+            $res['latestSqlStatementStatuses'] = $this->latestSqlStatementStatuses;
         }
 
         if (null !== $this->maxResults) {
@@ -108,6 +134,10 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
             $res['startTime'] = $this->startTimeShrink;
         }
 
+        if (null !== $this->states) {
+            $res['states'] = $this->states;
+        }
+
         return $res;
     }
 
@@ -125,6 +155,14 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
 
         if (isset($map['applicationName'])) {
             $model->applicationName = $map['applicationName'];
+        }
+
+        if (isset($map['endTime'])) {
+            $model->endTimeShrink = $map['endTime'];
+        }
+
+        if (isset($map['latestSqlStatementStatuses'])) {
+            $model->latestSqlStatementStatuses = $map['latestSqlStatementStatuses'];
         }
 
         if (isset($map['maxResults'])) {
@@ -153,6 +191,10 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
 
         if (isset($map['startTime'])) {
             $model->startTimeShrink = $map['startTime'];
+        }
+
+        if (isset($map['states'])) {
+            $model->states = $map['states'];
         }
 
         return $model;
