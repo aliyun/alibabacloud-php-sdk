@@ -584,7 +584,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建边缘函数.
+     * Creates an edge function.
+     *
+     * @remarks
+     * Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
      *
      * @param tmpReq - CreateEdgeFunctionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -661,7 +664,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 创建边缘函数.
+     * Creates an edge function.
+     *
+     * @remarks
+     * Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
      *
      * @param request - CreateEdgeFunctionRequest
      *
@@ -1066,7 +1072,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除边缘函数.
+     * Deletes an edge function.
+     *
+     * @remarks
+     * Deletes an edge function.
      *
      * @param request - DeleteEdgeFunctionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1117,7 +1126,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 删除边缘函数.
+     * Deletes an edge function.
+     *
+     * @remarks
+     * Deletes an edge function.
      *
      * @param request - DeleteEdgeFunctionRequest
      *
@@ -1407,7 +1419,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询边缘函数列表.
+     * Query the list of edge functions or a specified edge function.
+     *
+     * @remarks
+     * Query the list of edge functions or a specified edge function.
      *
      * @param request - DescribeEdgeFunctionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1458,7 +1473,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询边缘函数列表.
+     * Query the list of edge functions or a specified edge function.
+     *
+     * @remarks
+     * Query the list of edge functions or a specified edge function.
      *
      * @param request - DescribeEdgeFunctionsRequest
      *
@@ -3888,7 +3906,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新边缘函数.
+     * Updates an edge function.
+     *
+     * @remarks
+     * Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
      *
      * @param tmpReq - UpdateEdgeFunctionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3965,7 +3986,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新边缘函数.
+     * Updates an edge function.
+     *
+     * @remarks
+     * Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
      *
      * @param request - UpdateEdgeFunctionRequest
      *

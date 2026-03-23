@@ -20,7 +20,7 @@ class UpdateEdgeFunctionRequest extends Model
     public $code;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $customConfig;
 

@@ -11,6 +11,11 @@ class code extends Model
     /**
      * @var string
      */
+    public $downloadUrl;
+
+    /**
+     * @var string
+     */
     public $ossBucketName;
 
     /**
@@ -23,6 +28,7 @@ class code extends Model
      */
     public $ossType;
     protected $_name = [
+        'downloadUrl' => 'DownloadUrl',
         'ossBucketName' => 'OssBucketName',
         'ossObjectName' => 'OssObjectName',
         'ossType' => 'OssType',
@@ -36,6 +42,10 @@ class code extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
+
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
         }
@@ -59,6 +69,10 @@ class code extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
+
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
         }
