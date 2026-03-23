@@ -170,6 +170,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupRequest
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunSyncCommandRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunSyncCommandResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\SendSystemPropertyTemplateRequest;
@@ -6365,6 +6367,75 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过eds agent通道下发命令.
+     *
+     * @param request - RunSyncCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunSyncCommandResponse
+     *
+     * @param RunSyncCommandRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RunSyncCommandResponse
+     */
+    public function runSyncCommandWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->commandContent) {
+            @$query['CommandContent'] = $request->commandContent;
+        }
+
+        if (null !== $request->contentEncoding) {
+            @$query['ContentEncoding'] = $request->contentEncoding;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->waitTime) {
+            @$query['WaitTime'] = $request->waitTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunSyncCommand',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunSyncCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过eds agent通道下发命令.
+     *
+     * @param request - RunSyncCommandRequest
+     *
+     * @returns RunSyncCommandResponse
+     *
+     * @param RunSyncCommandRequest $request
+     *
+     * @return RunSyncCommandResponse
+     */
+    public function runSyncCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runSyncCommandWithOptions($request, $runtime);
     }
 
     /**
