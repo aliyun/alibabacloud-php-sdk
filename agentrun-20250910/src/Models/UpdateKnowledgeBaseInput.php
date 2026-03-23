@@ -27,11 +27,17 @@ class UpdateKnowledgeBaseInput extends Model
      * @var mixed[]
      */
     public $retrieveSettings;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'credentialName' => 'credentialName',
         'description' => 'description',
         'providerSettings' => 'providerSettings',
         'retrieveSettings' => 'retrieveSettings',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -74,6 +80,10 @@ class UpdateKnowledgeBaseInput extends Model
             }
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -109,6 +119,10 @@ class UpdateKnowledgeBaseInput extends Model
                     $model->retrieveSettings[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

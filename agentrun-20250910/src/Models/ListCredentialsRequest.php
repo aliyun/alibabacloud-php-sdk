@@ -42,6 +42,16 @@ class ListCredentialsRequest extends Model
      * @var string
      */
     public $provider;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
+
+    /**
+     * @var string
+     */
+    public $workspaceIds;
     protected $_name = [
         'credentialAuthType' => 'credentialAuthType',
         'credentialName' => 'credentialName',
@@ -50,6 +60,8 @@ class ListCredentialsRequest extends Model
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'provider' => 'provider',
+        'workspaceId' => 'workspaceId',
+        'workspaceIds' => 'workspaceIds',
     ];
 
     public function validate()
@@ -86,6 +98,14 @@ class ListCredentialsRequest extends Model
 
         if (null !== $this->provider) {
             $res['provider'] = $this->provider;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
+        if (null !== $this->workspaceIds) {
+            $res['workspaceIds'] = $this->workspaceIds;
         }
 
         return $res;
@@ -125,6 +145,14 @@ class ListCredentialsRequest extends Model
 
         if (isset($map['provider'])) {
             $model->provider = $map['provider'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
+        }
+
+        if (isset($map['workspaceIds'])) {
+            $model->workspaceIds = $map['workspaceIds'];
         }
 
         return $model;

@@ -52,6 +52,11 @@ class KnowledgeBase extends Model
      * @var mixed[]
      */
     public $retrieveSettings;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'createdAt' => 'createdAt',
         'credentialName' => 'credentialName',
@@ -62,6 +67,7 @@ class KnowledgeBase extends Model
         'provider' => 'provider',
         'providerSettings' => 'providerSettings',
         'retrieveSettings' => 'retrieveSettings',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -124,6 +130,10 @@ class KnowledgeBase extends Model
             }
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -179,6 +189,10 @@ class KnowledgeBase extends Model
                     $model->retrieveSettings[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

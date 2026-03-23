@@ -52,6 +52,11 @@ class CredentialListItem extends Model
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'createdAt' => 'createdAt',
         'credentialAuthType' => 'credentialAuthType',
@@ -62,6 +67,7 @@ class CredentialListItem extends Model
         'enabled' => 'enabled',
         'relatedResourceCount' => 'relatedResourceCount',
         'updatedAt' => 'updatedAt',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class CredentialListItem extends Model
 
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class CredentialListItem extends Model
 
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

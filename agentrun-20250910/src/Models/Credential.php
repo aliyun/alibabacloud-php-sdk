@@ -62,6 +62,11 @@ class Credential extends Model
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'createdAt' => 'createdAt',
         'credentialAuthType' => 'credentialAuthType',
@@ -74,6 +79,7 @@ class Credential extends Model
         'enabled' => 'enabled',
         'relatedResources' => 'relatedResources',
         'updatedAt' => 'updatedAt',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -141,6 +147,10 @@ class Credential extends Model
             $res['updatedAt'] = $this->updatedAt;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -201,6 +211,10 @@ class Credential extends Model
 
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

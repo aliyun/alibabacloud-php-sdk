@@ -2974,6 +2974,14 @@ class AgentRun extends OpenApiClient
             @$query['provider'] = $request->provider;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceIds) {
+            @$query['workspaceIds'] = $request->workspaceIds;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -3122,6 +3130,14 @@ class AgentRun extends OpenApiClient
 
         if (null !== $request->provider) {
             @$query['provider'] = $request->provider;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceIds) {
+            @$query['workspaceIds'] = $request->workspaceIds;
         }
 
         $req = new OpenApiRequest([
@@ -3617,6 +3633,10 @@ class AgentRun extends OpenApiClient
 
         if (null !== $request->workspaceId) {
             @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceIds) {
+            @$query['workspaceIds'] = $request->workspaceIds;
         }
 
         $req = new OpenApiRequest([

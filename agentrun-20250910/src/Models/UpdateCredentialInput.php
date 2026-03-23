@@ -27,11 +27,17 @@ class UpdateCredentialInput extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'credentialPublicConfig' => 'credentialPublicConfig',
         'credentialSecret' => 'credentialSecret',
         'description' => 'description',
         'enabled' => 'enabled',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -61,6 +67,10 @@ class UpdateCredentialInput extends Model
             $res['enabled'] = $this->enabled;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class UpdateCredentialInput extends Model
 
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

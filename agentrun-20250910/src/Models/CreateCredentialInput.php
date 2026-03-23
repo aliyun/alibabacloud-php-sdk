@@ -42,6 +42,11 @@ class CreateCredentialInput extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'credentialAuthType' => 'credentialAuthType',
         'credentialName' => 'credentialName',
@@ -50,6 +55,7 @@ class CreateCredentialInput extends Model
         'credentialSourceType' => 'credentialSourceType',
         'description' => 'description',
         'enabled' => 'enabled',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -91,6 +97,10 @@ class CreateCredentialInput extends Model
             $res['enabled'] = $this->enabled;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class CreateCredentialInput extends Model
 
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;
