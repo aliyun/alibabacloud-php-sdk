@@ -5,9 +5,21 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyRequest\advancedDataPolicies;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyBackupPolicyRequest\advancedLogPolicies;
 
 class ModifyBackupPolicyRequest extends Model
 {
+    /**
+     * @var advancedDataPolicies[]
+     */
+    public $advancedDataPolicies;
+
+    /**
+     * @var advancedLogPolicies[]
+     */
+    public $advancedLogPolicies;
+
     /**
      * @var int
      */
@@ -67,6 +79,11 @@ class ModifyBackupPolicyRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var int
+     */
+    public $enableAdvancedBackupPolicy;
 
     /**
      * @var string
@@ -143,6 +160,8 @@ class ModifyBackupPolicyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'advancedDataPolicies' => 'AdvancedDataPolicies',
+        'advancedLogPolicies' => 'AdvancedLogPolicies',
         'archiveBackupKeepCount' => 'ArchiveBackupKeepCount',
         'archiveBackupKeepPolicy' => 'ArchiveBackupKeepPolicy',
         'archiveBackupRetentionPeriod' => 'ArchiveBackupRetentionPeriod',
@@ -155,6 +174,7 @@ class ModifyBackupPolicyRequest extends Model
         'category' => 'Category',
         'compressType' => 'CompressType',
         'DBInstanceId' => 'DBInstanceId',
+        'enableAdvancedBackupPolicy' => 'EnableAdvancedBackupPolicy',
         'enableBackupLog' => 'EnableBackupLog',
         'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
         'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
@@ -174,12 +194,40 @@ class ModifyBackupPolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->advancedDataPolicies)) {
+            Model::validateArray($this->advancedDataPolicies);
+        }
+        if (\is_array($this->advancedLogPolicies)) {
+            Model::validateArray($this->advancedLogPolicies);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->advancedDataPolicies) {
+            if (\is_array($this->advancedDataPolicies)) {
+                $res['AdvancedDataPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->advancedDataPolicies as $item1) {
+                    $res['AdvancedDataPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->advancedLogPolicies) {
+            if (\is_array($this->advancedLogPolicies)) {
+                $res['AdvancedLogPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->advancedLogPolicies as $item1) {
+                    $res['AdvancedLogPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->archiveBackupKeepCount) {
             $res['ArchiveBackupKeepCount'] = $this->archiveBackupKeepCount;
         }
@@ -226,6 +274,10 @@ class ModifyBackupPolicyRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->enableAdvancedBackupPolicy) {
+            $res['EnableAdvancedBackupPolicy'] = $this->enableAdvancedBackupPolicy;
         }
 
         if (null !== $this->enableBackupLog) {
@@ -299,6 +351,28 @@ class ModifyBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedDataPolicies'])) {
+            if (!empty($map['AdvancedDataPolicies'])) {
+                $model->advancedDataPolicies = [];
+                $n1 = 0;
+                foreach ($map['AdvancedDataPolicies'] as $item1) {
+                    $model->advancedDataPolicies[$n1] = advancedDataPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AdvancedLogPolicies'])) {
+            if (!empty($map['AdvancedLogPolicies'])) {
+                $model->advancedLogPolicies = [];
+                $n1 = 0;
+                foreach ($map['AdvancedLogPolicies'] as $item1) {
+                    $model->advancedLogPolicies[$n1] = advancedLogPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ArchiveBackupKeepCount'])) {
             $model->archiveBackupKeepCount = $map['ArchiveBackupKeepCount'];
         }
@@ -345,6 +419,10 @@ class ModifyBackupPolicyRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['EnableAdvancedBackupPolicy'])) {
+            $model->enableAdvancedBackupPolicy = $map['EnableAdvancedBackupPolicy'];
         }
 
         if (isset($map['EnableBackupLog'])) {

@@ -5,9 +5,26 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupPolicyResponseBody\advancedDataPolicies;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBackupPolicyResponseBody\advancedLogPolicies;
 
 class DescribeBackupPolicyResponseBody extends Model
 {
+    /**
+     * @var bool
+     */
+    public $advancedBackupPolicyEnabled;
+
+    /**
+     * @var advancedDataPolicies
+     */
+    public $advancedDataPolicies;
+
+    /**
+     * @var advancedLogPolicies
+     */
+    public $advancedLogPolicies;
+
     /**
      * @var string
      */
@@ -153,6 +170,9 @@ class DescribeBackupPolicyResponseBody extends Model
      */
     public $supportsHighFrequencyBackup;
     protected $_name = [
+        'advancedBackupPolicyEnabled' => 'AdvancedBackupPolicyEnabled',
+        'advancedDataPolicies' => 'AdvancedDataPolicies',
+        'advancedLogPolicies' => 'AdvancedLogPolicies',
         'archiveBackupKeepCount' => 'ArchiveBackupKeepCount',
         'archiveBackupKeepPolicy' => 'ArchiveBackupKeepPolicy',
         'archiveBackupRetentionPeriod' => 'ArchiveBackupRetentionPeriod',
@@ -186,12 +206,30 @@ class DescribeBackupPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->advancedDataPolicies) {
+            $this->advancedDataPolicies->validate();
+        }
+        if (null !== $this->advancedLogPolicies) {
+            $this->advancedLogPolicies->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->advancedBackupPolicyEnabled) {
+            $res['AdvancedBackupPolicyEnabled'] = $this->advancedBackupPolicyEnabled;
+        }
+
+        if (null !== $this->advancedDataPolicies) {
+            $res['AdvancedDataPolicies'] = null !== $this->advancedDataPolicies ? $this->advancedDataPolicies->toArray($noStream) : $this->advancedDataPolicies;
+        }
+
+        if (null !== $this->advancedLogPolicies) {
+            $res['AdvancedLogPolicies'] = null !== $this->advancedLogPolicies ? $this->advancedLogPolicies->toArray($noStream) : $this->advancedLogPolicies;
+        }
+
         if (null !== $this->archiveBackupKeepCount) {
             $res['ArchiveBackupKeepCount'] = $this->archiveBackupKeepCount;
         }
@@ -319,6 +357,18 @@ class DescribeBackupPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdvancedBackupPolicyEnabled'])) {
+            $model->advancedBackupPolicyEnabled = $map['AdvancedBackupPolicyEnabled'];
+        }
+
+        if (isset($map['AdvancedDataPolicies'])) {
+            $model->advancedDataPolicies = advancedDataPolicies::fromMap($map['AdvancedDataPolicies']);
+        }
+
+        if (isset($map['AdvancedLogPolicies'])) {
+            $model->advancedLogPolicies = advancedLogPolicies::fromMap($map['AdvancedLogPolicies']);
+        }
+
         if (isset($map['ArchiveBackupKeepCount'])) {
             $model->archiveBackupKeepCount = $map['ArchiveBackupKeepCount'];
         }
