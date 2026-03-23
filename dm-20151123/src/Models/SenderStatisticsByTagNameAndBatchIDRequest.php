@@ -26,6 +26,11 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -61,6 +66,7 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
         'accountName' => 'AccountName',
         'dedicatedIp' => 'DedicatedIp',
         'dedicatedIpPoolId' => 'DedicatedIpPoolId',
+        'domain' => 'Domain',
         'endTime' => 'EndTime',
         'esp' => 'Esp',
         'ownerId' => 'OwnerId',
@@ -88,6 +94,10 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
 
         if (null !== $this->dedicatedIpPoolId) {
             $res['DedicatedIpPoolId'] = $this->dedicatedIpPoolId;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->endTime) {
@@ -139,6 +149,10 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
 
         if (isset($map['DedicatedIpPoolId'])) {
             $model->dedicatedIpPoolId = $map['DedicatedIpPoolId'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['EndTime'])) {

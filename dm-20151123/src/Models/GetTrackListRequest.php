@@ -31,6 +31,11 @@ class GetTrackListRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -97,6 +102,7 @@ class GetTrackListRequest extends Model
         'configSetId' => 'ConfigSetId',
         'dedicatedIp' => 'DedicatedIp',
         'dedicatedIpPoolId' => 'DedicatedIpPoolId',
+        'domain' => 'Domain',
         'endTime' => 'EndTime',
         'esp' => 'Esp',
         'offset' => 'Offset',
@@ -134,6 +140,10 @@ class GetTrackListRequest extends Model
 
         if (null !== $this->dedicatedIpPoolId) {
             $res['DedicatedIpPoolId'] = $this->dedicatedIpPoolId;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->endTime) {
@@ -213,6 +223,10 @@ class GetTrackListRequest extends Model
 
         if (isset($map['DedicatedIpPoolId'])) {
             $model->dedicatedIpPoolId = $map['DedicatedIpPoolId'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['EndTime'])) {

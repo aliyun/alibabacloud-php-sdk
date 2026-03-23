@@ -27,11 +27,17 @@ class DedicatedIpPoolListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $poolId;
     protected $_name = [
         'all' => 'All',
         'keyword' => 'Keyword',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
+        'poolId' => 'PoolId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class DedicatedIpPoolListRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->poolId) {
+            $res['PoolId'] = $this->poolId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class DedicatedIpPoolListRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['PoolId'])) {
+            $model->poolId = $map['PoolId'];
         }
 
         return $model;
