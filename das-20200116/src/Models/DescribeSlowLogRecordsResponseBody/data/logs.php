@@ -65,6 +65,11 @@ class logs extends Model
     public $docsExamined;
 
     /**
+     * @var string
+     */
+    public $fail;
+
+    /**
      * @var int
      */
     public $frows;
@@ -130,6 +135,11 @@ class logs extends Model
     public $originTime;
 
     /**
+     * @var string
+     */
+    public $params;
+
+    /**
      * @var int
      */
     public $physicalIOReads;
@@ -158,6 +168,16 @@ class logs extends Model
      * @var float
      */
     public $queryTimeSeconds;
+
+    /**
+     * @var string
+     */
+    public $reason;
+
+    /**
+     * @var string
+     */
+    public $reqId;
 
     /**
      * @var int
@@ -275,6 +295,7 @@ class logs extends Model
         'dbId' => 'DbId',
         'dbInstanceName' => 'DbInstanceName',
         'docsExamined' => 'DocsExamined',
+        'fail' => 'Fail',
         'frows' => 'Frows',
         'hostAddress' => 'HostAddress',
         'IOWrites' => 'IOWrites',
@@ -288,12 +309,15 @@ class logs extends Model
         'nodeId' => 'NodeId',
         'opType' => 'OpType',
         'originTime' => 'OriginTime',
+        'params' => 'Params',
         'physicalIOReads' => 'PhysicalIOReads',
         'psql' => 'Psql',
         'queryId' => 'QueryId',
         'queryStartTime' => 'QueryStartTime',
         'queryTime' => 'QueryTime',
         'queryTimeSeconds' => 'QueryTimeSeconds',
+        'reason' => 'Reason',
+        'reqId' => 'ReqId',
         'requestSize' => 'RequestSize',
         'responseSize' => 'ResponseSize',
         'returnItemNumbers' => 'ReturnItemNumbers',
@@ -372,6 +396,10 @@ class logs extends Model
             $res['DocsExamined'] = $this->docsExamined;
         }
 
+        if (null !== $this->fail) {
+            $res['Fail'] = $this->fail;
+        }
+
         if (null !== $this->frows) {
             $res['Frows'] = $this->frows;
         }
@@ -424,6 +452,10 @@ class logs extends Model
             $res['OriginTime'] = $this->originTime;
         }
 
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
+        }
+
         if (null !== $this->physicalIOReads) {
             $res['PhysicalIOReads'] = $this->physicalIOReads;
         }
@@ -446,6 +478,14 @@ class logs extends Model
 
         if (null !== $this->queryTimeSeconds) {
             $res['QueryTimeSeconds'] = $this->queryTimeSeconds;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->reqId) {
+            $res['ReqId'] = $this->reqId;
         }
 
         if (null !== $this->requestSize) {
@@ -587,6 +627,10 @@ class logs extends Model
             $model->docsExamined = $map['DocsExamined'];
         }
 
+        if (isset($map['Fail'])) {
+            $model->fail = $map['Fail'];
+        }
+
         if (isset($map['Frows'])) {
             $model->frows = $map['Frows'];
         }
@@ -639,6 +683,10 @@ class logs extends Model
             $model->originTime = $map['OriginTime'];
         }
 
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
+        }
+
         if (isset($map['PhysicalIOReads'])) {
             $model->physicalIOReads = $map['PhysicalIOReads'];
         }
@@ -661,6 +709,14 @@ class logs extends Model
 
         if (isset($map['QueryTimeSeconds'])) {
             $model->queryTimeSeconds = $map['QueryTimeSeconds'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['ReqId'])) {
+            $model->reqId = $map['ReqId'];
         }
 
         if (isset($map['RequestSize'])) {
