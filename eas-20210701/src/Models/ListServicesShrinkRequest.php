@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListServicesShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @var bool
      */
     public $autoscalerEnabled;
@@ -138,6 +143,7 @@ class ListServicesShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'autoscalerEnabled' => 'AutoscalerEnabled',
         'callerUid' => 'CallerUid',
         'cronscalerEnabled' => 'CronscalerEnabled',
@@ -174,6 +180,10 @@ class ListServicesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->autoscalerEnabled) {
             $res['AutoscalerEnabled'] = $this->autoscalerEnabled;
         }
@@ -289,6 +299,10 @@ class ListServicesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['AutoscalerEnabled'])) {
             $model->autoscalerEnabled = $map['AutoscalerEnabled'];
         }

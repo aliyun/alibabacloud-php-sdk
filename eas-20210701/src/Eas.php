@@ -155,6 +155,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ReinstallTenantAddonResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\RestartServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ScaleServiceRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ScaleServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StopBenchmarkTaskResponse;
@@ -5612,6 +5614,10 @@ class Eas extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->autoscalerEnabled) {
             @$query['AutoscalerEnabled'] = $request->autoscalerEnabled;
         }
@@ -6129,6 +6135,75 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->restartServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * 伸缩服务
+     *
+     * @param request - ScaleServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleServiceResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ServiceName
+     * @param ScaleServiceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ScaleServiceResponse
+     */
+    public function scaleServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instance) {
+            @$body['Instance'] = $request->instance;
+        }
+
+        if (null !== $request->instancesToDelete) {
+            @$body['InstancesToDelete'] = $request->instancesToDelete;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ScaleService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/scale',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ScaleServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 伸缩服务
+     *
+     * @param request - ScaleServiceRequest
+     *
+     * @returns ScaleServiceResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ServiceName
+     * @param ScaleServiceRequest $request
+     *
+     * @return ScaleServiceResponse
+     */
+    public function scaleService($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->scaleServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
