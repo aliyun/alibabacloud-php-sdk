@@ -57,6 +57,7 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeEndpointsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeEndpointsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeProcessListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeProcessListResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSecurityIPListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSecurityIPListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeSlowLogRecordsRequest;
@@ -917,7 +918,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改备份策略.
+     * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DeleteBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -960,7 +961,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改备份策略.
+     * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DeleteBackupPolicyRequest
      *
@@ -1043,7 +1044,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1086,7 +1087,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+     * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DeleteDBInstanceRequest
      *
@@ -1380,7 +1381,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 创建备份策略.
+     * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1423,7 +1424,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 创建备份策略.
+     * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DescribeBackupPolicyRequest
      *
@@ -1441,7 +1442,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询备份集.
+     * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1504,7 +1505,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询备份集.
+     * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -1998,6 +1999,50 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeProcessListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云数据库ClickHouse所有地域和可用区的信息.
+     *
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云数据库ClickHouse所有地域和可用区的信息.
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionsWithOptions($runtime);
     }
 
     /**
@@ -2758,7 +2803,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改备份策略.
+     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2813,7 +2858,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改备份策略.
+     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
      *
      * @param request - ModifyBackupPolicyRequest
      *
