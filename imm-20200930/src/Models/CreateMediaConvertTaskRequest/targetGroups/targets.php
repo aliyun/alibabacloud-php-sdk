@@ -2,24 +2,16 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest;
+namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targetGroups;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\attachedPicture;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\data;
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets\segment;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targetGroups\targets\segment;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetAudio;
-use AlibabaCloud\SDK\Imm\V20200930\Models\TargetImage;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetSubtitle;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetVideo;
 
 class targets extends Model
 {
-    /**
-     * @var attachedPicture
-     */
-    public $attachedPicture;
-
     /**
      * @var TargetAudio
      */
@@ -29,16 +21,6 @@ class targets extends Model
      * @var string
      */
     public $container;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var TargetImage
-     */
-    public $image;
 
     /**
      * @var segment
@@ -70,11 +52,8 @@ class targets extends Model
      */
     public $video;
     protected $_name = [
-        'attachedPicture' => 'AttachedPicture',
         'audio' => 'Audio',
         'container' => 'Container',
-        'data' => 'Data',
-        'image' => 'Image',
         'segment' => 'Segment',
         'speed' => 'Speed',
         'stripMetadata' => 'StripMetadata',
@@ -85,17 +64,8 @@ class targets extends Model
 
     public function validate()
     {
-        if (null !== $this->attachedPicture) {
-            $this->attachedPicture->validate();
-        }
         if (null !== $this->audio) {
             $this->audio->validate();
-        }
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        if (null !== $this->image) {
-            $this->image->validate();
         }
         if (null !== $this->segment) {
             $this->segment->validate();
@@ -112,24 +82,12 @@ class targets extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->attachedPicture) {
-            $res['AttachedPicture'] = null !== $this->attachedPicture ? $this->attachedPicture->toArray($noStream) : $this->attachedPicture;
-        }
-
         if (null !== $this->audio) {
             $res['Audio'] = null !== $this->audio ? $this->audio->toArray($noStream) : $this->audio;
         }
 
         if (null !== $this->container) {
             $res['Container'] = $this->container;
-        }
-
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
-        }
-
-        if (null !== $this->image) {
-            $res['Image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
         }
 
         if (null !== $this->segment) {
@@ -167,24 +125,12 @@ class targets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AttachedPicture'])) {
-            $model->attachedPicture = attachedPicture::fromMap($map['AttachedPicture']);
-        }
-
         if (isset($map['Audio'])) {
             $model->audio = TargetAudio::fromMap($map['Audio']);
         }
 
         if (isset($map['Container'])) {
             $model->container = $map['Container'];
-        }
-
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-
-        if (isset($map['Image'])) {
-            $model->image = TargetImage::fromMap($map['Image']);
         }
 
         if (isset($map['Segment'])) {

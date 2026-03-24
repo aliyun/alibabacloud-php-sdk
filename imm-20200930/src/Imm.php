@@ -3367,6 +3367,10 @@ class Imm extends OpenApiClient
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
+        if (null !== $tmpReq->targetGroups) {
+            $request->targetGroupsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetGroups, 'TargetGroups', 'json');
+        }
+
         if (null !== $tmpReq->targets) {
             $request->targetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
         }
@@ -3394,6 +3398,10 @@ class Imm extends OpenApiClient
 
         if (null !== $request->tagsShrink) {
             @$query['Tags'] = $request->tagsShrink;
+        }
+
+        if (null !== $request->targetGroupsShrink) {
+            @$query['TargetGroups'] = $request->targetGroupsShrink;
         }
 
         if (null !== $request->targetsShrink) {

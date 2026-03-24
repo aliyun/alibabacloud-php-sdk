@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\sources;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targetGroups;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateMediaConvertTaskRequest\targets;
 
 class CreateMediaConvertTaskRequest extends Model
@@ -41,6 +42,11 @@ class CreateMediaConvertTaskRequest extends Model
     public $tags;
 
     /**
+     * @var targetGroups[]
+     */
+    public $targetGroups;
+
+    /**
      * @var targets[]
      */
     public $targets;
@@ -56,6 +62,7 @@ class CreateMediaConvertTaskRequest extends Model
         'projectName' => 'ProjectName',
         'sources' => 'Sources',
         'tags' => 'Tags',
+        'targetGroups' => 'TargetGroups',
         'targets' => 'Targets',
         'userData' => 'UserData',
     ];
@@ -73,6 +80,9 @@ class CreateMediaConvertTaskRequest extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->targetGroups)) {
+            Model::validateArray($this->targetGroups);
         }
         if (\is_array($this->targets)) {
             Model::validateArray($this->targets);
@@ -115,6 +125,17 @@ class CreateMediaConvertTaskRequest extends Model
                 $res['Tags'] = [];
                 foreach ($this->tags as $key1 => $value1) {
                     $res['Tags'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->targetGroups) {
+            if (\is_array($this->targetGroups)) {
+                $res['TargetGroups'] = [];
+                $n1 = 0;
+                foreach ($this->targetGroups as $item1) {
+                    $res['TargetGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -177,6 +198,17 @@ class CreateMediaConvertTaskRequest extends Model
                 $model->tags = [];
                 foreach ($map['Tags'] as $key1 => $value1) {
                     $model->tags[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['TargetGroups'])) {
+            if (!empty($map['TargetGroups'])) {
+                $model->targetGroups = [];
+                $n1 = 0;
+                foreach ($map['TargetGroups'] as $item1) {
+                    $model->targetGroups[$n1] = targetGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

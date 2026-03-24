@@ -41,6 +41,11 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $targetGroupsShrink;
+
+    /**
+     * @var string
+     */
     public $targetsShrink;
 
     /**
@@ -54,6 +59,7 @@ class CreateMediaConvertTaskShrinkRequest extends Model
         'projectName' => 'ProjectName',
         'sourcesShrink' => 'Sources',
         'tagsShrink' => 'Tags',
+        'targetGroupsShrink' => 'TargetGroups',
         'targetsShrink' => 'Targets',
         'userData' => 'UserData',
     ];
@@ -88,6 +94,10 @@ class CreateMediaConvertTaskShrinkRequest extends Model
 
         if (null !== $this->tagsShrink) {
             $res['Tags'] = $this->tagsShrink;
+        }
+
+        if (null !== $this->targetGroupsShrink) {
+            $res['TargetGroups'] = $this->targetGroupsShrink;
         }
 
         if (null !== $this->targetsShrink) {
@@ -131,6 +141,10 @@ class CreateMediaConvertTaskShrinkRequest extends Model
 
         if (isset($map['Tags'])) {
             $model->tagsShrink = $map['Tags'];
+        }
+
+        if (isset($map['TargetGroups'])) {
+            $model->targetGroupsShrink = $map['TargetGroups'];
         }
 
         if (isset($map['Targets'])) {
