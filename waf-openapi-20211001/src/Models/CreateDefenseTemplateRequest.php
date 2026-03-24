@@ -16,6 +16,11 @@ class CreateDefenseTemplateRequest extends Model
     /**
      * @var string
      */
+    public $defenseSubScene;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -64,6 +69,7 @@ class CreateDefenseTemplateRequest extends Model
     public $unbindResources;
     protected $_name = [
         'defenseScene' => 'DefenseScene',
+        'defenseSubScene' => 'DefenseSubScene',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
@@ -92,6 +98,10 @@ class CreateDefenseTemplateRequest extends Model
         $res = [];
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
+        }
+
+        if (null !== $this->defenseSubScene) {
+            $res['DefenseSubScene'] = $this->defenseSubScene;
         }
 
         if (null !== $this->description) {
@@ -161,6 +171,10 @@ class CreateDefenseTemplateRequest extends Model
         $model = new self();
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
+        }
+
+        if (isset($map['DefenseSubScene'])) {
+            $model->defenseSubScene = $map['DefenseSubScene'];
         }
 
         if (isset($map['Description'])) {
