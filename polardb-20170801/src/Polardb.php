@@ -155,6 +155,9 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesRequest;
@@ -2869,6 +2872,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->securityGroupId) {
             @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->targetVersion) {
+            @$query['TargetVersion'] = $request->targetVersion;
         }
 
         if (null !== $request->usedTime) {
@@ -7248,6 +7259,89 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarFs文件.
+     *
+     * @remarks
+     * ## 请求说明
+     * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+     * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+     * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+     *
+     * @param tmpReq - DeletePolarFsObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarFsObjectsResponse
+     *
+     * @param DeletePolarFsObjectsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeletePolarFsObjectsResponse
+     */
+    public function deletePolarFsObjectsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeletePolarFsObjectsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectsToDelete) {
+            $request->objectsToDeleteShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectsToDelete, 'ObjectsToDelete', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->objectsToDeleteShrink) {
+            @$query['ObjectsToDelete'] = $request->objectsToDeleteShrink;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarFsObjects',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarFsObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarFs文件.
+     *
+     * @remarks
+     * ## 请求说明
+     * - `PolarFsInstanceId` 是必须提供的参数，用来指定要操作的PolarFS实例。
+     * - `DBClusterId` 参数是可选的，如果提供，则表示与特定PolarDB集群关联的操作。
+     * - `Objects` 参数是一个字符串数组，列出了所有需要被删除的对象路径，并且是必需的。
+     *
+     * @param request - DeletePolarFsObjectsRequest
+     *
+     * @returns DeletePolarFsObjectsResponse
+     *
+     * @param DeletePolarFsObjectsRequest $request
+     *
+     * @return DeletePolarFsObjectsResponse
+     */
+    public function deletePolarFsObjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarFsObjectsWithOptions($request, $runtime);
     }
 
     /**

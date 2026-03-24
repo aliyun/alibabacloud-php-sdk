@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationShrinkRequest\tag;
 
 class CreateApplicationShrinkRequest extends Model
 {
@@ -134,6 +135,16 @@ class CreateApplicationShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @var string
+     */
+    public $targetVersion;
+
+    /**
      * @var string
      */
     public $usedTime;
@@ -178,6 +189,8 @@ class CreateApplicationShrinkRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
+        'tag' => 'Tag',
+        'targetVersion' => 'TargetVersion',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -186,6 +199,9 @@ class CreateApplicationShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -290,6 +306,21 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->targetVersion) {
+            $res['TargetVersion'] = $this->targetVersion;
         }
 
         if (null !== $this->usedTime) {
@@ -417,6 +448,21 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['TargetVersion'])) {
+            $model->targetVersion = $map['TargetVersion'];
         }
 
         if (isset($map['UsedTime'])) {
