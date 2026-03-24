@@ -238,6 +238,11 @@ class backupJob extends Model
     public $tableName;
 
     /**
+     * @var string
+     */
+    public $triggerMode;
+
+    /**
      * @var int
      */
     public $updatedTime;
@@ -292,6 +297,7 @@ class backupJob extends Model
         'startTime' => 'StartTime',
         'status' => 'Status',
         'tableName' => 'TableName',
+        'triggerMode' => 'TriggerMode',
         'updatedTime' => 'UpdatedTime',
         'vaultId' => 'VaultId',
     ];
@@ -496,6 +502,10 @@ class backupJob extends Model
             $res['TableName'] = $this->tableName;
         }
 
+        if (null !== $this->triggerMode) {
+            $res['TriggerMode'] = $this->triggerMode;
+        }
+
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
         }
@@ -693,6 +703,10 @@ class backupJob extends Model
 
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
+        }
+
+        if (isset($map['TriggerMode'])) {
+            $model->triggerMode = $map['TriggerMode'];
         }
 
         if (isset($map['UpdatedTime'])) {
