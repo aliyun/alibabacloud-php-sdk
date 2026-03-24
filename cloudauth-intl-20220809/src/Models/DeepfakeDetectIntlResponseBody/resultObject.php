@@ -22,10 +22,16 @@ class resultObject extends Model
      * @var string
      */
     public $riskTag;
+
+    /**
+     * @var string
+     */
+    public $transactionId;
     protected $_name = [
         'result' => 'Result',
         'riskScore' => 'RiskScore',
         'riskTag' => 'RiskTag',
+        'transactionId' => 'TransactionId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class resultObject extends Model
             $res['RiskTag'] = $this->riskTag;
         }
 
+        if (null !== $this->transactionId) {
+            $res['TransactionId'] = $this->transactionId;
+        }
+
         return $res;
     }
 
@@ -82,6 +92,10 @@ class resultObject extends Model
 
         if (isset($map['RiskTag'])) {
             $model->riskTag = $map['RiskTag'];
+        }
+
+        if (isset($map['TransactionId'])) {
+            $model->transactionId = $map['TransactionId'];
         }
 
         return $model;

@@ -3381,7 +3381,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 修改人脸库.
+     * Modify Face Group.
      *
      * @param Request - ModifyFaceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3428,7 +3428,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 修改人脸库.
+     * Modify Face Group.
      *
      * @param Request - ModifyFaceGroupRequest
      *
@@ -3446,7 +3446,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 新增人脸.
+     * Add New Face.
      *
      * @param Request - ModifyFaceRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3489,7 +3489,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 新增人脸.
+     * Add New Face.
      *
      * @param Request - ModifyFaceRecordRequest
      *
@@ -3507,7 +3507,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 查询人脸库.
+     * Query Face Group.
      *
      * @param Request - QueryFaceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3566,7 +3566,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 查询人脸库.
+     * Query Face Group.
      *
      * @param Request - QueryFaceGroupRequest
      *
