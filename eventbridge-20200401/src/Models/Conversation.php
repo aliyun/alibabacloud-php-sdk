@@ -21,6 +21,11 @@ class Conversation extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -30,6 +35,7 @@ class Conversation extends Model
     protected $_name = [
         'createdAt' => 'CreatedAt',
         'id' => 'Id',
+        'status' => 'Status',
         'title' => 'Title',
         'updatedAt' => 'UpdatedAt',
     ];
@@ -48,6 +54,10 @@ class Conversation extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->title) {
@@ -75,6 +85,10 @@ class Conversation extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Title'])) {

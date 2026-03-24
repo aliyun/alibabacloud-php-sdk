@@ -51,6 +51,11 @@ class sourceMySQLParameters extends Model
     /**
      * @var string
      */
+    public $snapshotMode;
+
+    /**
+     * @var string
+     */
     public $tableNames;
 
     /**
@@ -76,6 +81,7 @@ class sourceMySQLParameters extends Model
         'port' => 'Port',
         'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
+        'snapshotMode' => 'SnapshotMode',
         'tableNames' => 'TableNames',
         'user' => 'User',
         'vSwitchIds' => 'VSwitchIds',
@@ -120,6 +126,10 @@ class sourceMySQLParameters extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->snapshotMode) {
+            $res['SnapshotMode'] = $this->snapshotMode;
         }
 
         if (null !== $this->tableNames) {
@@ -179,6 +189,10 @@ class sourceMySQLParameters extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SnapshotMode'])) {
+            $model->snapshotMode = $map['SnapshotMode'];
         }
 
         if (isset($map['TableNames'])) {
