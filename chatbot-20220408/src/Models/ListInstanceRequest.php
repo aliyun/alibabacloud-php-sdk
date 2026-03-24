@@ -32,12 +32,18 @@ class ListInstanceRequest extends Model
      * @var string
      */
     public $robotType;
+
+    /**
+     * @var bool
+     */
+    public $sandbox;
     protected $_name = [
         'agentKey' => 'AgentKey',
         'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'robotType' => 'RobotType',
+        'sandbox' => 'Sandbox',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListInstanceRequest extends Model
 
         if (null !== $this->robotType) {
             $res['RobotType'] = $this->robotType;
+        }
+
+        if (null !== $this->sandbox) {
+            $res['Sandbox'] = $this->sandbox;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListInstanceRequest extends Model
 
         if (isset($map['RobotType'])) {
             $model->robotType = $map['RobotType'];
+        }
+
+        if (isset($map['Sandbox'])) {
+            $model->sandbox = $map['Sandbox'];
         }
 
         return $model;

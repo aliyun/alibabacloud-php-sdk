@@ -256,7 +256,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 申请流式网关AccessToken.
+     * Apply for Streaming Gateway AccessToken.
      *
      * @param request - ApplyForStreamAccessTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -295,7 +295,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 申请流式网关AccessToken.
+     * Apply for Streaming Gateway AccessToken.
      *
      * @param request - ApplyForStreamAccessTokenRequest
      *
@@ -423,6 +423,10 @@ class Chatbot extends OpenApiClient
 
         if (null !== $request->sandBox) {
             @$body['SandBox'] = $request->sandBox;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
 
         if (null !== $request->vendorParam) {
@@ -609,7 +613,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 取消发布任务
+     * Cancel Publishing Task.
      *
      * @param request - CancelPublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -652,7 +656,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 取消发布任务
+     * Cancel Publishing Task.
      *
      * @param request - CancelPublishTaskRequest
      *
@@ -838,7 +842,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新增类目.
+     * Create Category.
      *
      * @param request - CreateCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -895,7 +899,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新增类目.
+     * Create Category.
      *
      * @param request - CreateCategoryRequest
      *
@@ -913,7 +917,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ关联问.
+     * Create FAQ Connection Question.
      *
      * @param request - CreateConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -962,7 +966,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ关联问.
+     * Create FAQ Connection Question.
      *
      * @param request - CreateConnQuestionRequest
      *
@@ -1130,7 +1134,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 创建文档.
+     * Create Document.
      *
      * @param tmpReq - CreateDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1219,7 +1223,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 创建文档.
+     * Create Document.
      *
      * @param request - CreateDocRequest
      *
@@ -1237,7 +1241,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ.
+     * New FAQ.
      *
      * @param tmpReq - CreateFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1312,7 +1316,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ.
+     * New FAQ.
      *
      * @param request - CreateFaqRequest
      *
@@ -1671,7 +1675,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 创建发布任务
+     * Create Publishing Task.
      *
      * @param tmpReq - CreatePublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1724,7 +1728,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 创建发布任务
+     * Create Publishing Task.
      *
      * @param request - CreatePublishTaskRequest
      *
@@ -1742,7 +1746,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ相似问.
+     * Create FAQ Similar Question.
      *
      * @param request - CreateSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1791,7 +1795,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ相似问.
+     * Create FAQ Similar Question.
      *
      * @param request - CreateSimQuestionRequest
      *
@@ -1809,7 +1813,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ答案.
+     * Create New FAQ Answer.
      *
      * @param tmpReq - CreateSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1876,7 +1880,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 新建FAQ答案.
+     * Create New FAQ Answer.
      *
      * @param request - CreateSolutionRequest
      *
@@ -2103,7 +2107,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除类目.
+     * Delete Category.
      *
      * @param request - DeleteCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2148,7 +2152,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除类目.
+     * Delete Category.
      *
      * @param request - DeleteCategoryRequest
      *
@@ -2166,7 +2170,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ关联问.
+     * Delete FAQ Connection Question.
      *
      * @param request - DeleteConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2211,7 +2215,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ关联问.
+     * Delete FAQ Connection Question.
      *
      * @param request - DeleteConnQuestionRequest
      *
@@ -2363,7 +2367,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档删除.
+     * Document Deletion.
      *
      * @param request - DeleteDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2406,7 +2410,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档删除.
+     * Document Deletion.
      *
      * @param request - DeleteDocRequest
      *
@@ -2424,7 +2428,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除.
+     * Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
      *
      * @param request - DeleteFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2469,7 +2473,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ，如果是已发布的知识，删除之后，变成已删除未发布，需要发布才能真正删除.
+     * Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
      *
      * @param request - DeleteFaqRequest
      *
@@ -2743,7 +2747,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ相似问.
+     * Delete FAQ Similar Question.
      *
      * @param request - DeleteSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2788,7 +2792,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ相似问.
+     * Delete FAQ Similar Question.
      *
      * @param request - DeleteSimQuestionRequest
      *
@@ -2806,7 +2810,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ答案.
+     * Delete FAQ Solution.
      *
      * @param request - DeleteSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2851,7 +2855,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 删除FAQ答案.
+     * Delete FAQ Solution.
      *
      * @param request - DeleteSolutionRequest
      *
@@ -3076,7 +3080,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查看单个类目信息.
+     * View Single Category Information.
      *
      * @param request - DescribeCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3121,7 +3125,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查看单个类目信息.
+     * View Single Category Information.
      *
      * @param request - DescribeCategoryRequest
      *
@@ -3204,7 +3208,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档详情.
+     * Document Details.
      *
      * @param request - DescribeDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3251,7 +3255,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档详情.
+     * Document Details.
      *
      * @param request - DescribeDocRequest
      *
@@ -3269,7 +3273,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 知识详情.
+     * Knowledge Details.
      *
      * @param request - DescribeFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3314,7 +3318,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 知识详情.
+     * Knowledge Details.
      *
      * @param request - DescribeFaqRequest
      *
@@ -4071,7 +4075,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询发布进度.
+     * Query Publishing Progress.
      *
      * @param request - GetPublishTaskStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4114,7 +4118,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询发布进度.
+     * Query Publishing Progress.
      *
      * @param request - GetPublishTaskStateRequest
      *
@@ -4339,7 +4343,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 类目列表.
+     * Category List.
      *
      * @param request - ListCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4388,7 +4392,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 类目列表.
+     * Category List.
      *
      * @param request - ListCategoryRequest
      *
@@ -4406,7 +4410,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询FAQ关联问列表.
+     * Query FAQ Connection Questions List.
      *
      * @param request - ListConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4451,7 +4455,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询FAQ关联问列表.
+     * Query FAQ Connection Questions List.
      *
      * @param request - ListConnQuestionRequest
      *
@@ -4663,6 +4667,10 @@ class Chatbot extends OpenApiClient
 
         if (null !== $request->robotType) {
             @$query['RobotType'] = $request->robotType;
+        }
+
+        if (null !== $request->sandbox) {
+            @$query['Sandbox'] = $request->sandbox;
         }
 
         $req = new OpenApiRequest([
@@ -4974,7 +4982,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ相似问列表.
+     * FAQ Similar Questions List.
      *
      * @param request - ListSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5019,7 +5027,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ相似问列表.
+     * FAQ Similar Questions List.
      *
      * @param request - ListSimQuestionRequest
      *
@@ -5037,7 +5045,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ答案列表.
+     * FAQ Solution List.
      *
      * @param request - ListSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5082,7 +5090,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ答案列表.
+     * FAQ Solution List.
      *
      * @param request - ListSolutionRequest
      *
@@ -5591,7 +5599,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档重试.
+     * Document Retry.
      *
      * @param request - RetryDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5634,7 +5642,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档重试.
+     * Document Retry.
      *
      * @param request - RetryDocRequest
      *
@@ -5652,7 +5660,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档搜索.
+     * Document Search.
      *
      * @param tmpReq - SearchDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5773,7 +5781,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档搜索.
+     * Document Search.
      *
      * @param request - SearchDocRequest
      *
@@ -5791,7 +5799,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 知识搜索.
+     * Knowledge Search.
      *
      * @param tmpReq - SearchFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5902,7 +5910,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 知识搜索.
+     * Knowledge Search.
      *
      * @param request - SearchFaqRequest
      *
@@ -5985,7 +5993,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 编辑类目.
+     * Edit Category.
      *
      * @param request - UpdateCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6038,7 +6046,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 编辑类目.
+     * Edit Category.
      *
      * @param request - UpdateCategoryRequest
      *
@@ -6056,7 +6064,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ关联问.
+     * Update FAQ Connection Question.
      *
      * @param request - UpdateConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6105,7 +6113,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ关联问.
+     * Update FAQ Connection Question.
      *
      * @param request - UpdateConnQuestionRequest
      *
@@ -6281,7 +6289,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档变更.
+     * Document Update.
      *
      * @param tmpReq - UpdateDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6374,7 +6382,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 文档变更.
+     * Document Update.
      *
      * @param request - UpdateDocRequest
      *
@@ -6392,7 +6400,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ.
+     * Update FAQ.
      *
      * @param tmpReq - UpdateFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6463,7 +6471,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ.
+     * Update FAQ.
      *
      * @param request - UpdateFaqRequest
      *
@@ -6765,7 +6773,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ相似问.
+     * Update FAQ Similar Questions.
      *
      * @param request - UpdateSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6814,7 +6822,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ相似问.
+     * Update FAQ Similar Questions.
      *
      * @param request - UpdateSimQuestionRequest
      *
@@ -6832,7 +6840,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ答案.
+     * Update FAQ Answer.
      *
      * @param tmpReq - UpdateSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6899,7 +6907,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 更新FAQ答案.
+     * Update FAQ Answer.
      *
      * @param request - UpdateSolutionRequest
      *
