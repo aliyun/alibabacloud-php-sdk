@@ -42,6 +42,11 @@ class CreateAlertWebhookRequest extends Model
      * @var string
      */
     public $webhookId;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'contentType' => 'contentType',
         'headers' => 'headers',
@@ -50,6 +55,7 @@ class CreateAlertWebhookRequest extends Model
         'name' => 'name',
         'url' => 'url',
         'webhookId' => 'webhookId',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class CreateAlertWebhookRequest extends Model
             $res['webhookId'] = $this->webhookId;
         }
 
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
+        }
+
         return $res;
     }
 
@@ -138,6 +148,10 @@ class CreateAlertWebhookRequest extends Model
 
         if (isset($map['webhookId'])) {
             $model->webhookId = $map['webhookId'];
+        }
+
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;

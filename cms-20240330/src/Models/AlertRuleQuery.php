@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\entityFields;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\entityFilter;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\labelFilters;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\markTags;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries;
 
 class AlertRuleQuery extends Model
@@ -73,6 +74,11 @@ class AlertRuleQuery extends Model
     public $labelFilters;
 
     /**
+     * @var markTags[]
+     */
+    public $markTags;
+
+    /**
      * @var string
      */
     public $metric;
@@ -124,6 +130,7 @@ class AlertRuleQuery extends Model
         'groupId' => 'groupId',
         'groupType' => 'groupType',
         'labelFilters' => 'labelFilters',
+        'markTags' => 'markTags',
         'metric' => 'metric',
         'metricSet' => 'metricSet',
         'namespace' => 'namespace',
@@ -153,6 +160,9 @@ class AlertRuleQuery extends Model
         }
         if (\is_array($this->labelFilters)) {
             Model::validateArray($this->labelFilters);
+        }
+        if (\is_array($this->markTags)) {
+            Model::validateArray($this->markTags);
         }
         if (\is_array($this->queries)) {
             Model::validateArray($this->queries);
@@ -245,6 +255,17 @@ class AlertRuleQuery extends Model
                 $n1 = 0;
                 foreach ($this->labelFilters as $item1) {
                     $res['labelFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->markTags) {
+            if (\is_array($this->markTags)) {
+                $res['markTags'] = [];
+                $n1 = 0;
+                foreach ($this->markTags as $item1) {
+                    $res['markTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -383,6 +404,17 @@ class AlertRuleQuery extends Model
                 $n1 = 0;
                 foreach ($map['labelFilters'] as $item1) {
                     $model->labelFilters[$n1] = labelFilters::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['markTags'])) {
+            if (!empty($map['markTags'])) {
+                $model->markTags = [];
+                $n1 = 0;
+                foreach ($map['markTags'] as $item1) {
+                    $model->markTags[$n1] = markTags::fromMap($item1);
                     ++$n1;
                 }
             }

@@ -27,11 +27,17 @@ class ListAlertWebhooksShrinkRequest extends Model
      * @var string
      */
     public $webhookIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'name' => 'name',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'webhookIdsShrink' => 'webhookIds',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListAlertWebhooksShrinkRequest extends Model
 
         if (null !== $this->webhookIdsShrink) {
             $res['webhookIds'] = $this->webhookIdsShrink;
+        }
+
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListAlertWebhooksShrinkRequest extends Model
 
         if (isset($map['webhookIds'])) {
             $model->webhookIdsShrink = $map['webhookIds'];
+        }
+
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;

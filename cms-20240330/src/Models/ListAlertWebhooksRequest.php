@@ -27,11 +27,17 @@ class ListAlertWebhooksRequest extends Model
      * @var string[]
      */
     public $webhookIds;
+
+    /**
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'name' => 'name',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'webhookIds' => 'webhookIds',
+        'workspace' => 'workspace',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class ListAlertWebhooksRequest extends Model
             }
         }
 
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class ListAlertWebhooksRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;
