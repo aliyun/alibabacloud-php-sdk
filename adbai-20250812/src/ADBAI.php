@@ -21,6 +21,12 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageIn
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\LockEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\LockEmbodiedAIPlatformResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyAgentPlatformRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyAgentPlatformResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyAgentPlatformShrinkRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyEmbodiedAIPlatformRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyEmbodiedAIPlatformResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyEmbodiedAIPlatformShrinkRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\ResetEmbodiedAIPlatformPasswordRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\ResetEmbodiedAIPlatformPasswordResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\UnlockEmbodiedAIPlatformRequest;
@@ -577,6 +583,160 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->lockEmbodiedAIPlatformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改变配指标平台.
+     *
+     * @param tmpReq - ModifyAgentPlatformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAgentPlatformResponse
+     *
+     * @param ModifyAgentPlatformRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyAgentPlatformResponse
+     */
+    public function modifyAgentPlatformWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyAgentPlatformShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aiPlatformConfig) {
+            $request->aiPlatformConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aiPlatformConfig, 'AiPlatformConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->aiPlatformConfigShrink) {
+            @$query['AiPlatformConfig'] = $request->aiPlatformConfigShrink;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAgentPlatform',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAgentPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改变配指标平台.
+     *
+     * @param request - ModifyAgentPlatformRequest
+     *
+     * @returns ModifyAgentPlatformResponse
+     *
+     * @param ModifyAgentPlatformRequest $request
+     *
+     * @return ModifyAgentPlatformResponse
+     */
+    public function modifyAgentPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAgentPlatformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 变配具身智能平台.
+     *
+     * @param tmpReq - ModifyEmbodiedAIPlatformRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyEmbodiedAIPlatformResponse
+     *
+     * @param ModifyEmbodiedAIPlatformRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyEmbodiedAIPlatformResponse
+     */
+    public function modifyEmbodiedAIPlatformWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyEmbodiedAIPlatformShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rayConfig) {
+            $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->platformName) {
+            @$query['PlatformName'] = $request->platformName;
+        }
+
+        if (null !== $request->rayConfigShrink) {
+            @$query['RayConfig'] = $request->rayConfigShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->webserverSpecName) {
+            @$query['WebserverSpecName'] = $request->webserverSpecName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyEmbodiedAIPlatform',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyEmbodiedAIPlatformResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 变配具身智能平台.
+     *
+     * @param request - ModifyEmbodiedAIPlatformRequest
+     *
+     * @returns ModifyEmbodiedAIPlatformResponse
+     *
+     * @param ModifyEmbodiedAIPlatformRequest $request
+     *
+     * @return ModifyEmbodiedAIPlatformResponse
+     */
+    public function modifyEmbodiedAIPlatform($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEmbodiedAIPlatformWithOptions($request, $runtime);
     }
 
     /**
