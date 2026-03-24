@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CloseChatInstanceSessionsShrinkRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ConfirmTrainPicAvatarResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CopyBroadcastSceneFromTemplateRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\CopyBroadcastSceneFromTemplateResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBackgroundPicResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateBroadcastAudioRequest;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastVideosByIdResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListBroadcastVideosByIdShrinkRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPrivateTTSVoicesCustomRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPrivateTTSVoicesCustomResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPublicBroadcastSceneTemplatesRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\ListPublicBroadcastSceneTemplatesResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListTemplateMaterialRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\ListTemplateMaterialResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\QueryChatInstanceSessionsRequest;
@@ -223,6 +227,75 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->confirmTrainPicAvatarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 复制播报方案（从模版）.
+     *
+     * @param request - CopyBroadcastSceneFromTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyBroadcastSceneFromTemplateResponse
+     *
+     * @param CopyBroadcastSceneFromTemplateRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CopyBroadcastSceneFromTemplateResponse
+     */
+    public function copyBroadcastSceneFromTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->ratio) {
+            @$body['ratio'] = $request->ratio;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CopyBroadcastSceneFromTemplate',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/template/scene/copyByTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CopyBroadcastSceneFromTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 复制播报方案（从模版）.
+     *
+     * @param request - CopyBroadcastSceneFromTemplateRequest
+     *
+     * @returns CopyBroadcastSceneFromTemplateResponse
+     *
+     * @param CopyBroadcastSceneFromTemplateRequest $request
+     *
+     * @return CopyBroadcastSceneFromTemplateResponse
+     */
+    public function copyBroadcastSceneFromTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->copyBroadcastSceneFromTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1402,6 +1475,83 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->listPrivateTTSVoicesCustomWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列举播报方案模板（公共的播报方案模板）.
+     *
+     * @param request - ListPublicBroadcastSceneTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublicBroadcastSceneTemplatesResponse
+     *
+     * @param ListPublicBroadcastSceneTemplatesRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListPublicBroadcastSceneTemplatesResponse
+     */
+    public function listPublicBroadcastSceneTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        if (null !== $request->tags) {
+            @$query['tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPublicBroadcastSceneTemplates',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/customer/broadcast/template/scene/listPublic',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPublicBroadcastSceneTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举播报方案模板（公共的播报方案模板）.
+     *
+     * @param request - ListPublicBroadcastSceneTemplatesRequest
+     *
+     * @returns ListPublicBroadcastSceneTemplatesResponse
+     *
+     * @param ListPublicBroadcastSceneTemplatesRequest $request
+     *
+     * @return ListPublicBroadcastSceneTemplatesResponse
+     */
+    public function listPublicBroadcastSceneTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPublicBroadcastSceneTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
