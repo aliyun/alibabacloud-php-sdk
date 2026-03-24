@@ -46,6 +46,11 @@ class imageRegistryInfos extends Model
     /**
      * @var int
      */
+    public $port;
+
+    /**
+     * @var int
+     */
     public $protocolType;
 
     /**
@@ -105,6 +110,7 @@ class imageRegistryInfos extends Model
         'netType' => 'NetType',
         'password' => 'Password',
         'persistenceDay' => 'PersistenceDay',
+        'port' => 'Port',
         'protocolType' => 'ProtocolType',
         'regionId' => 'RegionId',
         'registryHostIp' => 'RegistryHostIp',
@@ -152,6 +158,10 @@ class imageRegistryInfos extends Model
 
         if (null !== $this->persistenceDay) {
             $res['PersistenceDay'] = $this->persistenceDay;
+        }
+
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         if (null !== $this->protocolType) {
@@ -235,6 +245,10 @@ class imageRegistryInfos extends Model
 
         if (isset($map['PersistenceDay'])) {
             $model->persistenceDay = $map['PersistenceDay'];
+        }
+
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         if (isset($map['ProtocolType'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyImageRegistryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $id;
@@ -21,6 +26,16 @@ class ModifyImageRegistryRequest extends Model
     /**
      * @var int
      */
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $registryHostIp;
+
+    /**
+     * @var int
+     */
     public $transPerHour;
 
     /**
@@ -28,8 +43,11 @@ class ModifyImageRegistryRequest extends Model
      */
     public $userName;
     protected $_name = [
+        'domainName' => 'DomainName',
         'id' => 'Id',
         'password' => 'Password',
+        'port' => 'Port',
+        'registryHostIp' => 'RegistryHostIp',
         'transPerHour' => 'TransPerHour',
         'userName' => 'UserName',
     ];
@@ -42,12 +60,24 @@ class ModifyImageRegistryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
 
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->registryHostIp) {
+            $res['RegistryHostIp'] = $this->registryHostIp;
         }
 
         if (null !== $this->transPerHour) {
@@ -69,12 +99,24 @@ class ModifyImageRegistryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
 
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+
+        if (isset($map['RegistryHostIp'])) {
+            $model->registryHostIp = $map['RegistryHostIp'];
         }
 
         if (isset($map['TransPerHour'])) {

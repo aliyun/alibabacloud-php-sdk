@@ -22,6 +22,11 @@ class strategy extends Model
     /**
      * @var int
      */
+    public $imageVulClean;
+
+    /**
+     * @var int
+     */
     public $selectedItemCount;
 
     /**
@@ -46,6 +51,7 @@ class strategy extends Model
     protected $_name = [
         'baselineItem' => 'BaselineItem',
         'baselineItemList' => 'BaselineItemList',
+        'imageVulClean' => 'ImageVulClean',
         'selectedItemCount' => 'SelectedItemCount',
         'strategyId' => 'StrategyId',
         'strategyName' => 'StrategyName',
@@ -77,6 +83,10 @@ class strategy extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->imageVulClean) {
+            $res['ImageVulClean'] = $this->imageVulClean;
         }
 
         if (null !== $this->selectedItemCount) {
@@ -123,6 +133,10 @@ class strategy extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ImageVulClean'])) {
+            $model->imageVulClean = $map['ImageVulClean'];
         }
 
         if (isset($map['SelectedItemCount'])) {

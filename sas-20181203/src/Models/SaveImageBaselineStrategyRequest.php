@@ -14,6 +14,11 @@ class SaveImageBaselineStrategyRequest extends Model
     public $baselineItemList;
 
     /**
+     * @var int
+     */
+    public $imageVulClean;
+
+    /**
      * @var string
      */
     public $lang;
@@ -34,6 +39,7 @@ class SaveImageBaselineStrategyRequest extends Model
     public $strategyName;
     protected $_name = [
         'baselineItemList' => 'BaselineItemList',
+        'imageVulClean' => 'ImageVulClean',
         'lang' => 'Lang',
         'source' => 'Source',
         'strategyId' => 'StrategyId',
@@ -50,6 +56,10 @@ class SaveImageBaselineStrategyRequest extends Model
         $res = [];
         if (null !== $this->baselineItemList) {
             $res['BaselineItemList'] = $this->baselineItemList;
+        }
+
+        if (null !== $this->imageVulClean) {
+            $res['ImageVulClean'] = $this->imageVulClean;
         }
 
         if (null !== $this->lang) {
@@ -81,6 +91,10 @@ class SaveImageBaselineStrategyRequest extends Model
         $model = new self();
         if (isset($map['BaselineItemList'])) {
             $model->baselineItemList = $map['BaselineItemList'];
+        }
+
+        if (isset($map['ImageVulClean'])) {
+            $model->imageVulClean = $map['ImageVulClean'];
         }
 
         if (isset($map['Lang'])) {

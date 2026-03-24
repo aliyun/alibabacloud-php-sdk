@@ -49,6 +49,11 @@ class snapshots extends Model
     public $errorFile;
 
     /**
+     * @var int
+     */
+    public $expireTime;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -136,6 +141,7 @@ class snapshots extends Model
         'clientVersion' => 'ClientVersion',
         'createdTime' => 'CreatedTime',
         'errorFile' => 'ErrorFile',
+        'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
         'itemsDone' => 'ItemsDone',
         'itemsTotal' => 'ItemsTotal',
@@ -195,6 +201,10 @@ class snapshots extends Model
 
         if (null !== $this->errorFile) {
             $res['ErrorFile'] = $this->errorFile;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
 
         if (null !== $this->instanceId) {
@@ -309,6 +319,10 @@ class snapshots extends Model
 
         if (isset($map['ErrorFile'])) {
             $model->errorFile = $map['ErrorFile'];
+        }
+
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
 
         if (isset($map['InstanceId'])) {

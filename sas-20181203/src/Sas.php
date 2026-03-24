@@ -801,6 +801,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousSecurityEventyStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousUUIDConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskListRequest;
@@ -968,6 +969,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyItemRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyItemResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackEventDashboardRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackEventDashboardResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackEventDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackEventDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackPathEventDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackPathEventDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAttackPathEventStatisticsResponse;
@@ -1013,6 +1018,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckItemWarningStatisticsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckSummaryRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterCheckSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterRuleSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterRuleSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterScannerYamlRequest;
@@ -1147,6 +1154,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetTenantCheckAvailableResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetUserLangResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetValidDeductInstancesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetValidDeductInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVirusScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVirusScanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVirusScanLatestTaskStatisticResponse;
@@ -1211,6 +1220,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetReques
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAttackEventInfoRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAttackEventInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAttackPathEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAttackPathEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAttackPathWhitelistRequest;
@@ -1261,6 +1272,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetSchemasRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetSchemasResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudVendorRegionsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudVendorRegionsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCheckResultRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCheckResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigRequest;
@@ -1326,6 +1339,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionTargetPageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListInterceptionTargetPageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListK8sAccessInfoRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListK8sAccessInfoResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListKspmInstancesRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListKspmInstancesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListLogShipperRegionsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMachineAppsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListMachineAppsResponse;
@@ -30325,6 +30340,50 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Query Alarm Security Event Statistics.
+     *
+     * @param request - DescribeSuspiciousSecurityEventyStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeSuspiciousSecurityEventyStatisticsResponse
+     */
+    public function describeSuspiciousSecurityEventyStatisticsWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeSuspiciousSecurityEventyStatistics',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSuspiciousSecurityEventyStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Alarm Security Event Statistics.
+     *
+     * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
+     *
+     * @return DescribeSuspiciousSecurityEventyStatisticsResponse
+     */
+    public function describeSuspiciousSecurityEventyStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSuspiciousSecurityEventyStatisticsWithOptions($runtime);
+    }
+
+    /**
      * Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
      *
      * @param request - DescribeSuspiciousUUIDConfigRequest
@@ -36501,6 +36560,132 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Get Attack Analysis Dashboard Information.
+     *
+     * @param request - GetAttackEventDashboardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAttackEventDashboardResponse
+     *
+     * @param GetAttackEventDashboardRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAttackEventDashboardResponse
+     */
+    public function getAttackEventDashboardWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAttackEventDashboard',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAttackEventDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Attack Analysis Dashboard Information.
+     *
+     * @param request - GetAttackEventDashboardRequest
+     *
+     * @returns GetAttackEventDashboardResponse
+     *
+     * @param GetAttackEventDashboardRequest $request
+     *
+     * @return GetAttackEventDashboardResponse
+     */
+    public function getAttackEventDashboard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAttackEventDashboardWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get Attack Analysis Event Details.
+     *
+     * @param request - GetAttackEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAttackEventDetailResponse
+     *
+     * @param GetAttackEventDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAttackEventDetailResponse
+     */
+    public function getAttackEventDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAttackEventDetail',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAttackEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Attack Analysis Event Details.
+     *
+     * @param request - GetAttackEventDetailRequest
+     *
+     * @returns GetAttackEventDetailResponse
+     *
+     * @param GetAttackEventDetailRequest $request
+     *
+     * @return GetAttackEventDetailResponse
+     */
+    public function getAttackEventDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAttackEventDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Attack Path Event Details.
      *
      * @param request - GetAttackPathEventDetailRequest
@@ -38019,6 +38204,63 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getClusterCheckItemWarningStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the number of cluster inspection item risks.
+     *
+     * @param request - GetClusterCheckSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterCheckSummaryResponse
+     *
+     * @param GetClusterCheckSummaryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetClusterCheckSummaryResponse
+     */
+    public function getClusterCheckSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetClusterCheckSummary',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClusterCheckSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the number of cluster inspection item risks.
+     *
+     * @param request - GetClusterCheckSummaryRequest
+     *
+     * @returns GetClusterCheckSummaryResponse
+     *
+     * @param GetClusterCheckSummaryRequest $request
+     *
+     * @return GetClusterCheckSummaryResponse
+     */
+    public function getClusterCheckSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClusterCheckSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -42323,6 +42565,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Get Valid Resource Package Instances.
+     *
+     * @param request - GetValidDeductInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetValidDeductInstancesResponse
+     *
+     * @param GetValidDeductInstancesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetValidDeductInstancesResponse
+     */
+    public function getValidDeductInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->modules) {
+            @$query['Modules'] = $request->modules;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetValidDeductInstances',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetValidDeductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Valid Resource Package Instances.
+     *
+     * @param request - GetValidDeductInstancesRequest
+     *
+     * @returns GetValidDeductInstancesResponse
+     *
+     * @param GetValidDeductInstancesRequest $request
+     *
+     * @return GetValidDeductInstancesResponse
+     */
+    public function getValidDeductInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getValidDeductInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configurations of a periodic virus scan task.
      *
      * @param request - GetVirusScanConfigRequest
@@ -44609,6 +44916,95 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Get Attack Analysis Event List.
+     *
+     * @param request - ListAttackEventInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAttackEventInfoResponse
+     *
+     * @param ListAttackEventInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAttackEventInfoResponse
+     */
+    public function listAttackEventInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attackInstance) {
+            @$query['AttackInstance'] = $request->attackInstance;
+        }
+
+        if (null !== $request->attackType) {
+            @$query['AttackType'] = $request->attackType;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dstPort) {
+            @$query['DstPort'] = $request->dstPort;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->srcIp) {
+            @$query['SrcIp'] = $request->srcIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAttackEventInfo',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAttackEventInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get Attack Analysis Event List.
+     *
+     * @param request - ListAttackEventInfoRequest
+     *
+     * @returns ListAttackEventInfoResponse
+     *
+     * @param ListAttackEventInfoRequest $request
+     *
+     * @return ListAttackEventInfoResponse
+     */
+    public function listAttackEventInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAttackEventInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Attack Path Events.
      *
      * @param request - ListAttackPathEventRequest
@@ -46454,6 +46850,91 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCloudVendorRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Cluster Check Item Scan Results.
+     *
+     * @param request - ListClusterCheckResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterCheckResultResponse
+     *
+     * @param ListClusterCheckResultRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListClusterCheckResultResponse
+     */
+    public function listClusterCheckResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->checkKey) {
+            @$query['CheckKey'] = $request->checkKey;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->riskLevels) {
+            @$query['RiskLevels'] = $request->riskLevels;
+        }
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
+        }
+
+        if (null !== $request->statuses) {
+            @$query['Statuses'] = $request->statuses;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListClusterCheckResult',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListClusterCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Cluster Check Item Scan Results.
+     *
+     * @param request - ListClusterCheckResultRequest
+     *
+     * @returns ListClusterCheckResultResponse
+     *
+     * @param ListClusterCheckResultRequest $request
+     *
+     * @return ListClusterCheckResultResponse
+     */
+    public function listClusterCheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClusterCheckResultWithOptions($request, $runtime);
     }
 
     /**
@@ -48774,6 +49255,83 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listK8sAccessInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get KSPM Asset List.
+     *
+     * @param request - ListKspmInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKspmInstancesResponse
+     *
+     * @param ListKspmInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListKspmInstancesResponse
+     */
+    public function listKspmInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAssetTypes) {
+            @$query['CloudAssetTypes'] = $request->cloudAssetTypes;
+        }
+
+        if (null !== $request->criteria) {
+            @$query['Criteria'] = $request->criteria;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->logicalExp) {
+            @$query['LogicalExp'] = $request->logicalExp;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKspmInstances',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKspmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Get KSPM Asset List.
+     *
+     * @param request - ListKspmInstancesRequest
+     *
+     * @returns ListKspmInstancesResponse
+     *
+     * @param ListKspmInstancesRequest $request
+     *
+     * @return ListKspmInstancesResponse
+     */
+    public function listKspmInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKspmInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -54054,6 +54612,19 @@ class Sas extends OpenApiClient
     public function modifyImageRegistryWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->registryHostIp) {
+            @$query['RegistryHostIp'] = $request->registryHostIp;
+        }
+
         $body = [];
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
@@ -54072,6 +54643,7 @@ class Sas extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -60290,6 +60862,10 @@ class Sas extends OpenApiClient
         $query = [];
         if (null !== $request->baselineItemList) {
             @$query['BaselineItemList'] = $request->baselineItemList;
+        }
+
+        if (null !== $request->imageVulClean) {
+            @$query['ImageVulClean'] = $request->imageVulClean;
         }
 
         if (null !== $request->lang) {
