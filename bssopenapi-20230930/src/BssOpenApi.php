@@ -903,7 +903,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 创建账单订阅.
+     * Create a bill report subscription.
      *
      * @param request - CreateReportDefinitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -992,7 +992,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 创建账单订阅.
+     * Create a bill report subscription.
      *
      * @param request - CreateReportDefinitionRequest
      *
@@ -1309,7 +1309,63 @@ class BssOpenApi extends OpenApiClient
             $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
 
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
+        }
+
+        if (null !== $request->couponNo) {
+            @$query['CouponNo'] = $request->couponNo;
+        }
+
+        if (null !== $request->couponType) {
+            @$query['CouponType'] = $request->couponType;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->effectiveEndTime) {
+            @$query['EffectiveEndTime'] = $request->effectiveEndTime;
+        }
+
+        if (null !== $request->effectiveStartTime) {
+            @$query['EffectiveStartTime'] = $request->effectiveStartTime;
+        }
+
+        if (null !== $request->expireEndDate) {
+            @$query['ExpireEndDate'] = $request->expireEndDate;
+        }
+
+        if (null !== $request->expireStartDate) {
+            @$query['ExpireStartDate'] = $request->expireStartDate;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1318,7 +1374,7 @@ class BssOpenApi extends OpenApiClient
             'version' => '2023-09-30',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -1368,7 +1424,31 @@ class BssOpenApi extends OpenApiClient
             $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
 
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->couponId) {
+            @$query['CouponId'] = $request->couponId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1377,7 +1457,7 @@ class BssOpenApi extends OpenApiClient
             'version' => '2023-09-30',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',

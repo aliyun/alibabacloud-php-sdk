@@ -1,3 +1,8 @@
+2026-03-25 Version: 1.7.3
+- Update API DescribeCoupon: add request parameters MaxResults.
+- Update API DescribeCoupon: add request parameters NextToken.
+
+
 2026-02-09 Version: 1.7.2
 - Generated php 2023-09-30 for BssOpenApi.
 

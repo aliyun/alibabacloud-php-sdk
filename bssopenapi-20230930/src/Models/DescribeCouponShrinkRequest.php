@@ -54,9 +54,19 @@ class DescribeCouponShrinkRequest extends Model
     public $expireStartDate;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nbid;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
 
     /**
      * @var int
@@ -77,7 +87,9 @@ class DescribeCouponShrinkRequest extends Model
         'effectiveStartTime' => 'EffectiveStartTime',
         'expireEndDate' => 'ExpireEndDate',
         'expireStartDate' => 'ExpireStartDate',
+        'maxResults' => 'MaxResults',
         'nbid' => 'Nbid',
+        'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'status' => 'Status',
     ];
@@ -126,8 +138,16 @@ class DescribeCouponShrinkRequest extends Model
             $res['ExpireStartDate'] = $this->expireStartDate;
         }
 
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
         if (null !== $this->nbid) {
             $res['Nbid'] = $this->nbid;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageSize) {
@@ -185,8 +205,16 @@ class DescribeCouponShrinkRequest extends Model
             $model->expireStartDate = $map['ExpireStartDate'];
         }
 
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
         if (isset($map['Nbid'])) {
             $model->nbid = $map['Nbid'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageSize'])) {
