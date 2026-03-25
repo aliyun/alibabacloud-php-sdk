@@ -21,6 +21,11 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     /**
      * @var string
      */
+    public $orderType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -55,6 +60,7 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'orderType' => 'OrderType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -78,6 +84,10 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->orderType) {
+            $res['OrderType'] = $this->orderType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -125,6 +135,10 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['OrderType'])) {
+            $model->orderType = $map['OrderType'];
         }
 
         if (isset($map['OwnerAccount'])) {

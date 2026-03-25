@@ -46,6 +46,11 @@ class grantRule extends Model
     /**
      * @var string
      */
+    public $effectiveOrderType;
+
+    /**
+     * @var string
+     */
     public $orderType;
     protected $_name = [
         'cenId' => 'CenId',
@@ -55,6 +60,7 @@ class grantRule extends Model
         'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceType' => 'ChildInstanceType',
         'createTime' => 'CreateTime',
+        'effectiveOrderType' => 'EffectiveOrderType',
         'orderType' => 'OrderType',
     ];
 
@@ -92,6 +98,10 @@ class grantRule extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->effectiveOrderType) {
+            $res['EffectiveOrderType'] = $this->effectiveOrderType;
         }
 
         if (null !== $this->orderType) {
@@ -135,6 +145,10 @@ class grantRule extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['EffectiveOrderType'])) {
+            $model->effectiveOrderType = $map['EffectiveOrderType'];
         }
 
         if (isset($map['OrderType'])) {
