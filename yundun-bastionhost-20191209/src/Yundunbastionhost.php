@@ -153,6 +153,9 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetUserResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ImportKMSSecretsForHostRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ImportKMSSecretsForHostResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ImportKMSSecretsForHostShrinkRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListApproveCommandsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListDatabaseAccountsForUserGroupRequest;
@@ -193,6 +196,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysRequest
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostShareKeysResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListHostsResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListImportableKMSSecretsForHostRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListImportableKMSSecretsForHostResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListInstanceRdMembersRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListInstanceRdMembersResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ListNetworkDomainsRequest;
@@ -413,7 +418,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If an O\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     * If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
      *
      * @remarks
      * You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
@@ -464,7 +469,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If an O\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     * If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval field on the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
      *
      * @remarks
      * You can call this operation as a Bastionhost administrator to approve the request to run a command of an O\\&M engineer.
@@ -486,7 +491,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Approves an O\\\\\\\\\\\\&M application.
+     * Approves an O\\\\\\\\\\\\\\\\\\\\&M application.
      *
      * @remarks
      * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
@@ -553,7 +558,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Approves an O\\\\\\\\\\\\&M application.
+     * Approves an O\\\\\\\\\\\\\\\\\\\\&M application.
      *
      * @remarks
      * You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
@@ -1076,7 +1081,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user to manage the hosts and host accounts.
+     * After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\&M operations on the assets.
      *
      * @param request - AttachHostAccountsToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1127,7 +1132,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user to manage the hosts and host accounts.
+     * After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\&M operations on the assets.
      *
      * @param request - AttachHostAccountsToUserRequest
      *
@@ -1621,7 +1626,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After a database is created, you can create a database account for the database. After the account is created, O\\&M engineers can use the account to log on to and perform O\\&M operations on the database.
+     * After a database is created, you can create a database account for the database. After the account is created, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the database.
      *
      * @param request - CreateDatabaseAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1684,7 +1689,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After a database is created, you can create a database account for the database. After the account is created, O\\&M engineers can use the account to log on to and perform O\\&M operations on the database.
+     * After a database is created, you can create a database account for the database. After the account is created, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the database.
      *
      * @param request - CreateDatabaseAccountRequest
      *
@@ -1702,7 +1707,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 创建导出配置的任务
+     * Creates a configuration backup export task. You can run only one configuration backup export task on a bastion host at a time.
      *
      * @param request - CreateExportConfigJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1745,7 +1750,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 创建导出配置的任务
+     * Creates a configuration backup export task. You can run only one configuration backup export task on a bastion host at a time.
      *
      * @param request - CreateExportConfigJobRequest
      *
@@ -1763,7 +1768,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+     * Bastionhost allows you to perform O\\\\\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\\\\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
      *
      * @param request - CreateHostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1850,7 +1855,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
+     * Bastionhost allows you to perform O\\\\\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\\\\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
      *
      * @param request - CreateHostRequest
      *
@@ -1868,7 +1873,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\&M engineers can use the account to log on to and perform O\\&M operations on the host by using the bastion host.
+     * After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the host by using the bastion host.
      *
      * @param request - CreateHostAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1947,7 +1952,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\&M engineers can use the account to log on to and perform O\\&M operations on the host by using the bastion host.
+     * After you import a host to a bastion host, you must add an account of the host to the bastion host. This way, O\\\\\\&M engineers can use the account to log on to and perform O\\\\\\&M operations on the host by using the bastion host.
      *
      * @param request - CreateHostAccountRequest
      *
@@ -2107,7 +2112,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a network domain.
+     * If you want to perform O\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\&M operations on the assets by using the bastion host.
      *
      * @param request - CreateNetworkDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2166,7 +2171,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a network domain.
+     * If you want to perform O\\\\\\&M operations on assets that reside in different networks or assets that cannot communicate with the virtual private cloud (VPC) of your bastion host in a centralized manner, we recommend that you use the network domain feature of Bastionhost. You can configure a proxy server for these assets, create a network domain for a bastion host, and then connect the network domain to the proxy server. This way, you can perform O\\\\\\&M operations on the assets by using the bastion host.
      *
      * @param request - CreateNetworkDomainRequest
      *
@@ -2184,7 +2189,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 创建运维审批工单.
+     * If a Bastionhost administrator turns on O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
      *
      * @param request - CreateOperationTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2255,7 +2260,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 创建运维审批工单.
+     * If a Bastionhost administrator turns on O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
      *
      * @param request - CreateOperationTicketRequest
      *
@@ -2273,7 +2278,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures a command control, command approval, protocol control, or access control policy to manage O\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\&M security.
+     * Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\&M security.
      *
      * @param request - CreatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2328,7 +2333,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures a command control, command approval, protocol control, or access control policy to manage O\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\&M security.
+     * Configures a command control, command approval, protocol control, or access control policy to manage O\\\\\\&M operations. This effectively prevents users from performing high-risk operations or accidental operations to ensure O\\\\\\&M security.
      *
      * @param request - CreatePolicyRequest
      *
@@ -2576,7 +2581,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a user group for the specified bastion host.
+     * Creates a user group for a bastion host.
      *
      * @remarks
      * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
@@ -2631,7 +2636,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a user group for the specified bastion host.
+     * Creates a user group for a bastion host.
      *
      * @remarks
      * You can call this operation to create a user group for a bastion host as an administrator. Then, you can call the [AddUsersToGroup](https://help.aliyun.com/document_detail/204600.html) operation to add users to the user group at a time. After you add the users to the user group, you can authorize and manage the users in a centralized manner.
@@ -2653,7 +2658,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\&M client.
+     * Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\&M client.
      *
      * @remarks
      * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
@@ -2715,7 +2720,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\&M client.
+     * Creates a public key for a bastion host user and hosts the public key in the bastion host. This way, O\\\\\\&M engineers can use the private key that corresponds to the public key to log on to the bastion host from an O\\\\\\&M client.
      *
      * @remarks
      * You can call the CreateUserPublicKey operation to create a public key for the specified user of a bastion host.
@@ -2866,7 +2871,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes the specified host.
+     * Deletes a host.
      *
      * @param request - DeleteHostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2913,7 +2918,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes the specified host.
+     * Deletes a host.
      *
      * @param request - DeleteHostRequest
      *
@@ -3410,7 +3415,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a specified user group from a specified bastion host.
+     * Deletes a user group from a bastion host.
      *
      * @param request - DeleteUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3457,7 +3462,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a specified user group from a specified bastion host.
+     * Deletes a user group from a bastion host.
      *
      * @param request - DeleteUserGroupRequest
      *
@@ -3611,7 +3616,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 堡垒机实例列表.
+     * Queries bastion hosts.
      *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3678,7 +3683,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 堡垒机实例列表.
+     * Queries bastion hosts.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -4244,7 +4249,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Disables Internet access for a bastion host.
+     * Disables Internet access to a bastion host.
      *
      * @param request - DisableInstancePublicAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4287,7 +4292,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Disables Internet access for a bastion host.
+     * Disables Internet access to a bastion host.
      *
      * @param request - DisableInstancePublicAccessRequest
      *
@@ -4370,7 +4375,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables Internet access for a bastion host.
+     * Enables Internet access to a bastion host.
      *
      * @param request - EnableInstancePublicAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4413,7 +4418,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables Internet access for a bastion host.
+     * Enables Internet access to a bastion host.
      *
      * @param request - EnableInstancePublicAccessRequest
      *
@@ -4496,7 +4501,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Applies for an O\\&M token.
+     * Applies for an O\\\\\\&M token.
      *
      * @param request - GenerateAssetOperationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4583,7 +4588,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Applies for an O\\&M token.
+     * Applies for an O\\\\\\&M token.
      *
      * @param request - GenerateAssetOperationTokenRequest
      *
@@ -4731,7 +4736,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 获取导出配置任务进度.
+     * null.
      *
      * @param request - GetExportConfigJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4778,7 +4783,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 获取导出配置任务进度.
+     * null.
      *
      * @param request - GetExportConfigJobRequest
      *
@@ -5190,7 +5195,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 获取堡垒机实例存储信息.
+     * Queries the storage usage of a bastion host.
      *
      * @param request - GetInstanceStoreInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5233,7 +5238,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 获取堡垒机实例存储信息.
+     * Queries the storage usage of a bastion host.
      *
      * @param request - GetInstanceStoreInfoRequest
      *
@@ -5778,6 +5783,81 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为当前主机导入 KMS 凭据.
+     *
+     * @param tmpReq - ImportKMSSecretsForHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportKMSSecretsForHostResponse
+     *
+     * @param ImportKMSSecretsForHostRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ImportKMSSecretsForHostResponse
+     */
+    public function importKMSSecretsForHostWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ImportKMSSecretsForHostShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->secrets) {
+            $request->secretsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->secrets, 'Secrets', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->hostId) {
+            @$query['HostId'] = $request->hostId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->secretsShrink) {
+            @$query['Secrets'] = $request->secretsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportKMSSecretsForHost',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportKMSSecretsForHostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为当前主机导入 KMS 凭据.
+     *
+     * @param request - ImportKMSSecretsForHostRequest
+     *
+     * @returns ImportKMSSecretsForHostResponse
+     *
+     * @param ImportKMSSecretsForHostRequest $request
+     *
+     * @return ImportKMSSecretsForHostResponse
+     */
+    public function importKMSSecretsForHost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importKMSSecretsForHostWithOptions($request, $runtime);
     }
 
     /**
@@ -6360,7 +6440,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries accounts of a specified host.
+     * Queries a list of host accounts.
      *
      * @param request - ListHostAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6427,7 +6507,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries accounts of a specified host.
+     * Queries a list of host accounts.
      *
      * @param request - ListHostAccountsRequest
      *
@@ -6518,7 +6598,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the host accounts that the specified user is authorized to manage on the specified host.
+     * Queries the host accounts of a host and whether a user is authorized to manage each host account.
      *
      * @param request - ListHostAccountsForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6581,7 +6661,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the host accounts that the specified user is authorized to manage on the specified host.
+     * Queries the host accounts of a host and whether a user is authorized to manage each host account.
      *
      * @param request - ListHostAccountsForUserRequest
      *
@@ -6599,7 +6679,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the host accounts of the specified host that the specified user group is authorized to manage.
+     * Queries the host accounts of a host and whether a user group is authorized to manage each host account.
      *
      * @param request - ListHostAccountsForUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6662,7 +6742,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the host accounts of the specified host that the specified user group is authorized to manage.
+     * Queries the host accounts of a host and whether a user group is authorized to manage each host account.
      *
      * @param request - ListHostAccountsForUserGroupRequest
      *
@@ -7394,6 +7474,83 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listHostsForUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出指定主机所有可导入的 KMS 凭据.
+     *
+     * @param request - ListImportableKMSSecretsForHostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImportableKMSSecretsForHostResponse
+     *
+     * @param ListImportableKMSSecretsForHostRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListImportableKMSSecretsForHostResponse
+     */
+    public function listImportableKMSSecretsForHostWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hostId) {
+            @$query['HostId'] = $request->hostId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImportableKMSSecretsForHost',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImportableKMSSecretsForHostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出指定主机所有可导入的 KMS 凭据.
+     *
+     * @param request - ListImportableKMSSecretsForHostRequest
+     *
+     * @returns ListImportableKMSSecretsForHostResponse
+     *
+     * @param ListImportableKMSSecretsForHostRequest $request
+     *
+     * @return ListImportableKMSSecretsForHostResponse
+     */
+    public function listImportableKMSSecretsForHost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImportableKMSSecretsForHostWithOptions($request, $runtime);
     }
 
     /**
@@ -8187,7 +8344,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the tags bound to one or more Bastionhost instances.
+     * Queries the tags that are added for one or more bastion hosts.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8246,7 +8403,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the tags bound to one or more Bastionhost instances.
+     * Queries the tags that are added for one or more bastion hosts.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -9102,7 +9259,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Changes the portal type of one or more hosts for O\\&M.
+     * Changes the endpoint type of one or more hosts for O\\\\\\&M. Public and private IP addresses are supported.
      *
      * @param request - ModifyHostsActiveAddressTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9153,7 +9310,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Changes the portal type of one or more hosts for O\\&M.
+     * Changes the endpoint type of one or more hosts for O\\\\\\&M. Public and private IP addresses are supported.
      *
      * @param request - ModifyHostsActiveAddressTypeRequest
      *
@@ -9990,7 +10147,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modifies the information about the specified user group.
+     * Modifies the information about a user group.
      *
      * @param request - ModifyUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10045,7 +10202,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modifies the information about the specified user group.
+     * Modifies the information about a user group.
      *
      * @param request - ModifyUserGroupRequest
      *
@@ -10347,7 +10504,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If an O\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     * If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
      *
      * @remarks
      * You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
@@ -10398,7 +10555,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * If an O\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
+     * If an O\\\\\\&M engineer attempts to run a command specified in the Command Approval section of the Create Control Policy page, the administrator is notified to review the command in the Bastionhost console. The command can be run only after it is approved by the administrator.
      *
      * @remarks
      * You can call this operation as a Bastionhost administrator to reject the request to run a command of an O\\&M engineer.
@@ -10789,7 +10946,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Renews an O\\&M token for one hour.
+     * Renews an O\\\\\\&M token for one hour.
      *
      * @param request - RenewAssetOperationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10836,7 +10993,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Renews an O\\&M token for one hour.
+     * Renews an O\\\\\\&M token for one hour.
      *
      * @param request - RenewAssetOperationTokenRequest
      *
@@ -10998,7 +11155,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures the O&M approval setting in a control policy.
+     * Configures the O\\&M approval setting in a control policy.
      *
      * @param tmpReq - SetPolicyApprovalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11055,7 +11212,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures the O&M approval setting in a control policy.
+     * Configures the O\\&M approval setting in a control policy.
      *
      * @param request - SetPolicyApprovalConfigRequest
      *
@@ -11229,7 +11386,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures access control settings in a control policy.
+     * Specifies whether a source IP address can access the assets to which a control policy applies.
      *
      * @param tmpReq - SetPolicyIPAclConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11286,7 +11443,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Configures access control settings in a control policy.
+     * Specifies whether a source IP address can access the assets to which a control policy applies.
      *
      * @param request - SetPolicyIPAclConfigRequest
      *
@@ -11304,7 +11461,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modify the protocol control settings in a control policy.
+     * Configures the Remote Desktop Protocol (RDP) options, SSH options, and SSH Fine Transfer Protocol (SFTP) options for a control policy.
      *
      * @param tmpReq - SetPolicyProtocolConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11361,7 +11518,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Modify the protocol control settings in a control policy.
+     * Configures the Remote Desktop Protocol (RDP) options, SSH options, and SSH Fine Transfer Protocol (SFTP) options for a control policy.
      *
      * @param request - SetPolicyProtocolConfigRequest
      *
@@ -11456,7 +11613,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables the specified bastion host.
+     * Starts a bastion host.
      *
      * @param request - StartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11519,7 +11676,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Enables the specified bastion host.
+     * Starts a bastion host.
      *
      * @param request - StartInstanceRequest
      *
@@ -11754,7 +11911,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 验证实例AD服务配置.
+     * 验证实例AD服务配置。
      *
      * @param request - VerifyInstanceADAuthServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11833,7 +11990,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 验证实例AD服务配置.
+     * 验证实例AD服务配置。
      *
      * @param request - VerifyInstanceADAuthServerRequest
      *
@@ -11851,7 +12008,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 验证实例LDAP服务配置.
+     * 验证实例LDAP服务配置。
      *
      * @param request - VerifyInstanceLDAPAuthServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11926,7 +12083,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * 验证实例LDAP服务配置.
+     * 验证实例LDAP服务配置。
      *
      * @param request - VerifyInstanceLDAPAuthServerRequest
      *
