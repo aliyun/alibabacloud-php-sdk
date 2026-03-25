@@ -34,6 +34,11 @@ class dryRunInfo extends Model
     public $failureOperations;
 
     /**
+     * @var string
+     */
+    public $mcpToolsDefinition;
+
+    /**
      * @var successComponents[]
      */
     public $successComponents;
@@ -52,6 +57,7 @@ class dryRunInfo extends Model
         'existHttpApiInfo' => 'existHttpApiInfo',
         'failureComponents' => 'failureComponents',
         'failureOperations' => 'failureOperations',
+        'mcpToolsDefinition' => 'mcpToolsDefinition',
         'successComponents' => 'successComponents',
         'successOperations' => 'successOperations',
         'warningMessages' => 'warningMessages',
@@ -121,6 +127,10 @@ class dryRunInfo extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->mcpToolsDefinition) {
+            $res['mcpToolsDefinition'] = $this->mcpToolsDefinition;
         }
 
         if (null !== $this->successComponents) {
@@ -202,6 +212,10 @@ class dryRunInfo extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['mcpToolsDefinition'])) {
+            $model->mcpToolsDefinition = $map['mcpToolsDefinition'];
         }
 
         if (isset($map['successComponents'])) {

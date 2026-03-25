@@ -1678,7 +1678,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建密钥.
+     * Generates a key.
      *
      * @param request - CreateSecretRequest
      * @param headers - map
@@ -1740,7 +1740,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 创建密钥.
+     * Generates a key.
      *
      * @param request - CreateSecretRequest
      *
@@ -2676,7 +2676,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除密钥.
+     * Deletes a key value.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2710,7 +2710,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 删除密钥.
+     * Deletes a key value.
      *
      * @returns DeleteSecretResponse
      *
@@ -3874,7 +3874,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥.
+     * Obtains the key.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3908,7 +3911,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥.
+     * Obtains the key.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @returns GetSecretResponse
      *
@@ -3925,7 +3931,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥值
+     * Gets the key value.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3959,7 +3965,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥值
+     * Gets the key value.
      *
      * @returns GetSecretValueResponse
      *
@@ -4315,7 +4321,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者授权规则列表.
+     * Obtains a list of consumer authentication rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -4366,7 +4372,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询消费者授权规则列表.
+     * Obtains a list of consumer authentication rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      *
@@ -5315,7 +5321,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPluginClasses.
+     * Obtains a plugin.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param request - ListPluginClassesRequest
      * @param headers - map
@@ -5397,7 +5406,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListPluginClasses.
+     * Obtains a plugin.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param request - ListPluginClassesRequest
      *
@@ -5679,7 +5691,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥的引用详情.
+     * Lists key references.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param request - ListSecretReferencesRequest
      * @param headers - map
@@ -5726,7 +5741,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥的引用详情.
+     * Lists key references.
+     *
+     * @remarks
+     * You can call this operation to create multiple services at a time.
      *
      * @param request - ListSecretReferencesRequest
      *
@@ -7554,7 +7572,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者.
+     * Updates the key.
+     *
+     * @remarks
+     * You can only update the listening Ingress configuration for sources of the **ACK** type.
      *
      * @param request - UpdateSecretRequest
      * @param headers - map
@@ -7597,7 +7618,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 更新消费者.
+     * Updates the key.
+     *
+     * @remarks
+     * You can only update the listening Ingress configuration for sources of the **ACK** type.
      *
      * @param request - UpdateSecretRequest
      *
