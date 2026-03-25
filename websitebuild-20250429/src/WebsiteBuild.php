@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DispatchConsoleAPIForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\EditPluginConfigRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\EditPluginConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
@@ -1227,6 +1229,79 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dispatchConsoleAPIForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑插件配置.
+     *
+     * @param request - EditPluginConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditPluginConfigResponse
+     *
+     * @param EditPluginConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EditPluginConfigResponse
+     */
+    public function editPluginConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->pluginConfig) {
+            @$query['PluginConfig'] = $request->pluginConfig;
+        }
+
+        if (null !== $request->pluginDesc) {
+            @$query['PluginDesc'] = $request->pluginDesc;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginName) {
+            @$query['PluginName'] = $request->pluginName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EditPluginConfig',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EditPluginConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑插件配置.
+     *
+     * @param request - EditPluginConfigRequest
+     *
+     * @returns EditPluginConfigResponse
+     *
+     * @param EditPluginConfigRequest $request
+     *
+     * @return EditPluginConfigResponse
+     */
+    public function editPluginConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->editPluginConfigWithOptions($request, $runtime);
     }
 
     /**
