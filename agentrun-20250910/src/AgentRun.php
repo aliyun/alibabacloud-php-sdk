@@ -3536,6 +3536,10 @@ class AgentRun extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->sandboxId) {
+            @$query['sandboxId'] = $request->sandboxId;
+        }
+
         if (null !== $request->status) {
             @$query['status'] = $request->status;
         }

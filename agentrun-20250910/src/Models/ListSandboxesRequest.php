@@ -21,6 +21,11 @@ class ListSandboxesRequest extends Model
     /**
      * @var string
      */
+    public $sandboxId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -35,6 +40,7 @@ class ListSandboxesRequest extends Model
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'sandboxId' => 'sandboxId',
         'status' => 'status',
         'templateName' => 'templateName',
         'templateType' => 'templateType',
@@ -54,6 +60,10 @@ class ListSandboxesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->sandboxId) {
+            $res['sandboxId'] = $this->sandboxId;
         }
 
         if (null !== $this->status) {
@@ -85,6 +95,10 @@ class ListSandboxesRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['sandboxId'])) {
+            $model->sandboxId = $map['sandboxId'];
         }
 
         if (isset($map['status'])) {
