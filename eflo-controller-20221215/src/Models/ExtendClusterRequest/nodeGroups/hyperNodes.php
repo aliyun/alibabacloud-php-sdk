@@ -32,6 +32,11 @@ class hyperNodes extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -43,6 +48,7 @@ class hyperNodes extends Model
         'hostname' => 'Hostname',
         'hyperNodeId' => 'HyperNodeId',
         'loginPassword' => 'LoginPassword',
+        'securityGroupId' => 'SecurityGroupId',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
     ];
@@ -79,6 +85,10 @@ class hyperNodes extends Model
 
         if (null !== $this->loginPassword) {
             $res['LoginPassword'] = $this->loginPassword;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->vSwitchId) {
@@ -121,6 +131,10 @@ class hyperNodes extends Model
 
         if (isset($map['LoginPassword'])) {
             $model->loginPassword = $map['LoginPassword'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['VSwitchId'])) {

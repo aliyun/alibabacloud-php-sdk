@@ -21,7 +21,17 @@ class networks extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $subnetId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
 
     /**
      * @var string
@@ -30,7 +40,9 @@ class networks extends Model
     protected $_name = [
         'bondName' => 'BondName',
         'ip' => 'Ip',
+        'securityGroupId' => 'SecurityGroupId',
         'subnetId' => 'SubnetId',
+        'vSwitchId' => 'VSwitchId',
         'vpdId' => 'VpdId',
     ];
 
@@ -50,8 +62,16 @@ class networks extends Model
             $res['Ip'] = $this->ip;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
         if (null !== $this->subnetId) {
             $res['SubnetId'] = $this->subnetId;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         if (null !== $this->vpdId) {
@@ -77,8 +97,16 @@ class networks extends Model
             $model->ip = $map['Ip'];
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         if (isset($map['VpdId'])) {

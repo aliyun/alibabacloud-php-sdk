@@ -176,7 +176,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Approves an O\\&M operation.
+     * Approves an O\\\\\\&M operation.
      *
      * @param request - ApproveOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -219,7 +219,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Approves an O\\&M operation.
+     * Approves an O\\\\\\&M operation.
      *
      * @param request - ApproveOperationRequest
      *
@@ -1208,7 +1208,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除节点分组.
+     * Delete Node Group.
      *
      * @param request - DeleteNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1251,7 +1251,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除节点分组.
+     * Delete Node Group.
      *
      * @param request - DeleteNodeGroupRequest
      *
@@ -1509,7 +1509,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the execution list and status of O\\&M Assistant commands.
+     * Queries the execution list and status of O\\\\\\&M Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1560,7 +1560,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the execution list and status of O\\&M Assistant commands.
+     * Queries the execution list and status of O\\\\\\&M Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
      *
@@ -1749,7 +1749,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 创建Web Terminal会话.
+     * 查询节点规格详情.
      *
      * @param request - DescribeNodeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1788,7 +1788,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 创建Web Terminal会话.
+     * 查询节点规格详情.
      *
      * @param request - DescribeNodeTypeRequest
      *
@@ -1863,7 +1863,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the files that are sent by an O\\&M assistant and the status of the files.
+     * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
      *
      * @param request - DescribeSendFileResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1906,7 +1906,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the files that are sent by an O\\&M assistant and the status of the files.
+     * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
      *
      * @param request - DescribeSendFileResultsRequest
      *
@@ -3907,7 +3907,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Stops the O\\&M assistant command execution.
+     * Stops the O\\\\\\&M assistant command execution.
      *
      * @param tmpReq - StopInvocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3956,7 +3956,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Stops the O\\&M assistant command execution.
+     * Stops the O\\\\\\&M assistant command execution.
      *
      * @param request - StopInvocationRequest
      *

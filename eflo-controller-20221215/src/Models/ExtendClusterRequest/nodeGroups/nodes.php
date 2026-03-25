@@ -32,6 +32,11 @@ class nodes extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -43,6 +48,7 @@ class nodes extends Model
         'hostname' => 'Hostname',
         'loginPassword' => 'LoginPassword',
         'nodeId' => 'NodeId',
+        'securityGroupId' => 'SecurityGroupId',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
     ];
@@ -79,6 +85,10 @@ class nodes extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->vSwitchId) {
@@ -121,6 +131,10 @@ class nodes extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['VSwitchId'])) {
