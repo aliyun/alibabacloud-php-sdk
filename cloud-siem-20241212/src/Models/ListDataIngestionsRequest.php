@@ -29,6 +29,11 @@ class ListDataIngestionsRequest extends Model
     public $lang;
 
     /**
+     * @var string[]
+     */
+    public $normalizationSchemaIds;
+
+    /**
      * @var string
      */
     public $productId;
@@ -47,6 +52,7 @@ class ListDataIngestionsRequest extends Model
         'dataIngestionStatus' => 'DataIngestionStatus',
         'dataIngestionTemplateIds' => 'DataIngestionTemplateIds',
         'lang' => 'Lang',
+        'normalizationSchemaIds' => 'NormalizationSchemaIds',
         'productId' => 'ProductId',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
@@ -59,6 +65,9 @@ class ListDataIngestionsRequest extends Model
         }
         if (\is_array($this->dataIngestionTemplateIds)) {
             Model::validateArray($this->dataIngestionTemplateIds);
+        }
+        if (\is_array($this->normalizationSchemaIds)) {
+            Model::validateArray($this->normalizationSchemaIds);
         }
         parent::validate();
     }
@@ -94,6 +103,17 @@ class ListDataIngestionsRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->normalizationSchemaIds) {
+            if (\is_array($this->normalizationSchemaIds)) {
+                $res['NormalizationSchemaIds'] = [];
+                $n1 = 0;
+                foreach ($this->normalizationSchemaIds as $item1) {
+                    $res['NormalizationSchemaIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->productId) {
@@ -147,6 +167,17 @@ class ListDataIngestionsRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['NormalizationSchemaIds'])) {
+            if (!empty($map['NormalizationSchemaIds'])) {
+                $model->normalizationSchemaIds = [];
+                $n1 = 0;
+                foreach ($map['NormalizationSchemaIds'] as $item1) {
+                    $model->normalizationSchemaIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ProductId'])) {

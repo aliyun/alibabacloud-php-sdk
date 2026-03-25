@@ -3148,6 +3148,10 @@ class Cloudsiem extends OpenApiClient
             $request->dataIngestionTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataIngestionTemplateIds, 'DataIngestionTemplateIds', 'simple');
         }
 
+        if (null !== $tmpReq->normalizationSchemaIds) {
+            $request->normalizationSchemaIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->normalizationSchemaIds, 'NormalizationSchemaIds', 'simple');
+        }
+
         $body = [];
         if (null !== $request->dataIngestionIdsShrink) {
             @$body['DataIngestionIds'] = $request->dataIngestionIdsShrink;
@@ -3163,6 +3167,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->lang) {
             @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->normalizationSchemaIdsShrink) {
+            @$body['NormalizationSchemaIds'] = $request->normalizationSchemaIdsShrink;
         }
 
         if (null !== $request->productId) {

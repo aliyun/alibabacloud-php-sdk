@@ -31,6 +31,11 @@ class ListDataIngestionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $normalizationSchemaIdsShrink;
+
+    /**
+     * @var string
+     */
     public $productId;
 
     /**
@@ -47,6 +52,7 @@ class ListDataIngestionsShrinkRequest extends Model
         'dataIngestionStatus' => 'DataIngestionStatus',
         'dataIngestionTemplateIdsShrink' => 'DataIngestionTemplateIds',
         'lang' => 'Lang',
+        'normalizationSchemaIdsShrink' => 'NormalizationSchemaIds',
         'productId' => 'ProductId',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
@@ -74,6 +80,10 @@ class ListDataIngestionsShrinkRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->normalizationSchemaIdsShrink) {
+            $res['NormalizationSchemaIds'] = $this->normalizationSchemaIdsShrink;
         }
 
         if (null !== $this->productId) {
@@ -113,6 +123,10 @@ class ListDataIngestionsShrinkRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['NormalizationSchemaIds'])) {
+            $model->normalizationSchemaIdsShrink = $map['NormalizationSchemaIds'];
         }
 
         if (isset($map['ProductId'])) {
