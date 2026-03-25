@@ -5657,6 +5657,10 @@ class Cloudfw extends OpenApiClient
             @$query['GroupType'] = $request->groupType;
         }
 
+        if (null !== $request->groupUuid) {
+            @$query['GroupUuid'] = $request->groupUuid;
+        }
+
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
         }

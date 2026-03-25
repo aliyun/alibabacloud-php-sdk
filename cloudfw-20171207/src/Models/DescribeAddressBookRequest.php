@@ -26,6 +26,11 @@ class DescribeAddressBookRequest extends Model
     /**
      * @var string
      */
+    public $groupUuid;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -41,6 +46,7 @@ class DescribeAddressBookRequest extends Model
         'containPort' => 'ContainPort',
         'currentPage' => 'CurrentPage',
         'groupType' => 'GroupType',
+        'groupUuid' => 'GroupUuid',
         'lang' => 'Lang',
         'pageSize' => 'PageSize',
         'query' => 'Query',
@@ -64,6 +70,10 @@ class DescribeAddressBookRequest extends Model
 
         if (null !== $this->groupType) {
             $res['GroupType'] = $this->groupType;
+        }
+
+        if (null !== $this->groupUuid) {
+            $res['GroupUuid'] = $this->groupUuid;
         }
 
         if (null !== $this->lang) {
@@ -99,6 +109,10 @@ class DescribeAddressBookRequest extends Model
 
         if (isset($map['GroupType'])) {
             $model->groupType = $map['GroupType'];
+        }
+
+        if (isset($map['GroupUuid'])) {
+            $model->groupUuid = $map['GroupUuid'];
         }
 
         if (isset($map['Lang'])) {
