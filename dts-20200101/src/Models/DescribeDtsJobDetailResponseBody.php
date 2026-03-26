@@ -24,6 +24,16 @@ class DescribeDtsJobDetailResponseBody extends Model
     public $appName;
 
     /**
+     * @var int
+     */
+    public $approvalProcessStatus;
+
+    /**
+     * @var string
+     */
+    public $approvalProcessUrl;
+
+    /**
      * @var string
      */
     public $beginTimestamp;
@@ -314,6 +324,8 @@ class DescribeDtsJobDetailResponseBody extends Model
     public $taskType;
     protected $_name = [
         'appName' => 'AppName',
+        'approvalProcessStatus' => 'ApprovalProcessStatus',
+        'approvalProcessUrl' => 'ApprovalProcessUrl',
         'beginTimestamp' => 'BeginTimestamp',
         'binlog' => 'Binlog',
         'binlogSite' => 'BinlogSite',
@@ -414,6 +426,14 @@ class DescribeDtsJobDetailResponseBody extends Model
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->approvalProcessStatus) {
+            $res['ApprovalProcessStatus'] = $this->approvalProcessStatus;
+        }
+
+        if (null !== $this->approvalProcessUrl) {
+            $res['ApprovalProcessUrl'] = $this->approvalProcessUrl;
         }
 
         if (null !== $this->beginTimestamp) {
@@ -675,6 +695,14 @@ class DescribeDtsJobDetailResponseBody extends Model
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['ApprovalProcessStatus'])) {
+            $model->approvalProcessStatus = $map['ApprovalProcessStatus'];
+        }
+
+        if (isset($map['ApprovalProcessUrl'])) {
+            $model->approvalProcessUrl = $map['ApprovalProcessUrl'];
         }
 
         if (isset($map['BeginTimestamp'])) {

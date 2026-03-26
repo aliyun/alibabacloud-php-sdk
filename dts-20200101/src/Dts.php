@@ -2227,7 +2227,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看工作流任务结果.
+     * Creates a document parsing task.
      *
      * @param Request - CreateDocParserJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2286,7 +2286,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看工作流任务结果.
+     * Creates a document parsing task.
      *
      * @param Request - CreateDocParserJobRequest
      *
@@ -3626,7 +3626,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 请求所有数据校验任务数据.
+     * Verifies data migration tasks and data synchronization tasks.
      *
      * @param Request - DescribeCheckJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3689,7 +3689,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 请求所有数据校验任务数据.
+     * Verifies data migration tasks and data synchronization tasks.
      *
      * @param Request - DescribeCheckJobsRequest
      *
@@ -4654,7 +4654,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看工作流任务结果.
+     * Retrieves the result of a document parsing task.
      *
      * @param Request - DescribeDocParserJobResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4705,7 +4705,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看工作流任务结果.
+     * Retrieves the result of a document parsing task.
      *
      * @param Request - DescribeDocParserJobResultRequest
      *
@@ -4723,7 +4723,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看工作流任务结果.
+     * Queries the execution status of a document parsing task.
      *
      * @param Request - DescribeDocParserJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4774,7 +4774,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看工作流任务结果.
+     * Queries the execution status of a document parsing task.
      *
      * @param Request - DescribeDocParserJobStatusRequest
      *
@@ -4946,8 +4946,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The latency of incremental data migration or synchronization.
-     * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+     * The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
      *
      * @param Request - DescribeDtsJobDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5010,8 +5009,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The latency of incremental data migration or synchronization.
-     * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+     * The latency of incremental data migration or synchronization. \\\\\\\\\\\\\\\\> If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
      *
      * @param Request - DescribeDtsJobDetailRequest
      *
@@ -5494,7 +5492,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询GAD实例列表.
+     * Queries the GAD instances.
      *
      * @param Request - DescribeGadInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5565,7 +5563,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询GAD实例列表.
+     * Queries the GAD instances.
      *
      * @param Request - DescribeGadInstancesRequest
      *
@@ -6160,7 +6158,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询预检查创建GAD订单任务结果.
+     * Queries the result of a precheck task before a GAD instance is created.
      *
      * @param Request - DescribePreCheckCreateGadOrderResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6215,7 +6213,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询预检查创建GAD订单任务结果.
+     * Queries the result of a precheck task before a GAD instance is created.
      *
      * @param Request - DescribePreCheckCreateGadOrderResultRequest
      *
@@ -7385,7 +7383,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 移除从角色.
+     * Removes a secondary instance.
      *
      * @param Request - DetachGadInstanceDbMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7440,7 +7438,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 移除从角色.
+     * Removes a secondary instance.
      *
      * @param Request - DetachGadInstanceDbMemberRequest
      *
@@ -8970,7 +8968,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 修改GAD实例名称.
+     * Modifies the name of a GAD instance.
      *
      * @param Request - ModifyGadInstanceNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9025,7 +9023,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 修改GAD实例名称.
+     * Modifies the name of a GAD instance.
      *
      * @param Request - ModifyGadInstanceNameRequest
      *
@@ -9371,7 +9369,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 预检查创建GAD订单.
+     * Prechecks before a GAD instance is created.
      *
      * @param Request - PreCheckCreateGadOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9454,7 +9452,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 预检查创建GAD订单.
+     * Prechecks before a GAD instance is created.
      *
      * @param Request - PreCheckCreateGadOrderRequest
      *
@@ -9780,7 +9778,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 调转双向任务的方向.
+     * Reverse the direction of a two-way synchronization task.
      *
      * @param Request - ReverseTwoWayDirectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9831,7 +9829,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 调转双向任务的方向.
+     * Reverse the direction of a two-way synchronization task.
      *
      * @param Request - ReverseTwoWayDirectionRequest
      *
@@ -11213,7 +11211,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 物理迁移任务切换上云.
+     * Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway.
      *
      * @param Request - SwitchPhysicalDtsJobToCloudRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11268,7 +11266,7 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 物理迁移任务切换上云.
+     * Migrates Microsoft SQL Server (MSSQL) to the cloud by using a physical gateway.
      *
      * @param Request - SwitchPhysicalDtsJobToCloudRequest
      *
@@ -11804,8 +11802,8 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
-     * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     * If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+     * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o.
      *
      * @remarks
      * The operation that you want to perform. Set the value to **WhiteIpList**.
@@ -11907,8 +11905,8 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
-     * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     * If the \\\\\\\\*\\\\\\\\*source or destination instance\\\\\\\\*\\\\\\\\* is a \\\\\\\\*\\\\\\\\*self-managed database\\\\\\\\*\\\\\\\\* or a \\\\\\\\*\\\\\\\\*third-party cloud database\\\\\\\\*\\\\\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\\\\\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\\\(~~176627~~).
+     * \\\\\\>  If the \\\\\\\\*\\\\\\\\*source or destination database\\\\\\\\*\\\\\\\\* is an \\\\\\\\*\\\\\\\\*ApsaraDB database instance\\\\\\\\*\\\\\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\\\\\*\\\\\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\\\\\*\\\\\\\\*, you do not need to add the CIDR blocks. When you click \\\\\\\\*\\\\\\\\*Set Whitelist and Next\\\\\\\\*\\\\\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source o.
      *
      * @remarks
      * The operation that you want to perform. Set the value to **WhiteIpList**.
