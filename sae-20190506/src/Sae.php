@@ -140,6 +140,8 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSwimmingLaneResponse;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeVSwitchesRequest;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResourceStaticsRequest;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeWebApplicationResourceStaticsResponse;
@@ -5845,6 +5847,71 @@ class Sae extends OpenApiClient
         $headers = [];
 
         return $this->describeSwimmingLaneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param request - DescribeVSwitchesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVSwitchesResponse
+     *
+     * @param DescribeVSwitchesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitchesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vSwitchName) {
+            @$query['VSwitchName'] = $request->vSwitchName;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVSwitches',
+            'version' => '2019-05-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/v1/sam/vpc/vSwitchs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeVSwitchesRequest
+     *
+     * @returns DescribeVSwitchesResponse
+     *
+     * @param DescribeVSwitchesRequest $request
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeVSwitchesWithOptions($request, $headers, $runtime);
     }
 
     /**
