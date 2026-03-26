@@ -39,6 +39,11 @@ class DIJobs extends Model
     public $migrationType;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -54,6 +59,7 @@ class DIJobs extends Model
         'jobName' => 'JobName',
         'jobStatus' => 'JobStatus',
         'migrationType' => 'MigrationType',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'sourceDataSourceType' => 'SourceDataSourceType',
     ];
@@ -88,6 +94,10 @@ class DIJobs extends Model
 
         if (null !== $this->migrationType) {
             $res['MigrationType'] = $this->migrationType;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->projectId) {
@@ -131,6 +141,10 @@ class DIJobs extends Model
 
         if (isset($map['MigrationType'])) {
             $model->migrationType = $map['MigrationType'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ProjectId'])) {

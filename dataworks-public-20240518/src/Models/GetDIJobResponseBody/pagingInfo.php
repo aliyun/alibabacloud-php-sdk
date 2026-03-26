@@ -65,6 +65,11 @@ class pagingInfo extends Model
     public $migrationType;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -104,6 +109,7 @@ class pagingInfo extends Model
         'jobStatus' => 'JobStatus',
         'jobType' => 'JobType',
         'migrationType' => 'MigrationType',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'resourceSettings' => 'ResourceSettings',
         'sourceDataSourceSettings' => 'SourceDataSourceSettings',
@@ -183,6 +189,10 @@ class pagingInfo extends Model
 
         if (null !== $this->migrationType) {
             $res['MigrationType'] = $this->migrationType;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->projectId) {
@@ -286,6 +296,10 @@ class pagingInfo extends Model
 
         if (isset($map['MigrationType'])) {
             $model->migrationType = $map['MigrationType'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ProjectId'])) {

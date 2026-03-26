@@ -33,6 +33,11 @@ class UpdateDIJobRequest extends Model
     public $jobSettings;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -56,6 +61,7 @@ class UpdateDIJobRequest extends Model
         'description' => 'Description',
         'id' => 'Id',
         'jobSettings' => 'JobSettings',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'resourceSettings' => 'ResourceSettings',
         'tableMappings' => 'TableMappings',
@@ -96,6 +102,10 @@ class UpdateDIJobRequest extends Model
 
         if (null !== $this->jobSettings) {
             $res['JobSettings'] = null !== $this->jobSettings ? $this->jobSettings->toArray($noStream) : $this->jobSettings;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->projectId) {
@@ -153,6 +163,10 @@ class UpdateDIJobRequest extends Model
 
         if (isset($map['JobSettings'])) {
             $model->jobSettings = jobSettings::fromMap($map['JobSettings']);
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ProjectId'])) {

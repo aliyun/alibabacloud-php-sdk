@@ -55,6 +55,11 @@ class CreateDIJobRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -92,6 +97,7 @@ class CreateDIJobRequest extends Model
         'jobType' => 'JobType',
         'migrationType' => 'MigrationType',
         'name' => 'Name',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'resourceSettings' => 'ResourceSettings',
         'sourceDataSourceSettings' => 'SourceDataSourceSettings',
@@ -163,6 +169,10 @@ class CreateDIJobRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->projectId) {
@@ -258,6 +268,10 @@ class CreateDIJobRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ProjectId'])) {

@@ -49,6 +49,11 @@ class CreateDIJobShrinkRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -86,6 +91,7 @@ class CreateDIJobShrinkRequest extends Model
         'jobType' => 'JobType',
         'migrationType' => 'MigrationType',
         'name' => 'Name',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'resourceSettingsShrink' => 'ResourceSettings',
         'sourceDataSourceSettingsShrink' => 'SourceDataSourceSettings',
@@ -132,6 +138,10 @@ class CreateDIJobShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->projectId) {
@@ -199,6 +209,10 @@ class CreateDIJobShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ProjectId'])) {

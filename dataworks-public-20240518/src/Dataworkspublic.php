@@ -875,7 +875,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 从集合中移除实体对象
+     * Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - AddEntityIntoMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -922,7 +922,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 从集合中移除实体对象
+     * Adds an entity to a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to add an entity to a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - AddEntityIntoMetaCollectionRequest
      *
@@ -1013,6 +1013,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Associates monitoring rules with a data quality monitoring task.
      *
+     * @deprecated openAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
+     *
      * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1063,8 +1065,11 @@ class Dataworkspublic extends OpenApiClient
         return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Associates monitoring rules with a data quality monitoring task.
+     *
+     * @deprecated openAPI AttachDataQualityRulesToEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - AttachDataQualityRulesToEvaluationTaskRequest
      *
@@ -1309,6 +1314,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a workflow in DataStudio.
+     *
      * @param Request - CreateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1366,6 +1373,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a workflow in DataStudio.
+     *
      * @param Request - CreateBusinessRequest
      *
      * @returns CreateBusinessResponse
@@ -1447,7 +1456,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
      *
      * @param Request - CreateComputeResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1506,7 +1515,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Creates a computing resource in the specified workspace. The resource can be for a development environment or a production environment.
      *
      * @param Request - CreateComputeResourceRequest
      *
@@ -1651,6 +1660,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
 
         if (null !== $request->projectId) {
@@ -1911,6 +1924,8 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This API operation is supported in all DataWorks editions.
      *
+     * @deprecated openAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
+     *
      * @param tmpReq - CreateDataQualityEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2005,11 +2020,14 @@ class Dataworkspublic extends OpenApiClient
         return CreateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a monitor in DataWorks Data Quality.
      *
      * @remarks
      * This API operation is supported in all DataWorks editions.
+     *
+     * @deprecated openAPI CreateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param Request - CreateDataQualityEvaluationTaskRequest
      *
@@ -2028,6 +2046,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Creates a monitor instance.
+     *
+     * @deprecated openAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead
      *
      * @param tmpReq - CreateDataQualityEvaluationTaskInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,8 +2103,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a monitor instance.
+     *
+     * @deprecated openAPI CreateDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScanRun instead
      *
      * @param Request - CreateDataQualityEvaluationTaskInstanceRequest
      *
@@ -2103,6 +2126,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Creates a data quality monitoring rule.
+     *
+     * @deprecated openAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param tmpReq - CreateDataQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2194,8 +2219,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a data quality monitoring rule.
+     *
+     * @deprecated openAPI CreateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param Request - CreateDataQualityRuleRequest
      *
@@ -2214,6 +2242,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Creates a data quality monitoring rule template.
+     *
+     * @deprecated openAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead
      *
      * @param tmpReq - CreateDataQualityRuleTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2281,8 +2311,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a data quality monitoring rule template.
+     *
+     * @deprecated openAPI CreateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityTemplate instead
      *
      * @param Request - CreateDataQualityRuleTemplateRequest
      *
@@ -2913,6 +2946,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+     *
      * @param Request - CreateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3082,6 +3117,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+     *
      * @param Request - CreateFileRequest
      *
      * @returns CreateFileResponse
@@ -3098,6 +3135,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a folder.
+     *
      * @param Request - CreateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3143,6 +3182,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a folder.
+     *
      * @param Request - CreateFolderRequest
      *
      * @returns CreateFolderResponse
@@ -3295,7 +3336,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+     * Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
      *
      * @param tmpReq - CreateLineageRelationshipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3356,7 +3397,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
+     * Registers lineage relationships in Data Map. At least one end of the relationship must be a custom object. This interface allows you to connect custom objects (such as external reports or third-party system tables) with metadata entities managed by DataWorks.
      *
      * @param Request - CreateLineageRelationshipRequest
      *
@@ -3844,7 +3885,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+     * \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
      *
      * @remarks
      * Private
@@ -3894,7 +3935,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+     * \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
      *
      * @remarks
      * Private
@@ -4386,6 +4427,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a file for a function in DataStudio.
+     *
      * @param Request - CreateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4471,6 +4514,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a file for a function in DataStudio.
+     *
      * @param Request - CreateUdfFileRequest
      *
      * @returns CreateUdfFileResponse
@@ -4730,6 +4775,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a workflow.
+     *
      * @param Request - DeleteBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4775,6 +4822,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a workflow.
+     *
      * @param Request - DeleteBusinessRequest
      *
      * @returns DeleteBusinessResponse
@@ -4927,7 +4976,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Deletes the specified computing resource based on the computing resource ID.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -4975,7 +5024,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Deletes the specified computing resource based on the computing resource ID.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -5248,6 +5297,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a data quality monitoring task.
      *
+     * @deprecated openAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead
+     *
      * @param Request - DeleteDataQualityEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5288,8 +5339,11 @@ class Dataworkspublic extends OpenApiClient
         return DeleteDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Deletes a data quality monitoring task.
+     *
+     * @deprecated openAPI DeleteDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead
      *
      * @param Request - DeleteDataQualityEvaluationTaskRequest
      *
@@ -5370,6 +5424,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a data quality monitoring rule template.
      *
+     * @deprecated openAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead
+     *
      * @param Request - DeleteDataQualityRuleTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5410,8 +5466,11 @@ class Dataworkspublic extends OpenApiClient
         return DeleteDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Deletes a data quality monitoring rule template.
+     *
+     * @deprecated openAPI DeleteDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityTemplate instead
      *
      * @param Request - DeleteDataQualityRuleTemplateRequest
      *
@@ -5809,6 +5868,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+     *
      * @param Request - DeleteFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5854,6 +5915,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+     *
      * @param Request - DeleteFileRequest
      *
      * @returns DeleteFileResponse
@@ -5998,7 +6061,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除血缘关系.
+     * Deletes a lineage in Data Map.
      *
      * @param Request - DeleteLineageRelationshipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6037,7 +6100,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除血缘关系.
+     * Deletes a lineage in Data Map.
      *
      * @param Request - DeleteLineageRelationshipRequest
      *
@@ -6055,7 +6118,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除集合.
+     * Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - DeleteMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6094,7 +6157,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除集合.
+     * Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - DeleteMetaCollectionRequest
      *
@@ -6845,6 +6908,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Disassociates monitoring rules from a data quality monitoring task.
      *
+     * @deprecated openAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
+     *
      * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6895,8 +6960,11 @@ class Dataworkspublic extends OpenApiClient
         return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Disassociates monitoring rules from a data quality monitoring task.
+     *
+     * @deprecated openAPI DetachDataQualityRulesFromEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - DetachDataQualityRulesFromEvaluationTaskRequest
      *
@@ -6985,6 +7053,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+     *
      * @param Request - EstablishRelationTableToBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7038,6 +7108,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+     *
      * @param Request - EstablishRelationTableToBusinessRequest
      *
      * @returns EstablishRelationTableToBusinessResponse
@@ -7271,6 +7343,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a workflow.
+     *
      * @param Request - GetBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7316,6 +7390,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a workflow.
+     *
      * @param Request - GetBusinessRequest
      *
      * @returns GetBusinessResponse
@@ -7332,7 +7408,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据目录详情.
+     * Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
      *
      * @param Request - GetCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7367,7 +7443,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据目录详情.
+     * Queries the information about a catalog in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawlers are supported.
      *
      * @param Request - GetCatalogRequest
      *
@@ -7385,7 +7461,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a certificate file.
+     * View certificate details.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -7424,7 +7500,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a certificate file.
+     * View certificate details.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -7446,7 +7522,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取字段详情.
+     * Queries the information about a specific field of a table in Data Map.
      *
      * @param Request - GetColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7481,7 +7557,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取字段详情.
+     * Queries the information about a specific field of a table in Data Map.
      *
      * @param Request - GetColumnRequest
      *
@@ -7566,7 +7642,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Queries the specified computing resource based on the computing resource ID.
      *
      * @param Request - GetComputeResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7609,7 +7685,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Queries the specified computing resource based on the computing resource ID.
      *
      * @param Request - GetComputeResourceRequest
      *
@@ -7869,6 +7945,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the details of a monitor.
      *
+     * @deprecated openAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
+     *
      * @param Request - GetDataQualityEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7901,8 +7979,11 @@ class Dataworkspublic extends OpenApiClient
         return GetDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the details of a monitor.
+     *
+     * @deprecated openAPI GetDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param Request - GetDataQualityEvaluationTaskRequest
      *
@@ -7921,6 +8002,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Queries the details of a monitor instance.
+     *
+     * @deprecated openAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead
      *
      * @param Request - GetDataQualityEvaluationTaskInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7954,8 +8037,11 @@ class Dataworkspublic extends OpenApiClient
         return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the details of a monitor instance.
+     *
+     * @deprecated openAPI GetDataQualityEvaluationTaskInstance is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScanRun instead
      *
      * @param Request - GetDataQualityEvaluationTaskInstanceRequest
      *
@@ -7977,6 +8063,8 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
      * @param Request - GetDataQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8010,11 +8098,14 @@ class Dataworkspublic extends OpenApiClient
         return GetDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the information about a data quality monitoring rule.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI GetDataQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
      * @param Request - GetDataQualityRuleRequest
      *
@@ -8036,6 +8127,8 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead
      *
      * @param Request - GetDataQualityRuleTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8069,11 +8162,14 @@ class Dataworkspublic extends OpenApiClient
         return GetDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the information about a data quality monitoring rule template.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI GetDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::GetDataQualityTemplate instead
      *
      * @param Request - GetDataQualityRuleTemplateRequest
      *
@@ -8410,7 +8506,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据库详情.
+     * Queries the information about a specific database in Data Map.
      *
      * @param Request - GetDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8445,7 +8541,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据库详情.
+     * Queries the information about a specific database in Data Map.
      *
      * @param Request - GetDatabaseRequest
      *
@@ -8463,7 +8559,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集详情.
+     * Gets the details of a dataset.
      *
      * @param Request - GetDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8502,7 +8598,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取数据集详情.
+     * Gets the details of a dataset.
      *
      * @param Request - GetDatasetRequest
      *
@@ -8577,6 +8673,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a deployment package.
+     *
      * @param Request - GetDeploymentPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8622,6 +8720,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a deployment package.
+     *
      * @param Request - GetDeploymentPackageRequest
      *
      * @returns GetDeploymentPackageResponse
@@ -8776,6 +8876,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a folder.
+     *
      * @param Request - GetFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8825,6 +8927,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a folder.
+     *
      * @param Request - GetFolderRequest
      *
      * @returns GetFolderResponse
@@ -9008,7 +9112,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取血缘关系详情.
+     * Queries the information about a lineage in Data Map.
      *
      * @param Request - GetLineageRelationshipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9043,7 +9147,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取血缘关系详情.
+     * Queries the information about a lineage in Data Map.
      *
      * @param Request - GetLineageRelationshipRequest
      *
@@ -9822,7 +9926,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取表详情.
+     * Queries the information about a specific table in Data Map.
      *
      * @param Request - GetTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9857,7 +9961,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取表详情.
+     * Queries the information about a specific table in Data Map.
      *
      * @param Request - GetTableRequest
      *
@@ -10617,6 +10721,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of workflows.
+     *
      * @param Request - ListBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10670,6 +10776,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of workflows.
+     *
      * @param Request - ListBusinessRequest
      *
      * @returns ListBusinessResponse
@@ -10686,7 +10794,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据目录列表.
+     * Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
      *
      * @param tmpReq - ListCatalogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10727,7 +10835,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据目录列表.
+     * Queries a list of catalogs in Data Map. Only catalogs of the Data Lake Formation (DLF) and StarRocks metadata crawler types are supported. For the DLF metadata crawler type, all supported data catalogs are returned. For the StarRocks metadata crawler type, data catalogs in a specific instance are returned.
      *
      * @param Request - ListCatalogsRequest
      *
@@ -10806,7 +10914,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询字段列表.
+     * Queries a list of fields in a data table in Data Map.
      *
      * @param Request - ListColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10841,7 +10949,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询字段列表.
+     * Queries a list of fields in a data table in Data Map.
      *
      * @param Request - ListColumnsRequest
      *
@@ -10934,7 +11042,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Queries the list of computing resources that meet the specified business information.
      *
      * @param tmpReq - ListComputeResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11007,7 +11115,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Queries the list of computing resources that meet the specified business information.
      *
      * @param Request - ListComputeResourcesRequest
      *
@@ -11025,7 +11133,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询元数据采集器类型列表.
+     * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
      *
      * @param Request - ListCrawlerTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11055,7 +11163,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询元数据采集器类型列表.
+     * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
      *
      * @returns ListCrawlerTypesResponse
      *
@@ -11576,6 +11684,8 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This API operation is available for all DataWorks editions.
      *
+     * @deprecated openAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
+     *
      * @param Request - ListDataQualityEvaluationTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11608,11 +11718,14 @@ class Dataworkspublic extends OpenApiClient
         return ListDataQualityEvaluationTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries a list of instances generated by a data quality monitoring task by page.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityEvaluationTaskInstances is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
      *
      * @param Request - ListDataQualityEvaluationTaskInstancesRequest
      *
@@ -11634,6 +11747,8 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
      * @param Request - ListDataQualityEvaluationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11667,11 +11782,14 @@ class Dataworkspublic extends OpenApiClient
         return ListDataQualityEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries a list of data quality monitoring tasks by page.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
      * @param Request - ListDataQualityEvaluationTasksRequest
      *
@@ -11689,8 +11807,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询数据质量规则校验结果列表.
+     *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
      *
      * @param Request - ListDataQualityResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11724,9 +11846,14 @@ class Dataworkspublic extends OpenApiClient
         return ListDataQualityResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 查询数据质量规则校验结果列表.
+     *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityResults is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
      *
      * @param Request - ListDataQualityResultsRequest
      *
@@ -11745,6 +11872,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Queries a list of data quality monitoring rule templates.
+     *
+     * @deprecated openAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead
      *
      * @param Request - ListDataQualityRuleTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11778,8 +11907,11 @@ class Dataworkspublic extends OpenApiClient
         return ListDataQualityRuleTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries a list of data quality monitoring rule templates.
+     *
+     * @deprecated openAPI ListDataQualityRuleTemplates is deprecated, please use dataworks-public::2024-05-18::ListDataQualityTemplates instead
      *
      * @param Request - ListDataQualityRuleTemplatesRequest
      *
@@ -11801,6 +11933,8 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
      * @param Request - ListDataQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11834,11 +11968,14 @@ class Dataworkspublic extends OpenApiClient
         return ListDataQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries a list of data quality monitoring rules by page.
      *
      * @remarks
      * This API operation is available for all DataWorks editions.
+     *
+     * @deprecated openAPI ListDataQualityRules is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
      * @param Request - ListDataQualityRulesRequest
      *
@@ -12251,7 +12388,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据库列表.
+     * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
      *
      * @param Request - ListDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12286,7 +12423,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据库列表.
+     * Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
      *
      * @param Request - ListDatabasesRequest
      *
@@ -12849,6 +12986,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of file versions.
+     *
      * @param Request - ListFileVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12902,6 +13041,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of file versions.
+     *
      * @param Request - ListFileVersionsRequest
      *
      * @returns ListFileVersionsResponse
@@ -12918,6 +13059,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of files.
+     *
      * @param Request - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13015,6 +13158,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of files.
+     *
      * @param Request - ListFilesRequest
      *
      * @returns ListFilesResponse
@@ -13031,6 +13176,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of folders.
+     *
      * @param Request - ListFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13084,6 +13231,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries a list of folders.
+     *
      * @param Request - ListFoldersRequest
      *
      * @returns ListFoldersResponse
@@ -13153,7 +13302,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询血缘关系.
+     * Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
      *
      * @param Request - ListLineageRelationshipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13188,7 +13337,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询血缘关系.
+     * Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
      *
      * @param Request - ListLineageRelationshipsRequest
      *
@@ -13206,7 +13355,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询实体血缘.
+     * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
      *
      * @param Request - ListLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13241,7 +13390,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询实体血缘.
+     * Queries a list of ancestor and descendant entities of an entity in Data Map. You can specify whether to return the lineage between the entities.
      *
      * @param Request - ListLineagesRequest
      *
@@ -13477,7 +13626,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据表的分区列表.
+     * Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
      *
      * @param Request - ListPartitionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13512,7 +13661,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询数据表的分区列表.
+     * Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
      *
      * @param Request - ListPartitionsRequest
      *
@@ -13925,7 +14074,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Query the list of workspaces with which a resource group is associated.
+     * Gets the list of workspaces bound to a resource group.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -13968,7 +14117,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Query the list of workspaces with which a resource group is associated.
+     * Gets the list of workspaces bound to a resource group.
      *
      * @remarks
      * 1.  This API operation is available for all DataWorks editions.
@@ -13990,7 +14139,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取指定资源组的监控指标数据.
+     * Queries the metric data of a resource group.
      *
      * @param Request - ListResourceGroupMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14053,7 +14202,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取指定资源组的监控指标数据.
+     * Queries the metric data of a resource group.
      *
      * @param Request - ListResourceGroupMetricDataRequest
      *
@@ -15470,7 +15619,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 从集合中移除实体对象
+     * Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - RemoveEntityFromMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15513,7 +15662,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 从集合中移除实体对象
+     * Removes an entity from a collection in Data Map. Collections include categories and data albums. Entities can be only tables. If you want to remove an entity from a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - RemoveEntityFromMetaCollectionRequest
      *
@@ -16616,6 +16765,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Commits a file to the development environment of the scheduling system to generate a task.
+     *
      * @param Request - SubmitFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16669,6 +16820,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Commits a file to the development environment of the scheduling system to generate a task.
+     *
      * @param Request - SubmitFileRequest
      *
      * @returns SubmitFileResponse
@@ -17250,7 +17403,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新字段业务元数据.
+     * Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
      *
      * @param Request - UpdateColumnBusinessMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17293,7 +17446,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新字段业务元数据.
+     * Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
      *
      * @param Request - UpdateColumnBusinessMetadataRequest
      *
@@ -17384,7 +17537,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Modifies the specified computing resource based on the computing resource ID.
      *
      * @param Request - UpdateComputeResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17439,7 +17592,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 验证用.
+     * Modifies the specified computing resource based on the computing resource ID.
      *
      * @param Request - UpdateComputeResourceRequest
      *
@@ -17563,6 +17716,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->id) {
             @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
 
         if (null !== $request->projectId) {
@@ -17810,6 +17967,8 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * This API operation is supported in all DataWorks editions.
      *
+     * @deprecated openAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
+     *
      * @param tmpReq - UpdateDataQualityEvaluationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17908,11 +18067,14 @@ class Dataworkspublic extends OpenApiClient
         return UpdateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates a monitor.
      *
      * @remarks
      * This API operation is supported in all DataWorks editions.
+     *
+     * @deprecated openAPI UpdateDataQualityEvaluationTask is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - UpdateDataQualityEvaluationTaskRequest
      *
@@ -17931,6 +18093,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Updates a data quality monitoring rule.
+     *
+     * @deprecated openAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param tmpReq - UpdateDataQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18020,8 +18184,11 @@ class Dataworkspublic extends OpenApiClient
         return UpdateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates a data quality monitoring rule.
+     *
+     * @deprecated openAPI UpdateDataQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - UpdateDataQualityRuleRequest
      *
@@ -18040,6 +18207,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Updates a data quality monitoring rule template.
+     *
+     * @deprecated openAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead
      *
      * @param tmpReq - UpdateDataQualityRuleTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18109,8 +18278,11 @@ class Dataworkspublic extends OpenApiClient
         return UpdateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates a data quality monitoring rule template.
+     *
+     * @deprecated openAPI UpdateDataQualityRuleTemplate is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityTemplate instead
      *
      * @param Request - UpdateDataQualityRuleTemplateRequest
      *
@@ -18543,6 +18715,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates a file.
+     *
      * @param Request - UpdateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -18708,6 +18882,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates a file.
+     *
      * @param Request - UpdateFileRequest
      *
      * @returns UpdateFileResponse
@@ -18854,7 +19030,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 回调扩展点消息的检查结果.
+     * Recalls the check result of the message of an extension point event.
      *
      * @param Request - UpdateIDEEventResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18905,7 +19081,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 回调扩展点消息的检查结果.
+     * Recalls the check result of the message of an extension point event.
      *
      * @param Request - UpdateIDEEventResultRequest
      *
@@ -19744,6 +19920,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates the file information about a function.
+     *
      * @param Request - UpdateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -19825,6 +20003,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates the file information about a function.
+     *
      * @param Request - UpdateUdfFileRequest
      *
      * @returns UpdateUdfFileResponse

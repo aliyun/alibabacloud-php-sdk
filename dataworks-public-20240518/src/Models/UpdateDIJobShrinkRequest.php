@@ -29,6 +29,11 @@ class UpdateDIJobShrinkRequest extends Model
     public $jobSettingsShrink;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -52,6 +57,7 @@ class UpdateDIJobShrinkRequest extends Model
         'description' => 'Description',
         'id' => 'Id',
         'jobSettingsShrink' => 'JobSettings',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
         'resourceSettingsShrink' => 'ResourceSettings',
         'tableMappingsShrink' => 'TableMappings',
@@ -80,6 +86,10 @@ class UpdateDIJobShrinkRequest extends Model
 
         if (null !== $this->jobSettingsShrink) {
             $res['JobSettings'] = $this->jobSettingsShrink;
+        }
+
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
 
         if (null !== $this->projectId) {
@@ -123,6 +133,10 @@ class UpdateDIJobShrinkRequest extends Model
 
         if (isset($map['JobSettings'])) {
             $model->jobSettingsShrink = $map['JobSettings'];
+        }
+
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
 
         if (isset($map['ProjectId'])) {
