@@ -12,6 +12,16 @@ class UpdateDatasetRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string[]
+     */
+    public $accessibleRoleIdList;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -39,6 +49,8 @@ class UpdateDatasetRequest extends Model
      */
     public $sharingConfig;
     protected $_name = [
+        'accessibility' => 'Accessibility',
+        'accessibleRoleIdList' => 'AccessibleRoleIdList',
         'description' => 'Description',
         'edition' => 'Edition',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
@@ -49,6 +61,9 @@ class UpdateDatasetRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessibleRoleIdList)) {
+            Model::validateArray($this->accessibleRoleIdList);
+        }
         if (\is_array($this->mountAccessReadWriteRoleIdList)) {
             Model::validateArray($this->mountAccessReadWriteRoleIdList);
         }
@@ -61,6 +76,21 @@ class UpdateDatasetRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->accessibleRoleIdList) {
+            if (\is_array($this->accessibleRoleIdList)) {
+                $res['AccessibleRoleIdList'] = [];
+                $n1 = 0;
+                foreach ($this->accessibleRoleIdList as $item1) {
+                    $res['AccessibleRoleIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -103,6 +133,21 @@ class UpdateDatasetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['AccessibleRoleIdList'])) {
+            if (!empty($map['AccessibleRoleIdList'])) {
+                $model->accessibleRoleIdList = [];
+                $n1 = 0;
+                foreach ($map['AccessibleRoleIdList'] as $item1) {
+                    $model->accessibleRoleIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

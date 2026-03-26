@@ -26,6 +26,11 @@ class ListDatasetsRequest extends Model
     /**
      * @var string
      */
+    public $datasetIds;
+
+    /**
+     * @var string
+     */
     public $edition;
 
     /**
@@ -96,6 +101,7 @@ class ListDatasetsRequest extends Model
         'accessibility' => 'Accessibility',
         'dataSourceTypes' => 'DataSourceTypes',
         'dataTypes' => 'DataTypes',
+        'datasetIds' => 'DatasetIds',
         'edition' => 'Edition',
         'label' => 'Label',
         'name' => 'Name',
@@ -130,6 +136,10 @@ class ListDatasetsRequest extends Model
 
         if (null !== $this->dataTypes) {
             $res['DataTypes'] = $this->dataTypes;
+        }
+
+        if (null !== $this->datasetIds) {
+            $res['DatasetIds'] = $this->datasetIds;
         }
 
         if (null !== $this->edition) {
@@ -209,6 +219,10 @@ class ListDatasetsRequest extends Model
 
         if (isset($map['DataTypes'])) {
             $model->dataTypes = $map['DataTypes'];
+        }
+
+        if (isset($map['DatasetIds'])) {
+            $model->datasetIds = $map['DatasetIds'];
         }
 
         if (isset($map['Edition'])) {

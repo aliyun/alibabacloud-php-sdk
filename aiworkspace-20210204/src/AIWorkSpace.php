@@ -867,6 +867,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['Accessibility'] = $request->accessibility;
         }
 
+        if (null !== $request->accessibleRoleIdList) {
+            @$body['AccessibleRoleIdList'] = $request->accessibleRoleIdList;
+        }
+
         if (null !== $request->dataCount) {
             @$body['DataCount'] = $request->dataCount;
         }
@@ -5417,6 +5421,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['Status'] = $request->status;
         }
 
+        if (null !== $request->withLogs) {
+            @$query['WithLogs'] = $request->withLogs;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -5584,6 +5592,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->dataTypes) {
             @$query['DataTypes'] = $request->dataTypes;
+        }
+
+        if (null !== $request->datasetIds) {
+            @$query['DatasetIds'] = $request->datasetIds;
         }
 
         if (null !== $request->edition) {
@@ -5792,7 +5804,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举特性.
+     * Queries a list of features.
      *
      * @param request - ListFeaturesRequest
      * @param headers - map
@@ -5834,7 +5846,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举特性.
+     * Queries a list of features.
      *
      * @param request - ListFeaturesRequest
      *
@@ -7952,6 +7964,14 @@ class AIWorkSpace extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->accessibleRoleIdList) {
+            @$body['AccessibleRoleIdList'] = $request->accessibleRoleIdList;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }

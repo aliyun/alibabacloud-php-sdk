@@ -15,6 +15,11 @@ class Dataset extends Model
     public $accessibility;
 
     /**
+     * @var string[]
+     */
+    public $accessibleRoleIdList;
+
+    /**
      * @var string
      */
     public $dataSourceType;
@@ -155,6 +160,7 @@ class Dataset extends Model
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'accessibleRoleIdList' => 'AccessibleRoleIdList',
         'dataSourceType' => 'DataSourceType',
         'dataType' => 'DataType',
         'datasetId' => 'DatasetId',
@@ -187,6 +193,9 @@ class Dataset extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessibleRoleIdList)) {
+            Model::validateArray($this->accessibleRoleIdList);
+        }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
         }
@@ -210,6 +219,17 @@ class Dataset extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->accessibleRoleIdList) {
+            if (\is_array($this->accessibleRoleIdList)) {
+                $res['AccessibleRoleIdList'] = [];
+                $n1 = 0;
+                foreach ($this->accessibleRoleIdList as $item1) {
+                    $res['AccessibleRoleIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->dataSourceType) {
@@ -351,6 +371,17 @@ class Dataset extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['AccessibleRoleIdList'])) {
+            if (!empty($map['AccessibleRoleIdList'])) {
+                $model->accessibleRoleIdList = [];
+                $n1 = 0;
+                foreach ($map['AccessibleRoleIdList'] as $item1) {
+                    $model->accessibleRoleIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DataSourceType'])) {

@@ -44,6 +44,11 @@ class ListDatasetJobsRequest extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $withLogs;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -55,6 +60,7 @@ class ListDatasetJobsRequest extends Model
         'pageSize' => 'PageSize',
         'sortBy' => 'SortBy',
         'status' => 'Status',
+        'withLogs' => 'WithLogs',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -92,6 +98,10 @@ class ListDatasetJobsRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->withLogs) {
+            $res['WithLogs'] = $this->withLogs;
         }
 
         if (null !== $this->workspaceId) {
@@ -135,6 +145,10 @@ class ListDatasetJobsRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['WithLogs'])) {
+            $model->withLogs = $map['WithLogs'];
         }
 
         if (isset($map['WorkspaceId'])) {
