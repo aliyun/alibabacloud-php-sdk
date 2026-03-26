@@ -26,6 +26,11 @@ class CreateAppInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $componentsShrink;
+
+    /**
+     * @var string
+     */
     public $DBInstanceConfigShrink;
 
     /**
@@ -86,6 +91,7 @@ class CreateAppInstanceShrinkRequest extends Model
         'appName' => 'AppName',
         'appType' => 'AppType',
         'clientToken' => 'ClientToken',
+        'componentsShrink' => 'Components',
         'DBInstanceConfigShrink' => 'DBInstanceConfig',
         'DBInstanceName' => 'DBInstanceName',
         'dashboardPassword' => 'DashboardPassword',
@@ -118,6 +124,10 @@ class CreateAppInstanceShrinkRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->componentsShrink) {
+            $res['Components'] = $this->componentsShrink;
         }
 
         if (null !== $this->DBInstanceConfigShrink) {
@@ -189,6 +199,10 @@ class CreateAppInstanceShrinkRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Components'])) {
+            $model->componentsShrink = $map['Components'];
         }
 
         if (isset($map['DBInstanceConfig'])) {

@@ -392,6 +392,10 @@ class RdsAi extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateAppInstanceShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->components) {
+            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+
         if (null !== $tmpReq->DBInstanceConfig) {
             $request->DBInstanceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBInstanceConfig, 'DBInstanceConfig', 'json');
         }
@@ -407,6 +411,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->componentsShrink) {
+            @$query['Components'] = $request->componentsShrink;
         }
 
         if (null !== $request->DBInstanceConfigShrink) {
@@ -721,6 +729,10 @@ class RdsAi extends OpenApiClient
             @$query['ReportLanguage'] = $request->reportLanguage;
         }
 
+        if (null !== $request->reportRegionId) {
+            @$query['ReportRegionId'] = $request->reportRegionId;
+        }
+
         if (null !== $request->reportType) {
             @$query['ReportType'] = $request->reportType;
         }
@@ -804,6 +816,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->reportLanguage) {
             @$query['ReportLanguage'] = $request->reportLanguage;
+        }
+
+        if (null !== $request->reportRegionId) {
+            @$query['ReportRegionId'] = $request->reportRegionId;
         }
 
         if (null !== $request->reportType) {

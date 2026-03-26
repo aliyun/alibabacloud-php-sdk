@@ -36,6 +36,11 @@ class CreateInspectionTaskRequest extends Model
     /**
      * @var string
      */
+    public $reportRegionId;
+
+    /**
+     * @var string
+     */
     public $reportType;
 
     /**
@@ -48,6 +53,7 @@ class CreateInspectionTaskRequest extends Model
         'instanceIds' => 'InstanceIds',
         'regionId' => 'RegionId',
         'reportLanguage' => 'ReportLanguage',
+        'reportRegionId' => 'ReportRegionId',
         'reportType' => 'ReportType',
         'startTime' => 'StartTime',
     ];
@@ -78,6 +84,10 @@ class CreateInspectionTaskRequest extends Model
 
         if (null !== $this->reportLanguage) {
             $res['ReportLanguage'] = $this->reportLanguage;
+        }
+
+        if (null !== $this->reportRegionId) {
+            $res['ReportRegionId'] = $this->reportRegionId;
         }
 
         if (null !== $this->reportType) {
@@ -117,6 +127,10 @@ class CreateInspectionTaskRequest extends Model
 
         if (isset($map['ReportLanguage'])) {
             $model->reportLanguage = $map['ReportLanguage'];
+        }
+
+        if (isset($map['ReportRegionId'])) {
+            $model->reportRegionId = $map['ReportRegionId'];
         }
 
         if (isset($map['ReportType'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponseBody\components;
 
 class DescribeAppInstanceAttributeResponseBody extends Model
 {
@@ -17,6 +18,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $appType;
+
+    /**
+     * @var components[]
+     */
+    public $components;
 
     /**
      * @var string
@@ -100,6 +106,7 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     protected $_name = [
         'appName' => 'AppName',
         'appType' => 'AppType',
+        'components' => 'Components',
         'DBInstanceName' => 'DBInstanceName',
         'eipId' => 'EipId',
         'eipStatus' => 'EipStatus',
@@ -120,6 +127,9 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->components)) {
+            Model::validateArray($this->components);
+        }
         parent::validate();
     }
 
@@ -132,6 +142,17 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
+        }
+
+        if (null !== $this->components) {
+            if (\is_array($this->components)) {
+                $res['Components'] = [];
+                $n1 = 0;
+                foreach ($this->components as $item1) {
+                    $res['Components'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->DBInstanceName) {
@@ -215,6 +236,17 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
+        }
+
+        if (isset($map['Components'])) {
+            if (!empty($map['Components'])) {
+                $model->components = [];
+                $n1 = 0;
+                foreach ($map['Components'] as $item1) {
+                    $model->components[$n1] = components::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DBInstanceName'])) {
