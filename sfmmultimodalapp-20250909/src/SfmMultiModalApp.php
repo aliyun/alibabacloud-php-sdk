@@ -220,8 +220,16 @@ class SfmMultiModalApp extends OpenApiClient
             @$query['AppId'] = $request->appId;
         }
 
+        if (null !== $request->autoUpdate) {
+            @$query['AutoUpdate'] = $request->autoUpdate;
+        }
+
         if (null !== $request->content) {
             @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->expirationTime) {
+            @$query['ExpirationTime'] = $request->expirationTime;
         }
 
         if (null !== $request->messagesJson) {
@@ -234,6 +242,10 @@ class SfmMultiModalApp extends OpenApiClient
 
         if (null !== $request->projectId) {
             @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
         }
 
         if (null !== $request->userDefinedId) {

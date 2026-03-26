@@ -22,10 +22,16 @@ class memoryNodes extends Model
      * @var string
      */
     public $memoryNodeId;
+
+    /**
+     * @var string
+     */
+    public $oldContent;
     protected $_name = [
         'content' => 'Content',
         'event' => 'Event',
         'memoryNodeId' => 'MemoryNodeId',
+        'oldContent' => 'OldContent',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class memoryNodes extends Model
 
         if (null !== $this->memoryNodeId) {
             $res['MemoryNodeId'] = $this->memoryNodeId;
+        }
+
+        if (null !== $this->oldContent) {
+            $res['OldContent'] = $this->oldContent;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class memoryNodes extends Model
 
         if (isset($map['MemoryNodeId'])) {
             $model->memoryNodeId = $map['MemoryNodeId'];
+        }
+
+        if (isset($map['OldContent'])) {
+            $model->oldContent = $map['OldContent'];
         }
 
         return $model;
