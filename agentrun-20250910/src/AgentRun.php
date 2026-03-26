@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateToolRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateToolResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeEndpointResponse;
@@ -46,6 +48,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteToolResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenResponse;
@@ -62,6 +65,7 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetToolResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceDiscoveryEndpointsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsRequest;
@@ -92,6 +96,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListSandboxesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListSandboxesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListTemplatesResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListToolsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListToolsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionRequest;
@@ -116,6 +122,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateModelServiceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateTemplateResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateToolRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateToolResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceDiscoveryEndpointsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceDiscoveryEndpointsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateWorkspaceRequest;
@@ -937,6 +945,68 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 创建工具.
+     *
+     * @remarks
+     * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+     *
+     * @param request - CreateToolRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateToolResponse
+     *
+     * @param CreateToolRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateToolResponse
+     */
+    public function createToolWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTool',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/tools',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateToolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工具.
+     *
+     * @remarks
+     * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+     *
+     * @param request - CreateToolRequest
+     *
+     * @returns CreateToolResponse
+     *
+     * @param CreateToolRequest $request
+     *
+     * @return CreateToolResponse
+     */
+    public function createTool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createToolWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建工作空间.
      *
      * @remarks
@@ -1634,6 +1704,63 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteTemplateWithOptions($templateName, $headers, $runtime);
+    }
+
+    /**
+     * 删除工具.
+     *
+     * @remarks
+     * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteToolResponse
+     *
+     * @param string         $toolName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteToolResponse
+     */
+    public function deleteToolWithOptions($toolName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTool',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/tools/' . Url::percentEncode($toolName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteToolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工具.
+     *
+     * @remarks
+     * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+     *
+     * @returns DeleteToolResponse
+     *
+     * @param string $toolName
+     *
+     * @return DeleteToolResponse
+     */
+    public function deleteTool($toolName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteToolWithOptions($toolName, $headers, $runtime);
     }
 
     /**
@@ -2416,6 +2543,63 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getTemplateWithOptions($templateName, $headers, $runtime);
+    }
+
+    /**
+     * 获取工具详情.
+     *
+     * @remarks
+     * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetToolResponse
+     *
+     * @param string         $toolName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetToolResponse
+     */
+    public function getToolWithOptions($toolName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTool',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/tools/' . Url::percentEncode($toolName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetToolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工具详情.
+     *
+     * @remarks
+     * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+     *
+     * @returns GetToolResponse
+     *
+     * @param string $toolName
+     *
+     * @return GetToolResponse
+     */
+    public function getTool($toolName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getToolWithOptions($toolName, $headers, $runtime);
     }
 
     /**
@@ -3685,6 +3869,89 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 工具列表.
+     *
+     * @remarks
+     * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+     *
+     * @param request - ListToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListToolsResponse
+     *
+     * @param ListToolsRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListToolsResponse
+     */
+    public function listToolsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->toolType) {
+            @$query['toolType'] = $request->toolType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceIds) {
+            @$query['workspaceIds'] = $request->workspaceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTools',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/tools',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工具列表.
+     *
+     * @remarks
+     * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+     *
+     * @param request - ListToolsRequest
+     *
+     * @returns ListToolsResponse
+     *
+     * @param ListToolsRequest $request
+     *
+     * @return ListToolsResponse
+     */
+    public function listTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listToolsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取工作空间列表.
      *
      * @remarks
@@ -4475,6 +4742,70 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateTemplateWithOptions($templateName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新工具.
+     *
+     * @remarks
+     * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+     *
+     * @param request - UpdateToolRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateToolResponse
+     *
+     * @param string            $toolName
+     * @param UpdateToolRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateToolResponse
+     */
+    public function updateToolWithOptions($toolName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTool',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/tools/' . Url::percentEncode($toolName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateToolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新工具.
+     *
+     * @remarks
+     * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+     *
+     * @param request - UpdateToolRequest
+     *
+     * @returns UpdateToolResponse
+     *
+     * @param string            $toolName
+     * @param UpdateToolRequest $request
+     *
+     * @return UpdateToolResponse
+     */
+    public function updateTool($toolName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateToolWithOptions($toolName, $request, $headers, $runtime);
     }
 
     /**
