@@ -601,6 +601,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -26343,5 +26345,74 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBClusterVersionZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 执行自定义命令.
+     *
+     * @param request - UpgradePolarClawSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradePolarClawSkillsResponse
+     *
+     * @param UpgradePolarClawSkillsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradePolarClawSkillsResponse
+     */
+    public function upgradePolarClawSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->upgradeMethod) {
+            @$query['UpgradeMethod'] = $request->upgradeMethod;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradePolarClawSkills',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradePolarClawSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行自定义命令.
+     *
+     * @param request - UpgradePolarClawSkillsRequest
+     *
+     * @returns UpgradePolarClawSkillsResponse
+     *
+     * @param UpgradePolarClawSkillsRequest $request
+     *
+     * @return UpgradePolarClawSkillsResponse
+     */
+    public function upgradePolarClawSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradePolarClawSkillsWithOptions($request, $runtime);
     }
 }
