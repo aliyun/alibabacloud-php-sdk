@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeVisibilityResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ChangeWorkModeResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimCallRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimChatRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ClaimChatResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
@@ -908,6 +910,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加号码
+     *
      * @param request - AddNumbersToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -957,6 +961,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加号码
+     *
      * @param request - AddNumbersToSkillGroupRequest
      *
      * @returns AddNumbersToSkillGroupResponse
@@ -973,6 +979,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 增加个人号码
+     *
      * @param request - AddPersonalNumbersToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1018,6 +1026,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 增加个人号码
+     *
      * @param request - AddPersonalNumbersToUserRequest
      *
      * @returns AddPersonalNumbersToUserResponse
@@ -1034,6 +1044,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加号码
+     *
      * @param request - AddPhoneNumberToSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1079,6 +1091,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加号码
+     *
      * @param request - AddPhoneNumberToSkillGroupsRequest
      *
      * @returns AddPhoneNumberToSkillGroupsResponse
@@ -1095,6 +1109,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 添加号码
+     *
      * @param request - AddPhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1148,6 +1164,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 添加号码
+     *
      * @param request - AddPhoneNumbersRequest
      *
      * @returns AddPhoneNumbersResponse
@@ -1235,6 +1253,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加用户.
+     *
      * @param request - AddSkillGroupsToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1280,6 +1300,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加用户.
+     *
      * @param request - AddSkillGroupsToUserRequest
      *
      * @returns AddSkillGroupsToUserResponse
@@ -1369,6 +1391,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加用户.
+     *
      * @param request - AddUsersToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1414,6 +1438,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 技能组添加用户.
+     *
      * @param request - AddUsersToSkillGroupRequest
      *
      * @returns AddUsersToSkillGroupResponse
@@ -1430,6 +1456,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 分析对话.
+     *
      * @param request - AnalyzeConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1479,6 +1507,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 分析对话.
+     *
      * @param request - AnalyzeConversationRequest
      *
      * @returns AnalyzeConversationResponse
@@ -1495,6 +1525,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 接电话.
+     *
      * @param request - AnswerCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1544,6 +1576,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 接电话.
+     *
      * @param request - AnswerCallRequest
      *
      * @returns AnswerCallResponse
@@ -1633,6 +1667,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入坐席.
+     *
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
      * @param request - AssignUsersRequest
@@ -1689,6 +1725,8 @@ class CCC extends OpenApiClient
 
     // Deprecated
     /**
+     * 导入坐席.
+     *
      * @deprecated openAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead
      *
      * @param request - AssignUsersRequest
@@ -1707,6 +1745,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * BargeInCall.
+     *
      * @param request - BargeInCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1764,6 +1804,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * BargeInCall.
+     *
      * @param request - BargeInCallRequest
      *
      * @returns BargeInCallResponse
@@ -1780,6 +1822,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 盲转.
+     *
      * @param request - BlindTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1881,6 +1925,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 盲转.
+     *
      * @param request - BlindTransferRequest
      *
      * @returns BlindTransferResponse
@@ -1897,6 +1943,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * BridgeRtcCall.
+     *
      * @param request - BridgeRtcCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1966,6 +2014,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * BridgeRtcCall.
+     *
      * @param request - BridgeRtcCallRequest
      *
      * @returns BridgeRtcCallResponse
@@ -1982,6 +2032,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 关注转-取消.
+     *
      * @param request - CancelAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2031,6 +2083,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 关注转-取消.
+     *
      * @param request - CancelAttendedTransferRequest
      *
      * @returns CancelAttendedTransferResponse
@@ -2047,6 +2101,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改隐身状态(等同于仅外呼场景).
+     *
      * @param request - ChangeVisibilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2092,6 +2148,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改隐身状态(等同于仅外呼场景).
+     *
      * @param request - ChangeVisibilityRequest
      *
      * @returns ChangeVisibilityResponse
@@ -2108,6 +2166,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席工作模式.
+     *
      * @param request - ChangeWorkModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2165,6 +2225,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席工作模式.
+     *
      * @param request - ChangeWorkModeRequest
      *
      * @returns ChangeWorkModeResponse
@@ -2178,6 +2240,83 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeWorkModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 认领电话.
+     *
+     * @param request - ClaimCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClaimCallResponse
+     *
+     * @param ClaimCallRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ClaimCallResponse
+     */
+    public function claimCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->candidateUserListJson) {
+            @$query['CandidateUserListJson'] = $request->candidateUserListJson;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ClaimCall',
+            'version' => '2020-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ClaimCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 认领电话.
+     *
+     * @param request - ClaimCallRequest
+     *
+     * @returns ClaimCallResponse
+     *
+     * @param ClaimCallRequest $request
+     *
+     * @return ClaimCallResponse
+     */
+    public function claimCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->claimCallWithOptions($request, $runtime);
     }
 
     /**
@@ -2242,6 +2381,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 辅导
+     *
      * @param request - CoachCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2299,6 +2440,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 辅导
+     *
      * @param request - CoachCallRequest
      *
      * @returns CoachCallResponse
@@ -2315,6 +2458,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 提交ivr流程.
+     *
      * @param request - CommitContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2368,6 +2513,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 提交ivr流程.
+     *
      * @param request - CommitContactFlowRequest
      *
      * @returns CommitContactFlowResponse
@@ -2384,6 +2531,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 关注转-完成.
+     *
      * @param request - CompleteAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2433,6 +2582,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 关注转-完成.
+     *
      * @param request - CompleteAttendedTransferRequest
      *
      * @returns CompleteAttendedTransferResponse
@@ -2449,6 +2600,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建媒体文件.
+     *
      * @param request - CreateAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2502,6 +2655,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建媒体文件.
+     *
      * @param request - CreateAudioFileRequest
      *
      * @returns CreateAudioFileResponse
@@ -2518,6 +2673,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建会话小结.
+     *
      * @param request - CreateCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2567,6 +2724,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建会话小结.
+     *
      * @param request - CreateCallSummaryRequest
      *
      * @returns CreateCallSummaryResponse
@@ -2844,6 +3003,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建ivr流程.
+     *
      * @param request - CreateContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2897,6 +3058,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建ivr流程.
+     *
      * @param request - CreateContactFlowRequest
      *
      * @returns CreateContactFlowResponse
@@ -3127,6 +3290,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建技能组.
+     *
      * @param request - CreateSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3180,6 +3345,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 创建技能组.
+     *
      * @param request - CreateSkillGroupRequest
      *
      * @returns CreateSkillGroupResponse
@@ -3378,6 +3545,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 删除语音文件.
+     *
      * @param request - DeleteAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3419,6 +3588,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 删除语音文件.
+     *
      * @param request - DeleteAudioFileRequest
      *
      * @returns DeleteAudioFileResponse
@@ -3496,7 +3667,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * -.
+     * 删除ivr流程.
      *
      * @param request - DeleteContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3543,7 +3714,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * -.
+     * 删除ivr流程.
      *
      * @param request - DeleteContactFlowRequest
      *
@@ -3937,6 +4108,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 删除技能组.
+     *
      * @param request - DeleteSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3982,6 +4155,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 删除技能组.
+     *
      * @param request - DeleteSkillGroupRequest
      *
      * @returns DeleteSkillGroupResponse
@@ -4234,6 +4409,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 废弃当前IVR流程.
+     *
      * @param request - DiscardEditingContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4279,6 +4456,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 废弃当前IVR流程.
+     *
      * @param request - DiscardEditingContactFlowRequest
      *
      * @returns DiscardEditingContactFlowResponse
@@ -4417,6 +4596,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 结束会议.
+     *
      * @param request - EndConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4462,6 +4643,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 结束会议.
+     *
      * @param request - EndConferenceRequest
      *
      * @returns EndConferenceResponse
@@ -4731,7 +4914,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * GetAccessChannelOfStaging.
+     * 获取指定Chat渠道配置.
      *
      * @param request - GetAccessChannelOfStagingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4766,7 +4949,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * GetAccessChannelOfStaging.
+     * 获取指定Chat渠道配置.
      *
      * @param request - GetAccessChannelOfStagingRequest
      *
@@ -4845,6 +5028,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取录音文件下载链接.
+     *
      * @param request - GetAudioFileDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4886,6 +5071,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取录音文件下载链接.
+     *
      * @param request - GetAudioFileDownloadUrlRequest
      *
      * @returns GetAudioFileDownloadUrlResponse
@@ -4902,6 +5089,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取录音文件上传参数.
+     *
      * @param request - GetAudioFileUploadParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4943,6 +5132,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取录音文件上传参数.
+     *
      * @param request - GetAudioFileUploadParametersRequest
      *
      * @returns GetAudioFileUploadParametersResponse
@@ -5081,6 +5272,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取预测试外呼号码配置文件上传链接.
+     *
      * @param request - GetCaseFileUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5122,6 +5315,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取预测试外呼号码配置文件上传链接.
+     *
      * @param request - GetCaseFileUploadUrlRequest
      *
      * @returns GetCaseFileUploadUrlResponse
@@ -5252,6 +5447,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取ivr流程信息.
+     *
      * @param request - GetContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5297,6 +5494,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取ivr流程信息.
+     *
      * @param request - GetContactFlowRequest
      *
      * @returns GetContactFlowResponse
@@ -5378,6 +5577,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取DataChannel通道的Token信息.
+     *
      * @param request - GetDataChannelCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5419,6 +5620,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取DataChannel通道的Token信息.
+     *
      * @param request - GetDataChannelCredentialsRequest
      *
      * @returns GetDataChannelCredentialsResponse
@@ -5618,6 +5821,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 统计呼入号码信息.
+     *
      * @param request - GetHistoricalCallerReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5667,6 +5872,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 统计呼入号码信息.
+     *
      * @param request - GetHistoricalCallerReportRequest
      *
      * @returns GetHistoricalCallerReportResponse
@@ -5736,6 +5943,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 统计实例呼叫数据.
+     *
      * @param request - GetHistoricalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5785,6 +5994,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 统计实例呼叫数据.
+     *
      * @param request - GetHistoricalInstanceReportRequest
      *
      * @returns GetHistoricalInstanceReportResponse
@@ -5858,6 +6069,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 统计实例呼叫信息.
+     *
      * @param request - GetInstanceTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5907,6 +6120,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 统计实例呼叫信息.
+     *
      * @param request - GetInstanceTrendingReportRequest
      *
      * @returns GetInstanceTrendingReportResponse
@@ -5984,6 +6199,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取登录信息.
+     *
      * @param request - GetLoginDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6029,6 +6246,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取登录信息.
+     *
      * @param request - GetLoginDetailsRequest
      *
      * @returns GetLoginDetailsResponse
@@ -6045,6 +6264,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取通话对应的录音, 用于播放和下载.
+     *
      * @param request - GetMonoRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6090,6 +6311,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取通话对应的录音, 用于播放和下载.
+     *
      * @param request - GetMonoRecordingRequest
      *
      * @returns GetMonoRecordingResponse
@@ -6106,6 +6329,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取通话对应的录音, 用于分轨或者质检
+     *
      * @param request - GetMultiChannelRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6147,6 +6372,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取通话对应的录音, 用于分轨或者质检
+     *
      * @param request - GetMultiChannelRecordingRequest
      *
      * @returns GetMultiChannelRecordingResponse
@@ -6163,6 +6390,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询号码归属地.
+     *
      * @param request - GetNumberLocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6204,6 +6433,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询号码归属地.
+     *
      * @param request - GetNumberLocationRequest
      *
      * @returns GetNumberLocationResponse
@@ -6273,6 +6504,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 实时查询实例状态信息.
+     *
      * @param request - GetRealtimeInstanceStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6314,6 +6547,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 实时查询实例状态信息.
+     *
      * @param request - GetRealtimeInstanceStatesRequest
      *
      * @returns GetRealtimeInstanceStatesResponse
@@ -6659,6 +6894,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取工单模版.
+     *
      * @param request - GetTicketTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6704,6 +6941,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取工单模版.
+     *
      * @param request - GetTicketTemplateRequest
      *
      * @returns GetTicketTemplateResponse
@@ -6720,6 +6959,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取TURN服务的临时用户名和密码
+     *
      * @param request - GetTurnCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6761,6 +7002,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取TURN服务的临时用户名和密码
+     *
      * @param request - GetTurnCredentialsRequest
      *
      * @returns GetTurnCredentialsResponse
@@ -6777,6 +7020,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取可用的TURN服务器列表.
+     *
      * @param request - GetTurnServerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6814,6 +7059,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取可用的TURN服务器列表.
+     *
      * @param request - GetTurnServerListRequest
      *
      * @returns GetTurnServerListResponse
@@ -6883,6 +7130,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询坐席.
+     *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6928,6 +7177,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询坐席.
+     *
      * @param request - GetUserRequest
      *
      * @returns GetUserResponse
@@ -7062,6 +7313,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取语音邮箱录音, 用于播放和下载.
+     *
      * @param request - GetVoicemailRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7103,6 +7356,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取语音邮箱录音, 用于播放和下载.
+     *
      * @param request - GetVoicemailRecordingRequest
      *
      * @returns GetVoicemailRecordingResponse
@@ -7119,6 +7374,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 保持通话.
+     *
      * @param request - HoldCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7176,6 +7433,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 保持通话.
+     *
      * @param request - HoldCallRequest
      *
      * @returns HoldCallResponse
@@ -7587,6 +7846,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入ram用户.
+     *
      * @param request - ImportRamUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7640,6 +7901,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入ram用户.
+     *
      * @param request - ImportRamUsersRequest
      *
      * @returns ImportRamUsersResponse
@@ -7656,6 +7919,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 关注转-发起.
+     *
      * @param request - InitiateAttendedTransferRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7749,6 +8014,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 关注转-发起.
+     *
      * @param request - InitiateAttendedTransferRequest
      *
      * @returns InitiateAttendedTransferResponse
@@ -7765,6 +8032,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 打断通话.
+     *
      * @param request - InterceptCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7822,6 +8091,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 打断通话.
+     *
      * @param request - InterceptCallRequest
      *
      * @returns InterceptCallResponse
@@ -7838,6 +8109,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发起IVR认证流程.
+     *
      * @param request - LaunchAuthenticationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7895,6 +8168,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发起IVR认证流程.
+     *
      * @param request - LaunchAuthenticationRequest
      *
      * @returns LaunchAuthenticationResponse
@@ -7911,6 +8186,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发起话后满意度调查IVR流程.
+     *
      * @param request - LaunchSurveyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7984,6 +8261,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发起话后满意度调查IVR流程.
+     *
      * @param request - LaunchSurveyRequest
      *
      * @returns LaunchSurveyResponse
@@ -8000,6 +8279,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取坐席状态记录列表.
+     *
      * @param request - ListAgentStateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8049,6 +8330,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取坐席状态记录列表.
+     *
      * @param request - ListAgentStateLogsRequest
      *
      * @returns ListAgentStateLogsResponse
@@ -8396,6 +8679,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 坐席工作台坐席调用转接使用.
+     *
      * @param request - ListBriefSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8449,6 +8734,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 坐席工作台坐席调用转接使用.
+     *
      * @param request - ListBriefSkillGroupsRequest
      *
      * @returns ListBriefSkillGroupsResponse
@@ -8465,6 +8752,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取通话详情.
+     *
      * @param request - ListCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8582,6 +8871,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取通话详情.
+     *
      * @param request - ListCallDetailRecordsRequest
      *
      * @returns ListCallDetailRecordsResponse
@@ -9224,6 +9515,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询系统配置.
+     *
      * @param request - ListConfigItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9269,6 +9562,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询系统配置.
+     *
      * @param request - ListConfigItemsRequest
      *
      * @returns ListConfigItemsResponse
@@ -9285,7 +9580,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * -.
+     * 列表查询ivr流程.
      *
      * @param request - ListContactFlowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9348,7 +9643,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * -.
+     * 列表查询ivr流程.
      *
      * @param request - ListContactFlowsRequest
      *
@@ -9444,6 +9739,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询可用设备.
+     *
      * @param request - ListDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9485,6 +9782,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询可用设备.
+     *
      * @param request - ListDevicesRequest
      *
      * @returns ListDevicesResponse
@@ -10000,6 +10299,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询历史作息报告.
+     *
      * @param request - ListHistoricalAgentReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10067,6 +10368,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询历史作息报告.
+     *
      * @param request - ListHistoricalAgentReportRequest
      *
      * @returns ListHistoricalAgentReportResponse
@@ -10253,6 +10556,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10294,6 +10599,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @param request - ListInstancesRequest
      *
      * @returns ListInstancesResponse
@@ -10310,6 +10617,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @param request - ListInstancesOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10351,6 +10660,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @param request - ListInstancesOfUserRequest
      *
      * @returns ListInstancesOfUserResponse
@@ -10367,6 +10678,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询坐席报表.
+     *
      * @param request - ListIntervalAgentReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10424,6 +10737,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询坐席报表.
+     *
      * @param request - ListIntervalAgentReportRequest
      *
      * @returns ListIntervalAgentReportResponse
@@ -10493,6 +10808,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询实例报表.
+     *
      * @param request - ListIntervalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10542,6 +10859,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询实例报表.
+     *
      * @param request - ListIntervalInstanceReportRequest
      *
      * @returns ListIntervalInstanceReportResponse
@@ -10558,6 +10877,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组报表.
+     *
      * @param request - ListIntervalSkillGroupReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10615,6 +10936,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组报表.
+     *
      * @param request - ListIntervalSkillGroupReportRequest
      *
      * @returns ListIntervalSkillGroupReportResponse
@@ -10631,6 +10954,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询ivr轨迹.
+     *
      * @param request - ListIvrTrackingDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10680,6 +11005,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询ivr轨迹.
+     *
      * @param request - ListIvrTrackingDetailsRequest
      *
      * @returns ListIvrTrackingDetailsResponse
@@ -11282,6 +11609,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取个人外呼号码列表.
+     *
      * @param request - ListPersonalNumbersOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11339,6 +11668,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取个人外呼号码列表.
+     *
      * @param request - ListPersonalNumbersOfUserRequest
      *
      * @returns ListPersonalNumbersOfUserResponse
@@ -11432,6 +11763,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组绑定的号码
+     *
      * @param request - ListPhoneNumbersOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11493,6 +11826,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组绑定的号码
+     *
      * @param request - ListPhoneNumbersOfSkillGroupRequest
      *
      * @returns ListPhoneNumbersOfSkillGroupResponse
@@ -11509,6 +11844,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询用户权限.
+     *
      * @param request - ListPrivilegesOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11546,6 +11883,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询用户权限.
+     *
      * @param request - ListPrivilegesOfUserRequest
      *
      * @returns ListPrivilegesOfUserResponse
@@ -11562,6 +11901,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询ram用户.
+     *
      * @param request - ListRamUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11611,6 +11952,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询ram用户.
+     *
      * @param request - ListRamUsersRequest
      *
      * @returns ListRamUsersResponse
@@ -11627,6 +11970,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询坐席状态
+     *
      * @param request - ListRealtimeAgentStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11710,6 +12055,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询坐席状态
+     *
      * @param request - ListRealtimeAgentStatesRequest
      *
      * @returns ListRealtimeAgentStatesResponse
@@ -11726,6 +12073,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询技能组状态报表.
+     *
      * @param request - ListRealtimeSkillGroupStatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11781,6 +12130,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询技能组状态报表.
+     *
      * @param request - ListRealtimeSkillGroupStatesRequest
      *
      * @returns ListRealtimeSkillGroupStatesResponse
@@ -11797,6 +12148,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询历史通话记录.
+     *
      * @param request - ListRecentCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11856,6 +12209,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询历史通话记录.
+     *
      * @param request - ListRecentCallDetailRecordsRequest
      *
      * @returns ListRecentCallDetailRecordsResponse
@@ -11872,6 +12227,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询角色.
+     *
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11909,6 +12266,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 列表查询角色.
+     *
      * @param request - ListRolesRequest
      *
      * @returns ListRolesResponse
@@ -12041,6 +12400,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组列表.
+     *
      * @param request - ListSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12094,6 +12455,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组列表.
+     *
      * @param request - ListSkillGroupsRequest
      *
      * @returns ListSkillGroupsResponse
@@ -12110,6 +12473,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询用户技能组级别.
+     *
      * @param request - ListSkillLevelsOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12167,6 +12532,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询用户技能组级别.
+     *
      * @param request - ListSkillLevelsOfUserRequest
      *
      * @returns ListSkillLevelsOfUserResponse
@@ -12556,6 +12923,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组级别列表.
+     *
      * @param request - ListUserLevelsOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12613,6 +12982,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询技能组级别列表.
+     *
      * @param request - ListUserLevelsOfSkillGroupRequest
      *
      * @returns ListUserLevelsOfSkillGroupResponse
@@ -12629,6 +13000,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询用户列表.
+     *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12682,6 +13055,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 查询用户列表.
+     *
      * @param request - ListUsersRequest
      *
      * @returns ListUsersResponse
@@ -13018,6 +13393,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改媒体文件.
+     *
      * @param request - ModifyAudioFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13075,6 +13452,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改媒体文件.
+     *
      * @param request - ModifyAudioFileRequest
      *
      * @returns ModifyAudioFileResponse
@@ -13292,6 +13671,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改电话号码
+     *
      * @param request - ModifyPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13341,6 +13722,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改电话号码
+     *
      * @param request - ModifyPhoneNumberRequest
      *
      * @returns ModifyPhoneNumberResponse
@@ -13357,6 +13740,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改技能组.
+     *
      * @param request - ModifySkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13406,6 +13791,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改技能组.
+     *
      * @param request - ModifySkillGroupRequest
      *
      * @returns ModifySkillGroupResponse
@@ -13422,6 +13809,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席技能组.
+     *
      * @param request - ModifySkillLevelsOfUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13467,6 +13856,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席技能组.
+     *
      * @param request - ModifySkillLevelsOfUserRequest
      *
      * @returns ModifySkillLevelsOfUserResponse
@@ -13483,6 +13874,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席.
+     *
      * @param request - ModifyUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13556,6 +13949,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席.
+     *
      * @param request - ModifyUserRequest
      *
      * @returns ModifyUserResponse
@@ -13572,6 +13967,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席技能组级别.
+     *
      * @param request - ModifyUserLevelsOfSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13617,6 +14014,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改坐席技能组级别.
+     *
      * @param request - ModifyUserLevelsOfSkillGroupRequest
      *
      * @returns ModifyUserLevelsOfSkillGroupResponse
@@ -13633,6 +14032,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 通话监听.
+     *
      * @param request - MonitorCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13686,6 +14087,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 通话监听.
+     *
      * @param request - MonitorCallRequest
      *
      * @returns MonitorCallResponse
@@ -13702,6 +14105,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 静音.
+     *
      * @param request - MuteCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13755,6 +14160,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 静音.
+     *
      * @param request - MuteCallRequest
      *
      * @returns MuteCallResponse
@@ -13832,6 +14239,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 选择外呼号码
+     *
      * @param request - PickOutboundNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13881,6 +14290,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 选择外呼号码
+     *
      * @param request - PickOutboundNumbersRequest
      *
      * @returns PickOutboundNumbersResponse
@@ -13897,6 +14308,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 轮询座席状态
+     *
      * @param request - PollUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13942,6 +14355,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 轮询座席状态
+     *
      * @param request - PollUserStatusRequest
      *
      * @returns PollUserStatusResponse
@@ -14100,6 +14515,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发布ivr流程.
+     *
      * @param request - PublishContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14145,6 +14562,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发布ivr流程.
+     *
      * @param request - PublishContactFlowRequest
      *
      * @returns PublishContactFlowResponse
@@ -14161,6 +14580,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 就绪/示闲.
+     *
      * @param request - ReadyForServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14210,6 +14631,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 就绪/示闲.
+     *
      * @param request - ReadyForServiceRequest
      *
      * @returns ReadyForServiceResponse
@@ -14226,6 +14649,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 重拨.
+     *
      * @param request - RedialCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14291,6 +14716,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 重拨.
+     *
      * @param request - RedialCallRequest
      *
      * @returns RedialCallResponse
@@ -14307,6 +14734,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 注册设备.
+     *
      * @param request - RegisterDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14356,6 +14785,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 注册设备.
+     *
      * @param request - RegisterDeviceRequest
      *
      * @returns RegisterDeviceResponse
@@ -14372,6 +14803,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 注册设备.
+     *
      * @param request - RegisterDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14421,6 +14854,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 注册设备.
+     *
      * @param request - RegisterDevicesRequest
      *
      * @returns RegisterDevicesResponse
@@ -14555,6 +14990,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 释放对话.
+     *
      * @param request - ReleaseCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14608,6 +15045,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 释放对话.
+     *
      * @param request - ReleaseCallRequest
      *
      * @returns ReleaseCallResponse
@@ -14819,6 +15258,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除个人号码
+     *
      * @param request - RemovePersonalNumbersFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14864,6 +15305,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除个人号码
+     *
      * @param request - RemovePersonalNumbersFromUserRequest
      *
      * @returns RemovePersonalNumbersFromUserResponse
@@ -14880,6 +15323,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除技能组下的电话号码
+     *
      * @param request - RemovePhoneNumberFromSkillGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14925,6 +15370,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除技能组下的电话号码
+     *
      * @param request - RemovePhoneNumberFromSkillGroupsRequest
      *
      * @returns RemovePhoneNumberFromSkillGroupsResponse
@@ -14941,6 +15388,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除电话号码
+     *
      * @param request - RemovePhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14986,6 +15435,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除电话号码
+     *
      * @param request - RemovePhoneNumbersRequest
      *
      * @returns RemovePhoneNumbersResponse
@@ -15002,6 +15453,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除技能组下的电话号码
+     *
      * @param request - RemovePhoneNumbersFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15047,6 +15500,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除技能组下的电话号码
+     *
      * @param request - RemovePhoneNumbersFromSkillGroupRequest
      *
      * @returns RemovePhoneNumbersFromSkillGroupResponse
@@ -15063,6 +15518,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除多个技能组下的坐席.
+     *
      * @param request - RemoveSkillGroupsFromUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15108,6 +15565,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除多个技能组下的坐席.
+     *
      * @param request - RemoveSkillGroupsFromUserRequest
      *
      * @returns RemoveSkillGroupsFromUserResponse
@@ -15124,6 +15583,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除坐席.
+     *
      * @param request - RemoveUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15177,6 +15638,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除坐席.
+     *
      * @param request - RemoveUsersRequest
      *
      * @returns RemoveUsersResponse
@@ -15193,6 +15656,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除坐席下的技能组.
+     *
      * @param request - RemoveUsersFromSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15238,6 +15703,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除坐席下的技能组.
+     *
      * @param request - RemoveUsersFromSkillGroupRequest
      *
      * @returns RemoveUsersFromSkillGroupResponse
@@ -15254,6 +15721,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 重置坐席状态
+     *
      * @param request - ResetAgentStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15299,6 +15768,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 重置坐席状态
+     *
      * @param request - ResetAgentStateRequest
      *
      * @returns ResetAgentStateResponse
@@ -15315,6 +15786,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 重置坐席密码
+     *
      * @param request - ResetUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15360,6 +15833,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 重置坐席密码
+     *
      * @param request - ResetUserPasswordRequest
      *
      * @returns ResetUserPasswordResponse
@@ -15559,6 +16034,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 取回.
+     *
      * @param request - RetrieveCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15612,6 +16089,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 取回.
+     *
      * @param request - RetrieveCallRequest
      *
      * @returns RetrieveCallResponse
@@ -15697,6 +16176,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 客服侧数据收集.
+     *
      * @param request - SaveRTCStatsV2Request
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15754,6 +16235,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 客服侧数据收集.
+     *
      * @param request - SaveRTCStatsV2Request
      *
      * @returns SaveRTCStatsV2Response
@@ -15770,6 +16253,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 保存终端埋点日志.
+     *
      * @param request - SaveTerminalLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15839,6 +16324,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 保存终端埋点日志.
+     *
      * @param request - SaveTerminalLogRequest
      *
      * @returns SaveTerminalLogResponse
@@ -15855,6 +16342,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 客服侧数据收集.
+     *
      * @param request - SaveWebRTCStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15912,6 +16401,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 客服侧数据收集.
+     *
      * @param request - SaveWebRTCStatsRequest
      *
      * @returns SaveWebRTCStatsResponse
@@ -15928,6 +16419,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 客服侧数据收集.
+     *
      * @param request - SaveWebRtcInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15981,6 +16474,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 客服侧数据收集.
+     *
      * @param request - SaveWebRtcInfoRequest
      *
      * @returns SaveWebRtcInfoResponse
@@ -15997,6 +16492,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 在接通的电话上发送DTMF信号.
+     *
      * @param request - SendDtmfSignalingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16054,6 +16551,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 在接通的电话上发送DTMF信号.
+     *
      * @param request - SendDtmfSignalingRequest
      *
      * @returns SendDtmfSignalingResponse
@@ -16143,6 +16642,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 上线
+     *
      * @param request - SignInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16200,6 +16701,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 上线
+     *
      * @param request - SignInGroupRequest
      *
      * @returns SignInGroupResponse
@@ -16216,6 +16719,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 下线
+     *
      * @param request - SignOutGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16261,6 +16766,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 下线
+     *
      * @param request - SignOutGroupRequest
      *
      * @returns SignOutGroupResponse
@@ -16277,6 +16784,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 双呼
+     *
      * @param request - StartBack2BackCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16338,6 +16847,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 双呼
+     *
      * @param request - StartBack2BackCallRequest
      *
      * @returns StartBack2BackCallResponse
@@ -16425,6 +16936,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 开始会议.
+     *
      * @param request - StartConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16478,6 +16991,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 开始会议.
+     *
      * @param request - StartConferenceRequest
      *
      * @returns StartConferenceResponse
@@ -16494,6 +17009,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 编辑ivr流程.
+     *
      * @param request - StartEditContactFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16535,6 +17052,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 编辑ivr流程.
+     *
      * @param request - StartEditContactFlowRequest
      *
      * @returns StartEditContactFlowResponse
@@ -16551,6 +17070,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 开始预测试外呼
+     *
      * @param request - StartPredictiveCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16620,6 +17141,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 开始预测试外呼
+     *
      * @param request - StartPredictiveCallRequest
      *
      * @returns StartPredictiveCallResponse
@@ -16766,6 +17289,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 切换关注/咨询转到会议.
+     *
      * @param request - SwitchToConferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16815,6 +17340,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 切换关注/咨询转到会议.
+     *
      * @param request - SwitchToConferenceRequest
      *
      * @returns SwitchToConferenceResponse
@@ -16831,6 +17358,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 小休.
+     *
      * @param request - TakeBreakRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16880,6 +17409,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 小休.
+     *
      * @param request - TakeBreakRequest
      *
      * @returns TakeBreakResponse
@@ -17026,6 +17557,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 取消静音.
+     *
      * @param request - UnmuteCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17079,6 +17612,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 取消静音.
+     *
      * @param request - UnmuteCallRequest
      *
      * @returns UnmuteCallResponse
@@ -17156,6 +17691,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 更新会话小结.
+     *
      * @param request - UpdateCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17201,6 +17738,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 更新会话小结.
+     *
      * @param request - UpdateCallSummaryRequest
      *
      * @returns UpdateCallSummaryResponse
@@ -17217,7 +17756,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Update campaign.
+     * 更新预测试外呼活动.
      *
      * @param request - UpdateCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17284,7 +17823,7 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * Update campaign.
+     * 更新预测试外呼活动.
      *
      * @param request - UpdateCampaignRequest
      *
@@ -17359,6 +17898,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 更新系统配置.
+     *
      * @param request - UpdateConfigItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17408,6 +17949,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 更新系统配置.
+     *
      * @param request - UpdateConfigItemsRequest
      *
      * @returns UpdateConfigItemsResponse
