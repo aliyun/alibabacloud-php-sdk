@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseResponseBody\license\instanceLicenseDetail;
 
 class license extends Model
 {
@@ -17,6 +18,11 @@ class license extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var instanceLicenseDetail
+     */
+    public $instanceLicenseDetail;
 
     /**
      * @var string
@@ -65,6 +71,7 @@ class license extends Model
     protected $_name = [
         'edition' => 'Edition',
         'endTime' => 'EndTime',
+        'instanceLicenseDetail' => 'InstanceLicenseDetail',
         'licenseChargeType' => 'LicenseChargeType',
         'licenseConfigJson' => 'LicenseConfigJson',
         'licenseCreateTime' => 'LicenseCreateTime',
@@ -78,6 +85,9 @@ class license extends Model
 
     public function validate()
     {
+        if (null !== $this->instanceLicenseDetail) {
+            $this->instanceLicenseDetail->validate();
+        }
         parent::validate();
     }
 
@@ -90,6 +100,10 @@ class license extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->instanceLicenseDetail) {
+            $res['InstanceLicenseDetail'] = null !== $this->instanceLicenseDetail ? $this->instanceLicenseDetail->toArray($noStream) : $this->instanceLicenseDetail;
         }
 
         if (null !== $this->licenseChargeType) {
@@ -145,6 +159,10 @@ class license extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['InstanceLicenseDetail'])) {
+            $model->instanceLicenseDetail = instanceLicenseDetail::fromMap($map['InstanceLicenseDetail']);
         }
 
         if (isset($map['LicenseChargeType'])) {
