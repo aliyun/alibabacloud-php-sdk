@@ -16,6 +16,11 @@ class ModifyNoticeConfigRequest extends Model
     /**
      * @var string
      */
+    public $focusLevel;
+
+    /**
+     * @var string
+     */
     public $project;
 
     /**
@@ -34,6 +39,7 @@ class ModifyNoticeConfigRequest extends Model
     public $timeLimit;
     protected $_name = [
         'bizType' => 'BizType',
+        'focusLevel' => 'FocusLevel',
         'project' => 'Project',
         'route' => 'Route',
         'sourceIp' => 'SourceIp',
@@ -50,6 +56,10 @@ class ModifyNoticeConfigRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->focusLevel) {
+            $res['FocusLevel'] = $this->focusLevel;
         }
 
         if (null !== $this->project) {
@@ -81,6 +91,10 @@ class ModifyNoticeConfigRequest extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['FocusLevel'])) {
+            $model->focusLevel = $map['FocusLevel'];
         }
 
         if (isset($map['Project'])) {

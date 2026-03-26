@@ -24,6 +24,11 @@ class imageInfos extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @var int
      */
     public $lastScanTime;
@@ -66,6 +71,7 @@ class imageInfos extends Model
         'digest' => 'Digest',
         'firstScanTime' => 'FirstScanTime',
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'lastScanTime' => 'LastScanTime',
         'regionId' => 'RegionId',
         'repoName' => 'RepoName',
@@ -94,6 +100,10 @@ class imageInfos extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->lastScanTime) {
@@ -149,6 +159,10 @@ class imageInfos extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['LastScanTime'])) {

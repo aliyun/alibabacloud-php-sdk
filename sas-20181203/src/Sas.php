@@ -55209,6 +55209,10 @@ class Sas extends OpenApiClient
             @$query['BizType'] = $request->bizType;
         }
 
+        if (null !== $request->focusLevel) {
+            @$query['FocusLevel'] = $request->focusLevel;
+        }
+
         if (null !== $request->project) {
             @$query['Project'] = $request->project;
         }
