@@ -17,6 +17,11 @@ class translationList extends Model
     /**
      * @var string
      */
+    public $detectedLang;
+
+    /**
+     * @var string
+     */
     public $index;
 
     /**
@@ -35,6 +40,7 @@ class translationList extends Model
     public $usage;
     protected $_name = [
         'code' => 'code',
+        'detectedLang' => 'detectedLang',
         'index' => 'index',
         'message' => 'message',
         'translation' => 'translation',
@@ -54,6 +60,10 @@ class translationList extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->detectedLang) {
+            $res['detectedLang'] = $this->detectedLang;
         }
 
         if (null !== $this->index) {
@@ -85,6 +95,10 @@ class translationList extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['detectedLang'])) {
+            $model->detectedLang = $map['detectedLang'];
         }
 
         if (isset($map['index'])) {

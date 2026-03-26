@@ -12,6 +12,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $detectedLang;
+
+    /**
+     * @var string
+     */
     public $translation;
 
     /**
@@ -19,6 +24,7 @@ class data extends Model
      */
     public $usage;
     protected $_name = [
+        'detectedLang' => 'detectedLang',
         'translation' => 'translation',
         'usage' => 'usage',
     ];
@@ -34,6 +40,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->detectedLang) {
+            $res['detectedLang'] = $this->detectedLang;
+        }
+
         if (null !== $this->translation) {
             $res['translation'] = $this->translation;
         }
@@ -53,6 +63,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['detectedLang'])) {
+            $model->detectedLang = $map['detectedLang'];
+        }
+
         if (isset($map['translation'])) {
             $model->translation = $map['translation'];
         }
