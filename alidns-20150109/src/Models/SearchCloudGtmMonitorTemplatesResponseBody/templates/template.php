@@ -12,6 +12,11 @@ class template extends Model
     /**
      * @var string
      */
+    public $cloudGtmMonitorTemplateId;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -84,6 +89,7 @@ class template extends Model
      */
     public $updateTimestamp;
     protected $_name = [
+        'cloudGtmMonitorTemplateId' => 'CloudGtmMonitorTemplateId',
         'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
         'evaluationCount' => 'EvaluationCount',
@@ -112,6 +118,10 @@ class template extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudGtmMonitorTemplateId) {
+            $res['CloudGtmMonitorTemplateId'] = $this->cloudGtmMonitorTemplateId;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -183,6 +193,10 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudGtmMonitorTemplateId'])) {
+            $model->cloudGtmMonitorTemplateId = $map['CloudGtmMonitorTemplateId'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
