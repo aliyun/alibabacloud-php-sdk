@@ -1,3 +1,7 @@
+2026-03-26 Version: 1.3.0
+- Support API ModifyGrantInstanceToTransitRouter.
+
+
 2026-03-25 Version: 1.2.9
 - Update API DescribeGrantRulesToCen: add response parameters Body.GrantRules.$.EffectiveOrderType.
 - Update API DescribeGrantRulesToResource: add response parameters Body.GrantRules.$.EffectiveOrderType.

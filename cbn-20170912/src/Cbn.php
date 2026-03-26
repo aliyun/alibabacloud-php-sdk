@@ -236,6 +236,8 @@ use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyCenRouteMapRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyCenRouteMapResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyFlowLogAttributeRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyFlowLogAttributeResponse;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyGrantInstanceToTransitRouterRequest;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyGrantInstanceToTransitRouterResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTrafficMatchRuleToTrafficMarkingPolicyResponse;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ModifyTransitRouterCidrRequest;
@@ -12432,6 +12434,93 @@ class Cbn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyFlowLogAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑跨账号授权记录.
+     *
+     * @param request - ModifyGrantInstanceToTransitRouterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyGrantInstanceToTransitRouterResponse
+     *
+     * @param ModifyGrantInstanceToTransitRouterRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyGrantInstanceToTransitRouterResponse
+     */
+    public function modifyGrantInstanceToTransitRouterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyGrantInstanceToTransitRouter',
+            'version' => '2017-09-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyGrantInstanceToTransitRouterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑跨账号授权记录.
+     *
+     * @param request - ModifyGrantInstanceToTransitRouterRequest
+     *
+     * @returns ModifyGrantInstanceToTransitRouterResponse
+     *
+     * @param ModifyGrantInstanceToTransitRouterRequest $request
+     *
+     * @return ModifyGrantInstanceToTransitRouterResponse
+     */
+    public function modifyGrantInstanceToTransitRouter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGrantInstanceToTransitRouterWithOptions($request, $runtime);
     }
 
     /**
