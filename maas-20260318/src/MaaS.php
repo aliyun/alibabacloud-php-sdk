@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\MaaS\V20260318\Models\GetApiKeyRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\GetApiKeyResponse;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\ListApiKeysResponse;
+use AlibabaCloud\SDK\MaaS\V20260318\Models\ListWorkspacesRequest;
+use AlibabaCloud\SDK\MaaS\V20260318\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\UpdateApiKeyRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\UpdateApiKeyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -316,6 +318,75 @@ class MaaS extends OpenApiClient
         $headers = [];
 
         return $this->listApiKeysWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 业务空间列表.
+     *
+     * @param request - ListWorkspacesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkspacesResponse
+     *
+     * @param ListWorkspacesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListWorkspacesResponse
+     */
+    public function listWorkspacesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['workspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkspaces',
+            'version' => '2026-03-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/bailianControl/workspaces',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 业务空间列表.
+     *
+     * @param request - ListWorkspacesRequest
+     *
+     * @returns ListWorkspacesResponse
+     *
+     * @param ListWorkspacesRequest $request
+     *
+     * @return ListWorkspacesResponse
+     */
+    public function listWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkspacesWithOptions($request, $headers, $runtime);
     }
 
     /**
