@@ -9,16 +9,10 @@ use AlibabaCloud\Dara\Model;
 class UpdateApiKeyRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $apiKeyId;
-
-    /**
      * @var string
      */
     public $description;
     protected $_name = [
-        'apiKeyId' => 'apiKeyId',
         'description' => 'description',
     ];
 
@@ -30,10 +24,6 @@ class UpdateApiKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiKeyId) {
-            $res['apiKeyId'] = $this->apiKeyId;
-        }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -49,10 +39,6 @@ class UpdateApiKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['apiKeyId'])) {
-            $model->apiKeyId = $map['apiKeyId'];
-        }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }

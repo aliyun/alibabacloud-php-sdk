@@ -5,11 +5,10 @@
 namespace AlibabaCloud\SDK\MaaS\V20260318;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\CreateApiKeyResponse;
-use AlibabaCloud\SDK\MaaS\V20260318\Models\DeleteApiKeyRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\DeleteApiKeyResponse;
-use AlibabaCloud\SDK\MaaS\V20260318\Models\GetApiKeyRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\GetApiKeyResponse;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\MaaS\V20260318\Models\ListApiKeysResponse;
@@ -91,7 +90,7 @@ class MaaS extends OpenApiClient
             'action' => 'CreateApiKey',
             'version' => '2026-03-18',
             'protocol' => 'HTTPS',
-            'pathname' => '/bailianControl/apiKey/createApiKey',
+            'pathname' => '/maas/apikeys',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -124,35 +123,27 @@ class MaaS extends OpenApiClient
     /**
      * 删除apiKey.
      *
-     * @param request - DeleteApiKeyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteApiKeyResponse
      *
-     * @param DeleteApiKeyRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param string         $apiKeyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteApiKeyResponse
      */
-    public function deleteApiKeyWithOptions($request, $headers, $runtime)
+    public function deleteApiKeyWithOptions($apiKeyId, $headers, $runtime)
     {
-        $request->validate();
-        $query = [];
-        if (null !== $request->apiKeyId) {
-            @$query['apiKeyId'] = $request->apiKeyId;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteApiKey',
             'version' => '2026-03-18',
             'protocol' => 'HTTPS',
-            'pathname' => '/bailianControl/apiKey/deleteApiKey',
+            'pathname' => '/maas/apikeys/' . Url::percentEncode($apiKeyId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -166,54 +157,44 @@ class MaaS extends OpenApiClient
     /**
      * 删除apiKey.
      *
-     * @param request - DeleteApiKeyRequest
-     *
      * @returns DeleteApiKeyResponse
      *
-     * @param DeleteApiKeyRequest $request
+     * @param string $apiKeyId
      *
      * @return DeleteApiKeyResponse
      */
-    public function deleteApiKey($request)
+    public function deleteApiKey($apiKeyId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteApiKeyWithOptions($request, $headers, $runtime);
+        return $this->deleteApiKeyWithOptions($apiKeyId, $headers, $runtime);
     }
 
     /**
      * 查询ApiKey详情.
      *
-     * @param request - GetApiKeyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetApiKeyResponse
      *
-     * @param GetApiKeyRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param string         $apiKeyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetApiKeyResponse
      */
-    public function getApiKeyWithOptions($request, $headers, $runtime)
+    public function getApiKeyWithOptions($apiKeyId, $headers, $runtime)
     {
-        $request->validate();
-        $query = [];
-        if (null !== $request->apiKeyId) {
-            @$query['apiKeyId'] = $request->apiKeyId;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApiKey',
             'version' => '2026-03-18',
             'protocol' => 'HTTPS',
-            'pathname' => '/bailianControl/apiKey/getApiKey',
+            'pathname' => '/maas/apikeys/' . Url::percentEncode($apiKeyId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -227,20 +208,18 @@ class MaaS extends OpenApiClient
     /**
      * 查询ApiKey详情.
      *
-     * @param request - GetApiKeyRequest
-     *
      * @returns GetApiKeyResponse
      *
-     * @param GetApiKeyRequest $request
+     * @param string $apiKeyId
      *
      * @return GetApiKeyResponse
      */
-    public function getApiKey($request)
+    public function getApiKey($apiKeyId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getApiKeyWithOptions($request, $headers, $runtime);
+        return $this->getApiKeyWithOptions($apiKeyId, $headers, $runtime);
     }
 
     /**
@@ -290,7 +269,7 @@ class MaaS extends OpenApiClient
             'action' => 'ListApiKeys',
             'version' => '2026-03-18',
             'protocol' => 'HTTPS',
-            'pathname' => '/bailianControl/apiKeys',
+            'pathname' => '/maas/apikeys',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -359,7 +338,7 @@ class MaaS extends OpenApiClient
             'action' => 'ListWorkspaces',
             'version' => '2026-03-18',
             'protocol' => 'HTTPS',
-            'pathname' => '/bailianControl/workspaces',
+            'pathname' => '/maas/workspaces',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -398,20 +377,17 @@ class MaaS extends OpenApiClient
      *
      * @returns UpdateApiKeyResponse
      *
+     * @param string              $apiKeyId
      * @param UpdateApiKeyRequest $request
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
      *
      * @return UpdateApiKeyResponse
      */
-    public function updateApiKeyWithOptions($request, $headers, $runtime)
+    public function updateApiKeyWithOptions($apiKeyId, $request, $headers, $runtime)
     {
         $request->validate();
         $query = [];
-        if (null !== $request->apiKeyId) {
-            @$query['apiKeyId'] = $request->apiKeyId;
-        }
-
         if (null !== $request->description) {
             @$query['description'] = $request->description;
         }
@@ -424,7 +400,7 @@ class MaaS extends OpenApiClient
             'action' => 'UpdateApiKey',
             'version' => '2026-03-18',
             'protocol' => 'HTTPS',
-            'pathname' => '/bailianControl/apiKey/updateApiKey',
+            'pathname' => '/maas/apikeys/' . Url::percentEncode($apiKeyId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -442,15 +418,16 @@ class MaaS extends OpenApiClient
      *
      * @returns UpdateApiKeyResponse
      *
+     * @param string              $apiKeyId
      * @param UpdateApiKeyRequest $request
      *
      * @return UpdateApiKeyResponse
      */
-    public function updateApiKey($request)
+    public function updateApiKey($apiKeyId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateApiKeyWithOptions($request, $headers, $runtime);
+        return $this->updateApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
     }
 }
