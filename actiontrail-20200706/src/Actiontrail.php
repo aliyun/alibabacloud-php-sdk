@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserAlertCountRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserAlertCountResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserLogCountRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserLogCountResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DisableInsightRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DisableInsightResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\EnableInsightRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\EnableInsightResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetAccessKeyLastUsedEventsRequest;
@@ -60,6 +62,11 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetDeliveryHistoryJobResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetGlobalEventsStorageRegionResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetGovernanceMetricsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetInsightSelectorsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetInsightSelectorsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetInsightsEventsCountRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetInsightsEventsCountResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetInsightTypesResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\GetTrailStatusResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDataEventSelectorsRequest;
@@ -70,8 +77,12 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDeliveryHistoryJobsRequest
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\ListDeliveryHistoryJobsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\LookupEventsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\LookupEventsResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\LookupInsightEventsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\LookupInsightEventsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\PutDataEventSelectorRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\PutDataEventSelectorResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\PutInsightSelectorsRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\PutInsightSelectorsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StartLoggingRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StartLoggingResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\StopLoggingRequest;
@@ -1333,6 +1344,63 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * 关闭insight.
+     *
+     * @param request - DisableInsightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableInsightResponse
+     *
+     * @param DisableInsightRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DisableInsightResponse
+     */
+    public function disableInsightWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->insightType) {
+            @$query['InsightType'] = $request->insightType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableInsight',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableInsightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭insight.
+     *
+     * @param request - DisableInsightRequest
+     *
+     * @returns DisableInsightResponse
+     *
+     * @param DisableInsightRequest $request
+     *
+     * @return DisableInsightResponse
+     */
+    public function disableInsight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableInsightWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables the Insights feature.
      *
      * @param request - EnableInsightRequest
@@ -2014,6 +2082,172 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * 获取跟踪insights配置.
+     *
+     * @param request - GetInsightSelectorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInsightSelectorsResponse
+     *
+     * @param GetInsightSelectorsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetInsightSelectorsResponse
+     */
+    public function getInsightSelectorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->trailName) {
+            @$query['TrailName'] = $request->trailName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInsightSelectors',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInsightSelectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取跟踪insights配置.
+     *
+     * @param request - GetInsightSelectorsRequest
+     *
+     * @returns GetInsightSelectorsResponse
+     *
+     * @param GetInsightSelectorsRequest $request
+     *
+     * @return GetInsightSelectorsResponse
+     */
+    public function getInsightSelectors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInsightSelectorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取查询账号开启insight的类型.
+     *
+     * @param request - GetInsightTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInsightTypesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInsightTypesResponse
+     */
+    public function getInsightTypesWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetInsightTypes',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInsightTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取查询账号开启insight的类型.
+     *
+     * @returns GetInsightTypesResponse
+     *
+     * @return GetInsightTypesResponse
+     */
+    public function getInsightTypes()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInsightTypesWithOptions($runtime);
+    }
+
+    /**
+     * 得到当前账号的insights事件数量.
+     *
+     * @param request - GetInsightsEventsCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInsightsEventsCountResponse
+     *
+     * @param GetInsightsEventsCountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetInsightsEventsCountResponse
+     */
+    public function getInsightsEventsCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->date) {
+            @$query['Date'] = $request->date;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInsightsEventsCount',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInsightsEventsCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 得到当前账号的insights事件数量.
+     *
+     * @param request - GetInsightsEventsCountRequest
+     *
+     * @returns GetInsightsEventsCountResponse
+     *
+     * @param GetInsightsEventsCountRequest $request
+     *
+     * @return GetInsightsEventsCountResponse
+     */
+    public function getInsightsEventsCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInsightsEventsCountWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the status of a trail.
      *
      * @remarks
@@ -2355,6 +2589,79 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * 查询Insight事件.
+     *
+     * @param request - LookupInsightEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LookupInsightEventsResponse
+     *
+     * @param LookupInsightEventsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return LookupInsightEventsResponse
+     */
+    public function lookupInsightEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lookupAttribute) {
+            @$query['LookupAttribute'] = $request->lookupAttribute;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LookupInsightEvents',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LookupInsightEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Insight事件.
+     *
+     * @param request - LookupInsightEventsRequest
+     *
+     * @returns LookupInsightEventsResponse
+     *
+     * @param LookupInsightEventsRequest $request
+     *
+     * @return LookupInsightEventsResponse
+     */
+    public function lookupInsightEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->lookupInsightEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建事件选择器.
      *
      * @param request - PutDataEventSelectorRequest
@@ -2421,6 +2728,67 @@ class Actiontrail extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putDataEventSelectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改跟踪insights功能.
+     *
+     * @param request - PutInsightSelectorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutInsightSelectorsResponse
+     *
+     * @param PutInsightSelectorsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PutInsightSelectorsResponse
+     */
+    public function putInsightSelectorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->insightSelectors) {
+            @$query['InsightSelectors'] = $request->insightSelectors;
+        }
+
+        if (null !== $request->trailName) {
+            @$query['TrailName'] = $request->trailName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PutInsightSelectors',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutInsightSelectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改跟踪insights功能.
+     *
+     * @param request - PutInsightSelectorsRequest
+     *
+     * @returns PutInsightSelectorsResponse
+     *
+     * @param PutInsightSelectorsRequest $request
+     *
+     * @return PutInsightSelectorsResponse
+     */
+    public function putInsightSelectors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putInsightSelectorsWithOptions($request, $runtime);
     }
 
     /**
