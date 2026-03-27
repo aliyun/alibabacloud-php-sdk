@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest\columns;
-use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest\dataSource;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateIndexRequest\metaExtractColumns;
 
 class CreateIndexRequest extends Model
@@ -30,11 +29,6 @@ class CreateIndexRequest extends Model
      * @var string
      */
     public $createIndexType;
-
-    /**
-     * @var dataSource
-     */
-    public $dataSource;
 
     /**
      * @var string
@@ -147,6 +141,11 @@ class CreateIndexRequest extends Model
     public $knowledgeScene;
 
     /**
+     * @var string
+     */
+    public $knowledgeType;
+
+    /**
      * @var metaExtractColumns[]
      */
     public $metaExtractColumns;
@@ -175,7 +174,6 @@ class CreateIndexRequest extends Model
         'chunkSize' => 'ChunkSize',
         'columns' => 'Columns',
         'createIndexType' => 'CreateIndexType',
-        'dataSource' => 'DataSource',
         'description' => 'Description',
         'documentIds' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
@@ -198,6 +196,7 @@ class CreateIndexRequest extends Model
         'datasourceCode' => 'datasourceCode',
         'enableHeaders' => 'enableHeaders',
         'knowledgeScene' => 'knowledgeScene',
+        'knowledgeType' => 'knowledgeType',
         'metaExtractColumns' => 'metaExtractColumns',
         'pipelineCommercialCu' => 'pipelineCommercialCu',
         'pipelineCommercialType' => 'pipelineCommercialType',
@@ -212,9 +211,6 @@ class CreateIndexRequest extends Model
         }
         if (\is_array($this->columns)) {
             Model::validateArray($this->columns);
-        }
-        if (null !== $this->dataSource) {
-            $this->dataSource->validate();
         }
         if (\is_array($this->documentIds)) {
             Model::validateArray($this->documentIds);
@@ -259,10 +255,6 @@ class CreateIndexRequest extends Model
 
         if (null !== $this->createIndexType) {
             $res['CreateIndexType'] = $this->createIndexType;
-        }
-
-        if (null !== $this->dataSource) {
-            $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toArray($noStream) : $this->dataSource;
         }
 
         if (null !== $this->description) {
@@ -367,6 +359,10 @@ class CreateIndexRequest extends Model
             $res['knowledgeScene'] = $this->knowledgeScene;
         }
 
+        if (null !== $this->knowledgeType) {
+            $res['knowledgeType'] = $this->knowledgeType;
+        }
+
         if (null !== $this->metaExtractColumns) {
             if (\is_array($this->metaExtractColumns)) {
                 $res['metaExtractColumns'] = [];
@@ -433,10 +429,6 @@ class CreateIndexRequest extends Model
 
         if (isset($map['CreateIndexType'])) {
             $model->createIndexType = $map['CreateIndexType'];
-        }
-
-        if (isset($map['DataSource'])) {
-            $model->dataSource = dataSource::fromMap($map['DataSource']);
         }
 
         if (isset($map['Description'])) {
@@ -539,6 +531,10 @@ class CreateIndexRequest extends Model
 
         if (isset($map['knowledgeScene'])) {
             $model->knowledgeScene = $map['knowledgeScene'];
+        }
+
+        if (isset($map['knowledgeType'])) {
+            $model->knowledgeType = $map['knowledgeType'];
         }
 
         if (isset($map['metaExtractColumns'])) {

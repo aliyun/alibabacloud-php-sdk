@@ -812,10 +812,6 @@ class Bailian extends OpenApiClient
             $request->columnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
         }
 
-        if (null !== $tmpReq->dataSource) {
-            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
-        }
-
         if (null !== $tmpReq->documentIds) {
             $request->documentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
@@ -843,10 +839,6 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->createIndexType) {
             @$query['CreateIndexType'] = $request->createIndexType;
-        }
-
-        if (null !== $request->dataSourceShrink) {
-            @$query['DataSource'] = $request->dataSourceShrink;
         }
 
         if (null !== $request->description) {
@@ -935,6 +927,10 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->knowledgeScene) {
             @$query['knowledgeScene'] = $request->knowledgeScene;
+        }
+
+        if (null !== $request->knowledgeType) {
+            @$query['knowledgeType'] = $request->knowledgeType;
         }
 
         if (null !== $request->metaExtractColumnsShrink) {

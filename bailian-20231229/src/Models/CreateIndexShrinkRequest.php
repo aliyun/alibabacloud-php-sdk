@@ -31,11 +31,6 @@ class CreateIndexShrinkRequest extends Model
     /**
      * @var string
      */
-    public $dataSourceShrink;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -146,6 +141,11 @@ class CreateIndexShrinkRequest extends Model
     /**
      * @var string
      */
+    public $knowledgeType;
+
+    /**
+     * @var string
+     */
     public $metaExtractColumnsShrink;
 
     /**
@@ -172,7 +172,6 @@ class CreateIndexShrinkRequest extends Model
         'chunkSize' => 'ChunkSize',
         'columnsShrink' => 'Columns',
         'createIndexType' => 'CreateIndexType',
-        'dataSourceShrink' => 'DataSource',
         'description' => 'Description',
         'documentIdsShrink' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
@@ -195,6 +194,7 @@ class CreateIndexShrinkRequest extends Model
         'datasourceCode' => 'datasourceCode',
         'enableHeaders' => 'enableHeaders',
         'knowledgeScene' => 'knowledgeScene',
+        'knowledgeType' => 'knowledgeType',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
         'pipelineCommercialCu' => 'pipelineCommercialCu',
         'pipelineCommercialType' => 'pipelineCommercialType',
@@ -224,10 +224,6 @@ class CreateIndexShrinkRequest extends Model
 
         if (null !== $this->createIndexType) {
             $res['CreateIndexType'] = $this->createIndexType;
-        }
-
-        if (null !== $this->dataSourceShrink) {
-            $res['DataSource'] = $this->dataSourceShrink;
         }
 
         if (null !== $this->description) {
@@ -318,6 +314,10 @@ class CreateIndexShrinkRequest extends Model
             $res['knowledgeScene'] = $this->knowledgeScene;
         }
 
+        if (null !== $this->knowledgeType) {
+            $res['knowledgeType'] = $this->knowledgeType;
+        }
+
         if (null !== $this->metaExtractColumnsShrink) {
             $res['metaExtractColumns'] = $this->metaExtractColumnsShrink;
         }
@@ -363,10 +363,6 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['CreateIndexType'])) {
             $model->createIndexType = $map['CreateIndexType'];
-        }
-
-        if (isset($map['DataSource'])) {
-            $model->dataSourceShrink = $map['DataSource'];
         }
 
         if (isset($map['Description'])) {
@@ -455,6 +451,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['knowledgeScene'])) {
             $model->knowledgeScene = $map['knowledgeScene'];
+        }
+
+        if (isset($map['knowledgeType'])) {
+            $model->knowledgeType = $map['knowledgeType'];
         }
 
         if (isset($map['metaExtractColumns'])) {
