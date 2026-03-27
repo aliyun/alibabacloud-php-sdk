@@ -2,6 +2,10 @@
 - Update API ListServiceConfigs: add response parameters Body.Data.$.SceneType.
 
 
+2026-03-27 Version: 1.6.1
+- Update API ListServiceConfigs: add response parameters Body.Data.$.SceneType.
+
+
 2026-02-26 Version: 1.6.0
 - Support API GetPromptTestResult.
 
