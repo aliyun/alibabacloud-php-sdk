@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponseBody\customBucketPathList;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponseBody\mountInfo;
 
 class DescribePolarFsAttributeResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $accelerateType;
+
     /**
      * @var float
      */
@@ -53,6 +59,11 @@ class DescribePolarFsAttributeResponseBody extends Model
      * @var string
      */
     public $customBucketPath;
+
+    /**
+     * @var customBucketPathList[]
+     */
+    public $customBucketPathList;
 
     /**
      * @var string
@@ -179,6 +190,7 @@ class DescribePolarFsAttributeResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
+        'accelerateType' => 'AccelerateType',
         'acceleratedStorageSpace' => 'AcceleratedStorageSpace',
         'acceleratingEnable' => 'AcceleratingEnable',
         'bandwidth' => 'Bandwidth',
@@ -188,6 +200,7 @@ class DescribePolarFsAttributeResponseBody extends Model
         'clientDownloadPath' => 'ClientDownloadPath',
         'createTime' => 'CreateTime',
         'customBucketPath' => 'CustomBucketPath',
+        'customBucketPathList' => 'CustomBucketPathList',
         'DBType' => 'DBType',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
@@ -217,6 +230,9 @@ class DescribePolarFsAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->customBucketPathList)) {
+            Model::validateArray($this->customBucketPathList);
+        }
         if (null !== $this->mountInfo) {
             $this->mountInfo->validate();
         }
@@ -226,6 +242,10 @@ class DescribePolarFsAttributeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accelerateType) {
+            $res['AccelerateType'] = $this->accelerateType;
+        }
+
         if (null !== $this->acceleratedStorageSpace) {
             $res['AcceleratedStorageSpace'] = $this->acceleratedStorageSpace;
         }
@@ -260,6 +280,17 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->customBucketPath) {
             $res['CustomBucketPath'] = $this->customBucketPath;
+        }
+
+        if (null !== $this->customBucketPathList) {
+            if (\is_array($this->customBucketPathList)) {
+                $res['CustomBucketPathList'] = [];
+                $n1 = 0;
+                foreach ($this->customBucketPathList as $item1) {
+                    $res['CustomBucketPathList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->DBType) {
@@ -373,6 +404,10 @@ class DescribePolarFsAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccelerateType'])) {
+            $model->accelerateType = $map['AccelerateType'];
+        }
+
         if (isset($map['AcceleratedStorageSpace'])) {
             $model->acceleratedStorageSpace = $map['AcceleratedStorageSpace'];
         }
@@ -407,6 +442,17 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['CustomBucketPath'])) {
             $model->customBucketPath = $map['CustomBucketPath'];
+        }
+
+        if (isset($map['CustomBucketPathList'])) {
+            if (!empty($map['CustomBucketPathList'])) {
+                $model->customBucketPathList = [];
+                $n1 = 0;
+                foreach ($map['CustomBucketPathList'] as $item1) {
+                    $model->customBucketPathList[$n1] = customBucketPathList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DBType'])) {

@@ -2876,6 +2876,18 @@ class Polardb extends OpenApiClient
             @$query['SecurityGroupId'] = $request->securityGroupId;
         }
 
+        if (null !== $request->securityIPArrayName) {
+            @$query['SecurityIPArrayName'] = $request->securityIPArrayName;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->securityIPType) {
+            @$query['SecurityIPType'] = $request->securityIPType;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }

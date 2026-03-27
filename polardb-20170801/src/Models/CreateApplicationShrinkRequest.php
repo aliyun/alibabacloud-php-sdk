@@ -135,6 +135,21 @@ class CreateApplicationShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $securityIPArrayName;
+
+    /**
+     * @var string
+     */
+    public $securityIPList;
+
+    /**
+     * @var string
+     */
+    public $securityIPType;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -189,6 +204,9 @@ class CreateApplicationShrinkRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
+        'securityIPArrayName' => 'SecurityIPArrayName',
+        'securityIPList' => 'SecurityIPList',
+        'securityIPType' => 'SecurityIPType',
         'tag' => 'Tag',
         'targetVersion' => 'TargetVersion',
         'usedTime' => 'UsedTime',
@@ -306,6 +324,18 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->securityIPArrayName) {
+            $res['SecurityIPArrayName'] = $this->securityIPArrayName;
+        }
+
+        if (null !== $this->securityIPList) {
+            $res['SecurityIPList'] = $this->securityIPList;
+        }
+
+        if (null !== $this->securityIPType) {
+            $res['SecurityIPType'] = $this->securityIPType;
         }
 
         if (null !== $this->tag) {
@@ -448,6 +478,18 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SecurityIPArrayName'])) {
+            $model->securityIPArrayName = $map['SecurityIPArrayName'];
+        }
+
+        if (isset($map['SecurityIPList'])) {
+            $model->securityIPList = $map['SecurityIPList'];
+        }
+
+        if (isset($map['SecurityIPType'])) {
+            $model->securityIPType = $map['SecurityIPType'];
         }
 
         if (isset($map['Tag'])) {

@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRespon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\memApplicationAttribute;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityGroups;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityIPArrays;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\storages;
 
 class DescribeApplicationAttributeResponseBody extends Model
 {
@@ -139,6 +140,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @var storages[]
+     */
+    public $storages;
+
+    /**
      * @var string
      */
     public $upgradeAvailable;
@@ -188,6 +194,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'securityIPArrays' => 'SecurityIPArrays',
         'serverlessType' => 'ServerlessType',
         'status' => 'Status',
+        'storages' => 'Storages',
         'upgradeAvailable' => 'UpgradeAvailable',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
@@ -211,6 +218,9 @@ class DescribeApplicationAttributeResponseBody extends Model
         }
         if (\is_array($this->securityIPArrays)) {
             Model::validateArray($this->securityIPArrays);
+        }
+        if (\is_array($this->storages)) {
+            Model::validateArray($this->storages);
         }
         parent::validate();
     }
@@ -344,6 +354,17 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->storages) {
+            if (\is_array($this->storages)) {
+                $res['Storages'] = [];
+                $n1 = 0;
+                foreach ($this->storages as $item1) {
+                    $res['Storages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->upgradeAvailable) {
@@ -503,6 +524,17 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Storages'])) {
+            if (!empty($map['Storages'])) {
+                $model->storages = [];
+                $n1 = 0;
+                foreach ($map['Storages'] as $item1) {
+                    $model->storages[$n1] = storages::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UpgradeAvailable'])) {
