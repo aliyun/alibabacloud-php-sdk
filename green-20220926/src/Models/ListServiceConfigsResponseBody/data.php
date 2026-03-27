@@ -42,6 +42,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $sceneType;
+
+    /**
+     * @var string
+     */
     public $serviceCode;
 
     /**
@@ -75,6 +80,7 @@ class data extends Model
         'gmtModified' => 'GmtModified',
         'option' => 'Option',
         'resourceType' => 'ResourceType',
+        'sceneType' => 'SceneType',
         'serviceCode' => 'ServiceCode',
         'serviceDesc' => 'ServiceDesc',
         'serviceName' => 'ServiceName',
@@ -124,6 +130,10 @@ class data extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->sceneType) {
+            $res['SceneType'] = $this->sceneType;
         }
 
         if (null !== $this->serviceCode) {
@@ -188,6 +198,10 @@ class data extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['SceneType'])) {
+            $model->sceneType = $map['SceneType'];
         }
 
         if (isset($map['ServiceCode'])) {
