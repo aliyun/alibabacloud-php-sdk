@@ -24,6 +24,16 @@ class ListUsersRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $organizationalUnitId;
@@ -81,6 +91,8 @@ class ListUsersRequest extends Model
         'displayNameStartsWith' => 'DisplayNameStartsWith',
         'email' => 'Email',
         'instanceId' => 'InstanceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'organizationalUnitId' => 'OrganizationalUnitId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -115,6 +127,14 @@ class ListUsersRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->organizationalUnitId) {
@@ -189,6 +209,14 @@ class ListUsersRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['OrganizationalUnitId'])) {

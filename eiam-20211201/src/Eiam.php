@@ -17352,6 +17352,14 @@ class Eiam extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->organizationalUnitId) {
             @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }

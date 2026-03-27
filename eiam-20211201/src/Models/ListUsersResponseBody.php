@@ -10,6 +10,16 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersResponseBody\users;
 class ListUsersResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -24,6 +34,8 @@ class ListUsersResponseBody extends Model
      */
     public $users;
     protected $_name = [
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
         'users' => 'Users',
@@ -40,6 +52,14 @@ class ListUsersResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,6 +90,14 @@ class ListUsersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
