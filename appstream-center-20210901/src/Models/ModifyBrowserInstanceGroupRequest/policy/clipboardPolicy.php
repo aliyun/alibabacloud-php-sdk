@@ -44,6 +44,16 @@ class clipboardPolicy extends Model
     public $richTextClipboard;
 
     /**
+     * @var int
+     */
+    public $richTextClipboardLimit;
+
+    /**
+     * @var string
+     */
+    public $richTextClipboardSizeUnit;
+
+    /**
      * @var string
      */
     public $textClipboard;
@@ -55,6 +65,8 @@ class clipboardPolicy extends Model
         'clipboardWriteLimit' => 'ClipboardWriteLimit',
         'fileClipboard' => 'FileClipboard',
         'richTextClipboard' => 'RichTextClipboard',
+        'richTextClipboardLimit' => 'RichTextClipboardLimit',
+        'richTextClipboardSizeUnit' => 'RichTextClipboardSizeUnit',
         'textClipboard' => 'TextClipboard',
     ];
 
@@ -92,6 +104,14 @@ class clipboardPolicy extends Model
 
         if (null !== $this->richTextClipboard) {
             $res['RichTextClipboard'] = $this->richTextClipboard;
+        }
+
+        if (null !== $this->richTextClipboardLimit) {
+            $res['RichTextClipboardLimit'] = $this->richTextClipboardLimit;
+        }
+
+        if (null !== $this->richTextClipboardSizeUnit) {
+            $res['RichTextClipboardSizeUnit'] = $this->richTextClipboardSizeUnit;
         }
 
         if (null !== $this->textClipboard) {
@@ -135,6 +155,14 @@ class clipboardPolicy extends Model
 
         if (isset($map['RichTextClipboard'])) {
             $model->richTextClipboard = $map['RichTextClipboard'];
+        }
+
+        if (isset($map['RichTextClipboardLimit'])) {
+            $model->richTextClipboardLimit = $map['RichTextClipboardLimit'];
+        }
+
+        if (isset($map['RichTextClipboardSizeUnit'])) {
+            $model->richTextClipboardSizeUnit = $map['RichTextClipboardSizeUnit'];
         }
 
         if (isset($map['TextClipboard'])) {
