@@ -32,6 +32,11 @@ class CreateDIJobRequest extends Model
     /**
      * @var string
      */
+    public $fileSpec;
+
+    /**
+     * @var string
+     */
     public $jobName;
 
     /**
@@ -92,6 +97,7 @@ class CreateDIJobRequest extends Model
         'description' => 'Description',
         'destinationDataSourceSettings' => 'DestinationDataSourceSettings',
         'destinationDataSourceType' => 'DestinationDataSourceType',
+        'fileSpec' => 'FileSpec',
         'jobName' => 'JobName',
         'jobSettings' => 'JobSettings',
         'jobType' => 'JobType',
@@ -149,6 +155,10 @@ class CreateDIJobRequest extends Model
 
         if (null !== $this->destinationDataSourceType) {
             $res['DestinationDataSourceType'] = $this->destinationDataSourceType;
+        }
+
+        if (null !== $this->fileSpec) {
+            $res['FileSpec'] = $this->fileSpec;
         }
 
         if (null !== $this->jobName) {
@@ -248,6 +258,10 @@ class CreateDIJobRequest extends Model
 
         if (isset($map['DestinationDataSourceType'])) {
             $model->destinationDataSourceType = $map['DestinationDataSourceType'];
+        }
+
+        if (isset($map['FileSpec'])) {
+            $model->fileSpec = $map['FileSpec'];
         }
 
         if (isset($map['JobName'])) {

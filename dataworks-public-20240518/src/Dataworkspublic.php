@@ -1683,6 +1683,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['DestinationDataSourceSettings'] = $request->destinationDataSourceSettingsShrink;
         }
 
+        if (null !== $request->fileSpec) {
+            @$body['FileSpec'] = $request->fileSpec;
+        }
+
         if (null !== $request->jobSettingsShrink) {
             @$body['JobSettings'] = $request->jobSettingsShrink;
         }
@@ -17729,6 +17733,10 @@ class Dataworkspublic extends OpenApiClient
         $body = [];
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->fileSpec) {
+            @$body['FileSpec'] = $request->fileSpec;
         }
 
         if (null !== $request->jobSettingsShrink) {

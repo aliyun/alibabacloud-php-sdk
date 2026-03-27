@@ -23,6 +23,11 @@ class UpdateDIJobRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $fileSpec;
+
+    /**
      * @var int
      */
     public $id;
@@ -59,6 +64,7 @@ class UpdateDIJobRequest extends Model
     protected $_name = [
         'DIJobId' => 'DIJobId',
         'description' => 'Description',
+        'fileSpec' => 'FileSpec',
         'id' => 'Id',
         'jobSettings' => 'JobSettings',
         'owner' => 'Owner',
@@ -94,6 +100,10 @@ class UpdateDIJobRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->fileSpec) {
+            $res['FileSpec'] = $this->fileSpec;
         }
 
         if (null !== $this->id) {
@@ -155,6 +165,10 @@ class UpdateDIJobRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['FileSpec'])) {
+            $model->fileSpec = $map['FileSpec'];
         }
 
         if (isset($map['Id'])) {

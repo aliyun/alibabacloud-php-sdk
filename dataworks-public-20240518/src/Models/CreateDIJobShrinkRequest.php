@@ -26,6 +26,11 @@ class CreateDIJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $fileSpec;
+
+    /**
+     * @var string
+     */
     public $jobName;
 
     /**
@@ -86,6 +91,7 @@ class CreateDIJobShrinkRequest extends Model
         'description' => 'Description',
         'destinationDataSourceSettingsShrink' => 'DestinationDataSourceSettings',
         'destinationDataSourceType' => 'DestinationDataSourceType',
+        'fileSpec' => 'FileSpec',
         'jobName' => 'JobName',
         'jobSettingsShrink' => 'JobSettings',
         'jobType' => 'JobType',
@@ -118,6 +124,10 @@ class CreateDIJobShrinkRequest extends Model
 
         if (null !== $this->destinationDataSourceType) {
             $res['DestinationDataSourceType'] = $this->destinationDataSourceType;
+        }
+
+        if (null !== $this->fileSpec) {
+            $res['FileSpec'] = $this->fileSpec;
         }
 
         if (null !== $this->jobName) {
@@ -189,6 +199,10 @@ class CreateDIJobShrinkRequest extends Model
 
         if (isset($map['DestinationDataSourceType'])) {
             $model->destinationDataSourceType = $map['DestinationDataSourceType'];
+        }
+
+        if (isset($map['FileSpec'])) {
+            $model->fileSpec = $map['FileSpec'];
         }
 
         if (isset($map['JobName'])) {
