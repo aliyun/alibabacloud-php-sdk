@@ -1,3 +1,9 @@
+2026-03-27 Version: 2.37.0
+- Support API ClaimCall.
+- Support API ListNotificationRecords.
+- Support API UpdateSubscription.
+
+
 2026-03-26 Version: 2.37.0
 - Support API ClaimCall.
 - Support API ListNotificationRecords.
