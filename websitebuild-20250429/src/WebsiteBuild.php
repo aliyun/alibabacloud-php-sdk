@@ -1628,6 +1628,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
         if (null !== $request->resourceConditions) {
             @$query['ResourceConditions'] = $request->resourceConditions;
         }
