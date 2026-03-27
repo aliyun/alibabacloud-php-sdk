@@ -79,6 +79,11 @@ class SubmitDocParserJobShrinkRequest extends Model
     public $ossEndpoint;
 
     /**
+     * @var string
+     */
+    public $outputFormatShrink;
+
+    /**
      * @var bool
      */
     public $outputHtmlTable;
@@ -102,6 +107,7 @@ class SubmitDocParserJobShrinkRequest extends Model
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'outputFormatShrink' => 'OutputFormat',
         'outputHtmlTable' => 'OutputHtmlTable',
         'pageIndex' => 'PageIndex',
     ];
@@ -168,6 +174,10 @@ class SubmitDocParserJobShrinkRequest extends Model
 
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+
+        if (null !== $this->outputFormatShrink) {
+            $res['OutputFormat'] = $this->outputFormatShrink;
         }
 
         if (null !== $this->outputHtmlTable) {
@@ -243,6 +253,10 @@ class SubmitDocParserJobShrinkRequest extends Model
 
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+
+        if (isset($map['OutputFormat'])) {
+            $model->outputFormatShrink = $map['OutputFormat'];
         }
 
         if (isset($map['OutputHtmlTable'])) {

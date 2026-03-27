@@ -68,6 +68,7 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocParserJobShrinkRequest
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobShrinkRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentExtractJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentExtractJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocumentExtractJobResponse;
@@ -2064,6 +2065,10 @@ class Docmindapi extends OpenApiClient
             $request->multimediaParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->multimediaParameters, 'MultimediaParameters', 'json');
         }
 
+        if (null !== $tmpReq->outputFormat) {
+            $request->outputFormatShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputFormat, 'OutputFormat', 'simple');
+        }
+
         $query = [];
         if (null !== $request->customOssConfigShrink) {
             @$query['CustomOssConfig'] = $request->customOssConfigShrink;
@@ -2119,6 +2124,10 @@ class Docmindapi extends OpenApiClient
 
         if (null !== $request->ossEndpoint) {
             @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
+        if (null !== $request->outputFormatShrink) {
+            @$query['OutputFormat'] = $request->outputFormatShrink;
         }
 
         if (null !== $request->outputHtmlTable) {
@@ -2260,19 +2269,25 @@ class Docmindapi extends OpenApiClient
     /**
      * 文档智能解析.
      *
-     * @param Request - SubmitDocStructureJobRequest
+     * @param tmpReq - SubmitDocStructureJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SubmitDocStructureJobResponse
      *
-     * @param SubmitDocStructureJobRequest $request
+     * @param SubmitDocStructureJobRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return SubmitDocStructureJobResponse
      */
-    public function submitDocStructureJobWithOptions($request, $runtime)
+    public function submitDocStructureJobWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new SubmitDocStructureJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->outputFormat) {
+            $request->outputFormatShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outputFormat, 'OutputFormat', 'simple');
+        }
+
         $query = [];
         if (null !== $request->allowPptFormat) {
             @$query['AllowPptFormat'] = $request->allowPptFormat;
@@ -2304,6 +2319,10 @@ class Docmindapi extends OpenApiClient
 
         if (null !== $request->ossEndpoint) {
             @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
+        if (null !== $request->outputFormatShrink) {
+            @$query['OutputFormat'] = $request->outputFormatShrink;
         }
 
         if (null !== $request->pageIndex) {

@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
 use AlibabaCloud\Dara\Model;
-use GuzzleHttp\Psr7\Stream;
 
-class SubmitDocStructureJobAdvanceRequest extends Model
+class SubmitDocStructureJobShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -30,9 +29,9 @@ class SubmitDocStructureJobAdvanceRequest extends Model
     public $fileNameExtension;
 
     /**
-     * @var Stream
+     * @var string
      */
-    public $fileUrlObject;
+    public $fileUrl;
 
     /**
      * @var bool
@@ -50,9 +49,9 @@ class SubmitDocStructureJobAdvanceRequest extends Model
     public $ossEndpoint;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $outputFormat;
+    public $outputFormatShrink;
 
     /**
      * @var string
@@ -68,20 +67,17 @@ class SubmitDocStructureJobAdvanceRequest extends Model
         'enableEventCallback' => 'EnableEventCallback',
         'fileName' => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
-        'fileUrlObject' => 'FileUrl',
+        'fileUrl' => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
-        'outputFormat' => 'OutputFormat',
+        'outputFormatShrink' => 'OutputFormat',
         'pageIndex' => 'PageIndex',
         'structureType' => 'StructureType',
     ];
 
     public function validate()
     {
-        if (\is_array($this->outputFormat)) {
-            Model::validateArray($this->outputFormat);
-        }
         parent::validate();
     }
 
@@ -104,8 +100,8 @@ class SubmitDocStructureJobAdvanceRequest extends Model
             $res['FileNameExtension'] = $this->fileNameExtension;
         }
 
-        if (null !== $this->fileUrlObject) {
-            $res['FileUrl'] = $this->fileUrlObject;
+        if (null !== $this->fileUrl) {
+            $res['FileUrl'] = $this->fileUrl;
         }
 
         if (null !== $this->formulaEnhancement) {
@@ -120,15 +116,8 @@ class SubmitDocStructureJobAdvanceRequest extends Model
             $res['OssEndpoint'] = $this->ossEndpoint;
         }
 
-        if (null !== $this->outputFormat) {
-            if (\is_array($this->outputFormat)) {
-                $res['OutputFormat'] = [];
-                $n1 = 0;
-                foreach ($this->outputFormat as $item1) {
-                    $res['OutputFormat'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->outputFormatShrink) {
+            $res['OutputFormat'] = $this->outputFormatShrink;
         }
 
         if (null !== $this->pageIndex) {
@@ -167,7 +156,7 @@ class SubmitDocStructureJobAdvanceRequest extends Model
         }
 
         if (isset($map['FileUrl'])) {
-            $model->fileUrlObject = $map['FileUrl'];
+            $model->fileUrl = $map['FileUrl'];
         }
 
         if (isset($map['FormulaEnhancement'])) {
@@ -183,14 +172,7 @@ class SubmitDocStructureJobAdvanceRequest extends Model
         }
 
         if (isset($map['OutputFormat'])) {
-            if (!empty($map['OutputFormat'])) {
-                $model->outputFormat = [];
-                $n1 = 0;
-                foreach ($map['OutputFormat'] as $item1) {
-                    $model->outputFormat[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->outputFormatShrink = $map['OutputFormat'];
         }
 
         if (isset($map['PageIndex'])) {

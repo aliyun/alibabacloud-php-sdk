@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models\QueryDocParserStatusResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\QueryDocParserStatusResponseBody\data\outputFormatResult;
 
 class data extends Model
 {
@@ -17,6 +18,11 @@ class data extends Model
      * @var int
      */
     public $numberOfSuccessfulParsing;
+
+    /**
+     * @var outputFormatResult[]
+     */
+    public $outputFormatResult;
 
     /**
      * @var int
@@ -50,6 +56,7 @@ class data extends Model
     protected $_name = [
         'imageCount' => 'ImageCount',
         'numberOfSuccessfulParsing' => 'NumberOfSuccessfulParsing',
+        'outputFormatResult' => 'OutputFormatResult',
         'pageCountEstimate' => 'PageCountEstimate',
         'paragraphCount' => 'ParagraphCount',
         'processing' => 'Processing',
@@ -60,6 +67,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->outputFormatResult)) {
+            Model::validateArray($this->outputFormatResult);
+        }
         parent::validate();
     }
 
@@ -72,6 +82,17 @@ class data extends Model
 
         if (null !== $this->numberOfSuccessfulParsing) {
             $res['NumberOfSuccessfulParsing'] = $this->numberOfSuccessfulParsing;
+        }
+
+        if (null !== $this->outputFormatResult) {
+            if (\is_array($this->outputFormatResult)) {
+                $res['OutputFormatResult'] = [];
+                $n1 = 0;
+                foreach ($this->outputFormatResult as $item1) {
+                    $res['OutputFormatResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->pageCountEstimate) {
@@ -115,6 +136,17 @@ class data extends Model
 
         if (isset($map['NumberOfSuccessfulParsing'])) {
             $model->numberOfSuccessfulParsing = $map['NumberOfSuccessfulParsing'];
+        }
+
+        if (isset($map['OutputFormatResult'])) {
+            if (!empty($map['OutputFormatResult'])) {
+                $model->outputFormatResult = [];
+                $n1 = 0;
+                foreach ($map['OutputFormatResult'] as $item1) {
+                    $model->outputFormatResult[$n1] = outputFormatResult::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PageCountEstimate'])) {

@@ -82,6 +82,11 @@ class SubmitDocParserJobRequest extends Model
     public $ossEndpoint;
 
     /**
+     * @var string[]
+     */
+    public $outputFormat;
+
+    /**
      * @var bool
      */
     public $outputHtmlTable;
@@ -105,6 +110,7 @@ class SubmitDocParserJobRequest extends Model
         'option' => 'Option',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'outputFormat' => 'OutputFormat',
         'outputHtmlTable' => 'OutputHtmlTable',
         'pageIndex' => 'PageIndex',
     ];
@@ -119,6 +125,9 @@ class SubmitDocParserJobRequest extends Model
         }
         if (null !== $this->multimediaParameters) {
             $this->multimediaParameters->validate();
+        }
+        if (\is_array($this->outputFormat)) {
+            Model::validateArray($this->outputFormat);
         }
         parent::validate();
     }
@@ -180,6 +189,17 @@ class SubmitDocParserJobRequest extends Model
 
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+
+        if (null !== $this->outputFormat) {
+            if (\is_array($this->outputFormat)) {
+                $res['OutputFormat'] = [];
+                $n1 = 0;
+                foreach ($this->outputFormat as $item1) {
+                    $res['OutputFormat'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->outputHtmlTable) {
@@ -255,6 +275,17 @@ class SubmitDocParserJobRequest extends Model
 
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+
+        if (isset($map['OutputFormat'])) {
+            if (!empty($map['OutputFormat'])) {
+                $model->outputFormat = [];
+                $n1 = 0;
+                foreach ($map['OutputFormat'] as $item1) {
+                    $model->outputFormat[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OutputHtmlTable'])) {

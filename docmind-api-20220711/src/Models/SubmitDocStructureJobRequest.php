@@ -49,6 +49,11 @@ class SubmitDocStructureJobRequest extends Model
     public $ossEndpoint;
 
     /**
+     * @var string[]
+     */
+    public $outputFormat;
+
+    /**
      * @var string
      */
     public $pageIndex;
@@ -66,12 +71,16 @@ class SubmitDocStructureJobRequest extends Model
         'formulaEnhancement' => 'FormulaEnhancement',
         'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
+        'outputFormat' => 'OutputFormat',
         'pageIndex' => 'PageIndex',
         'structureType' => 'StructureType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->outputFormat)) {
+            Model::validateArray($this->outputFormat);
+        }
         parent::validate();
     }
 
@@ -108,6 +117,17 @@ class SubmitDocStructureJobRequest extends Model
 
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
+        }
+
+        if (null !== $this->outputFormat) {
+            if (\is_array($this->outputFormat)) {
+                $res['OutputFormat'] = [];
+                $n1 = 0;
+                foreach ($this->outputFormat as $item1) {
+                    $res['OutputFormat'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->pageIndex) {
@@ -159,6 +179,17 @@ class SubmitDocStructureJobRequest extends Model
 
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
+        }
+
+        if (isset($map['OutputFormat'])) {
+            if (!empty($map['OutputFormat'])) {
+                $model->outputFormat = [];
+                $n1 = 0;
+                foreach ($map['OutputFormat'] as $item1) {
+                    $model->outputFormat[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PageIndex'])) {
