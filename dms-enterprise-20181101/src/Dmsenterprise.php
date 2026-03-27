@@ -581,6 +581,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
@@ -21445,6 +21447,77 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据用户提供的问题，智能搜索获取表知识.
+     *
+     * @remarks
+     * 根据用户提供的问题，智能搜索获取表知识
+     *
+     * @param request - SearchTableKnowledgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchTableKnowledgeResponse
+     *
+     * @param SearchTableKnowledgeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchTableKnowledgeResponse
+     */
+    public function searchTableKnowledgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchTableKnowledge',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchTableKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据用户提供的问题，智能搜索获取表知识.
+     *
+     * @remarks
+     * 根据用户提供的问题，智能搜索获取表知识
+     *
+     * @param request - SearchTableKnowledgeRequest
+     *
+     * @returns SearchTableKnowledgeResponse
+     *
+     * @param SearchTableKnowledgeRequest $request
+     *
+     * @return SearchTableKnowledgeResponse
+     */
+    public function searchTableKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchTableKnowledgeWithOptions($request, $runtime);
     }
 
     /**
