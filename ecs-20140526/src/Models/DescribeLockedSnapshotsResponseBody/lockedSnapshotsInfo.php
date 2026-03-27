@@ -41,6 +41,11 @@ class lockedSnapshotsInfo extends Model
     /**
      * @var string
      */
+    public $lockMode;
+
+    /**
+     * @var string
+     */
     public $lockStatus;
 
     /**
@@ -54,6 +59,7 @@ class lockedSnapshotsInfo extends Model
         'lockDuration' => 'LockDuration',
         'lockDurationStartTime' => 'LockDurationStartTime',
         'lockExpiredTime' => 'LockExpiredTime',
+        'lockMode' => 'LockMode',
         'lockStatus' => 'LockStatus',
         'snapshotId' => 'SnapshotId',
     ];
@@ -88,6 +94,10 @@ class lockedSnapshotsInfo extends Model
 
         if (null !== $this->lockExpiredTime) {
             $res['LockExpiredTime'] = $this->lockExpiredTime;
+        }
+
+        if (null !== $this->lockMode) {
+            $res['LockMode'] = $this->lockMode;
         }
 
         if (null !== $this->lockStatus) {
@@ -131,6 +141,10 @@ class lockedSnapshotsInfo extends Model
 
         if (isset($map['LockExpiredTime'])) {
             $model->lockExpiredTime = $map['LockExpiredTime'];
+        }
+
+        if (isset($map['LockMode'])) {
+            $model->lockMode = $map['LockMode'];
         }
 
         if (isset($map['LockStatus'])) {

@@ -72,6 +72,11 @@ class CreateDeploymentSetRequest extends Model
      * @var string
      */
     public $strategy;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'deploymentSetName' => 'DeploymentSetName',
@@ -86,6 +91,7 @@ class CreateDeploymentSetRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'strategy' => 'Strategy',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -146,6 +152,10 @@ class CreateDeploymentSetRequest extends Model
 
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -209,6 +219,10 @@ class CreateDeploymentSetRequest extends Model
 
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

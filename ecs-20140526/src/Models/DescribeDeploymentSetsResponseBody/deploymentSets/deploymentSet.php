@@ -74,6 +74,11 @@ class deploymentSet extends Model
      * @var string
      */
     public $strategy;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'accountId' => 'AccountId',
         'capacities' => 'Capacities',
@@ -88,6 +93,7 @@ class deploymentSet extends Model
         'instanceAmount' => 'InstanceAmount',
         'instanceIds' => 'InstanceIds',
         'strategy' => 'Strategy',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -156,6 +162,10 @@ class deploymentSet extends Model
             $res['Strategy'] = $this->strategy;
         }
 
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -217,6 +227,10 @@ class deploymentSet extends Model
 
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

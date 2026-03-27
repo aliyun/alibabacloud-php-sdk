@@ -46,6 +46,11 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceUsageConfigShrink;
+
+    /**
+     * @var string
+     */
     public $sessionManagerConfigShrink;
 
     /**
@@ -65,6 +70,7 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceUsageConfigShrink' => 'ResourceUsageConfig',
         'sessionManagerConfigShrink' => 'SessionManagerConfig',
         'settingType' => 'SettingType',
         'slsDeliveryConfigShrink' => 'SlsDeliveryConfig',
@@ -104,6 +110,10 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->resourceUsageConfigShrink) {
+            $res['ResourceUsageConfig'] = $this->resourceUsageConfigShrink;
         }
 
         if (null !== $this->sessionManagerConfigShrink) {
@@ -155,6 +165,10 @@ class ModifyCloudAssistantSettingsShrinkRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['ResourceUsageConfig'])) {
+            $model->resourceUsageConfigShrink = $map['ResourceUsageConfig'];
         }
 
         if (isset($map['SessionManagerConfig'])) {

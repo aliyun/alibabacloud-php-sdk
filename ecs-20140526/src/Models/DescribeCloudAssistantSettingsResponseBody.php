@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\agentUpgradeConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\ossDeliveryConfigs;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\resourceUsageConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\sessionManagerConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\slsDeliveryConfigs;
 
@@ -28,6 +29,11 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var resourceUsageConfig
+     */
+    public $resourceUsageConfig;
+
+    /**
      * @var sessionManagerConfig
      */
     public $sessionManagerConfig;
@@ -40,6 +46,7 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
         'agentUpgradeConfig' => 'AgentUpgradeConfig',
         'ossDeliveryConfigs' => 'OssDeliveryConfigs',
         'requestId' => 'RequestId',
+        'resourceUsageConfig' => 'ResourceUsageConfig',
         'sessionManagerConfig' => 'SessionManagerConfig',
         'slsDeliveryConfigs' => 'SlsDeliveryConfigs',
     ];
@@ -51,6 +58,9 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
         }
         if (null !== $this->ossDeliveryConfigs) {
             $this->ossDeliveryConfigs->validate();
+        }
+        if (null !== $this->resourceUsageConfig) {
+            $this->resourceUsageConfig->validate();
         }
         if (null !== $this->sessionManagerConfig) {
             $this->sessionManagerConfig->validate();
@@ -74,6 +84,10 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->resourceUsageConfig) {
+            $res['ResourceUsageConfig'] = null !== $this->resourceUsageConfig ? $this->resourceUsageConfig->toArray($noStream) : $this->resourceUsageConfig;
         }
 
         if (null !== $this->sessionManagerConfig) {
@@ -105,6 +119,10 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['ResourceUsageConfig'])) {
+            $model->resourceUsageConfig = resourceUsageConfig::fromMap($map['ResourceUsageConfig']);
         }
 
         if (isset($map['SessionManagerConfig'])) {

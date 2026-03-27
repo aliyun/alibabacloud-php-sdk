@@ -17,6 +17,16 @@ class agentUpgradeConfig extends Model
     /**
      * @var bool
      */
+    public $bootstrapUpgrade;
+
+    /**
+     * @var bool
+     */
+    public $disableUpgrade;
+
+    /**
+     * @var bool
+     */
     public $enabled;
 
     /**
@@ -25,6 +35,8 @@ class agentUpgradeConfig extends Model
     public $timeZone;
     protected $_name = [
         'allowedUpgradeWindows' => 'AllowedUpgradeWindows',
+        'bootstrapUpgrade' => 'BootstrapUpgrade',
+        'disableUpgrade' => 'DisableUpgrade',
         'enabled' => 'Enabled',
         'timeZone' => 'TimeZone',
     ];
@@ -42,6 +54,14 @@ class agentUpgradeConfig extends Model
         $res = [];
         if (null !== $this->allowedUpgradeWindows) {
             $res['AllowedUpgradeWindows'] = null !== $this->allowedUpgradeWindows ? $this->allowedUpgradeWindows->toArray($noStream) : $this->allowedUpgradeWindows;
+        }
+
+        if (null !== $this->bootstrapUpgrade) {
+            $res['BootstrapUpgrade'] = $this->bootstrapUpgrade;
+        }
+
+        if (null !== $this->disableUpgrade) {
+            $res['DisableUpgrade'] = $this->disableUpgrade;
         }
 
         if (null !== $this->enabled) {
@@ -65,6 +85,14 @@ class agentUpgradeConfig extends Model
         $model = new self();
         if (isset($map['AllowedUpgradeWindows'])) {
             $model->allowedUpgradeWindows = allowedUpgradeWindows::fromMap($map['AllowedUpgradeWindows']);
+        }
+
+        if (isset($map['BootstrapUpgrade'])) {
+            $model->bootstrapUpgrade = $map['BootstrapUpgrade'];
+        }
+
+        if (isset($map['DisableUpgrade'])) {
+            $model->disableUpgrade = $map['DisableUpgrade'];
         }
 
         if (isset($map['Enabled'])) {
