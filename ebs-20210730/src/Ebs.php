@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateAppResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDedicatedBlockStorageClusterResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiagnoseReportRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiagnoseReportResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateDiskReplicaPairRequest;
@@ -42,6 +44,8 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDi
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiagnoseReportRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiagnoseReportResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskEventsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskEventsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskMonitorDataListRequest;
@@ -825,6 +829,87 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDedicatedBlockStorageClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Triggers a diagnostic.
+     *
+     * @param request - CreateDiagnoseReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDiagnoseReportResponse
+     *
+     * @param CreateDiagnoseReportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDiagnoseReportResponse
+     */
+    public function createDiagnoseReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->diagnoseType) {
+            @$query['DiagnoseType'] = $request->diagnoseType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDiagnoseReport',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Triggers a diagnostic.
+     *
+     * @param request - CreateDiagnoseReportRequest
+     *
+     * @returns CreateDiagnoseReportResponse
+     *
+     * @param CreateDiagnoseReportRequest $request
+     *
+     * @return CreateDiagnoseReportResponse
+     */
+    public function createDiagnoseReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiagnoseReportWithOptions($request, $runtime);
     }
 
     /**
@@ -1771,6 +1856,99 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDedicatedBlockStorageClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries diagnostic reports.
+     *
+     * @param request - DescribeDiagnoseReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDiagnoseReportResponse
+     *
+     * @param DescribeDiagnoseReportRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDiagnoseReportResponse
+     */
+    public function describeDiagnoseReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->diagnoseType) {
+            @$query['DiagnoseType'] = $request->diagnoseType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportIds) {
+            @$query['ReportIds'] = $request->reportIds;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDiagnoseReport',
+            'version' => '2021-07-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries diagnostic reports.
+     *
+     * @param request - DescribeDiagnoseReportRequest
+     *
+     * @returns DescribeDiagnoseReportResponse
+     *
+     * @param DescribeDiagnoseReportRequest $request
+     *
+     * @return DescribeDiagnoseReportResponse
+     */
+    public function describeDiagnoseReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiagnoseReportWithOptions($request, $runtime);
     }
 
     /**
