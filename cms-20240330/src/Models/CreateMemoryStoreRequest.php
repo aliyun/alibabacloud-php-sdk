@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreRequest\traceSourceConfig;
 
 class CreateMemoryStoreRequest extends Model
 {
@@ -32,12 +33,24 @@ class CreateMemoryStoreRequest extends Model
      * @var int
      */
     public $shortTermTtl;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
+     * @var traceSourceConfig
+     */
+    public $traceSourceConfig;
     protected $_name = [
         'customExtractionStrategies' => 'customExtractionStrategies',
         'description' => 'description',
         'extractionStrategies' => 'extractionStrategies',
         'memoryStoreName' => 'memoryStoreName',
         'shortTermTtl' => 'shortTermTtl',
+        'sourceType' => 'sourceType',
+        'traceSourceConfig' => 'traceSourceConfig',
     ];
 
     public function validate()
@@ -47,6 +60,9 @@ class CreateMemoryStoreRequest extends Model
         }
         if (\is_array($this->extractionStrategies)) {
             Model::validateArray($this->extractionStrategies);
+        }
+        if (null !== $this->traceSourceConfig) {
+            $this->traceSourceConfig->validate();
         }
         parent::validate();
     }
@@ -86,6 +102,14 @@ class CreateMemoryStoreRequest extends Model
 
         if (null !== $this->shortTermTtl) {
             $res['shortTermTtl'] = $this->shortTermTtl;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
+        }
+
+        if (null !== $this->traceSourceConfig) {
+            $res['traceSourceConfig'] = null !== $this->traceSourceConfig ? $this->traceSourceConfig->toArray($noStream) : $this->traceSourceConfig;
         }
 
         return $res;
@@ -131,6 +155,14 @@ class CreateMemoryStoreRequest extends Model
 
         if (isset($map['shortTermTtl'])) {
             $model->shortTermTtl = $map['shortTermTtl'];
+        }
+
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
+        }
+
+        if (isset($map['traceSourceConfig'])) {
+            $model->traceSourceConfig = traceSourceConfig::fromMap($map['traceSourceConfig']);
         }
 
         return $model;

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponseBody\shortTermStorage;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponseBody\traceSourceConfig;
 
 class GetMemoryStoreResponseBody extends Model
 {
@@ -57,6 +58,16 @@ class GetMemoryStoreResponseBody extends Model
     /**
      * @var string
      */
+    public $sourceType;
+
+    /**
+     * @var traceSourceConfig
+     */
+    public $traceSourceConfig;
+
+    /**
+     * @var string
+     */
     public $updateTime;
 
     /**
@@ -73,6 +84,8 @@ class GetMemoryStoreResponseBody extends Model
         'requestId' => 'requestId',
         'shortTermStorage' => 'shortTermStorage',
         'shortTermTtl' => 'shortTermTtl',
+        'sourceType' => 'sourceType',
+        'traceSourceConfig' => 'traceSourceConfig',
         'updateTime' => 'updateTime',
         'workspace' => 'workspace',
     ];
@@ -87,6 +100,9 @@ class GetMemoryStoreResponseBody extends Model
         }
         if (null !== $this->shortTermStorage) {
             $this->shortTermStorage->validate();
+        }
+        if (null !== $this->traceSourceConfig) {
+            $this->traceSourceConfig->validate();
         }
         parent::validate();
     }
@@ -142,6 +158,14 @@ class GetMemoryStoreResponseBody extends Model
 
         if (null !== $this->shortTermTtl) {
             $res['shortTermTtl'] = $this->shortTermTtl;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
+        }
+
+        if (null !== $this->traceSourceConfig) {
+            $res['traceSourceConfig'] = null !== $this->traceSourceConfig ? $this->traceSourceConfig->toArray($noStream) : $this->traceSourceConfig;
         }
 
         if (null !== $this->updateTime) {
@@ -211,6 +235,14 @@ class GetMemoryStoreResponseBody extends Model
 
         if (isset($map['shortTermTtl'])) {
             $model->shortTermTtl = $map['shortTermTtl'];
+        }
+
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
+        }
+
+        if (isset($map['traceSourceConfig'])) {
+            $model->traceSourceConfig = traceSourceConfig::fromMap($map['traceSourceConfig']);
         }
 
         if (isset($map['updateTime'])) {
