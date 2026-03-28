@@ -61,6 +61,11 @@ class ListSnapshotsRequest extends Model
     /**
      * @var string
      */
+    public $snapshotStatus;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
@@ -78,6 +83,7 @@ class ListSnapshotsRequest extends Model
         'snapshotId' => 'SnapshotId',
         'snapshotResourceId' => 'SnapshotResourceId',
         'snapshotResourceType' => 'SnapshotResourceType',
+        'snapshotStatus' => 'SnapshotStatus',
         'sortBy' => 'SortBy',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -128,6 +134,10 @@ class ListSnapshotsRequest extends Model
 
         if (null !== $this->snapshotResourceType) {
             $res['SnapshotResourceType'] = $this->snapshotResourceType;
+        }
+
+        if (null !== $this->snapshotStatus) {
+            $res['SnapshotStatus'] = $this->snapshotStatus;
         }
 
         if (null !== $this->sortBy) {
@@ -187,6 +197,10 @@ class ListSnapshotsRequest extends Model
 
         if (isset($map['SnapshotResourceType'])) {
             $model->snapshotResourceType = $map['SnapshotResourceType'];
+        }
+
+        if (isset($map['SnapshotStatus'])) {
+            $model->snapshotStatus = $map['SnapshotStatus'];
         }
 
         if (isset($map['SortBy'])) {

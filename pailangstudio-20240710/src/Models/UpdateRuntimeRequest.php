@@ -14,6 +14,11 @@ class UpdateRuntimeRequest extends Model
     public $action;
 
     /**
+     * @var bool
+     */
+    public $autoUpdateImage;
+
+    /**
      * @var int
      */
     public $runTimeout;
@@ -29,6 +34,7 @@ class UpdateRuntimeRequest extends Model
     public $workspaceId;
     protected $_name = [
         'action' => 'Action',
+        'autoUpdateImage' => 'AutoUpdateImage',
         'runTimeout' => 'RunTimeout',
         'version' => 'Version',
         'workspaceId' => 'WorkspaceId',
@@ -44,6 +50,10 @@ class UpdateRuntimeRequest extends Model
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
+        }
+
+        if (null !== $this->autoUpdateImage) {
+            $res['AutoUpdateImage'] = $this->autoUpdateImage;
         }
 
         if (null !== $this->runTimeout) {
@@ -71,6 +81,10 @@ class UpdateRuntimeRequest extends Model
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
+        }
+
+        if (isset($map['AutoUpdateImage'])) {
+            $model->autoUpdateImage = $map['AutoUpdateImage'];
         }
 
         if (isset($map['RunTimeout'])) {

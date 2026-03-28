@@ -20,6 +20,11 @@ class Runtime extends Model
     public $accessibility;
 
     /**
+     * @var bool
+     */
+    public $autoUpdateImage;
+
+    /**
      * @var string
      */
     public $creator;
@@ -115,6 +120,7 @@ class Runtime extends Model
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'autoUpdateImage' => 'AutoUpdateImage',
         'creator' => 'Creator',
         'credentialConfig' => 'CredentialConfig',
         'dataSources' => 'DataSources',
@@ -164,6 +170,10 @@ class Runtime extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->autoUpdateImage) {
+            $res['AutoUpdateImage'] = $this->autoUpdateImage;
         }
 
         if (null !== $this->creator) {
@@ -276,6 +286,10 @@ class Runtime extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['AutoUpdateImage'])) {
+            $model->autoUpdateImage = $map['AutoUpdateImage'];
         }
 
         if (isset($map['Creator'])) {

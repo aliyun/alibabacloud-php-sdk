@@ -20,6 +20,11 @@ class CreateRuntimeRequest extends Model
     public $accessibility;
 
     /**
+     * @var bool
+     */
+    public $autoUpdateImage;
+
+    /**
      * @var credentialConfig
      */
     public $credentialConfig;
@@ -80,6 +85,7 @@ class CreateRuntimeRequest extends Model
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'autoUpdateImage' => 'AutoUpdateImage',
         'credentialConfig' => 'CredentialConfig',
         'dataSources' => 'DataSources',
         'ecsSpec' => 'EcsSpec',
@@ -122,6 +128,10 @@ class CreateRuntimeRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->autoUpdateImage) {
+            $res['AutoUpdateImage'] = $this->autoUpdateImage;
         }
 
         if (null !== $this->credentialConfig) {
@@ -206,6 +216,10 @@ class CreateRuntimeRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['AutoUpdateImage'])) {
+            $model->autoUpdateImage = $map['AutoUpdateImage'];
         }
 
         if (isset($map['CredentialConfig'])) {

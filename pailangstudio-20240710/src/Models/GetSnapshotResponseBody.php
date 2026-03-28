@@ -31,6 +31,11 @@ class GetSnapshotResponseBody extends Model
     /**
      * @var string
      */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $gmtCreateTime;
 
     /**
@@ -66,6 +71,11 @@ class GetSnapshotResponseBody extends Model
     /**
      * @var string
      */
+    public $snapshotStatus;
+
+    /**
+     * @var string
+     */
     public $snapshotStoragePath;
 
     /**
@@ -87,6 +97,7 @@ class GetSnapshotResponseBody extends Model
         'creationType' => 'CreationType',
         'creator' => 'Creator',
         'description' => 'Description',
+        'errorMessage' => 'ErrorMessage',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'requestId' => 'RequestId',
@@ -94,6 +105,7 @@ class GetSnapshotResponseBody extends Model
         'snapshotName' => 'SnapshotName',
         'snapshotResourceId' => 'SnapshotResourceId',
         'snapshotResourceType' => 'SnapshotResourceType',
+        'snapshotStatus' => 'SnapshotStatus',
         'snapshotStoragePath' => 'SnapshotStoragePath',
         'snapshotUrl' => 'SnapshotUrl',
         'workDir' => 'WorkDir',
@@ -124,6 +136,10 @@ class GetSnapshotResponseBody extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -150,6 +166,10 @@ class GetSnapshotResponseBody extends Model
 
         if (null !== $this->snapshotResourceType) {
             $res['SnapshotResourceType'] = $this->snapshotResourceType;
+        }
+
+        if (null !== $this->snapshotStatus) {
+            $res['SnapshotStatus'] = $this->snapshotStatus;
         }
 
         if (null !== $this->snapshotStoragePath) {
@@ -195,6 +215,10 @@ class GetSnapshotResponseBody extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -221,6 +245,10 @@ class GetSnapshotResponseBody extends Model
 
         if (isset($map['SnapshotResourceType'])) {
             $model->snapshotResourceType = $map['SnapshotResourceType'];
+        }
+
+        if (isset($map['SnapshotStatus'])) {
+            $model->snapshotStatus = $map['SnapshotStatus'];
         }
 
         if (isset($map['SnapshotStoragePath'])) {

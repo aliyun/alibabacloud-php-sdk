@@ -102,7 +102,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 创建部署.
+     * Create a deployment job.
      *
      * @param request - CreateDeploymentRequest
      * @param headers - map
@@ -192,7 +192,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 创建部署.
+     * Create a deployment job.
      *
      * @param request - CreateDeploymentRequest
      *
@@ -417,6 +417,9 @@ class PAILangStudio extends OpenApiClient
     /**
      * Create a runtime.
      *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/pai/dsw-billing-description?spm=a2c4g.11186623.help-menu-30347.d_1_1_3.fb4453d9l200bE) of PAI-DSW product.
+     *
      * @param request - CreateRuntimeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -435,6 +438,10 @@ class PAILangStudio extends OpenApiClient
         $body = [];
         if (null !== $request->accessibility) {
             @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->autoUpdateImage) {
+            @$body['AutoUpdateImage'] = $request->autoUpdateImage;
         }
 
         if (null !== $request->credentialConfig) {
@@ -507,6 +514,9 @@ class PAILangStudio extends OpenApiClient
     /**
      * Create a runtime.
      *
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/zh/pai/dsw-billing-description?spm=a2c4g.11186623.help-menu-30347.d_1_1_3.fb4453d9l200bE) of PAI-DSW product.
+     *
      * @param request - CreateRuntimeRequest
      *
      * @returns CreateRuntimeResponse
@@ -524,7 +534,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 创建快照.
+     * Create a snapshot.
      *
      * @param request - CreateSnapshotRequest
      * @param headers - map
@@ -598,7 +608,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 创建快照.
+     * Create a snapshot.
      *
      * @param request - CreateSnapshotRequest
      *
@@ -617,7 +627,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 删除部署.
+     * Delete a deployment job.
      *
      * @param request - DeleteDeploymentRequest
      * @param headers - map
@@ -660,7 +670,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 删除部署.
+     * Delete a deployment job.
      *
      * @param request - DeleteDeploymentRequest
      *
@@ -871,7 +881,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 删除快照.
+     * Delete a snapshot.
      *
      * @param request - DeleteSnapshotRequest
      * @param headers - map
@@ -914,7 +924,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 删除快照.
+     * Delete a snapshot.
      *
      * @param request - DeleteSnapshotRequest
      *
@@ -934,7 +944,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 查看部署.
+     * Retrieve the details of a deployment job.
      *
      * @param request - GetDeploymentRequest
      * @param headers - map
@@ -977,7 +987,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 查看部署.
+     * Retrieve the details of a deployment job.
      *
      * @param request - GetDeploymentRequest
      *
@@ -1192,7 +1202,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取快照详情.
+     * Obtain snapshot details.
      *
      * @param request - GetSnapshotRequest
      * @param headers - map
@@ -1235,7 +1245,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取快照详情.
+     * Obtain snapshot details.
      *
      * @param request - GetSnapshotRequest
      *
@@ -1255,7 +1265,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取部署列表.
+     * Retrieve a list of deployment jobs.
      *
      * @param request - ListDeploymentsRequest
      * @param headers - map
@@ -1353,7 +1363,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取部署列表.
+     * Retrieve a list of deployment jobs.
      *
      * @param request - ListDeploymentsRequest
      *
@@ -1372,7 +1382,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取知识库切片列表.
+     * Retrieve the knowledge base segment list.
      *
      * @param request - ListKnowledgeBaseChunksRequest
      * @param headers - map
@@ -1431,7 +1441,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取知识库切片列表.
+     * Retrieve the knowledge base segment list.
      *
      * @param request - ListKnowledgeBaseChunksRequest
      *
@@ -1760,7 +1770,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取快照列表.
+     * Retrieve a snapshot list.
      *
      * @param request - ListSnapshotsRequest
      * @param headers - map
@@ -1818,6 +1828,10 @@ class PAILangStudio extends OpenApiClient
             @$query['SnapshotResourceType'] = $request->snapshotResourceType;
         }
 
+        if (null !== $request->snapshotStatus) {
+            @$query['SnapshotStatus'] = $request->snapshotStatus;
+        }
+
         if (null !== $request->sortBy) {
             @$query['SortBy'] = $request->sortBy;
         }
@@ -1846,7 +1860,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 获取快照列表.
+     * Retrieve a snapshot list.
      *
      * @param request - ListSnapshotsRequest
      *
@@ -1964,7 +1978,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 更新部署.
+     * Update a deployment job.
      *
      * @param request - UpdateDeploymentRequest
      * @param headers - map
@@ -2023,7 +2037,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 更新部署.
+     * Update a deployment job.
      *
      * @param request - UpdateDeploymentRequest
      *
@@ -2126,7 +2140,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 更新知识库切片.
+     * Update Knowledge Base Chunk.
      *
      * @param request - UpdateKnowledgeBaseChunkRequest
      * @param headers - map
@@ -2174,7 +2188,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 更新知识库切片.
+     * Update Knowledge Base Chunk.
      *
      * @param request - UpdateKnowledgeBaseChunkRequest
      *
@@ -2287,6 +2301,10 @@ class PAILangStudio extends OpenApiClient
             @$body['Action'] = $request->action;
         }
 
+        if (null !== $request->autoUpdateImage) {
+            @$body['AutoUpdateImage'] = $request->autoUpdateImage;
+        }
+
         if (null !== $request->runTimeout) {
             @$body['RunTimeout'] = $request->runTimeout;
         }
@@ -2339,7 +2357,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 更新快照.
+     * Update a snapshot.
      *
      * @param request - UpdateSnapshotRequest
      * @param headers - map
@@ -2390,7 +2408,7 @@ class PAILangStudio extends OpenApiClient
     }
 
     /**
-     * 更新快照.
+     * Update a snapshot.
      *
      * @param request - UpdateSnapshotRequest
      *
