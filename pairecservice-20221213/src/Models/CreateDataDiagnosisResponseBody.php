@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
+class CreateDataDiagnosisResponseBody extends Model
 {
     /**
-     * @var float
+     * @var string
      */
-    public $traffic;
+    public $dataDiagnosisId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $recordTime;
+    public $requestId;
     protected $_name = [
-        'traffic' => 'Traffic',
-        'recordTime' => 'RecordTime',
+        'dataDiagnosisId' => 'DataDiagnosisId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->traffic) {
-            $res['Traffic'] = $this->traffic;
+        if (null !== $this->dataDiagnosisId) {
+            $res['DataDiagnosisId'] = $this->dataDiagnosisId;
         }
 
-        if (null !== $this->recordTime) {
-            $res['RecordTime'] = $this->recordTime;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Traffic'])) {
-            $model->traffic = $map['Traffic'];
+        if (isset($map['DataDiagnosisId'])) {
+            $model->dataDiagnosisId = $map['DataDiagnosisId'];
         }
 
-        if (isset($map['RecordTime'])) {
-            $model->recordTime = $map['RecordTime'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

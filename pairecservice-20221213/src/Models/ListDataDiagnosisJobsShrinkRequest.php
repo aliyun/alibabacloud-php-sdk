@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListExperimentGroupsRequest extends Model
+class ListDataDiagnosisJobsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -16,7 +16,12 @@ class ListExperimentGroupsRequest extends Model
     /**
      * @var string
      */
-    public $layerId;
+    public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class ListExperimentGroupsRequest extends Model
     /**
      * @var string
      */
-    public $timeRangeEnd;
-
-    /**
-     * @var string
-     */
-    public $timeRangeStart;
+    public $typesShrink;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'layerId' => 'LayerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'status' => 'Status',
-        'timeRangeEnd' => 'TimeRangeEnd',
-        'timeRangeStart' => 'TimeRangeStart',
+        'typesShrink' => 'Types',
     ];
 
     public function validate()
@@ -52,20 +52,20 @@ class ListExperimentGroupsRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->layerId) {
-            $res['LayerId'] = $this->layerId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
 
-        if (null !== $this->timeRangeEnd) {
-            $res['TimeRangeEnd'] = $this->timeRangeEnd;
-        }
-
-        if (null !== $this->timeRangeStart) {
-            $res['TimeRangeStart'] = $this->timeRangeStart;
+        if (null !== $this->typesShrink) {
+            $res['Types'] = $this->typesShrink;
         }
 
         return $res;
@@ -83,20 +83,20 @@ class ListExperimentGroupsRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['LayerId'])) {
-            $model->layerId = $map['LayerId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
 
-        if (isset($map['TimeRangeEnd'])) {
-            $model->timeRangeEnd = $map['TimeRangeEnd'];
-        }
-
-        if (isset($map['TimeRangeStart'])) {
-            $model->timeRangeStart = $map['TimeRangeStart'];
+        if (isset($map['Types'])) {
+            $model->typesShrink = $map['Types'];
         }
 
         return $model;

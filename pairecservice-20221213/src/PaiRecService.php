@@ -38,6 +38,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCalculationJobsRequest
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCalculationJobsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateCrowdResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateDataDiagnosisJobsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateDataDiagnosisJobsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateDataDiagnosisRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateDataDiagnosisResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateEngineConfigRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CreateExperimentGroupRequest;
@@ -91,6 +95,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteABMetricResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteCrowdResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteDataDiagnosisRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteDataDiagnosisResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteEngineConfigRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentGroupRequest;
@@ -140,6 +146,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetABMetricResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetCalculationJobRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetCalculationJobResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetDataDiagnosisRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetDataDiagnosisResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetEngineConfigRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetExperimentGroupRequest;
@@ -197,6 +205,14 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdUsersRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListCrowdUsersResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosesRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosesResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosesShrinkRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosisJobsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosisJobsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosisJobsShrinkRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosisReportsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListDataDiagnosisReportsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListEngineConfigsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListEngineConfigsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ListExperimentGroupsRequest;
@@ -273,6 +289,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushAllExperimentResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleShrinkRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryDataDiagnosisStatisticsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryDataDiagnosisStatisticsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QuerySampleConsistencyJobDifferenceRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QuerySampleConsistencyJobDifferenceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTargetItemReportDetailRequest;
@@ -305,6 +323,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateABMetricRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateABMetricResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateCrowdRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateCrowdResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateDataDiagnosisRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateDataDiagnosisResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateEngineConfigRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateEngineConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateExperimentGroupRequest;
@@ -1566,6 +1586,184 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->createCrowdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建数据诊断。
+     *
+     * @param request - CreateDataDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataDiagnosisResponse
+     *
+     * @param CreateDataDiagnosisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDataDiagnosisResponse
+     */
+    public function createDataDiagnosisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->cycleTime) {
+            @$body['CycleTime'] = $request->cycleTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->leftTableMetaId) {
+            @$body['LeftTableMetaId'] = $request->leftTableMetaId;
+        }
+
+        if (null !== $request->leftTablePartitionField) {
+            @$body['LeftTablePartitionField'] = $request->leftTablePartitionField;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->partitionField) {
+            @$body['PartitionField'] = $request->partitionField;
+        }
+
+        if (null !== $request->rightTableMetaId) {
+            @$body['RightTableMetaId'] = $request->rightTableMetaId;
+        }
+
+        if (null !== $request->rightTablePartitionField) {
+            @$body['RightTablePartitionField'] = $request->rightTablePartitionField;
+        }
+
+        if (null !== $request->tableMetaId) {
+            @$body['TableMetaId'] = $request->tableMetaId;
+        }
+
+        if (null !== $request->topNQuantity) {
+            @$body['TopNQuantity'] = $request->topNQuantity;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataDiagnosis',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据诊断。
+     *
+     * @param request - CreateDataDiagnosisRequest
+     *
+     * @returns CreateDataDiagnosisResponse
+     *
+     * @param CreateDataDiagnosisRequest $request
+     *
+     * @return CreateDataDiagnosisResponse
+     */
+    public function createDataDiagnosis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDataDiagnosisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建数据诊断（重跑）任务。
+     *
+     * @param request - CreateDataDiagnosisJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataDiagnosisJobsResponse
+     *
+     * @param CreateDataDiagnosisJobsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateDataDiagnosisJobsResponse
+     */
+    public function createDataDiagnosisJobsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dataDiagnosisId) {
+            @$body['DataDiagnosisId'] = $request->dataDiagnosisId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataDiagnosisJobs',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/batch/datadiagnosisjobs/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataDiagnosisJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据诊断（重跑）任务。
+     *
+     * @param request - CreateDataDiagnosisJobsRequest
+     *
+     * @returns CreateDataDiagnosisJobsResponse
+     *
+     * @param CreateDataDiagnosisJobsRequest $request
+     *
+     * @return CreateDataDiagnosisJobsResponse
+     */
+    public function createDataDiagnosisJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDataDiagnosisJobsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3977,6 +4175,69 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 删除指定数据诊断。
+     *
+     * @param request - DeleteDataDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataDiagnosisResponse
+     *
+     * @param string                     $DataDiagnosisId
+     * @param DeleteDataDiagnosisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDataDiagnosisResponse
+     */
+    public function deleteDataDiagnosisWithOptions($DataDiagnosisId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataDiagnosis',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses/' . Url::percentEncode($DataDiagnosisId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指定数据诊断。
+     *
+     * @param request - DeleteDataDiagnosisRequest
+     *
+     * @returns DeleteDataDiagnosisResponse
+     *
+     * @param string                     $DataDiagnosisId
+     * @param DeleteDataDiagnosisRequest $request
+     *
+     * @return DeleteDataDiagnosisResponse
+     */
+    public function deleteDataDiagnosis($DataDiagnosisId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDataDiagnosisWithOptions($DataDiagnosisId, $request, $headers, $runtime);
+    }
+
+    /**
      * 删除指定推荐引擎配置。
      *
      * @param request - DeleteEngineConfigRequest
@@ -5561,6 +5822,69 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->getCalculationJobWithOptions($CalculationJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据诊断详细信息。
+     *
+     * @param request - GetDataDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataDiagnosisResponse
+     *
+     * @param string                  $DataDiagnosisId
+     * @param GetDataDiagnosisRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDataDiagnosisResponse
+     */
+    public function getDataDiagnosisWithOptions($DataDiagnosisId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataDiagnosis',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses/' . Url::percentEncode($DataDiagnosisId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据诊断详细信息。
+     *
+     * @param request - GetDataDiagnosisRequest
+     *
+     * @returns GetDataDiagnosisResponse
+     *
+     * @param string                  $DataDiagnosisId
+     * @param GetDataDiagnosisRequest $request
+     *
+     * @return GetDataDiagnosisResponse
+     */
+    public function getDataDiagnosis($DataDiagnosisId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDataDiagnosisWithOptions($DataDiagnosisId, $request, $headers, $runtime);
     }
 
     /**
@@ -7510,6 +7834,251 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 获取数据诊断列表。
+     *
+     * @param tmpReq - ListDataDiagnosesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataDiagnosesResponse
+     *
+     * @param ListDataDiagnosesRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDataDiagnosesResponse
+     */
+    public function listDataDiagnosesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDataDiagnosesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->typesShrink) {
+            @$query['Types'] = $request->typesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataDiagnoses',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataDiagnosesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据诊断列表。
+     *
+     * @param request - ListDataDiagnosesRequest
+     *
+     * @returns ListDataDiagnosesResponse
+     *
+     * @param ListDataDiagnosesRequest $request
+     *
+     * @return ListDataDiagnosesResponse
+     */
+    public function listDataDiagnoses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDataDiagnosesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据诊断任务列表。
+     *
+     * @param tmpReq - ListDataDiagnosisJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataDiagnosisJobsResponse
+     *
+     * @param ListDataDiagnosisJobsRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDataDiagnosisJobsResponse
+     */
+    public function listDataDiagnosisJobsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDataDiagnosisJobsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->typesShrink) {
+            @$query['Types'] = $request->typesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataDiagnosisJobs',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnosisjobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataDiagnosisJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据诊断任务列表。
+     *
+     * @param request - ListDataDiagnosisJobsRequest
+     *
+     * @returns ListDataDiagnosisJobsResponse
+     *
+     * @param ListDataDiagnosisJobsRequest $request
+     *
+     * @return ListDataDiagnosisJobsResponse
+     */
+    public function listDataDiagnosisJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDataDiagnosisJobsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据诊断报告。
+     *
+     * @param request - ListDataDiagnosisReportsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataDiagnosisReportsResponse
+     *
+     * @param string                          $DataDiagnosisId
+     * @param ListDataDiagnosisReportsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListDataDiagnosisReportsResponse
+     */
+    public function listDataDiagnosisReportsWithOptions($DataDiagnosisId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->remainRateType) {
+            @$query['RemainRateType'] = $request->remainRateType;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataDiagnosisReports',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses/' . Url::percentEncode($DataDiagnosisId) . '/reports',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataDiagnosisReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据诊断报告。
+     *
+     * @param request - ListDataDiagnosisReportsRequest
+     *
+     * @returns ListDataDiagnosisReportsResponse
+     *
+     * @param string                          $DataDiagnosisId
+     * @param ListDataDiagnosisReportsRequest $request
+     *
+     * @return ListDataDiagnosisReportsResponse
+     */
+    public function listDataDiagnosisReports($DataDiagnosisId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDataDiagnosisReportsWithOptions($DataDiagnosisId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取引擎配置列表。
      *
      * @param request - ListEngineConfigsRequest
@@ -7619,10 +8188,6 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->layerId) {
             @$query['LayerId'] = $request->layerId;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
         }
 
         if (null !== $request->status) {
@@ -10283,6 +10848,81 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * QueryDataDiagnosisStatistics.
+     *
+     * @param request - QueryDataDiagnosisStatisticsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDataDiagnosisStatisticsResponse
+     *
+     * @param string                              $DataDiagnosisId
+     * @param QueryDataDiagnosisStatisticsRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryDataDiagnosisStatisticsResponse
+     */
+    public function queryDataDiagnosisStatisticsWithOptions($DataDiagnosisId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->remainRateType) {
+            @$query['RemainRateType'] = $request->remainRateType;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryDataDiagnosisStatistics',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses/' . Url::percentEncode($DataDiagnosisId) . '/statistics/action/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryDataDiagnosisStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * QueryDataDiagnosisStatistics.
+     *
+     * @param request - QueryDataDiagnosisStatisticsRequest
+     *
+     * @returns QueryDataDiagnosisStatisticsResponse
+     *
+     * @param string                              $DataDiagnosisId
+     * @param QueryDataDiagnosisStatisticsRequest $request
+     *
+     * @return QueryDataDiagnosisStatisticsResponse
+     */
+    public function queryDataDiagnosisStatistics($DataDiagnosisId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryDataDiagnosisStatisticsWithOptions($DataDiagnosisId, $request, $headers, $runtime);
+    }
+
+    /**
      * 查看样本一致性任务差异的详情.
      *
      * @param request - QuerySampleConsistencyJobDifferenceRequest
@@ -11484,6 +12124,113 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->updateCrowdWithOptions($CrowdId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新数据诊断。
+     *
+     * @param request - UpdateDataDiagnosisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataDiagnosisResponse
+     *
+     * @param string                     $DataDiagnosisId
+     * @param UpdateDataDiagnosisRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDataDiagnosisResponse
+     */
+    public function updateDataDiagnosisWithOptions($DataDiagnosisId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->cycleTime) {
+            @$body['CycleTime'] = $request->cycleTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->leftTableMetaId) {
+            @$body['LeftTableMetaId'] = $request->leftTableMetaId;
+        }
+
+        if (null !== $request->leftTablePartitionField) {
+            @$body['LeftTablePartitionField'] = $request->leftTablePartitionField;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->partitionField) {
+            @$body['PartitionField'] = $request->partitionField;
+        }
+
+        if (null !== $request->rightTableMetaId) {
+            @$body['RightTableMetaId'] = $request->rightTableMetaId;
+        }
+
+        if (null !== $request->rightTablePartitionField) {
+            @$body['RightTablePartitionField'] = $request->rightTablePartitionField;
+        }
+
+        if (null !== $request->tableMetaId) {
+            @$body['TableMetaId'] = $request->tableMetaId;
+        }
+
+        if (null !== $request->topNQuantity) {
+            @$body['TopNQuantity'] = $request->topNQuantity;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataDiagnosis',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datadiagnoses/' . Url::percentEncode($DataDiagnosisId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据诊断。
+     *
+     * @param request - UpdateDataDiagnosisRequest
+     *
+     * @returns UpdateDataDiagnosisResponse
+     *
+     * @param string                     $DataDiagnosisId
+     * @param UpdateDataDiagnosisRequest $request
+     *
+     * @return UpdateDataDiagnosisResponse
+     */
+    public function updateDataDiagnosis($DataDiagnosisId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDataDiagnosisWithOptions($DataDiagnosisId, $request, $headers, $runtime);
     }
 
     /**
@@ -13365,11 +14112,6 @@ class PaiRecService extends OpenApiClient
     public function uploadRecommendationDataWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
         $body = [];
         if (null !== $request->content) {
             @$body['Content'] = $request->content;
@@ -13381,7 +14123,6 @@ class PaiRecService extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([

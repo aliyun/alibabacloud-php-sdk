@@ -10,11 +10,6 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataRequ
 class UploadRecommendationDataRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var content[]
      */
     public $content;
@@ -24,7 +19,6 @@ class UploadRecommendationDataRequest extends Model
      */
     public $dataType;
     protected $_name = [
-        'regionId' => 'RegionId',
         'content' => 'Content',
         'dataType' => 'DataType',
     ];
@@ -40,10 +34,6 @@ class UploadRecommendationDataRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['Content'] = [];
@@ -70,10 +60,6 @@ class UploadRecommendationDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
