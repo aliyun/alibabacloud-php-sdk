@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddContainerClusterResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddCrossAccountRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\AddCrossAccountResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\AddDataSourceRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\AddDataSourceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\BrowseFilesRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\BrowseFilesResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CancelBackupJobRequest;
@@ -413,6 +415,103 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addCrossAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - AddDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDataSourceResponse
+     *
+     * @param AddDataSourceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddDataSourceResponse
+     */
+    public function addDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectionInfo) {
+            @$query['ConnectionInfo'] = $request->connectionInfo;
+        }
+
+        if (null !== $request->credential) {
+            @$query['Credential'] = $request->credential;
+        }
+
+        if (null !== $request->dataSourceName) {
+            @$query['DataSourceName'] = $request->dataSourceName;
+        }
+
+        if (null !== $request->dataSourceType) {
+            @$query['DataSourceType'] = $request->dataSourceType;
+        }
+
+        if (null !== $request->exclude) {
+            @$query['Exclude'] = $request->exclude;
+        }
+
+        if (null !== $request->include) {
+            @$query['Include'] = $request->include;
+        }
+
+        if (null !== $request->indexLevel) {
+            @$query['IndexLevel'] = $request->indexLevel;
+        }
+
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->schedule) {
+            @$query['Schedule'] = $request->schedule;
+        }
+
+        if (null !== $request->speedLimit) {
+            @$query['SpeedLimit'] = $request->speedLimit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddDataSource',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - AddDataSourceRequest
+     *
+     * @returns AddDataSourceResponse
+     *
+     * @param AddDataSourceRequest $request
+     *
+     * @return AddDataSourceResponse
+     */
+    public function addDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDataSourceWithOptions($request, $runtime);
     }
 
     /**
