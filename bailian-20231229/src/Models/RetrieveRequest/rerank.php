@@ -12,8 +12,20 @@ class rerank extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @var string
+     */
+    public $rerankInstruct;
+
+    /**
+     * @var string
+     */
+    public $rerankMode;
     protected $_name = [
         'modelName' => 'ModelName',
+        'rerankInstruct' => 'RerankInstruct',
+        'rerankMode' => 'RerankMode',
     ];
 
     public function validate()
@@ -26,6 +38,14 @@ class rerank extends Model
         $res = [];
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->rerankInstruct) {
+            $res['RerankInstruct'] = $this->rerankInstruct;
+        }
+
+        if (null !== $this->rerankMode) {
+            $res['RerankMode'] = $this->rerankMode;
         }
 
         return $res;
@@ -41,6 +61,14 @@ class rerank extends Model
         $model = new self();
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['RerankInstruct'])) {
+            $model->rerankInstruct = $map['RerankInstruct'];
+        }
+
+        if (isset($map['RerankMode'])) {
+            $model->rerankMode = $map['RerankMode'];
         }
 
         return $model;

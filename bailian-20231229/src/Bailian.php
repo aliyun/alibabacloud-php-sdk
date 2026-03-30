@@ -865,8 +865,16 @@ class Bailian extends OpenApiClient
             @$query['OverlapSize'] = $request->overlapSize;
         }
 
+        if (null !== $request->rerankInstruct) {
+            @$query['RerankInstruct'] = $request->rerankInstruct;
+        }
+
         if (null !== $request->rerankMinScore) {
             @$query['RerankMinScore'] = $request->rerankMinScore;
+        }
+
+        if (null !== $request->rerankMode) {
+            @$query['RerankMode'] = $request->rerankMode;
         }
 
         if (null !== $request->rerankModelName) {

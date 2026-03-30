@@ -61,9 +61,19 @@ class CreateIndexRequest extends Model
     public $overlapSize;
 
     /**
+     * @var string
+     */
+    public $rerankInstruct;
+
+    /**
      * @var float
      */
     public $rerankMinScore;
+
+    /**
+     * @var string
+     */
+    public $rerankMode;
 
     /**
      * @var string
@@ -180,7 +190,9 @@ class CreateIndexRequest extends Model
         'enableRewrite' => 'EnableRewrite',
         'name' => 'Name',
         'overlapSize' => 'OverlapSize',
+        'rerankInstruct' => 'RerankInstruct',
         'rerankMinScore' => 'RerankMinScore',
+        'rerankMode' => 'RerankMode',
         'rerankModelName' => 'RerankModelName',
         'separator' => 'Separator',
         'sinkInstanceId' => 'SinkInstanceId',
@@ -288,8 +300,16 @@ class CreateIndexRequest extends Model
             $res['OverlapSize'] = $this->overlapSize;
         }
 
+        if (null !== $this->rerankInstruct) {
+            $res['RerankInstruct'] = $this->rerankInstruct;
+        }
+
         if (null !== $this->rerankMinScore) {
             $res['RerankMinScore'] = $this->rerankMinScore;
+        }
+
+        if (null !== $this->rerankMode) {
+            $res['RerankMode'] = $this->rerankMode;
         }
 
         if (null !== $this->rerankModelName) {
@@ -462,8 +482,16 @@ class CreateIndexRequest extends Model
             $model->overlapSize = $map['OverlapSize'];
         }
 
+        if (isset($map['RerankInstruct'])) {
+            $model->rerankInstruct = $map['RerankInstruct'];
+        }
+
         if (isset($map['RerankMinScore'])) {
             $model->rerankMinScore = $map['RerankMinScore'];
+        }
+
+        if (isset($map['RerankMode'])) {
+            $model->rerankMode = $map['RerankMode'];
         }
 
         if (isset($map['RerankModelName'])) {
