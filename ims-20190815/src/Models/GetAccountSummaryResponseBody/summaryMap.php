@@ -51,6 +51,11 @@ class summaryMap extends Model
     /**
      * @var int
      */
+    public $authorizedClientPerUserQuota;
+
+    /**
+     * @var int
+     */
     public $conditionsPerAKPolicyQuota;
 
     /**
@@ -136,6 +141,7 @@ class summaryMap extends Model
         'attachedSystemPoliciesPerGroupQuota' => 'AttachedSystemPoliciesPerGroupQuota',
         'attachedSystemPoliciesPerRoleQuota' => 'AttachedSystemPoliciesPerRoleQuota',
         'attachedSystemPoliciesPerUserQuota' => 'AttachedSystemPoliciesPerUserQuota',
+        'authorizedClientPerUserQuota' => 'AuthorizedClientPerUserQuota',
         'conditionsPerAKPolicyQuota' => 'ConditionsPerAKPolicyQuota',
         'groups' => 'Groups',
         'groupsPerUserQuota' => 'GroupsPerUserQuota',
@@ -192,6 +198,10 @@ class summaryMap extends Model
 
         if (null !== $this->attachedSystemPoliciesPerUserQuota) {
             $res['AttachedSystemPoliciesPerUserQuota'] = $this->attachedSystemPoliciesPerUserQuota;
+        }
+
+        if (null !== $this->authorizedClientPerUserQuota) {
+            $res['AuthorizedClientPerUserQuota'] = $this->authorizedClientPerUserQuota;
         }
 
         if (null !== $this->conditionsPerAKPolicyQuota) {
@@ -299,6 +309,10 @@ class summaryMap extends Model
 
         if (isset($map['AttachedSystemPoliciesPerUserQuota'])) {
             $model->attachedSystemPoliciesPerUserQuota = $map['AttachedSystemPoliciesPerUserQuota'];
+        }
+
+        if (isset($map['AuthorizedClientPerUserQuota'])) {
+            $model->authorizedClientPerUserQuota = $map['AuthorizedClientPerUserQuota'];
         }
 
         if (isset($map['ConditionsPerAKPolicyQuota'])) {
