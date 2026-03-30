@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BailianControl\V20240816\Models\ListApiKeysResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BailianControl\V20240816\Models\ListApiKeysResponseBody\apiKeys\authSetModel;
 
 class apiKeys extends Model
 {
@@ -17,6 +18,11 @@ class apiKeys extends Model
      * @var string
      */
     public $apikeyId;
+
+    /**
+     * @var authSetModel
+     */
+    public $authSetModel;
 
     /**
      * @var int
@@ -70,6 +76,7 @@ class apiKeys extends Model
     protected $_name = [
         'apiKeyValue' => 'apiKeyValue',
         'apikeyId' => 'apikeyId',
+        'authSetModel' => 'authSetModel',
         'blocked' => 'blocked',
         'createTime' => 'createTime',
         'creator' => 'creator',
@@ -84,6 +91,9 @@ class apiKeys extends Model
 
     public function validate()
     {
+        if (null !== $this->authSetModel) {
+            $this->authSetModel->validate();
+        }
         parent::validate();
     }
 
@@ -96,6 +106,10 @@ class apiKeys extends Model
 
         if (null !== $this->apikeyId) {
             $res['apikeyId'] = $this->apikeyId;
+        }
+
+        if (null !== $this->authSetModel) {
+            $res['authSetModel'] = null !== $this->authSetModel ? $this->authSetModel->toArray($noStream) : $this->authSetModel;
         }
 
         if (null !== $this->blocked) {
@@ -155,6 +169,10 @@ class apiKeys extends Model
 
         if (isset($map['apikeyId'])) {
             $model->apikeyId = $map['apikeyId'];
+        }
+
+        if (isset($map['authSetModel'])) {
+            $model->authSetModel = authSetModel::fromMap($map['authSetModel']);
         }
 
         if (isset($map['blocked'])) {
