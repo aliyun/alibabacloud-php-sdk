@@ -35,6 +35,11 @@ class snapshot extends Model
     public $encrypted;
 
     /**
+     * @var int
+     */
+    public $fullSnapshotSizeInBytes;
+
+    /**
      * @var bool
      */
     public $instantAccess;
@@ -159,6 +164,7 @@ class snapshot extends Model
         'creationTime' => 'CreationTime',
         'description' => 'Description',
         'encrypted' => 'Encrypted',
+        'fullSnapshotSizeInBytes' => 'FullSnapshotSizeInBytes',
         'instantAccess' => 'InstantAccess',
         'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
         'KMSKeyId' => 'KMSKeyId',
@@ -214,6 +220,10 @@ class snapshot extends Model
 
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->fullSnapshotSizeInBytes) {
+            $res['FullSnapshotSizeInBytes'] = $this->fullSnapshotSizeInBytes;
         }
 
         if (null !== $this->instantAccess) {
@@ -341,6 +351,10 @@ class snapshot extends Model
 
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['FullSnapshotSizeInBytes'])) {
+            $model->fullSnapshotSizeInBytes = $map['FullSnapshotSizeInBytes'];
         }
 
         if (isset($map['InstantAccess'])) {

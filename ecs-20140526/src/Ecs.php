@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelSimulatedSystemEventsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelSimulatedSystemEventsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelTaskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CancelTaskResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CloneDisksRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CloneDisksResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ConnectRouterInterfaceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ConnectRouterInterfaceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ConvertNatPublicIpToEipRequest;
@@ -3606,6 +3608,131 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 使用一块已有的磁盘克隆出新磁盘.
+     *
+     * @param request - CloneDisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloneDisksResponse
+     *
+     * @param CloneDisksRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CloneDisksResponse
+     */
+    public function cloneDisksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->arn) {
+            @$query['Arn'] = $request->arn;
+        }
+
+        if (null !== $request->burstingEnabled) {
+            @$query['BurstingEnabled'] = $request->burstingEnabled;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->diskCategory) {
+            @$query['DiskCategory'] = $request->diskCategory;
+        }
+
+        if (null !== $request->diskName) {
+            @$query['DiskName'] = $request->diskName;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->encrypted) {
+            @$query['Encrypted'] = $request->encrypted;
+        }
+
+        if (null !== $request->kmsKeyId) {
+            @$query['KmsKeyId'] = $request->kmsKeyId;
+        }
+
+        if (null !== $request->multiAttach) {
+            @$query['MultiAttach'] = $request->multiAttach;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->performanceLevel) {
+            @$query['PerformanceLevel'] = $request->performanceLevel;
+        }
+
+        if (null !== $request->provisionedIops) {
+            @$query['ProvisionedIops'] = $request->provisionedIops;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->sourceDiskId) {
+            @$query['SourceDiskId'] = $request->sourceDiskId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloneDisks',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloneDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 使用一块已有的磁盘克隆出新磁盘.
+     *
+     * @param request - CloneDisksRequest
+     *
+     * @returns CloneDisksResponse
+     *
+     * @param CloneDisksRequest $request
+     *
+     * @return CloneDisksResponse
+     */
+    public function cloneDisks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloneDisksWithOptions($request, $runtime);
     }
 
     /**
@@ -21116,7 +21243,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 查询运维窗口.
+     * Query O\\\\\\&M window.
      *
      * @param tmpReq - DescribePlanMaintenanceWindowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21189,7 +21316,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 查询运维窗口.
+     * Query O\\\\\\&M window.
      *
      * @param request - DescribePlanMaintenanceWindowsRequest
      *
