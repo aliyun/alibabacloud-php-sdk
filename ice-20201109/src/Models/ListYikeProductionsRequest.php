@@ -27,11 +27,17 @@ class ListYikeProductionsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListYikeProductionsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListYikeProductionsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

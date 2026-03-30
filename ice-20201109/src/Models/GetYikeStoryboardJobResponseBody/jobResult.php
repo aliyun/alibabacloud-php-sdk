@@ -26,11 +26,23 @@ class jobResult extends Model
     /**
      * @var string
      */
+    public $storyboardInfoList;
+
+    /**
+     * @var string
+     */
+    public $successStoryboardIds;
+
+    /**
+     * @var string
+     */
     public $successStoryboardList;
     protected $_name = [
         'exceptionStoryboardIds' => 'ExceptionStoryboardIds',
         'failureShotList' => 'FailureShotList',
         'outputUrl' => 'OutputUrl',
+        'storyboardInfoList' => 'StoryboardInfoList',
+        'successStoryboardIds' => 'SuccessStoryboardIds',
         'successStoryboardList' => 'SuccessStoryboardList',
     ];
 
@@ -52,6 +64,14 @@ class jobResult extends Model
 
         if (null !== $this->outputUrl) {
             $res['OutputUrl'] = $this->outputUrl;
+        }
+
+        if (null !== $this->storyboardInfoList) {
+            $res['StoryboardInfoList'] = $this->storyboardInfoList;
+        }
+
+        if (null !== $this->successStoryboardIds) {
+            $res['SuccessStoryboardIds'] = $this->successStoryboardIds;
         }
 
         if (null !== $this->successStoryboardList) {
@@ -79,6 +99,14 @@ class jobResult extends Model
 
         if (isset($map['OutputUrl'])) {
             $model->outputUrl = $map['OutputUrl'];
+        }
+
+        if (isset($map['StoryboardInfoList'])) {
+            $model->storyboardInfoList = $map['StoryboardInfoList'];
+        }
+
+        if (isset($map['SuccessStoryboardIds'])) {
+            $model->successStoryboardIds = $map['SuccessStoryboardIds'];
         }
 
         if (isset($map['SuccessStoryboardList'])) {

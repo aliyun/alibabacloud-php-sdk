@@ -16,6 +16,11 @@ class SubmitYikeStoryboardJobRequest extends Model
     /**
      * @var string
      */
+    public $execMode;
+
+    /**
+     * @var string
+     */
     public $fileURL;
 
     /**
@@ -44,6 +49,11 @@ class SubmitYikeStoryboardJobRequest extends Model
     public $shotSplitMode;
 
     /**
+     * @var bool
+     */
+    public $skipFailureShot;
+
+    /**
      * @var string
      */
     public $sourceType;
@@ -69,12 +79,14 @@ class SubmitYikeStoryboardJobRequest extends Model
     public $videoModel;
     protected $_name = [
         'aspectRatio' => 'AspectRatio',
+        'execMode' => 'ExecMode',
         'fileURL' => 'FileURL',
         'modelParams' => 'ModelParams',
         'narrationVoiceId' => 'NarrationVoiceId',
         'resolution' => 'Resolution',
         'shotPromptMode' => 'ShotPromptMode',
         'shotSplitMode' => 'ShotSplitMode',
+        'skipFailureShot' => 'SkipFailureShot',
         'sourceType' => 'SourceType',
         'styleId' => 'StyleId',
         'title' => 'Title',
@@ -92,6 +104,10 @@ class SubmitYikeStoryboardJobRequest extends Model
         $res = [];
         if (null !== $this->aspectRatio) {
             $res['AspectRatio'] = $this->aspectRatio;
+        }
+
+        if (null !== $this->execMode) {
+            $res['ExecMode'] = $this->execMode;
         }
 
         if (null !== $this->fileURL) {
@@ -116,6 +132,10 @@ class SubmitYikeStoryboardJobRequest extends Model
 
         if (null !== $this->shotSplitMode) {
             $res['ShotSplitMode'] = $this->shotSplitMode;
+        }
+
+        if (null !== $this->skipFailureShot) {
+            $res['SkipFailureShot'] = $this->skipFailureShot;
         }
 
         if (null !== $this->sourceType) {
@@ -153,6 +173,10 @@ class SubmitYikeStoryboardJobRequest extends Model
             $model->aspectRatio = $map['AspectRatio'];
         }
 
+        if (isset($map['ExecMode'])) {
+            $model->execMode = $map['ExecMode'];
+        }
+
         if (isset($map['FileURL'])) {
             $model->fileURL = $map['FileURL'];
         }
@@ -175,6 +199,10 @@ class SubmitYikeStoryboardJobRequest extends Model
 
         if (isset($map['ShotSplitMode'])) {
             $model->shotSplitMode = $map['ShotSplitMode'];
+        }
+
+        if (isset($map['SkipFailureShot'])) {
+            $model->skipFailureShot = $map['SkipFailureShot'];
         }
 
         if (isset($map['SourceType'])) {

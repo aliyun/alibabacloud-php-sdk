@@ -567,6 +567,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterYikeAssetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeMediaConnectFlowOutputRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeMediaConnectFlowOutputResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeYikeStoryboardJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ResumeYikeStoryboardJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchIndexJobRerunRequest;
@@ -12118,7 +12120,11 @@ class ICE extends OpenApiClient
     public function getMediaProducingJobWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -12127,7 +12133,7 @@ class ICE extends OpenApiClient
             'version' => '2020-11-09',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -18702,6 +18708,10 @@ class ICE extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -20324,6 +20334,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeMediaConnectFlowOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * 故事板任务恢复继续执行任务
+     *
+     * @param request - ResumeYikeStoryboardJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeYikeStoryboardJobResponse
+     *
+     * @param ResumeYikeStoryboardJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ResumeYikeStoryboardJobResponse
+     */
+    public function resumeYikeStoryboardJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeYikeStoryboardJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeYikeStoryboardJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 故事板任务恢复继续执行任务
+     *
+     * @param request - ResumeYikeStoryboardJobRequest
+     *
+     * @returns ResumeYikeStoryboardJobResponse
+     *
+     * @param ResumeYikeStoryboardJobRequest $request
+     *
+     * @return ResumeYikeStoryboardJobResponse
+     */
+    public function resumeYikeStoryboardJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeYikeStoryboardJobWithOptions($request, $runtime);
     }
 
     /**
@@ -26587,6 +26654,10 @@ class ICE extends OpenApiClient
             @$query['AspectRatio'] = $request->aspectRatio;
         }
 
+        if (null !== $request->execMode) {
+            @$query['ExecMode'] = $request->execMode;
+        }
+
         if (null !== $request->modelParams) {
             @$query['ModelParams'] = $request->modelParams;
         }
@@ -26601,6 +26672,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->shotPromptMode) {
             @$query['ShotPromptMode'] = $request->shotPromptMode;
+        }
+
+        if (null !== $request->skipFailureShot) {
+            @$query['SkipFailureShot'] = $request->skipFailureShot;
         }
 
         if (null !== $request->title) {
