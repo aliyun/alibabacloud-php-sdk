@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeDesktopInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var string[]
      */
     public $desktopId;
@@ -23,6 +28,7 @@ class DescribeDesktopInfoRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'desktopId' => 'DesktopId',
         'needExtraInfo' => 'NeedExtraInfo',
         'regionId' => 'RegionId',
@@ -39,6 +45,10 @@ class DescribeDesktopInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->desktopId) {
             if (\is_array($this->desktopId)) {
                 $res['DesktopId'] = [];
@@ -69,6 +79,10 @@ class DescribeDesktopInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = [];

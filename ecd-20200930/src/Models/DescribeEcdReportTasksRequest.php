@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeEcdReportTasksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -38,6 +43,7 @@ class DescribeEcdReportTasksRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'status' => 'Status',
@@ -57,6 +63,10 @@ class DescribeEcdReportTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
@@ -99,6 +109,10 @@ class DescribeEcdReportTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }

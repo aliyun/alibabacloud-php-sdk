@@ -14,6 +14,11 @@ class DescribeDesktopTypesRequest extends Model
     public $appliedScope;
 
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var int
      */
     public $cpuCount;
@@ -109,6 +114,7 @@ class DescribeDesktopTypesRequest extends Model
     public $zoneId;
     protected $_name = [
         'appliedScope' => 'AppliedScope',
+        'businessChannel' => 'BusinessChannel',
         'cpuCount' => 'CpuCount',
         'desktopGroupIdForModify' => 'DesktopGroupIdForModify',
         'desktopIdForModify' => 'DesktopIdForModify',
@@ -146,6 +152,10 @@ class DescribeDesktopTypesRequest extends Model
         $res = [];
         if (null !== $this->appliedScope) {
             $res['AppliedScope'] = $this->appliedScope;
+        }
+
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->cpuCount) {
@@ -251,6 +261,10 @@ class DescribeDesktopTypesRequest extends Model
         $model = new self();
         if (isset($map['AppliedScope'])) {
             $model->appliedScope = $map['AppliedScope'];
+        }
+
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['CpuCount'])) {

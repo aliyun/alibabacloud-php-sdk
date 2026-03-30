@@ -5309,6 +5309,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->filterList) {
             @$query['FilterList'] = $request->filterList;
         }
@@ -10360,6 +10364,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
         }
@@ -10875,6 +10883,10 @@ class Ecd extends OpenApiClient
             @$query['AppliedScope'] = $request->appliedScope;
         }
 
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->cpuCount) {
             @$query['CpuCount'] = $request->cpuCount;
         }
@@ -11007,6 +11019,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->chargeType) {
             @$query['ChargeType'] = $request->chargeType;
         }
@@ -11540,6 +11556,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->pageNum) {
             @$query['PageNum'] = $request->pageNum;
         }
@@ -20873,7 +20893,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改全球加速配置.
+     * Modifies Global Accelerator (GA) configuration.
      *
      * @param request - ModifyOfficeSiteAcceleratorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20920,7 +20940,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 修改全球加速配置.
+     * Modifies Global Accelerator (GA) configuration.
      *
      * @param request - ModifyOfficeSiteAcceleratorRequest
      *
@@ -23434,7 +23454,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+     * Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
      *
      * @remarks
      * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
@@ -23504,7 +23524,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+     * Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
      *
      * @remarks
      * You can use the RunCommand operation to run scripts only on Windows cloud desktops.

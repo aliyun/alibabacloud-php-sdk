@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateEcdReportTaskRequest\filterList;
 class CreateEcdReportTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $businessChannel;
+
+    /**
      * @var filterList[]
      */
     public $filterList;
@@ -34,6 +39,7 @@ class CreateEcdReportTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'filterList' => 'FilterList',
         'langType' => 'LangType',
         'reportFileName' => 'ReportFileName',
@@ -52,6 +58,10 @@ class CreateEcdReportTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->filterList) {
             if (\is_array($this->filterList)) {
                 $res['FilterList'] = [];
@@ -90,6 +100,10 @@ class CreateEcdReportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['FilterList'])) {
             if (!empty($map['FilterList'])) {
                 $model->filterList = [];

@@ -12,6 +12,11 @@ class DescribeDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $businessChannel;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -194,6 +199,7 @@ class DescribeDesktopsRequest extends Model
      */
     public $userName;
     protected $_name = [
+        'businessChannel' => 'BusinessChannel',
         'chargeType' => 'ChargeType',
         'desktopGroupId' => 'DesktopGroupId',
         'desktopId' => 'DesktopId',
@@ -262,6 +268,10 @@ class DescribeDesktopsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->businessChannel) {
+            $res['BusinessChannel'] = $this->businessChannel;
+        }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -470,6 +480,10 @@ class DescribeDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessChannel'])) {
+            $model->businessChannel = $map['BusinessChannel'];
+        }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
