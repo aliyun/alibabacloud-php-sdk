@@ -26,6 +26,11 @@ class TableSnapshot extends Model
     /**
      * @var int
      */
+    public $partitionCount;
+
+    /**
+     * @var int
+     */
     public $recordCount;
 
     /**
@@ -41,6 +46,7 @@ class TableSnapshot extends Model
         'fileCount' => 'fileCount',
         'fileSizeInBytes' => 'fileSizeInBytes',
         'lastFileCreationTime' => 'lastFileCreationTime',
+        'partitionCount' => 'partitionCount',
         'recordCount' => 'recordCount',
         'snapshot' => 'snapshot',
         'totalBuckets' => 'totalBuckets',
@@ -67,6 +73,10 @@ class TableSnapshot extends Model
 
         if (null !== $this->lastFileCreationTime) {
             $res['lastFileCreationTime'] = $this->lastFileCreationTime;
+        }
+
+        if (null !== $this->partitionCount) {
+            $res['partitionCount'] = $this->partitionCount;
         }
 
         if (null !== $this->recordCount) {
@@ -102,6 +112,10 @@ class TableSnapshot extends Model
 
         if (isset($map['lastFileCreationTime'])) {
             $model->lastFileCreationTime = $map['lastFileCreationTime'];
+        }
+
+        if (isset($map['partitionCount'])) {
+            $model->partitionCount = $map['partitionCount'];
         }
 
         if (isset($map['recordCount'])) {
