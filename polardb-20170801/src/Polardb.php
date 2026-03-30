@@ -2788,6 +2788,14 @@ class Polardb extends OpenApiClient
             @$query['Architecture'] = $request->architecture;
         }
 
+        if (null !== $request->authProvider) {
+            @$query['AuthProvider'] = $request->authProvider;
+        }
+
+        if (null !== $request->authProviderConfig) {
+            @$query['AuthProviderConfig'] = $request->authProviderConfig;
+        }
+
         if (null !== $request->autoAllocatePublicEip) {
             @$query['AutoAllocatePublicEip'] = $request->autoAllocatePublicEip;
         }

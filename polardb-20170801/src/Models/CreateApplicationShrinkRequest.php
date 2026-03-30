@@ -25,6 +25,16 @@ class CreateApplicationShrinkRequest extends Model
     public $architecture;
 
     /**
+     * @var string
+     */
+    public $authProvider;
+
+    /**
+     * @var string
+     */
+    public $authProviderConfig;
+
+    /**
      * @var bool
      */
     public $autoAllocatePublicEip;
@@ -182,6 +192,8 @@ class CreateApplicationShrinkRequest extends Model
         'AIDBClusterId' => 'AIDBClusterId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
+        'authProvider' => 'AuthProvider',
+        'authProviderConfig' => 'AuthProviderConfig',
         'autoAllocatePublicEip' => 'AutoAllocatePublicEip',
         'autoCreatePolarFs' => 'AutoCreatePolarFs',
         'autoRenew' => 'AutoRenew',
@@ -236,6 +248,14 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+
+        if (null !== $this->authProvider) {
+            $res['AuthProvider'] = $this->authProvider;
+        }
+
+        if (null !== $this->authProviderConfig) {
+            $res['AuthProviderConfig'] = $this->authProviderConfig;
         }
 
         if (null !== $this->autoAllocatePublicEip) {
@@ -390,6 +410,14 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+
+        if (isset($map['AuthProvider'])) {
+            $model->authProvider = $map['AuthProvider'];
+        }
+
+        if (isset($map['AuthProviderConfig'])) {
+            $model->authProviderConfig = $map['AuthProviderConfig'];
         }
 
         if (isset($map['AutoAllocatePublicEip'])) {

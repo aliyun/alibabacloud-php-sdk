@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\components;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\endpoints;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\memApplicationAttribute;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\polarClawSaaSApplicationAttribute;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityGroups;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityIPArrays;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\storages;
@@ -105,6 +106,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     public $payType;
 
     /**
+     * @var polarClawSaaSApplicationAttribute
+     */
+    public $polarClawSaaSApplicationAttribute;
+
+    /**
      * @var string
      */
     public $polarFSInstanceId;
@@ -187,6 +193,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'memApplicationAttribute' => 'MemApplicationAttribute',
         'minorVersion' => 'MinorVersion',
         'payType' => 'PayType',
+        'polarClawSaaSApplicationAttribute' => 'PolarClawSaaSApplicationAttribute',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
@@ -212,6 +219,9 @@ class DescribeApplicationAttributeResponseBody extends Model
         }
         if (null !== $this->memApplicationAttribute) {
             $this->memApplicationAttribute->validate();
+        }
+        if (null !== $this->polarClawSaaSApplicationAttribute) {
+            $this->polarClawSaaSApplicationAttribute->validate();
         }
         if (\is_array($this->securityGroups)) {
             Model::validateArray($this->securityGroups);
@@ -312,6 +322,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->polarClawSaaSApplicationAttribute) {
+            $res['PolarClawSaaSApplicationAttribute'] = null !== $this->polarClawSaaSApplicationAttribute ? $this->polarClawSaaSApplicationAttribute->toArray($noStream) : $this->polarClawSaaSApplicationAttribute;
         }
 
         if (null !== $this->polarFSInstanceId) {
@@ -482,6 +496,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['PolarClawSaaSApplicationAttribute'])) {
+            $model->polarClawSaaSApplicationAttribute = polarClawSaaSApplicationAttribute::fromMap($map['PolarClawSaaSApplicationAttribute']);
         }
 
         if (isset($map['PolarFSInstanceId'])) {
