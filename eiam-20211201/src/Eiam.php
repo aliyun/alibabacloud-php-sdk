@@ -2754,6 +2754,10 @@ class Eiam extends OpenApiClient
             @$query['CloudAccountProviderName'] = $request->cloudAccountProviderName;
         }
 
+        if (null !== $request->cloudAccountSite) {
+            @$query['CloudAccountSite'] = $request->cloudAccountSite;
+        }
+
         if (null !== $request->cloudAccountVendorType) {
             @$query['CloudAccountVendorType'] = $request->cloudAccountVendorType;
         }
