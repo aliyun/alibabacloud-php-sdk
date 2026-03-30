@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountR
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponseBody\cloudAccountRoleAccessCredential\alibabaCloudStsToken;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCloudAccountRoleAccessCredentialResponseBody\cloudAccountRoleAccessCredential\awsStsToken;
 
 class cloudAccountRoleAccessCredential extends Model
 {
@@ -18,15 +19,24 @@ class cloudAccountRoleAccessCredential extends Model
      * @var alibabaCloudStsToken
      */
     public $alibabaCloudStsToken;
+
+    /**
+     * @var awsStsToken
+     */
+    public $awsStsToken;
     protected $_name = [
         'accessCredentialExpiresAt' => 'accessCredentialExpiresAt',
         'alibabaCloudStsToken' => 'alibabaCloudStsToken',
+        'awsStsToken' => 'awsStsToken',
     ];
 
     public function validate()
     {
         if (null !== $this->alibabaCloudStsToken) {
             $this->alibabaCloudStsToken->validate();
+        }
+        if (null !== $this->awsStsToken) {
+            $this->awsStsToken->validate();
         }
         parent::validate();
     }
@@ -40,6 +50,10 @@ class cloudAccountRoleAccessCredential extends Model
 
         if (null !== $this->alibabaCloudStsToken) {
             $res['alibabaCloudStsToken'] = null !== $this->alibabaCloudStsToken ? $this->alibabaCloudStsToken->toArray($noStream) : $this->alibabaCloudStsToken;
+        }
+
+        if (null !== $this->awsStsToken) {
+            $res['awsStsToken'] = null !== $this->awsStsToken ? $this->awsStsToken->toArray($noStream) : $this->awsStsToken;
         }
 
         return $res;
@@ -59,6 +73,10 @@ class cloudAccountRoleAccessCredential extends Model
 
         if (isset($map['alibabaCloudStsToken'])) {
             $model->alibabaCloudStsToken = alibabaCloudStsToken::fromMap($map['alibabaCloudStsToken']);
+        }
+
+        if (isset($map['awsStsToken'])) {
+            $model->awsStsToken = awsStsToken::fromMap($map['awsStsToken']);
         }
 
         return $model;

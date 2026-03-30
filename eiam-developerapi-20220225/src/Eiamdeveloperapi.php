@@ -96,6 +96,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainCredentialResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenByDerivedShortTokenRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenByDerivedShortTokenResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ObtainJwtAuthenticationTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupResponse;
@@ -2703,6 +2706,10 @@ class Eiamdeveloperapi extends OpenApiClient
             @$query['cloudAccountRoleExternalId'] = $request->cloudAccountRoleExternalId;
         }
 
+        if (null !== $request->durationSeconds) {
+            @$query['durationSeconds'] = $request->durationSeconds;
+        }
+
         $realHeaders = [];
         if (null !== $headers->commonHeaders) {
             $realHeaders = $headers->commonHeaders;
@@ -2821,6 +2828,82 @@ class Eiamdeveloperapi extends OpenApiClient
         $headers = new ObtainCredentialHeaders([]);
 
         return $this->obtainCredentialWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取JWT认证令牌明文。
+     *
+     * @param request - ObtainJwtAuthenticationTokenRequest
+     * @param headers - ObtainJwtAuthenticationTokenHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ObtainJwtAuthenticationTokenResponse
+     *
+     * @param string                              $instanceId
+     * @param ObtainJwtAuthenticationTokenRequest $request
+     * @param ObtainJwtAuthenticationTokenHeaders $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ObtainJwtAuthenticationTokenResponse
+     */
+    public function obtainJwtAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authenticationTokenId) {
+            @$body['authenticationTokenId'] = $request->authenticationTokenId;
+        }
+
+        if (null !== $request->consumerId) {
+            @$body['consumerId'] = $request->consumerId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ObtainJwtAuthenticationToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . Url::percentEncode($instanceId) . '/authenticationTokens/_/actions/obtainJwt',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ObtainJwtAuthenticationTokenResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 获取JWT认证令牌明文。
+     *
+     * @param request - ObtainJwtAuthenticationTokenRequest
+     *
+     * @returns ObtainJwtAuthenticationTokenResponse
+     *
+     * @param string                              $instanceId
+     * @param ObtainJwtAuthenticationTokenRequest $request
+     *
+     * @return ObtainJwtAuthenticationTokenResponse
+     */
+    public function obtainJwtAuthenticationToken($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ObtainJwtAuthenticationTokenHeaders([]);
+
+        return $this->obtainJwtAuthenticationTokenWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
