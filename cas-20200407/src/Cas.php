@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Cas\V20200407;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Cas\V20200407\Models\AddCloudAccessRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\AddCloudAccessResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ApplyCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ApplyCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestRequest;
@@ -23,10 +25,16 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWarehouseRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWarehouseResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DecryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCloudAccessRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCloudAccessResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteDeploymentJobRequest;
@@ -37,6 +45,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeletePCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteUserCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteUserCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteWarehouseRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteWarehouseResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteWorkerResourceRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteWorkerResourceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeCertificateStateRequest;
@@ -49,6 +59,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeDeploymentJobStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeDeploymentJobStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DescribePackageStateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeWarehouseCertRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DescribeWarehouseCertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\EncryptResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetAssetCountResponse;
@@ -93,6 +105,9 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListUserCertificateOrderResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListWarehouseRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListWarehouseResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListWarehouseShrinkRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListWorkerResourceRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListWorkerResourceResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\MoveResourceGroupRequest;
@@ -103,6 +118,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequest
 use AlibabaCloud\SDK\Cas\V20200407\Models\RenewCertificateOrderForPackageRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrRequest;
@@ -117,6 +134,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateWorkerResourceStatusRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateWorkerResourceStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadCsrResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadPCACertResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyRequest;
@@ -211,6 +230,71 @@ class Cas extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加授权ak.
+     *
+     * @param request - AddCloudAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCloudAccessResponse
+     *
+     * @param AddCloudAccessRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddCloudAccessResponse
+     */
+    public function addCloudAccessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudName) {
+            @$query['CloudName'] = $request->cloudName;
+        }
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
+        }
+
+        if (null !== $request->secretKey) {
+            @$query['SecretKey'] = $request->secretKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddCloudAccess',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddCloudAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加授权ak.
+     *
+     * @param request - AddCloudAccessRequest
+     *
+     * @returns AddCloudAccessResponse
+     *
+     * @param AddCloudAccessRequest $request
+     *
+     * @return AddCloudAccessResponse
+     */
+    public function addCloudAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCloudAccessWithOptions($request, $runtime);
     }
 
     /**
@@ -915,6 +999,192 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * Applies for a client certificate in a certificate repository of a single user.
+     *
+     * @param request - CreateWHClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWHClientCertificateResponse
+     *
+     * @param CreateWHClientCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateWHClientCertificateResponse
+     */
+    public function createWHClientCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->afterTime) {
+            @$query['AfterTime'] = $request->afterTime;
+        }
+
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
+        if (null !== $request->beforeTime) {
+            @$query['BeforeTime'] = $request->beforeTime;
+        }
+
+        if (null !== $request->commonName) {
+            @$query['CommonName'] = $request->commonName;
+        }
+
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
+        }
+
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
+        }
+
+        if (null !== $request->days) {
+            @$query['Days'] = $request->days;
+        }
+
+        if (null !== $request->immediately) {
+            @$query['Immediately'] = $request->immediately;
+        }
+
+        if (null !== $request->locality) {
+            @$query['Locality'] = $request->locality;
+        }
+
+        if (null !== $request->months) {
+            @$query['Months'] = $request->months;
+        }
+
+        if (null !== $request->organization) {
+            @$query['Organization'] = $request->organization;
+        }
+
+        if (null !== $request->organizationUnit) {
+            @$query['OrganizationUnit'] = $request->organizationUnit;
+        }
+
+        if (null !== $request->parentIdentifier) {
+            @$query['ParentIdentifier'] = $request->parentIdentifier;
+        }
+
+        if (null !== $request->sanType) {
+            @$query['SanType'] = $request->sanType;
+        }
+
+        if (null !== $request->sanValue) {
+            @$query['SanValue'] = $request->sanValue;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->years) {
+            @$query['Years'] = $request->years;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWHClientCertificate',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWHClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Applies for a client certificate in a certificate repository of a single user.
+     *
+     * @param request - CreateWHClientCertificateRequest
+     *
+     * @returns CreateWHClientCertificateResponse
+     *
+     * @param CreateWHClientCertificateRequest $request
+     *
+     * @return CreateWHClientCertificateResponse
+     */
+    public function createWHClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWHClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建证书仓库。
+     *
+     * @param request - CreateWarehouseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWarehouseResponse
+     *
+     * @param CreateWarehouseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWarehouseResponse
+     */
+    public function createWarehouseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->biz) {
+            @$query['Biz'] = $request->biz;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWarehouse',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建证书仓库。
+     *
+     * @param request - CreateWarehouseRequest
+     *
+     * @returns CreateWarehouseResponse
+     *
+     * @param CreateWarehouseRequest $request
+     *
+     * @return CreateWarehouseResponse
+     */
+    public function createWarehouse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWarehouseWithOptions($request, $runtime);
+    }
+
+    /**
      * Decrypts a certificate in a certificate repository.
      *
      * @remarks
@@ -1062,6 +1332,63 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCertificateRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除授权ak.
+     *
+     * @param request - DeleteCloudAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudAccessResponse
+     *
+     * @param DeleteCloudAccessRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCloudAccessResponse
+     */
+    public function deleteCloudAccessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessId) {
+            @$query['AccessId'] = $request->accessId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudAccess',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除授权ak.
+     *
+     * @param request - DeleteCloudAccessRequest
+     *
+     * @returns DeleteCloudAccessResponse
+     *
+     * @param DeleteCloudAccessRequest $request
+     *
+     * @return DeleteCloudAccessResponse
+     */
+    public function deleteCloudAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudAccessWithOptions($request, $runtime);
     }
 
     /**
@@ -1363,6 +1690,63 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除证书仓库.
+     *
+     * @param request - DeleteWarehouseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWarehouseResponse
+     *
+     * @param DeleteWarehouseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteWarehouseResponse
+     */
+    public function deleteWarehouseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->warehouseInstanceId) {
+            @$query['WarehouseInstanceId'] = $request->warehouseInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWarehouse',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除证书仓库.
+     *
+     * @param request - DeleteWarehouseRequest
+     *
+     * @returns DeleteWarehouseResponse
+     *
+     * @param DeleteWarehouseRequest $request
+     *
+     * @return DeleteWarehouseResponse
+     */
+    public function deleteWarehouse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWarehouseWithOptions($request, $runtime);
     }
 
     /**
@@ -1717,6 +2101,63 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePackageStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询仓库证书详情。
+     *
+     * @param request - DescribeWarehouseCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWarehouseCertResponse
+     *
+     * @param DescribeWarehouseCertRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeWarehouseCertResponse
+     */
+    public function describeWarehouseCertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWarehouseCert',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWarehouseCertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询仓库证书详情。
+     *
+     * @param request - DescribeWarehouseCertRequest
+     *
+     * @returns DescribeWarehouseCertResponse
+     *
+     * @param DescribeWarehouseCertRequest $request
+     *
+     * @return DescribeWarehouseCertResponse
+     */
+    public function describeWarehouseCert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWarehouseCertWithOptions($request, $runtime);
     }
 
     /**
@@ -3266,6 +3707,85 @@ class Cas extends OpenApiClient
     }
 
     /**
+     * 查询证书仓库.
+     *
+     * @param tmpReq - ListWarehouseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWarehouseResponse
+     *
+     * @param ListWarehouseRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWarehouseResponse
+     */
+    public function listWarehouseWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListWarehouseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->warehouseInstanceIds) {
+            $request->warehouseInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->warehouseInstanceIds, 'WarehouseInstanceIds', 'json');
+        }
+
+        if (null !== $tmpReq->warehouseTypes) {
+            $request->warehouseTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->warehouseTypes, 'WarehouseTypes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->warehouseInstanceIdsShrink) {
+            @$query['WarehouseInstanceIds'] = $request->warehouseInstanceIdsShrink;
+        }
+
+        if (null !== $request->warehouseTypesShrink) {
+            @$query['WarehouseTypes'] = $request->warehouseTypesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWarehouse',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询证书仓库.
+     *
+     * @param request - ListWarehouseRequest
+     *
+     * @returns ListWarehouseResponse
+     *
+     * @param ListWarehouseRequest $request
+     *
+     * @return ListWarehouseResponse
+     */
+    public function listWarehouse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWarehouseWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
      *
      * @param request - ListWorkerResourceRequest
@@ -3592,6 +4112,69 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes a client certificate or a server certificate in a certificate repository.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - RevokeWHClientCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeWHClientCertificateResponse
+     *
+     * @param RevokeWHClientCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RevokeWHClientCertificateResponse
+     */
+    public function revokeWHClientCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeWHClientCertificate',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeWHClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes a client certificate or a server certificate in a certificate repository.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - RevokeWHClientCertificateRequest
+     *
+     * @returns RevokeWHClientCertificateResponse
+     *
+     * @param RevokeWHClientCertificateRequest $request
+     *
+     * @return RevokeWHClientCertificateResponse
+     */
+    public function revokeWHClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeWHClientCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -4121,6 +4704,85 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadCsrWithOptions($request, $runtime);
+    }
+
+    /**
+     * The private key of the certificate.
+     *
+     * @remarks
+     * You can call this operation to upload a private certificate to a certificate repository.
+     * ## [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - UploadPCACertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadPCACertResponse
+     *
+     * @param UploadPCACertRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UploadPCACertResponse
+     */
+    public function uploadPCACertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cert) {
+            @$query['Cert'] = $request->cert;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->privateKey) {
+            @$query['PrivateKey'] = $request->privateKey;
+        }
+
+        if (null !== $request->warehouseId) {
+            @$query['WarehouseId'] = $request->warehouseId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadPCACert',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadPCACertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * The private key of the certificate.
+     *
+     * @remarks
+     * You can call this operation to upload a private certificate to a certificate repository.
+     * ## [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - UploadPCACertRequest
+     *
+     * @returns UploadPCACertResponse
+     *
+     * @param UploadPCACertRequest $request
+     *
+     * @return UploadPCACertResponse
+     */
+    public function uploadPCACert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadPCACertWithOptions($request, $runtime);
     }
 
     /**
