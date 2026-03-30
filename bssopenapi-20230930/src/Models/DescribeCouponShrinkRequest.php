@@ -21,6 +21,11 @@ class DescribeCouponShrinkRequest extends Model
     /**
      * @var string
      */
+    public $couponTemplateIdListShrink;
+
+    /**
+     * @var string
+     */
     public $couponType;
 
     /**
@@ -80,6 +85,7 @@ class DescribeCouponShrinkRequest extends Model
     protected $_name = [
         'couponId' => 'CouponId',
         'couponNo' => 'CouponNo',
+        'couponTemplateIdListShrink' => 'CouponTemplateIdList',
         'couponType' => 'CouponType',
         'currentPage' => 'CurrentPage',
         'ecIdAccountIdsShrink' => 'EcIdAccountIds',
@@ -108,6 +114,10 @@ class DescribeCouponShrinkRequest extends Model
 
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
+        }
+
+        if (null !== $this->couponTemplateIdListShrink) {
+            $res['CouponTemplateIdList'] = $this->couponTemplateIdListShrink;
         }
 
         if (null !== $this->couponType) {
@@ -175,6 +185,10 @@ class DescribeCouponShrinkRequest extends Model
 
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
+        }
+
+        if (isset($map['CouponTemplateIdList'])) {
+            $model->couponTemplateIdListShrink = $map['CouponTemplateIdList'];
         }
 
         if (isset($map['CouponType'])) {

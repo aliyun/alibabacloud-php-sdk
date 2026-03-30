@@ -20,6 +20,11 @@ class DescribeCouponRequest extends Model
     public $couponNo;
 
     /**
+     * @var int[]
+     */
+    public $couponTemplateIdList;
+
+    /**
      * @var string
      */
     public $couponType;
@@ -81,6 +86,7 @@ class DescribeCouponRequest extends Model
     protected $_name = [
         'couponId' => 'CouponId',
         'couponNo' => 'CouponNo',
+        'couponTemplateIdList' => 'CouponTemplateIdList',
         'couponType' => 'CouponType',
         'currentPage' => 'CurrentPage',
         'ecIdAccountIds' => 'EcIdAccountIds',
@@ -97,6 +103,9 @@ class DescribeCouponRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->couponTemplateIdList)) {
+            Model::validateArray($this->couponTemplateIdList);
+        }
         if (\is_array($this->ecIdAccountIds)) {
             Model::validateArray($this->ecIdAccountIds);
         }
@@ -112,6 +121,17 @@ class DescribeCouponRequest extends Model
 
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
+        }
+
+        if (null !== $this->couponTemplateIdList) {
+            if (\is_array($this->couponTemplateIdList)) {
+                $res['CouponTemplateIdList'] = [];
+                $n1 = 0;
+                foreach ($this->couponTemplateIdList as $item1) {
+                    $res['CouponTemplateIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->couponType) {
@@ -186,6 +206,17 @@ class DescribeCouponRequest extends Model
 
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
+        }
+
+        if (isset($map['CouponTemplateIdList'])) {
+            if (!empty($map['CouponTemplateIdList'])) {
+                $model->couponTemplateIdList = [];
+                $n1 = 0;
+                foreach ($map['CouponTemplateIdList'] as $item1) {
+                    $model->couponTemplateIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CouponType'])) {

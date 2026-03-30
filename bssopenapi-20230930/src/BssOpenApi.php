@@ -1305,6 +1305,10 @@ class BssOpenApi extends OpenApiClient
         $tmpReq->validate();
         $request = new DescribeCouponShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->couponTemplateIdList) {
+            $request->couponTemplateIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->couponTemplateIdList, 'CouponTemplateIdList', 'json');
+        }
+
         if (null !== $tmpReq->ecIdAccountIds) {
             $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
         }
@@ -1316,6 +1320,10 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->couponNo) {
             @$query['CouponNo'] = $request->couponNo;
+        }
+
+        if (null !== $request->couponTemplateIdListShrink) {
+            @$query['CouponTemplateIdList'] = $request->couponTemplateIdListShrink;
         }
 
         if (null !== $request->couponType) {
