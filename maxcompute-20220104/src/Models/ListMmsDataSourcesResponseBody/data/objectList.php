@@ -90,9 +90,19 @@ class objectList extends Model
     public $region;
 
     /**
+     * @var string
+     */
+    public $scanErrMsg;
+
+    /**
      * @var int
      */
     public $scanId;
+
+    /**
+     * @var string
+     */
+    public $scanStatus;
 
     /**
      * @var string
@@ -145,7 +155,9 @@ class objectList extends Model
         'partitionsDoneNum' => 'partitionsDoneNum',
         'partitionsFailedNum' => 'partitionsFailedNum',
         'region' => 'region',
+        'scanErrMsg' => 'scanErrMsg',
         'scanId' => 'scanId',
+        'scanStatus' => 'scanStatus',
         'status' => 'status',
         'tableNum' => 'tableNum',
         'tablesDoingNum' => 'tablesDoingNum',
@@ -247,8 +259,16 @@ class objectList extends Model
             $res['region'] = $this->region;
         }
 
+        if (null !== $this->scanErrMsg) {
+            $res['scanErrMsg'] = $this->scanErrMsg;
+        }
+
         if (null !== $this->scanId) {
             $res['scanId'] = $this->scanId;
+        }
+
+        if (null !== $this->scanStatus) {
+            $res['scanStatus'] = $this->scanStatus;
         }
 
         if (null !== $this->status) {
@@ -368,8 +388,16 @@ class objectList extends Model
             $model->region = $map['region'];
         }
 
+        if (isset($map['scanErrMsg'])) {
+            $model->scanErrMsg = $map['scanErrMsg'];
+        }
+
         if (isset($map['scanId'])) {
             $model->scanId = $map['scanId'];
+        }
+
+        if (isset($map['scanStatus'])) {
+            $model->scanStatus = $map['scanStatus'];
         }
 
         if (isset($map['status'])) {

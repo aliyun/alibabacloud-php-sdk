@@ -269,6 +269,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Activate a Quota Plan Immediately.
+     *
+     * @remarks
+     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -302,6 +308,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Activate a Quota Plan Immediately.
+     *
+     * @remarks
+     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     *
      * @returns ApplyComputeQuotaPlanResponse
      *
      * @param string $nickname
@@ -318,6 +330,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a quota plan.
+     *
+     * @remarks
+     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     *
      * @param request - CreateComputeQuotaPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -363,6 +381,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a quota plan.
+     *
+     * @remarks
+     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     *
      * @param request - CreateComputeQuotaPlanRequest
      *
      * @returns CreateComputeQuotaPlanResponse
@@ -381,7 +405,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+     * Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
      *
      * @param request - CreateMmsDataSourceRequest
      * @param headers - map
@@ -435,7 +459,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a data source to migrate data to MaxCompute using MaxCompute Migration Assist (MMA).
+     * Creates a data source and uses MaxCompute Migration Assist (MMA) to migrate data from the data source to MaxCompute.
      *
      * @param request - CreateMmsDataSourceRequest
      *
@@ -454,7 +478,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a job to pull metadata from a data source.
+     * Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
      *
      * @param request - CreateMmsFetchMetadataJobRequest
      * @param headers - map
@@ -501,7 +525,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a job to pull metadata from a data source.
+     * Creates a MaxCompute Migration Assist (MMA) job to pull the metadata from a data source.
      *
      * @param request - CreateMmsFetchMetadataJobRequest
      *
@@ -668,6 +692,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a package.
+     *
      * @param request - CreatePackageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -710,6 +736,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a package.
+     *
      * @param request - CreatePackageRequest
      *
      * @returns CreatePackageResponse
@@ -728,7 +756,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 创建项目.
+     * Creates a MaxCompute project.
      *
      * @param request - CreateProjectRequest
      * @param headers - map
@@ -765,7 +793,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 创建项目.
+     * Creates a MaxCompute project.
      *
      * @param request - CreateProjectRequest
      *
@@ -784,10 +812,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
-     *
-     * @remarks
-     * *Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+     * CreateQuota.
      *
      * @param request - CreateQuotaRequest
      * @param headers - map
@@ -841,10 +866,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a quota. When you enable MaxCompute for the first time, a pay-as-you-go quota must be created. If you create a subscription quota, your Alibaba Cloud account is automatically charged.
-     *
-     * @remarks
-     * *Before using this operation, review the MaxCompute billing model and [pricing](https://www.aliyun.com/product/maxcompute/pricing?spm=5176.30275541.J_ZGek9Blx07Hclc3Ddt9dg.2.19502f3dPPfezu\\&scm=20140722.S_card@@%E4%BA%A7%E5%93%81@@143540.S_new~UND~card.ID_card@@%E4%BA%A7%E5%93%81@@143540-RL_MaxCompute-LOC_2024SPSearchCard-OR_ser-PAR1_213c994b17738148516424527d0d07-V_4-RE_new9-P0_0-P1_0).**
+     * CreateQuota.
      *
      * @param request - CreateQuotaRequest
      *
@@ -863,6 +885,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a quota plan.
+     *
      * @param request - CreateQuotaPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -909,6 +933,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a quota plan.
+     *
      * @param request - CreateQuotaPlanRequest
      *
      * @returns CreateQuotaPlanResponse
@@ -927,6 +953,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a role at the MaxCompute project level.
+     *
      * @param request - CreateRoleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -963,6 +991,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Creates a role at the MaxCompute project level.
+     *
      * @param request - CreateRoleRequest
      *
      * @returns CreateRoleResponse
@@ -981,6 +1011,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Deletes a MaxCompute quota plan.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1014,6 +1046,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Deletes a MaxCompute quota plan.
+     *
      * @returns DeleteComputeQuotaPlanResponse
      *
      * @param string $nickname
@@ -1030,7 +1064,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
+     * Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1064,7 +1098,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) data source and its associated migration plans and metadata.
+     * Deletes a MaxCompute Migration Assist (MMA) data source. For example, you can call this operation to delete the migration plan or metadata of a data source.
      *
      * @returns DeleteMmsDataSourceResponse
      *
@@ -1081,7 +1115,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) data migration plan.
+     * Deletes a MaxCompute Migration Assist (MMA) migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1116,7 +1150,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute Migration Assist (MMA) data migration plan.
+     * Deletes a MaxCompute Migration Assist (MMA) migration job.
      *
      * @returns DeleteMmsJobResponse
      *
@@ -1134,7 +1168,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
+     * Deletes a MaxCompute project.
      *
      * @param request - DeleteProjectRequest
      * @param headers - map
@@ -1177,7 +1211,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a MaxCompute project. This operation is irreversible. Use this API with caution.
+     * Deletes a MaxCompute project.
      *
      * @param request - DeleteProjectRequest
      *
@@ -1197,6 +1231,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Deletes a quota plan.
+     *
      * @param request - DeleteQuotaPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1243,6 +1279,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Deletes a quota plan.
+     *
      * @param request - DeleteQuotaPlanRequest
      *
      * @returns DeleteQuotaPlanResponse
@@ -1262,6 +1300,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetComputeEffectivePlan.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1294,6 +1334,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * GetComputeEffectivePlan.
+     *
      * @returns GetComputeEffectivePlanResponse
      *
      * @param string $nickname
@@ -1309,6 +1351,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Get detailed information of a single compute quota plan.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1342,6 +1386,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Get detailed information of a single compute quota plan.
+     *
      * @returns GetComputeQuotaPlanResponse
      *
      * @param string $nickname
@@ -1358,6 +1404,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Displays the time-specific configuration of compute quota.
+     *
      * @param request - GetComputeQuotaScheduleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,6 +1447,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Displays the time-specific configuration of compute quota.
+     *
      * @param request - GetComputeQuotaScheduleRequest
      *
      * @returns GetComputeQuotaScheduleResponse
@@ -1417,6 +1467,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the basic information about a job.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1449,6 +1501,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the basic information about a job.
+     *
      * @returns GetJobInfoResponse
      *
      * @param string $instanceId
@@ -1464,6 +1518,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     *
      * @param tmpReq - GetJobResourceUsageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1530,6 +1586,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     *
      * @param request - GetJobResourceUsageRequest
      *
      * @returns GetJobResourceUsageResponse
@@ -1547,7 +1605,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+     * Queries a MaxCompute Migration Assist (MMA) asynchronous task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1582,7 +1640,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a single asynchronous task from MaxCompute Migration Assist (MMA).
+     * Queries a MaxCompute Migration Assist (MMA) asynchronous task.
      *
      * @returns GetMmsAsyncTaskResponse
      *
@@ -1600,7 +1658,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
+     * Queries the information about a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - GetMmsDataSourceRequest
      * @param headers - map
@@ -1647,7 +1705,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a single MaxCompute Migration Assist (MMA) data source.
+     * Queries the information about a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - GetMmsDataSourceRequest
      *
@@ -1667,7 +1725,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
+     * Queries a database in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1702,7 +1760,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a database from a MaxCompute Migration Assist (MMA) data source.
+     * Queries a database in a MaxCompute Migration Assist (MMA) data source.
      *
      * @returns GetMmsDbResponse
      *
@@ -1720,7 +1778,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
+     * Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1755,7 +1813,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a MaxCompute Migration Assist (MMA) job that fetches metadata.
+     * Queries the details of a MaxCompute Migration Assist (MMA) job that is used to query the metadata of a data source.
      *
      * @returns GetMmsFetchMetadataJobResponse
      *
@@ -1773,7 +1831,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+     * Queries the details of a MaxCompute Migration Assist (MMA) migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1808,7 +1866,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a single MaxCompute Migration Assist (MMA) migration plan.
+     * Queries the details of a MaxCompute Migration Assist (MMA) migration job.
      *
      * @returns GetMmsJobResponse
      *
@@ -1826,7 +1884,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
+     * Queries a partition from a MaxCompute Migration Assist (MMA) data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1861,7 +1919,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a partition from a MaxCompute Migration Assist (MMA) data source.
+     * Queries a partition from a MaxCompute Migration Assist (MMA) data source.
      *
      * @returns GetMmsPartitionResponse
      *
@@ -1879,7 +1937,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
+     * Queries a table in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1914,7 +1972,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a table from a MaxCompute Migration Assist (MMA) data source.
+     * Queries a table in a MaxCompute Migration Assist (MMA) data source.
      *
      * @returns GetMmsTableResponse
      *
@@ -1932,7 +1990,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific migration task.
+     * Queries the details of a migration task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1967,7 +2025,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific migration task.
+     * Queries the details of a migration task.
      *
      * @returns GetMmsTaskResponse
      *
@@ -1985,6 +2043,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the information about a package.
+     *
      * @param request - GetPackageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2027,6 +2087,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the information about a package.
+     *
      * @param request - GetPackageRequest
      *
      * @returns GetPackageResponse
@@ -2046,7 +2108,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a MaxCompute project.
+     * Queries the information about a MaxCompute project.
      *
      * @param request - GetProjectRequest
      * @param headers - map
@@ -2097,7 +2159,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a MaxCompute project.
+     * Queries the information about a MaxCompute project.
      *
      * @param request - GetProjectRequest
      *
@@ -2117,7 +2179,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
+     * Obtains the information about a specified level-1 quota.
      *
      * @param request - GetQuotaRequest
      * @param headers - map
@@ -2172,7 +2234,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieve information for the specified level-1 quota group. Warning: This operation will be decommissioned on July 31, 2024. It will be replaced by the `QueryQuota` operation. The request parameters, response parameters, and features of the two operations are the same.
+     * Obtains the information about a specified level-1 quota.
      *
      * @param request - GetQuotaRequest
      *
@@ -2192,6 +2254,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the information of a quota plan.
+     *
      * @param request - GetQuotaPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2238,6 +2302,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the information of a quota plan.
+     *
      * @param request - GetQuotaPlanRequest
      *
      * @returns GetQuotaPlanResponse
@@ -2257,6 +2323,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the scheduling plan for a quota plan.
+     *
      * @param request - GetQuotaScheduleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2306,6 +2374,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the scheduling plan for a quota plan.
+     *
      * @param request - GetQuotaScheduleRequest
      *
      * @returns GetQuotaScheduleResponse
@@ -2324,6 +2394,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries quota resource consumption information.
+     *
      * @param tmpReq - GetQuotaUsageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2407,6 +2479,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries quota resource consumption information.
+     *
      * @param request - GetQuotaUsageRequest
      *
      * @returns GetQuotaUsageResponse
@@ -2425,6 +2499,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the ACL-based permissions that is granted to a project-level role.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2458,6 +2534,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the ACL-based permissions that is granted to a project-level role.
+     *
      * @returns GetRoleAclResponse
      *
      * @param string $projectName
@@ -2474,6 +2552,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains ACL-based permissions on an object that are granted to a project-level role.
+     *
      * @param request - GetRoleAclOnObjectRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2520,6 +2600,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains ACL-based permissions on an object that are granted to a project-level role.
+     *
      * @param request - GetRoleAclOnObjectRequest
      *
      * @returns GetRoleAclOnObjectResponse
@@ -2539,6 +2621,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the policy that is attached to a project-level role.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2572,6 +2656,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the policy that is attached to a project-level role.
+     *
      * @returns GetRolePolicyResponse
      *
      * @param string $projectName
@@ -2588,6 +2674,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the running state data of jobs that are in the running state in a specified period of time.
+     *
      * @param tmpReq - GetRunningJobsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2658,6 +2746,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the running state data of jobs that are in the running state in a specified period of time.
+     *
      * @param request - GetRunningJobsRequest
      *
      * @returns GetRunningJobsResponse
@@ -2675,8 +2765,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a summary of the total storage amount.
-     *
      * @param request - GetStorageAmountSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2725,8 +2813,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a summary of the total storage amount.
-     *
      * @param request - GetStorageAmountSummaryRequest
      *
      * @returns GetStorageAmountSummaryResponse
@@ -2744,8 +2830,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a summary of storage usage.
-     *
      * @param request - GetStorageSizeSummaryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2794,8 +2878,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a summary of storage usage.
-     *
      * @param request - GetStorageSizeSummaryRequest
      *
      * @returns GetStorageSizeSummaryResponse
@@ -2813,8 +2895,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the year-on-year (YoY) change in storage usage.
-     *
      * @param tmpReq - GetStorageSummaryComparedRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2878,8 +2958,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the year-on-year (YoY) change in storage usage.
-     *
      * @param request - GetStorageSummaryComparedRequest
      *
      * @returns GetStorageSummaryComparedResponse
@@ -2898,6 +2976,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+     *
      * @param request - GetTableInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2944,6 +3024,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+     *
      * @param request - GetTableInfoRequest
      *
      * @returns GetTableInfoResponse
@@ -2963,6 +3045,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the trusted projects of the current project.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2995,6 +3079,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains the trusted projects of the current project.
+     *
      * @returns GetTrustedProjectsResponse
      *
      * @param string $projectName
@@ -3010,6 +3096,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Terminates a running job.
+     *
      * @param request - KillJobsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3055,6 +3143,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Terminates a running job.
+     *
      * @param request - KillJobsRequest
      *
      * @returns KillJobsResponse
@@ -3072,6 +3162,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries a list of computing resources used by a pay-as-you-go job.
+     *
      * @param request - ListComputeMetricsByInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3152,6 +3244,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries a list of computing resources used by a pay-as-you-go job.
+     *
      * @param request - ListComputeMetricsByInstanceRequest
      *
      * @returns ListComputeMetricsByInstanceResponse
@@ -3169,7 +3263,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists compute quota plans.
+     * Get computeQuotaPlan list.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3203,7 +3297,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists compute quota plans.
+     * Get computeQuotaPlan list.
      *
      * @returns ListComputeQuotaPlanResponse
      *
@@ -3220,6 +3314,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains functions in a MaxCompute project.
+     *
      * @param request - ListFunctionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3273,6 +3369,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains functions in a MaxCompute project.
+     *
      * @param request - ListFunctionsRequest
      *
      * @returns ListFunctionsResponse
@@ -3291,7 +3389,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of jobs.
+     * Views a list of jobs.
      *
      * @param request - ListJobInfosRequest
      * @param headers - map
@@ -3419,7 +3517,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of jobs.
+     * Views a list of jobs.
      *
      * @param request - ListJobInfosRequest
      *
@@ -3438,6 +3536,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries a performance metric of the job that is complete.
+     *
      * @param request - ListJobMetricRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3508,6 +3608,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries a performance metric of the job that is complete.
+     *
      * @param request - ListJobMetricRequest
      *
      * @returns ListJobMetricResponse
@@ -3525,7 +3627,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves job snapshot data at a specific point in time.
+     * Views a list of job snapshot data at a specific point in time.
      *
      * @param request - ListJobSnapshotInfosRequest
      * @param headers - map
@@ -3641,7 +3743,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves job snapshot data at a specific point in time.
+     * Views a list of job snapshot data at a specific point in time.
      *
      * @param request - ListJobSnapshotInfosRequest
      *
@@ -3660,7 +3762,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the MaxCompute Migration Assist (MMA) data sources.
+     * Queries a list of MaxCompute Migration Assist (MMA) data sources.
      *
      * @param request - ListMmsDataSourcesRequest
      * @param headers - map
@@ -3718,7 +3820,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the MaxCompute Migration Assist (MMA) data sources.
+     * Queries a list of MaxCompute Migration Assist (MMA) data sources.
      *
      * @param request - ListMmsDataSourcesRequest
      *
@@ -3737,7 +3839,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * List databases in the MMA data source.
+     * Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param tmpReq - ListMmsDbsRequest
      * @param headers - map
@@ -3802,7 +3904,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * List databases in the MMA data source.
+     * Queries a list of databases in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - ListMmsDbsRequest
      *
@@ -3822,7 +3924,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists migration jobs.
+     * Queries a list of migration jobs.
      *
      * @param request - ListMmsJobsRequest
      * @param headers - map
@@ -3905,7 +4007,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists migration jobs.
+     * Queries a list of migration jobs.
      *
      * @param request - ListMmsJobsRequest
      *
@@ -3925,7 +4027,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
+     * Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param tmpReq - ListMmsPartitionsRequest
      * @param headers - map
@@ -4018,7 +4120,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the partitions in a MaxCompute Migration Assist (MMA) data source.
+     * Queries a list of partitions in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - ListMmsPartitionsRequest
      *
@@ -4038,7 +4140,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the tables in a MaxCompute Migration Assist (MMA) data source.
+     * Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param tmpReq - ListMmsTablesRequest
      * @param headers - map
@@ -4143,7 +4245,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the tables in a MaxCompute Migration Assist (MMA) data source.
+     * Queries a list of tables in a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - ListMmsTablesRequest
      *
@@ -4163,7 +4265,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the execution logs for a specific migration task.
+     * Queries a list of the execution logs of a single migration task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4198,7 +4300,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Lists the execution logs for a specific migration task.
+     * Queries a list of the execution logs of a single migration task.
      *
      * @returns ListMmsTaskLogsResponse
      *
@@ -4216,7 +4318,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of migration tasks.
+     * Queries a list of migration tasks.
      *
      * @param request - ListMmsTasksRequest
      * @param headers - map
@@ -4299,7 +4401,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of migration tasks.
+     * Queries a list of migration tasks.
      *
      * @param request - ListMmsTasksRequest
      *
@@ -4319,6 +4421,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the packages in a MaxCompute project.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4351,6 +4455,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the packages in a MaxCompute project.
+     *
      * @returns ListPackagesResponse
      *
      * @param string $projectName
@@ -4366,7 +4472,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListProjectUsers.
+     * Queries a list of users in a project.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4400,7 +4506,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListProjectUsers.
+     * Queries a list of users in a project.
      *
      * @returns ListProjectUsersResponse
      *
@@ -4417,6 +4523,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries a list of MaxCompute projects.
+     *
      * @param request - ListProjectsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4493,6 +4601,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries a list of MaxCompute projects.
+     *
      * @param request - ListProjectsRequest
      *
      * @returns ListProjectsResponse
@@ -4510,7 +4620,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of quotas.
+     * Queries quotas.
      *
      * @param request - ListQuotasRequest
      * @param headers - map
@@ -4576,7 +4686,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of quotas.
+     * Queries quotas.
      *
      * @param request - ListQuotasRequest
      *
@@ -4595,6 +4705,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains quota plans.
+     *
      * @param request - ListQuotasPlansRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4640,6 +4752,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains quota plans.
+     *
      * @param request - ListQuotasPlansRequest
      *
      * @returns ListQuotasPlansResponse
@@ -4658,6 +4772,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains resources in a MaxCompute project.
+     *
      * @param request - ListResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4711,6 +4827,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains resources in a MaxCompute project.
+     *
      * @param request - ListResourcesRequest
      *
      * @returns ListResourcesResponse
@@ -4729,6 +4847,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains MaxCompute project-level roles.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4761,6 +4881,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains MaxCompute project-level roles.
+     *
      * @returns ListRolesResponse
      *
      * @param string $projectName
@@ -4776,6 +4898,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+     *
      * @param tmpReq - ListStoragePartitionsInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4860,6 +4984,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+     *
      * @param request - ListStoragePartitionsInfoRequest
      *
      * @returns ListStoragePartitionsInfoResponse
@@ -4879,8 +5005,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the storage details of projects.
-     *
      * @param request - ListStorageProjectsInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4953,8 +5077,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the storage details of projects.
-     *
      * @param request - ListStorageProjectsInfoRequest
      *
      * @returns ListStorageProjectsInfoResponse
@@ -4972,6 +5094,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the table storage details of a MaxCompute project.
+     *
      * @param tmpReq - ListStorageTablesInfoRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5059,6 +5183,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the table storage details of a MaxCompute project.
+     *
      * @param request - ListStorageTablesInfoRequest
      *
      * @returns ListStorageTablesInfoResponse
@@ -5077,6 +5203,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains tables in a MaxCompute project.
+     *
      * @param request - ListTablesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5134,6 +5262,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains tables in a MaxCompute project.
+     *
      * @param request - ListTablesRequest
      *
      * @returns ListTablesResponse
@@ -5152,6 +5282,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5184,6 +5316,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     *
      * @returns ListTunnelQuotaTimerResponse
      *
      * @param string $nickname
@@ -5199,6 +5333,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains users in a MaxCompute project.
+     *
      * @param request - ListUsersRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5243,6 +5379,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains users in a MaxCompute project.
+     *
      * @param request - ListUsersRequest
      *
      * @returns ListUsersResponse
@@ -5260,6 +5398,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains information about the users who are assigned a project-level role.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5293,6 +5433,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Obtains information about the users who are assigned a project-level role.
+     *
      * @returns ListUsersByRoleResponse
      *
      * @param string $projectName
@@ -5309,6 +5451,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the information about a specified level-1 quota group.
+     *
      * @param request - QueryQuotaRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5362,6 +5506,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Queries the information about a specified level-1 quota group.
+     *
      * @param request - QueryQuotaRequest
      *
      * @returns QueryQuotaResponse
@@ -5380,7 +5526,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the time series data of resource consumption for a quota.
+     * 查询quota的资源使用信息.
      *
      * @param request - QueryQuotaMetricRequest
      * @param headers - map
@@ -5449,7 +5595,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the time series data of resource consumption for a quota.
+     * 查询quota的资源使用信息.
      *
      * @param request - QueryQuotaMetricRequest
      *
@@ -5469,7 +5615,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries time-series metrics of data storage.
+     * Queries time series metrics of stored data.
      *
      * @param request - QueryStorageMetricRequest
      * @param headers - map
@@ -5526,7 +5672,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries time-series metrics of data storage.
+     * Queries time series metrics of stored data.
      *
      * @param request - QueryStorageMetricRequest
      *
@@ -5546,16 +5692,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries metric data for the Tunnel Data Transmission Service within a specified time range.
-     *
-     * @remarks
-     * - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
-     * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
-     * - The `metric` parameter is also required. It specifies the type of metric to query.
-     * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
-     * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
-     * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
-     * - Ensure all parameters meet the requirements in this document to prevent request failures.
+     * Queries the metrics of the Tunnel service within a specified time range.
      *
      * @param request - QueryTunnelMetricRequest
      * @param headers - map
@@ -5636,16 +5773,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries metric data for the Tunnel Data Transmission Service within a specified time range.
-     *
-     * @remarks
-     * - You can use this API to query various Tunnel metrics, such as slot usage (`slot_usage`), slot usage limit (`slot_max`), throughput (`throughput`), throughput rate (`throughput_speed`), and number of requests (`request`).
-     * - The `startTime` and `endTime` parameters are required. They specify the start and end of the time range for the query. The values are UNIX timestamps in seconds.
-     * - The `metric` parameter is also required. It specifies the type of metric to query.
-     * - Depending on the value of `metric`, you may need to specify additional parameters for filtering to refine your query. These parameters include `quotaNickname`, `project`, `tableList`, `operationList`, `codeList`, `groupList`, and `topN`.
-     * - For some `metric` values, you must specify other parameters. For example, if `groupList` contains `table` or `ip`, you must specify the `project` parameter and other required parameters. In this case, the system returns only the top N results.
-     * - The `strategy` parameter defines the data aggregation logic. This logic is used when the automatic step size exceeds 60 seconds over a long time range. The default value is `max`.
-     * - Ensure all parameters meet the requirements in this document to prevent request failures.
+     * Queries the metrics of the Tunnel service within a specified time range.
      *
      * @param request - QueryTunnelMetricRequest
      *
@@ -5665,15 +5793,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
-     *
-     * @remarks
-     * - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
-     * - The `quotaNickname` and `project` parameters cannot both be empty.
-     * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
-     * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
-     * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
-     * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
+     * Queries the metrics of the Tunnel service within a specified time range.
      *
      * @param request - QueryTunnelMetricDetailRequest
      * @param headers - map
@@ -5754,15 +5874,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries detailed data for the Tunnel Data Transmission Service within a specified time range.
-     *
-     * @remarks
-     * - This operation queries various Tunnel metrics, such as slot usage details (`slot_usage_detail`), throughput details (`throughput_detail`), and a throughput summary (`throughput_summary`).
-     * - The `quotaNickname` and `project` parameters cannot both be empty.
-     * - If the groupList parameter contains `table` or `ip`, you must specify the `project` parameter. If the `groupList` parameter contains `ip`, you must also specify the `tableList` parameter.
-     * - The orderColumn parameter can be set to `maxValue`, `minValue`, `avgValue`, or `sumValue`. The `sumValue` option is valid only for `throughput_summary`. By default, this parameter is empty, which means that no sorting is performed.
-     * - The default value of the `ascOrder` parameter is `false`, which indicates that the results are sorted in descending order.
-     * - The `limit` parameter specifies the maximum number of entries to return. The default value is 10, and the maximum value is 100.
+     * Queries the metrics of the Tunnel service within a specified time range.
      *
      * @param request - QueryTunnelMetricDetailRequest
      *
@@ -5782,7 +5894,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retries a data migration job.
+     * Retries a migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5817,7 +5929,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retries a data migration job.
+     * Retries a migration job.
      *
      * @returns RetryMmsJobResponse
      *
@@ -5835,7 +5947,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Starts a data migration job.
+     * Starts a migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5870,7 +5982,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Starts a data migration job.
+     * Starts a migration job.
      *
      * @returns StartMmsJobResponse
      *
@@ -5888,7 +6000,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Stops a data migration job.
+     * Stops a migration job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5923,7 +6035,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Stops a data migration job.
+     * Stops a migration job.
      *
      * @returns StopMmsJobResponse
      *
@@ -5941,8 +6053,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the storage information for each category or project on a specified date.
-     *
      * @param request - SumStorageMetricsByDateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6003,8 +6113,6 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieves the storage information for each category or project on a specified date.
-     *
      * @param request - SumStorageMetricsByDateRequest
      *
      * @returns SumStorageMetricsByDateResponse
@@ -6022,6 +6130,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Update the ComputeQuotaPlan.
+     *
+     * @remarks
+     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     *
      * @param request - UpdateComputeQuotaPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6067,6 +6181,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Update the ComputeQuotaPlan.
+     *
+     * @remarks
+     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
+     *
      * @param request - UpdateComputeQuotaPlanRequest
      *
      * @returns UpdateComputeQuotaPlanResponse
@@ -6085,10 +6205,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-based schedule for a computing quota.
+     * Update the time-based plan for computing quota.
      *
      * @remarks
-     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
+     * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
      *
      * @param request - UpdateComputeQuotaScheduleRequest
      * @param headers - map
@@ -6132,10 +6253,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-based schedule for a computing quota.
+     * Update the time-based plan for computing quota.
      *
      * @remarks
-     * Before you call this operation, ensure that you understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of reserved compute units (CUs) in MaxCompute.
+     * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
      *
      * @param request - UpdateComputeQuotaScheduleRequest
      *
@@ -6155,6 +6277,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+     *
      * @param request - UpdateComputeSubQuotaRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6196,6 +6320,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the basic configuration of a MaxCompute quota. For example, you can call this operation to add or delete a level-2 quota, define the basic attributes of a level-2 quota, and define the configuration of compute units (CUs) for a quota plan that is in effect.
+     *
      * @param request - UpdateComputeSubQuotaRequest
      *
      * @returns UpdateComputeSubQuotaResponse
@@ -6214,7 +6340,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
+     * Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - UpdateMmsDataSourceRequest
      * @param headers - map
@@ -6269,7 +6395,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Refreshes the metadata of a MaxCompute Migration Assist (MMA) data source.
+     * Updates the metadata of a MaxCompute Migration Assist (MMA) data source.
      *
      * @param request - UpdateMmsDataSourceRequest
      *
@@ -6289,6 +6415,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the objects in a package and projects in which the package can be installed.
+     *
      * @param request - UpdatePackageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6326,6 +6454,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the objects in a package and projects in which the package can be installed.
+     *
      * @param request - UpdatePackageRequest
      *
      * @returns UpdatePackageResponse
@@ -6345,7 +6475,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a project.
+     * Update Project Basic Information.
      *
      * @param request - UpdateProjectBasicMetaRequest
      * @param headers - map
@@ -6392,7 +6522,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information of a project.
+     * Update Project Basic Information.
      *
      * @param request - UpdateProjectBasicMetaRequest
      *
@@ -6412,6 +6542,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the default computing quota of a project.
+     *
      * @param request - UpdateProjectDefaultQuotaRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6453,6 +6585,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the default computing quota of a project.
+     *
      * @param request - UpdateProjectDefaultQuotaRequest
      *
      * @returns UpdateProjectDefaultQuotaResponse
@@ -6471,6 +6605,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Modifies the IP address whitelist of a MaxCompute project.
+     *
      * @param request - UpdateProjectIpWhiteListRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6507,6 +6643,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Modifies the IP address whitelist of a MaxCompute project.
+     *
      * @param request - UpdateProjectIpWhiteListRequest
      *
      * @returns UpdateProjectIpWhiteListResponse
@@ -6525,7 +6663,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Upgrades a project\\"s Layer 2 model to a Layer 3 model.
+     * 将project的二层模型升级为三层模型.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6559,7 +6697,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Upgrades a project\\"s Layer 2 model to a Layer 3 model.
+     * 将project的二层模型升级为三层模型.
      *
      * @returns UpdateProjectModelTierResponse
      *
@@ -6576,6 +6714,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates a quota plan.
+     *
      * @param request - UpdateQuotaPlanRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6623,6 +6763,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates a quota plan.
+     *
      * @param request - UpdateQuotaPlanRequest
      *
      * @returns UpdateQuotaPlanResponse
@@ -6642,6 +6784,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the scheduling plan for a quota plan.
+     *
      * @param request - UpdateQuotaScheduleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6688,6 +6832,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * Updates the scheduling plan for a quota plan.
+     *
      * @param request - UpdateQuotaScheduleRequest
      *
      * @returns UpdateQuotaScheduleResponse
@@ -6706,10 +6852,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
+     * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
      *
      * @remarks
-     * Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
+     * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
      *
      * @param request - UpdateTunnelQuotaTimerRequest
      * @param headers - map
@@ -6753,10 +6899,10 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-based auto-scaling configuration for an exclusive resource group for Data Transmission Service (Tunnel Quota).
+     * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
      *
      * @remarks
-     * Before you call this operation, ensure that you fully understand the <props="china">[billing methods and pricing](https://help.aliyun.com/zh/maxcompute/product-overview/data-transfer-fees-hourly-billing)<props="intl">[billing methods and pricing](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) for exclusive Data Transmission Service resource groups and elastic reserved computing resources.
+     * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
      *
      * @param request - UpdateTunnelQuotaTimerRequest
      *
@@ -6776,7 +6922,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Adds or removes users from a project role.
+     * Add or remove users from a project role.
      *
      * @param request - UpdateUsersToRoleRequest
      * @param headers - map
@@ -6824,7 +6970,7 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Adds or removes users from a project role.
+     * Add or remove users from a project role.
      *
      * @param request - UpdateUsersToRoleRequest
      *
