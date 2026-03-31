@@ -88,6 +88,16 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $envId;
+
+    /**
+     * @var string
+     */
+    public $envType;
+
+    /**
+     * @var string
+     */
     public $expiredTime;
 
     /**
@@ -290,6 +300,8 @@ class desktops extends Model
         'desktopGroupName' => 'DesktopGroupName',
         'directoryId' => 'DirectoryId',
         'directoryType' => 'DirectoryType',
+        'envId' => 'EnvId',
+        'envType' => 'EnvType',
         'expiredTime' => 'ExpiredTime',
         'expiredTimes' => 'ExpiredTimes',
         'gpuCount' => 'GpuCount',
@@ -411,6 +423,14 @@ class desktops extends Model
 
         if (null !== $this->directoryType) {
             $res['DirectoryType'] = $this->directoryType;
+        }
+
+        if (null !== $this->envId) {
+            $res['EnvId'] = $this->envId;
+        }
+
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
 
         if (null !== $this->expiredTime) {
@@ -669,6 +689,14 @@ class desktops extends Model
 
         if (isset($map['DirectoryType'])) {
             $model->directoryType = $map['DirectoryType'];
+        }
+
+        if (isset($map['EnvId'])) {
+            $model->envId = $map['EnvId'];
+        }
+
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
 
         if (isset($map['ExpiredTime'])) {
