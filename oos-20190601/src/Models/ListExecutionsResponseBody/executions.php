@@ -12,6 +12,11 @@ class executions extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -179,6 +184,7 @@ class executions extends Model
      */
     public $waitingStatus;
     protected $_name = [
+        'accountId' => 'AccountId',
         'category' => 'Category',
         'counters' => 'Counters',
         'createDate' => 'CreateDate',
@@ -235,6 +241,10 @@ class executions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -404,6 +414,10 @@ class executions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }

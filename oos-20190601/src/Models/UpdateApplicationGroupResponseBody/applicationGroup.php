@@ -41,6 +41,11 @@ class applicationGroup extends Model
     /**
      * @var string
      */
+    public $monitorMetadata;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -54,6 +59,7 @@ class applicationGroup extends Model
         'description' => 'Description',
         'importTagKey' => 'ImportTagKey',
         'importTagValue' => 'ImportTagValue',
+        'monitorMetadata' => 'MonitorMetadata',
         'name' => 'Name',
         'updatedDate' => 'UpdatedDate',
     ];
@@ -88,6 +94,10 @@ class applicationGroup extends Model
 
         if (null !== $this->importTagValue) {
             $res['ImportTagValue'] = $this->importTagValue;
+        }
+
+        if (null !== $this->monitorMetadata) {
+            $res['MonitorMetadata'] = $this->monitorMetadata;
         }
 
         if (null !== $this->name) {
@@ -131,6 +141,10 @@ class applicationGroup extends Model
 
         if (isset($map['ImportTagValue'])) {
             $model->importTagValue = $map['ImportTagValue'];
+        }
+
+        if (isset($map['MonitorMetadata'])) {
+            $model->monitorMetadata = $map['MonitorMetadata'];
         }
 
         if (isset($map['Name'])) {

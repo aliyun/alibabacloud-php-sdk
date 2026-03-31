@@ -22,6 +22,10 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateChatConfigurationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateChatConfigurationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateDeployRevisionRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateDeployRevisionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateGitRepositoryRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateGitRepositoryResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateOpsItemRequest;
@@ -46,6 +50,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteApplicationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteChatConfigurationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteChatConfigurationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteExecutionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\DeleteOpsItemsRequest;
@@ -76,6 +82,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationGroupRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationGroupResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetApplicationResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetChatConfigurationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetChatConfigurationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetExecutionTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetExecutionTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetGitBranchRequest;
@@ -113,6 +121,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationGroupsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListApplicationsShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListChatConfigurationsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListChatConfigurationsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionLogsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionLogsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionRiskyTasksRequest;
@@ -166,6 +176,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListTaskExecutionInvocationsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListTaskExecutionInvocationsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTaskExecutionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTaskExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListTemplatesRequest;
@@ -181,6 +193,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\SearchInventoryRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SearchInventoryResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SetServiceSettingsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\SetServiceSettingsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\SetServiceSettingsShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\StartDebugExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\StartDebugExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\StartExecutionRequest;
@@ -200,6 +213,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationGroupShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateChatConfigurationRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateChatConfigurationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateInstancePackageStateRequest;
@@ -219,6 +234,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateStateConfigurationRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateStateConfigurationResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateStateConfigurationShrinkRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateAttributesRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateAttributesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateTemplateShrinkRequest;
@@ -906,6 +923,170 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - CreateChatConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChatConfigurationResponse
+     *
+     * @param CreateChatConfigurationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateChatConfigurationResponse
+     */
+    public function createChatConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configuration) {
+            @$query['Configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ramRole) {
+            @$query['RamRole'] = $request->ramRole;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateChatConfiguration',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateChatConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - CreateChatConfigurationRequest
+     *
+     * @returns CreateChatConfigurationResponse
+     *
+     * @param CreateChatConfigurationRequest $request
+     *
+     * @return CreateChatConfigurationResponse
+     */
+    public function createChatConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createChatConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建部署制品
+     *
+     * @param request - CreateDeployRevisionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDeployRevisionResponse
+     *
+     * @param CreateDeployRevisionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDeployRevisionResponse
+     */
+    public function createDeployRevisionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->deployResourceType) {
+            @$query['DeployResourceType'] = $request->deployResourceType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->hooks) {
+            @$query['Hooks'] = $request->hooks;
+        }
+
+        if (null !== $request->location) {
+            @$query['Location'] = $request->location;
+        }
+
+        if (null !== $request->revisionType) {
+            @$query['RevisionType'] = $request->revisionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDeployRevision',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDeployRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建部署制品
+     *
+     * @param request - CreateDeployRevisionRequest
+     *
+     * @returns CreateDeployRevisionResponse
+     *
+     * @param CreateDeployRevisionRequest $request
+     *
+     * @return CreateDeployRevisionResponse
+     */
+    public function createDeployRevision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDeployRevisionWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建仓库.
      *
      * @param request - CreateGitRepositoryRequest
@@ -1003,7 +1184,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Creates an O\\\\\\\\\\\\&M Item.
+     * Creates an O\\\\\\\\\\\\\\\\\\\\&M Item.
      *
      * @param tmpReq - CreateOpsItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1096,7 +1277,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Creates an O\\\\\\\\\\\\&M Item.
+     * Creates an O\\\\\\\\\\\\\\\\\\\\&M Item.
      *
      * @param request - CreateOpsItemRequest
      *
@@ -1332,7 +1513,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+     * Creates an encryption parameter. Make sure that you have the permissions to call the CreateSecret operation of Key Management Service (KMS) before you call this operation.
      *
      * @param tmpReq - CreateSecretParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1417,7 +1598,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+     * Creates an encryption parameter. Make sure that you have the permissions to call the CreateSecret operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - CreateSecretParameterRequest
      *
@@ -1763,7 +1944,78 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Deletes multiple executions.
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - DeleteChatConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChatConfigurationResponse
+     *
+     * @param DeleteChatConfigurationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteChatConfigurationResponse
+     */
+    public function deleteChatConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteChatConfiguration',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteChatConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - DeleteChatConfigurationRequest
+     *
+     * @returns DeleteChatConfigurationResponse
+     *
+     * @param DeleteChatConfigurationRequest $request
+     *
+     * @return DeleteChatConfigurationResponse
+     */
+    public function deleteChatConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChatConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes executions.
      *
      * @param request - DeleteExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1810,7 +2062,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Deletes multiple executions.
+     * Deletes executions.
      *
      * @param request - DeleteExecutionsRequest
      *
@@ -2011,7 +2263,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+     * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - DeleteSecretParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2054,7 +2306,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+     * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - DeleteSecretParameterRequest
      *
@@ -2340,7 +2592,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * 查询应用分组资源成本.
+     * Queries the resource costs of an application group.
      *
      * @param request - DescribeApplicationGroupBillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2403,7 +2655,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * 查询应用分组资源成本.
+     * Queries the resource costs of an application group.
      *
      * @param request - DescribeApplicationGroupBillRequest
      *
@@ -2754,6 +3006,77 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - GetChatConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChatConfigurationResponse
+     *
+     * @param GetChatConfigurationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetChatConfigurationResponse
+     */
+    public function getChatConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetChatConfiguration',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChatConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - GetChatConfigurationRequest
+     *
+     * @returns GetChatConfigurationResponse
+     *
+     * @param GetChatConfigurationRequest $request
+     *
+     * @return GetChatConfigurationResponse
+     */
+    public function getChatConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about the template of an execution, including the content of the template.
      *
      * @param request - GetExecutionTemplateRequest
@@ -3046,7 +3369,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the details of an O\\\\\\\\\\\\&M item.
+     * Queries the details of an O\\\\\\\\\\\\\\\\\\\\&M item.
      *
      * @param request - GetOpsItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3089,7 +3412,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the details of an O\\\\\\\\\\\\&M item.
+     * Queries the details of an O\\\\\\\\\\\\\\\\\\\\&M item.
      *
      * @param request - GetOpsItemRequest
      *
@@ -3371,7 +3694,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - GetSecretParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3422,7 +3745,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - GetSecretParameterRequest
      *
@@ -3440,7 +3763,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - GetSecretParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3487,7 +3810,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - GetSecretParametersRequest
      *
@@ -3505,7 +3828,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - GetSecretParametersByPathRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3564,7 +3887,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+     * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - GetSecretParametersByPathRequest
      *
@@ -3582,7 +3905,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the settings of the delivery feature.
+     * Queries the service settings, including the configuration of delivering template execution records and the associated organization ID.
      *
      * @param request - GetServiceSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3617,7 +3940,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the settings of the delivery feature.
+     * Queries the service settings, including the configuration of delivering template execution records and the associated organization ID.
      *
      * @param request - GetServiceSettingsRequest
      *
@@ -3700,7 +4023,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * 获取参数可用值
+     * Obtains available values of parameters.
      *
      * @param request - GetTemplateParameterConstraintsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3759,7 +4082,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * 获取参数可用值
+     * Obtains available values of parameters.
      *
      * @param request - GetTemplateParameterConstraintsRequest
      *
@@ -4018,6 +4341,85 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - ListChatConfigurationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatConfigurationsResponse
+     *
+     * @param ListChatConfigurationsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListChatConfigurationsResponse
+     */
+    public function listChatConfigurationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatConfigurations',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - ListChatConfigurationsRequest
+     *
+     * @returns ListChatConfigurationsResponse
+     *
+     * @param ListChatConfigurationsRequest $request
+     *
+     * @return ListChatConfigurationsResponse
+     */
+    public function listChatConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChatConfigurationsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the logs of an execution.
      *
      * @remarks
@@ -4036,6 +4438,10 @@ class Oos extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
         if (null !== $request->executionId) {
             @$query['ExecutionId'] = $request->executionId;
         }
@@ -4177,11 +4583,19 @@ class Oos extends OpenApiClient
         $tmpReq->validate();
         $request = new ListExecutionsShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rdFolderIds) {
+            $request->rdFolderIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rdFolderIds, 'RdFolderIds', 'json');
+        }
+
         if (null !== $tmpReq->tags) {
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
         $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
         if (null !== $request->categories) {
             @$query['Categories'] = $request->categories;
         }
@@ -4236,6 +4650,10 @@ class Oos extends OpenApiClient
 
         if (null !== $request->ramRole) {
             @$query['RamRole'] = $request->ramRole;
+        }
+
+        if (null !== $request->rdFolderIdsShrink) {
+            @$query['RdFolderIds'] = $request->rdFolderIdsShrink;
         }
 
         if (null !== $request->regionId) {
@@ -4866,7 +5284,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about the patches of an instance.
+     * Queries the patches of an instance.
      *
      * @param request - ListInstancePatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4921,7 +5339,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about the patches of an instance.
+     * Queries the patches of an instance.
      *
      * @param request - ListInstancePatchesRequest
      *
@@ -5016,7 +5434,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries O\\&M items.
+     * Queries O\\\\\\&M items.
      *
      * @param tmpReq - ListOpsItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5085,7 +5503,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries O\\&M items.
+     * Queries O\\\\\\&M items.
      *
      * @param request - ListOpsItemsRequest
      *
@@ -5394,7 +5812,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+     * Queries the information about a scheduled execution that involves O\\&M operations on Elastic Compute Service (ECS) instances.
      *
      * @param request - ListResourceExecutionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5445,7 +5863,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+     * Queries the information about a scheduled execution that involves O\\&M operations on Elastic Compute Service (ECS) instances.
      *
      * @param request - ListResourceExecutionStatusRequest
      *
@@ -5961,6 +6379,71 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * 用于获取任务执行内部的云助手脚本执行ID.
+     *
+     * @param request - ListTaskExecutionInvocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTaskExecutionInvocationsResponse
+     *
+     * @param ListTaskExecutionInvocationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListTaskExecutionInvocationsResponse
+     */
+    public function listTaskExecutionInvocationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskExecutionId) {
+            @$query['TaskExecutionId'] = $request->taskExecutionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTaskExecutionInvocations',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTaskExecutionInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于获取任务执行内部的云助手脚本执行ID.
+     *
+     * @param request - ListTaskExecutionInvocationsRequest
+     *
+     * @returns ListTaskExecutionInvocationsResponse
+     *
+     * @param ListTaskExecutionInvocationsRequest $request
+     *
+     * @return ListTaskExecutionInvocationsResponse
+     */
+    public function listTaskExecutionInvocations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskExecutionInvocationsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries task executions. Multiple methods are supported to filter task executions.
      *
      * @param request - ListTaskExecutionsRequest
@@ -5977,6 +6460,10 @@ class Oos extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
         if (null !== $request->endDateAfter) {
             @$query['EndDateAfter'] = $request->endDateAfter;
         }
@@ -6078,7 +6565,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries a list of versions of a template.
+     * Queries the versions of a template.
      *
      * @param request - ListTemplateVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6133,7 +6620,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Queries a list of versions of a template.
+     * Queries the versions of a template.
      *
      * @param request - ListTemplateVersionsRequest
      *
@@ -6521,21 +7008,27 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Enables or disables the feature of delivering template execution records and sets the storage location.
+     * Enables or disables the feature of delivering template execution records and sets the storage location and organization ID.
      *
-     * @param request - SetServiceSettingsRequest
+     * @param tmpReq - SetServiceSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SetServiceSettingsResponse
      *
-     * @param SetServiceSettingsRequest $request
+     * @param SetServiceSettingsRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return SetServiceSettingsResponse
      */
-    public function setServiceSettingsWithOptions($request, $runtime)
+    public function setServiceSettingsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new SetServiceSettingsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rdFolderIds) {
+            $request->rdFolderIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rdFolderIds, 'RdFolderIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->deliveryOssBucketName) {
             @$query['DeliveryOssBucketName'] = $request->deliveryOssBucketName;
@@ -6557,12 +7050,20 @@ class Oos extends OpenApiClient
             @$query['DeliverySlsProjectName'] = $request->deliverySlsProjectName;
         }
 
+        if (null !== $request->rdFolderIdsShrink) {
+            @$query['RdFolderIds'] = $request->rdFolderIdsShrink;
+        }
+
         if (null !== $request->rdcEnterpriseId) {
             @$query['RdcEnterpriseId'] = $request->rdcEnterpriseId;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceAccessRdEnabled) {
+            @$query['ServiceAccessRdEnabled'] = $request->serviceAccessRdEnabled;
         }
 
         $req = new OpenApiRequest([
@@ -6584,7 +7085,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Enables or disables the feature of delivering template execution records and sets the storage location.
+     * Enables or disables the feature of delivering template execution records and sets the storage location and organization ID.
      *
      * @param request - SetServiceSettingsRequest
      *
@@ -7138,6 +7639,10 @@ class Oos extends OpenApiClient
             @$query['DeployedRevisionId'] = $request->deployedRevisionId;
         }
 
+        if (null !== $request->monitorMetadata) {
+            @$query['MonitorMetadata'] = $request->monitorMetadata;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
         }
@@ -7195,7 +7700,94 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Update executions that are in Running or Waiting status.
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - UpdateChatConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChatConfigurationResponse
+     *
+     * @param UpdateChatConfigurationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateChatConfigurationResponse
+     */
+    public function updateChatConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configuration) {
+            @$query['Configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ramRole) {
+            @$query['RamRole'] = $request->ramRole;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChatConfiguration',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChatConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+     * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+     *
+     * @param request - UpdateChatConfigurationRequest
+     *
+     * @returns UpdateChatConfigurationResponse
+     *
+     * @param UpdateChatConfigurationRequest $request
+     *
+     * @return UpdateChatConfigurationResponse
+     */
+    public function updateChatConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateChatConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates an execution in the Running or Waiting state.
      *
      * @param request - UpdateExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7258,7 +7850,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Update executions that are in Running or Waiting status.
+     * Updates an execution in the Running or Waiting state.
      *
      * @param request - UpdateExecutionRequest
      *
@@ -7363,7 +7955,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Modifies an O\\\\\\\\\\\\&M item.
+     * Modifies an O\\\\\\\\\\\\\\\\\\\\&M item.
      *
      * @param tmpReq - UpdateOpsItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7464,7 +8056,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Modifies an O\\\\\\\\\\\\&M item.
+     * Modifies an O\\\\\\\\\\\\\\\\\\\\&M item.
      *
      * @param request - UpdateOpsItemRequest
      *
@@ -7678,7 +8270,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Updates an encryption parameter.
+     * Updates an encryption parameter. Make sure that you have the permissions to call the UpdateSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param tmpReq - UpdateSecretParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7743,7 +8335,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * Updates an encryption parameter.
+     * Updates an encryption parameter. Make sure that you have the permissions to call the UpdateSecretValue operation of Key Management Service (KMS) before you call this operation.
      *
      * @param request - UpdateSecretParameterRequest
      *
@@ -7948,6 +8540,83 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新模板属性.
+     *
+     * @param request - UpdateTemplateAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTemplateAttributesResponse
+     *
+     * @param UpdateTemplateAttributesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateTemplateAttributesResponse
+     */
+    public function updateTemplateAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
+        }
+
+        if (null !== $request->isFavorite) {
+            @$query['IsFavorite'] = $request->isFavorite;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sharePermissionAction) {
+            @$query['SharePermissionAction'] = $request->sharePermissionAction;
+        }
+
+        if (null !== $request->shareTemplateVersion) {
+            @$query['ShareTemplateVersion'] = $request->shareTemplateVersion;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTemplateAttributes',
+            'version' => '2019-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTemplateAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模板属性.
+     *
+     * @param request - UpdateTemplateAttributesRequest
+     *
+     * @returns UpdateTemplateAttributesResponse
+     *
+     * @param UpdateTemplateAttributesRequest $request
+     *
+     * @return UpdateTemplateAttributesResponse
+     */
+    public function updateTemplateAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTemplateAttributesWithOptions($request, $runtime);
     }
 
     /**

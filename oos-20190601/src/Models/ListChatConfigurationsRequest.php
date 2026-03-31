@@ -5,23 +5,14 @@
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListChatConfigurationsRequest\filters;
 
-class ListExecutionLogsRequest extends Model
+class ListChatConfigurationsRequest extends Model
 {
     /**
-     * @var string
+     * @var filters[]
      */
-    public $accountId;
-
-    /**
-     * @var string
-     */
-    public $executionId;
-
-    /**
-     * @var string
-     */
-    public $logType;
+    public $filters;
 
     /**
      * @var int
@@ -37,39 +28,33 @@ class ListExecutionLogsRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $taskExecutionId;
     protected $_name = [
-        'accountId' => 'AccountId',
-        'executionId' => 'ExecutionId',
-        'logType' => 'LogType',
+        'filters' => 'Filters',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
-        'taskExecutionId' => 'TaskExecutionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-
-        if (null !== $this->executionId) {
-            $res['ExecutionId'] = $this->executionId;
-        }
-
-        if (null !== $this->logType) {
-            $res['LogType'] = $this->logType;
+        if (null !== $this->filters) {
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1 = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->maxResults) {
@@ -84,10 +69,6 @@ class ListExecutionLogsRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->taskExecutionId) {
-            $res['TaskExecutionId'] = $this->taskExecutionId;
-        }
-
         return $res;
     }
 
@@ -99,16 +80,15 @@ class ListExecutionLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-
-        if (isset($map['ExecutionId'])) {
-            $model->executionId = $map['ExecutionId'];
-        }
-
-        if (isset($map['LogType'])) {
-            $model->logType = $map['LogType'];
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n1 = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['MaxResults'])) {
@@ -121,10 +101,6 @@ class ListExecutionLogsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['TaskExecutionId'])) {
-            $model->taskExecutionId = $map['TaskExecutionId'];
         }
 
         return $model;

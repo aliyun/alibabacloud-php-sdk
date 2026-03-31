@@ -36,14 +36,26 @@ class serviceSettings extends Model
     /**
      * @var string
      */
+    public $rdFolders;
+
+    /**
+     * @var string
+     */
     public $rdcEnterpriseId;
+
+    /**
+     * @var bool
+     */
+    public $serviceAccessRdEnabled;
     protected $_name = [
         'deliveryOssBucketName' => 'DeliveryOssBucketName',
         'deliveryOssEnabled' => 'DeliveryOssEnabled',
         'deliveryOssKeyPrefix' => 'DeliveryOssKeyPrefix',
         'deliverySlsEnabled' => 'DeliverySlsEnabled',
         'deliverySlsProjectName' => 'DeliverySlsProjectName',
+        'rdFolders' => 'RdFolders',
         'rdcEnterpriseId' => 'RdcEnterpriseId',
+        'serviceAccessRdEnabled' => 'ServiceAccessRdEnabled',
     ];
 
     public function validate()
@@ -74,8 +86,16 @@ class serviceSettings extends Model
             $res['DeliverySlsProjectName'] = $this->deliverySlsProjectName;
         }
 
+        if (null !== $this->rdFolders) {
+            $res['RdFolders'] = $this->rdFolders;
+        }
+
         if (null !== $this->rdcEnterpriseId) {
             $res['RdcEnterpriseId'] = $this->rdcEnterpriseId;
+        }
+
+        if (null !== $this->serviceAccessRdEnabled) {
+            $res['ServiceAccessRdEnabled'] = $this->serviceAccessRdEnabled;
         }
 
         return $res;
@@ -109,8 +129,16 @@ class serviceSettings extends Model
             $model->deliverySlsProjectName = $map['DeliverySlsProjectName'];
         }
 
+        if (isset($map['RdFolders'])) {
+            $model->rdFolders = $map['RdFolders'];
+        }
+
         if (isset($map['RdcEnterpriseId'])) {
             $model->rdcEnterpriseId = $map['RdcEnterpriseId'];
+        }
+
+        if (isset($map['ServiceAccessRdEnabled'])) {
+            $model->serviceAccessRdEnabled = $map['ServiceAccessRdEnabled'];
         }
 
         return $model;

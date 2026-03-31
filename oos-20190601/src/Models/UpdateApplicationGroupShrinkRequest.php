@@ -21,6 +21,11 @@ class UpdateApplicationGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $monitorMetadata;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -45,6 +50,7 @@ class UpdateApplicationGroupShrinkRequest extends Model
     protected $_name = [
         'applicationName' => 'ApplicationName',
         'deployedRevisionId' => 'DeployedRevisionId',
+        'monitorMetadata' => 'MonitorMetadata',
         'name' => 'Name',
         'newName' => 'NewName',
         'operationName' => 'OperationName',
@@ -66,6 +72,10 @@ class UpdateApplicationGroupShrinkRequest extends Model
 
         if (null !== $this->deployedRevisionId) {
             $res['DeployedRevisionId'] = $this->deployedRevisionId;
+        }
+
+        if (null !== $this->monitorMetadata) {
+            $res['MonitorMetadata'] = $this->monitorMetadata;
         }
 
         if (null !== $this->name) {
@@ -105,6 +115,10 @@ class UpdateApplicationGroupShrinkRequest extends Model
 
         if (isset($map['DeployedRevisionId'])) {
             $model->deployedRevisionId = $map['DeployedRevisionId'];
+        }
+
+        if (isset($map['MonitorMetadata'])) {
+            $model->monitorMetadata = $map['MonitorMetadata'];
         }
 
         if (isset($map['Name'])) {

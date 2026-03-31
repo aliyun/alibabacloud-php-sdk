@@ -37,6 +37,11 @@ class serviceSettings extends Model
      * @var string
      */
     public $rdcEnterpriseId;
+
+    /**
+     * @var bool
+     */
+    public $serviceAccessRdEnabled;
     protected $_name = [
         'deliveryOssBucketName' => 'DeliveryOssBucketName',
         'deliveryOssEnabled' => 'DeliveryOssEnabled',
@@ -44,6 +49,7 @@ class serviceSettings extends Model
         'deliverySlsEnabled' => 'DeliverySlsEnabled',
         'deliverySlsProjectName' => 'DeliverySlsProjectName',
         'rdcEnterpriseId' => 'RdcEnterpriseId',
+        'serviceAccessRdEnabled' => 'ServiceAccessRdEnabled',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class serviceSettings extends Model
 
         if (null !== $this->rdcEnterpriseId) {
             $res['RdcEnterpriseId'] = $this->rdcEnterpriseId;
+        }
+
+        if (null !== $this->serviceAccessRdEnabled) {
+            $res['ServiceAccessRdEnabled'] = $this->serviceAccessRdEnabled;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class serviceSettings extends Model
 
         if (isset($map['RdcEnterpriseId'])) {
             $model->rdcEnterpriseId = $map['RdcEnterpriseId'];
+        }
+
+        if (isset($map['ServiceAccessRdEnabled'])) {
+            $model->serviceAccessRdEnabled = $map['ServiceAccessRdEnabled'];
         }
 
         return $model;

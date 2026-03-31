@@ -11,6 +11,11 @@ class ListTaskExecutionsRequest extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
     public $endDateAfter;
 
     /**
@@ -88,6 +93,7 @@ class ListTaskExecutionsRequest extends Model
      */
     public $taskName;
     protected $_name = [
+        'accountId' => 'AccountId',
         'endDateAfter' => 'EndDateAfter',
         'endDateBefore' => 'EndDateBefore',
         'executionId' => 'ExecutionId',
@@ -114,6 +120,10 @@ class ListTaskExecutionsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->endDateAfter) {
             $res['EndDateAfter'] = $this->endDateAfter;
         }
@@ -189,6 +199,10 @@ class ListTaskExecutionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['EndDateAfter'])) {
             $model->endDateAfter = $map['EndDateAfter'];
         }

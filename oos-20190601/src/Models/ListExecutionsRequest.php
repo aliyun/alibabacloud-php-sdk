@@ -11,6 +11,11 @@ class ListExecutionsRequest extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
     public $categories;
 
     /**
@@ -79,6 +84,11 @@ class ListExecutionsRequest extends Model
     public $ramRole;
 
     /**
+     * @var string[]
+     */
+    public $rdFolderIds;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -133,6 +143,7 @@ class ListExecutionsRequest extends Model
      */
     public $templateName;
     protected $_name = [
+        'accountId' => 'AccountId',
         'categories' => 'Categories',
         'category' => 'Category',
         'depth' => 'Depth',
@@ -147,6 +158,7 @@ class ListExecutionsRequest extends Model
         'nextToken' => 'NextToken',
         'parentExecutionId' => 'ParentExecutionId',
         'ramRole' => 'RamRole',
+        'rdFolderIds' => 'RdFolderIds',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceId' => 'ResourceId',
@@ -162,6 +174,9 @@ class ListExecutionsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->rdFolderIds)) {
+            Model::validateArray($this->rdFolderIds);
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -171,6 +186,10 @@ class ListExecutionsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->categories) {
             $res['Categories'] = $this->categories;
         }
@@ -225,6 +244,17 @@ class ListExecutionsRequest extends Model
 
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
+        }
+
+        if (null !== $this->rdFolderIds) {
+            if (\is_array($this->rdFolderIds)) {
+                $res['RdFolderIds'] = [];
+                $n1 = 0;
+                foreach ($this->rdFolderIds as $item1) {
+                    $res['RdFolderIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -287,6 +317,10 @@ class ListExecutionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['Categories'])) {
             $model->categories = $map['Categories'];
         }
@@ -341,6 +375,17 @@ class ListExecutionsRequest extends Model
 
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];
+        }
+
+        if (isset($map['RdFolderIds'])) {
+            if (!empty($map['RdFolderIds'])) {
+                $model->rdFolderIds = [];
+                $n1 = 0;
+                foreach ($map['RdFolderIds'] as $item1) {
+                    $model->rdFolderIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {

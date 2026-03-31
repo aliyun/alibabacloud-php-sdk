@@ -11,6 +11,11 @@ class ListExecutionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $accountId;
+
+    /**
+     * @var string
+     */
     public $categories;
 
     /**
@@ -81,6 +86,11 @@ class ListExecutionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $rdFolderIdsShrink;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -133,6 +143,7 @@ class ListExecutionsShrinkRequest extends Model
      */
     public $templateName;
     protected $_name = [
+        'accountId' => 'AccountId',
         'categories' => 'Categories',
         'category' => 'Category',
         'depth' => 'Depth',
@@ -147,6 +158,7 @@ class ListExecutionsShrinkRequest extends Model
         'nextToken' => 'NextToken',
         'parentExecutionId' => 'ParentExecutionId',
         'ramRole' => 'RamRole',
+        'rdFolderIdsShrink' => 'RdFolderIds',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceId' => 'ResourceId',
@@ -168,6 +180,10 @@ class ListExecutionsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->categories) {
             $res['Categories'] = $this->categories;
         }
@@ -222,6 +238,10 @@ class ListExecutionsShrinkRequest extends Model
 
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
+        }
+
+        if (null !== $this->rdFolderIdsShrink) {
+            $res['RdFolderIds'] = $this->rdFolderIdsShrink;
         }
 
         if (null !== $this->regionId) {
@@ -279,6 +299,10 @@ class ListExecutionsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['Categories'])) {
             $model->categories = $map['Categories'];
         }
@@ -333,6 +357,10 @@ class ListExecutionsShrinkRequest extends Model
 
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];
+        }
+
+        if (isset($map['RdFolderIds'])) {
+            $model->rdFolderIdsShrink = $map['RdFolderIds'];
         }
 
         if (isset($map['RegionId'])) {

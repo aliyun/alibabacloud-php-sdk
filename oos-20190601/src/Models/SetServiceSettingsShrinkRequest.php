@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SetServiceSettingsRequest extends Model
+class SetServiceSettingsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -34,9 +34,9 @@ class SetServiceSettingsRequest extends Model
     public $deliverySlsProjectName;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $rdFolderIds;
+    public $rdFolderIdsShrink;
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class SetServiceSettingsRequest extends Model
         'deliveryOssKeyPrefix' => 'DeliveryOssKeyPrefix',
         'deliverySlsEnabled' => 'DeliverySlsEnabled',
         'deliverySlsProjectName' => 'DeliverySlsProjectName',
-        'rdFolderIds' => 'RdFolderIds',
+        'rdFolderIdsShrink' => 'RdFolderIds',
         'rdcEnterpriseId' => 'RdcEnterpriseId',
         'regionId' => 'RegionId',
         'serviceAccessRdEnabled' => 'ServiceAccessRdEnabled',
@@ -66,9 +66,6 @@ class SetServiceSettingsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->rdFolderIds)) {
-            Model::validateArray($this->rdFolderIds);
-        }
         parent::validate();
     }
 
@@ -95,15 +92,8 @@ class SetServiceSettingsRequest extends Model
             $res['DeliverySlsProjectName'] = $this->deliverySlsProjectName;
         }
 
-        if (null !== $this->rdFolderIds) {
-            if (\is_array($this->rdFolderIds)) {
-                $res['RdFolderIds'] = [];
-                $n1 = 0;
-                foreach ($this->rdFolderIds as $item1) {
-                    $res['RdFolderIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->rdFolderIdsShrink) {
+            $res['RdFolderIds'] = $this->rdFolderIdsShrink;
         }
 
         if (null !== $this->rdcEnterpriseId) {
@@ -150,14 +140,7 @@ class SetServiceSettingsRequest extends Model
         }
 
         if (isset($map['RdFolderIds'])) {
-            if (!empty($map['RdFolderIds'])) {
-                $model->rdFolderIds = [];
-                $n1 = 0;
-                foreach ($map['RdFolderIds'] as $item1) {
-                    $model->rdFolderIds[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->rdFolderIdsShrink = $map['RdFolderIds'];
         }
 
         if (isset($map['RdcEnterpriseId'])) {
