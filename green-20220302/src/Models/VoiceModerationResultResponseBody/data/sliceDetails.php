@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponseBody\data\sliceDetails\result;
 
 class sliceDetails extends Model
 {
@@ -37,6 +38,11 @@ class sliceDetails extends Model
      * @var mixed[]
      */
     public $originAlgoResult;
+
+    /**
+     * @var result[]
+     */
+    public $result;
 
     /**
      * @var string
@@ -84,6 +90,7 @@ class sliceDetails extends Model
         'extend' => 'Extend',
         'labels' => 'Labels',
         'originAlgoResult' => 'OriginAlgoResult',
+        'result' => 'Result',
         'riskLevel' => 'RiskLevel',
         'riskTips' => 'RiskTips',
         'riskWords' => 'RiskWords',
@@ -98,6 +105,9 @@ class sliceDetails extends Model
     {
         if (\is_array($this->originAlgoResult)) {
             Model::validateArray($this->originAlgoResult);
+        }
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
         }
         parent::validate();
     }
@@ -130,6 +140,17 @@ class sliceDetails extends Model
                 $res['OriginAlgoResult'] = [];
                 foreach ($this->originAlgoResult as $key1 => $value1) {
                     $res['OriginAlgoResult'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->result) {
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -202,6 +223,17 @@ class sliceDetails extends Model
                 $model->originAlgoResult = [];
                 foreach ($map['OriginAlgoResult'] as $key1 => $value1) {
                     $model->originAlgoResult[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['Result'])) {
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
