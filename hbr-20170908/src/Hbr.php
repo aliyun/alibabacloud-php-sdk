@@ -102,6 +102,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeContainerResourceRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeContainerResourceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeCrossAccountsResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeDataSourcesRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeDataSourcesResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupPlansResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaBackupsAsyncRequest;
@@ -163,6 +165,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\InstallBackupClientsShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\ListProtectedResourcesRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\ListProtectedResourcesResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\OpenHbrServiceResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\RemoveDataSourceRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\RemoveDataSourceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\SearchHistoricalSnapshotsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\SearchHistoricalSnapshotsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\SearchHistoricalSnapshotsShrinkRequest;
@@ -182,6 +186,8 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateClientSettingsRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateClientSettingsResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateContainerClusterRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateContainerClusterResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateDataSourceRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateHanaBackupPlanRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateHanaBackupPlanResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdateHanaBackupSettingRequest;
@@ -4000,6 +4006,79 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeDataSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataSourcesResponse
+     *
+     * @param DescribeDataSourcesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDataSourcesResponse
+     */
+    public function describeDataSourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->dataSourceId) {
+            @$query['DataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->dataSourceName) {
+            @$query['DataSourceName'] = $request->dataSourceName;
+        }
+
+        if (null !== $request->dataSourceType) {
+            @$query['DataSourceType'] = $request->dataSourceType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataSources',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeDataSourcesRequest
+     *
+     * @returns DescribeDataSourcesResponse
+     *
+     * @param DescribeDataSourcesRequest $request
+     *
+     * @return DescribeDataSourcesResponse
+     */
+    public function describeDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries one or more SAP HANA backup plans that meet the specified conditions.
      *
      * @param request - DescribeHanaBackupPlansRequest
@@ -6253,6 +6332,59 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * @param request - RemoveDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveDataSourceResponse
+     *
+     * @param RemoveDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveDataSourceResponse
+     */
+    public function removeDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataSourceId) {
+            @$query['DataSourceId'] = $request->dataSourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDataSource',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - RemoveDataSourceRequest
+     *
+     * @returns RemoveDataSourceResponse
+     *
+     * @param RemoveDataSourceRequest $request
+     *
+     * @return RemoveDataSourceResponse
+     */
+    public function removeDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about one or more backup snapshots that meet the specified conditions.
      *
      * @param tmpReq - SearchHistoricalSnapshotsRequest
@@ -6972,6 +7104,103 @@ class Hbr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateContainerClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->connectionInfo) {
+            @$query['ConnectionInfo'] = $request->connectionInfo;
+        }
+
+        if (null !== $request->credential) {
+            @$query['Credential'] = $request->credential;
+        }
+
+        if (null !== $request->dataSourceId) {
+            @$query['DataSourceId'] = $request->dataSourceId;
+        }
+
+        if (null !== $request->dataSourceName) {
+            @$query['DataSourceName'] = $request->dataSourceName;
+        }
+
+        if (null !== $request->exclude) {
+            @$query['Exclude'] = $request->exclude;
+        }
+
+        if (null !== $request->include) {
+            @$query['Include'] = $request->include;
+        }
+
+        if (null !== $request->indexLevel) {
+            @$query['IndexLevel'] = $request->indexLevel;
+        }
+
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->schedule) {
+            @$query['Schedule'] = $request->schedule;
+        }
+
+        if (null !== $request->speedLimit) {
+            @$query['SpeedLimit'] = $request->speedLimit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataSource',
+            'version' => '2017-09-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - UpdateDataSourceRequest
+     *
+     * @returns UpdateDataSourceResponse
+     *
+     * @param UpdateDataSourceRequest $request
+     *
+     * @return UpdateDataSourceResponse
+     */
+    public function updateDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataSourceWithOptions($request, $runtime);
     }
 
     /**
