@@ -51,6 +51,11 @@ class playbookList extends Model
     /**
      * @var string
      */
+    public $unAvailableCode;
+
+    /**
+     * @var string
+     */
     public $uuid;
 
     /**
@@ -66,6 +71,7 @@ class playbookList extends Model
         'opLevel' => 'OpLevel',
         'paramConfig' => 'ParamConfig',
         'taskConfig' => 'TaskConfig',
+        'unAvailableCode' => 'UnAvailableCode',
         'uuid' => 'Uuid',
         'wafPlaybook' => 'WafPlaybook',
     ];
@@ -118,6 +124,10 @@ class playbookList extends Model
 
         if (null !== $this->taskConfig) {
             $res['TaskConfig'] = $this->taskConfig;
+        }
+
+        if (null !== $this->unAvailableCode) {
+            $res['UnAvailableCode'] = $this->unAvailableCode;
         }
 
         if (null !== $this->uuid) {
@@ -176,6 +186,10 @@ class playbookList extends Model
 
         if (isset($map['TaskConfig'])) {
             $model->taskConfig = $map['TaskConfig'];
+        }
+
+        if (isset($map['UnAvailableCode'])) {
+            $model->unAvailableCode = $map['UnAvailableCode'];
         }
 
         if (isset($map['Uuid'])) {

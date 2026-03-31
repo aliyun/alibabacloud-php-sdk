@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListEntitiesResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListEntitiesResponseBody\data\responseData\agentDisposes;
 
 class responseData extends Model
 {
@@ -27,6 +28,11 @@ class responseData extends Model
      * @var string
      */
     public $agentDisposalSuggestion;
+
+    /**
+     * @var agentDisposes[]
+     */
+    public $agentDisposes;
 
     /**
      * @var int
@@ -127,6 +133,7 @@ class responseData extends Model
         'agentDisposalMethod' => 'AgentDisposalMethod',
         'agentDisposalPlaybookUuid' => 'AgentDisposalPlaybookUuid',
         'agentDisposalSuggestion' => 'AgentDisposalSuggestion',
+        'agentDisposes' => 'AgentDisposes',
         'alertNum' => 'AlertNum',
         'alertUuid' => 'AlertUuid',
         'aliuid' => 'Aliuid',
@@ -150,6 +157,9 @@ class responseData extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentDisposes)) {
+            Model::validateArray($this->agentDisposes);
+        }
         parent::validate();
     }
 
@@ -170,6 +180,17 @@ class responseData extends Model
 
         if (null !== $this->agentDisposalSuggestion) {
             $res['AgentDisposalSuggestion'] = $this->agentDisposalSuggestion;
+        }
+
+        if (null !== $this->agentDisposes) {
+            if (\is_array($this->agentDisposes)) {
+                $res['AgentDisposes'] = [];
+                $n1 = 0;
+                foreach ($this->agentDisposes as $item1) {
+                    $res['AgentDisposes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->alertNum) {
@@ -273,6 +294,17 @@ class responseData extends Model
 
         if (isset($map['AgentDisposalSuggestion'])) {
             $model->agentDisposalSuggestion = $map['AgentDisposalSuggestion'];
+        }
+
+        if (isset($map['AgentDisposes'])) {
+            if (!empty($map['AgentDisposes'])) {
+                $model->agentDisposes = [];
+                $n1 = 0;
+                foreach ($map['AgentDisposes'] as $item1) {
+                    $model->agentDisposes[$n1] = agentDisposes::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['AlertNum'])) {

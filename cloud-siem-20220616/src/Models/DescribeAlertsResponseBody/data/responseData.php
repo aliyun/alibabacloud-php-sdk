@@ -157,6 +157,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $investigationReport;
+
+    /**
+     * @var string
+     */
     public $isDefend;
 
     /**
@@ -233,6 +238,7 @@ class responseData extends Model
         'gmtModified' => 'GmtModified',
         'id' => 'Id',
         'incidentUuid' => 'IncidentUuid',
+        'investigationReport' => 'InvestigationReport',
         'isDefend' => 'IsDefend',
         'logTime' => 'LogTime',
         'logUuid' => 'LogUuid',
@@ -377,6 +383,10 @@ class responseData extends Model
 
         if (null !== $this->incidentUuid) {
             $res['IncidentUuid'] = $this->incidentUuid;
+        }
+
+        if (null !== $this->investigationReport) {
+            $res['InvestigationReport'] = $this->investigationReport;
         }
 
         if (null !== $this->isDefend) {
@@ -551,6 +561,10 @@ class responseData extends Model
 
         if (isset($map['IncidentUuid'])) {
             $model->incidentUuid = $map['IncidentUuid'];
+        }
+
+        if (isset($map['InvestigationReport'])) {
+            $model->investigationReport = $map['InvestigationReport'];
         }
 
         if (isset($map['IsDefend'])) {
