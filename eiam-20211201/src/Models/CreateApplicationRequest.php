@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRequest\applicationOwner;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRequest\customFields;
 
 class CreateApplicationRequest extends Model
 {
@@ -19,6 +21,11 @@ class CreateApplicationRequest extends Model
     public $applicationName;
 
     /**
+     * @var applicationOwner
+     */
+    public $applicationOwner;
+
+    /**
      * @var string
      */
     public $applicationSourceType;
@@ -27,6 +34,11 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $applicationTemplateId;
+
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
 
     /**
      * @var string
@@ -50,8 +62,10 @@ class CreateApplicationRequest extends Model
     protected $_name = [
         'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationName' => 'ApplicationName',
+        'applicationOwner' => 'ApplicationOwner',
         'applicationSourceType' => 'ApplicationSourceType',
         'applicationTemplateId' => 'ApplicationTemplateId',
+        'customFields' => 'CustomFields',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
         'logoUrl' => 'LogoUrl',
@@ -60,6 +74,12 @@ class CreateApplicationRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->applicationOwner) {
+            $this->applicationOwner->validate();
+        }
+        if (\is_array($this->customFields)) {
+            Model::validateArray($this->customFields);
+        }
         parent::validate();
     }
 
@@ -74,12 +94,27 @@ class CreateApplicationRequest extends Model
             $res['ApplicationName'] = $this->applicationName;
         }
 
+        if (null !== $this->applicationOwner) {
+            $res['ApplicationOwner'] = null !== $this->applicationOwner ? $this->applicationOwner->toArray($noStream) : $this->applicationOwner;
+        }
+
         if (null !== $this->applicationSourceType) {
             $res['ApplicationSourceType'] = $this->applicationSourceType;
         }
 
         if (null !== $this->applicationTemplateId) {
             $res['ApplicationTemplateId'] = $this->applicationTemplateId;
+        }
+
+        if (null !== $this->customFields) {
+            if (\is_array($this->customFields)) {
+                $res['CustomFields'] = [];
+                $n1 = 0;
+                foreach ($this->customFields as $item1) {
+                    $res['CustomFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -117,12 +152,27 @@ class CreateApplicationRequest extends Model
             $model->applicationName = $map['ApplicationName'];
         }
 
+        if (isset($map['ApplicationOwner'])) {
+            $model->applicationOwner = applicationOwner::fromMap($map['ApplicationOwner']);
+        }
+
         if (isset($map['ApplicationSourceType'])) {
             $model->applicationSourceType = $map['ApplicationSourceType'];
         }
 
         if (isset($map['ApplicationTemplateId'])) {
             $model->applicationTemplateId = $map['ApplicationTemplateId'];
+        }
+
+        if (isset($map['CustomFields'])) {
+            if (!empty($map['CustomFields'])) {
+                $model->customFields = [];
+                $n1 = 0;
+                foreach ($map['CustomFields'] as $item1) {
+                    $model->customFields[$n1] = customFields::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Description'])) {

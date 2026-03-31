@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationResponseBody\application\applicationOwner;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationResponseBody\application\customFields;
 
 class application extends Model
 {
@@ -32,6 +34,11 @@ class application extends Model
      * @var string
      */
     public $applicationName;
+
+    /**
+     * @var applicationOwner
+     */
+    public $applicationOwner;
 
     /**
      * @var string
@@ -62,6 +69,11 @@ class application extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
 
     /**
      * @var string
@@ -138,12 +150,14 @@ class application extends Model
         'applicationId' => 'ApplicationId',
         'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationName' => 'ApplicationName',
+        'applicationOwner' => 'ApplicationOwner',
         'applicationSourceType' => 'ApplicationSourceType',
         'applicationTemplateId' => 'ApplicationTemplateId',
         'applicationVisibility' => 'ApplicationVisibility',
         'authorizationType' => 'AuthorizationType',
         'clientId' => 'ClientId',
         'createTime' => 'CreateTime',
+        'customFields' => 'CustomFields',
         'customSubjectStatus' => 'CustomSubjectStatus',
         'description' => 'Description',
         'features' => 'Features',
@@ -162,8 +176,14 @@ class application extends Model
 
     public function validate()
     {
+        if (null !== $this->applicationOwner) {
+            $this->applicationOwner->validate();
+        }
         if (\is_array($this->applicationVisibility)) {
             Model::validateArray($this->applicationVisibility);
+        }
+        if (\is_array($this->customFields)) {
+            Model::validateArray($this->customFields);
         }
         parent::validate();
     }
@@ -189,6 +209,10 @@ class application extends Model
 
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+
+        if (null !== $this->applicationOwner) {
+            $res['ApplicationOwner'] = null !== $this->applicationOwner ? $this->applicationOwner->toArray($noStream) : $this->applicationOwner;
         }
 
         if (null !== $this->applicationSourceType) {
@@ -220,6 +244,17 @@ class application extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->customFields) {
+            if (\is_array($this->customFields)) {
+                $res['CustomFields'] = [];
+                $n1 = 0;
+                foreach ($this->customFields as $item1) {
+                    $res['CustomFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->customSubjectStatus) {
@@ -309,6 +344,10 @@ class application extends Model
             $model->applicationName = $map['ApplicationName'];
         }
 
+        if (isset($map['ApplicationOwner'])) {
+            $model->applicationOwner = applicationOwner::fromMap($map['ApplicationOwner']);
+        }
+
         if (isset($map['ApplicationSourceType'])) {
             $model->applicationSourceType = $map['ApplicationSourceType'];
         }
@@ -338,6 +377,17 @@ class application extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['CustomFields'])) {
+            if (!empty($map['CustomFields'])) {
+                $model->customFields = [];
+                $n1 = 0;
+                foreach ($map['CustomFields'] as $item1) {
+                    $model->customFields[$n1] = customFields::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CustomSubjectStatus'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsRequest\customFields;
 
 class ListApplicationsRequest extends Model
 {
@@ -32,6 +33,11 @@ class ListApplicationsRequest extends Model
      * @var string
      */
     public $authorizationType;
+
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
 
     /**
      * @var string
@@ -73,6 +79,7 @@ class ListApplicationsRequest extends Model
         'applicationIds' => 'ApplicationIds',
         'applicationName' => 'ApplicationName',
         'authorizationType' => 'AuthorizationType',
+        'customFields' => 'CustomFields',
         'instanceId' => 'InstanceId',
         'm2MClientStatus' => 'M2MClientStatus',
         'pageNumber' => 'PageNumber',
@@ -86,6 +93,9 @@ class ListApplicationsRequest extends Model
     {
         if (\is_array($this->applicationIds)) {
             Model::validateArray($this->applicationIds);
+        }
+        if (\is_array($this->customFields)) {
+            Model::validateArray($this->customFields);
         }
         parent::validate();
     }
@@ -118,6 +128,17 @@ class ListApplicationsRequest extends Model
 
         if (null !== $this->authorizationType) {
             $res['AuthorizationType'] = $this->authorizationType;
+        }
+
+        if (null !== $this->customFields) {
+            if (\is_array($this->customFields)) {
+                $res['CustomFields'] = [];
+                $n1 = 0;
+                foreach ($this->customFields as $item1) {
+                    $res['CustomFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->instanceId) {
@@ -184,6 +205,17 @@ class ListApplicationsRequest extends Model
 
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = $map['AuthorizationType'];
+        }
+
+        if (isset($map['CustomFields'])) {
+            if (!empty($map['CustomFields'])) {
+                $model->customFields = [];
+                $n1 = 0;
+                foreach ($map['CustomFields'] as $item1) {
+                    $model->customFields[$n1] = customFields::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['InstanceId'])) {

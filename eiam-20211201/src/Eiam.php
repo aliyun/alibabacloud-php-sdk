@@ -2078,12 +2078,20 @@ class Eiam extends OpenApiClient
             @$query['ApplicationName'] = $request->applicationName;
         }
 
+        if (null !== $request->applicationOwner) {
+            @$query['ApplicationOwner'] = $request->applicationOwner;
+        }
+
         if (null !== $request->applicationSourceType) {
             @$query['ApplicationSourceType'] = $request->applicationSourceType;
         }
 
         if (null !== $request->applicationTemplateId) {
             @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        if (null !== $request->customFields) {
+            @$query['CustomFields'] = $request->customFields;
         }
 
         if (null !== $request->description) {
@@ -13758,6 +13766,10 @@ class Eiam extends OpenApiClient
             @$query['AuthorizationType'] = $request->authorizationType;
         }
 
+        if (null !== $request->customFields) {
+            @$query['CustomFields'] = $request->customFields;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -21270,12 +21282,20 @@ class Eiam extends OpenApiClient
             @$query['ApplicationName'] = $request->applicationName;
         }
 
+        if (null !== $request->applicationOwner) {
+            @$query['ApplicationOwner'] = $request->applicationOwner;
+        }
+
         if (null !== $request->applicationVisibility) {
             @$query['ApplicationVisibility'] = $request->applicationVisibility;
         }
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->customFields) {
+            @$query['CustomFields'] = $request->customFields;
         }
 
         if (null !== $request->instanceId) {

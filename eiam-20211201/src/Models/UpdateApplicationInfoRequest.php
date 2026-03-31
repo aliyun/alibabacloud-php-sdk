@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoRequest\applicationOwner;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationInfoRequest\customFields;
 
 class UpdateApplicationInfoRequest extends Model
 {
@@ -19,6 +21,11 @@ class UpdateApplicationInfoRequest extends Model
     public $applicationName;
 
     /**
+     * @var applicationOwner
+     */
+    public $applicationOwner;
+
+    /**
      * @var string[]
      */
     public $applicationVisibility;
@@ -27,6 +34,11 @@ class UpdateApplicationInfoRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var customFields[]
+     */
+    public $customFields;
 
     /**
      * @var string
@@ -40,16 +52,24 @@ class UpdateApplicationInfoRequest extends Model
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'applicationName' => 'ApplicationName',
+        'applicationOwner' => 'ApplicationOwner',
         'applicationVisibility' => 'ApplicationVisibility',
         'clientToken' => 'ClientToken',
+        'customFields' => 'CustomFields',
         'instanceId' => 'InstanceId',
         'logoUrl' => 'LogoUrl',
     ];
 
     public function validate()
     {
+        if (null !== $this->applicationOwner) {
+            $this->applicationOwner->validate();
+        }
         if (\is_array($this->applicationVisibility)) {
             Model::validateArray($this->applicationVisibility);
+        }
+        if (\is_array($this->customFields)) {
+            Model::validateArray($this->customFields);
         }
         parent::validate();
     }
@@ -65,6 +85,10 @@ class UpdateApplicationInfoRequest extends Model
             $res['ApplicationName'] = $this->applicationName;
         }
 
+        if (null !== $this->applicationOwner) {
+            $res['ApplicationOwner'] = null !== $this->applicationOwner ? $this->applicationOwner->toArray($noStream) : $this->applicationOwner;
+        }
+
         if (null !== $this->applicationVisibility) {
             if (\is_array($this->applicationVisibility)) {
                 $res['ApplicationVisibility'] = [];
@@ -78,6 +102,17 @@ class UpdateApplicationInfoRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->customFields) {
+            if (\is_array($this->customFields)) {
+                $res['CustomFields'] = [];
+                $n1 = 0;
+                foreach ($this->customFields as $item1) {
+                    $res['CustomFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->instanceId) {
@@ -107,6 +142,10 @@ class UpdateApplicationInfoRequest extends Model
             $model->applicationName = $map['ApplicationName'];
         }
 
+        if (isset($map['ApplicationOwner'])) {
+            $model->applicationOwner = applicationOwner::fromMap($map['ApplicationOwner']);
+        }
+
         if (isset($map['ApplicationVisibility'])) {
             if (!empty($map['ApplicationVisibility'])) {
                 $model->applicationVisibility = [];
@@ -120,6 +159,17 @@ class UpdateApplicationInfoRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['CustomFields'])) {
+            if (!empty($map['CustomFields'])) {
+                $model->customFields = [];
+                $n1 = 0;
+                foreach ($map['CustomFields'] as $item1) {
+                    $model->customFields[$n1] = customFields::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['InstanceId'])) {
