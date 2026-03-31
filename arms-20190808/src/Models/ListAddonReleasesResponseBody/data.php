@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAddonReleasesResponseBody\data\re
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $containsV2Addon;
+
+    /**
      * @var releases[]
      */
     public $releases;
@@ -19,6 +24,7 @@ class data extends Model
      */
     public $total;
     protected $_name = [
+        'containsV2Addon' => 'ContainsV2Addon',
         'releases' => 'Releases',
         'total' => 'Total',
     ];
@@ -34,6 +40,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containsV2Addon) {
+            $res['ContainsV2Addon'] = $this->containsV2Addon;
+        }
+
         if (null !== $this->releases) {
             if (\is_array($this->releases)) {
                 $res['Releases'] = [];
@@ -60,6 +70,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainsV2Addon'])) {
+            $model->containsV2Addon = $map['ContainsV2Addon'];
+        }
+
         if (isset($map['Releases'])) {
             if (!empty($map['Releases'])) {
                 $model->releases = [];

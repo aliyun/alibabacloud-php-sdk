@@ -671,7 +671,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Integrates the dashboard of Prometheus Service.
+     * Integrates the dashboard of Managed Service for Prometheus.
      *
      * @deprecated OpenAPI AddGrafana is deprecated
      *
@@ -721,7 +721,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Integrates the dashboard of Prometheus Service.
+     * Integrates the dashboard of Managed Service for Prometheus.
      *
      * @deprecated OpenAPI AddGrafana is deprecated
      *
@@ -1107,7 +1107,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates or updates a recording rule of Managed Service for Prometheus.
+     * Creates or updates a recording rule.
      *
      * @deprecated OpenAPI AddRecordingRule is deprecated
      *
@@ -1157,7 +1157,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Creates or updates a recording rule of Managed Service for Prometheus.
+     * Creates or updates a recording rule.
      *
      * @deprecated OpenAPI AddRecordingRule is deprecated
      *
@@ -1506,7 +1506,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Blocks alert notifications in a time period.
+     * Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
      *
      * @param request - BlockAlarmNotificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1557,7 +1557,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Blocks alert notifications in a time period.
+     * Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
      *
      * @param request - BlockAlarmNotificationRequest
      *
@@ -3130,7 +3130,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an EventBridge integration.
+     * Creates or modifies an EventBridge integration that is used to push notifications.
      *
      * @param request - CreateOrUpdateEventBridgeIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3201,7 +3201,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an EventBridge integration.
+     * Creates or modifies an EventBridge integration that is used to push notifications.
      *
      * @param request - CreateOrUpdateEventBridgeIntegrationRequest
      *
@@ -4966,7 +4966,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Releases a Prometheus instance for Alibaba Cloud services.
+     * Uninstalls a Prometheus instance.
      *
      * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
      *
@@ -5012,7 +5012,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Releases a Prometheus instance for Alibaba Cloud services.
+     * Uninstalls a Prometheus instance.
      *
      * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
      *
@@ -5540,7 +5540,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes an EventBridge integration.
+     * Deletes an EventBridge integration that is used to push notifications.
      *
      * @param request - DeleteEventBridgeIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5579,7 +5579,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes an EventBridge integration.
+     * Deletes an EventBridge integration that is used to push notifications.
      *
      * @param request - DeleteEventBridgeIntegrationRequest
      *
@@ -5795,7 +5795,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Deletes collection rules from an integration.
+     * Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
      *
      * @deprecated openAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
      *
@@ -5845,7 +5845,7 @@ class ARMS extends OpenApiClient
 
     // Deprecated
     /**
-     * Deletes collection rules from an integration.
+     * Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
      *
      * @deprecated openAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
      *
@@ -6536,7 +6536,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The ID of the silence policy.
+     * Deletes a silence policy based on its ID.
      *
      * @param request - DeleteSilencePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6575,7 +6575,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The ID of the silence policy.
+     * Deletes a silence policy based on its ID.
      *
      * @param request - DeleteSilencePolicyRequest
      *
@@ -7685,7 +7685,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries instant messaging (IM) chatbots.
+     * Queries a list of IM chatbots.
      *
      * @param request - DescribeIMRobotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7736,7 +7736,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries instant messaging (IM) chatbots.
+     * Queries a list of IM chatbots.
      *
      * @param request - DescribeIMRobotsRequest
      *
@@ -12411,7 +12411,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 环境addon列表.
+     * Queries the information about the add-ons that are installed in an environment.
      *
      * @param request - ListEnvironmentAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12454,7 +12454,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * 环境addon列表.
+     * Queries the information about the add-ons that are installed in an environment.
      *
      * @param request - ListEnvironmentAddonsRequest
      *
@@ -12963,7 +12963,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries an EventBridge integration.
+     * Queries EventBridge integrations that are used to push notifications.
      *
      * @param request - ListEventBridgeIntegrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12998,7 +12998,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries an EventBridge integration.
+     * Queries EventBridge integrations that are used to push notifications.
      *
      * @param request - ListEventBridgeIntegrationsRequest
      *
@@ -15883,7 +15883,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries application monitoring tasks by page.
+     * Queries Application Monitoring tasks by page.
      *
      * @param request - SearchTraceAppByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15942,7 +15942,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries application monitoring tasks by page.
+     * Queries Application Monitoring tasks by page.
      *
      * @param request - SearchTraceAppByPageRequest
      *
