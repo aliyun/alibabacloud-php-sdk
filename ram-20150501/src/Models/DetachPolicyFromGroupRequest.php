@@ -22,10 +22,16 @@ class DetachPolicyFromGroupRequest extends Model
      * @var string
      */
     public $policyType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'groupName' => 'GroupName',
         'policyName' => 'PolicyName',
         'policyType' => 'PolicyType',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DetachPolicyFromGroupRequest extends Model
 
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DetachPolicyFromGroupRequest extends Model
 
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

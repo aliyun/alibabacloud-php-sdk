@@ -21,10 +21,16 @@ class DetachPolicyFromUserRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $userName;
     protected $_name = [
         'policyName' => 'PolicyName',
         'policyType' => 'PolicyType',
+        'resourceGroupId' => 'ResourceGroupId',
         'userName' => 'UserName',
     ];
 
@@ -42,6 +48,10 @@ class DetachPolicyFromUserRequest extends Model
 
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->userName) {
@@ -65,6 +75,10 @@ class DetachPolicyFromUserRequest extends Model
 
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['UserName'])) {

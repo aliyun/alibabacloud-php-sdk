@@ -81,7 +81,8 @@ class decodedDiagnosticMessage extends Model
                 $res['AuthConditions'] = [];
                 $n1 = 0;
                 foreach ($this->authConditions as $item1) {
-                    $res['AuthConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthConditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class decodedDiagnosticMessage extends Model
                 $res['MatchedPolicies'] = [];
                 $n1 = 0;
                 foreach ($this->matchedPolicies as $item1) {
-                    $res['MatchedPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MatchedPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -132,7 +134,8 @@ class decodedDiagnosticMessage extends Model
                 $model->authConditions = [];
                 $n1 = 0;
                 foreach ($map['AuthConditions'] as $item1) {
-                    $model->authConditions[$n1++] = authConditions::fromMap($item1);
+                    $model->authConditions[$n1] = authConditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +157,8 @@ class decodedDiagnosticMessage extends Model
                 $model->matchedPolicies = [];
                 $n1 = 0;
                 foreach ($map['MatchedPolicies'] as $item1) {
-                    $model->matchedPolicies[$n1++] = matchedPolicies::fromMap($item1);
+                    $model->matchedPolicies[$n1] = matchedPolicies::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

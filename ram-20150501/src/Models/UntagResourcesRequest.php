@@ -57,7 +57,8 @@ class UntagResourcesRequest extends Model
                 $res['ResourceNames'] = [];
                 $n1 = 0;
                 foreach ($this->resourceNames as $item1) {
-                    $res['ResourceNames'][$n1++] = $item1;
+                    $res['ResourceNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,7 +72,8 @@ class UntagResourcesRequest extends Model
                 $res['TagKeys'] = [];
                 $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = $item1;
+                    $res['TagKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +98,8 @@ class UntagResourcesRequest extends Model
                 $model->resourceNames = [];
                 $n1 = 0;
                 foreach ($map['ResourceNames'] as $item1) {
-                    $model->resourceNames[$n1++] = $item1;
+                    $model->resourceNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +113,8 @@ class UntagResourcesRequest extends Model
                 $model->tagKeys = [];
                 $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = $item1;
+                    $model->tagKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

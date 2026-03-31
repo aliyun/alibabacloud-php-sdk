@@ -33,7 +33,8 @@ class policyVersions extends Model
                 $res['PolicyVersion'] = [];
                 $n1 = 0;
                 foreach ($this->policyVersion as $item1) {
-                    $res['PolicyVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PolicyVersion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class policyVersions extends Model
                 $model->policyVersion = [];
                 $n1 = 0;
                 foreach ($map['PolicyVersion'] as $item1) {
-                    $model->policyVersion[$n1++] = policyVersion::fromMap($item1);
+                    $model->policyVersion[$n1] = policyVersion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

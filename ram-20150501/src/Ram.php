@@ -268,6 +268,10 @@ class Ram extends OpenApiClient
             @$query['PolicyType'] = $request->policyType;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -327,6 +331,10 @@ class Ram extends OpenApiClient
 
         if (null !== $request->policyType) {
             @$query['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->roleName) {
@@ -392,6 +400,10 @@ class Ram extends OpenApiClient
 
         if (null !== $request->policyType) {
             @$query['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->userName) {
@@ -1537,7 +1549,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) role.
+     * Deletes a regular Resource Access Management (RAM) role.
+     *
+     * @remarks
+     * Before you delete a regular RAM role, call the [DetachPolicyFromRole](https://help.aliyun.com/document_detail/2337680.html) operation to remove all policies from the RAM role.
+     * The DeleteRole operation cannot be used to delete service-linked roles and reserved roles for cloud services.
      *
      * @param request - DeleteRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1576,7 +1592,11 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) role.
+     * Deletes a regular Resource Access Management (RAM) role.
+     *
+     * @remarks
+     * Before you delete a regular RAM role, call the [DetachPolicyFromRole](https://help.aliyun.com/document_detail/2337680.html) operation to remove all policies from the RAM role.
+     * The DeleteRole operation cannot be used to delete service-linked roles and reserved roles for cloud services.
      *
      * @param request - DeleteRoleRequest
      *
@@ -1742,6 +1762,10 @@ class Ram extends OpenApiClient
             @$query['PolicyType'] = $request->policyType;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1801,6 +1825,10 @@ class Ram extends OpenApiClient
 
         if (null !== $request->policyType) {
             @$query['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->roleName) {
@@ -1866,6 +1894,10 @@ class Ram extends OpenApiClient
 
         if (null !== $request->policyType) {
             @$query['PolicyType'] = $request->policyType;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->userName) {
@@ -3143,7 +3175,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to resources.
+     * Queries the tags that are added to cloud resources which are Resource Access Management (RAM) roles and policies.
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3208,7 +3240,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to resources.
+     * Queries the tags that are added to cloud resources which are Resource Access Management (RAM) roles and policies.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -3745,7 +3777,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * Adds tags to cloud resources which are Resource Access Management (RAM) roles and policies.
      *
      * @param tmpReq - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3802,7 +3834,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * Adds tags to cloud resources which are Resource Access Management (RAM) roles and policies.
      *
      * @param request - TagResourcesRequest
      *
@@ -3877,7 +3909,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Removes tags from cloud resources that are Resource Access Management (RAM) roles and policies.
      *
      * @param tmpReq - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3938,7 +3970,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Removes tags from cloud resources that are Resource Access Management (RAM) roles and policies.
      *
      * @param request - UntagResourcesRequest
      *

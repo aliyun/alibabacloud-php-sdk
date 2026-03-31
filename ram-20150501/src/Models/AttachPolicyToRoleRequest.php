@@ -21,10 +21,16 @@ class AttachPolicyToRoleRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $roleName;
     protected $_name = [
         'policyName' => 'PolicyName',
         'policyType' => 'PolicyType',
+        'resourceGroupId' => 'ResourceGroupId',
         'roleName' => 'RoleName',
     ];
 
@@ -42,6 +48,10 @@ class AttachPolicyToRoleRequest extends Model
 
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->roleName) {
@@ -65,6 +75,10 @@ class AttachPolicyToRoleRequest extends Model
 
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['RoleName'])) {

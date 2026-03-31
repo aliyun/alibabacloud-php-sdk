@@ -33,7 +33,8 @@ class accessKeys extends Model
                 $res['AccessKey'] = [];
                 $n1 = 0;
                 foreach ($this->accessKey as $item1) {
-                    $res['AccessKey'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AccessKey'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class accessKeys extends Model
                 $model->accessKey = [];
                 $n1 = 0;
                 foreach ($map['AccessKey'] as $item1) {
-                    $model->accessKey[$n1++] = accessKey::fromMap($item1);
+                    $model->accessKey[$n1] = accessKey::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

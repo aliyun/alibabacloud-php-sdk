@@ -33,7 +33,8 @@ class groups extends Model
                 $res['Group'] = [];
                 $n1 = 0;
                 foreach ($this->group as $item1) {
-                    $res['Group'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Group'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class groups extends Model
                 $model->group = [];
                 $n1 = 0;
                 foreach ($map['Group'] as $item1) {
-                    $model->group[$n1++] = group::fromMap($item1);
+                    $model->group[$n1] = group::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

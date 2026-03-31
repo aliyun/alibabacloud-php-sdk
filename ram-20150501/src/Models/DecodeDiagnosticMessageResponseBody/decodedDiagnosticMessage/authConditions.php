@@ -42,7 +42,8 @@ class authConditions extends Model
                 $res['ConditionValues'] = [];
                 $n1 = 0;
                 foreach ($this->conditionValues as $item1) {
-                    $res['ConditionValues'][$n1++] = $item1;
+                    $res['ConditionValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class authConditions extends Model
                 $model->conditionValues = [];
                 $n1 = 0;
                 foreach ($map['ConditionValues'] as $item1) {
-                    $model->conditionValues[$n1++] = $item1;
+                    $model->conditionValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

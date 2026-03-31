@@ -33,7 +33,8 @@ class virtualMFADevices extends Model
                 $res['VirtualMFADevice'] = [];
                 $n1 = 0;
                 foreach ($this->virtualMFADevice as $item1) {
-                    $res['VirtualMFADevice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VirtualMFADevice'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class virtualMFADevices extends Model
                 $model->virtualMFADevice = [];
                 $n1 = 0;
                 foreach ($map['VirtualMFADevice'] as $item1) {
-                    $model->virtualMFADevice[$n1++] = virtualMFADevice::fromMap($item1);
+                    $model->virtualMFADevice[$n1] = virtualMFADevice::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
