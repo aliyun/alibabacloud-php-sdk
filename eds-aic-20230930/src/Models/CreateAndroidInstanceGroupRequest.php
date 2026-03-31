@@ -131,6 +131,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $promotionId;
 
     /**
+     * @var string
+     */
+    public $saleMode;
+
+    /**
      * @var int
      */
     public $streamMode;
@@ -169,6 +174,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
         'promotionId' => 'PromotionId',
+        'saleMode' => 'SaleMode',
         'streamMode' => 'StreamMode',
         'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
@@ -282,6 +288,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+
+        if (null !== $this->saleMode) {
+            $res['SaleMode'] = $this->saleMode;
         }
 
         if (null !== $this->streamMode) {
@@ -408,6 +418,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+
+        if (isset($map['SaleMode'])) {
+            $model->saleMode = $map['SaleMode'];
         }
 
         if (isset($map['StreamMode'])) {

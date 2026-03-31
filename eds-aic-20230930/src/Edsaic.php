@@ -1005,6 +1005,10 @@ class Edsaic extends OpenApiClient
             @$query['PromotionId'] = $request->promotionId;
         }
 
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
+        }
+
         if (null !== $request->streamMode) {
             @$query['StreamMode'] = $request->streamMode;
         }
