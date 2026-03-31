@@ -82,6 +82,11 @@ class DescribeNodeGroupResponseBody extends Model
     /**
      * @var string
      */
+    public $ramRoleName;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -118,6 +123,7 @@ class DescribeNodeGroupResponseBody extends Model
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupId' => 'NodeGroupId',
         'nodeGroupName' => 'NodeGroupName',
+        'ramRoleName' => 'RamRoleName',
         'requestId' => 'RequestId',
         'systemDisk' => 'SystemDisk',
         'updateTime' => 'UpdateTime',
@@ -190,6 +196,10 @@ class DescribeNodeGroupResponseBody extends Model
 
         if (null !== $this->nodeGroupName) {
             $res['NodeGroupName'] = $this->nodeGroupName;
+        }
+
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
 
         if (null !== $this->requestId) {
@@ -277,6 +287,10 @@ class DescribeNodeGroupResponseBody extends Model
 
         if (isset($map['NodeGroupName'])) {
             $model->nodeGroupName = $map['NodeGroupName'];
+        }
+
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
 
         if (isset($map['RequestId'])) {

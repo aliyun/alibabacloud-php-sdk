@@ -57,6 +57,11 @@ class nodeGroups extends Model
     public $nodes;
 
     /**
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
      * @var systemDisk
      */
     public $systemDisk;
@@ -85,6 +90,7 @@ class nodeGroups extends Model
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName' => 'NodeGroupName',
         'nodes' => 'Nodes',
+        'ramRoleName' => 'RamRoleName',
         'systemDisk' => 'SystemDisk',
         'userData' => 'UserData',
         'virtualGpuEnabled' => 'VirtualGpuEnabled',
@@ -156,6 +162,10 @@ class nodeGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
 
         if (null !== $this->systemDisk) {
@@ -233,6 +243,10 @@ class nodeGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
 
         if (isset($map['SystemDisk'])) {

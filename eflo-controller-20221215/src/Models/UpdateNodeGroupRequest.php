@@ -41,6 +41,11 @@ class UpdateNodeGroupRequest extends Model
     /**
      * @var string
      */
+    public $ramRoleName;
+
+    /**
+     * @var string
+     */
     public $userData;
     protected $_name = [
         'fileSystemMountEnabled' => 'FileSystemMountEnabled',
@@ -49,6 +54,7 @@ class UpdateNodeGroupRequest extends Model
         'loginPassword' => 'LoginPassword',
         'newNodeGroupName' => 'NewNodeGroupName',
         'nodeGroupId' => 'NodeGroupId',
+        'ramRoleName' => 'RamRoleName',
         'userData' => 'UserData',
     ];
 
@@ -82,6 +88,10 @@ class UpdateNodeGroupRequest extends Model
 
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
+        }
+
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
 
         if (null !== $this->userData) {
@@ -121,6 +131,10 @@ class UpdateNodeGroupRequest extends Model
 
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
+        }
+
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
 
         if (isset($map['UserData'])) {

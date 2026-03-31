@@ -4223,6 +4223,10 @@ class Eflocontroller extends OpenApiClient
             @$body['NodeGroupId'] = $request->nodeGroupId;
         }
 
+        if (null !== $request->ramRoleName) {
+            @$body['RamRoleName'] = $request->ramRoleName;
+        }
+
         if (null !== $request->userData) {
             @$body['UserData'] = $request->userData;
         }
