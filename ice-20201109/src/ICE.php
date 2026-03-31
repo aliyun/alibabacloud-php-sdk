@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddStreamTagToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddStreamTagToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddYikeUserCreditRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddYikeUserCreditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchLibRequest;
@@ -129,6 +131,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingGroupRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeAssetUploadRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeAssetUploadResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeProductionRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeProductionResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeUserRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeUserResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeWorkspaceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateYikeWorkspaceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAdInsertionRequest;
@@ -394,6 +402,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeAssetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeStoryboardJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeUserCreditRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeUserCreditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsRequest;
@@ -612,6 +622,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetNotifyConfigRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetNotifyConfigResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetYikeUserRoleRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SetYikeUserRoleResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceShrinkRequest;
@@ -1748,6 +1760,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 增加用户积分.
+     *
+     * @param request - AddYikeUserCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddYikeUserCreditResponse
+     *
+     * @param AddYikeUserCreditRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddYikeUserCreditResponse
+     */
+    public function addYikeUserCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credit) {
+            @$query['Credit'] = $request->credit;
+        }
+
+        if (null !== $request->yikeUserId) {
+            @$query['YikeUserId'] = $request->yikeUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddYikeUserCredit',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddYikeUserCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 增加用户积分.
+     *
+     * @param request - AddYikeUserCreditRequest
+     *
+     * @returns AddYikeUserCreditResponse
+     *
+     * @param AddYikeUserCreditRequest $request
+     *
+     * @return AddYikeUserCreditResponse
+     */
+    public function addYikeUserCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addYikeUserCreditWithOptions($request, $runtime);
     }
 
     /**
@@ -5275,6 +5348,201 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createYikeAssetUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一刻项目.
+     *
+     * @param request - CreateYikeProductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateYikeProductionResponse
+     *
+     * @param CreateYikeProductionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateYikeProductionResponse
+     */
+    public function createYikeProductionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateYikeProduction',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateYikeProductionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一刻项目.
+     *
+     * @param request - CreateYikeProductionRequest
+     *
+     * @returns CreateYikeProductionResponse
+     *
+     * @param CreateYikeProductionRequest $request
+     *
+     * @return CreateYikeProductionResponse
+     */
+    public function createYikeProduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYikeProductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一刻子用户.
+     *
+     * @param request - CreateYikeUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateYikeUserResponse
+     *
+     * @param CreateYikeUserRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateYikeUserResponse
+     */
+    public function createYikeUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nickname) {
+            @$query['Nickname'] = $request->nickname;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->productionIds) {
+            @$query['ProductionIds'] = $request->productionIds;
+        }
+
+        if (null !== $request->userNamePrefix) {
+            @$query['UserNamePrefix'] = $request->userNamePrefix;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateYikeUser',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateYikeUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一刻子用户.
+     *
+     * @param request - CreateYikeUserRequest
+     *
+     * @returns CreateYikeUserResponse
+     *
+     * @param CreateYikeUserRequest $request
+     *
+     * @return CreateYikeUserResponse
+     */
+    public function createYikeUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYikeUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建工作室.
+     *
+     * @param request - CreateYikeWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateYikeWorkspaceResponse
+     *
+     * @param CreateYikeWorkspaceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateYikeWorkspaceResponse
+     */
+    public function createYikeWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->userCountLimit) {
+            @$query['UserCountLimit'] = $request->userCountLimit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateYikeWorkspace',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateYikeWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工作室.
+     *
+     * @param request - CreateYikeWorkspaceRequest
+     *
+     * @returns CreateYikeWorkspaceResponse
+     *
+     * @param CreateYikeWorkspaceRequest $request
+     *
+     * @return CreateYikeWorkspaceResponse
+     */
+    public function createYikeWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYikeWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -13839,6 +14107,63 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 查询一刻用户积分.
+     *
+     * @param request - GetYikeUserCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeUserCreditResponse
+     *
+     * @param GetYikeUserCreditRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetYikeUserCreditResponse
+     */
+    public function getYikeUserCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->yikeUserId) {
+            @$query['YikeUserId'] = $request->yikeUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeUserCredit',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeUserCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一刻用户积分.
+     *
+     * @param request - GetYikeUserCreditRequest
+     *
+     * @returns GetYikeUserCreditResponse
+     *
+     * @param GetYikeUserCreditRequest $request
+     *
+     * @return GetYikeUserCreditResponse
+     */
+    public function getYikeUserCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeUserCreditWithOptions($request, $runtime);
+    }
+
+    /**
      * Adds a media asset in a search library. Before you call this operation, you must create a search library.
      *
      * @param request - InsertMediaToSearchLibRequest
@@ -22026,6 +22351,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setNotifyConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置用户角色.
+     *
+     * @param request - SetYikeUserRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetYikeUserRoleResponse
+     *
+     * @param SetYikeUserRoleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetYikeUserRoleResponse
+     */
+    public function setYikeUserRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
+        }
+
+        if (null !== $request->yikeUserId) {
+            @$query['YikeUserId'] = $request->yikeUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetYikeUserRole',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetYikeUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置用户角色.
+     *
+     * @param request - SetYikeUserRoleRequest
+     *
+     * @returns SetYikeUserRoleResponse
+     *
+     * @param SetYikeUserRoleRequest $request
+     *
+     * @return SetYikeUserRoleResponse
+     */
+    public function setYikeUserRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setYikeUserRoleWithOptions($request, $runtime);
     }
 
     /**
