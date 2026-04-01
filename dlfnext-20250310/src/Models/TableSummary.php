@@ -29,6 +29,11 @@ class TableSummary extends Model
     public $lastAccessTime;
 
     /**
+     * @var string
+     */
+    public $lastRequester;
+
+    /**
      * @var int
      */
     public $objTypeArchiveSize;
@@ -79,6 +84,26 @@ class TableSummary extends Model
     public $tableName;
 
     /**
+     * @var string
+     */
+    public $topRequester;
+
+    /**
+     * @var int
+     */
+    public $totalFileAccessNum;
+
+    /**
+     * @var int
+     */
+    public $totalFileAccessNum30d;
+
+    /**
+     * @var int
+     */
+    public $totalFileAccessNum7d;
+
+    /**
      * @var int
      */
     public $totalFileCount;
@@ -117,6 +142,7 @@ class TableSummary extends Model
         'databaseName' => 'databaseName',
         'generatedDate' => 'generatedDate',
         'lastAccessTime' => 'lastAccessTime',
+        'lastRequester' => 'lastRequester',
         'objTypeArchiveSize' => 'objTypeArchiveSize',
         'objTypeColdArchiveSize' => 'objTypeColdArchiveSize',
         'objTypeIaSize' => 'objTypeIaSize',
@@ -127,6 +153,10 @@ class TableSummary extends Model
         'storageActionTimestamp' => 'storageActionTimestamp',
         'storageClass' => 'storageClass',
         'tableName' => 'tableName',
+        'topRequester' => 'topRequester',
+        'totalFileAccessNum' => 'totalFileAccessNum',
+        'totalFileAccessNum30d' => 'totalFileAccessNum30d',
+        'totalFileAccessNum7d' => 'totalFileAccessNum7d',
         'totalFileCount' => 'totalFileCount',
         'totalFileSizeInBytes' => 'totalFileSizeInBytes',
         'totalMetaFileCount' => 'totalMetaFileCount',
@@ -161,6 +191,10 @@ class TableSummary extends Model
 
         if (null !== $this->lastAccessTime) {
             $res['lastAccessTime'] = $this->lastAccessTime;
+        }
+
+        if (null !== $this->lastRequester) {
+            $res['lastRequester'] = $this->lastRequester;
         }
 
         if (null !== $this->objTypeArchiveSize) {
@@ -206,6 +240,22 @@ class TableSummary extends Model
 
         if (null !== $this->tableName) {
             $res['tableName'] = $this->tableName;
+        }
+
+        if (null !== $this->topRequester) {
+            $res['topRequester'] = $this->topRequester;
+        }
+
+        if (null !== $this->totalFileAccessNum) {
+            $res['totalFileAccessNum'] = $this->totalFileAccessNum;
+        }
+
+        if (null !== $this->totalFileAccessNum30d) {
+            $res['totalFileAccessNum30d'] = $this->totalFileAccessNum30d;
+        }
+
+        if (null !== $this->totalFileAccessNum7d) {
+            $res['totalFileAccessNum7d'] = $this->totalFileAccessNum7d;
         }
 
         if (null !== $this->totalFileCount) {
@@ -263,6 +313,10 @@ class TableSummary extends Model
             $model->lastAccessTime = $map['lastAccessTime'];
         }
 
+        if (isset($map['lastRequester'])) {
+            $model->lastRequester = $map['lastRequester'];
+        }
+
         if (isset($map['objTypeArchiveSize'])) {
             $model->objTypeArchiveSize = $map['objTypeArchiveSize'];
         }
@@ -306,6 +360,22 @@ class TableSummary extends Model
 
         if (isset($map['tableName'])) {
             $model->tableName = $map['tableName'];
+        }
+
+        if (isset($map['topRequester'])) {
+            $model->topRequester = $map['topRequester'];
+        }
+
+        if (isset($map['totalFileAccessNum'])) {
+            $model->totalFileAccessNum = $map['totalFileAccessNum'];
+        }
+
+        if (isset($map['totalFileAccessNum30d'])) {
+            $model->totalFileAccessNum30d = $map['totalFileAccessNum30d'];
+        }
+
+        if (isset($map['totalFileAccessNum7d'])) {
+            $model->totalFileAccessNum7d = $map['totalFileAccessNum7d'];
         }
 
         if (isset($map['totalFileCount'])) {
