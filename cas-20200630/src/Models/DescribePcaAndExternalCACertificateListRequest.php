@@ -14,11 +14,23 @@ class DescribePcaAndExternalCACertificateListRequest extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $identifiers;
+
+    /**
+     * @var string
+     */
+    public $keyWord;
+
+    /**
      * @var int
      */
     public $showSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'identifiers' => 'Identifiers',
+        'keyWord' => 'KeyWord',
         'showSize' => 'ShowSize',
     ];
 
@@ -32,6 +44,14 @@ class DescribePcaAndExternalCACertificateListRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->identifiers) {
+            $res['Identifiers'] = $this->identifiers;
+        }
+
+        if (null !== $this->keyWord) {
+            $res['KeyWord'] = $this->keyWord;
         }
 
         if (null !== $this->showSize) {
@@ -51,6 +71,14 @@ class DescribePcaAndExternalCACertificateListRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['Identifiers'])) {
+            $model->identifiers = $map['Identifiers'];
+        }
+
+        if (isset($map['KeyWord'])) {
+            $model->keyWord = $map['KeyWord'];
         }
 
         if (isset($map['ShowSize'])) {
