@@ -136,6 +136,8 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsVscAttachInfoReques
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFilesystemsVscAttachInfoResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLifecyclePoliciesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLifecyclePoliciesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLifecyclePolicyLogsRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLifecyclePolicyLogsResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLogAnalysisRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeLogAnalysisResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeMountedClientsRequest;
@@ -234,12 +236,18 @@ use AlibabaCloud\SDK\NAS\V20170626\Models\SetFilesetQuotaRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\SetFilesetQuotaResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StartDataFlowRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StartDataFlowResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\StartLifecyclePolicyExecutionRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\StartLifecyclePolicyExecutionResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StopDataFlowRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\StopDataFlowResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\StopLifecyclePolicyExecutionRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\StopLifecyclePolicyExecutionResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateLifecyclePolicyRequest;
+use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateLifecyclePolicyResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateRecycleBinAttributeRequest;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpdateRecycleBinAttributeResponse;
 use AlibabaCloud\SDK\NAS\V20170626\Models\UpgradeFileSystemRequest;
@@ -5483,7 +5491,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * 查询文件系统关联的 HpnZone 列表.
+     * Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   You can call this operation to query up to 20 file systems at a time.
      *
      * @param tmpReq - DescribeFilesystemsAssociatedHpnZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5532,7 +5544,11 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * 查询文件系统关联的 HpnZone 列表.
+     * Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+     *
+     * @remarks
+     *   Only CPFS for Lingjun supports this operation.
+     * *   You can call this operation to query up to 20 file systems at a time.
      *
      * @param request - DescribeFilesystemsAssociatedHpnZonesRequest
      *
@@ -5679,6 +5695,75 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeLifecyclePoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询生命周期策略日志.
+     *
+     * @param request - DescribeLifecyclePolicyLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLifecyclePolicyLogsResponse
+     *
+     * @param DescribeLifecyclePolicyLogsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeLifecyclePolicyLogsResponse
+     */
+    public function describeLifecyclePolicyLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->lifecyclePolicyId) {
+            @$query['LifecyclePolicyId'] = $request->lifecyclePolicyId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLifecyclePolicyLogs',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLifecyclePolicyLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询生命周期策略日志.
+     *
+     * @param request - DescribeLifecyclePolicyLogsRequest
+     *
+     * @returns DescribeLifecyclePolicyLogsResponse
+     *
+     * @param DescribeLifecyclePolicyLogsRequest $request
+     *
+     * @return DescribeLifecyclePolicyLogsResponse
+     */
+    public function describeLifecyclePolicyLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLifecyclePolicyLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -7050,7 +7135,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * 查询协议机挂载点.
+     * Query the export directory information of the protocol service.
      *
      * @param request - GetProtocolMountTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7109,7 +7194,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * 查询协议机挂载点.
+     * Query the export directory information of the protocol service.
      *
      * @param request - GetProtocolMountTargetRequest
      *
@@ -9264,6 +9349,67 @@ class NAS extends OpenApiClient
     }
 
     /**
+     * 启动生命周期策略运行.
+     *
+     * @param request - StartLifecyclePolicyExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartLifecyclePolicyExecutionResponse
+     *
+     * @param StartLifecyclePolicyExecutionRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return StartLifecyclePolicyExecutionResponse
+     */
+    public function startLifecyclePolicyExecutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->lifecyclePolicyId) {
+            @$query['LifecyclePolicyId'] = $request->lifecyclePolicyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartLifecyclePolicyExecution',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartLifecyclePolicyExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动生命周期策略运行.
+     *
+     * @param request - StartLifecyclePolicyExecutionRequest
+     *
+     * @returns StartLifecyclePolicyExecutionResponse
+     *
+     * @param StartLifecyclePolicyExecutionRequest $request
+     *
+     * @return StartLifecyclePolicyExecutionResponse
+     */
+    public function startLifecyclePolicyExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startLifecyclePolicyExecutionWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables a dataflow.
      *
      * @remarks
@@ -9349,7 +9495,68 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Creates tags and binds the tags to file systems.
+     * 停止生命周期策略运行.
+     *
+     * @param request - StopLifecyclePolicyExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopLifecyclePolicyExecutionResponse
+     *
+     * @param StopLifecyclePolicyExecutionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return StopLifecyclePolicyExecutionResponse
+     */
+    public function stopLifecyclePolicyExecutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->lifecyclePolicyId) {
+            @$query['LifecyclePolicyId'] = $request->lifecyclePolicyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopLifecyclePolicyExecution',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopLifecyclePolicyExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止生命周期策略运行.
+     *
+     * @param request - StopLifecyclePolicyExecutionRequest
+     *
+     * @returns StopLifecyclePolicyExecutionResponse
+     *
+     * @param StopLifecyclePolicyExecutionRequest $request
+     *
+     * @return StopLifecyclePolicyExecutionResponse
+     */
+    public function stopLifecyclePolicyExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopLifecyclePolicyExecutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates and adds tags to specified resources. File systems and access points are supported.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9396,7 +9603,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Creates tags and binds the tags to file systems.
+     * Creates and adds tags to specified resources. File systems and access points are supported.
      *
      * @param request - TagResourcesRequest
      *
@@ -9414,7 +9621,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Removes tags from a file system.
+     * Deletes a tag from a specified resource.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9465,7 +9672,7 @@ class NAS extends OpenApiClient
     }
 
     /**
-     * Removes tags from a file system.
+     * Deletes a tag from a specified resource.
      *
      * @param request - UntagResourcesRequest
      *
@@ -9480,6 +9687,87 @@ class NAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新生命周期策略.
+     *
+     * @param request - UpdateLifecyclePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLifecyclePolicyResponse
+     *
+     * @param UpdateLifecyclePolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateLifecyclePolicyResponse
+     */
+    public function updateLifecyclePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->lifecyclePolicyId) {
+            @$query['LifecyclePolicyId'] = $request->lifecyclePolicyId;
+        }
+
+        if (null !== $request->paths) {
+            @$query['Paths'] = $request->paths;
+        }
+
+        if (null !== $request->retrieveRules) {
+            @$query['RetrieveRules'] = $request->retrieveRules;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->transitRules) {
+            @$query['TransitRules'] = $request->transitRules;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLifecyclePolicy',
+            'version' => '2017-06-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLifecyclePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新生命周期策略.
+     *
+     * @param request - UpdateLifecyclePolicyRequest
+     *
+     * @returns UpdateLifecyclePolicyResponse
+     *
+     * @param UpdateLifecyclePolicyRequest $request
+     *
+     * @return UpdateLifecyclePolicyResponse
+     */
+    public function updateLifecyclePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLifecyclePolicyWithOptions($request, $runtime);
     }
 
     /**
