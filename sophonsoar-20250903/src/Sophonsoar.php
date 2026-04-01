@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Sophonsoar\V20250903;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\AbortPlaybookExecutionRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\AbortPlaybookExecutionResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\CreateComponentAssetRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\CreateComponentAssetResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20250903\Models\CreatePlaybookRequest;
@@ -66,6 +68,79 @@ class Sophonsoar extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 停止剧本.
+     *
+     * @param request - AbortPlaybookExecutionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AbortPlaybookExecutionResponse
+     *
+     * @param AbortPlaybookExecutionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AbortPlaybookExecutionResponse
+     */
+    public function abortPlaybookExecutionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->playbookExecutionUuid) {
+            @$body['PlaybookExecutionUuid'] = $request->playbookExecutionUuid;
+        }
+
+        if (null !== $request->playbookUuid) {
+            @$body['PlaybookUuid'] = $request->playbookUuid;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AbortPlaybookExecution',
+            'version' => '2025-09-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AbortPlaybookExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止剧本.
+     *
+     * @param request - AbortPlaybookExecutionRequest
+     *
+     * @returns AbortPlaybookExecutionResponse
+     *
+     * @param AbortPlaybookExecutionRequest $request
+     *
+     * @return AbortPlaybookExecutionResponse
+     */
+    public function abortPlaybookExecution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->abortPlaybookExecutionWithOptions($request, $runtime);
     }
 
     /**
@@ -379,7 +454,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * 执行组件动作.
+     * Execute component action.
+     *
+     * @remarks
+     * Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
      *
      * @param request - ExecuteComponentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -442,7 +520,10 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * 执行组件动作.
+     * Execute component action.
+     *
+     * @remarks
+     * Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
      *
      * @param request - ExecuteComponentRequest
      *
