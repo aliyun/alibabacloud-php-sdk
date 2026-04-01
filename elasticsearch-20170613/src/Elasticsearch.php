@@ -114,6 +114,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsRequ
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonGrafanaDashboardsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonMonitorDataRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetEmonMonitorDataResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetKeystoresResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetOpenStoreUsageResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationRequest;
@@ -126,6 +127,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GrayPublishRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GrayPublishResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InitializeOperationRoleRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InitializeOperationRoleResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InitModelRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InitModelResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallAckOperatorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallAckOperatorResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\InstallKibanaSystemPluginRequest;
@@ -219,6 +222,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListTagsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListUserPluginRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListUserPluginResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListVpcEndpointsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListVpcEndpointsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\MigrateToOtherZoneRequest;
@@ -239,12 +244,16 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenDiagnosisRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenDiagnosisResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenHttpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\OpenHttpsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\PluginAnalysisRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\PluginAnalysisResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\PostEmonTryAlarmRuleRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\PostEmonTryAlarmRuleResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RecommendTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ReinstallCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemovePluginRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RemovePluginResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\RenewLogstashRequest;
@@ -315,6 +324,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendConfigRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendfilesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendfilesResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateFalconSeekRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateFalconSeekResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateHotIkDictsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateHotIkDictsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateILMPolicyRequest;
@@ -327,10 +338,14 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceSettingsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKeystoresRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKeystoresResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaPvlNetworkRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaPvlNetworkResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaSettingsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaSettingsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaSsoRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaSsoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaWhiteIpsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateKibanaWhiteIpsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateLogstashChargeTypeRequest;
@@ -365,6 +380,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateXpackMonitorConfigRequ
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateXpackMonitorConfigResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeEngineVersionRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeEngineVersionResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeInfoResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ValidateConnectionRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ValidateConnectionResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ValidateShrinkNodesRequest;
@@ -4413,6 +4429,57 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 获取keystore信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKeystoresResponse
+     *
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetKeystoresResponse
+     */
+    public function getKeystoresWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetKeystores',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($InstanceId) . '/keystores',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKeystoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取keystore信息.
+     *
+     * @returns GetKeystoresResponse
+     *
+     * @param string $InstanceId
+     *
+     * @return GetKeystoresResponse
+     */
+    public function getKeystores($InstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getKeystoresWithOptions($InstanceId, $headers, $runtime);
+    }
+
+    /**
      * View the storage capacity and usage of the OpensStore instance.
      *
      * @param headers - map
@@ -4771,6 +4838,85 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->grayPublishWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 初始化ai模型.
+     *
+     * @param request - InitModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitModelResponse
+     *
+     * @param string           $InstanceId
+     * @param InitModelRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return InitModelResponse
+     */
+    public function initModelWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['api_key'] = $request->apiKey;
+        }
+
+        if (null !== $request->host) {
+            @$body['host'] = $request->host;
+        }
+
+        if (null !== $request->httpSchema) {
+            @$body['http_schema'] = $request->httpSchema;
+        }
+
+        if (null !== $request->models) {
+            @$body['models'] = $request->models;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InitModel',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($InstanceId) . '/initModel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InitModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 初始化ai模型.
+     *
+     * @param request - InitModelRequest
+     *
+     * @returns InitModelResponse
+     *
+     * @param string           $InstanceId
+     * @param InitModelRequest $request
+     *
+     * @return InitModelResponse
+     */
+    public function initModel($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->initModelWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -8324,6 +8470,77 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 用户自定义插件列表.
+     *
+     * @param request - ListUserPluginRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserPluginResponse
+     *
+     * @param string                $instanceId
+     * @param ListUserPluginRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListUserPluginResponse
+     */
+    public function listUserPluginWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserPlugin',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($instanceId) . '/userPlugins',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户自定义插件列表.
+     *
+     * @param request - ListUserPluginRequest
+     *
+     * @returns ListUserPluginResponse
+     *
+     * @param string                $instanceId
+     * @param ListUserPluginRequest $request
+     *
+     * @return ListUserPluginResponse
+     */
+    public function listUserPlugin($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserPluginWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
      *
      * @param request - ListVpcEndpointsRequest
@@ -9015,6 +9232,70 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 自定义插件解析&上传接口.
+     *
+     * @param request - PluginAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PluginAnalysisResponse
+     *
+     * @param string                $instanceId
+     * @param PluginAnalysisRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PluginAnalysisResponse
+     */
+    public function pluginAnalysisWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => $request->body,
+        ]);
+        $params = new Params([
+            'action' => 'PluginAnalysis',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($instanceId) . '/plugins/actions/analysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PluginAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 自定义插件解析&上传接口.
+     *
+     * @param request - PluginAnalysisRequest
+     *
+     * @returns PluginAnalysisResponse
+     *
+     * @param string                $instanceId
+     * @param PluginAnalysisRequest $request
+     *
+     * @return PluginAnalysisResponse
+     */
+    public function pluginAnalysis($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pluginAnalysisWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * PostEmonTryAlarmRule.
      *
      * @param request - PostEmonTryAlarmRuleRequest
@@ -9200,6 +9481,64 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->reinstallCollectorWithOptions($ResId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 从插件库中删除插件，区别于卸载插件.
+     *
+     * @param request - RemovePluginRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemovePluginResponse
+     *
+     * @param string              $instanceId
+     * @param RemovePluginRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RemovePluginResponse
+     */
+    public function removePluginWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => $request->body,
+        ]);
+        $params = new Params([
+            'action' => 'RemovePlugin',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($instanceId) . '/plugins/actions/remove',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RemovePluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从插件库中删除插件，区别于卸载插件.
+     *
+     * @param request - RemovePluginRequest
+     *
+     * @returns RemovePluginResponse
+     *
+     * @param string              $instanceId
+     * @param RemovePluginRequest $request
+     *
+     * @return RemovePluginResponse
+     */
+    public function removePlugin($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removePluginWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -11596,6 +11935,69 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 修改FalconSeek配置.
+     *
+     * @param request - UpdateFalconSeekRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFalconSeekResponse
+     *
+     * @param string                  $InstanceId
+     * @param UpdateFalconSeekRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateFalconSeekResponse
+     */
+    public function updateFalconSeekWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['enable'] = $request->enable;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFalconSeek',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($InstanceId) . '/falconseek',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFalconSeekResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改FalconSeek配置.
+     *
+     * @param request - UpdateFalconSeekRequest
+     *
+     * @returns UpdateFalconSeekResponse
+     *
+     * @param string                  $InstanceId
+     * @param UpdateFalconSeekRequest $request
+     *
+     * @return UpdateFalconSeekResponse
+     */
+    public function updateFalconSeek($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFalconSeekWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * null.
      *
      * @remarks
@@ -12075,6 +12477,79 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * 更新keystore.
+     *
+     * @param request - UpdateKeystoresRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKeystoresResponse
+     *
+     * @param string                 $InstanceId
+     * @param UpdateKeystoresRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateKeystoresResponse
+     */
+    public function updateKeystoresWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->force) {
+            @$query['force'] = $request->force;
+        }
+
+        $body = [];
+        if (null !== $request->remove) {
+            @$body['remove'] = $request->remove;
+        }
+
+        if (null !== $request->update) {
+            @$body['update'] = $request->update;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKeystores',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($InstanceId) . '/keystores',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKeystoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新keystore.
+     *
+     * @param request - UpdateKeystoresRequest
+     *
+     * @returns UpdateKeystoresResponse
+     *
+     * @param string                 $InstanceId
+     * @param UpdateKeystoresRequest $request
+     *
+     * @return UpdateKeystoresResponse
+     */
+    public function updateKeystores($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKeystoresWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 更新kibana私网链接.
      *
      * @param request - UpdateKibanaPvlNetworkRequest
@@ -12213,6 +12688,73 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->updateKibanaSettingsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * UpdateKibanaSso.
+     *
+     * @param request - UpdateKibanaSsoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKibanaSsoResponse
+     *
+     * @param string                 $InstanceId
+     * @param UpdateKibanaSsoRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateKibanaSsoResponse
+     */
+    public function updateKibanaSsoWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['enable'] = $request->enable;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['networkType'] = $request->networkType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKibanaSso',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($InstanceId) . '/actions/kibana-sso',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKibanaSsoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateKibanaSso.
+     *
+     * @param request - UpdateKibanaSsoRequest
+     *
+     * @returns UpdateKibanaSsoResponse
+     *
+     * @param string                 $InstanceId
+     * @param UpdateKibanaSsoRequest $request
+     *
+     * @return UpdateKibanaSsoResponse
+     */
+    public function updateKibanaSso($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKibanaSsoWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -13478,6 +14020,57 @@ class Elasticsearch extends OpenApiClient
         $headers = [];
 
         return $this->upgradeEngineVersionWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询是否有可升级的小版本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeInfoResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UpgradeInfoResponse
+     */
+    public function upgradeInfoWithOptions($instanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeInfo',
+            'version' => '2017-06-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/instances/' . Url::percentEncode($instanceId) . '/upgradeInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询是否有可升级的小版本.
+     *
+     * @returns UpgradeInfoResponse
+     *
+     * @param string $instanceId
+     *
+     * @return UpgradeInfoResponse
+     */
+    public function upgradeInfo($instanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upgradeInfoWithOptions($instanceId, $headers, $runtime);
     }
 
     /**
