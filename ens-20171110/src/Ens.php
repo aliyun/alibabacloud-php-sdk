@@ -192,6 +192,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkInterfacesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkInterfacesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkInterfacesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkPeerConnectionRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkPeerConnectionResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteObjectRequest;
@@ -385,6 +387,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkInterfacesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkPeerConnectionsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkPeerConnectionsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePrePaidInstanceStockRequest;
@@ -712,6 +716,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnmountInstanceSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnmountInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateClusterCertificateRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateClusterCertificateResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlShrinkRequest;
@@ -7102,6 +7108,63 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * Releases the VPC peering connection.
+     *
+     * @param request - DeleteNetworkPeerConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNetworkPeerConnectionResponse
+     *
+     * @param DeleteNetworkPeerConnectionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteNetworkPeerConnectionResponse
+     */
+    public function deleteNetworkPeerConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNetworkPeerConnection',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNetworkPeerConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases the VPC peering connection.
+     *
+     * @param request - DeleteNetworkPeerConnectionRequest
+     *
+     * @returns DeleteNetworkPeerConnectionResponse
+     *
+     * @param DeleteNetworkPeerConnectionRequest $request
+     *
+     * @return DeleteNetworkPeerConnectionResponse
+     */
+    public function deleteNetworkPeerConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkPeerConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an object.
      *
      * @param request - DeleteObjectRequest
@@ -13407,6 +13470,83 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeNetworkInterfacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries VPC peering connections.
+     *
+     * @param request - DescribeNetworkPeerConnectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetworkPeerConnectionsResponse
+     *
+     * @param DescribeNetworkPeerConnectionsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeNetworkPeerConnectionsResponse
+     */
+    public function describeNetworkPeerConnectionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ensRegionId) {
+            @$query['EnsRegionId'] = $request->ensRegionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->networkIds) {
+            @$query['NetworkIds'] = $request->networkIds;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNetworkPeerConnections',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeNetworkPeerConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries VPC peering connections.
+     *
+     * @param request - DescribeNetworkPeerConnectionsRequest
+     *
+     * @returns DescribeNetworkPeerConnectionsResponse
+     *
+     * @param DescribeNetworkPeerConnectionsRequest $request
+     *
+     * @return DescribeNetworkPeerConnectionsResponse
+     */
+    public function describeNetworkPeerConnections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkPeerConnectionsWithOptions($request, $runtime);
     }
 
     /**
@@ -24116,6 +24256,63 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新集群证书.
+     *
+     * @param request - UpdateClusterCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateClusterCertificateResponse
+     *
+     * @param UpdateClusterCertificateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateClusterCertificateResponse
+     */
+    public function updateClusterCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateClusterCertificate',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateClusterCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新集群证书.
+     *
+     * @param request - UpdateClusterCertificateRequest
+     *
+     * @returns UpdateClusterCertificateResponse
+     *
+     * @param UpdateClusterCertificateRequest $request
+     *
+     * @return UpdateClusterCertificateResponse
+     */
+    public function updateClusterCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClusterCertificateWithOptions($request, $runtime);
     }
 
     /**
