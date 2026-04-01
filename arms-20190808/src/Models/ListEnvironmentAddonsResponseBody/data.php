@@ -15,11 +15,17 @@ class data extends Model
     public $addons;
 
     /**
+     * @var bool
+     */
+    public $containsV2Addon;
+
+    /**
      * @var int
      */
     public $total;
     protected $_name = [
         'addons' => 'Addons',
+        'containsV2Addon' => 'ContainsV2Addon',
         'total' => 'Total',
     ];
 
@@ -43,6 +49,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->containsV2Addon) {
+            $res['ContainsV2Addon'] = $this->containsV2Addon;
         }
 
         if (null !== $this->total) {
@@ -69,6 +79,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ContainsV2Addon'])) {
+            $model->containsV2Addon = $map['ContainsV2Addon'];
         }
 
         if (isset($map['Total'])) {
