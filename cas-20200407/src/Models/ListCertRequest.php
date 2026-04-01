@@ -21,6 +21,11 @@ class ListCertRequest extends Model
     /**
      * @var string
      */
+    public $identifiers;
+
+    /**
+     * @var string
+     */
     public $keyWord;
 
     /**
@@ -45,6 +50,7 @@ class ListCertRequest extends Model
     protected $_name = [
         'certType' => 'CertType',
         'currentPage' => 'CurrentPage',
+        'identifiers' => 'Identifiers',
         'keyWord' => 'KeyWord',
         'showSize' => 'ShowSize',
         'sourceType' => 'SourceType',
@@ -66,6 +72,10 @@ class ListCertRequest extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->identifiers) {
+            $res['Identifiers'] = $this->identifiers;
         }
 
         if (null !== $this->keyWord) {
@@ -105,6 +115,10 @@ class ListCertRequest extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['Identifiers'])) {
+            $model->identifiers = $map['Identifiers'];
         }
 
         if (isset($map['KeyWord'])) {

@@ -2834,6 +2834,10 @@ class Cas extends OpenApiClient
             @$query['CurrentPage'] = $request->currentPage;
         }
 
+        if (null !== $request->identifiers) {
+            @$query['Identifiers'] = $request->identifiers;
+        }
+
         if (null !== $request->keyWord) {
             @$query['KeyWord'] = $request->keyWord;
         }
