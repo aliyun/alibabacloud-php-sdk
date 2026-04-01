@@ -19,6 +19,11 @@ class productInfo extends Model
     public $capacityType;
 
     /**
+     * @var string
+     */
+    public $drReplicationMode;
+
+    /**
      * @var int
      */
     public $messageRetentionTime;
@@ -55,6 +60,7 @@ class productInfo extends Model
     protected $_name = [
         'autoScaling' => 'autoScaling',
         'capacityType' => 'capacityType',
+        'drReplicationMode' => 'drReplicationMode',
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec' => 'msgProcessSpec',
         'provisionedCapacity' => 'provisionedCapacity',
@@ -78,6 +84,10 @@ class productInfo extends Model
 
         if (null !== $this->capacityType) {
             $res['capacityType'] = $this->capacityType;
+        }
+
+        if (null !== $this->drReplicationMode) {
+            $res['drReplicationMode'] = $this->drReplicationMode;
         }
 
         if (null !== $this->messageRetentionTime) {
@@ -125,6 +135,10 @@ class productInfo extends Model
 
         if (isset($map['capacityType'])) {
             $model->capacityType = $map['capacityType'];
+        }
+
+        if (isset($map['drReplicationMode'])) {
+            $model->drReplicationMode = $map['drReplicationMode'];
         }
 
         if (isset($map['messageRetentionTime'])) {
