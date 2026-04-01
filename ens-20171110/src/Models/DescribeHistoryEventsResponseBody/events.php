@@ -39,9 +39,19 @@ class events extends Model
     public $notBefore;
 
     /**
+     * @var string
+     */
+    public $notBeforeUtcTime;
+
+    /**
      * @var int
      */
     public $publishTime;
+
+    /**
+     * @var string
+     */
+    public $publishUtcTime;
 
     /**
      * @var string
@@ -59,7 +69,9 @@ class events extends Model
         'eventType' => 'EventType',
         'extendedAttribute' => 'ExtendedAttribute',
         'notBefore' => 'NotBefore',
+        'notBeforeUtcTime' => 'NotBeforeUtcTime',
         'publishTime' => 'PublishTime',
+        'publishUtcTime' => 'PublishUtcTime',
         'reason' => 'Reason',
         'resourceId' => 'ResourceId',
     ];
@@ -96,8 +108,16 @@ class events extends Model
             $res['NotBefore'] = $this->notBefore;
         }
 
+        if (null !== $this->notBeforeUtcTime) {
+            $res['NotBeforeUtcTime'] = $this->notBeforeUtcTime;
+        }
+
         if (null !== $this->publishTime) {
             $res['PublishTime'] = $this->publishTime;
+        }
+
+        if (null !== $this->publishUtcTime) {
+            $res['PublishUtcTime'] = $this->publishUtcTime;
         }
 
         if (null !== $this->reason) {
@@ -143,8 +163,16 @@ class events extends Model
             $model->notBefore = $map['NotBefore'];
         }
 
+        if (isset($map['NotBeforeUtcTime'])) {
+            $model->notBeforeUtcTime = $map['NotBeforeUtcTime'];
+        }
+
         if (isset($map['PublishTime'])) {
             $model->publishTime = $map['PublishTime'];
+        }
+
+        if (isset($map['PublishUtcTime'])) {
+            $model->publishUtcTime = $map['PublishUtcTime'];
         }
 
         if (isset($map['Reason'])) {

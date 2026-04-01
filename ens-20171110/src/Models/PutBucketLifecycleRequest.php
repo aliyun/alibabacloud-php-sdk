@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class PutBucketLifecycleRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
     public $allowSameActionOverlap;
 

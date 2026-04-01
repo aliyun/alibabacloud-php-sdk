@@ -16,6 +16,11 @@ class status extends Model
     /**
      * @var int
      */
+    public $failedNodes;
+
+    /**
+     * @var int
+     */
     public $initialNodes;
 
     /**
@@ -39,6 +44,7 @@ class status extends Model
     public $totalNodes;
     protected $_name = [
         'desiredNodes' => 'DesiredNodes',
+        'failedNodes' => 'FailedNodes',
         'initialNodes' => 'InitialNodes',
         'removingNodes' => 'RemovingNodes',
         'servingNodes' => 'ServingNodes',
@@ -56,6 +62,10 @@ class status extends Model
         $res = [];
         if (null !== $this->desiredNodes) {
             $res['DesiredNodes'] = $this->desiredNodes;
+        }
+
+        if (null !== $this->failedNodes) {
+            $res['FailedNodes'] = $this->failedNodes;
         }
 
         if (null !== $this->initialNodes) {
@@ -91,6 +101,10 @@ class status extends Model
         $model = new self();
         if (isset($map['DesiredNodes'])) {
             $model->desiredNodes = $map['DesiredNodes'];
+        }
+
+        if (isset($map['FailedNodes'])) {
+            $model->failedNodes = $map['FailedNodes'];
         }
 
         if (isset($map['InitialNodes'])) {

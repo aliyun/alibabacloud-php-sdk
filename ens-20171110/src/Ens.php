@@ -27,6 +27,12 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstanceSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstanceSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstanceSDGShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstancesToNodePoolRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstancesToNodePoolResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstancesToNodePoolShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachKeyPairRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachKeyPairResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachKeyPairShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressRequest;
@@ -234,6 +240,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskAvailableResourceInfo
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskTypesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterAttachScriptsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterAttachScriptsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterKubeConfigRequest;
@@ -437,6 +445,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachInstanceSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachInstanceSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachInstanceSDGShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachKeyPairRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachKeyPairResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachKeyPairShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataRequest;
@@ -1461,6 +1472,162 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachInstanceSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加已有节点到集群节点池.
+     *
+     * @param tmpReq - AttachInstancesToNodePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachInstancesToNodePoolResponse
+     *
+     * @param AttachInstancesToNodePoolRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AttachInstancesToNodePoolResponse
+     */
+    public function attachInstancesToNodePoolWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AttachInstancesToNodePoolShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instances) {
+            $request->instancesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->instancesShrink) {
+            @$query['Instances'] = $request->instancesShrink;
+        }
+
+        if (null !== $request->nodepoolId) {
+            @$query['NodepoolId'] = $request->nodepoolId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachInstancesToNodePool',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachInstancesToNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加已有节点到集群节点池.
+     *
+     * @param request - AttachInstancesToNodePoolRequest
+     *
+     * @returns AttachInstancesToNodePoolResponse
+     *
+     * @param AttachInstancesToNodePoolRequest $request
+     *
+     * @return AttachInstancesToNodePoolResponse
+     */
+    public function attachInstancesToNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachInstancesToNodePoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+     *
+     * @remarks
+     * ## [](#)
+     * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+     * *   You can bind a maximum of 30 instances at a time.
+     * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     *
+     * @param tmpReq - AttachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AttachKeyPairResponse
+     */
+    public function attachKeyPairWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AttachKeyPairShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
+        }
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachKeyPair',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+     *
+     * @remarks
+     * ## [](#)
+     * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+     * *   You can bind a maximum of 30 instances at a time.
+     * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     *
+     * @param request - AttachKeyPairRequest
+     *
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     *
+     * @return AttachKeyPairResponse
+     */
+    public function attachKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachKeyPairWithOptions($request, $runtime);
     }
 
     /**
@@ -5634,6 +5801,10 @@ class Ens extends OpenApiClient
             @$query['ClusterId'] = $request->clusterId;
         }
 
+        if (null !== $request->retainResources) {
+            @$query['RetainResources'] = $request->retainResources;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5760,6 +5931,10 @@ class Ens extends OpenApiClient
 
         if (null !== $request->clusterId) {
             @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->releaseNode) {
+            @$query['ReleaseNode'] = $request->releaseNode;
         }
 
         $req = new OpenApiRequest([
@@ -8346,6 +8521,71 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * 查询添加已有节点到集群节点池的脚本.
+     *
+     * @param request - DescribeClusterAttachScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterAttachScriptsResponse
+     *
+     * @param DescribeClusterAttachScriptsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeClusterAttachScriptsResponse
+     */
+    public function describeClusterAttachScriptsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->nodepoolId) {
+            @$query['NodepoolId'] = $request->nodepoolId;
+        }
+
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClusterAttachScripts',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClusterAttachScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询添加已有节点到集群节点池的脚本.
+     *
+     * @param request - DescribeClusterAttachScriptsRequest
+     *
+     * @returns DescribeClusterAttachScriptsResponse
+     *
+     * @param DescribeClusterAttachScriptsRequest $request
+     *
+     * @return DescribeClusterAttachScriptsResponse
+     */
+    public function describeClusterAttachScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterAttachScriptsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询集群详细信息.
      *
      * @param request - DescribeClusterDetailRequest
@@ -10788,7 +11028,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about file systems.
+     * Queries the information about Apsara File Storage NAS (NAS) file systems.
      *
      * @param request - DescribeFileSystemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10823,7 +11063,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about file systems.
+     * Queries the information about Apsara File Storage NAS (NAS) file systems.
      *
      * @param request - DescribeFileSystemsRequest
      *
@@ -15107,6 +15347,93 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+     *
+     * @remarks
+     * ## [](#)
+     * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+     * *   You can unbind a maximum of 30 instances at a time.
+     * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+     * *   At least one of key_pair_name and key_pair_id is not empty.
+     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     *
+     * @param tmpReq - DetachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DetachKeyPairResponse
+     */
+    public function detachKeyPairWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DetachKeyPairShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
+        }
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachKeyPair',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+     *
+     * @remarks
+     * ## [](#)
+     * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+     * *   You can unbind a maximum of 30 instances at a time.
+     * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+     * *   At least one of key_pair_name and key_pair_id is not empty.
+     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     *
+     * @param request - DetachKeyPairRequest
+     *
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     *
+     * @return DetachKeyPairResponse
+     */
+    public function detachKeyPair($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
      * Detach an elastic network interface (ENI) from an instance.
      *
      * @remarks
@@ -15282,6 +15609,10 @@ class Ens extends OpenApiClient
             @$query['PlanTime'] = $request->planTime;
         }
 
+        if (null !== $request->planUtcTime) {
+            @$query['PlanUtcTime'] = $request->planUtcTime;
+        }
+
         if (null !== $request->resourceId) {
             @$query['ResourceId'] = $request->resourceId;
         }
@@ -15357,6 +15688,10 @@ class Ens extends OpenApiClient
             @$query['PlanTime'] = $request->planTime;
         }
 
+        if (null !== $request->planUtcTime) {
+            @$query['PlanUtcTime'] = $request->planUtcTime;
+        }
+
         if (null !== $request->resourceId) {
             @$query['ResourceId'] = $request->resourceId;
         }
@@ -15430,6 +15765,10 @@ class Ens extends OpenApiClient
 
         if (null !== $request->planTime) {
             @$query['PlanTime'] = $request->planTime;
+        }
+
+        if (null !== $request->planUtcTime) {
+            @$query['PlanUtcTime'] = $request->planUtcTime;
         }
 
         if (null !== $request->resourceId) {
@@ -16199,7 +16538,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+     * Create a service-linked role (SLR) for ENS for the current user to manage resources.
      *
      * @param request - InitializeENSECKServiceRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16229,7 +16568,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+     * Create a service-linked role (SLR) for ENS for the current user to manage resources.
      *
      * @returns InitializeENSECKServiceRoleResponse
      *
@@ -17062,7 +17401,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 获取所有产品能力.
+     * Lists all service capabilities.
      *
      * @param request - ListProductAbilitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17092,7 +17431,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 获取所有产品能力.
+     * Lists all service capabilities.
      *
      * @returns ListProductAbilitiesResponse
      *
@@ -18830,7 +19169,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 修改snat规则.
+     * Modifies a specified SNAT entry.
      *
      * @param request - ModifySnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18885,7 +19224,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 修改snat规则.
+     * Modifies a specified SNAT entry.
      *
      * @param request - ModifySnatEntryRequest
      *

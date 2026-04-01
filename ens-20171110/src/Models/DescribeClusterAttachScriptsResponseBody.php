@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteClusterRequest extends Model
+class DescribeClusterAttachScriptsResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $clusterId;
+    public $requestId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $retainResources;
+    public $script;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'retainResources' => 'RetainResources',
+        'requestId' => 'RequestId',
+        'script' => 'Script',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class DeleteClusterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->retainResources) {
-            $res['RetainResources'] = $this->retainResources;
+        if (null !== $this->script) {
+            $res['Script'] = $this->script;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class DeleteClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['RetainResources'])) {
-            $model->retainResources = $map['RetainResources'];
+        if (isset($map['Script'])) {
+            $model->script = $map['Script'];
         }
 
         return $model;

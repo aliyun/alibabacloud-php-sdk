@@ -36,6 +36,11 @@ class eventInfos extends Model
     /**
      * @var string
      */
+    public $planUtcTime;
+
+    /**
+     * @var string
+     */
     public $resourceId;
     protected $_name = [
         'dataPolicy' => 'DataPolicy',
@@ -43,6 +48,7 @@ class eventInfos extends Model
         'opsType' => 'OpsType',
         'password' => 'Password',
         'planTime' => 'PlanTime',
+        'planUtcTime' => 'PlanUtcTime',
         'resourceId' => 'ResourceId',
     ];
 
@@ -72,6 +78,10 @@ class eventInfos extends Model
 
         if (null !== $this->planTime) {
             $res['PlanTime'] = $this->planTime;
+        }
+
+        if (null !== $this->planUtcTime) {
+            $res['PlanUtcTime'] = $this->planUtcTime;
         }
 
         if (null !== $this->resourceId) {
@@ -107,6 +117,10 @@ class eventInfos extends Model
 
         if (isset($map['PlanTime'])) {
             $model->planTime = $map['PlanTime'];
+        }
+
+        if (isset($map['PlanUtcTime'])) {
+            $model->planUtcTime = $map['PlanUtcTime'];
         }
 
         if (isset($map['ResourceId'])) {

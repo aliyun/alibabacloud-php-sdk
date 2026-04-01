@@ -26,11 +26,17 @@ class EventRebootInstanceRequest extends Model
     /**
      * @var string
      */
+    public $planUtcTime;
+
+    /**
+     * @var string
+     */
     public $resourceId;
     protected $_name = [
         'eventId' => 'EventId',
         'opsType' => 'OpsType',
         'planTime' => 'PlanTime',
+        'planUtcTime' => 'PlanUtcTime',
         'resourceId' => 'ResourceId',
     ];
 
@@ -52,6 +58,10 @@ class EventRebootInstanceRequest extends Model
 
         if (null !== $this->planTime) {
             $res['PlanTime'] = $this->planTime;
+        }
+
+        if (null !== $this->planUtcTime) {
+            $res['PlanUtcTime'] = $this->planUtcTime;
         }
 
         if (null !== $this->resourceId) {
@@ -79,6 +89,10 @@ class EventRebootInstanceRequest extends Model
 
         if (isset($map['PlanTime'])) {
             $model->planTime = $map['PlanTime'];
+        }
+
+        if (isset($map['PlanUtcTime'])) {
+            $model->planUtcTime = $map['PlanUtcTime'];
         }
 
         if (isset($map['ResourceId'])) {

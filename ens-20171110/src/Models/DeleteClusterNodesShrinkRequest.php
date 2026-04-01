@@ -17,9 +17,15 @@ class DeleteClusterNodesShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var bool
+     */
+    public $releaseNode;
     protected $_name = [
         'bodyShrink' => 'Body',
         'clusterId' => 'ClusterId',
+        'releaseNode' => 'ReleaseNode',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DeleteClusterNodesShrinkRequest extends Model
 
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->releaseNode) {
+            $res['ReleaseNode'] = $this->releaseNode;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DeleteClusterNodesShrinkRequest extends Model
 
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['ReleaseNode'])) {
+            $model->releaseNode = $map['ReleaseNode'];
         }
 
         return $model;

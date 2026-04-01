@@ -5,51 +5,47 @@
 namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteClusterNodesRequest\body;
 
-class DeleteClusterNodesRequest extends Model
+class DescribeClusterAttachScriptsRequest extends Model
 {
-    /**
-     * @var body
-     */
-    public $body;
-
     /**
      * @var string
      */
     public $clusterId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $releaseNode;
+    public $nodepoolId;
+
+    /**
+     * @var string
+     */
+    public $options;
     protected $_name = [
-        'body' => 'Body',
         'clusterId' => 'ClusterId',
-        'releaseNode' => 'ReleaseNode',
+        'nodepoolId' => 'NodepoolId',
+        'options' => 'Options',
     ];
 
     public function validate()
     {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
-        }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->releaseNode) {
-            $res['ReleaseNode'] = $this->releaseNode;
+        if (null !== $this->nodepoolId) {
+            $res['NodepoolId'] = $this->nodepoolId;
+        }
+
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
 
         return $res;
@@ -63,16 +59,16 @@ class DeleteClusterNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Body'])) {
-            $model->body = body::fromMap($map['Body']);
-        }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['ReleaseNode'])) {
-            $model->releaseNode = $map['ReleaseNode'];
+        if (isset($map['NodepoolId'])) {
+            $model->nodepoolId = $map['NodepoolId'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
 
         return $model;
