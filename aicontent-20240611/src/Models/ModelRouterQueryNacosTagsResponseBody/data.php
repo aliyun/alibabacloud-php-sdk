@@ -11,15 +11,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $label;
+
+    /**
+     * @var string
+     */
     public $tag;
 
     /**
      * @var string
      */
     public $tagName;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
+        'label' => 'label',
         'tag' => 'tag',
         'tagName' => 'tagName',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -30,12 +42,20 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->label) {
+            $res['label'] = $this->label;
+        }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
 
         if (null !== $this->tagName) {
             $res['tagName'] = $this->tagName;
+        }
+
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +69,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['label'])) {
+            $model->label = $map['label'];
+        }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }
 
         if (isset($map['tagName'])) {
             $model->tagName = $map['tagName'];
+        }
+
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

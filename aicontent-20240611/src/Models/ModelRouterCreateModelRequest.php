@@ -26,6 +26,16 @@ class ModelRouterCreateModelRequest extends Model
     /**
      * @var string
      */
+    public $extensions;
+
+    /**
+     * @var string
+     */
+    public $inOut;
+
+    /**
+     * @var string
+     */
     public $maxInputLength;
 
     /**
@@ -61,6 +71,8 @@ class ModelRouterCreateModelRequest extends Model
         'apiKey' => 'apiKey',
         'baseUrl' => 'baseUrl',
         'description' => 'description',
+        'extensions' => 'extensions',
+        'inOut' => 'inOut',
         'maxInputLength' => 'maxInputLength',
         'maxOutputLength' => 'maxOutputLength',
         'modelId' => 'modelId',
@@ -88,6 +100,14 @@ class ModelRouterCreateModelRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->extensions) {
+            $res['extensions'] = $this->extensions;
+        }
+
+        if (null !== $this->inOut) {
+            $res['inOut'] = $this->inOut;
         }
 
         if (null !== $this->maxInputLength) {
@@ -139,6 +159,14 @@ class ModelRouterCreateModelRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['extensions'])) {
+            $model->extensions = $map['extensions'];
+        }
+
+        if (isset($map['inOut'])) {
+            $model->inOut = $map['inOut'];
         }
 
         if (isset($map['maxInputLength'])) {

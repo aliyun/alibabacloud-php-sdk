@@ -11,6 +11,11 @@ class ModelRouterQueryNacosTagsRequest extends Model
     /**
      * @var string
      */
+    public $configType;
+
+    /**
+     * @var string
+     */
     public $groupBy;
 
     /**
@@ -48,6 +53,7 @@ class ModelRouterQueryNacosTagsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'configType' => 'configType',
         'groupBy' => 'groupBy',
         'maxResults' => 'maxResults',
         'needTotalCount' => 'needTotalCount',
@@ -66,6 +72,10 @@ class ModelRouterQueryNacosTagsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configType) {
+            $res['configType'] = $this->configType;
+        }
+
         if (null !== $this->groupBy) {
             $res['groupBy'] = $this->groupBy;
         }
@@ -109,6 +119,10 @@ class ModelRouterQueryNacosTagsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['configType'])) {
+            $model->configType = $map['configType'];
+        }
+
         if (isset($map['groupBy'])) {
             $model->groupBy = $map['groupBy'];
         }

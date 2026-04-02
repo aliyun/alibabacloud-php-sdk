@@ -29,6 +29,11 @@ class ModelRouterCreateClientRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $parentId;
+
+    /**
      * @var string
      */
     public $remark;
@@ -37,6 +42,7 @@ class ModelRouterCreateClientRequest extends Model
         'allowedModels' => 'allowedModels',
         'contact' => 'contact',
         'name' => 'name',
+        'parentId' => 'parentId',
         'remark' => 'remark',
     ];
 
@@ -62,6 +68,10 @@ class ModelRouterCreateClientRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->parentId) {
+            $res['parentId'] = $this->parentId;
         }
 
         if (null !== $this->remark) {
@@ -93,6 +103,10 @@ class ModelRouterCreateClientRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['parentId'])) {
+            $model->parentId = $map['parentId'];
         }
 
         if (isset($map['remark'])) {

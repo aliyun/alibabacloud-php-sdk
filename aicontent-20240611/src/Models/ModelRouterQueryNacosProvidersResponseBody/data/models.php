@@ -5,13 +5,24 @@
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosProvidersResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryNacosProvidersResponseBody\data\models\extensions;
 
 class models extends Model
 {
     /**
+     * @var extensions
+     */
+    public $extensions;
+
+    /**
      * @var string
      */
     public $identifier;
+
+    /**
+     * @var string
+     */
+    public $inOut;
 
     /**
      * @var string
@@ -22,22 +33,41 @@ class models extends Model
      * @var string
      */
     public $outputToken;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
+        'extensions' => 'extensions',
         'identifier' => 'identifier',
+        'inOut' => 'inOut',
         'inputToken' => 'inputToken',
         'outputToken' => 'outputToken',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->extensions) {
+            $this->extensions->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extensions) {
+            $res['extensions'] = null !== $this->extensions ? $this->extensions->toArray($noStream) : $this->extensions;
+        }
+
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
+        }
+
+        if (null !== $this->inOut) {
+            $res['inOut'] = $this->inOut;
         }
 
         if (null !== $this->inputToken) {
@@ -46,6 +76,10 @@ class models extends Model
 
         if (null !== $this->outputToken) {
             $res['outputToken'] = $this->outputToken;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
 
         return $res;
@@ -59,8 +93,16 @@ class models extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['extensions'])) {
+            $model->extensions = extensions::fromMap($map['extensions']);
+        }
+
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
+        }
+
+        if (isset($map['inOut'])) {
+            $model->inOut = $map['inOut'];
         }
 
         if (isset($map['inputToken'])) {
@@ -69,6 +111,10 @@ class models extends Model
 
         if (isset($map['outputToken'])) {
             $model->outputToken = $map['outputToken'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

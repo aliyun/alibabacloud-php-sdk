@@ -3469,6 +3469,10 @@ class AiContent extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
+        }
+
         if (null !== $request->remark) {
             @$body['remark'] = $request->remark;
         }
@@ -3609,6 +3613,14 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->extensions) {
+            @$body['extensions'] = $request->extensions;
+        }
+
+        if (null !== $request->inOut) {
+            @$body['inOut'] = $request->inOut;
         }
 
         if (null !== $request->maxInputLength) {
@@ -4360,6 +4372,10 @@ class AiContent extends OpenApiClient
             @$query['maxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->modelType) {
+            @$query['modelType'] = $request->modelType;
+        }
+
         if (null !== $request->needTotalCount) {
             @$query['needTotalCount'] = $request->needTotalCount;
         }
@@ -4534,6 +4550,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->configType) {
+            @$query['configType'] = $request->configType;
+        }
+
         if (null !== $request->groupBy) {
             @$query['groupBy'] = $request->groupBy;
         }

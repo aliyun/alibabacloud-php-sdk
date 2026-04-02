@@ -31,6 +31,11 @@ class ModelDTO extends Model
     /**
      * @var string
      */
+    public $extensions;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -42,6 +47,11 @@ class ModelDTO extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $inOut;
 
     /**
      * @var bool
@@ -97,9 +107,11 @@ class ModelDTO extends Model
         'baseUrl' => 'baseUrl',
         'deleteTag' => 'deleteTag',
         'description' => 'description',
+        'extensions' => 'extensions',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
+        'inOut' => 'inOut',
         'isCustom' => 'isCustom',
         'maxInputLength' => 'maxInputLength',
         'maxOutputLength' => 'maxOutputLength',
@@ -136,6 +148,10 @@ class ModelDTO extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->extensions) {
+            $res['extensions'] = $this->extensions;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
@@ -146,6 +162,10 @@ class ModelDTO extends Model
 
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->inOut) {
+            $res['inOut'] = $this->inOut;
         }
 
         if (null !== $this->isCustom) {
@@ -215,6 +235,10 @@ class ModelDTO extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['extensions'])) {
+            $model->extensions = $map['extensions'];
+        }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
@@ -225,6 +249,10 @@ class ModelDTO extends Model
 
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['inOut'])) {
+            $model->inOut = $map['inOut'];
         }
 
         if (isset($map['isCustom'])) {

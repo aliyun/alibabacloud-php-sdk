@@ -64,6 +64,11 @@ class RequestLogDTO extends Model
     public $modelName;
 
     /**
+     * @var string
+     */
+    public $modelType;
+
+    /**
      * @var int
      */
     public $promptTokens;
@@ -112,6 +117,11 @@ class RequestLogDTO extends Model
      * @var int
      */
     public $totalTokens;
+
+    /**
+     * @var UsageInfoDTO
+     */
+    public $usage;
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
@@ -124,6 +134,7 @@ class RequestLogDTO extends Model
         'modelCode' => 'modelCode',
         'modelId' => 'modelId',
         'modelName' => 'modelName',
+        'modelType' => 'modelType',
         'promptTokens' => 'promptTokens',
         'requestBody' => 'requestBody',
         'requestId' => 'requestId',
@@ -134,10 +145,14 @@ class RequestLogDTO extends Model
         'statusCode' => 'statusCode',
         'symbol' => 'symbol',
         'totalTokens' => 'totalTokens',
+        'usage' => 'usage',
     ];
 
     public function validate()
     {
+        if (null !== $this->usage) {
+            $this->usage->validate();
+        }
         parent::validate();
     }
 
@@ -188,6 +203,10 @@ class RequestLogDTO extends Model
             $res['modelName'] = $this->modelName;
         }
 
+        if (null !== $this->modelType) {
+            $res['modelType'] = $this->modelType;
+        }
+
         if (null !== $this->promptTokens) {
             $res['promptTokens'] = $this->promptTokens;
         }
@@ -226,6 +245,10 @@ class RequestLogDTO extends Model
 
         if (null !== $this->totalTokens) {
             $res['totalTokens'] = $this->totalTokens;
+        }
+
+        if (null !== $this->usage) {
+            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
@@ -283,6 +306,10 @@ class RequestLogDTO extends Model
             $model->modelName = $map['modelName'];
         }
 
+        if (isset($map['modelType'])) {
+            $model->modelType = $map['modelType'];
+        }
+
         if (isset($map['promptTokens'])) {
             $model->promptTokens = $map['promptTokens'];
         }
@@ -321,6 +348,10 @@ class RequestLogDTO extends Model
 
         if (isset($map['totalTokens'])) {
             $model->totalTokens = $map['totalTokens'];
+        }
+
+        if (isset($map['usage'])) {
+            $model->usage = UsageInfoDTO::fromMap($map['usage']);
         }
 
         return $model;

@@ -24,6 +24,11 @@ class ModelRouterQueryModelListRequest extends Model
     public $maxResults;
 
     /**
+     * @var string
+     */
+    public $modelType;
+
+    /**
      * @var bool
      */
     public $needTotalCount;
@@ -61,6 +66,7 @@ class ModelRouterQueryModelListRequest extends Model
         'groupBy' => 'groupBy',
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
+        'modelType' => 'modelType',
         'needTotalCount' => 'needTotalCount',
         'nextToken' => 'nextToken',
         'orderBy' => 'orderBy',
@@ -88,6 +94,10 @@ class ModelRouterQueryModelListRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->modelType) {
+            $res['modelType'] = $this->modelType;
         }
 
         if (null !== $this->needTotalCount) {
@@ -139,6 +149,10 @@ class ModelRouterQueryModelListRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['modelType'])) {
+            $model->modelType = $map['modelType'];
         }
 
         if (isset($map['needTotalCount'])) {
