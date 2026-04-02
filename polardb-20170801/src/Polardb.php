@@ -2896,6 +2896,10 @@ class Polardb extends OpenApiClient
             @$query['SecurityIPType'] = $request->securityIPType;
         }
 
+        if (null !== $request->skillTemplateId) {
+            @$query['SkillTemplateId'] = $request->skillTemplateId;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }

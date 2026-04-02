@@ -163,6 +163,11 @@ class CreateApplicationRequest extends Model
     public $securityIPType;
 
     /**
+     * @var string
+     */
+    public $skillTemplateId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -222,6 +227,7 @@ class CreateApplicationRequest extends Model
         'securityIPArrayName' => 'SecurityIPArrayName',
         'securityIPList' => 'SecurityIPList',
         'securityIPType' => 'SecurityIPType',
+        'skillTemplateId' => 'SkillTemplateId',
         'tag' => 'Tag',
         'targetVersion' => 'TargetVersion',
         'usedTime' => 'UsedTime',
@@ -382,6 +388,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->securityIPType) {
             $res['SecurityIPType'] = $this->securityIPType;
+        }
+
+        if (null !== $this->skillTemplateId) {
+            $res['SkillTemplateId'] = $this->skillTemplateId;
         }
 
         if (null !== $this->tag) {
@@ -558,6 +568,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['SecurityIPType'])) {
             $model->securityIPType = $map['SecurityIPType'];
+        }
+
+        if (isset($map['SkillTemplateId'])) {
+            $model->skillTemplateId = $map['SkillTemplateId'];
         }
 
         if (isset($map['Tag'])) {

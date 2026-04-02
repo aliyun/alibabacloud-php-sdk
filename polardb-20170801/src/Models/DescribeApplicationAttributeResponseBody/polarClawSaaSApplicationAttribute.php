@@ -12,8 +12,14 @@ class polarClawSaaSApplicationAttribute extends Model
      * @var string
      */
     public $authCallbackURL;
+
+    /**
+     * @var string
+     */
+    public $supabaseClusterId;
     protected $_name = [
         'authCallbackURL' => 'AuthCallbackURL',
+        'supabaseClusterId' => 'SupabaseClusterId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class polarClawSaaSApplicationAttribute extends Model
         $res = [];
         if (null !== $this->authCallbackURL) {
             $res['AuthCallbackURL'] = $this->authCallbackURL;
+        }
+
+        if (null !== $this->supabaseClusterId) {
+            $res['SupabaseClusterId'] = $this->supabaseClusterId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class polarClawSaaSApplicationAttribute extends Model
         $model = new self();
         if (isset($map['AuthCallbackURL'])) {
             $model->authCallbackURL = $map['AuthCallbackURL'];
+        }
+
+        if (isset($map['SupabaseClusterId'])) {
+            $model->supabaseClusterId = $map['SupabaseClusterId'];
         }
 
         return $model;
