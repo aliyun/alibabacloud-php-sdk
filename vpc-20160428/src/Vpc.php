@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDefaultVSwitchRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDefaultVSwitchResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateEnhancedVpnGatewayRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateEnhancedVpnGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressCloudConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressCloudConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateExpressConnectTrafficQosQueueRequest;
@@ -214,6 +216,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteCustomerGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteCustomerGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteDhcpOptionsSetRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteDhcpOptionsSetResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteEnhancedVpnGatewayRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteEnhancedVpnGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DeleteExpressConnectTrafficQosQueueRequest;
@@ -770,6 +774,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateDhcpOptionsSetAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateDhcpOptionsSetAttributeResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateEnhancedVpnGatewayRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateEnhancedVpnGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateFailoverTestJobRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateFailoverTestJobResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UpdateGatewayRouteTableEntryAttributeRequest;
@@ -1139,7 +1145,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+     * AddCommonBandwidthPackageIp.
      *
      * @remarks
      * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
@@ -1213,7 +1219,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+     * AddCommonBandwidthPackageIp.
      *
      * @remarks
      * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
@@ -5443,6 +5449,115 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDhcpOptionsSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建增强型VPN网关.
+     *
+     * @param request - CreateEnhancedVpnGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEnhancedVpnGatewayResponse
+     *
+     * @param CreateEnhancedVpnGatewayRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateEnhancedVpnGatewayResponse
+     */
+    public function createEnhancedVpnGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->disasterRecoveryVSwitchId) {
+            @$query['DisasterRecoveryVSwitchId'] = $request->disasterRecoveryVSwitchId;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$query['GatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vpnType) {
+            @$query['VpnType'] = $request->vpnType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEnhancedVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEnhancedVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建增强型VPN网关.
+     *
+     * @param request - CreateEnhancedVpnGatewayRequest
+     *
+     * @returns CreateEnhancedVpnGatewayResponse
+     *
+     * @param CreateEnhancedVpnGatewayRequest $request
+     *
+     * @return CreateEnhancedVpnGatewayResponse
+     */
+    public function createEnhancedVpnGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnhancedVpnGatewayWithOptions($request, $runtime);
     }
 
     /**
@@ -12582,6 +12697,87 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * Deletes an Enhanced VPN gateway.
+     *
+     * @param request - DeleteEnhancedVpnGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEnhancedVpnGatewayResponse
+     *
+     * @param DeleteEnhancedVpnGatewayRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteEnhancedVpnGatewayResponse
+     */
+    public function deleteEnhancedVpnGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->vpnGatewayId) {
+            @$query['VpnGatewayId'] = $request->vpnGatewayId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEnhancedVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEnhancedVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an Enhanced VPN gateway.
+     *
+     * @param request - DeleteEnhancedVpnGatewayRequest
+     *
+     * @returns DeleteEnhancedVpnGatewayResponse
+     *
+     * @param DeleteEnhancedVpnGatewayRequest $request
+     *
+     * @return DeleteEnhancedVpnGatewayResponse
+     */
+    public function deleteEnhancedVpnGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnhancedVpnGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a Express Connect instance, including the initiator and acceptor.
      *
      * @param request - DeleteExpressConnectRequest
@@ -18397,7 +18593,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
      *
      * @remarks
      * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
@@ -18471,7 +18667,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+     * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
      *
      * @remarks
      * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
@@ -28185,7 +28381,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries he connection features supported by a Express Connect circuit.
+     * Querying the connection features supported by a Express Connect circuit.
      *
      * @param request - ListPhysicalConnectionFeaturesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28248,7 +28444,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries he connection features supported by a Express Connect circuit.
+     * Querying the connection features supported by a Express Connect circuit.
      *
      * @param request - ListPhysicalConnectionFeaturesRequest
      *
@@ -36766,7 +36962,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Disassociates an EIP from an Internet Shared Bandwidth instance.
+     * The region ID of the Internet Shared Bandwidth instance.
+     * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
      *
      * @param request - RemoveCommonBandwidthPackageIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36833,7 +37030,8 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Disassociates an EIP from an Internet Shared Bandwidth instance.
+     * The region ID of the Internet Shared Bandwidth instance.
+     * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
      *
      * @param request - RemoveCommonBandwidthPackageIpRequest
      *
@@ -39409,6 +39607,99 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDhcpOptionsSetAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改增强型VPN实例属性.
+     *
+     * @param request - UpdateEnhancedVpnGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEnhancedVpnGatewayResponse
+     *
+     * @param UpdateEnhancedVpnGatewayRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateEnhancedVpnGatewayResponse
+     */
+    public function updateEnhancedVpnGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPropagate) {
+            @$query['AutoPropagate'] = $request->autoPropagate;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->vpnGatewayId) {
+            @$query['VpnGatewayId'] = $request->vpnGatewayId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEnhancedVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEnhancedVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改增强型VPN实例属性.
+     *
+     * @param request - UpdateEnhancedVpnGatewayRequest
+     *
+     * @returns UpdateEnhancedVpnGatewayResponse
+     *
+     * @param UpdateEnhancedVpnGatewayRequest $request
+     *
+     * @return UpdateEnhancedVpnGatewayResponse
+     */
+    public function updateEnhancedVpnGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnhancedVpnGatewayWithOptions($request, $runtime);
     }
 
     /**
