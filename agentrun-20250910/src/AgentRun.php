@@ -100,8 +100,10 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListToolsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListToolsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\PauseSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ResumeSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopTemplateMCPResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointRequest;
@@ -4031,6 +4033,63 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 暂停沙箱.
+     *
+     * @remarks
+     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseSandboxResponse
+     *
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return PauseSandboxResponse
+     */
+    public function pauseSandboxWithOptions($sandboxId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'PauseSandbox',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '/pause',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停沙箱.
+     *
+     * @remarks
+     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     *
+     * @returns PauseSandboxResponse
+     *
+     * @param string $sandboxId
+     *
+     * @return PauseSandboxResponse
+     */
+    public function pauseSandbox($sandboxId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pauseSandboxWithOptions($sandboxId, $headers, $runtime);
+    }
+
+    /**
      * 发布运行时版本.
      *
      * @remarks
@@ -4095,7 +4154,58 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除沙箱.
+     * 恢复沙箱.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeSandboxResponse
+     *
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ResumeSandboxResponse
+     */
+    public function resumeSandboxWithOptions($sandboxId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ResumeSandbox',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/sandboxes/' . Url::percentEncode($sandboxId) . '/resume',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复沙箱.
+     *
+     * @returns ResumeSandboxResponse
+     *
+     * @param string $sandboxId
+     *
+     * @return ResumeSandboxResponse
+     */
+    public function resumeSandbox($sandboxId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeSandboxWithOptions($sandboxId, $headers, $runtime);
+    }
+
+    /**
+     * 停止沙箱.
      *
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
@@ -4132,7 +4242,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除沙箱.
+     * 停止沙箱.
      *
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
