@@ -55,6 +55,11 @@ class data extends Model
     public $kmsKeyId;
 
     /**
+     * @var string
+     */
+    public $listenerMode;
+
+    /**
      * @var int
      */
     public $maxConnections;
@@ -112,6 +117,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -138,6 +148,16 @@ class data extends Model
      * @var int
      */
     public $tracingStorageTime;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string[]
+     */
+    public $vswitchIds;
     protected $_name = [
         'autoRenewInstance' => 'AutoRenewInstance',
         'classicEndpoint' => 'ClassicEndpoint',
@@ -148,6 +168,7 @@ class data extends Model
         'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
         'kmsKeyId' => 'KmsKeyId',
+        'listenerMode' => 'ListenerMode',
         'maxConnections' => 'MaxConnections',
         'maxEipTps' => 'MaxEipTps',
         'maxQueue' => 'MaxQueue',
@@ -159,18 +180,24 @@ class data extends Model
         'provisionedCapacity' => 'ProvisionedCapacity',
         'publicEndpoint' => 'PublicEndpoint',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'status' => 'Status',
         'storageSize' => 'StorageSize',
         'supportEIP' => 'SupportEIP',
         'supportTracing' => 'SupportTracing',
         'tags' => 'Tags',
         'tracingStorageTime' => 'TracingStorageTime',
+        'vpcId' => 'VpcId',
+        'vswitchIds' => 'VswitchIds',
     ];
 
     public function validate()
     {
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->vswitchIds)) {
+            Model::validateArray($this->vswitchIds);
         }
         parent::validate();
     }
@@ -212,6 +239,10 @@ class data extends Model
 
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->listenerMode) {
+            $res['ListenerMode'] = $this->listenerMode;
         }
 
         if (null !== $this->maxConnections) {
@@ -258,6 +289,10 @@ class data extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -287,6 +322,21 @@ class data extends Model
 
         if (null !== $this->tracingStorageTime) {
             $res['TracingStorageTime'] = $this->tracingStorageTime;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->vswitchIds) {
+            if (\is_array($this->vswitchIds)) {
+                $res['VswitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vswitchIds as $item1) {
+                    $res['VswitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -336,6 +386,10 @@ class data extends Model
             $model->kmsKeyId = $map['KmsKeyId'];
         }
 
+        if (isset($map['ListenerMode'])) {
+            $model->listenerMode = $map['ListenerMode'];
+        }
+
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
@@ -380,6 +434,10 @@ class data extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -409,6 +467,21 @@ class data extends Model
 
         if (isset($map['TracingStorageTime'])) {
             $model->tracingStorageTime = $map['TracingStorageTime'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VswitchIds'])) {
+            if (!empty($map['VswitchIds'])) {
+                $model->vswitchIds = [];
+                $n1 = 0;
+                foreach ($map['VswitchIds'] as $item1) {
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

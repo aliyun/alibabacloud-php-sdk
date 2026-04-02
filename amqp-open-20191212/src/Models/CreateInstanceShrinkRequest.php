@@ -49,6 +49,11 @@ class CreateInstanceShrinkRequest extends Model
     public $kmsKeyId;
 
     /**
+     * @var string
+     */
+    public $listenerMode;
+
+    /**
      * @var int
      */
     public $maxConnections;
@@ -106,6 +111,11 @@ class CreateInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $serverlessChargeType;
 
     /**
@@ -132,6 +142,16 @@ class CreateInstanceShrinkRequest extends Model
      * @var int
      */
     public $tracingStorageTime;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vswitchIdsShrink;
     protected $_name = [
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
@@ -141,6 +161,7 @@ class CreateInstanceShrinkRequest extends Model
         'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
         'kmsKeyId' => 'KmsKeyId',
+        'listenerMode' => 'ListenerMode',
         'maxConnections' => 'MaxConnections',
         'maxEipTps' => 'MaxEipTps',
         'maxPrivateTps' => 'MaxPrivateTps',
@@ -152,12 +173,15 @@ class CreateInstanceShrinkRequest extends Model
         'renewStatus' => 'RenewStatus',
         'renewalDurationUnit' => 'RenewalDurationUnit',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'serverlessChargeType' => 'ServerlessChargeType',
         'storageSize' => 'StorageSize',
         'supportEip' => 'SupportEip',
         'supportTracing' => 'SupportTracing',
         'tagsShrink' => 'Tags',
         'tracingStorageTime' => 'TracingStorageTime',
+        'vpcId' => 'VpcId',
+        'vswitchIdsShrink' => 'VswitchIds',
     ];
 
     public function validate()
@@ -198,6 +222,10 @@ class CreateInstanceShrinkRequest extends Model
 
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->listenerMode) {
+            $res['ListenerMode'] = $this->listenerMode;
         }
 
         if (null !== $this->maxConnections) {
@@ -244,6 +272,10 @@ class CreateInstanceShrinkRequest extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
         if (null !== $this->serverlessChargeType) {
             $res['ServerlessChargeType'] = $this->serverlessChargeType;
         }
@@ -266,6 +298,14 @@ class CreateInstanceShrinkRequest extends Model
 
         if (null !== $this->tracingStorageTime) {
             $res['TracingStorageTime'] = $this->tracingStorageTime;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->vswitchIdsShrink) {
+            $res['VswitchIds'] = $this->vswitchIdsShrink;
         }
 
         return $res;
@@ -309,6 +349,10 @@ class CreateInstanceShrinkRequest extends Model
 
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
+        if (isset($map['ListenerMode'])) {
+            $model->listenerMode = $map['ListenerMode'];
         }
 
         if (isset($map['MaxConnections'])) {
@@ -355,6 +399,10 @@ class CreateInstanceShrinkRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
         if (isset($map['ServerlessChargeType'])) {
             $model->serverlessChargeType = $map['ServerlessChargeType'];
         }
@@ -377,6 +425,14 @@ class CreateInstanceShrinkRequest extends Model
 
         if (isset($map['TracingStorageTime'])) {
             $model->tracingStorageTime = $map['TracingStorageTime'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VswitchIds'])) {
+            $model->vswitchIdsShrink = $map['VswitchIds'];
         }
 
         return $model;

@@ -367,6 +367,10 @@ class Amqpopen extends OpenApiClient
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
 
+        if (null !== $tmpReq->vswitchIds) {
+            $request->vswitchIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vswitchIds, 'VswitchIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
@@ -398,6 +402,10 @@ class Amqpopen extends OpenApiClient
 
         if (null !== $request->kmsKeyId) {
             @$query['KmsKeyId'] = $request->kmsKeyId;
+        }
+
+        if (null !== $request->listenerMode) {
+            @$query['ListenerMode'] = $request->listenerMode;
         }
 
         if (null !== $request->maxConnections) {
@@ -444,6 +452,10 @@ class Amqpopen extends OpenApiClient
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
         if (null !== $request->serverlessChargeType) {
             @$query['ServerlessChargeType'] = $request->serverlessChargeType;
         }
@@ -466,6 +478,14 @@ class Amqpopen extends OpenApiClient
 
         if (null !== $request->tracingStorageTime) {
             @$query['TracingStorageTime'] = $request->tracingStorageTime;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswitchIdsShrink) {
+            @$query['VswitchIds'] = $request->vswitchIdsShrink;
         }
 
         $req = new OpenApiRequest([

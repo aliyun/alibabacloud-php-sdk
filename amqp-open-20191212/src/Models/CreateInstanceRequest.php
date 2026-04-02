@@ -50,6 +50,11 @@ class CreateInstanceRequest extends Model
     public $kmsKeyId;
 
     /**
+     * @var string
+     */
+    public $listenerMode;
+
+    /**
      * @var int
      */
     public $maxConnections;
@@ -107,6 +112,11 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
     public $serverlessChargeType;
 
     /**
@@ -133,6 +143,16 @@ class CreateInstanceRequest extends Model
      * @var int
      */
     public $tracingStorageTime;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string[]
+     */
+    public $vswitchIds;
     protected $_name = [
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
@@ -142,6 +162,7 @@ class CreateInstanceRequest extends Model
         'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
         'kmsKeyId' => 'KmsKeyId',
+        'listenerMode' => 'ListenerMode',
         'maxConnections' => 'MaxConnections',
         'maxEipTps' => 'MaxEipTps',
         'maxPrivateTps' => 'MaxPrivateTps',
@@ -153,18 +174,24 @@ class CreateInstanceRequest extends Model
         'renewStatus' => 'RenewStatus',
         'renewalDurationUnit' => 'RenewalDurationUnit',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
         'serverlessChargeType' => 'ServerlessChargeType',
         'storageSize' => 'StorageSize',
         'supportEip' => 'SupportEip',
         'supportTracing' => 'SupportTracing',
         'tags' => 'Tags',
         'tracingStorageTime' => 'TracingStorageTime',
+        'vpcId' => 'VpcId',
+        'vswitchIds' => 'VswitchIds',
     ];
 
     public function validate()
     {
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->vswitchIds)) {
+            Model::validateArray($this->vswitchIds);
         }
         parent::validate();
     }
@@ -202,6 +229,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->listenerMode) {
+            $res['ListenerMode'] = $this->listenerMode;
         }
 
         if (null !== $this->maxConnections) {
@@ -248,6 +279,10 @@ class CreateInstanceRequest extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
         if (null !== $this->serverlessChargeType) {
             $res['ServerlessChargeType'] = $this->serverlessChargeType;
         }
@@ -277,6 +312,21 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->tracingStorageTime) {
             $res['TracingStorageTime'] = $this->tracingStorageTime;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->vswitchIds) {
+            if (\is_array($this->vswitchIds)) {
+                $res['VswitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vswitchIds as $item1) {
+                    $res['VswitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -320,6 +370,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
+        if (isset($map['ListenerMode'])) {
+            $model->listenerMode = $map['ListenerMode'];
         }
 
         if (isset($map['MaxConnections'])) {
@@ -366,6 +420,10 @@ class CreateInstanceRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
         if (isset($map['ServerlessChargeType'])) {
             $model->serverlessChargeType = $map['ServerlessChargeType'];
         }
@@ -395,6 +453,21 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['TracingStorageTime'])) {
             $model->tracingStorageTime = $map['TracingStorageTime'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VswitchIds'])) {
+            if (!empty($map['VswitchIds'])) {
+                $model->vswitchIds = [];
+                $n1 = 0;
+                foreach ($map['VswitchIds'] as $item1) {
+                    $model->vswitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
