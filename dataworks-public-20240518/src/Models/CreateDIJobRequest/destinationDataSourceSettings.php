@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\destinationDataSourceSettings\dataSourceProperties;
 
 class destinationDataSourceSettings extends Model
 {
@@ -12,12 +13,21 @@ class destinationDataSourceSettings extends Model
      * @var string
      */
     public $dataSourceName;
+
+    /**
+     * @var dataSourceProperties
+     */
+    public $dataSourceProperties;
     protected $_name = [
         'dataSourceName' => 'DataSourceName',
+        'dataSourceProperties' => 'DataSourceProperties',
     ];
 
     public function validate()
     {
+        if (null !== $this->dataSourceProperties) {
+            $this->dataSourceProperties->validate();
+        }
         parent::validate();
     }
 
@@ -26,6 +36,10 @@ class destinationDataSourceSettings extends Model
         $res = [];
         if (null !== $this->dataSourceName) {
             $res['DataSourceName'] = $this->dataSourceName;
+        }
+
+        if (null !== $this->dataSourceProperties) {
+            $res['DataSourceProperties'] = null !== $this->dataSourceProperties ? $this->dataSourceProperties->toArray($noStream) : $this->dataSourceProperties;
         }
 
         return $res;
@@ -41,6 +55,10 @@ class destinationDataSourceSettings extends Model
         $model = new self();
         if (isset($map['DataSourceName'])) {
             $model->dataSourceName = $map['DataSourceName'];
+        }
+
+        if (isset($map['DataSourceProperties'])) {
+            $model->dataSourceProperties = dataSourceProperties::fromMap($map['DataSourceProperties']);
         }
 
         return $model;
