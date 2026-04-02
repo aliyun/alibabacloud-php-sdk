@@ -1,3 +1,9 @@
+2026-04-02 Version: 13.8.0
+- Support API ModifyDBInstance.
+- Update API DescribeDBProxyEndpoint: add response parameters Body.DBProxyEndpointCostThresholdForDuckdb.
+- Update API ModifyDBProxyEndpoint: add request parameters DbEndpointCostThresholdForDuckdb.
+
+
 2026-03-23 Version: 13.7.1
 - Update API DescribeBackupPolicy: add response parameters Body.AdvancedBackupPolicyEnabled.
 - Update API DescribeBackupPolicy: add response parameters Body.AdvancedDataPolicies.

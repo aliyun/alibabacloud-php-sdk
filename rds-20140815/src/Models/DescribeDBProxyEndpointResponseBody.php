@@ -33,6 +33,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
     /**
      * @var string
      */
+    public $DBProxyEndpointCostThresholdForDuckdb;
+
+    /**
+     * @var string
+     */
     public $DBProxyEndpointId;
 
     /**
@@ -109,6 +114,7 @@ class DescribeDBProxyEndpointResponseBody extends Model
         'DBProxyConnectString' => 'DBProxyConnectString',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
         'DBProxyConnectStringPort' => 'DBProxyConnectStringPort',
+        'DBProxyEndpointCostThresholdForDuckdb' => 'DBProxyEndpointCostThresholdForDuckdb',
         'DBProxyEndpointId' => 'DBProxyEndpointId',
         'DBProxyEndpointMinSlaveCount' => 'DBProxyEndpointMinSlaveCount',
         'DBProxyEngineType' => 'DBProxyEngineType',
@@ -154,6 +160,10 @@ class DescribeDBProxyEndpointResponseBody extends Model
 
         if (null !== $this->DBProxyConnectStringPort) {
             $res['DBProxyConnectStringPort'] = $this->DBProxyConnectStringPort;
+        }
+
+        if (null !== $this->DBProxyEndpointCostThresholdForDuckdb) {
+            $res['DBProxyEndpointCostThresholdForDuckdb'] = $this->DBProxyEndpointCostThresholdForDuckdb;
         }
 
         if (null !== $this->DBProxyEndpointId) {
@@ -241,6 +251,10 @@ class DescribeDBProxyEndpointResponseBody extends Model
 
         if (isset($map['DBProxyConnectStringPort'])) {
             $model->DBProxyConnectStringPort = $map['DBProxyConnectStringPort'];
+        }
+
+        if (isset($map['DBProxyEndpointCostThresholdForDuckdb'])) {
+            $model->DBProxyEndpointCostThresholdForDuckdb = $map['DBProxyEndpointCostThresholdForDuckdb'];
         }
 
         if (isset($map['DBProxyEndpointId'])) {

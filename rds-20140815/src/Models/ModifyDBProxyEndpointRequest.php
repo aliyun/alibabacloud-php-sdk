@@ -41,6 +41,11 @@ class ModifyDBProxyEndpointRequest extends Model
     /**
      * @var string
      */
+    public $dbEndpointCostThresholdForDuckdb;
+
+    /**
+     * @var string
+     */
     public $dbEndpointMinSlaveCount;
 
     /**
@@ -119,6 +124,7 @@ class ModifyDBProxyEndpointRequest extends Model
         'DBProxyEndpointId' => 'DBProxyEndpointId',
         'DBProxyEngineType' => 'DBProxyEngineType',
         'dbEndpointAliases' => 'DbEndpointAliases',
+        'dbEndpointCostThresholdForDuckdb' => 'DbEndpointCostThresholdForDuckdb',
         'dbEndpointMinSlaveCount' => 'DbEndpointMinSlaveCount',
         'dbEndpointOperator' => 'DbEndpointOperator',
         'dbEndpointReadWriteMode' => 'DbEndpointReadWriteMode',
@@ -166,6 +172,10 @@ class ModifyDBProxyEndpointRequest extends Model
 
         if (null !== $this->dbEndpointAliases) {
             $res['DbEndpointAliases'] = $this->dbEndpointAliases;
+        }
+
+        if (null !== $this->dbEndpointCostThresholdForDuckdb) {
+            $res['DbEndpointCostThresholdForDuckdb'] = $this->dbEndpointCostThresholdForDuckdb;
         }
 
         if (null !== $this->dbEndpointMinSlaveCount) {
@@ -261,6 +271,10 @@ class ModifyDBProxyEndpointRequest extends Model
 
         if (isset($map['DbEndpointAliases'])) {
             $model->dbEndpointAliases = $map['DbEndpointAliases'];
+        }
+
+        if (isset($map['DbEndpointCostThresholdForDuckdb'])) {
+            $model->dbEndpointCostThresholdForDuckdb = $map['DbEndpointCostThresholdForDuckdb'];
         }
 
         if (isset($map['DbEndpointMinSlaveCount'])) {
