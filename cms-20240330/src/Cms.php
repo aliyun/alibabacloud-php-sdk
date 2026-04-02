@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateChatResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDatasetRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDeliveryTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDeliveryTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeRequest;
@@ -55,6 +57,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDeliveryTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeSkillResponse;
@@ -67,6 +70,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteThreadResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
@@ -77,6 +81,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonReleaseResponse;
@@ -91,6 +97,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDeliveryTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeSkillRequest;
@@ -138,6 +145,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksShrinkRequest;
@@ -206,6 +215,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDatasetRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDeliveryTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDeliveryTaskResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDigitalEmployeeRequest;
@@ -1041,6 +1052,77 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 创建数据集.
+     *
+     * @param request - CreateDatasetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param string               $workspace
+     * @param CreateDatasetRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDatasetWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->datasetName) {
+            @$body['datasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->schema) {
+            @$body['schema'] = $request->schema;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataset',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/dataset',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据集.
+     *
+     * @param request - CreateDatasetRequest
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param string               $workspace
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDataset($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDatasetWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -2452,6 +2534,59 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除数据集.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param string         $workspace
+     * @param string         $datasetName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDatasetWithOptions($workspace, $datasetName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataset',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/dataset/' . Url::percentEncode($datasetName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据集.
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param string $workspace
+     * @param string $datasetName
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDataset($workspace, $datasetName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDatasetWithOptions($workspace, $datasetName, $headers, $runtime);
+    }
+
+    /**
      * 删除数据投递任务
      *
      * @param headers - map
@@ -3020,6 +3155,57 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除 Prometheus 虚拟实例.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePrometheusVirtualInstanceResponse
+     *
+     * @param string         $prometheusInstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeletePrometheusVirtualInstanceResponse
+     */
+    public function deletePrometheusVirtualInstanceWithOptions($prometheusInstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrometheusVirtualInstance',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/virtual-instances/' . Url::percentEncode($prometheusInstanceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePrometheusVirtualInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 Prometheus 虚拟实例.
+     *
+     * @returns DeletePrometheusVirtualInstanceResponse
+     *
+     * @param string $prometheusInstanceId
+     *
+     * @return DeletePrometheusVirtualInstanceResponse
+     */
+    public function deletePrometheusVirtualInstance($prometheusInstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePrometheusVirtualInstanceWithOptions($prometheusInstanceId, $headers, $runtime);
+    }
+
+    /**
      * Delete Service.
      *
      * @param headers - map
@@ -3432,6 +3618,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 执行查询语句.
+     *
+     * @param request - ExecuteQueryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteQueryResponse
+     *
+     * @param string              $workspace
+     * @param string              $datasetName
+     * @param ExecuteQueryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecuteQueryResponse
+     */
+    public function executeQueryWithOptions($workspace, $datasetName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteQuery',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/dataset/' . Url::percentEncode($datasetName) . '/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 执行查询语句.
+     *
+     * @param request - ExecuteQueryRequest
+     *
+     * @returns ExecuteQueryResponse
+     *
+     * @param string              $workspace
+     * @param string              $datasetName
+     * @param ExecuteQueryRequest $request
+     *
+     * @return ExecuteQueryResponse
+     */
+    public function executeQuery($workspace, $datasetName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeQueryWithOptions($workspace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
@@ -3980,6 +4235,59 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getCmsServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询数据集.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param string         $workspace
+     * @param string         $datasetName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDatasetWithOptions($workspace, $datasetName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDataset',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/dataset/' . Url::percentEncode($datasetName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据集.
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param string $workspace
+     * @param string $datasetName
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDataset($workspace, $datasetName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatasetWithOptions($workspace, $datasetName, $headers, $runtime);
     }
 
     /**
@@ -5789,6 +6097,77 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listBizTracesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询数据集列表.
+     *
+     * @param request - ListDatasetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param string              $workspace
+     * @param ListDatasetsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasetsWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->datasetName) {
+            @$query['datasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasets',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/dataset',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据集列表.
+     *
+     * @param request - ListDatasetsRequest
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param string              $workspace
+     * @param ListDatasetsRequest $request
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasets($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatasetsWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -8225,6 +8604,71 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新数据集.
+     *
+     * @param request - UpdateDatasetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param string               $workspace
+     * @param string               $datasetName
+     * @param UpdateDatasetRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDatasetWithOptions($workspace, $datasetName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataset',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/dataset/' . Url::percentEncode($datasetName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据集.
+     *
+     * @param request - UpdateDatasetRequest
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param string               $workspace
+     * @param string               $datasetName
+     * @param UpdateDatasetRequest $request
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDataset($workspace, $datasetName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDatasetWithOptions($workspace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
