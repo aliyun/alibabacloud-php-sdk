@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class endpointConfigurations extends Model
 {
     /**
+     * @var string[]
+     */
+    public $apiKeys;
+
+    /**
      * @var bool
      */
     public $enableClientIPPreservation;
@@ -22,6 +27,11 @@ class endpointConfigurations extends Model
      * @var string
      */
     public $endpoint;
+
+    /**
+     * @var string
+     */
+    public $provider;
 
     /**
      * @var string
@@ -48,9 +58,11 @@ class endpointConfigurations extends Model
      */
     public $weight;
     protected $_name = [
+        'apiKeys' => 'ApiKeys',
         'enableClientIPPreservation' => 'EnableClientIPPreservation',
         'enableProxyProtocol' => 'EnableProxyProtocol',
         'endpoint' => 'Endpoint',
+        'provider' => 'Provider',
         'subAddress' => 'SubAddress',
         'type' => 'Type',
         'vSwitchIds' => 'VSwitchIds',
@@ -60,6 +72,9 @@ class endpointConfigurations extends Model
 
     public function validate()
     {
+        if (\is_array($this->apiKeys)) {
+            Model::validateArray($this->apiKeys);
+        }
         if (\is_array($this->vSwitchIds)) {
             Model::validateArray($this->vSwitchIds);
         }
@@ -69,6 +84,17 @@ class endpointConfigurations extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKeys) {
+            if (\is_array($this->apiKeys)) {
+                $res['ApiKeys'] = [];
+                $n1 = 0;
+                foreach ($this->apiKeys as $item1) {
+                    $res['ApiKeys'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->enableClientIPPreservation) {
             $res['EnableClientIPPreservation'] = $this->enableClientIPPreservation;
         }
@@ -79,6 +105,10 @@ class endpointConfigurations extends Model
 
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
+        }
+
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
         }
 
         if (null !== $this->subAddress) {
@@ -119,6 +149,17 @@ class endpointConfigurations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiKeys'])) {
+            if (!empty($map['ApiKeys'])) {
+                $model->apiKeys = [];
+                $n1 = 0;
+                foreach ($map['ApiKeys'] as $item1) {
+                    $model->apiKeys[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['EnableClientIPPreservation'])) {
             $model->enableClientIPPreservation = $map['EnableClientIPPreservation'];
         }
@@ -129,6 +170,10 @@ class endpointConfigurations extends Model
 
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
+        }
+
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
         }
 
         if (isset($map['SubAddress'])) {
