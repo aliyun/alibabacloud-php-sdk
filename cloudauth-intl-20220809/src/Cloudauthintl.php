@@ -55,12 +55,21 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DownloadVerifyRecordIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DownloadVerifyRecordIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCrossCompareIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCrossCompareIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlRequest;
@@ -2061,6 +2070,201 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * 卡证ocr纯服务端V2.
+     *
+     * @param Request - DocOcrV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocOcrV2Response
+     *
+     * @param DocOcrV2Request $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DocOcrV2Response
+     */
+    public function docOcrV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cardSide) {
+            @$query['CardSide'] = $request->cardSide;
+        }
+
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->idFaceQuality) {
+            @$query['IdFaceQuality'] = $request->idFaceQuality;
+        }
+
+        if (null !== $request->idOcrPictureUrl) {
+            @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+
+        if (null !== $request->idThreshold) {
+            @$query['IdThreshold'] = $request->idThreshold;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->ocr) {
+            @$query['Ocr'] = $request->ocr;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->spoof) {
+            @$query['Spoof'] = $request->spoof;
+        }
+
+        $body = [];
+        if (null !== $request->idOcrPictureBase64) {
+            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+
+        if (null !== $request->idOcrPictureFile) {
+            @$body['IdOcrPictureFile'] = $request->idOcrPictureFile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocOcrV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocOcrV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 卡证ocr纯服务端V2.
+     *
+     * @param Request - DocOcrV2Request
+     *
+     * @returns DocOcrV2Response
+     *
+     * @param DocOcrV2Request $request
+     *
+     * @return DocOcrV2Response
+     */
+    public function docOcrV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->docOcrV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DocOcrV2AdvanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DocOcrV2Response
+     */
+    public function docOcrV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $docOcrV2Req = new DocOcrV2Request([]);
+        Utils::convert($request, $docOcrV2Req);
+        if (null !== $request->idOcrPictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->idOcrPictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $docOcrV2Req->idOcrPictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->docOcrV2WithOptions($docOcrV2Req, $runtime);
+    }
+
+    /**
      * Console Export Records.
      *
      * @param Request - DownloadVerifyRecordIntlRequest
@@ -2241,6 +2445,236 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * ekyc纯服务端接口V2.
+     *
+     * @param Request - EkycVerifyV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EkycVerifyV2Response
+     *
+     * @param EkycVerifyV2Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EkycVerifyV2Response
+     */
+    public function ekycVerifyV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorize) {
+            @$query['Authorize'] = $request->authorize;
+        }
+
+        if (null !== $request->crop) {
+            @$query['Crop'] = $request->crop;
+        }
+
+        if (null !== $request->docName) {
+            @$query['DocName'] = $request->docName;
+        }
+
+        if (null !== $request->docNo) {
+            @$query['DocNo'] = $request->docNo;
+        }
+
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->facePictureUrl) {
+            @$query['FacePictureUrl'] = $request->facePictureUrl;
+        }
+
+        if (null !== $request->idOcrPictureUrl) {
+            @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+
+        if (null !== $request->idThreshold) {
+            @$query['IdThreshold'] = $request->idThreshold;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $body = [];
+        if (null !== $request->facePictureBase64) {
+            @$body['FacePictureBase64'] = $request->facePictureBase64;
+        }
+
+        if (null !== $request->facePictureFile) {
+            @$body['FacePictureFile'] = $request->facePictureFile;
+        }
+
+        if (null !== $request->idOcrPictureBase64) {
+            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+
+        if (null !== $request->idOcrPictureFile) {
+            @$body['IdOcrPictureFile'] = $request->idOcrPictureFile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EkycVerifyV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EkycVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ekyc纯服务端接口V2.
+     *
+     * @param Request - EkycVerifyV2Request
+     *
+     * @returns EkycVerifyV2Response
+     *
+     * @param EkycVerifyV2Request $request
+     *
+     * @return EkycVerifyV2Response
+     */
+    public function ekycVerifyV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ekycVerifyV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EkycVerifyV2AdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return EkycVerifyV2Response
+     */
+    public function ekycVerifyV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $ekycVerifyV2Req = new EkycVerifyV2Request([]);
+        Utils::convert($request, $ekycVerifyV2Req);
+        if (null !== $request->facePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->facePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $ekycVerifyV2Req->facePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        if (null !== $request->idOcrPictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->idOcrPictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $ekycVerifyV2Req->idOcrPictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->ekycVerifyV2WithOptions($ekycVerifyV2Req, $runtime);
+    }
+
+    /**
      * This topic describes how to integrate FaceCompare using only the server-side API.
      *
      * @param Request - FaceCompareRequest
@@ -2317,6 +2751,208 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->faceCompareWithOptions($request, $runtime);
+    }
+
+    /**
+     * 人脸比对V2.
+     *
+     * @param Request - FaceCompareV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FaceCompareV2Response
+     *
+     * @param FaceCompareV2Request $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return FaceCompareV2Response
+     */
+    public function faceCompareV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->facePictureQualityCheck) {
+            @$query['FacePictureQualityCheck'] = $request->facePictureQualityCheck;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->sourceFacePictureUrl) {
+            @$query['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
+        }
+
+        if (null !== $request->targetFacePictureUrl) {
+            @$query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
+        }
+
+        $body = [];
+        if (null !== $request->sourceFacePicture) {
+            @$body['SourceFacePicture'] = $request->sourceFacePicture;
+        }
+
+        if (null !== $request->sourceFacePictureFile) {
+            @$body['SourceFacePictureFile'] = $request->sourceFacePictureFile;
+        }
+
+        if (null !== $request->targetFacePicture) {
+            @$body['TargetFacePicture'] = $request->targetFacePicture;
+        }
+
+        if (null !== $request->targetFacePictureFile) {
+            @$body['TargetFacePictureFile'] = $request->targetFacePictureFile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FaceCompareV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FaceCompareV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 人脸比对V2.
+     *
+     * @param Request - FaceCompareV2Request
+     *
+     * @returns FaceCompareV2Response
+     *
+     * @param FaceCompareV2Request $request
+     *
+     * @return FaceCompareV2Response
+     */
+    public function faceCompareV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->faceCompareV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FaceCompareV2AdvanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FaceCompareV2Response
+     */
+    public function faceCompareV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $faceCompareV2Req = new FaceCompareV2Request([]);
+        Utils::convert($request, $faceCompareV2Req);
+        if (null !== $request->sourceFacePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->sourceFacePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $faceCompareV2Req->sourceFacePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        if (null !== $request->targetFacePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->targetFacePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $faceCompareV2Req->targetFacePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->faceCompareV2WithOptions($faceCompareV2Req, $runtime);
     }
 
     /**
