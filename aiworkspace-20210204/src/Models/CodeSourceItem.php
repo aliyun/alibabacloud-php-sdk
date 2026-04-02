@@ -14,6 +14,11 @@ class CodeSourceItem extends Model
     public $accessibility;
 
     /**
+     * @var int
+     */
+    public $cloneType;
+
+    /**
      * @var string
      */
     public $codeBranch;
@@ -79,6 +84,7 @@ class CodeSourceItem extends Model
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'cloneType' => 'CloneType',
         'codeBranch' => 'CodeBranch',
         'codeCommit' => 'CodeCommit',
         'codeRepo' => 'CodeRepo',
@@ -104,6 +110,10 @@ class CodeSourceItem extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->cloneType) {
+            $res['CloneType'] = $this->cloneType;
         }
 
         if (null !== $this->codeBranch) {
@@ -171,6 +181,10 @@ class CodeSourceItem extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['CloneType'])) {
+            $model->cloneType = $map['CloneType'];
         }
 
         if (isset($map['CodeBranch'])) {

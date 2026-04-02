@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateCodeSourceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $cloneType;
+
+    /**
      * @var string
      */
     public $codeBranch;
@@ -48,6 +53,7 @@ class UpdateCodeSourceRequest extends Model
      */
     public $mountPath;
     protected $_name = [
+        'cloneType' => 'CloneType',
         'codeBranch' => 'CodeBranch',
         'codeCommit' => 'CodeCommit',
         'codeRepo' => 'CodeRepo',
@@ -66,6 +72,10 @@ class UpdateCodeSourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloneType) {
+            $res['CloneType'] = $this->cloneType;
+        }
+
         if (null !== $this->codeBranch) {
             $res['CodeBranch'] = $this->codeBranch;
         }
@@ -109,6 +119,10 @@ class UpdateCodeSourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloneType'])) {
+            $model->cloneType = $map['CloneType'];
+        }
+
         if (isset($map['CodeBranch'])) {
             $model->codeBranch = $map['CodeBranch'];
         }

@@ -677,6 +677,10 @@ class AIWorkSpace extends OpenApiClient
             @$body['Accessibility'] = $request->accessibility;
         }
 
+        if (null !== $request->cloneType) {
+            @$body['CloneType'] = $request->cloneType;
+        }
+
         if (null !== $request->codeBranch) {
             @$body['CodeBranch'] = $request->codeBranch;
         }
@@ -7660,6 +7664,10 @@ class AIWorkSpace extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->cloneType) {
+            @$body['CloneType'] = $request->cloneType;
+        }
+
         if (null !== $request->codeBranch) {
             @$body['CodeBranch'] = $request->codeBranch;
         }
