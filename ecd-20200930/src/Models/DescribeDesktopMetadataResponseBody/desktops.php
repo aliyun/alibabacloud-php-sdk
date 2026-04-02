@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class desktops extends Model
 {
     /**
+     * @var string[]
+     */
+    public $agentProviderList;
+
+    /**
      * @var string
      */
     public $chargeType;
@@ -98,6 +103,7 @@ class desktops extends Model
      */
     public $startTime;
     protected $_name = [
+        'agentProviderList' => 'AgentProviderList',
         'chargeType' => 'ChargeType',
         'creationTime' => 'CreationTime',
         'desktopGroupId' => 'DesktopGroupId',
@@ -120,6 +126,9 @@ class desktops extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentProviderList)) {
+            Model::validateArray($this->agentProviderList);
+        }
         if (\is_array($this->managementFlags)) {
             Model::validateArray($this->managementFlags);
         }
@@ -129,6 +138,17 @@ class desktops extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentProviderList) {
+            if (\is_array($this->agentProviderList)) {
+                $res['AgentProviderList'] = [];
+                $n1 = 0;
+                foreach ($this->agentProviderList as $item1) {
+                    $res['AgentProviderList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -219,6 +239,17 @@ class desktops extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentProviderList'])) {
+            if (!empty($map['AgentProviderList'])) {
+                $model->agentProviderList = [];
+                $n1 = 0;
+                foreach ($map['AgentProviderList'] as $item1) {
+                    $model->agentProviderList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }

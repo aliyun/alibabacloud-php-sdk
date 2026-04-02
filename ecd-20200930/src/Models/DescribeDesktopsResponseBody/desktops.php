@@ -21,6 +21,11 @@ class desktops extends Model
     public $accountType;
 
     /**
+     * @var string[]
+     */
+    public $agentProviderList;
+
+    /**
      * @var int
      */
     public $bindAmount;
@@ -366,6 +371,7 @@ class desktops extends Model
     public $zoneType;
     protected $_name = [
         'accountType' => 'AccountType',
+        'agentProviderList' => 'AgentProviderList',
         'bindAmount' => 'BindAmount',
         'bundleId' => 'BundleId',
         'bundleName' => 'BundleName',
@@ -439,6 +445,9 @@ class desktops extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentProviderList)) {
+            Model::validateArray($this->agentProviderList);
+        }
         if (\is_array($this->desktopDurationList)) {
             Model::validateArray($this->desktopDurationList);
         }
@@ -480,6 +489,17 @@ class desktops extends Model
         $res = [];
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
+        }
+
+        if (null !== $this->agentProviderList) {
+            if (\is_array($this->agentProviderList)) {
+                $res['AgentProviderList'] = [];
+                $n1 = 0;
+                foreach ($this->agentProviderList as $item1) {
+                    $res['AgentProviderList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->bindAmount) {
@@ -834,6 +854,17 @@ class desktops extends Model
         $model = new self();
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
+        }
+
+        if (isset($map['AgentProviderList'])) {
+            if (!empty($map['AgentProviderList'])) {
+                $model->agentProviderList = [];
+                $n1 = 0;
+                foreach ($map['AgentProviderList'] as $item1) {
+                    $model->agentProviderList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['BindAmount'])) {
