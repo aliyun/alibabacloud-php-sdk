@@ -18,6 +18,10 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateSanityCheckTaskRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateSanityCheckTaskResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateTempFileRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateTempFileResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateTempFileTaskRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateTempFileTaskResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceLabelsResponse;
@@ -26,6 +30,10 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceShutdownTimerResponse
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceSnapshotResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstancesRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstancesResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteTempFileResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteTempFileTaskResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteTempFileTasksRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteTempFileTasksResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceEventsResponse;
@@ -43,6 +51,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetSanityCheckTaskRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetSanityCheckTaskResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTempFileResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTempFileTaskResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserCommandRequest;
@@ -59,6 +69,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceStatisticsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceStatisticsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListSystemLogsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListSystemLogsResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListTempFilesRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListTempFilesResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceResponse;
@@ -68,6 +80,10 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceLabelsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateInstanceResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateTempFileRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateTempFileResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateTempFileTaskRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\UpdateTempFileTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -634,6 +650,144 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * 创建临时文件.
+     *
+     * @param request - CreateTempFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTempFileResponse
+     *
+     * @param CreateTempFileRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTempFileResponse
+     */
+    public function createTempFileWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->capacity) {
+            @$body['Capacity'] = $request->capacity;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->prefix) {
+            @$body['Prefix'] = $request->prefix;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTempFile',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiles',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTempFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建临时文件.
+     *
+     * @param request - CreateTempFileRequest
+     *
+     * @returns CreateTempFileResponse
+     *
+     * @param CreateTempFileRequest $request
+     *
+     * @return CreateTempFileResponse
+     */
+    public function createTempFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTempFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建临时文件任务
+     *
+     * @param request - CreateTempFileTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTempFileTaskResponse
+     *
+     * @param CreateTempFileTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateTempFileTaskResponse
+     */
+    public function createTempFileTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTempFileTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiletasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTempFileTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建临时文件任务
+     *
+     * @param request - CreateTempFileTaskRequest
+     *
+     * @returns CreateTempFileTaskResponse
+     *
+     * @param CreateTempFileTaskRequest $request
+     *
+     * @return CreateTempFileTaskResponse
+     */
+    public function createTempFileTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTempFileTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Deletes the automatic stop policy of an instance.
      *
      * @param headers - map
@@ -961,6 +1115,169 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->deleteInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除临时文件.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTempFileResponse
+     *
+     * @param string         $TempFileId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteTempFileResponse
+     */
+    public function deleteTempFileWithOptions($TempFileId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTempFile',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiles/' . Url::percentEncode($TempFileId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTempFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除临时文件.
+     *
+     * @returns DeleteTempFileResponse
+     *
+     * @param string $TempFileId
+     *
+     * @return DeleteTempFileResponse
+     */
+    public function deleteTempFile($TempFileId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTempFileWithOptions($TempFileId, $headers, $runtime);
+    }
+
+    /**
+     * 删除临时文件.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTempFileTaskResponse
+     *
+     * @param string         $TempFileTaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteTempFileTaskResponse
+     */
+    public function deleteTempFileTaskWithOptions($TempFileTaskId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTempFileTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiletasks/' . Url::percentEncode($TempFileTaskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTempFileTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除临时文件.
+     *
+     * @returns DeleteTempFileTaskResponse
+     *
+     * @param string $TempFileTaskId
+     *
+     * @return DeleteTempFileTaskResponse
+     */
+    public function deleteTempFileTask($TempFileTaskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTempFileTaskWithOptions($TempFileTaskId, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除临时文件.
+     *
+     * @param request - DeleteTempFileTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTempFileTasksResponse
+     *
+     * @param DeleteTempFileTasksRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteTempFileTasksResponse
+     */
+    public function deleteTempFileTasksWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->tempFileTaskIds) {
+            @$body['TempFileTaskIds'] = $request->tempFileTaskIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTempFileTasks',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/batch/tempfiletasks/delete',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTempFileTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除临时文件.
+     *
+     * @param request - DeleteTempFileTasksRequest
+     *
+     * @returns DeleteTempFileTasksResponse
+     *
+     * @param DeleteTempFileTasksRequest $request
+     *
+     * @return DeleteTempFileTasksResponse
+     */
+    public function deleteTempFileTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteTempFileTasksWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1658,6 +1975,108 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * 获取临时文件详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTempFileResponse
+     *
+     * @param string         $TempFileId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTempFileResponse
+     */
+    public function getTempFileWithOptions($TempFileId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTempFile',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiles/' . Url::percentEncode($TempFileId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTempFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取临时文件详情.
+     *
+     * @returns GetTempFileResponse
+     *
+     * @param string $TempFileId
+     *
+     * @return GetTempFileResponse
+     */
+    public function getTempFile($TempFileId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTempFileWithOptions($TempFileId, $headers, $runtime);
+    }
+
+    /**
+     * 获取临时文件任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTempFileTaskResponse
+     *
+     * @param string         $TempFileTaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTempFileTaskResponse
+     */
+    public function getTempFileTaskWithOptions($TempFileTaskId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTempFileTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiletasks/' . Url::percentEncode($TempFileTaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTempFileTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取临时文件任务
+     *
+     * @returns GetTempFileTaskResponse
+     *
+     * @param string $TempFileTaskId
+     *
+     * @return GetTempFileTaskResponse
+     */
+    public function getTempFileTask($TempFileTaskId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTempFileTaskWithOptions($TempFileTaskId, $headers, $runtime);
+    }
+
+    /**
      * Obtains the temporary authentication information of a DSW instance.
      *
      * @param request - GetTokenRequest
@@ -2347,6 +2766,95 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * 获取临时文件列表.
+     *
+     * @param request - ListTempFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTempFilesResponse
+     *
+     * @param ListTempFilesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTempFilesResponse
+     */
+    public function listTempFilesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->delimiter) {
+            @$query['Delimiter'] = $request->delimiter;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->prefix) {
+            @$query['Prefix'] = $request->prefix;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTempFiles',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiles',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTempFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取临时文件列表.
+     *
+     * @param request - ListTempFilesRequest
+     *
+     * @returns ListTempFilesResponse
+     *
+     * @param ListTempFilesRequest $request
+     *
+     * @return ListTempFilesResponse
+     */
+    public function listTempFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTempFilesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 启动实例.
      *
      * @param headers - map
@@ -2777,5 +3285,135 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceLabelsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新临时文件.
+     *
+     * @param request - UpdateTempFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTempFileResponse
+     *
+     * @param string                $TempFileId
+     * @param UpdateTempFileRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTempFileResponse
+     */
+    public function updateTempFileWithOptions($TempFileId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gmtExpiredTime) {
+            @$body['GmtExpiredTime'] = $request->gmtExpiredTime;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTempFile',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiles/' . Url::percentEncode($TempFileId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTempFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新临时文件.
+     *
+     * @param request - UpdateTempFileRequest
+     *
+     * @returns UpdateTempFileResponse
+     *
+     * @param string                $TempFileId
+     * @param UpdateTempFileRequest $request
+     *
+     * @return UpdateTempFileResponse
+     */
+    public function updateTempFile($TempFileId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTempFileWithOptions($TempFileId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新临时文件任务
+     *
+     * @param request - UpdateTempFileTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTempFileTaskResponse
+     *
+     * @param string                    $TempFileTaskId
+     * @param UpdateTempFileTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateTempFileTaskResponse
+     */
+    public function updateTempFileTaskWithOptions($TempFileTaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->gmtExpiredTime) {
+            @$body['GmtExpiredTime'] = $request->gmtExpiredTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTempFileTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tempfiletasks/' . Url::percentEncode($TempFileTaskId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTempFileTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新临时文件任务
+     *
+     * @param request - UpdateTempFileTaskRequest
+     *
+     * @returns UpdateTempFileTaskResponse
+     *
+     * @param string                    $TempFileTaskId
+     * @param UpdateTempFileTaskRequest $request
+     *
+     * @return UpdateTempFileTaskResponse
+     */
+    public function updateTempFileTask($TempFileTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTempFileTaskWithOptions($TempFileTaskId, $request, $headers, $runtime);
     }
 }
