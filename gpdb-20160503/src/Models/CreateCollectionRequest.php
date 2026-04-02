@@ -6,9 +6,15 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest\sparseVectorIndexConfig;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest\vectorIndexConfig;
 
 class CreateCollectionRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $algorithm;
+
     /**
      * @var string
      */
@@ -105,10 +111,16 @@ class CreateCollectionRequest extends Model
     public $supportSparse;
 
     /**
+     * @var vectorIndexConfig
+     */
+    public $vectorIndexConfig;
+
+    /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
+        'algorithm' => 'Algorithm',
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'dimension' => 'Dimension',
@@ -128,6 +140,7 @@ class CreateCollectionRequest extends Model
         'regionId' => 'RegionId',
         'sparseVectorIndexConfig' => 'SparseVectorIndexConfig',
         'supportSparse' => 'SupportSparse',
+        'vectorIndexConfig' => 'VectorIndexConfig',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -136,12 +149,19 @@ class CreateCollectionRequest extends Model
         if (null !== $this->sparseVectorIndexConfig) {
             $this->sparseVectorIndexConfig->validate();
         }
+        if (null !== $this->vectorIndexConfig) {
+            $this->vectorIndexConfig->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -218,6 +238,10 @@ class CreateCollectionRequest extends Model
             $res['SupportSparse'] = $this->supportSparse;
         }
 
+        if (null !== $this->vectorIndexConfig) {
+            $res['VectorIndexConfig'] = null !== $this->vectorIndexConfig ? $this->vectorIndexConfig->toArray($noStream) : $this->vectorIndexConfig;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -233,6 +257,10 @@ class CreateCollectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
@@ -307,6 +335,10 @@ class CreateCollectionRequest extends Model
 
         if (isset($map['SupportSparse'])) {
             $model->supportSparse = $map['SupportSparse'];
+        }
+
+        if (isset($map['VectorIndexConfig'])) {
+            $model->vectorIndexConfig = vectorIndexConfig::fromMap($map['VectorIndexConfig']);
         }
 
         if (isset($map['WorkspaceId'])) {

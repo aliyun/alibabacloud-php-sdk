@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequ
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequest\knowledgeParams\mergeMethodArgs;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequest\knowledgeParams\rerankModel;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequest\knowledgeParams\sourceCollection;
 
 class knowledgeParams extends Model
@@ -26,6 +27,11 @@ class knowledgeParams extends Model
     public $rerankFactor;
 
     /**
+     * @var rerankModel
+     */
+    public $rerankModel;
+
+    /**
      * @var sourceCollection[]
      */
     public $sourceCollection;
@@ -38,6 +44,7 @@ class knowledgeParams extends Model
         'mergeMethod' => 'MergeMethod',
         'mergeMethodArgs' => 'MergeMethodArgs',
         'rerankFactor' => 'RerankFactor',
+        'rerankModel' => 'RerankModel',
         'sourceCollection' => 'SourceCollection',
         'topK' => 'TopK',
     ];
@@ -46,6 +53,9 @@ class knowledgeParams extends Model
     {
         if (null !== $this->mergeMethodArgs) {
             $this->mergeMethodArgs->validate();
+        }
+        if (null !== $this->rerankModel) {
+            $this->rerankModel->validate();
         }
         if (\is_array($this->sourceCollection)) {
             Model::validateArray($this->sourceCollection);
@@ -66,6 +76,10 @@ class knowledgeParams extends Model
 
         if (null !== $this->rerankFactor) {
             $res['RerankFactor'] = $this->rerankFactor;
+        }
+
+        if (null !== $this->rerankModel) {
+            $res['RerankModel'] = null !== $this->rerankModel ? $this->rerankModel->toArray($noStream) : $this->rerankModel;
         }
 
         if (null !== $this->sourceCollection) {
@@ -104,6 +118,10 @@ class knowledgeParams extends Model
 
         if (isset($map['RerankFactor'])) {
             $model->rerankFactor = $map['RerankFactor'];
+        }
+
+        if (isset($map['RerankModel'])) {
+            $model->rerankModel = rerankModel::fromMap($map['RerankModel']);
         }
 
         if (isset($map['SourceCollection'])) {

@@ -11,6 +11,11 @@ class CreateDocumentCollectionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $algorithm;
+
+    /**
+     * @var string
+     */
     public $collection;
 
     /**
@@ -137,7 +142,13 @@ class CreateDocumentCollectionShrinkRequest extends Model
      * @var bool
      */
     public $supportSparse;
+
+    /**
+     * @var string
+     */
+    public $vectorIndexConfigShrink;
     protected $_name = [
+        'algorithm' => 'Algorithm',
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'dimension' => 'Dimension',
@@ -164,6 +175,7 @@ class CreateDocumentCollectionShrinkRequest extends Model
         'sparseRetrievalFields' => 'SparseRetrievalFields',
         'sparseVectorIndexConfigShrink' => 'SparseVectorIndexConfig',
         'supportSparse' => 'SupportSparse',
+        'vectorIndexConfigShrink' => 'VectorIndexConfig',
     ];
 
     public function validate()
@@ -174,6 +186,10 @@ class CreateDocumentCollectionShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -278,6 +294,10 @@ class CreateDocumentCollectionShrinkRequest extends Model
             $res['SupportSparse'] = $this->supportSparse;
         }
 
+        if (null !== $this->vectorIndexConfigShrink) {
+            $res['VectorIndexConfig'] = $this->vectorIndexConfigShrink;
+        }
+
         return $res;
     }
 
@@ -289,6 +309,10 @@ class CreateDocumentCollectionShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
@@ -391,6 +415,10 @@ class CreateDocumentCollectionShrinkRequest extends Model
 
         if (isset($map['SupportSparse'])) {
             $model->supportSparse = $map['SupportSparse'];
+        }
+
+        if (isset($map['VectorIndexConfig'])) {
+            $model->vectorIndexConfigShrink = $map['VectorIndexConfig'];
         }
 
         return $model;

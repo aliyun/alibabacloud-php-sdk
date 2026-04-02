@@ -11,6 +11,11 @@ class CreateCollectionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $algorithm;
+
+    /**
+     * @var string
+     */
     public $collection;
 
     /**
@@ -106,8 +111,14 @@ class CreateCollectionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vectorIndexConfigShrink;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
+        'algorithm' => 'Algorithm',
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'dimension' => 'Dimension',
@@ -127,6 +138,7 @@ class CreateCollectionShrinkRequest extends Model
         'regionId' => 'RegionId',
         'sparseVectorIndexConfigShrink' => 'SparseVectorIndexConfig',
         'supportSparse' => 'SupportSparse',
+        'vectorIndexConfigShrink' => 'VectorIndexConfig',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -138,6 +150,10 @@ class CreateCollectionShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -214,6 +230,10 @@ class CreateCollectionShrinkRequest extends Model
             $res['SupportSparse'] = $this->supportSparse;
         }
 
+        if (null !== $this->vectorIndexConfigShrink) {
+            $res['VectorIndexConfig'] = $this->vectorIndexConfigShrink;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -229,6 +249,10 @@ class CreateCollectionShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
@@ -303,6 +327,10 @@ class CreateCollectionShrinkRequest extends Model
 
         if (isset($map['SupportSparse'])) {
             $model->supportSparse = $map['SupportSparse'];
+        }
+
+        if (isset($map['VectorIndexConfig'])) {
+            $model->vectorIndexConfigShrink = $map['VectorIndexConfig'];
         }
 
         if (isset($map['WorkspaceId'])) {

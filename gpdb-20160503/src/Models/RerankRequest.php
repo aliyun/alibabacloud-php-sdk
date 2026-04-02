@@ -19,6 +19,11 @@ class RerankRequest extends Model
     public $documents;
 
     /**
+     * @var string
+     */
+    public $instruct;
+
+    /**
      * @var int
      */
     public $maxChunksPerDoc;
@@ -55,6 +60,7 @@ class RerankRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'documents' => 'Documents',
+        'instruct' => 'Instruct',
         'maxChunksPerDoc' => 'MaxChunksPerDoc',
         'model' => 'Model',
         'ownerId' => 'OwnerId',
@@ -88,6 +94,10 @@ class RerankRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->instruct) {
+            $res['Instruct'] = $this->instruct;
         }
 
         if (null !== $this->maxChunksPerDoc) {
@@ -142,6 +152,10 @@ class RerankRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Instruct'])) {
+            $model->instruct = $map['Instruct'];
         }
 
         if (isset($map['MaxChunksPerDoc'])) {

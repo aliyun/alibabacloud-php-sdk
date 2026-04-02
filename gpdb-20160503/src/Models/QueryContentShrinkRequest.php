@@ -119,6 +119,11 @@ class QueryContentShrinkRequest extends Model
     public $rerankFactor;
 
     /**
+     * @var string
+     */
+    public $rerankModelShrink;
+
+    /**
      * @var int
      */
     public $topK;
@@ -155,6 +160,7 @@ class QueryContentShrinkRequest extends Model
         'recallWindowShrink' => 'RecallWindow',
         'regionId' => 'RegionId',
         'rerankFactor' => 'RerankFactor',
+        'rerankModelShrink' => 'RerankModel',
         'topK' => 'TopK',
         'urlExpiration' => 'UrlExpiration',
         'useFullTextRetrieval' => 'UseFullTextRetrieval',
@@ -254,6 +260,10 @@ class QueryContentShrinkRequest extends Model
 
         if (null !== $this->rerankFactor) {
             $res['RerankFactor'] = $this->rerankFactor;
+        }
+
+        if (null !== $this->rerankModelShrink) {
+            $res['RerankModel'] = $this->rerankModelShrink;
         }
 
         if (null !== $this->topK) {
@@ -365,6 +375,10 @@ class QueryContentShrinkRequest extends Model
 
         if (isset($map['RerankFactor'])) {
             $model->rerankFactor = $map['RerankFactor'];
+        }
+
+        if (isset($map['RerankModel'])) {
+            $model->rerankModelShrink = $map['RerankModel'];
         }
 
         if (isset($map['TopK'])) {

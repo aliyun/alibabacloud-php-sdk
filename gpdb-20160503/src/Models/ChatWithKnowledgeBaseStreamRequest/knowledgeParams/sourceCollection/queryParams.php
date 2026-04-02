@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequ
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequest\knowledgeParams\sourceCollection\queryParams\graphSearchArgs;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ChatWithKnowledgeBaseStreamRequest\knowledgeParams\sourceCollection\queryParams\rerankModel;
 
 class queryParams extends Model
 {
@@ -50,6 +51,11 @@ class queryParams extends Model
     public $rerankFactor;
 
     /**
+     * @var rerankModel
+     */
+    public $rerankModel;
+
+    /**
      * @var int
      */
     public $topK;
@@ -67,6 +73,7 @@ class queryParams extends Model
         'metrics' => 'Metrics',
         'recallWindow' => 'RecallWindow',
         'rerankFactor' => 'RerankFactor',
+        'rerankModel' => 'RerankModel',
         'topK' => 'TopK',
         'useFullTextRetrieval' => 'UseFullTextRetrieval',
     ];
@@ -81,6 +88,9 @@ class queryParams extends Model
         }
         if (\is_array($this->recallWindow)) {
             Model::validateArray($this->recallWindow);
+        }
+        if (null !== $this->rerankModel) {
+            $this->rerankModel->validate();
         }
         parent::validate();
     }
@@ -130,6 +140,10 @@ class queryParams extends Model
 
         if (null !== $this->rerankFactor) {
             $res['RerankFactor'] = $this->rerankFactor;
+        }
+
+        if (null !== $this->rerankModel) {
+            $res['RerankModel'] = null !== $this->rerankModel ? $this->rerankModel->toArray($noStream) : $this->rerankModel;
         }
 
         if (null !== $this->topK) {
@@ -193,6 +207,10 @@ class queryParams extends Model
 
         if (isset($map['RerankFactor'])) {
             $model->rerankFactor = $map['RerankFactor'];
+        }
+
+        if (isset($map['RerankModel'])) {
+            $model->rerankModel = rerankModel::fromMap($map['RerankModel']);
         }
 
         if (isset($map['TopK'])) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentAdvanceRequest\graphSearchArgs;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentAdvanceRequest\rerankModel;
 use GuzzleHttp\Psr7\Stream;
 
 class QueryContentAdvanceRequest extends Model
@@ -121,6 +122,11 @@ class QueryContentAdvanceRequest extends Model
     public $rerankFactor;
 
     /**
+     * @var rerankModel
+     */
+    public $rerankModel;
+
+    /**
      * @var int
      */
     public $topK;
@@ -157,6 +163,7 @@ class QueryContentAdvanceRequest extends Model
         'recallWindow' => 'RecallWindow',
         'regionId' => 'RegionId',
         'rerankFactor' => 'RerankFactor',
+        'rerankModel' => 'RerankModel',
         'topK' => 'TopK',
         'urlExpiration' => 'UrlExpiration',
         'useFullTextRetrieval' => 'UseFullTextRetrieval',
@@ -172,6 +179,9 @@ class QueryContentAdvanceRequest extends Model
         }
         if (\is_array($this->recallWindow)) {
             Model::validateArray($this->recallWindow);
+        }
+        if (null !== $this->rerankModel) {
+            $this->rerankModel->validate();
         }
         parent::validate();
     }
@@ -277,6 +287,10 @@ class QueryContentAdvanceRequest extends Model
 
         if (null !== $this->rerankFactor) {
             $res['RerankFactor'] = $this->rerankFactor;
+        }
+
+        if (null !== $this->rerankModel) {
+            $res['RerankModel'] = null !== $this->rerankModel ? $this->rerankModel->toArray($noStream) : $this->rerankModel;
         }
 
         if (null !== $this->topK) {
@@ -400,6 +414,10 @@ class QueryContentAdvanceRequest extends Model
 
         if (isset($map['RerankFactor'])) {
             $model->rerankFactor = $map['RerankFactor'];
+        }
+
+        if (isset($map['RerankModel'])) {
+            $model->rerankModel = rerankModel::fromMap($map['RerankModel']);
         }
 
         if (isset($map['TopK'])) {

@@ -46,6 +46,11 @@ class QueryKnowledgeBasesContentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $rerankModelShrink;
+
+    /**
+     * @var string
+     */
     public $sourceCollectionShrink;
 
     /**
@@ -60,6 +65,7 @@ class QueryKnowledgeBasesContentShrinkRequest extends Model
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'rerankFactor' => 'RerankFactor',
+        'rerankModelShrink' => 'RerankModel',
         'sourceCollectionShrink' => 'SourceCollection',
         'topK' => 'TopK',
     ];
@@ -98,6 +104,10 @@ class QueryKnowledgeBasesContentShrinkRequest extends Model
 
         if (null !== $this->rerankFactor) {
             $res['RerankFactor'] = $this->rerankFactor;
+        }
+
+        if (null !== $this->rerankModelShrink) {
+            $res['RerankModel'] = $this->rerankModelShrink;
         }
 
         if (null !== $this->sourceCollectionShrink) {
@@ -145,6 +155,10 @@ class QueryKnowledgeBasesContentShrinkRequest extends Model
 
         if (isset($map['RerankFactor'])) {
             $model->rerankFactor = $map['RerankFactor'];
+        }
+
+        if (isset($map['RerankModel'])) {
+            $model->rerankModelShrink = $map['RerankModel'];
         }
 
         if (isset($map['SourceCollection'])) {

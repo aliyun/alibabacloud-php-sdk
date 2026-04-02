@@ -19,6 +19,11 @@ class RerankShrinkRequest extends Model
     public $documentsShrink;
 
     /**
+     * @var string
+     */
+    public $instruct;
+
+    /**
      * @var int
      */
     public $maxChunksPerDoc;
@@ -55,6 +60,7 @@ class RerankShrinkRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'documentsShrink' => 'Documents',
+        'instruct' => 'Instruct',
         'maxChunksPerDoc' => 'MaxChunksPerDoc',
         'model' => 'Model',
         'ownerId' => 'OwnerId',
@@ -78,6 +84,10 @@ class RerankShrinkRequest extends Model
 
         if (null !== $this->documentsShrink) {
             $res['Documents'] = $this->documentsShrink;
+        }
+
+        if (null !== $this->instruct) {
+            $res['Instruct'] = $this->instruct;
         }
 
         if (null !== $this->maxChunksPerDoc) {
@@ -125,6 +135,10 @@ class RerankShrinkRequest extends Model
 
         if (isset($map['Documents'])) {
             $model->documentsShrink = $map['Documents'];
+        }
+
+        if (isset($map['Instruct'])) {
+            $model->instruct = $map['Instruct'];
         }
 
         if (isset($map['MaxChunksPerDoc'])) {

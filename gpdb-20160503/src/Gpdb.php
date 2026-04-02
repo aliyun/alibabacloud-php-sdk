@@ -108,6 +108,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteChunksRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteChunksResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteChunksShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionRequest;
@@ -349,6 +352,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListChunksRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListChunksResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabaseExtensionsRequest;
@@ -2078,7 +2083,15 @@ class Gpdb extends OpenApiClient
             $request->sparseVectorIndexConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sparseVectorIndexConfig, 'SparseVectorIndexConfig', 'json');
         }
 
+        if (null !== $tmpReq->vectorIndexConfig) {
+            $request->vectorIndexConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vectorIndexConfig, 'VectorIndexConfig', 'json');
+        }
+
         $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
         }
@@ -2153,6 +2166,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->supportSparse) {
             @$query['SupportSparse'] = $request->supportSparse;
+        }
+
+        if (null !== $request->vectorIndexConfigShrink) {
+            @$query['VectorIndexConfig'] = $request->vectorIndexConfigShrink;
         }
 
         if (null !== $request->workspaceId) {
@@ -2792,7 +2809,15 @@ class Gpdb extends OpenApiClient
             $request->sparseVectorIndexConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sparseVectorIndexConfig, 'SparseVectorIndexConfig', 'json');
         }
 
+        if (null !== $tmpReq->vectorIndexConfig) {
+            $request->vectorIndexConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vectorIndexConfig, 'VectorIndexConfig', 'json');
+        }
+
         $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
         }
@@ -2895,6 +2920,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->supportSparse) {
             @$query['SupportSparse'] = $request->supportSparse;
+        }
+
+        if (null !== $request->vectorIndexConfigShrink) {
+            @$query['VectorIndexConfig'] = $request->vectorIndexConfigShrink;
         }
 
         $req = new OpenApiRequest([
@@ -4317,6 +4346,10 @@ class Gpdb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
+        }
+
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
         }
@@ -4357,12 +4390,20 @@ class Gpdb extends OpenApiClient
             @$query['Namespace'] = $request->namespace;
         }
 
+        if (null !== $request->nlist) {
+            @$query['Nlist'] = $request->nlist;
+        }
+
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
         }
 
         if (null !== $request->pqEnable) {
             @$query['PqEnable'] = $request->pqEnable;
+        }
+
+        if (null !== $request->rabitqBits) {
+            @$query['RabitqBits'] = $request->rabitqBits;
         }
 
         if (null !== $request->regionId) {
@@ -4671,6 +4712,89 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除文本块.
+     *
+     * @param tmpReq - DeleteChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChunksResponse
+     *
+     * @param DeleteChunksRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteChunksResponse
+     */
+    public function deleteChunksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteChunksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->chunkIds) {
+            $request->chunkIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chunkIds, 'ChunkIds', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->chunkIdsShrink) {
+            @$query['ChunkIds'] = $request->chunkIdsShrink;
+        }
+
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteChunks',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文本块.
+     *
+     * @param Request - DeleteChunksRequest
+     *
+     * @returns DeleteChunksResponse
+     *
+     * @param DeleteChunksRequest $request
+     *
+     * @return DeleteChunksResponse
+     */
+    public function deleteChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChunksWithOptions($request, $runtime);
     }
 
     /**
@@ -13749,6 +13873,99 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 获取文本块详情.
+     *
+     * @param Request - ListChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChunksResponse
+     *
+     * @param ListChunksRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListChunksResponse
+     */
+    public function listChunksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->collection) {
+            @$query['Collection'] = $request->collection;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->includeVector) {
+            @$query['IncludeVector'] = $request->includeVector;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->namespacePassword) {
+            @$query['NamespacePassword'] = $request->namespacePassword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChunks',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文本块详情.
+     *
+     * @param Request - ListChunksRequest
+     *
+     * @returns ListChunksResponse
+     *
+     * @param ListChunksRequest $request
+     *
+     * @return ListChunksResponse
+     */
+    public function listChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listChunksWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of vector collections.
      *
      * @param Request - ListCollectionsRequest
@@ -18014,6 +18231,10 @@ class Gpdb extends OpenApiClient
             $request->recallWindowShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recallWindow, 'RecallWindow', 'json');
         }
 
+        if (null !== $tmpReq->rerankModel) {
+            $request->rerankModelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rerankModel, 'RerankModel', 'json');
+        }
+
         $query = [];
         if (null !== $request->collection) {
             @$query['Collection'] = $request->collection;
@@ -18097,6 +18318,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->rerankFactor) {
             @$query['RerankFactor'] = $request->rerankFactor;
+        }
+
+        if (null !== $request->rerankModelShrink) {
+            @$query['RerankModel'] = $request->rerankModelShrink;
         }
 
         if (null !== $request->topK) {
@@ -18267,6 +18492,10 @@ class Gpdb extends OpenApiClient
             $request->mergeMethodArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mergeMethodArgs, 'MergeMethodArgs', 'json');
         }
 
+        if (null !== $tmpReq->rerankModel) {
+            $request->rerankModelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rerankModel, 'RerankModel', 'json');
+        }
+
         if (null !== $tmpReq->sourceCollection) {
             $request->sourceCollectionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCollection, 'SourceCollection', 'json');
         }
@@ -18298,6 +18527,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->rerankFactor) {
             @$query['RerankFactor'] = $request->rerankFactor;
+        }
+
+        if (null !== $request->rerankModelShrink) {
+            @$query['RerankModel'] = $request->rerankModelShrink;
         }
 
         if (null !== $request->sourceCollectionShrink) {
@@ -18508,6 +18741,10 @@ class Gpdb extends OpenApiClient
         $body = [];
         if (null !== $request->documentsShrink) {
             @$body['Documents'] = $request->documentsShrink;
+        }
+
+        if (null !== $request->instruct) {
+            @$body['Instruct'] = $request->instruct;
         }
 
         if (null !== $request->maxChunksPerDoc) {

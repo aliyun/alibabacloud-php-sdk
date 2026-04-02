@@ -11,6 +11,11 @@ class CreateVectorIndexRequest extends Model
     /**
      * @var string
      */
+    public $algorithm;
+
+    /**
+     * @var string
+     */
     public $collection;
 
     /**
@@ -61,12 +66,22 @@ class CreateVectorIndexRequest extends Model
     /**
      * @var int
      */
+    public $nlist;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
      * @var int
      */
     public $pqEnable;
+
+    /**
+     * @var int
+     */
+    public $rabitqBits;
 
     /**
      * @var string
@@ -78,6 +93,7 @@ class CreateVectorIndexRequest extends Model
      */
     public $type;
     protected $_name = [
+        'algorithm' => 'Algorithm',
         'collection' => 'Collection',
         'DBInstanceId' => 'DBInstanceId',
         'dimension' => 'Dimension',
@@ -88,8 +104,10 @@ class CreateVectorIndexRequest extends Model
         'managerAccountPassword' => 'ManagerAccountPassword',
         'metrics' => 'Metrics',
         'namespace' => 'Namespace',
+        'nlist' => 'Nlist',
         'ownerId' => 'OwnerId',
         'pqEnable' => 'PqEnable',
+        'rabitqBits' => 'RabitqBits',
         'regionId' => 'RegionId',
         'type' => 'Type',
     ];
@@ -102,6 +120,10 @@ class CreateVectorIndexRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
@@ -142,12 +164,20 @@ class CreateVectorIndexRequest extends Model
             $res['Namespace'] = $this->namespace;
         }
 
+        if (null !== $this->nlist) {
+            $res['Nlist'] = $this->nlist;
+        }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
 
         if (null !== $this->pqEnable) {
             $res['PqEnable'] = $this->pqEnable;
+        }
+
+        if (null !== $this->rabitqBits) {
+            $res['RabitqBits'] = $this->rabitqBits;
         }
 
         if (null !== $this->regionId) {
@@ -169,6 +199,10 @@ class CreateVectorIndexRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
@@ -209,12 +243,20 @@ class CreateVectorIndexRequest extends Model
             $model->namespace = $map['Namespace'];
         }
 
+        if (isset($map['Nlist'])) {
+            $model->nlist = $map['Nlist'];
+        }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
 
         if (isset($map['PqEnable'])) {
             $model->pqEnable = $map['PqEnable'];
+        }
+
+        if (isset($map['RabitqBits'])) {
+            $model->rabitqBits = $map['RabitqBits'];
         }
 
         if (isset($map['RegionId'])) {

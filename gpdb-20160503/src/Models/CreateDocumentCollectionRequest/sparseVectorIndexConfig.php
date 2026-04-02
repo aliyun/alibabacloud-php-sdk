@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class sparseVectorIndexConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $algorithm;
+
+    /**
      * @var int
      */
     public $hnswEfConstruction;
@@ -18,6 +23,7 @@ class sparseVectorIndexConfig extends Model
      */
     public $hnswM;
     protected $_name = [
+        'algorithm' => 'Algorithm',
         'hnswEfConstruction' => 'HnswEfConstruction',
         'hnswM' => 'HnswM',
     ];
@@ -30,6 +36,10 @@ class sparseVectorIndexConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
+
         if (null !== $this->hnswEfConstruction) {
             $res['HnswEfConstruction'] = $this->hnswEfConstruction;
         }
@@ -49,6 +59,10 @@ class sparseVectorIndexConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
         if (isset($map['HnswEfConstruction'])) {
             $model->hnswEfConstruction = $map['HnswEfConstruction'];
         }
