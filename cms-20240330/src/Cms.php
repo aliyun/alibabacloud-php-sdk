@@ -196,8 +196,14 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListThreadsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\TagResourcesRequest;
@@ -7866,6 +7872,73 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 管理告警规则.
+     *
+     * @param tmpReq - ManageAlertRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ManageAlertRulesResponse
+     *
+     * @param ManageAlertRulesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ManageAlertRulesResponse
+     */
+    public function manageAlertRulesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ManageAlertRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ManageAlertRules',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/manageAlertRules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ManageAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 管理告警规则.
+     *
+     * @param request - ManageAlertRulesRequest
+     *
+     * @returns ManageAlertRulesResponse
+     *
+     * @param ManageAlertRulesRequest $request
+     *
+     * @return ManageAlertRulesResponse
+     */
+    public function manageAlertRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->manageAlertRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Create Workspace.
      *
      * @param request - PutWorkspaceRequest
@@ -7934,6 +8007,87 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->putWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询告警规则.
+     *
+     * @param tmpReq - QueryAlertRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAlertRulesResponse
+     *
+     * @param QueryAlertRulesRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryAlertRulesResponse
+     */
+    public function queryAlertRulesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryAlertRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAlertRules',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/queryAlertRules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询告警规则.
+     *
+     * @param request - QueryAlertRulesRequest
+     *
+     * @returns QueryAlertRulesResponse
+     *
+     * @param QueryAlertRulesRequest $request
+     *
+     * @return QueryAlertRulesResponse
+     */
+    public function queryAlertRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryAlertRulesWithOptions($request, $headers, $runtime);
     }
 
     /**

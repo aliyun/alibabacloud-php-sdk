@@ -11,6 +11,11 @@ class ExperimentConfig extends Model
     /**
      * @var string
      */
+    public $endpointConnectorId;
+
+    /**
+     * @var string
+     */
     public $label;
 
     /**
@@ -38,6 +43,7 @@ class ExperimentConfig extends Model
      */
     public $promptTemplate;
     protected $_name = [
+        'endpointConnectorId' => 'endpointConnectorId',
         'label' => 'label',
         'modelName' => 'modelName',
         'modelParameters' => 'modelParameters',
@@ -60,6 +66,10 @@ class ExperimentConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endpointConnectorId) {
+            $res['endpointConnectorId'] = $this->endpointConnectorId;
+        }
+
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
@@ -102,6 +112,10 @@ class ExperimentConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['endpointConnectorId'])) {
+            $model->endpointConnectorId = $map['endpointConnectorId'];
+        }
+
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }
