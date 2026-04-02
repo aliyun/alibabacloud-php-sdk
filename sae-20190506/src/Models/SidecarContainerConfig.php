@@ -66,6 +66,16 @@ class SidecarContainerConfig extends Model
     /**
      * @var string
      */
+    public $postStart;
+
+    /**
+     * @var string
+     */
+    public $preStop;
+
+    /**
+     * @var string
+     */
     public $readiness;
 
     /**
@@ -84,6 +94,8 @@ class SidecarContainerConfig extends Model
         'liveness' => 'Liveness',
         'memory' => 'Memory',
         'name' => 'Name',
+        'postStart' => 'PostStart',
+        'preStop' => 'PreStop',
         'readiness' => 'Readiness',
         'secretMountDesc' => 'SecretMountDesc',
     ];
@@ -138,6 +150,14 @@ class SidecarContainerConfig extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->postStart) {
+            $res['PostStart'] = $this->postStart;
+        }
+
+        if (null !== $this->preStop) {
+            $res['PreStop'] = $this->preStop;
         }
 
         if (null !== $this->readiness) {
@@ -201,6 +221,14 @@ class SidecarContainerConfig extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PostStart'])) {
+            $model->postStart = $map['PostStart'];
+        }
+
+        if (isset($map['PreStop'])) {
+            $model->preStop = $map['PreStop'];
         }
 
         if (isset($map['Readiness'])) {
