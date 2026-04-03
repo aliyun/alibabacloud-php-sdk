@@ -26,6 +26,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $baiduInstanceCount;
+
+    /**
+     * @var int
+     */
     public $exposedInstanceCoreCount;
 
     /**
@@ -77,6 +82,11 @@ class groupedFields extends Model
      * @var int
      */
     public $instanceSyncTaskCount;
+
+    /**
+     * @var int
+     */
+    public $kingsoftInstanceCount;
 
     /**
      * @var int
@@ -141,6 +151,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $stateCloudInstanceCount;
+
+    /**
+     * @var int
+     */
     public $tencentInstanceCount;
 
     /**
@@ -152,6 +167,11 @@ class groupedFields extends Model
      * @var int
      */
     public $tripartiteInstanceCount;
+
+    /**
+     * @var int
+     */
+    public $ucloudInstanceCount;
 
     /**
      * @var int
@@ -181,6 +201,7 @@ class groupedFields extends Model
         'aliYunInstanceCount' => 'AliYunInstanceCount',
         'awsInstanceCount' => 'AwsInstanceCount',
         'azureInstanceCount' => 'AzureInstanceCount',
+        'baiduInstanceCount' => 'BaiduInstanceCount',
         'exposedInstanceCoreCount' => 'ExposedInstanceCoreCount',
         'exposedInstanceCount' => 'ExposedInstanceCount',
         'generalAssetCount' => 'GeneralAssetCount',
@@ -192,6 +213,7 @@ class groupedFields extends Model
         'instanceCoreCount' => 'InstanceCoreCount',
         'instanceCount' => 'InstanceCount',
         'instanceSyncTaskCount' => 'InstanceSyncTaskCount',
+        'kingsoftInstanceCount' => 'KingsoftInstanceCount',
         'newInstanceCoreCount' => 'NewInstanceCoreCount',
         'newInstanceCount' => 'NewInstanceCount',
         'noRiskInstanceCount' => 'NoRiskInstanceCount',
@@ -204,9 +226,11 @@ class groupedFields extends Model
         'regionCount' => 'RegionCount',
         'riskInstanceCoreCount' => 'RiskInstanceCoreCount',
         'riskInstanceCount' => 'RiskInstanceCount',
+        'stateCloudInstanceCount' => 'StateCloudInstanceCount',
         'tencentInstanceCount' => 'TencentInstanceCount',
         'testAssetCount' => 'TestAssetCount',
         'tripartiteInstanceCount' => 'TripartiteInstanceCount',
+        'ucloudInstanceCount' => 'UcloudInstanceCount',
         'unKnowStatusInstanceCount' => 'UnKnowStatusInstanceCount',
         'unprotectedInstanceCoreCount' => 'UnprotectedInstanceCoreCount',
         'unprotectedInstanceCount' => 'UnprotectedInstanceCount',
@@ -232,6 +256,10 @@ class groupedFields extends Model
 
         if (null !== $this->azureInstanceCount) {
             $res['AzureInstanceCount'] = $this->azureInstanceCount;
+        }
+
+        if (null !== $this->baiduInstanceCount) {
+            $res['BaiduInstanceCount'] = $this->baiduInstanceCount;
         }
 
         if (null !== $this->exposedInstanceCoreCount) {
@@ -276,6 +304,10 @@ class groupedFields extends Model
 
         if (null !== $this->instanceSyncTaskCount) {
             $res['InstanceSyncTaskCount'] = $this->instanceSyncTaskCount;
+        }
+
+        if (null !== $this->kingsoftInstanceCount) {
+            $res['KingsoftInstanceCount'] = $this->kingsoftInstanceCount;
         }
 
         if (null !== $this->newInstanceCoreCount) {
@@ -326,6 +358,10 @@ class groupedFields extends Model
             $res['RiskInstanceCount'] = $this->riskInstanceCount;
         }
 
+        if (null !== $this->stateCloudInstanceCount) {
+            $res['StateCloudInstanceCount'] = $this->stateCloudInstanceCount;
+        }
+
         if (null !== $this->tencentInstanceCount) {
             $res['TencentInstanceCount'] = $this->tencentInstanceCount;
         }
@@ -336,6 +372,10 @@ class groupedFields extends Model
 
         if (null !== $this->tripartiteInstanceCount) {
             $res['TripartiteInstanceCount'] = $this->tripartiteInstanceCount;
+        }
+
+        if (null !== $this->ucloudInstanceCount) {
+            $res['UcloudInstanceCount'] = $this->ucloudInstanceCount;
         }
 
         if (null !== $this->unKnowStatusInstanceCount) {
@@ -381,6 +421,10 @@ class groupedFields extends Model
             $model->azureInstanceCount = $map['AzureInstanceCount'];
         }
 
+        if (isset($map['BaiduInstanceCount'])) {
+            $model->baiduInstanceCount = $map['BaiduInstanceCount'];
+        }
+
         if (isset($map['ExposedInstanceCoreCount'])) {
             $model->exposedInstanceCoreCount = $map['ExposedInstanceCoreCount'];
         }
@@ -423,6 +467,10 @@ class groupedFields extends Model
 
         if (isset($map['InstanceSyncTaskCount'])) {
             $model->instanceSyncTaskCount = $map['InstanceSyncTaskCount'];
+        }
+
+        if (isset($map['KingsoftInstanceCount'])) {
+            $model->kingsoftInstanceCount = $map['KingsoftInstanceCount'];
         }
 
         if (isset($map['NewInstanceCoreCount'])) {
@@ -473,6 +521,10 @@ class groupedFields extends Model
             $model->riskInstanceCount = $map['RiskInstanceCount'];
         }
 
+        if (isset($map['StateCloudInstanceCount'])) {
+            $model->stateCloudInstanceCount = $map['StateCloudInstanceCount'];
+        }
+
         if (isset($map['TencentInstanceCount'])) {
             $model->tencentInstanceCount = $map['TencentInstanceCount'];
         }
@@ -483,6 +535,10 @@ class groupedFields extends Model
 
         if (isset($map['TripartiteInstanceCount'])) {
             $model->tripartiteInstanceCount = $map['TripartiteInstanceCount'];
+        }
+
+        if (isset($map['UcloudInstanceCount'])) {
+            $model->ucloudInstanceCount = $map['UcloudInstanceCount'];
         }
 
         if (isset($map['UnKnowStatusInstanceCount'])) {
