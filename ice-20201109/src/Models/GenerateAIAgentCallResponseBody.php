@@ -16,6 +16,11 @@ class GenerateAIAgentCallResponseBody extends Model
     /**
      * @var string
      */
+    public $avatarUserId;
+
+    /**
+     * @var string
+     */
     public $channelId;
 
     /**
@@ -39,6 +44,7 @@ class GenerateAIAgentCallResponseBody extends Model
     public $userId;
     protected $_name = [
         'AIAgentUserId' => 'AIAgentUserId',
+        'avatarUserId' => 'AvatarUserId',
         'channelId' => 'ChannelId',
         'instanceId' => 'InstanceId',
         'requestId' => 'RequestId',
@@ -56,6 +62,10 @@ class GenerateAIAgentCallResponseBody extends Model
         $res = [];
         if (null !== $this->AIAgentUserId) {
             $res['AIAgentUserId'] = $this->AIAgentUserId;
+        }
+
+        if (null !== $this->avatarUserId) {
+            $res['AvatarUserId'] = $this->avatarUserId;
         }
 
         if (null !== $this->channelId) {
@@ -91,6 +101,10 @@ class GenerateAIAgentCallResponseBody extends Model
         $model = new self();
         if (isset($map['AIAgentUserId'])) {
             $model->AIAgentUserId = $map['AIAgentUserId'];
+        }
+
+        if (isset($map['AvatarUserId'])) {
+            $model->avatarUserId = $map['AvatarUserId'];
         }
 
         if (isset($map['ChannelId'])) {

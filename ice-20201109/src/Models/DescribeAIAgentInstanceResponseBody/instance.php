@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentCallInfo;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentRuntimeConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig;
@@ -15,6 +16,11 @@ class instance extends Model
      * @var AIAgentConfig
      */
     public $agentConfig;
+
+    /**
+     * @var AIAgentCallInfo
+     */
+    public $callInfo;
 
     /**
      * @var string
@@ -57,6 +63,7 @@ class instance extends Model
     public $userData;
     protected $_name = [
         'agentConfig' => 'AgentConfig',
+        'callInfo' => 'CallInfo',
         'callLogUrl' => 'CallLogUrl',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
@@ -72,6 +79,9 @@ class instance extends Model
         if (null !== $this->agentConfig) {
             $this->agentConfig->validate();
         }
+        if (null !== $this->callInfo) {
+            $this->callInfo->validate();
+        }
         if (null !== $this->runtimeConfig) {
             $this->runtimeConfig->validate();
         }
@@ -86,6 +96,10 @@ class instance extends Model
         $res = [];
         if (null !== $this->agentConfig) {
             $res['AgentConfig'] = null !== $this->agentConfig ? $this->agentConfig->toArray($noStream) : $this->agentConfig;
+        }
+
+        if (null !== $this->callInfo) {
+            $res['CallInfo'] = null !== $this->callInfo ? $this->callInfo->toArray($noStream) : $this->callInfo;
         }
 
         if (null !== $this->callLogUrl) {
@@ -133,6 +147,10 @@ class instance extends Model
         $model = new self();
         if (isset($map['AgentConfig'])) {
             $model->agentConfig = AIAgentConfig::fromMap($map['AgentConfig']);
+        }
+
+        if (isset($map['CallInfo'])) {
+            $model->callInfo = AIAgentCallInfo::fromMap($map['CallInfo']);
         }
 
         if (isset($map['CallLogUrl'])) {

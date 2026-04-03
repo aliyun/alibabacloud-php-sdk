@@ -15,11 +15,17 @@ class llmPending extends Model
     public $messages;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $waitTime;
     protected $_name = [
         'messages' => 'Messages',
+        'mode' => 'Mode',
         'waitTime' => 'WaitTime',
     ];
 
@@ -43,6 +49,10 @@ class llmPending extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         if (null !== $this->waitTime) {
@@ -69,6 +79,10 @@ class llmPending extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         if (isset($map['WaitTime'])) {

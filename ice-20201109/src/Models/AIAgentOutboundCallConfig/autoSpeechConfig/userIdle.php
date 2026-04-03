@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentOutboundCallConfig\autoSpeechCo
 class userIdle extends Model
 {
     /**
+     * @var string
+     */
+    public $hangupEndWord;
+
+    /**
      * @var int
      */
     public $maxRepeats;
@@ -24,6 +29,7 @@ class userIdle extends Model
      */
     public $waitTime;
     protected $_name = [
+        'hangupEndWord' => 'HangupEndWord',
         'maxRepeats' => 'MaxRepeats',
         'messages' => 'Messages',
         'waitTime' => 'WaitTime',
@@ -40,6 +46,10 @@ class userIdle extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->hangupEndWord) {
+            $res['HangupEndWord'] = $this->hangupEndWord;
+        }
+
         if (null !== $this->maxRepeats) {
             $res['MaxRepeats'] = $this->maxRepeats;
         }
@@ -70,6 +80,10 @@ class userIdle extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HangupEndWord'])) {
+            $model->hangupEndWord = $map['HangupEndWord'];
+        }
+
         if (isset($map['MaxRepeats'])) {
             $model->maxRepeats = $map['MaxRepeats'];
         }
