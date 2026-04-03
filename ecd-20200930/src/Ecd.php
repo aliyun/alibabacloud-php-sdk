@@ -3587,6 +3587,14 @@ class Ecd extends OpenApiClient
             @$query['AdminAccess'] = $request->adminAccess;
         }
 
+        if (null !== $request->adminKeyboardOnFullScreen) {
+            @$query['AdminKeyboardOnFullScreen'] = $request->adminKeyboardOnFullScreen;
+        }
+
+        if (null !== $request->adminKeyboardOnWindows) {
+            @$query['AdminKeyboardOnWindows'] = $request->adminKeyboardOnWindows;
+        }
+
         if (null !== $request->appContentProtection) {
             @$query['AppContentProtection'] = $request->appContentProtection;
         }
@@ -3675,6 +3683,10 @@ class Ecd extends OpenApiClient
             @$query['CpuSingleRateLimit'] = $request->cpuSingleRateLimit;
         }
 
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->deviceConnectHint) {
             @$query['DeviceConnectHint'] = $request->deviceConnectHint;
         }
@@ -3761,6 +3773,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->internetPrinter) {
             @$query['InternetPrinter'] = $request->internetPrinter;
+        }
+
+        if (null !== $request->keyboardControl) {
+            @$query['KeyboardControl'] = $request->keyboardControl;
         }
 
         if (null !== $request->localDrive) {
@@ -18524,6 +18540,14 @@ class Ecd extends OpenApiClient
             @$query['AdminAccess'] = $request->adminAccess;
         }
 
+        if (null !== $request->adminKeyboardOnFullScreen) {
+            @$query['AdminKeyboardOnFullScreen'] = $request->adminKeyboardOnFullScreen;
+        }
+
+        if (null !== $request->adminKeyboardOnWindows) {
+            @$query['AdminKeyboardOnWindows'] = $request->adminKeyboardOnWindows;
+        }
+
         if (null !== $request->appContentProtection) {
             @$query['AppContentProtection'] = $request->appContentProtection;
         }
@@ -18610,6 +18634,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->cpuSingleRateLimit) {
             @$query['CpuSingleRateLimit'] = $request->cpuSingleRateLimit;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
         if (null !== $request->deviceConnectHint) {

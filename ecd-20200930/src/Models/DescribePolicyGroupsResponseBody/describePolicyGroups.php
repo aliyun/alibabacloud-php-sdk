@@ -30,6 +30,16 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $adminKeyboardOnFullScreen;
+
+    /**
+     * @var string
+     */
+    public $adminKeyboardOnWindows;
+
+    /**
+     * @var string
+     */
     public $appContentProtection;
 
     /**
@@ -131,6 +141,11 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $cpuSingleRateLimit;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var int
@@ -271,6 +286,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $internetPrinter;
+
+    /**
+     * @var string
+     */
+    public $keyboardControl;
 
     /**
      * @var string
@@ -699,6 +719,8 @@ class describePolicyGroups extends Model
     protected $_name = [
         'academicProxy' => 'AcademicProxy',
         'adminAccess' => 'AdminAccess',
+        'adminKeyboardOnFullScreen' => 'AdminKeyboardOnFullScreen',
+        'adminKeyboardOnWindows' => 'AdminKeyboardOnWindows',
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
@@ -720,6 +742,7 @@ class describePolicyGroups extends Model
         'cpuRateLimit' => 'CpuRateLimit',
         'cpuSampleDuration' => 'CpuSampleDuration',
         'cpuSingleRateLimit' => 'CpuSingleRateLimit',
+        'description' => 'Description',
         'desktopCount' => 'DesktopCount',
         'desktopGroupCount' => 'DesktopGroupCount',
         'deviceConnectHint' => 'DeviceConnectHint',
@@ -748,6 +771,7 @@ class describePolicyGroups extends Model
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
         'internetPrinter' => 'InternetPrinter',
+        'keyboardControl' => 'KeyboardControl',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
@@ -899,6 +923,14 @@ class describePolicyGroups extends Model
             $res['AdminAccess'] = $this->adminAccess;
         }
 
+        if (null !== $this->adminKeyboardOnFullScreen) {
+            $res['AdminKeyboardOnFullScreen'] = $this->adminKeyboardOnFullScreen;
+        }
+
+        if (null !== $this->adminKeyboardOnWindows) {
+            $res['AdminKeyboardOnWindows'] = $this->adminKeyboardOnWindows;
+        }
+
         if (null !== $this->appContentProtection) {
             $res['AppContentProtection'] = $this->appContentProtection;
         }
@@ -1009,6 +1041,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->cpuSingleRateLimit) {
             $res['CpuSingleRateLimit'] = $this->cpuSingleRateLimit;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->desktopCount) {
@@ -1142,6 +1178,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->internetPrinter) {
             $res['InternetPrinter'] = $this->internetPrinter;
+        }
+
+        if (null !== $this->keyboardControl) {
+            $res['KeyboardControl'] = $this->keyboardControl;
         }
 
         if (null !== $this->localDrive) {
@@ -1566,6 +1606,14 @@ class describePolicyGroups extends Model
             $model->adminAccess = $map['AdminAccess'];
         }
 
+        if (isset($map['AdminKeyboardOnFullScreen'])) {
+            $model->adminKeyboardOnFullScreen = $map['AdminKeyboardOnFullScreen'];
+        }
+
+        if (isset($map['AdminKeyboardOnWindows'])) {
+            $model->adminKeyboardOnWindows = $map['AdminKeyboardOnWindows'];
+        }
+
         if (isset($map['AppContentProtection'])) {
             $model->appContentProtection = $map['AppContentProtection'];
         }
@@ -1676,6 +1724,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['CpuSingleRateLimit'])) {
             $model->cpuSingleRateLimit = $map['CpuSingleRateLimit'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DesktopCount'])) {
@@ -1809,6 +1861,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['InternetPrinter'])) {
             $model->internetPrinter = $map['InternetPrinter'];
+        }
+
+        if (isset($map['KeyboardControl'])) {
+            $model->keyboardControl = $map['KeyboardControl'];
         }
 
         if (isset($map['LocalDrive'])) {

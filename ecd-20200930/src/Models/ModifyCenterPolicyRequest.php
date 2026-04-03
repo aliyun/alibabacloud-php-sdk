@@ -33,6 +33,16 @@ class ModifyCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $adminKeyboardOnFullScreen;
+
+    /**
+     * @var string
+     */
+    public $adminKeyboardOnWindows;
+
+    /**
+     * @var string
+     */
     public $appContentProtection;
 
     /**
@@ -139,6 +149,11 @@ class ModifyCenterPolicyRequest extends Model
      * @var int
      */
     public $cpuSingleRateLimit;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -682,6 +697,8 @@ class ModifyCenterPolicyRequest extends Model
     protected $_name = [
         'academicProxy' => 'AcademicProxy',
         'adminAccess' => 'AdminAccess',
+        'adminKeyboardOnFullScreen' => 'AdminKeyboardOnFullScreen',
+        'adminKeyboardOnWindows' => 'AdminKeyboardOnWindows',
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRule' => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
@@ -704,6 +721,7 @@ class ModifyCenterPolicyRequest extends Model
         'cpuRateLimit' => 'CpuRateLimit',
         'cpuSampleDuration' => 'CpuSampleDuration',
         'cpuSingleRateLimit' => 'CpuSingleRateLimit',
+        'description' => 'Description',
         'deviceConnectHint' => 'DeviceConnectHint',
         'deviceRedirects' => 'DeviceRedirects',
         'deviceRules' => 'DeviceRules',
@@ -887,6 +905,14 @@ class ModifyCenterPolicyRequest extends Model
             $res['AdminAccess'] = $this->adminAccess;
         }
 
+        if (null !== $this->adminKeyboardOnFullScreen) {
+            $res['AdminKeyboardOnFullScreen'] = $this->adminKeyboardOnFullScreen;
+        }
+
+        if (null !== $this->adminKeyboardOnWindows) {
+            $res['AdminKeyboardOnWindows'] = $this->adminKeyboardOnWindows;
+        }
+
         if (null !== $this->appContentProtection) {
             $res['AppContentProtection'] = $this->appContentProtection;
         }
@@ -1008,6 +1034,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (null !== $this->cpuSingleRateLimit) {
             $res['CpuSingleRateLimit'] = $this->cpuSingleRateLimit;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->deviceConnectHint) {
@@ -1559,6 +1589,14 @@ class ModifyCenterPolicyRequest extends Model
             $model->adminAccess = $map['AdminAccess'];
         }
 
+        if (isset($map['AdminKeyboardOnFullScreen'])) {
+            $model->adminKeyboardOnFullScreen = $map['AdminKeyboardOnFullScreen'];
+        }
+
+        if (isset($map['AdminKeyboardOnWindows'])) {
+            $model->adminKeyboardOnWindows = $map['AdminKeyboardOnWindows'];
+        }
+
         if (isset($map['AppContentProtection'])) {
             $model->appContentProtection = $map['AppContentProtection'];
         }
@@ -1680,6 +1718,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['CpuSingleRateLimit'])) {
             $model->cpuSingleRateLimit = $map['CpuSingleRateLimit'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DeviceConnectHint'])) {
