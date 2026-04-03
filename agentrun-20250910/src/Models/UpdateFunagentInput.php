@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AgentRun\V20250910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateFunagentInput extends Model
+class UpdateFunagentInput extends Model
 {
     /**
      * @var string
@@ -69,19 +69,9 @@ class CreateFunagentInput extends Model
     public $description;
 
     /**
-     * @var string
-     */
-    public $funAgentName;
-
-    /**
      * @var int
      */
     public $memory;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var int
@@ -91,17 +81,7 @@ class CreateFunagentInput extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vswitchIds;
+    public $version;
     protected $_name = [
         'adminName' => 'adminName',
         'adminSecret' => 'adminSecret',
@@ -115,13 +95,9 @@ class CreateFunagentInput extends Model
         'dbType' => 'dbType',
         'dbUsername' => 'dbUsername',
         'description' => 'description',
-        'funAgentName' => 'funAgentName',
         'memory' => 'memory',
-        'regionId' => 'regionId',
         'replicas' => 'replicas',
-        'securityGroupId' => 'securityGroupId',
-        'vpcId' => 'vpcId',
-        'vswitchIds' => 'vswitchIds',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -180,32 +156,16 @@ class CreateFunagentInput extends Model
             $res['description'] = $this->description;
         }
 
-        if (null !== $this->funAgentName) {
-            $res['funAgentName'] = $this->funAgentName;
-        }
-
         if (null !== $this->memory) {
             $res['memory'] = $this->memory;
-        }
-
-        if (null !== $this->regionId) {
-            $res['regionId'] = $this->regionId;
         }
 
         if (null !== $this->replicas) {
             $res['replicas'] = $this->replicas;
         }
 
-        if (null !== $this->securityGroupId) {
-            $res['securityGroupId'] = $this->securityGroupId;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['vpcId'] = $this->vpcId;
-        }
-
-        if (null !== $this->vswitchIds) {
-            $res['vswitchIds'] = $this->vswitchIds;
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -267,32 +227,16 @@ class CreateFunagentInput extends Model
             $model->description = $map['description'];
         }
 
-        if (isset($map['funAgentName'])) {
-            $model->funAgentName = $map['funAgentName'];
-        }
-
         if (isset($map['memory'])) {
             $model->memory = $map['memory'];
-        }
-
-        if (isset($map['regionId'])) {
-            $model->regionId = $map['regionId'];
         }
 
         if (isset($map['replicas'])) {
             $model->replicas = $map['replicas'];
         }
 
-        if (isset($map['securityGroupId'])) {
-            $model->securityGroupId = $map['securityGroupId'];
-        }
-
-        if (isset($map['vpcId'])) {
-            $model->vpcId = $map['vpcId'];
-        }
-
-        if (isset($map['vswitchIds'])) {
-            $model->vswitchIds = $map['vswitchIds'];
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

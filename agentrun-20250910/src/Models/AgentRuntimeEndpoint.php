@@ -49,6 +49,11 @@ class AgentRuntimeEndpoint extends Model
     public $routingConfiguration;
 
     /**
+     * @var ScalingStatus
+     */
+    public $scalingStatus;
+
+    /**
      * @var string
      */
     public $status;
@@ -71,6 +76,7 @@ class AgentRuntimeEndpoint extends Model
         'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'endpointPublicUrl' => 'endpointPublicUrl',
         'routingConfiguration' => 'routingConfiguration',
+        'scalingStatus' => 'scalingStatus',
         'status' => 'status',
         'statusReason' => 'statusReason',
         'targetVersion' => 'targetVersion',
@@ -80,6 +86,9 @@ class AgentRuntimeEndpoint extends Model
     {
         if (null !== $this->routingConfiguration) {
             $this->routingConfiguration->validate();
+        }
+        if (null !== $this->scalingStatus) {
+            $this->scalingStatus->validate();
         }
         parent::validate();
     }
@@ -117,6 +126,10 @@ class AgentRuntimeEndpoint extends Model
 
         if (null !== $this->routingConfiguration) {
             $res['routingConfiguration'] = null !== $this->routingConfiguration ? $this->routingConfiguration->toArray($noStream) : $this->routingConfiguration;
+        }
+
+        if (null !== $this->scalingStatus) {
+            $res['scalingStatus'] = null !== $this->scalingStatus ? $this->scalingStatus->toArray($noStream) : $this->scalingStatus;
         }
 
         if (null !== $this->status) {
@@ -172,6 +185,10 @@ class AgentRuntimeEndpoint extends Model
 
         if (isset($map['routingConfiguration'])) {
             $model->routingConfiguration = RoutingConfiguration::fromMap($map['routingConfiguration']);
+        }
+
+        if (isset($map['scalingStatus'])) {
+            $model->scalingStatus = ScalingStatus::fromMap($map['scalingStatus']);
         }
 
         if (isset($map['status'])) {

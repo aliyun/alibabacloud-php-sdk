@@ -14,6 +14,11 @@ class UpdateAgentRuntimeEndpointInput extends Model
     public $agentRuntimeEndpointName;
 
     /**
+     * @var bool
+     */
+    public $deleteScalingConfig;
+
+    /**
      * @var string
      */
     public $description;
@@ -29,14 +34,21 @@ class UpdateAgentRuntimeEndpointInput extends Model
     public $routingConfiguration;
 
     /**
+     * @var ScalingConfig
+     */
+    public $scalingConfig;
+
+    /**
      * @var string
      */
     public $targetVersion;
     protected $_name = [
         'agentRuntimeEndpointName' => 'agentRuntimeEndpointName',
+        'deleteScalingConfig' => 'deleteScalingConfig',
         'description' => 'description',
         'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'routingConfiguration' => 'routingConfiguration',
+        'scalingConfig' => 'scalingConfig',
         'targetVersion' => 'targetVersion',
     ];
 
@@ -44,6 +56,9 @@ class UpdateAgentRuntimeEndpointInput extends Model
     {
         if (null !== $this->routingConfiguration) {
             $this->routingConfiguration->validate();
+        }
+        if (null !== $this->scalingConfig) {
+            $this->scalingConfig->validate();
         }
         parent::validate();
     }
@@ -53,6 +68,10 @@ class UpdateAgentRuntimeEndpointInput extends Model
         $res = [];
         if (null !== $this->agentRuntimeEndpointName) {
             $res['agentRuntimeEndpointName'] = $this->agentRuntimeEndpointName;
+        }
+
+        if (null !== $this->deleteScalingConfig) {
+            $res['deleteScalingConfig'] = $this->deleteScalingConfig;
         }
 
         if (null !== $this->description) {
@@ -65,6 +84,10 @@ class UpdateAgentRuntimeEndpointInput extends Model
 
         if (null !== $this->routingConfiguration) {
             $res['routingConfiguration'] = null !== $this->routingConfiguration ? $this->routingConfiguration->toArray($noStream) : $this->routingConfiguration;
+        }
+
+        if (null !== $this->scalingConfig) {
+            $res['scalingConfig'] = null !== $this->scalingConfig ? $this->scalingConfig->toArray($noStream) : $this->scalingConfig;
         }
 
         if (null !== $this->targetVersion) {
@@ -86,6 +109,10 @@ class UpdateAgentRuntimeEndpointInput extends Model
             $model->agentRuntimeEndpointName = $map['agentRuntimeEndpointName'];
         }
 
+        if (isset($map['deleteScalingConfig'])) {
+            $model->deleteScalingConfig = $map['deleteScalingConfig'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -96,6 +123,10 @@ class UpdateAgentRuntimeEndpointInput extends Model
 
         if (isset($map['routingConfiguration'])) {
             $model->routingConfiguration = RoutingConfiguration::fromMap($map['routingConfiguration']);
+        }
+
+        if (isset($map['scalingConfig'])) {
+            $model->scalingConfig = ScalingConfig::fromMap($map['scalingConfig']);
         }
 
         if (isset($map['targetVersion'])) {

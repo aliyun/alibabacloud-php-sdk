@@ -29,6 +29,11 @@ class CreateAgentRuntimeEndpointInput extends Model
     public $routingConfiguration;
 
     /**
+     * @var ScalingConfig
+     */
+    public $scalingConfig;
+
+    /**
      * @var string
      */
     public $targetVersion;
@@ -37,6 +42,7 @@ class CreateAgentRuntimeEndpointInput extends Model
         'description' => 'description',
         'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'routingConfiguration' => 'routingConfiguration',
+        'scalingConfig' => 'scalingConfig',
         'targetVersion' => 'targetVersion',
     ];
 
@@ -44,6 +50,9 @@ class CreateAgentRuntimeEndpointInput extends Model
     {
         if (null !== $this->routingConfiguration) {
             $this->routingConfiguration->validate();
+        }
+        if (null !== $this->scalingConfig) {
+            $this->scalingConfig->validate();
         }
         parent::validate();
     }
@@ -65,6 +74,10 @@ class CreateAgentRuntimeEndpointInput extends Model
 
         if (null !== $this->routingConfiguration) {
             $res['routingConfiguration'] = null !== $this->routingConfiguration ? $this->routingConfiguration->toArray($noStream) : $this->routingConfiguration;
+        }
+
+        if (null !== $this->scalingConfig) {
+            $res['scalingConfig'] = null !== $this->scalingConfig ? $this->scalingConfig->toArray($noStream) : $this->scalingConfig;
         }
 
         if (null !== $this->targetVersion) {
@@ -96,6 +109,10 @@ class CreateAgentRuntimeEndpointInput extends Model
 
         if (isset($map['routingConfiguration'])) {
             $model->routingConfiguration = RoutingConfiguration::fromMap($map['routingConfiguration']);
+        }
+
+        if (isset($map['scalingConfig'])) {
+            $model->scalingConfig = ScalingConfig::fromMap($map['scalingConfig']);
         }
 
         if (isset($map['targetVersion'])) {

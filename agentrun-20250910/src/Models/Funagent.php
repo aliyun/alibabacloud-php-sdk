@@ -41,6 +41,11 @@ class Funagent extends Model
     /**
      * @var string
      */
+    public $dbInstanceId;
+
+    /**
+     * @var string
+     */
     public $dbName;
 
     /**
@@ -144,6 +149,7 @@ class Funagent extends Model
         'createdAt' => 'createdAt',
         'dbConnections' => 'dbConnections',
         'dbHost' => 'dbHost',
+        'dbInstanceId' => 'dbInstanceId',
         'dbName' => 'dbName',
         'dbPassword' => 'dbPassword',
         'dbPort' => 'dbPort',
@@ -196,6 +202,10 @@ class Funagent extends Model
 
         if (null !== $this->dbHost) {
             $res['dbHost'] = $this->dbHost;
+        }
+
+        if (null !== $this->dbInstanceId) {
+            $res['dbInstanceId'] = $this->dbInstanceId;
         }
 
         if (null !== $this->dbName) {
@@ -311,6 +321,10 @@ class Funagent extends Model
 
         if (isset($map['dbHost'])) {
             $model->dbHost = $map['dbHost'];
+        }
+
+        if (isset($map['dbInstanceId'])) {
+            $model->dbInstanceId = $map['dbInstanceId'];
         }
 
         if (isset($map['dbName'])) {
