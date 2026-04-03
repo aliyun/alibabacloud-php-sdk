@@ -37,6 +37,11 @@ class parameters extends Model
      * @var int
      */
     public $revisable;
+
+    /**
+     * @var int
+     */
+    public $userChangable;
     protected $_name = [
         'checkingCode' => 'CheckingCode',
         'dynamic' => 'Dynamic',
@@ -44,6 +49,7 @@ class parameters extends Model
         'parameterName' => 'ParameterName',
         'parameterValue' => 'ParameterValue',
         'revisable' => 'Revisable',
+        'userChangable' => 'UserChangable',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class parameters extends Model
 
         if (null !== $this->revisable) {
             $res['Revisable'] = $this->revisable;
+        }
+
+        if (null !== $this->userChangable) {
+            $res['UserChangable'] = $this->userChangable;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class parameters extends Model
 
         if (isset($map['Revisable'])) {
             $model->revisable = $map['Revisable'];
+        }
+
+        if (isset($map['UserChangable'])) {
+            $model->userChangable = $map['UserChangable'];
         }
 
         return $model;

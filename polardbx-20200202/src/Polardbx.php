@@ -5024,6 +5024,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查看参数模版.
+     *
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5073,6 +5075,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查看参数模版.
+     *
      * @param request - DescribeParameterTemplatesRequest
      *
      * @returns DescribeParameterTemplatesResponse
