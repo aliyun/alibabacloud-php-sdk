@@ -13,6 +13,12 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentSsoLoginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentSsoLoginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceShrinkRequest;
@@ -65,6 +71,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppAssistantAgentsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppAssistantAgentsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsV2ForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsV2ForPartnerResponse;
@@ -484,6 +492,217 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkResourceMeasureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 校验用户资源计量.
+     *
+     * @param request - CheckUserResourceMeasureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckUserResourceMeasureResponse
+     *
+     * @param CheckUserResourceMeasureRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CheckUserResourceMeasureResponse
+     */
+    public function checkUserResourceMeasureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->belongId) {
+            @$query['BelongId'] = $request->belongId;
+        }
+
+        if (null !== $request->belongIdType) {
+            @$query['BelongIdType'] = $request->belongIdType;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->espBizId) {
+            @$query['EspBizId'] = $request->espBizId;
+        }
+
+        if (null !== $request->orderComponentParams) {
+            @$query['OrderComponentParams'] = $request->orderComponentParams;
+        }
+
+        if (null !== $request->resourceCode) {
+            @$query['ResourceCode'] = $request->resourceCode;
+        }
+
+        if (null !== $request->resourceValue) {
+            @$query['ResourceValue'] = $request->resourceValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckUserResourceMeasure',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckUserResourceMeasureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验用户资源计量.
+     *
+     * @param request - CheckUserResourceMeasureRequest
+     *
+     * @returns CheckUserResourceMeasureResponse
+     *
+     * @param CheckUserResourceMeasureRequest $request
+     *
+     * @return CheckUserResourceMeasureResponse
+     */
+    public function checkUserResourceMeasure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkUserResourceMeasureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建应用助手智能体.
+     *
+     * @param request - CreateAppAssistantAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppAssistantAgentResponse
+     *
+     * @param CreateAppAssistantAgentRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAppAssistantAgentResponse
+     */
+    public function createAppAssistantAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->platformType) {
+            @$query['PlatformType'] = $request->platformType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppAssistantAgent',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppAssistantAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建应用助手智能体.
+     *
+     * @param request - CreateAppAssistantAgentRequest
+     *
+     * @returns CreateAppAssistantAgentResponse
+     *
+     * @param CreateAppAssistantAgentRequest $request
+     *
+     * @return CreateAppAssistantAgentResponse
+     */
+    public function createAppAssistantAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppAssistantAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 生成应用助手SSO免登.
+     *
+     * @param request - CreateAppAssistantAgentSsoLoginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppAssistantAgentSsoLoginResponse
+     *
+     * @param CreateAppAssistantAgentSsoLoginRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateAppAssistantAgentSsoLoginResponse
+     */
+    public function createAppAssistantAgentSsoLoginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->platformType) {
+            @$query['PlatformType'] = $request->platformType;
+        }
+
+        if (null !== $request->targetUrl) {
+            @$query['TargetUrl'] = $request->targetUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppAssistantAgentSsoLogin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppAssistantAgentSsoLoginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成应用助手SSO免登.
+     *
+     * @param request - CreateAppAssistantAgentSsoLoginRequest
+     *
+     * @returns CreateAppAssistantAgentSsoLoginResponse
+     *
+     * @param CreateAppAssistantAgentSsoLoginRequest $request
+     *
+     * @return CreateAppAssistantAgentSsoLoginResponse
+     */
+    public function createAppAssistantAgentSsoLogin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppAssistantAgentSsoLoginWithOptions($request, $runtime);
     }
 
     /**
@@ -2096,6 +2315,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->introspectAppInstanceTicketForPreviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用助手智能体列表.
+     *
+     * @param request - ListAppAssistantAgentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppAssistantAgentsResponse
+     *
+     * @param ListAppAssistantAgentsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAppAssistantAgentsResponse
+     */
+    public function listAppAssistantAgentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->platformType) {
+            @$query['PlatformType'] = $request->platformType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppAssistantAgents',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppAssistantAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用助手智能体列表.
+     *
+     * @param request - ListAppAssistantAgentsRequest
+     *
+     * @returns ListAppAssistantAgentsResponse
+     *
+     * @param ListAppAssistantAgentsRequest $request
+     *
+     * @return ListAppAssistantAgentsResponse
+     */
+    public function listAppAssistantAgents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppAssistantAgentsWithOptions($request, $runtime);
     }
 
     /**
