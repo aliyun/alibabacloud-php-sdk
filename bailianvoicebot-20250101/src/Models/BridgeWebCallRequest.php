@@ -16,6 +16,11 @@ class BridgeWebCallRequest extends Model
     /**
      * @var string
      */
+    public $audioCodec;
+
+    /**
+     * @var string
+     */
     public $businessUnitId;
 
     /**
@@ -49,6 +54,7 @@ class BridgeWebCallRequest extends Model
     public $timeoutSeconds;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'audioCodec' => 'AudioCodec',
         'businessUnitId' => 'BusinessUnitId',
         'caller' => 'Caller',
         'deviceId' => 'DeviceId',
@@ -68,6 +74,10 @@ class BridgeWebCallRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->audioCodec) {
+            $res['AudioCodec'] = $this->audioCodec;
         }
 
         if (null !== $this->businessUnitId) {
@@ -111,6 +121,10 @@ class BridgeWebCallRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['AudioCodec'])) {
+            $model->audioCodec = $map['AudioCodec'];
         }
 
         if (isset($map['BusinessUnitId'])) {

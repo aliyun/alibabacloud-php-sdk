@@ -12,14 +12,26 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionShrinkRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateCloneVoiceRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateCloneVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVariableRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVariableResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteApplicationResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteCloneVoiceRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteCloneVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVariableRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVariableResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListCloneVoiceRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListCloneVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVariableRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVariableResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PublishApplicationVersionRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PublishApplicationVersionResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationRequest;
@@ -27,6 +39,10 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionShrinkRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateCloneVoiceRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateCloneVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVariableRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVariableResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -85,6 +101,10 @@ class BailianVoiceBot extends OpenApiClient
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->audioCodec) {
+            @$query['AudioCodec'] = $request->audioCodec;
         }
 
         if (null !== $request->businessUnitId) {
@@ -324,6 +344,140 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
+     * 创建克隆音.
+     *
+     * @param request - CreateCloneVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloneVoiceResponse
+     *
+     * @param CreateCloneVoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCloneVoiceResponse
+     */
+    public function createCloneVoiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloneVoice',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloneVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建克隆音.
+     *
+     * @param request - CreateCloneVoiceRequest
+     *
+     * @returns CreateCloneVoiceResponse
+     *
+     * @param CreateCloneVoiceRequest $request
+     *
+     * @return CreateCloneVoiceResponse
+     */
+    public function createCloneVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建变量.
+     *
+     * @param request - CreateVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVariableResponse
+     *
+     * @param CreateVariableRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateVariableResponse
+     */
+    public function createVariableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVariable',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建变量.
+     *
+     * @param request - CreateVariableRequest
+     *
+     * @returns CreateVariableResponse
+     *
+     * @param CreateVariableRequest $request
+     *
+     * @return CreateVariableResponse
+     */
+    public function createVariable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVariableWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除应用.
      *
      * @param request - DeleteApplicationRequest
@@ -382,6 +536,128 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除场景.
+     *
+     * @param request - DeleteCloneVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloneVoiceResponse
+     *
+     * @param DeleteCloneVoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCloneVoiceResponse
+     */
+    public function deleteCloneVoiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->cloneVoiceId) {
+            @$body['CloneVoiceId'] = $request->cloneVoiceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloneVoice',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloneVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除场景.
+     *
+     * @param request - DeleteCloneVoiceRequest
+     *
+     * @returns DeleteCloneVoiceResponse
+     *
+     * @param DeleteCloneVoiceRequest $request
+     *
+     * @return DeleteCloneVoiceResponse
+     */
+    public function deleteCloneVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除变量.
+     *
+     * @param request - DeleteVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVariableResponse
+     *
+     * @param DeleteVariableRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteVariableResponse
+     */
+    public function deleteVariableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->variableId) {
+            @$body['VariableId'] = $request->variableId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVariable',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除变量.
+     *
+     * @param request - DeleteVariableRequest
+     *
+     * @returns DeleteVariableResponse
+     *
+     * @param DeleteVariableRequest $request
+     *
+     * @return DeleteVariableResponse
+     */
+    public function deleteVariable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVariableWithOptions($request, $runtime);
     }
 
     /**
@@ -573,6 +849,144 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - ListCloneVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloneVoiceResponse
+     *
+     * @param ListCloneVoiceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCloneVoiceResponse
+     */
+    public function listCloneVoiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloneVoice',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloneVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - ListCloneVoiceRequest
+     *
+     * @returns ListCloneVoiceResponse
+     *
+     * @param ListCloneVoiceRequest $request
+     *
+     * @return ListCloneVoiceResponse
+     */
+    public function listCloneVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取变量列表.
+     *
+     * @param request - ListVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVariableResponse
+     *
+     * @param ListVariableRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListVariableResponse
+     */
+    public function listVariableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchPattern) {
+            @$body['SearchPattern'] = $request->searchPattern;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVariable',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取变量列表.
+     *
+     * @param request - ListVariableRequest
+     *
+     * @returns ListVariableResponse
+     *
+     * @param ListVariableRequest $request
+     *
+     * @return ListVariableResponse
+     */
+    public function listVariable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVariableWithOptions($request, $runtime);
     }
 
     /**
@@ -810,5 +1224,139 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateCloneVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCloneVoiceResponse
+     *
+     * @param UpdateCloneVoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCloneVoiceResponse
+     */
+    public function updateCloneVoiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->cloneVoiceId) {
+            @$body['CloneVoiceId'] = $request->cloneVoiceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCloneVoice',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCloneVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateCloneVoiceRequest
+     *
+     * @returns UpdateCloneVoiceResponse
+     *
+     * @param UpdateCloneVoiceRequest $request
+     *
+     * @return UpdateCloneVoiceResponse
+     */
+    public function updateCloneVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新变量.
+     *
+     * @param request - UpdateVariableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVariableResponse
+     *
+     * @param UpdateVariableRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateVariableResponse
+     */
+    public function updateVariableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->variableId) {
+            @$body['VariableId'] = $request->variableId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVariable',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVariableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新变量.
+     *
+     * @param request - UpdateVariableRequest
+     *
+     * @returns UpdateVariableResponse
+     *
+     * @param UpdateVariableRequest $request
+     *
+     * @return UpdateVariableResponse
+     */
+    public function updateVariable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVariableWithOptions($request, $runtime);
     }
 }
