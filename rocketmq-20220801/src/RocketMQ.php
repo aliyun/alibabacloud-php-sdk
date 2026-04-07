@@ -90,6 +90,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationOperationsShrinkRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMigrationsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
@@ -3402,7 +3403,7 @@ class RocketMQ extends OpenApiClient
     /**
      * Queries a list of migration operations.
      *
-     * @param request - ListMigrationOperationsRequest
+     * @param tmpReq - ListMigrationOperationsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3410,22 +3411,40 @@ class RocketMQ extends OpenApiClient
      *
      * @param string                         $migrationId
      * @param string                         $stageType
-     * @param ListMigrationOperationsRequest $request
+     * @param ListMigrationOperationsRequest $tmpReq
      * @param string[]                       $headers
      * @param RuntimeOptions                 $runtime
      *
      * @return ListMigrationOperationsResponse
      */
-    public function listMigrationOperationsWithOptions($migrationId, $stageType, $request, $headers, $runtime)
+    public function listMigrationOperationsWithOptions($migrationId, $stageType, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListMigrationOperationsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->businessStatus) {
+            $request->businessStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessStatus, 'businessStatus', 'simple');
+        }
+
+        if (null !== $tmpReq->operationStatus) {
+            $request->operationStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationStatus, 'operationStatus', 'simple');
+        }
+
         $query = [];
+        if (null !== $request->businessStatusShrink) {
+            @$query['businessStatus'] = $request->businessStatusShrink;
+        }
+
         if (null !== $request->filter) {
             @$query['filter'] = $request->filter;
         }
 
         if (null !== $request->instanceId) {
             @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->operationStatusShrink) {
+            @$query['operationStatus'] = $request->operationStatusShrink;
         }
 
         if (null !== $request->operationType) {

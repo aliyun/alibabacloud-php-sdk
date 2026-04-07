@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListMigrationOperationsRequest extends Model
+class ListMigrationOperationsShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $businessStatus;
+    public $businessStatusShrink;
 
     /**
      * @var string
@@ -24,9 +24,9 @@ class ListMigrationOperationsRequest extends Model
     public $instanceId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $operationStatus;
+    public $operationStatusShrink;
 
     /**
      * @var string
@@ -43,10 +43,10 @@ class ListMigrationOperationsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'businessStatus' => 'businessStatus',
+        'businessStatusShrink' => 'businessStatus',
         'filter' => 'filter',
         'instanceId' => 'instanceId',
-        'operationStatus' => 'operationStatus',
+        'operationStatusShrink' => 'operationStatus',
         'operationType' => 'operationType',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
@@ -54,27 +54,14 @@ class ListMigrationOperationsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->businessStatus)) {
-            Model::validateArray($this->businessStatus);
-        }
-        if (\is_array($this->operationStatus)) {
-            Model::validateArray($this->operationStatus);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->businessStatus) {
-            if (\is_array($this->businessStatus)) {
-                $res['businessStatus'] = [];
-                $n1 = 0;
-                foreach ($this->businessStatus as $item1) {
-                    $res['businessStatus'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->businessStatusShrink) {
+            $res['businessStatus'] = $this->businessStatusShrink;
         }
 
         if (null !== $this->filter) {
@@ -85,15 +72,8 @@ class ListMigrationOperationsRequest extends Model
             $res['instanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->operationStatus) {
-            if (\is_array($this->operationStatus)) {
-                $res['operationStatus'] = [];
-                $n1 = 0;
-                foreach ($this->operationStatus as $item1) {
-                    $res['operationStatus'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->operationStatusShrink) {
+            $res['operationStatus'] = $this->operationStatusShrink;
         }
 
         if (null !== $this->operationType) {
@@ -120,14 +100,7 @@ class ListMigrationOperationsRequest extends Model
     {
         $model = new self();
         if (isset($map['businessStatus'])) {
-            if (!empty($map['businessStatus'])) {
-                $model->businessStatus = [];
-                $n1 = 0;
-                foreach ($map['businessStatus'] as $item1) {
-                    $model->businessStatus[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->businessStatusShrink = $map['businessStatus'];
         }
 
         if (isset($map['filter'])) {
@@ -139,14 +112,7 @@ class ListMigrationOperationsRequest extends Model
         }
 
         if (isset($map['operationStatus'])) {
-            if (!empty($map['operationStatus'])) {
-                $model->operationStatus = [];
-                $n1 = 0;
-                foreach ($map['operationStatus'] as $item1) {
-                    $model->operationStatus[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->operationStatusShrink = $map['operationStatus'];
         }
 
         if (isset($map['operationType'])) {
