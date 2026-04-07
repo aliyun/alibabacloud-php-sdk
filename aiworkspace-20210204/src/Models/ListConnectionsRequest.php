@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListConnectionsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessibility;
+
+    /**
      * @var string[]
      */
     public $connectionIds;
@@ -73,6 +78,7 @@ class ListConnectionsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'connectionIds' => 'ConnectionIds',
         'connectionName' => 'ConnectionName',
         'connectionTypes' => 'ConnectionTypes',
@@ -105,6 +111,10 @@ class ListConnectionsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->connectionIds) {
             if (\is_array($this->connectionIds)) {
                 $res['ConnectionIds'] = [];
@@ -189,6 +199,10 @@ class ListConnectionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['ConnectionIds'])) {
             if (!empty($map['ConnectionIds'])) {
                 $model->connectionIds = [];

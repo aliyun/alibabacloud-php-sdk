@@ -5011,6 +5011,10 @@ class AIWorkSpace extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->connectionIdsShrink) {
             @$query['ConnectionIds'] = $request->connectionIdsShrink;
         }

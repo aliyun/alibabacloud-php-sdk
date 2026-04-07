@@ -11,6 +11,11 @@ class ListConnectionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string
+     */
     public $connectionIdsShrink;
 
     /**
@@ -73,6 +78,7 @@ class ListConnectionsShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'connectionIdsShrink' => 'ConnectionIds',
         'connectionName' => 'ConnectionName',
         'connectionTypesShrink' => 'ConnectionTypes',
@@ -96,6 +102,10 @@ class ListConnectionsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->connectionIdsShrink) {
             $res['ConnectionIds'] = $this->connectionIdsShrink;
         }
@@ -159,6 +169,10 @@ class ListConnectionsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['ConnectionIds'])) {
             $model->connectionIdsShrink = $map['ConnectionIds'];
         }
