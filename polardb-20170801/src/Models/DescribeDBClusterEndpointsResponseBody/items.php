@@ -22,6 +22,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -47,6 +52,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $netType;
+
+    /**
+     * @var string
+     */
     public $nodeWithRoles;
 
     /**
@@ -67,6 +77,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
+     * @var string
+     */
     public $readWriteMode;
 
     /**
@@ -78,21 +98,31 @@ class items extends Model
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
     protected $_name = [
         'addressItems' => 'AddressItems',
         'autoAddNewNodes' => 'AutoAddNewNodes',
+        'connectionString' => 'ConnectionString',
         'DBClusterId' => 'DBClusterId',
         'DBEndpointDescription' => 'DBEndpointDescription',
         'DBEndpointId' => 'DBEndpointId',
         'endpointConfig' => 'EndpointConfig',
         'endpointType' => 'EndpointType',
+        'netType' => 'NetType',
         'nodeWithRoles' => 'NodeWithRoles',
         'nodes' => 'Nodes',
         'polarSccTimeoutAction' => 'PolarSccTimeoutAction',
         'polarSccWaitTimeout' => 'PolarSccWaitTimeout',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
         'readWriteMode' => 'ReadWriteMode',
         'sccMode' => 'SccMode',
         'serviceName' => 'ServiceName',
+        'VPCId' => 'VPCId',
     ];
 
     public function validate()
@@ -121,6 +151,10 @@ class items extends Model
             $res['AutoAddNewNodes'] = $this->autoAddNewNodes;
         }
 
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -141,6 +175,10 @@ class items extends Model
             $res['EndpointType'] = $this->endpointType;
         }
 
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
+        }
+
         if (null !== $this->nodeWithRoles) {
             $res['NodeWithRoles'] = $this->nodeWithRoles;
         }
@@ -157,6 +195,14 @@ class items extends Model
             $res['PolarSccWaitTimeout'] = $this->polarSccWaitTimeout;
         }
 
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+
         if (null !== $this->readWriteMode) {
             $res['ReadWriteMode'] = $this->readWriteMode;
         }
@@ -167,6 +213,10 @@ class items extends Model
 
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
         }
 
         return $res;
@@ -195,6 +245,10 @@ class items extends Model
             $model->autoAddNewNodes = $map['AutoAddNewNodes'];
         }
 
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -215,6 +269,10 @@ class items extends Model
             $model->endpointType = $map['EndpointType'];
         }
 
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
+        }
+
         if (isset($map['NodeWithRoles'])) {
             $model->nodeWithRoles = $map['NodeWithRoles'];
         }
@@ -231,6 +289,14 @@ class items extends Model
             $model->polarSccWaitTimeout = $map['PolarSccWaitTimeout'];
         }
 
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+
         if (isset($map['ReadWriteMode'])) {
             $model->readWriteMode = $map['ReadWriteMode'];
         }
@@ -241,6 +307,10 @@ class items extends Model
 
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
         }
 
         return $model;
