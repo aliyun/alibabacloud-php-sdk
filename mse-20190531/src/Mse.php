@@ -42,6 +42,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddSSLCertResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddZooKeeperSaslUserRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddZooKeeperSaslUserResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddZooKeeperSaslUserShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesRequest;
@@ -370,6 +373,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListZkTrackRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZkTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListZooKeeperSaslUserRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListZooKeeperSaslUserResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterShrinkRequest;
@@ -425,6 +430,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveApplicationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveAuthPolicyRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveAuthPolicyResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveZooKeeperSaslUserRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveZooKeeperSaslUserResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveZooKeeperSaslUserShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RetryClusterRequest;
@@ -548,6 +556,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateWebFlowRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateWebFlowRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZooKeeperSaslUserRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZooKeeperSaslUserResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZooKeeperSaslUserShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2160,6 +2171,81 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addServiceSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 增加ZooKeeper Sasl 用户.
+     *
+     * @param tmpReq - AddZooKeeperSaslUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddZooKeeperSaslUserResponse
+     *
+     * @param AddZooKeeperSaslUserRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddZooKeeperSaslUserResponse
+     */
+    public function addZooKeeperSaslUserWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddZooKeeperSaslUserShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->saslUser) {
+            $request->saslUserShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->saslUser, 'SaslUser', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->reload) {
+            @$query['Reload'] = $request->reload;
+        }
+
+        if (null !== $request->saslUserShrink) {
+            @$query['SaslUser'] = $request->saslUserShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddZooKeeperSaslUser',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddZooKeeperSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 增加ZooKeeper Sasl 用户.
+     *
+     * @param request - AddZooKeeperSaslUserRequest
+     *
+     * @returns AddZooKeeperSaslUserResponse
+     *
+     * @param AddZooKeeperSaslUserRequest $request
+     *
+     * @return AddZooKeeperSaslUserResponse
+     */
+    public function addZooKeeperSaslUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addZooKeeperSaslUserWithOptions($request, $runtime);
     }
 
     /**
@@ -14158,6 +14244,67 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * 列出所有ZooKeeper sasl用户.
+     *
+     * @param request - ListZooKeeperSaslUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListZooKeeperSaslUserResponse
+     *
+     * @param ListZooKeeperSaslUserRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListZooKeeperSaslUserResponse
+     */
+    public function listZooKeeperSaslUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListZooKeeperSaslUser',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListZooKeeperSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出所有ZooKeeper sasl用户.
+     *
+     * @param request - ListZooKeeperSaslUserRequest
+     *
+     * @returns ListZooKeeperSaslUserResponse
+     *
+     * @param ListZooKeeperSaslUserRequest $request
+     *
+     * @return ListZooKeeperSaslUserResponse
+     */
+    public function listZooKeeperSaslUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listZooKeeperSaslUserWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the information about a cluster for which Microservice Governance is enabled.
      *
      * @param tmpReq - ModifyGovernanceKubernetesClusterRequest
@@ -16034,6 +16181,81 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeAuthPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除ZooKeeper sasl用户.
+     *
+     * @param tmpReq - RemoveZooKeeperSaslUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveZooKeeperSaslUserResponse
+     *
+     * @param RemoveZooKeeperSaslUserRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RemoveZooKeeperSaslUserResponse
+     */
+    public function removeZooKeeperSaslUserWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RemoveZooKeeperSaslUserShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userNames) {
+            $request->userNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userNames, 'UserNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->reload) {
+            @$query['Reload'] = $request->reload;
+        }
+
+        if (null !== $request->userNamesShrink) {
+            @$query['UserNames'] = $request->userNamesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveZooKeeperSaslUser',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveZooKeeperSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ZooKeeper sasl用户.
+     *
+     * @param request - RemoveZooKeeperSaslUserRequest
+     *
+     * @returns RemoveZooKeeperSaslUserResponse
+     *
+     * @param RemoveZooKeeperSaslUserRequest $request
+     *
+     * @return RemoveZooKeeperSaslUserResponse
+     */
+    public function removeZooKeeperSaslUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeZooKeeperSaslUserWithOptions($request, $runtime);
     }
 
     /**
@@ -20924,6 +21146,81 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateZnodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改ZooKeeper sasl 用户信息.
+     *
+     * @param tmpReq - UpdateZooKeeperSaslUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateZooKeeperSaslUserResponse
+     *
+     * @param UpdateZooKeeperSaslUserRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateZooKeeperSaslUserResponse
+     */
+    public function updateZooKeeperSaslUserWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateZooKeeperSaslUserShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->saslUser) {
+            $request->saslUserShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->saslUser, 'SaslUser', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->reload) {
+            @$query['Reload'] = $request->reload;
+        }
+
+        if (null !== $request->saslUserShrink) {
+            @$query['SaslUser'] = $request->saslUserShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateZooKeeperSaslUser',
+            'version' => '2019-05-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateZooKeeperSaslUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改ZooKeeper sasl 用户信息.
+     *
+     * @param request - UpdateZooKeeperSaslUserRequest
+     *
+     * @returns UpdateZooKeeperSaslUserResponse
+     *
+     * @param UpdateZooKeeperSaslUserRequest $request
+     *
+     * @return UpdateZooKeeperSaslUserResponse
+     */
+    public function updateZooKeeperSaslUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateZooKeeperSaslUserWithOptions($request, $runtime);
     }
 
     /**
