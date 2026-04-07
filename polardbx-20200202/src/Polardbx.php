@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Request;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Response;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSQLEvaluateTaskRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteEvaluateAndImportTaskReques
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteEvaluateAndImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Request;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Response;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfRequest;
@@ -138,6 +142,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0InfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0InfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterGroupsRequest;
@@ -1679,6 +1685,67 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 创建mem0.
+     *
+     * @param request - CreateMem0Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMem0Response
+     *
+     * @param CreateMem0Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateMem0Response
+     */
+    public function createMem0WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMem0',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMem0Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建mem0.
+     *
+     * @param request - CreateMem0Request
+     *
+     * @returns CreateMem0Response
+     *
+     * @param CreateMem0Request $request
+     *
+     * @return CreateMem0Response
+     */
+    public function createMem0($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMem0WithOptions($request, $runtime);
+    }
+
+    /**
      * 创建评估预检任务
      *
      * @param request - CreateRplInspectionTaskRequest
@@ -2522,6 +2589,67 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGdnInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除mem0.
+     *
+     * @param request - DeleteMem0Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMem0Response
+     *
+     * @param DeleteMem0Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteMem0Response
+     */
+    public function deleteMem0WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMem0',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMem0Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除mem0.
+     *
+     * @param request - DeleteMem0Request
+     *
+     * @returns DeleteMem0Response
+     *
+     * @param DeleteMem0Request $request
+     *
+     * @return DeleteMem0Response
+     */
+    public function deleteMem0($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMem0WithOptions($request, $runtime);
     }
 
     /**
@@ -4903,6 +5031,67 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGdnInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询mem0实例信息.
+     *
+     * @param request - DescribeMem0InfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMem0InfoResponse
+     *
+     * @param DescribeMem0InfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeMem0InfoResponse
+     */
+    public function describeMem0InfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMem0Info',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMem0InfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询mem0实例信息.
+     *
+     * @param request - DescribeMem0InfoRequest
+     *
+     * @returns DescribeMem0InfoResponse
+     *
+     * @param DescribeMem0InfoRequest $request
+     *
+     * @return DescribeMem0InfoResponse
+     */
+    public function describeMem0Info($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMem0InfoWithOptions($request, $runtime);
     }
 
     /**
