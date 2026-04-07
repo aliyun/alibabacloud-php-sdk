@@ -4052,6 +4052,10 @@ class FC extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->fileSystemOnly) {
+            @$query['fileSystemOnly'] = $request->fileSystemOnly;
+        }
+
         if (null !== $request->qualifier) {
             @$query['qualifier'] = $request->qualifier;
         }

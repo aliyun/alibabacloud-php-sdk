@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ResumeSessionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $fileSystemOnly;
+
+    /**
      * @var string
      */
     public $qualifier;
     protected $_name = [
+        'fileSystemOnly' => 'fileSystemOnly',
         'qualifier' => 'qualifier',
     ];
 
@@ -24,6 +30,10 @@ class ResumeSessionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fileSystemOnly) {
+            $res['fileSystemOnly'] = $this->fileSystemOnly;
+        }
+
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
         }
@@ -39,6 +49,10 @@ class ResumeSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fileSystemOnly'])) {
+            $model->fileSystemOnly = $map['fileSystemOnly'];
+        }
+
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
         }
