@@ -28,6 +28,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $enableAiFunction;
+
+    /**
+     * @var bool
+     */
     public $enableAutoMinorVersionUpgrade;
 
     /**
@@ -158,6 +163,7 @@ class data extends Model
         'aclId' => 'AclId',
         'architecture' => 'Architecture',
         'beginTime' => 'BeginTime',
+        'enableAiFunction' => 'EnableAiFunction',
         'enableAutoMinorVersionUpgrade' => 'EnableAutoMinorVersionUpgrade',
         'enableSSL' => 'EnableSSL',
         'enabledAuditLoader' => 'EnabledAuditLoader',
@@ -210,6 +216,10 @@ class data extends Model
 
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
+        }
+
+        if (null !== $this->enableAiFunction) {
+            $res['EnableAiFunction'] = $this->enableAiFunction;
         }
 
         if (null !== $this->enableAutoMinorVersionUpgrade) {
@@ -351,6 +361,10 @@ class data extends Model
 
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
+        }
+
+        if (isset($map['EnableAiFunction'])) {
+            $model->enableAiFunction = $map['EnableAiFunction'];
         }
 
         if (isset($map['EnableAutoMinorVersionUpgrade'])) {
