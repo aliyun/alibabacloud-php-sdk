@@ -32,6 +32,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $templateContent;
+
+    /**
+     * @var string
+     */
     public $templateName;
 
     /**
@@ -58,6 +63,7 @@ class list_ extends Model
         'gmtCreate' => 'GmtCreate',
         'signName' => 'SignName',
         'templateCode' => 'TemplateCode',
+        'templateContent' => 'TemplateContent',
         'templateName' => 'TemplateName',
         'templateTag' => 'TemplateTag',
         'templateType' => 'TemplateType',
@@ -93,6 +99,10 @@ class list_ extends Model
 
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
+        }
+
+        if (null !== $this->templateContent) {
+            $res['TemplateContent'] = $this->templateContent;
         }
 
         if (null !== $this->templateName) {
@@ -154,6 +164,10 @@ class list_ extends Model
 
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
+        }
+
+        if (isset($map['TemplateContent'])) {
+            $model->templateContent = $map['TemplateContent'];
         }
 
         if (isset($map['TemplateName'])) {

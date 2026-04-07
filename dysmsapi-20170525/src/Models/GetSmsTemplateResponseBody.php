@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateResponseBody\auditInfo;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateResponseBody\fileUrlList;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateResponseBody\moreDataFileUrlList;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateResponseBody\signList;
 
 class GetSmsTemplateResponseBody extends Model
 {
@@ -72,6 +73,11 @@ class GetSmsTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @var signList
+     */
+    public $signList;
+
+    /**
      * @var string
      */
     public $templateCode;
@@ -123,6 +129,7 @@ class GetSmsTemplateResponseBody extends Model
         'relatedSignName' => 'RelatedSignName',
         'remark' => 'Remark',
         'requestId' => 'RequestId',
+        'signList' => 'SignList',
         'templateCode' => 'TemplateCode',
         'templateContent' => 'TemplateContent',
         'templateName' => 'TemplateName',
@@ -143,6 +150,9 @@ class GetSmsTemplateResponseBody extends Model
         }
         if (null !== $this->moreDataFileUrlList) {
             $this->moreDataFileUrlList->validate();
+        }
+        if (null !== $this->signList) {
+            $this->signList->validate();
         }
         if (\is_array($this->vendorAuditStatus)) {
             Model::validateArray($this->vendorAuditStatus);
@@ -199,6 +209,10 @@ class GetSmsTemplateResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->signList) {
+            $res['SignList'] = null !== $this->signList ? $this->signList->toArray($noStream) : $this->signList;
         }
 
         if (null !== $this->templateCode) {
@@ -295,6 +309,10 @@ class GetSmsTemplateResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SignList'])) {
+            $model->signList = signList::fromMap($map['SignList']);
         }
 
         if (isset($map['TemplateCode'])) {
