@@ -47,6 +47,11 @@ class DescribeDocParserJobResultResponseBody extends Model
     /**
      * @var string
      */
+    public $outerFileUrl;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -61,6 +66,7 @@ class DescribeDocParserJobResultResponseBody extends Model
         'errMessage' => 'ErrMessage',
         'fileUrl' => 'FileUrl',
         'httpStatusCode' => 'HttpStatusCode',
+        'outerFileUrl' => 'OuterFileUrl',
         'requestId' => 'RequestId',
         'success' => 'Success',
     ];
@@ -109,6 +115,10 @@ class DescribeDocParserJobResultResponseBody extends Model
 
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+
+        if (null !== $this->outerFileUrl) {
+            $res['OuterFileUrl'] = $this->outerFileUrl;
         }
 
         if (null !== $this->requestId) {
@@ -163,6 +173,10 @@ class DescribeDocParserJobResultResponseBody extends Model
 
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+
+        if (isset($map['OuterFileUrl'])) {
+            $model->outerFileUrl = $map['OuterFileUrl'];
         }
 
         if (isset($map['RequestId'])) {
