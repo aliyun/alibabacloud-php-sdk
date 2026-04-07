@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\dataSource;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\dataSources;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\sessionConfig;
 
 class SendChatMessageRequest extends Model
@@ -24,6 +25,11 @@ class SendChatMessageRequest extends Model
      * @var dataSource
      */
     public $dataSource;
+
+    /**
+     * @var dataSources[]
+     */
+    public $dataSources;
 
     /**
      * @var string
@@ -68,6 +74,7 @@ class SendChatMessageRequest extends Model
         'agentId' => 'AgentId',
         'DMSUnit' => 'DMSUnit',
         'dataSource' => 'DataSource',
+        'dataSources' => 'DataSources',
         'message' => 'Message',
         'messageType' => 'MessageType',
         'parentSessionId' => 'ParentSessionId',
@@ -82,6 +89,9 @@ class SendChatMessageRequest extends Model
     {
         if (null !== $this->dataSource) {
             $this->dataSource->validate();
+        }
+        if (\is_array($this->dataSources)) {
+            Model::validateArray($this->dataSources);
         }
         if (null !== $this->sessionConfig) {
             $this->sessionConfig->validate();
@@ -102,6 +112,17 @@ class SendChatMessageRequest extends Model
 
         if (null !== $this->dataSource) {
             $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toArray($noStream) : $this->dataSource;
+        }
+
+        if (null !== $this->dataSources) {
+            if (\is_array($this->dataSources)) {
+                $res['DataSources'] = [];
+                $n1 = 0;
+                foreach ($this->dataSources as $item1) {
+                    $res['DataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->message) {
@@ -157,6 +178,17 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['DataSource'])) {
             $model->dataSource = dataSource::fromMap($map['DataSource']);
+        }
+
+        if (isset($map['DataSources'])) {
+            if (!empty($map['DataSources'])) {
+                $model->dataSources = [];
+                $n1 = 0;
+                foreach ($map['DataSources'] as $item1) {
+                    $model->dataSources[$n1] = dataSources::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Message'])) {

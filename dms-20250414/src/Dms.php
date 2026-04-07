@@ -4702,6 +4702,10 @@ class Dms extends OpenApiClient
             $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
         }
 
+        if (null !== $tmpReq->dataSources) {
+            $request->dataSourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSources, 'DataSources', 'json');
+        }
+
         if (null !== $tmpReq->sessionConfig) {
             $request->sessionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionConfig, 'SessionConfig', 'json');
         }
@@ -4717,6 +4721,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->dataSourceShrink) {
             @$query['DataSource'] = $request->dataSourceShrink;
+        }
+
+        if (null !== $request->dataSourcesShrink) {
+            @$query['DataSources'] = $request->dataSourcesShrink;
         }
 
         if (null !== $request->message) {

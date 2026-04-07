@@ -26,6 +26,11 @@ class SendChatMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $dataSourcesShrink;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -66,6 +71,7 @@ class SendChatMessageShrinkRequest extends Model
         'agentId' => 'AgentId',
         'DMSUnit' => 'DMSUnit',
         'dataSourceShrink' => 'DataSource',
+        'dataSourcesShrink' => 'DataSources',
         'message' => 'Message',
         'messageType' => 'MessageType',
         'parentSessionId' => 'ParentSessionId',
@@ -94,6 +100,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (null !== $this->dataSourceShrink) {
             $res['DataSource'] = $this->dataSourceShrink;
+        }
+
+        if (null !== $this->dataSourcesShrink) {
+            $res['DataSources'] = $this->dataSourcesShrink;
         }
 
         if (null !== $this->message) {
@@ -149,6 +159,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (isset($map['DataSource'])) {
             $model->dataSourceShrink = $map['DataSource'];
+        }
+
+        if (isset($map['DataSources'])) {
+            $model->dataSourcesShrink = $map['DataSources'];
         }
 
         if (isset($map['Message'])) {

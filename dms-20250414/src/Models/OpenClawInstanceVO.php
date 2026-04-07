@@ -30,6 +30,11 @@ class OpenClawInstanceVO extends Model
     public $basicAuthUsername;
 
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @var float
      */
     public $cpu;
@@ -75,6 +80,11 @@ class OpenClawInstanceVO extends Model
     public $lastActiveTime;
 
     /**
+     * @var string
+     */
+    public $lockTime;
+
+    /**
      * @var int
      */
     public $memorySize;
@@ -112,12 +122,18 @@ class OpenClawInstanceVO extends Model
     /**
      * @var string
      */
+    public $trialExpireTime;
+
+    /**
+     * @var string
+     */
     public $variables;
     protected $_name = [
         'aliyunAccountUid' => 'AliyunAccountUid',
         'authType' => 'AuthType',
         'basicAuthPassword' => 'BasicAuthPassword',
         'basicAuthUsername' => 'BasicAuthUsername',
+        'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
@@ -127,6 +143,7 @@ class OpenClawInstanceVO extends Model
         'instanceName' => 'InstanceName',
         'instanceRegion' => 'InstanceRegion',
         'lastActiveTime' => 'LastActiveTime',
+        'lockTime' => 'LockTime',
         'memorySize' => 'MemorySize',
         'openclawToken' => 'OpenclawToken',
         'ownerUid' => 'OwnerUid',
@@ -134,6 +151,7 @@ class OpenClawInstanceVO extends Model
         'status' => 'Status',
         'statusDesc' => 'StatusDesc',
         'statusMessage' => 'StatusMessage',
+        'trialExpireTime' => 'TrialExpireTime',
         'variables' => 'Variables',
     ];
 
@@ -162,6 +180,10 @@ class OpenClawInstanceVO extends Model
 
         if (null !== $this->basicAuthUsername) {
             $res['BasicAuthUsername'] = $this->basicAuthUsername;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->cpu) {
@@ -200,6 +222,10 @@ class OpenClawInstanceVO extends Model
             $res['LastActiveTime'] = $this->lastActiveTime;
         }
 
+        if (null !== $this->lockTime) {
+            $res['LockTime'] = $this->lockTime;
+        }
+
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
@@ -226,6 +252,10 @@ class OpenClawInstanceVO extends Model
 
         if (null !== $this->statusMessage) {
             $res['StatusMessage'] = $this->statusMessage;
+        }
+
+        if (null !== $this->trialExpireTime) {
+            $res['TrialExpireTime'] = $this->trialExpireTime;
         }
 
         if (null !== $this->variables) {
@@ -257,6 +287,10 @@ class OpenClawInstanceVO extends Model
 
         if (isset($map['BasicAuthUsername'])) {
             $model->basicAuthUsername = $map['BasicAuthUsername'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['Cpu'])) {
@@ -295,6 +329,10 @@ class OpenClawInstanceVO extends Model
             $model->lastActiveTime = $map['LastActiveTime'];
         }
 
+        if (isset($map['LockTime'])) {
+            $model->lockTime = $map['LockTime'];
+        }
+
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }
@@ -321,6 +359,10 @@ class OpenClawInstanceVO extends Model
 
         if (isset($map['StatusMessage'])) {
             $model->statusMessage = $map['StatusMessage'];
+        }
+
+        if (isset($map['TrialExpireTime'])) {
+            $model->trialExpireTime = $map['TrialExpireTime'];
         }
 
         if (isset($map['Variables'])) {
