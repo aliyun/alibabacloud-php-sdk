@@ -37,6 +37,11 @@ class userGroups extends Model
      * @var int
      */
     public $userGroupType;
+
+    /**
+     * @var string
+     */
+    public $projects;
     protected $_name = [
         'accounts' => 'Accounts',
         'id' => 'Id',
@@ -44,6 +49,7 @@ class userGroups extends Model
         'owner' => 'Owner',
         'projectName' => 'ProjectName',
         'userGroupType' => 'UserGroupType',
+        'projects' => 'projects',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class userGroups extends Model
             $res['UserGroupType'] = $this->userGroupType;
         }
 
+        if (null !== $this->projects) {
+            $res['projects'] = $this->projects;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class userGroups extends Model
 
         if (isset($map['UserGroupType'])) {
             $model->userGroupType = $map['UserGroupType'];
+        }
+
+        if (isset($map['projects'])) {
+            $model->projects = $map['projects'];
         }
 
         return $model;

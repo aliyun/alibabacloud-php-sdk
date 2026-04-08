@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DsgUserGroupQueryListRequest extends Model
+class DsgQueryDesensStatusListRequest extends Model
 {
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $owner;
+    public $keyword;
 
     /**
      * @var int
@@ -31,19 +26,18 @@ class DsgUserGroupQueryListRequest extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $sceneCode;
 
     /**
-     * @var int
+     * @var string
      */
-    public $userGroupType;
+    public $sceneId;
     protected $_name = [
-        'name' => 'Name',
-        'owner' => 'Owner',
+        'keyword' => 'Keyword',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
-        'projectName' => 'ProjectName',
-        'userGroupType' => 'userGroupType',
+        'sceneCode' => 'SceneCode',
+        'sceneId' => 'sceneId',
     ];
 
     public function validate()
@@ -54,12 +48,8 @@ class DsgUserGroupQueryListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
         }
 
         if (null !== $this->pageNumber) {
@@ -70,12 +60,12 @@ class DsgUserGroupQueryListRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->sceneCode) {
+            $res['SceneCode'] = $this->sceneCode;
         }
 
-        if (null !== $this->userGroupType) {
-            $res['userGroupType'] = $this->userGroupType;
+        if (null !== $this->sceneId) {
+            $res['sceneId'] = $this->sceneId;
         }
 
         return $res;
@@ -89,12 +79,8 @@ class DsgUserGroupQueryListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
         }
 
         if (isset($map['PageNumber'])) {
@@ -105,12 +91,12 @@ class DsgUserGroupQueryListRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
+        if (isset($map['SceneCode'])) {
+            $model->sceneCode = $map['SceneCode'];
         }
 
-        if (isset($map['userGroupType'])) {
-            $model->userGroupType = $map['userGroupType'];
+        if (isset($map['sceneId'])) {
+            $model->sceneId = $map['sceneId'];
         }
 
         return $model;

@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518;
 
 use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Exception\DaraException;
+use AlibabaCloud\Dara\Exception\DaraUnableRetryException;
 use AlibabaCloud\Dara\Models\FileField;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\RetryPolicy\RetryPolicyContext;
 use AlibabaCloud\Dara\Util\FormUtil;
 use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
@@ -170,6 +173,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteRespons
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanUpdateStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanUpdateStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanUpdateStatusShrinkRequest;
@@ -177,6 +181,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgPlatformQueryProjectsAn
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgPlatformQueryProjectsAndSchemaFromMetaResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDefaultTemplatesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDefaultTemplatesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDesensStatusListRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDesensStatusListResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyRequest;
@@ -192,6 +198,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneQuerySceneListByNa
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneQuerySceneListByNameResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUpdateDesensStatusListRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUpdateDesensStatusListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUpdateDesensStatusListShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateShrinkRequest;
@@ -669,77 +678,160 @@ class Dataworkspublic extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'dataworks.ap-northeast-1.aliyuncs.com',
-            'ap-south-1' => 'dataworks.ap-south-1.aliyuncs.com',
+            'ap-northeast-2-pop' => 'dataworks.aliyuncs.com',
+            'ap-south-1' => 'dataworks.aliyuncs.com',
             'ap-southeast-1' => 'dataworks.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2' => 'dataworks.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-2' => 'dataworks.aliyuncs.com',
             'ap-southeast-3' => 'dataworks.ap-southeast-3.aliyuncs.com',
             'ap-southeast-5' => 'dataworks.ap-southeast-5.aliyuncs.com',
             'cn-beijing' => 'dataworks.cn-beijing.aliyuncs.com',
+            'cn-beijing-finance-1' => 'dataworks.cn-beijing-finance-1.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'dataworks.aliyuncs.com',
+            'cn-beijing-gov-1' => 'dataworks.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'dataworks.aliyuncs.com',
             'cn-chengdu' => 'dataworks.cn-chengdu.aliyuncs.com',
+            'cn-edge-1' => 'dataworks.aliyuncs.com',
+            'cn-fujian' => 'dataworks.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'dataworks.aliyuncs.com',
             'cn-hangzhou' => 'dataworks.cn-hangzhou.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-finance' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-prod-1' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-test-1' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-test-2' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-internal-test-3' => 'dataworks.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'dataworks.aliyuncs.com',
             'cn-hongkong' => 'dataworks.cn-hongkong.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'dataworks.aliyuncs.com',
             'cn-huhehaote' => 'dataworks.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'dataworks.aliyuncs.com',
+            'cn-north-2-gov-1' => 'dataworks.cn-north-2-gov-1.aliyuncs.com',
             'cn-qingdao' => 'dataworks.aliyuncs.com',
+            'cn-qingdao-nebula' => 'dataworks.aliyuncs.com',
             'cn-shanghai' => 'dataworks.cn-shanghai.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'dataworks.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'dataworks.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'dataworks.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai-inner' => 'dataworks.aliyuncs.com',
+            'cn-shanghai-internal-test-1' => 'dataworks.aliyuncs.com',
             'cn-shenzhen' => 'dataworks.cn-shenzhen.aliyuncs.com',
-            'cn-zhangjiakou' => 'dataworks.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'dataworks.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen-inner' => 'dataworks.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'dataworks.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'dataworks.aliyuncs.com',
+            'cn-wuhan' => 'dataworks.aliyuncs.com',
+            'cn-wulanchabu' => 'dataworks.cn-wulanchabu.aliyuncs.com',
+            'cn-yushanfang' => 'dataworks.aliyuncs.com',
+            'cn-zhangbei' => 'dataworks.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'dataworks.aliyuncs.com',
+            'cn-zhangjiakou' => 'dataworks.cn-zhangjiakou.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'dataworks.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'dataworks.aliyuncs.com',
             'eu-central-1' => 'dataworks.eu-central-1.aliyuncs.com',
             'eu-west-1' => 'dataworks.eu-west-1.aliyuncs.com',
+            'eu-west-1-oxs' => 'dataworks.aliyuncs.com',
             'me-east-1' => 'dataworks.me-east-1.aliyuncs.com',
+            'rus-west-1-pop' => 'dataworks.aliyuncs.com',
             'us-east-1' => 'dataworks.us-east-1.aliyuncs.com',
             'us-west-1' => 'dataworks.us-west-1.aliyuncs.com',
-            'cn-hangzhou-finance' => 'dataworks.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'dataworks.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'dataworks.aliyuncs.com',
-            'cn-north-2-gov-1' => 'dataworks.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataworks-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
 
     /**
-     * @param string  $bucketName
-     * @param mixed[] $form
+     * @param string         $bucketName
+     * @param mixed[]        $form
+     * @param RuntimeOptions $runtime
      *
      * @return mixed[]
      */
-    public function _postOSSObject($bucketName, $form)
+    public function _postOSSObject($bucketName, $form, $runtime)
     {
-        $_request = new Request();
-        $boundary = FormUtil::getBoundary();
-        $_request->protocol = 'HTTPS';
-        $_request->method = 'POST';
-        $_request->pathname = '/';
-        $_request->headers = [
-            'host' => '' . @$form['host'],
-            'date' => Utils::getDateUTCString(),
-            'user-agent' => Utils::getUserAgent(''),
+        $_runtime = [
+            'key' => '' . ($runtime->key ?: $this->_key),
+            'cert' => '' . ($runtime->cert ?: $this->_cert),
+            'ca' => '' . ($runtime->ca ?: $this->_ca),
+            'readTimeout' => (($runtime->readTimeout ?: $this->_readTimeout) + 0),
+            'connectTimeout' => (($runtime->connectTimeout ?: $this->_connectTimeout) + 0),
+            'httpProxy' => '' . ($runtime->httpProxy ?: $this->_httpProxy),
+            'httpsProxy' => '' . ($runtime->httpsProxy ?: $this->_httpsProxy),
+            'noProxy' => '' . ($runtime->noProxy ?: $this->_noProxy),
+            'socks5Proxy' => '' . ($runtime->socks5Proxy ?: $this->_socks5Proxy),
+            'socks5NetWork' => '' . ($runtime->socks5NetWork ?: $this->_socks5NetWork),
+            'maxIdleConns' => (($runtime->maxIdleConns ?: $this->_maxIdleConns) + 0),
+            'retryOptions' => $this->_retryOptions,
+            'ignoreSSL' => (bool) (($runtime->ignoreSSL ?: false)),
+            'tlsMinVersion' => $this->_tlsMinVersion,
         ];
-        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FormUtil::toFileForm($form, $boundary);
-        $_response = Dara::send($_request);
 
-        $respMap = null;
-        $bodyStr = StreamUtil::readAsString($_response->body);
-        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
-            $respMap = XML::parseXml($bodyStr, null);
-            $err = @$respMap['Error'];
+        $_retriesAttempted = 0;
+        $_lastRequest = null;
+        $_lastResponse = null;
+        $_context = new RetryPolicyContext([
+            'retriesAttempted' => $_retriesAttempted,
+        ]);
+        while (Dara::shouldRetry($_runtime['retryOptions'], $_context)) {
+            if ($_retriesAttempted > 0) {
+                $_backoffTime = Dara::getBackoffDelay($_runtime['retryOptions'], $_context);
+                if ($_backoffTime > 0) {
+                    Dara::sleep($_backoffTime);
+                }
+            }
 
-            throw new ClientException([
-                'code' => '' . @$err['Code'],
-                'message' => '' . @$err['Message'],
-                'data' => [
-                    'httpCode' => $_response->statusCode,
-                    'requestId' => '' . @$err['RequestId'],
-                    'hostId' => '' . @$err['HostId'],
-                ],
-            ]);
+            ++$_retriesAttempted;
+
+            try {
+                $_request = new Request();
+                $boundary = FormUtil::getBoundary();
+                $_request->protocol = 'HTTPS';
+                $_request->method = 'POST';
+                $_request->pathname = '/';
+                $_request->headers = [
+                    'host' => '' . @$form['host'],
+                    'date' => Utils::getDateUTCString(),
+                    'user-agent' => Utils::getUserAgent(''),
+                ];
+                @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+                $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_lastRequest = $_request;
+                $_response = Dara::send($_request, $_runtime);
+                $_lastResponse = $_response;
+
+                $respMap = null;
+                $bodyStr = StreamUtil::readAsString($_response->body);
+                if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+                    $respMap = XML::parseXml($bodyStr, null);
+                    $err = @$respMap['Error'];
+
+                    throw new ClientException([
+                        'code' => '' . @$err['Code'],
+                        'message' => '' . @$err['Message'],
+                        'data' => [
+                            'httpCode' => $_response->statusCode,
+                            'requestId' => '' . @$err['RequestId'],
+                            'hostId' => '' . @$err['HostId'],
+                        ],
+                    ]);
+                }
+
+                $respMap = XML::parseXml($bodyStr, null);
+
+                return Dara::merge([
+                ], $respMap);
+            } catch (DaraException $e) {
+                $_context = new RetryPolicyContext([
+                    'retriesAttempted' => $_retriesAttempted,
+                    'lastRequest' => $_lastRequest,
+                    'lastResponse' => $_lastResponse,
+                    'exception' => $e,
+                ]);
+
+                continue;
+            }
         }
 
-        $respMap = XML::parseXml($bodyStr, null);
-
-        return Dara::merge([
-        ], $respMap);
+        throw new DaraUnableRetryException($_context);
     }
 
     /**
@@ -3000,7 +3092,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
+     * The operation that you want to perform. Set the value to \\\\*\\\\*CreateFolder\\\\*\\\\*.
      *
      * @param Request - CreateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3047,7 +3139,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
+     * The operation that you want to perform. Set the value to \\\\*\\\\*CreateFolder\\\\*\\\\*.
      *
      * @param Request - CreateFolderRequest
      *
@@ -3274,7 +3366,7 @@ class Dataworkspublic extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $createImportMigrationReq->packageFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -3771,6 +3863,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a partition filter expression.
      *
+     * @deprecated openAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
+     *
      * @param Request - CreateQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3827,8 +3921,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a partition filter expression.
+     *
+     * @deprecated openAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param Request - CreateQualityEntityRequest
      *
@@ -3847,6 +3944,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Creates a subscriber for a partition filter expression.
+     *
+     * @deprecated openAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead
      *
      * @param Request - CreateQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3900,8 +3999,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a subscriber for a partition filter expression.
+     *
+     * @deprecated openAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead
      *
      * @param Request - CreateQualityFollowerRequest
      *
@@ -3920,6 +4022,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Associates a node with a partition filter expression.
+     *
+     * @deprecated openAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - CreateQualityRelativeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,8 +4089,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateQualityRelativeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Associates a node with a partition filter expression.
+     *
+     * @deprecated openAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - CreateQualityRelativeNodeRequest
      *
@@ -4005,6 +4112,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Creates a monitoring rule.
+     *
+     * @deprecated openAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param Request - CreateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4118,8 +4227,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a monitoring rule.
+     *
+     * @deprecated openAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead
      *
      * @param Request - CreateQualityRuleRequest
      *
@@ -4439,7 +4551,7 @@ class Dataworkspublic extends OpenApiClient
                 'file' => $fileObj,
                 'success_action_status' => '201',
             ];
-            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
             $createResourceFileReq->resourceFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
@@ -4448,6 +4560,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Creates a MaxCompute table or view.
+     *
+     * @deprecated OpenAPI CreateTable is deprecated
      *
      * @param Request - CreateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4563,8 +4677,11 @@ class Dataworkspublic extends OpenApiClient
         return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a MaxCompute table or view.
+     *
+     * @deprecated OpenAPI CreateTable is deprecated
      *
      * @param Request - CreateTableRequest
      *
@@ -4582,7 +4699,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Creates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - CreateTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4633,7 +4750,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Creates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - CreateTableLevelRequest
      *
@@ -4886,6 +5003,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a workflow.
+     *
      * @param Request - DeleteBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4931,6 +5050,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a workflow.
+     *
      * @param Request - DeleteBusinessRequest
      *
      * @returns DeleteBusinessResponse
@@ -5456,6 +5577,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a folder from DataStudio.
+     *
      * @param Request - DeleteFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5501,6 +5624,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a folder from DataStudio.
+     *
      * @param Request - DeleteFolderRequest
      *
      * @returns DeleteFolderResponse
@@ -5887,6 +6012,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a partition filter expression.
      *
+     * @deprecated openAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead
+     *
      * @param Request - DeleteQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5935,8 +6062,11 @@ class Dataworkspublic extends OpenApiClient
         return DeleteQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Deletes a partition filter expression.
+     *
+     * @deprecated openAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead
      *
      * @param Request - DeleteQualityEntityRequest
      *
@@ -5954,10 +6084,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a subscriber of a partition filter expression.
+     * Calls DeleteQualityFollower to delete the subscribers of a partition expression.
      *
      * @remarks
      * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
+     *
+     * @deprecated openAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead
      *
      * @param Request - DeleteQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6003,11 +6135,14 @@ class Dataworkspublic extends OpenApiClient
         return DeleteQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Deletes a subscriber of a partition filter expression.
+     * Calls DeleteQualityFollower to delete the subscribers of a partition expression.
      *
      * @remarks
      * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
+     *
+     * @deprecated openAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead
      *
      * @param Request - DeleteQualityFollowerRequest
      *
@@ -6025,6 +6160,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Disassociates a node from a partition filter expression.
+     *
+     * @deprecated openAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
+     *
      * @param Request - DeleteQualityRelativeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6089,7 +6228,12 @@ class Dataworkspublic extends OpenApiClient
         return DeleteQualityRelativeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Disassociates a node from a partition filter expression.
+     *
+     * @deprecated openAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
+     *
      * @param Request - DeleteQualityRelativeNodeRequest
      *
      * @returns DeleteQualityRelativeNodeResponse
@@ -6107,6 +6251,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Deletes a monitoring rule.
+     *
+     * @deprecated openAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - DeleteQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6152,8 +6298,11 @@ class Dataworkspublic extends OpenApiClient
         return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Deletes a monitoring rule.
+     *
+     * @deprecated openAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - DeleteQualityRuleRequest
      *
@@ -6289,6 +6438,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a MaxCompute table.
+     *
+     * @deprecated OpenAPI DeleteTable is deprecated
+     *
      * @param Request - DeleteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6341,7 +6494,12 @@ class Dataworkspublic extends OpenApiClient
         return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Deletes a MaxCompute table.
+     *
+     * @deprecated OpenAPI DeleteTable is deprecated
+     *
      * @param Request - DeleteTableRequest
      *
      * @returns DeleteTableResponse
@@ -6358,7 +6516,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Deletes a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - DeleteTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6401,7 +6559,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Deletes a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - DeleteTableLevelRequest
      *
@@ -6803,19 +6961,25 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of data masking rules.
      *
-     * @param Request - DsgDesensPlanQueryListRequest
+     * @param tmpReq - DsgDesensPlanQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgDesensPlanQueryListResponse
      *
-     * @param DsgDesensPlanQueryListRequest $request
+     * @param DsgDesensPlanQueryListRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
      * @return DsgDesensPlanQueryListResponse
      */
-    public function dsgDesensPlanQueryListWithOptions($request, $runtime)
+    public function dsgDesensPlanQueryListWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DsgDesensPlanQueryListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->columns) {
+            $request->columnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'columns', 'json');
+        }
+
         $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
@@ -7028,6 +7192,59 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dsgQueryDefaultTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the status of the masking switch.
+     *
+     * @param Request - DsgQueryDesensStatusListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DsgQueryDesensStatusListResponse
+     *
+     * @param DsgQueryDesensStatusListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DsgQueryDesensStatusListResponse
+     */
+    public function dsgQueryDesensStatusListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DsgQueryDesensStatusList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DsgQueryDesensStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the status of the masking switch.
+     *
+     * @param Request - DsgQueryDesensStatusListRequest
+     *
+     * @returns DsgQueryDesensStatusListResponse
+     *
+     * @param DsgQueryDesensStatusListRequest $request
+     *
+     * @return DsgQueryDesensStatusListResponse
+     */
+    public function dsgQueryDesensStatusList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgQueryDesensStatusListWithOptions($request, $runtime);
     }
 
     /**
@@ -7460,6 +7677,73 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dsgStopSensIdentifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the status of the masking switch.
+     *
+     * @param tmpReq - DsgUpdateDesensStatusListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DsgUpdateDesensStatusListResponse
+     *
+     * @param DsgUpdateDesensStatusListRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DsgUpdateDesensStatusListResponse
+     */
+    public function dsgUpdateDesensStatusListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DsgUpdateDesensStatusListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->desensStatus) {
+            @$query['DesensStatus'] = $request->desensStatus;
+        }
+
+        if (null !== $request->idsShrink) {
+            @$query['Ids'] = $request->idsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DsgUpdateDesensStatusList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DsgUpdateDesensStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of the masking switch.
+     *
+     * @param Request - DsgUpdateDesensStatusListRequest
+     *
+     * @returns DsgUpdateDesensStatusListResponse
+     *
+     * @param DsgUpdateDesensStatusListRequest $request
+     *
+     * @return DsgUpdateDesensStatusListResponse
+     */
+    public function dsgUpdateDesensStatusList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgUpdateDesensStatusListWithOptions($request, $runtime);
     }
 
     /**
@@ -8047,6 +8331,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+     *
      * @param Request - EstablishRelationTableToBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8100,6 +8386,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+     *
      * @param Request - EstablishRelationTableToBusinessRequest
      *
      * @returns EstablishRelationTableToBusinessResponse
@@ -8695,6 +8983,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the status of a table creation, update, or deletion task.
      *
+     * @deprecated OpenAPI GetDDLJobStatus is deprecated
+     *
      * @param Request - GetDDLJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8727,8 +9017,11 @@ class Dataworkspublic extends OpenApiClient
         return GetDDLJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the status of a table creation, update, or deletion task.
+     *
+     * @deprecated OpenAPI GetDDLJobStatus is deprecated
      *
      * @param Request - GetDDLJobStatusRequest
      *
@@ -11081,6 +11374,8 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
      *
+     * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
+     *
      * @param Request - GetMetaTableFullInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11113,11 +11408,14 @@ class Dataworkspublic extends OpenApiClient
         return GetMetaTableFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the complete information about a table, including information about fields in the table.
      *
      * @remarks
      * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+     *
+     * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
      *
      * @param Request - GetMetaTableFullInfoRequest
      *
@@ -11585,7 +11883,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about the themes and levels of a metatable.
+     * Fetches topics and hierarchy metadata for tables.
      *
      * @param Request - GetMetaTableThemeLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11620,7 +11918,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about the themes and levels of a metatable.
+     * Fetches topics and hierarchy metadata for tables.
      *
      * @param Request - GetMetaTableThemeLevelRequest
      *
@@ -12495,6 +12793,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the information about a partition filter expression.
+     *
+     * @deprecated openAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
+     *
      * @param Request - GetQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12547,7 +12849,12 @@ class Dataworkspublic extends OpenApiClient
         return GetQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the information about a partition filter expression.
+     *
+     * @deprecated openAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
+     *
      * @param Request - GetQualityEntityRequest
      *
      * @returns GetQualityEntityResponse
@@ -12565,6 +12872,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Queries the subscribers of a partition filter expression.
+     *
+     * @deprecated openAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead
      *
      * @param Request - GetQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12610,8 +12919,11 @@ class Dataworkspublic extends OpenApiClient
         return GetQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the subscribers of a partition filter expression.
+     *
+     * @deprecated openAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead
      *
      * @param Request - GetQualityFollowerRequest
      *
@@ -12630,6 +12942,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Queries the information about a monitoring rule.
+     *
+     * @deprecated openAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
      * @param Request - GetQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12675,8 +12989,11 @@ class Dataworkspublic extends OpenApiClient
         return GetQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the information about a monitoring rule.
+     *
+     * @deprecated openAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
      * @param Request - GetQualityRuleRequest
      *
@@ -16601,7 +16918,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Views permission requests.
+     * Queries a list of permission requests.
      *
      * @param Request - ListPermissionApplyOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16688,7 +17005,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Views permission requests.
+     * Queries a list of permission requests.
      *
      * @param Request - ListPermissionApplyOrdersRequest
      *
@@ -17044,6 +17361,8 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      *
+     * @deprecated openAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
+     *
      * @param Request - ListQualityResultsByEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17104,10 +17423,13 @@ class Dataworkspublic extends OpenApiClient
         return ListQualityResultsByEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries a list of historical check results based on a partition filter expression.
      *
      * @remarks
+     *
+     * @deprecated openAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
      *
      * @param Request - ListQualityResultsByEntityRequest
      *
@@ -17126,6 +17448,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
+     *
+     * @deprecated openAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
      *
      * @param Request - ListQualityResultsByRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17187,8 +17511,11 @@ class Dataworkspublic extends OpenApiClient
         return ListQualityResultsByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
+     *
+     * @deprecated openAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead
      *
      * @param Request - ListQualityResultsByRuleRequest
      *
@@ -17207,6 +17534,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Queries monitoring rules based on a partition filter expression.
+     *
+     * @deprecated openAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
      * @param Request - ListQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17260,8 +17589,11 @@ class Dataworkspublic extends OpenApiClient
         return ListQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries monitoring rules based on a partition filter expression.
+     *
+     * @deprecated openAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead
      *
      * @param Request - ListQualityRulesRequest
      *
@@ -17715,7 +18047,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Lists hierarchy levels. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - ListTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17750,7 +18082,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Lists hierarchy levels. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - ListTableLevelRequest
      *
@@ -17768,7 +18100,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Lists table themes. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - ListTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17803,7 +18135,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Lists table themes. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - ListTableThemeRequest
      *
@@ -18933,7 +19265,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Resumes a suspended instance.
+     * Calls the ResumeInstance operation to resume a suspended instance.
      *
      * @param Request - ResumeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18976,7 +19308,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Resumes a suspended instance.
+     * Calls the ResumeInstance operation to resume a suspended instance.
      *
      * @param Request - ResumeInstanceRequest
      *
@@ -22160,7 +22492,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates the metadata information about a table. Only MaxCompute tables are supported.
+     * This operation updates the metadata of a table.
+     *
+     * @remarks
+     * This operation supports MaxCompute tables only.
      *
      * @param Request - UpdateMetaTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22241,7 +22576,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates the metadata information about a table. Only MaxCompute tables are supported.
+     * This operation updates the metadata of a table.
+     *
+     * @remarks
+     * This operation supports MaxCompute tables only.
      *
      * @param Request - UpdateMetaTableRequest
      *
@@ -22454,6 +22792,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a subscription relationship.
      *
+     * @deprecated openAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead
+     *
      * @param Request - UpdateQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -22506,8 +22846,11 @@ class Dataworkspublic extends OpenApiClient
         return UpdateQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates a subscription relationship.
+     *
+     * @deprecated openAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead
      *
      * @param Request - UpdateQualityFollowerRequest
      *
@@ -22526,6 +22869,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Updates a monitoring rule.
+     *
+     * @deprecated openAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - UpdateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22647,8 +22992,11 @@ class Dataworkspublic extends OpenApiClient
         return UpdateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates a monitoring rule.
+     *
+     * @deprecated openAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead
      *
      * @param Request - UpdateQualityRuleRequest
      *
@@ -22793,6 +23141,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates a MaxCompute table.
      *
+     * @deprecated OpenAPI UpdateTable is deprecated
+     *
      * @param Request - UpdateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -22907,8 +23257,11 @@ class Dataworkspublic extends OpenApiClient
         return UpdateTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates a MaxCompute table.
+     *
+     * @deprecated OpenAPI UpdateTable is deprecated
      *
      * @param Request - UpdateTableRequest
      *
@@ -22927,6 +23280,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Updates the fields in a MaxCompute table.
+     *
+     * @deprecated OpenAPI UpdateTableAddColumn is deprecated
      *
      * @param Request - UpdateTableAddColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22970,8 +23325,11 @@ class Dataworkspublic extends OpenApiClient
         return UpdateTableAddColumnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Updates the fields in a MaxCompute table.
+     *
+     * @deprecated OpenAPI UpdateTableAddColumn is deprecated
      *
      * @param Request - UpdateTableAddColumnRequest
      *
@@ -22989,7 +23347,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Updates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - UpdateTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23044,7 +23402,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+     * Updates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param Request - UpdateTableLevelRequest
      *

@@ -37,6 +37,11 @@ class data extends Model
      * @var string
      */
     public $owner;
+
+    /**
+     * @var string
+     */
+    public $mcAggregationInfo;
     protected $_name = [
         'accounts' => 'Accounts',
         'gmtCreate' => 'GmtCreate',
@@ -44,6 +49,7 @@ class data extends Model
         'id' => 'Id',
         'name' => 'Name',
         'owner' => 'Owner',
+        'mcAggregationInfo' => 'mcAggregationInfo',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class data extends Model
             $res['Owner'] = $this->owner;
         }
 
+        if (null !== $this->mcAggregationInfo) {
+            $res['mcAggregationInfo'] = $this->mcAggregationInfo;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class data extends Model
 
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
+        }
+
+        if (isset($map['mcAggregationInfo'])) {
+            $model->mcAggregationInfo = $map['mcAggregationInfo'];
         }
 
         return $model;

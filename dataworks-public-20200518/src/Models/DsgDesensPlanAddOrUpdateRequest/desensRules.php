@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest\desensRules\columns;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest\desensRules\desensPlan;
 
 class desensRules extends Model
@@ -48,6 +49,16 @@ class desensRules extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var columns[]
+     */
+    public $columns;
+
+    /**
+     * @var bool
+     */
+    public $emptyNotDesesn;
     protected $_name = [
         'checkWatermark' => 'CheckWatermark',
         'dataType' => 'DataType',
@@ -57,6 +68,8 @@ class desensRules extends Model
         'ruleName' => 'RuleName',
         'sceneIds' => 'SceneIds',
         'status' => 'Status',
+        'columns' => 'columns',
+        'emptyNotDesesn' => 'emptyNotDesesn',
     ];
 
     public function validate()
@@ -66,6 +79,9 @@ class desensRules extends Model
         }
         if (\is_array($this->sceneIds)) {
             Model::validateArray($this->sceneIds);
+        }
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
         }
         parent::validate();
     }
@@ -110,6 +126,21 @@ class desensRules extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->columns) {
+            if (\is_array($this->columns)) {
+                $res['columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->emptyNotDesesn) {
+            $res['emptyNotDesesn'] = $this->emptyNotDesesn;
         }
 
         return $res;
@@ -160,6 +191,21 @@ class desensRules extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['columns'])) {
+            if (!empty($map['columns'])) {
+                $model->columns = [];
+                $n1 = 0;
+                foreach ($map['columns'] as $item1) {
+                    $model->columns[$n1] = columns::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['emptyNotDesesn'])) {
+            $model->emptyNotDesesn = $map['emptyNotDesesn'];
         }
 
         return $model;

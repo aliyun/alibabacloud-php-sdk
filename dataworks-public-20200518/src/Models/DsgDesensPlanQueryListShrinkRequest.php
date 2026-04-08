@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListRequest\columns;
 
-class DsgDesensPlanQueryListRequest extends Model
+class DsgDesensPlanQueryListShrinkRequest extends Model
 {
     /**
      * @var string
@@ -40,9 +39,9 @@ class DsgDesensPlanQueryListRequest extends Model
     public $status;
 
     /**
-     * @var columns[]
+     * @var string
      */
-    public $columns;
+    public $columnsShrink;
 
     /**
      * @var string
@@ -60,16 +59,13 @@ class DsgDesensPlanQueryListRequest extends Model
         'ruleName' => 'RuleName',
         'sceneId' => 'SceneId',
         'status' => 'Status',
-        'columns' => 'columns',
+        'columnsShrink' => 'columns',
         'dataType' => 'dataType',
         'emptyNotDesesn' => 'emptyNotDesesn',
     ];
 
     public function validate()
     {
-        if (\is_array($this->columns)) {
-            Model::validateArray($this->columns);
-        }
         parent::validate();
     }
 
@@ -100,15 +96,8 @@ class DsgDesensPlanQueryListRequest extends Model
             $res['Status'] = $this->status;
         }
 
-        if (null !== $this->columns) {
-            if (\is_array($this->columns)) {
-                $res['columns'] = [];
-                $n1 = 0;
-                foreach ($this->columns as $item1) {
-                    $res['columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->columnsShrink) {
+            $res['columns'] = $this->columnsShrink;
         }
 
         if (null !== $this->dataType) {
@@ -155,14 +144,7 @@ class DsgDesensPlanQueryListRequest extends Model
         }
 
         if (isset($map['columns'])) {
-            if (!empty($map['columns'])) {
-                $model->columns = [];
-                $n1 = 0;
-                foreach ($map['columns'] as $item1) {
-                    $model->columns[$n1] = columns::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->columnsShrink = $map['columns'];
         }
 
         if (isset($map['dataType'])) {

@@ -48,6 +48,11 @@ class data extends Model
      * @var string
      */
     public $userGroups;
+
+    /**
+     * @var string
+     */
+    public $scenceDbType;
     protected $_name = [
         'children' => 'Children',
         'desc' => 'Desc',
@@ -57,6 +62,7 @@ class data extends Model
         'sceneLevel' => 'SceneLevel',
         'sceneName' => 'SceneName',
         'userGroups' => 'UserGroups',
+        'scenceDbType' => 'scenceDbType',
     ];
 
     public function validate()
@@ -119,6 +125,10 @@ class data extends Model
             $res['UserGroups'] = $this->userGroups;
         }
 
+        if (null !== $this->scenceDbType) {
+            $res['scenceDbType'] = $this->scenceDbType;
+        }
+
         return $res;
     }
 
@@ -174,6 +184,10 @@ class data extends Model
 
         if (isset($map['UserGroups'])) {
             $model->userGroups = $map['UserGroups'];
+        }
+
+        if (isset($map['scenceDbType'])) {
+            $model->scenceDbType = $map['scenceDbType'];
         }
 
         return $model;
