@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\components;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\endpoints;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\memApplicationSpec;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\parameters;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\tag;
 
 class CreateApplicationRequest extends Model
@@ -111,6 +112,11 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
 
     /**
      * @var string
@@ -217,6 +223,7 @@ class CreateApplicationRequest extends Model
         'modelBaseUrl' => 'ModelBaseUrl',
         'modelFrom' => 'ModelFrom',
         'modelName' => 'ModelName',
+        'parameters' => 'Parameters',
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
@@ -246,6 +253,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->memApplicationSpec) {
             $this->memApplicationSpec->validate();
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -348,6 +358,17 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->parameters) {
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->payType) {
@@ -528,6 +549,17 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n1 = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1] = parameters::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PayType'])) {

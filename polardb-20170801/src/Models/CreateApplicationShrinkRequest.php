@@ -112,6 +112,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $parametersShrink;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -214,6 +219,7 @@ class CreateApplicationShrinkRequest extends Model
         'modelBaseUrl' => 'ModelBaseUrl',
         'modelFrom' => 'ModelFrom',
         'modelName' => 'ModelName',
+        'parametersShrink' => 'Parameters',
         'payType' => 'PayType',
         'period' => 'Period',
         'polarFSInstanceId' => 'PolarFSInstanceId',
@@ -322,6 +328,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
         }
 
         if (null !== $this->payType) {
@@ -488,6 +498,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parametersShrink = $map['Parameters'];
         }
 
         if (isset($map['PayType'])) {

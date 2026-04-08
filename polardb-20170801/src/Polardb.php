@@ -2775,6 +2775,10 @@ class Polardb extends OpenApiClient
             $request->memApplicationSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memApplicationSpec, 'MemApplicationSpec', 'json');
         }
 
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->AIDBClusterId) {
             @$query['AIDBClusterId'] = $request->AIDBClusterId;
@@ -2854,6 +2858,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->modelName) {
             @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
 
         if (null !== $request->payType) {
