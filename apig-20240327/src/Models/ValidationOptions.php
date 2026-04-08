@@ -8,12 +8,7 @@ use AlibabaCloud\Dara\Model;
 
 class ValidationOptions extends Model
 {
-    /**
-     * @var bool
-     */
-    public $skipVerifyAIChatCompletion;
     protected $_name = [
-        'skipVerifyAIChatCompletion' => 'skipVerifyAIChatCompletion',
     ];
 
     public function validate()
@@ -23,12 +18,7 @@ class ValidationOptions extends Model
 
     public function toArray($noStream = false)
     {
-        $res = [];
-        if (null !== $this->skipVerifyAIChatCompletion) {
-            $res['skipVerifyAIChatCompletion'] = $this->skipVerifyAIChatCompletion;
-        }
-
-        return $res;
+        return [];
     }
 
     public function toMap($noStream = false)
@@ -38,11 +28,6 @@ class ValidationOptions extends Model
 
     public static function fromMap($map = [])
     {
-        $model = new self();
-        if (isset($map['skipVerifyAIChatCompletion'])) {
-            $model->skipVerifyAIChatCompletion = $map['skipVerifyAIChatCompletion'];
-        }
-
-        return $model;
+        return new self();
     }
 }

@@ -7,7 +7,6 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\backendConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\mcpRouteConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\policyConfigs;
 
 class UpdateHttpApiRouteRequest extends Model
 {
@@ -15,11 +14,6 @@ class UpdateHttpApiRouteRequest extends Model
      * @var backendConfig
      */
     public $backendConfig;
-
-    /**
-     * @var HttpApiDeployConfig[]
-     */
-    public $deployConfigs;
 
     /**
      * @var string
@@ -47,23 +41,16 @@ class UpdateHttpApiRouteRequest extends Model
     public $mcpRouteConfig;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var policyConfigs[]
+     * @var HttpApiPolicyConfigs[]
      */
     public $policyConfigs;
     protected $_name = [
         'backendConfig' => 'backendConfig',
-        'deployConfigs' => 'deployConfigs',
         'description' => 'description',
         'domainIds' => 'domainIds',
         'environmentId' => 'environmentId',
         'match' => 'match',
         'mcpRouteConfig' => 'mcpRouteConfig',
-        'name' => 'name',
         'policyConfigs' => 'policyConfigs',
     ];
 
@@ -71,9 +58,6 @@ class UpdateHttpApiRouteRequest extends Model
     {
         if (null !== $this->backendConfig) {
             $this->backendConfig->validate();
-        }
-        if (\is_array($this->deployConfigs)) {
-            Model::validateArray($this->deployConfigs);
         }
         if (\is_array($this->domainIds)) {
             Model::validateArray($this->domainIds);
@@ -95,17 +79,6 @@ class UpdateHttpApiRouteRequest extends Model
         $res = [];
         if (null !== $this->backendConfig) {
             $res['backendConfig'] = null !== $this->backendConfig ? $this->backendConfig->toArray($noStream) : $this->backendConfig;
-        }
-
-        if (null !== $this->deployConfigs) {
-            if (\is_array($this->deployConfigs)) {
-                $res['deployConfigs'] = [];
-                $n1 = 0;
-                foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->description) {
@@ -135,10 +108,6 @@ class UpdateHttpApiRouteRequest extends Model
             $res['mcpRouteConfig'] = null !== $this->mcpRouteConfig ? $this->mcpRouteConfig->toArray($noStream) : $this->mcpRouteConfig;
         }
 
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-
         if (null !== $this->policyConfigs) {
             if (\is_array($this->policyConfigs)) {
                 $res['policyConfigs'] = [];
@@ -163,17 +132,6 @@ class UpdateHttpApiRouteRequest extends Model
         $model = new self();
         if (isset($map['backendConfig'])) {
             $model->backendConfig = backendConfig::fromMap($map['backendConfig']);
-        }
-
-        if (isset($map['deployConfigs'])) {
-            if (!empty($map['deployConfigs'])) {
-                $model->deployConfigs = [];
-                $n1 = 0;
-                foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1] = HttpApiDeployConfig::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['description'])) {
@@ -203,16 +161,12 @@ class UpdateHttpApiRouteRequest extends Model
             $model->mcpRouteConfig = mcpRouteConfig::fromMap($map['mcpRouteConfig']);
         }
 
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-
         if (isset($map['policyConfigs'])) {
             if (!empty($map['policyConfigs'])) {
                 $model->policyConfigs = [];
                 $n1 = 0;
                 foreach ($map['policyConfigs'] as $item1) {
-                    $model->policyConfigs[$n1] = policyConfigs::fromMap($item1);
+                    $model->policyConfigs[$n1] = HttpApiPolicyConfigs::fromMap($item1);
                     ++$n1;
                 }
             }

@@ -5,49 +5,42 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiCacheConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiFallbackConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiNetworkSearchConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiSecurityGuardConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiStatisticsConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiTokenRateLimitConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\aiToolSelectionConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPolicyConfigs\semanticRouterConfig;
 
 class HttpApiPolicyConfigs extends Model
 {
     /**
-     * @var aiCacheConfig
+     * @var AiCacheConfig
      */
     public $aiCacheConfig;
 
     /**
-     * @var aiFallbackConfig
+     * @var AiFallbackConfig
      */
     public $aiFallbackConfig;
 
     /**
-     * @var aiNetworkSearchConfig
+     * @var AiNetworkSearchConfig
      */
     public $aiNetworkSearchConfig;
 
     /**
-     * @var aiSecurityGuardConfig
+     * @var AiSecurityGuardConfig
      */
     public $aiSecurityGuardConfig;
 
     /**
-     * @var aiStatisticsConfig
+     * @var AiStatisticsConfig
      */
     public $aiStatisticsConfig;
 
     /**
-     * @var aiTokenRateLimitConfig
+     * @var AiTokenRateLimitConfig
      */
     public $aiTokenRateLimitConfig;
 
     /**
-     * @var aiToolSelectionConfig
+     * @var AiToolSelectionConfig
      */
     public $aiToolSelectionConfig;
 
@@ -162,31 +155,31 @@ class HttpApiPolicyConfigs extends Model
     {
         $model = new self();
         if (isset($map['aiCacheConfig'])) {
-            $model->aiCacheConfig = aiCacheConfig::fromMap($map['aiCacheConfig']);
+            $model->aiCacheConfig = AiCacheConfig::fromMap($map['aiCacheConfig']);
         }
 
         if (isset($map['aiFallbackConfig'])) {
-            $model->aiFallbackConfig = aiFallbackConfig::fromMap($map['aiFallbackConfig']);
+            $model->aiFallbackConfig = AiFallbackConfig::fromMap($map['aiFallbackConfig']);
         }
 
         if (isset($map['aiNetworkSearchConfig'])) {
-            $model->aiNetworkSearchConfig = aiNetworkSearchConfig::fromMap($map['aiNetworkSearchConfig']);
+            $model->aiNetworkSearchConfig = AiNetworkSearchConfig::fromMap($map['aiNetworkSearchConfig']);
         }
 
         if (isset($map['aiSecurityGuardConfig'])) {
-            $model->aiSecurityGuardConfig = aiSecurityGuardConfig::fromMap($map['aiSecurityGuardConfig']);
+            $model->aiSecurityGuardConfig = AiSecurityGuardConfig::fromMap($map['aiSecurityGuardConfig']);
         }
 
         if (isset($map['aiStatisticsConfig'])) {
-            $model->aiStatisticsConfig = aiStatisticsConfig::fromMap($map['aiStatisticsConfig']);
+            $model->aiStatisticsConfig = AiStatisticsConfig::fromMap($map['aiStatisticsConfig']);
         }
 
         if (isset($map['aiTokenRateLimitConfig'])) {
-            $model->aiTokenRateLimitConfig = aiTokenRateLimitConfig::fromMap($map['aiTokenRateLimitConfig']);
+            $model->aiTokenRateLimitConfig = AiTokenRateLimitConfig::fromMap($map['aiTokenRateLimitConfig']);
         }
 
         if (isset($map['aiToolSelectionConfig'])) {
-            $model->aiToolSelectionConfig = aiToolSelectionConfig::fromMap($map['aiToolSelectionConfig']);
+            $model->aiToolSelectionConfig = AiToolSelectionConfig::fromMap($map['aiToolSelectionConfig']);
         }
 
         if (isset($map['enable'])) {

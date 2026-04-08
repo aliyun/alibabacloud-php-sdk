@@ -69,6 +69,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponse;
@@ -107,6 +108,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListExternalServicesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListExternalServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayFeaturesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
@@ -3006,21 +3009,38 @@ class APIG extends OpenApiClient
     /**
      * Exports an HTTP API.
      *
+     * @param request - ExportHttpApiRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ExportHttpApiResponse
      *
-     * @param string         $httpApiId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $httpApiId
+     * @param ExportHttpApiRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return ExportHttpApiResponse
      */
-    public function exportHttpApiWithOptions($httpApiId, $headers, $runtime)
+    public function exportHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
+        $request->validate();
+        $body = [];
+        if (null !== $request->extensionConfig) {
+            @$body['extensionConfig'] = $request->extensionConfig;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->operationIds) {
+            @$body['operationIds'] = $request->operationIds;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportHttpApi',
@@ -3040,18 +3060,21 @@ class APIG extends OpenApiClient
     /**
      * Exports an HTTP API.
      *
+     * @param request - ExportHttpApiRequest
+     *
      * @returns ExportHttpApiResponse
      *
-     * @param string $httpApiId
+     * @param string               $httpApiId
+     * @param ExportHttpApiRequest $request
      *
      * @return ExportHttpApiResponse
      */
-    public function exportHttpApi($httpApiId)
+    public function exportHttpApi($httpApiId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->exportHttpApiWithOptions($httpApiId, $headers, $runtime);
+        return $this->exportHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -4637,6 +4660,85 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listEnvironmentsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取网关外的服务信息.
+     *
+     * @param request - ListExternalServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExternalServicesResponse
+     *
+     * @param string                      $gatewayId
+     * @param ListExternalServicesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListExternalServicesResponse
+     */
+    public function listExternalServicesWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->importableOnly) {
+            @$query['importableOnly'] = $request->importableOnly;
+        }
+
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->paiWorkspaceId) {
+            @$query['paiWorkspaceId'] = $request->paiWorkspaceId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListExternalServices',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/external-services',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListExternalServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取网关外的服务信息.
+     *
+     * @param request - ListExternalServicesRequest
+     *
+     * @returns ListExternalServicesResponse
+     *
+     * @param string                      $gatewayId
+     * @param ListExternalServicesRequest $request
+     *
+     * @return ListExternalServicesResponse
+     */
+    public function listExternalServices($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listExternalServicesWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -7244,10 +7346,6 @@ class APIG extends OpenApiClient
             @$body['backendConfig'] = $request->backendConfig;
         }
 
-        if (null !== $request->deployConfigs) {
-            @$body['deployConfigs'] = $request->deployConfigs;
-        }
-
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -7266,10 +7364,6 @@ class APIG extends OpenApiClient
 
         if (null !== $request->mcpRouteConfig) {
             @$body['mcpRouteConfig'] = $request->mcpRouteConfig;
-        }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
         }
 
         if (null !== $request->policyConfigs) {

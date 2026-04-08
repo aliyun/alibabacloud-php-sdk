@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\customDomainInfos;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\serviceConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\subDomains;
 
@@ -21,6 +20,11 @@ class HttpApiDeployConfig extends Model
      * @var string
      */
     public $backendScene;
+
+    /**
+     * @var string[]
+     */
+    public $builtinRouteNames;
 
     /**
      * @var string[]
@@ -58,7 +62,7 @@ class HttpApiDeployConfig extends Model
     public $mock;
 
     /**
-     * @var policyConfigs[]
+     * @var HttpApiPolicyConfigs[]
      */
     public $policyConfigs;
 
@@ -79,6 +83,7 @@ class HttpApiDeployConfig extends Model
     protected $_name = [
         'autoDeploy' => 'autoDeploy',
         'backendScene' => 'backendScene',
+        'builtinRouteNames' => 'builtinRouteNames',
         'customDomainIds' => 'customDomainIds',
         'customDomainInfos' => 'customDomainInfos',
         'environmentId' => 'environmentId',
@@ -94,6 +99,9 @@ class HttpApiDeployConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->builtinRouteNames)) {
+            Model::validateArray($this->builtinRouteNames);
+        }
         if (\is_array($this->customDomainIds)) {
             Model::validateArray($this->customDomainIds);
         }
@@ -130,6 +138,17 @@ class HttpApiDeployConfig extends Model
 
         if (null !== $this->backendScene) {
             $res['backendScene'] = $this->backendScene;
+        }
+
+        if (null !== $this->builtinRouteNames) {
+            if (\is_array($this->builtinRouteNames)) {
+                $res['builtinRouteNames'] = [];
+                $n1 = 0;
+                foreach ($this->builtinRouteNames as $item1) {
+                    $res['builtinRouteNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->customDomainIds) {
@@ -230,6 +249,17 @@ class HttpApiDeployConfig extends Model
             $model->backendScene = $map['backendScene'];
         }
 
+        if (isset($map['builtinRouteNames'])) {
+            if (!empty($map['builtinRouteNames'])) {
+                $model->builtinRouteNames = [];
+                $n1 = 0;
+                foreach ($map['builtinRouteNames'] as $item1) {
+                    $model->builtinRouteNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['customDomainIds'])) {
             if (!empty($map['customDomainIds'])) {
                 $model->customDomainIds = [];
@@ -277,7 +307,7 @@ class HttpApiDeployConfig extends Model
                 $model->policyConfigs = [];
                 $n1 = 0;
                 foreach ($map['policyConfigs'] as $item1) {
-                    $model->policyConfigs[$n1] = policyConfigs::fromMap($item1);
+                    $model->policyConfigs[$n1] = HttpApiPolicyConfigs::fromMap($item1);
                     ++$n1;
                 }
             }
