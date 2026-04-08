@@ -23,6 +23,9 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAccelerateTargetReque
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateEnterpriseAccelerateTargetResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePADiagnosisTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePADiagnosisTaskResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePADiagnosisTaskShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationShrinkRequest;
@@ -97,6 +100,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetIdpConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetPADiagnosisTaskRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetPADiagnosisTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyRequest;
@@ -878,6 +883,105 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createIdpDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建内网访问诊断任务
+     *
+     * @param tmpReq - CreatePADiagnosisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePADiagnosisTaskResponse
+     *
+     * @param CreatePADiagnosisTaskRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePADiagnosisTaskResponse
+     */
+    public function createPADiagnosisTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePADiagnosisTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->udpExtraConfigs) {
+            $request->udpExtraConfigsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->udpExtraConfigs, 'UdpExtraConfigs', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->devTag) {
+            @$body['DevTag'] = $request->devTag;
+        }
+
+        if (null !== $request->diagnoseType) {
+            @$body['DiagnoseType'] = $request->diagnoseType;
+        }
+
+        if (null !== $request->host) {
+            @$body['Host'] = $request->host;
+        }
+
+        if (null !== $request->popId) {
+            @$body['PopId'] = $request->popId;
+        }
+
+        if (null !== $request->popMode) {
+            @$body['PopMode'] = $request->popMode;
+        }
+
+        if (null !== $request->port) {
+            @$body['Port'] = $request->port;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->udpExtraConfigsShrink) {
+            @$body['UdpExtraConfigs'] = $request->udpExtraConfigsShrink;
+        }
+
+        if (null !== $request->userGroupId) {
+            @$body['UserGroupId'] = $request->userGroupId;
+        }
+
+        if (null !== $request->username) {
+            @$body['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePADiagnosisTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePADiagnosisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建内网访问诊断任务
+     *
+     * @param request - CreatePADiagnosisTaskRequest
+     *
+     * @returns CreatePADiagnosisTaskResponse
+     *
+     * @param CreatePADiagnosisTaskRequest $request
+     *
+     * @return CreatePADiagnosisTaskResponse
+     */
+    public function createPADiagnosisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPADiagnosisTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3323,6 +3427,59 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIdpConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询内网访问诊断任务详情.
+     *
+     * @param request - GetPADiagnosisTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPADiagnosisTaskResponse
+     *
+     * @param GetPADiagnosisTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPADiagnosisTaskResponse
+     */
+    public function getPADiagnosisTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPADiagnosisTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPADiagnosisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询内网访问诊断任务详情.
+     *
+     * @param request - GetPADiagnosisTaskRequest
+     *
+     * @returns GetPADiagnosisTaskResponse
+     *
+     * @param GetPADiagnosisTaskRequest $request
+     *
+     * @return GetPADiagnosisTaskResponse
+     */
+    public function getPADiagnosisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPADiagnosisTaskWithOptions($request, $runtime);
     }
 
     /**
