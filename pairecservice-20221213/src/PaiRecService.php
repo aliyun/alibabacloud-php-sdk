@@ -134,6 +134,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTargetRe
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTargetResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeployTrafficControlTaskCodeRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeployTrafficControlTaskCodeResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateAlgorithmCustomizationScriptRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateAlgorithmCustomizationScriptResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskCodeRequest;
@@ -295,6 +297,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QuerySampleConsistencyJobDif
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QuerySampleConsistencyJobDifferenceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTargetItemReportDetailRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTargetItemReportDetailResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTaskDeployResultRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTaskDeployResultResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTaskItemReportRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTaskItemReportResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReleaseTrafficControlTaskRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReleaseTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupRequest;
@@ -5432,6 +5438,77 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->deleteTrafficControlTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 部署流量调控任务的flink code.
+     *
+     * @param request - DeployTrafficControlTaskCodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployTrafficControlTaskCodeResponse
+     *
+     * @param string                              $TrafficControlTaskId
+     * @param DeployTrafficControlTaskCodeRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeployTrafficControlTaskCodeResponse
+     */
+    public function deployTrafficControlTaskCodeWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->retryDeploy) {
+            @$body['RetryDeploy'] = $request->retryDeploy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeployTrafficControlTaskCode',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/trafficcontroltasks/' . Url::percentEncode($TrafficControlTaskId) . '/action/deploycode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeployTrafficControlTaskCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 部署流量调控任务的flink code.
+     *
+     * @param request - DeployTrafficControlTaskCodeRequest
+     *
+     * @returns DeployTrafficControlTaskCodeResponse
+     *
+     * @param string                              $TrafficControlTaskId
+     * @param DeployTrafficControlTaskCodeRequest $request
+     *
+     * @return DeployTrafficControlTaskCodeResponse
+     */
+    public function deployTrafficControlTaskCode($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deployTrafficControlTaskCodeWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
     }
 
     /**
@@ -11062,6 +11139,148 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->queryTrafficControlTargetItemReportDetailWithOptions($TrafficControlTargetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取流量调控任务部署的结果。
+     *
+     * @param request - QueryTrafficControlTaskDeployResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTrafficControlTaskDeployResultResponse
+     *
+     * @param string                                     $TrafficControlTaskId
+     * @param QueryTrafficControlTaskDeployResultRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryTrafficControlTaskDeployResultResponse
+     */
+    public function queryTrafficControlTaskDeployResultWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environment) {
+            @$query['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryTrafficControlTaskDeployResult',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/trafficcontroltasks/' . Url::percentEncode($TrafficControlTaskId) . '/action/queryresult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryTrafficControlTaskDeployResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取流量调控任务部署的结果。
+     *
+     * @param request - QueryTrafficControlTaskDeployResultRequest
+     *
+     * @returns QueryTrafficControlTaskDeployResultResponse
+     *
+     * @param string                                     $TrafficControlTaskId
+     * @param QueryTrafficControlTaskDeployResultRequest $request
+     *
+     * @return QueryTrafficControlTaskDeployResultResponse
+     */
+    public function queryTrafficControlTaskDeployResult($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryTrafficControlTaskDeployResultWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询流量调控任务单品调控报表。
+     *
+     * @param request - QueryTrafficControlTaskItemReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTrafficControlTaskItemReportResponse
+     *
+     * @param string                                   $TrafficControlTaskId
+     * @param QueryTrafficControlTaskItemReportRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QueryTrafficControlTaskItemReportResponse
+     */
+    public function queryTrafficControlTaskItemReportWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->environment) {
+            @$query['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryTrafficControlTaskItemReport',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/trafficcontroltasks/' . Url::percentEncode($TrafficControlTaskId) . '/action/queryitemreport',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryTrafficControlTaskItemReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流量调控任务单品调控报表。
+     *
+     * @param request - QueryTrafficControlTaskItemReportRequest
+     *
+     * @returns QueryTrafficControlTaskItemReportResponse
+     *
+     * @param string                                   $TrafficControlTaskId
+     * @param QueryTrafficControlTaskItemReportRequest $request
+     *
+     * @return QueryTrafficControlTaskItemReportResponse
+     */
+    public function queryTrafficControlTaskItemReport($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryTrafficControlTaskItemReportWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
     }
 
     /**
