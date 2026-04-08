@@ -1048,6 +1048,10 @@ class Eas extends OpenApiClient
             @$body['SystemDiskSize'] = $request->systemDiskSize;
         }
 
+        if (null !== $request->usageMode) {
+            @$body['UsageMode'] = $request->usageMode;
+        }
+
         if (null !== $request->zone) {
             @$body['Zone'] = $request->zone;
         }
@@ -5237,6 +5241,10 @@ class Eas extends OpenApiClient
 
         if (null !== $request->sort) {
             @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->usageMode) {
+            @$query['UsageMode'] = $request->usageMode;
         }
 
         $req = new OpenApiRequest([

@@ -47,6 +47,11 @@ class ListResourcesRequest extends Model
      * @var string
      */
     public $sort;
+
+    /**
+     * @var string
+     */
+    public $usageMode;
     protected $_name = [
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
@@ -56,6 +61,7 @@ class ListResourcesRequest extends Model
         'resourceStatus' => 'ResourceStatus',
         'resourceType' => 'ResourceType',
         'sort' => 'Sort',
+        'usageMode' => 'UsageMode',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class ListResourcesRequest extends Model
 
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
+        }
+
+        if (null !== $this->usageMode) {
+            $res['UsageMode'] = $this->usageMode;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class ListResourcesRequest extends Model
 
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
+        }
+
+        if (isset($map['UsageMode'])) {
+            $model->usageMode = $map['UsageMode'];
         }
 
         return $model;

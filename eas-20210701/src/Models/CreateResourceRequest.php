@@ -57,6 +57,11 @@ class CreateResourceRequest extends Model
     /**
      * @var string
      */
+    public $usageMode;
+
+    /**
+     * @var string
+     */
     public $zone;
     protected $_name = [
         'autoRenewal' => 'AutoRenewal',
@@ -68,6 +73,7 @@ class CreateResourceRequest extends Model
         'resourceType' => 'ResourceType',
         'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
         'systemDiskSize' => 'SystemDiskSize',
+        'usageMode' => 'UsageMode',
         'zone' => 'Zone',
     ];
 
@@ -126,6 +132,10 @@ class CreateResourceRequest extends Model
             $res['SystemDiskSize'] = $this->systemDiskSize;
         }
 
+        if (null !== $this->usageMode) {
+            $res['UsageMode'] = $this->usageMode;
+        }
+
         if (null !== $this->zone) {
             $res['Zone'] = $this->zone;
         }
@@ -180,6 +190,10 @@ class CreateResourceRequest extends Model
 
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];
+        }
+
+        if (isset($map['UsageMode'])) {
+            $model->usageMode = $map['UsageMode'];
         }
 
         if (isset($map['Zone'])) {

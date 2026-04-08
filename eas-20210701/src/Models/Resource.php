@@ -121,6 +121,11 @@ class Resource extends Model
     /**
      * @var string
      */
+    public $usageMode;
+
+    /**
+     * @var string
+     */
     public $vendor;
     protected $_name = [
         'clusterId' => 'ClusterId',
@@ -145,6 +150,7 @@ class Resource extends Model
         'resourceType' => 'ResourceType',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
+        'usageMode' => 'UsageMode',
         'vendor' => 'Vendor',
     ];
 
@@ -262,6 +268,10 @@ class Resource extends Model
             $res['UpdateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->usageMode) {
+            $res['UsageMode'] = $this->usageMode;
+        }
+
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -375,6 +385,10 @@ class Resource extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['UsageMode'])) {
+            $model->usageMode = $map['UsageMode'];
         }
 
         if (isset($map['Vendor'])) {

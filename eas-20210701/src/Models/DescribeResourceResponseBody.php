@@ -127,6 +127,11 @@ class DescribeResourceResponseBody extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $usageMode;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'cpuCount' => 'CpuCount',
@@ -152,6 +157,7 @@ class DescribeResourceResponseBody extends Model
         'resourceType' => 'ResourceType',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
+        'usageMode' => 'UsageMode',
     ];
 
     public function validate()
@@ -268,6 +274,10 @@ class DescribeResourceResponseBody extends Model
             $res['UpdateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->usageMode) {
+            $res['UsageMode'] = $this->usageMode;
+        }
+
         return $res;
     }
 
@@ -380,6 +390,10 @@ class DescribeResourceResponseBody extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['UsageMode'])) {
+            $model->usageMode = $map['UsageMode'];
         }
 
         return $model;
