@@ -19,6 +19,11 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -65,6 +70,7 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'ipv6GatewayId' => 'Ipv6GatewayId',
@@ -90,6 +96,10 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -145,6 +155,10 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

@@ -20,6 +20,11 @@ class CreateIpv6GatewayRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $name;
@@ -66,6 +71,7 @@ class CreateIpv6GatewayRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'name' => 'Name',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -94,6 +100,10 @@ class CreateIpv6GatewayRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->name) {
@@ -156,6 +166,10 @@ class CreateIpv6GatewayRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Name'])) {

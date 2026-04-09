@@ -19,6 +19,11 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $ipInstanceId;
@@ -55,6 +60,7 @@ class AddCommonBandwidthPackageIpRequest extends Model
     protected $_name = [
         'bandwidthPackageId' => 'BandwidthPackageId',
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipInstanceId' => 'IpInstanceId',
         'ipType' => 'IpType',
         'ownerAccount' => 'OwnerAccount',
@@ -78,6 +84,10 @@ class AddCommonBandwidthPackageIpRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->ipInstanceId) {
@@ -125,6 +135,10 @@ class AddCommonBandwidthPackageIpRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['IpInstanceId'])) {

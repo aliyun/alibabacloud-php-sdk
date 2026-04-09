@@ -1172,6 +1172,10 @@ class Vpc extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->ipInstanceId) {
             @$query['IpInstanceId'] = $request->ipInstanceId;
         }
@@ -7447,6 +7451,10 @@ class Vpc extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -7558,6 +7566,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->name) {
@@ -14159,6 +14171,10 @@ class Vpc extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->ipv6EgressOnlyRuleId) {
@@ -24813,7 +24829,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the log of an SSL server.
+     * Queries the log entries of an SSL server.
      *
      * @param request - DescribeVpnSslServerLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24896,7 +24912,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Queries the log of an SSL server.
+     * Queries the log entries of an SSL server.
      *
      * @param request - DescribeVpnSslServerLogsRequest
      *
@@ -27846,7 +27862,6 @@ class Vpc extends OpenApiClient
     /**
      * Queries the most recent region list.
      *
-     * @param request - ListGeographicSubRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListGeographicSubRegionsResponse
@@ -35240,7 +35255,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+     * Modifies the name and description of a VPN gateway.
      *
      * @remarks
      *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
@@ -35321,7 +35336,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+     * Modifies the name and description of a VPN gateway.
      *
      * @remarks
      *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
@@ -36993,6 +37008,10 @@ class Vpc extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->ipInstanceId) {

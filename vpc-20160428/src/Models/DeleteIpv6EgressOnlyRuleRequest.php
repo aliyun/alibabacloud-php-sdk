@@ -14,6 +14,11 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $ipv6EgressOnlyRuleId;
@@ -44,6 +49,7 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipv6EgressOnlyRuleId' => 'Ipv6EgressOnlyRuleId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -62,6 +68,10 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->ipv6EgressOnlyRuleId) {
@@ -101,6 +111,10 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Ipv6EgressOnlyRuleId'])) {
