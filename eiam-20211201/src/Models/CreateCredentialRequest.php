@@ -37,6 +37,11 @@ class CreateCredentialRequest extends Model
     /**
      * @var string
      */
+    public $credentialSharingScope;
+
+    /**
+     * @var string
+     */
     public $credentialSubjectId;
 
     /**
@@ -57,6 +62,11 @@ class CreateCredentialRequest extends Model
     /**
      * @var string
      */
+    public $exclusiveUserId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
@@ -64,10 +74,12 @@ class CreateCredentialRequest extends Model
         'credentialIdentifier' => 'CredentialIdentifier',
         'credentialName' => 'CredentialName',
         'credentialScenarioLabel' => 'CredentialScenarioLabel',
+        'credentialSharingScope' => 'CredentialSharingScope',
         'credentialSubjectId' => 'CredentialSubjectId',
         'credentialSubjectType' => 'CredentialSubjectType',
         'credentialType' => 'CredentialType',
         'description' => 'Description',
+        'exclusiveUserId' => 'ExclusiveUserId',
         'instanceId' => 'InstanceId',
     ];
 
@@ -102,6 +114,10 @@ class CreateCredentialRequest extends Model
             $res['CredentialScenarioLabel'] = $this->credentialScenarioLabel;
         }
 
+        if (null !== $this->credentialSharingScope) {
+            $res['CredentialSharingScope'] = $this->credentialSharingScope;
+        }
+
         if (null !== $this->credentialSubjectId) {
             $res['CredentialSubjectId'] = $this->credentialSubjectId;
         }
@@ -116,6 +132,10 @@ class CreateCredentialRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->exclusiveUserId) {
+            $res['ExclusiveUserId'] = $this->exclusiveUserId;
         }
 
         if (null !== $this->instanceId) {
@@ -153,6 +173,10 @@ class CreateCredentialRequest extends Model
             $model->credentialScenarioLabel = $map['CredentialScenarioLabel'];
         }
 
+        if (isset($map['CredentialSharingScope'])) {
+            $model->credentialSharingScope = $map['CredentialSharingScope'];
+        }
+
         if (isset($map['CredentialSubjectId'])) {
             $model->credentialSubjectId = $map['CredentialSubjectId'];
         }
@@ -167,6 +191,10 @@ class CreateCredentialRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['ExclusiveUserId'])) {
+            $model->exclusiveUserId = $map['ExclusiveUserId'];
         }
 
         if (isset($map['InstanceId'])) {

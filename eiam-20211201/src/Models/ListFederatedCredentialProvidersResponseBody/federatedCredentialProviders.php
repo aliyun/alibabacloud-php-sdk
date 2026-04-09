@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponseBody\federatedCredentialProviders\cloudIdPProviderConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponseBody\federatedCredentialProviders\oidcProviderConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponseBody\federatedCredentialProviders\pkcs7ProviderConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListFederatedCredentialProvidersResponseBody\federatedCredentialProviders\privateCaProviderConfig;
 
 class federatedCredentialProviders extends Model
 {
+    /**
+     * @var cloudIdPProviderConfig
+     */
+    public $cloudIdPProviderConfig;
+
     /**
      * @var int
      */
@@ -71,6 +77,7 @@ class federatedCredentialProviders extends Model
      */
     public $updateTime;
     protected $_name = [
+        'cloudIdPProviderConfig' => 'CloudIdPProviderConfig',
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'federatedCredentialProviderId' => 'FederatedCredentialProviderId',
@@ -87,6 +94,9 @@ class federatedCredentialProviders extends Model
 
     public function validate()
     {
+        if (null !== $this->cloudIdPProviderConfig) {
+            $this->cloudIdPProviderConfig->validate();
+        }
         if (null !== $this->oidcProviderConfig) {
             $this->oidcProviderConfig->validate();
         }
@@ -102,6 +112,10 @@ class federatedCredentialProviders extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudIdPProviderConfig) {
+            $res['CloudIdPProviderConfig'] = null !== $this->cloudIdPProviderConfig ? $this->cloudIdPProviderConfig->toArray($noStream) : $this->cloudIdPProviderConfig;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -161,6 +175,10 @@ class federatedCredentialProviders extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudIdPProviderConfig'])) {
+            $model->cloudIdPProviderConfig = cloudIdPProviderConfig::fromMap($map['CloudIdPProviderConfig']);
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

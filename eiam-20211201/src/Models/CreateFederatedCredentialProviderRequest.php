@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateFederatedCredentialProviderRequest\cloudIdPProviderConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateFederatedCredentialProviderRequest\oidcProviderConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateFederatedCredentialProviderRequest\pkcs7ProviderConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateFederatedCredentialProviderRequest\privateCaProviderConfig;
 
 class CreateFederatedCredentialProviderRequest extends Model
 {
+    /**
+     * @var cloudIdPProviderConfig
+     */
+    public $cloudIdPProviderConfig;
+
     /**
      * @var string
      */
@@ -51,6 +57,7 @@ class CreateFederatedCredentialProviderRequest extends Model
      */
     public $privateCaProviderConfig;
     protected $_name = [
+        'cloudIdPProviderConfig' => 'CloudIdPProviderConfig',
         'description' => 'Description',
         'federatedCredentialProviderName' => 'FederatedCredentialProviderName',
         'federatedCredentialProviderType' => 'FederatedCredentialProviderType',
@@ -63,6 +70,9 @@ class CreateFederatedCredentialProviderRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->cloudIdPProviderConfig) {
+            $this->cloudIdPProviderConfig->validate();
+        }
         if (null !== $this->oidcProviderConfig) {
             $this->oidcProviderConfig->validate();
         }
@@ -78,6 +88,10 @@ class CreateFederatedCredentialProviderRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cloudIdPProviderConfig) {
+            $res['CloudIdPProviderConfig'] = null !== $this->cloudIdPProviderConfig ? $this->cloudIdPProviderConfig->toArray($noStream) : $this->cloudIdPProviderConfig;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -121,6 +135,10 @@ class CreateFederatedCredentialProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudIdPProviderConfig'])) {
+            $model->cloudIdPProviderConfig = cloudIdPProviderConfig::fromMap($map['CloudIdPProviderConfig']);
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

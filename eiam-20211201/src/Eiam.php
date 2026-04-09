@@ -3027,6 +3027,10 @@ class Eiam extends OpenApiClient
             @$query['CredentialScenarioLabel'] = $request->credentialScenarioLabel;
         }
 
+        if (null !== $request->credentialSharingScope) {
+            @$query['CredentialSharingScope'] = $request->credentialSharingScope;
+        }
+
         if (null !== $request->credentialSubjectId) {
             @$query['CredentialSubjectId'] = $request->credentialSubjectId;
         }
@@ -3041,6 +3045,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->exclusiveUserId) {
+            @$query['ExclusiveUserId'] = $request->exclusiveUserId;
         }
 
         if (null !== $request->instanceId) {
@@ -3493,6 +3501,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->cloudIdPProviderConfig) {
+            @$query['CloudIdPProviderConfig'] = $request->cloudIdPProviderConfig;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -15273,6 +15285,10 @@ class Eiam extends OpenApiClient
             @$query['CredentialIds'] = $request->credentialIds;
         }
 
+        if (null !== $request->credentialSharingScopes) {
+            @$query['CredentialSharingScopes'] = $request->credentialSharingScopes;
+        }
+
         if (null !== $request->credentialTypes) {
             @$query['CredentialTypes'] = $request->credentialTypes;
         }
@@ -15665,7 +15681,6 @@ class Eiam extends OpenApiClient
     /**
      * Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
      *
-     * @param request - ListEiamRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEiamRegionsResponse
@@ -16431,7 +16446,6 @@ class Eiam extends OpenApiClient
     /**
      * Get a list of regions that support network access endpoints.
      *
-     * @param request - ListNetworkAccessEndpointAvailableRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListNetworkAccessEndpointAvailableRegionsResponse
@@ -17043,7 +17057,6 @@ class Eiam extends OpenApiClient
     /**
      * Queries a list of supported Alibaba Cloud regions.
      *
-     * @param request - ListRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRegionsResponse

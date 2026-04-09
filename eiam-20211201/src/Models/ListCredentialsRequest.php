@@ -17,6 +17,11 @@ class ListCredentialsRequest extends Model
     /**
      * @var string[]
      */
+    public $credentialSharingScopes;
+
+    /**
+     * @var string[]
+     */
     public $credentialTypes;
 
     /**
@@ -45,6 +50,7 @@ class ListCredentialsRequest extends Model
     public $statuses;
     protected $_name = [
         'credentialIds' => 'CredentialIds',
+        'credentialSharingScopes' => 'CredentialSharingScopes',
         'credentialTypes' => 'CredentialTypes',
         'filter' => 'Filter',
         'instanceId' => 'InstanceId',
@@ -57,6 +63,9 @@ class ListCredentialsRequest extends Model
     {
         if (\is_array($this->credentialIds)) {
             Model::validateArray($this->credentialIds);
+        }
+        if (\is_array($this->credentialSharingScopes)) {
+            Model::validateArray($this->credentialSharingScopes);
         }
         if (\is_array($this->credentialTypes)) {
             Model::validateArray($this->credentialTypes);
@@ -79,6 +88,17 @@ class ListCredentialsRequest extends Model
                 $n1 = 0;
                 foreach ($this->credentialIds as $item1) {
                     $res['CredentialIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->credentialSharingScopes) {
+            if (\is_array($this->credentialSharingScopes)) {
+                $res['CredentialSharingScopes'] = [];
+                $n1 = 0;
+                foreach ($this->credentialSharingScopes as $item1) {
+                    $res['CredentialSharingScopes'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -146,6 +166,17 @@ class ListCredentialsRequest extends Model
                 $n1 = 0;
                 foreach ($map['CredentialIds'] as $item1) {
                     $model->credentialIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CredentialSharingScopes'])) {
+            if (!empty($map['CredentialSharingScopes'])) {
+                $model->credentialSharingScopes = [];
+                $n1 = 0;
+                foreach ($map['CredentialSharingScopes'] as $item1) {
+                    $model->credentialSharingScopes[$n1] = $item1;
                     ++$n1;
                 }
             }
