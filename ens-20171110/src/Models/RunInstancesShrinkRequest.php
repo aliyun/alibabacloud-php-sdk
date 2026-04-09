@@ -218,6 +218,16 @@ class RunInstancesShrinkRequest extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpdId;
+
+    /**
+     * @var string
+     */
+    public $vpdVSwitchIdsShrink;
     protected $_name = [
         'amount' => 'Amount',
         'autoReleaseTime' => 'AutoReleaseTime',
@@ -261,6 +271,8 @@ class RunInstancesShrinkRequest extends Model
         'uniqueSuffix' => 'UniqueSuffix',
         'userData' => 'UserData',
         'vSwitchId' => 'VSwitchId',
+        'vpdId' => 'VpdId',
+        'vpdVSwitchIdsShrink' => 'VpdVSwitchIds',
     ];
 
     public function validate()
@@ -449,6 +461,14 @@ class RunInstancesShrinkRequest extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
+        if (null !== $this->vpdId) {
+            $res['VpdId'] = $this->vpdId;
+        }
+
+        if (null !== $this->vpdVSwitchIdsShrink) {
+            $res['VpdVSwitchIds'] = $this->vpdVSwitchIdsShrink;
+        }
+
         return $res;
     }
 
@@ -633,6 +653,14 @@ class RunInstancesShrinkRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpdId'])) {
+            $model->vpdId = $map['VpdId'];
+        }
+
+        if (isset($map['VpdVSwitchIds'])) {
+            $model->vpdVSwitchIdsShrink = $map['VpdVSwitchIds'];
         }
 
         return $model;

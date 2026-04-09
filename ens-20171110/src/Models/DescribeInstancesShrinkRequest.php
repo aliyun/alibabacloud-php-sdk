@@ -112,6 +112,16 @@ class DescribeInstancesShrinkRequest extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpdId;
+
+    /**
+     * @var string
+     */
+    public $vpdVSwitchId;
     protected $_name = [
         'eipAddressesShrink' => 'EipAddresses',
         'ensRegionId' => 'EnsRegionId',
@@ -134,6 +144,8 @@ class DescribeInstancesShrinkRequest extends Model
         'status' => 'Status',
         'tagsShrink' => 'Tags',
         'vSwitchId' => 'VSwitchId',
+        'vpdId' => 'VpdId',
+        'vpdVSwitchId' => 'VpdVSwitchId',
     ];
 
     public function validate()
@@ -226,6 +238,14 @@ class DescribeInstancesShrinkRequest extends Model
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpdId) {
+            $res['VpdId'] = $this->vpdId;
+        }
+
+        if (null !== $this->vpdVSwitchId) {
+            $res['VpdVSwitchId'] = $this->vpdVSwitchId;
         }
 
         return $res;
@@ -321,6 +341,14 @@ class DescribeInstancesShrinkRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpdId'])) {
+            $model->vpdId = $map['VpdId'];
+        }
+
+        if (isset($map['VpdVSwitchId'])) {
+            $model->vpdVSwitchId = $map['VpdVSwitchId'];
         }
 
         return $model;

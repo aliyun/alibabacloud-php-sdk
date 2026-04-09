@@ -113,6 +113,16 @@ class DescribeInstancesRequest extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpdId;
+
+    /**
+     * @var string
+     */
+    public $vpdVSwitchId;
     protected $_name = [
         'eipAddresses' => 'EipAddresses',
         'ensRegionId' => 'EnsRegionId',
@@ -135,6 +145,8 @@ class DescribeInstancesRequest extends Model
         'status' => 'Status',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
+        'vpdId' => 'VpdId',
+        'vpdVSwitchId' => 'VpdVSwitchId',
     ];
 
     public function validate()
@@ -259,6 +271,14 @@ class DescribeInstancesRequest extends Model
             $res['VSwitchId'] = $this->vSwitchId;
         }
 
+        if (null !== $this->vpdId) {
+            $res['VpdId'] = $this->vpdId;
+        }
+
+        if (null !== $this->vpdVSwitchId) {
+            $res['VpdVSwitchId'] = $this->vpdVSwitchId;
+        }
+
         return $res;
     }
 
@@ -373,6 +393,14 @@ class DescribeInstancesRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpdId'])) {
+            $model->vpdId = $map['VpdId'];
+        }
+
+        if (isset($map['VpdVSwitchId'])) {
+            $model->vpdVSwitchId = $map['VpdVSwitchId'];
         }
 
         return $model;

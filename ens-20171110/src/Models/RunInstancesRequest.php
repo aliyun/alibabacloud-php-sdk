@@ -220,6 +220,16 @@ class RunInstancesRequest extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpdId;
+
+    /**
+     * @var string[]
+     */
+    public $vpdVSwitchIds;
     protected $_name = [
         'amount' => 'Amount',
         'autoReleaseTime' => 'AutoReleaseTime',
@@ -263,6 +273,8 @@ class RunInstancesRequest extends Model
         'uniqueSuffix' => 'UniqueSuffix',
         'userData' => 'UserData',
         'vSwitchId' => 'VSwitchId',
+        'vpdId' => 'VpdId',
+        'vpdVSwitchIds' => 'VpdVSwitchIds',
     ];
 
     public function validate()
@@ -275,6 +287,9 @@ class RunInstancesRequest extends Model
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
+        }
+        if (\is_array($this->vpdVSwitchIds)) {
+            Model::validateArray($this->vpdVSwitchIds);
         }
         parent::validate();
     }
@@ -462,6 +477,21 @@ class RunInstancesRequest extends Model
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpdId) {
+            $res['VpdId'] = $this->vpdId;
+        }
+
+        if (null !== $this->vpdVSwitchIds) {
+            if (\is_array($this->vpdVSwitchIds)) {
+                $res['VpdVSwitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vpdVSwitchIds as $item1) {
+                    $res['VpdVSwitchIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -655,6 +685,21 @@ class RunInstancesRequest extends Model
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpdId'])) {
+            $model->vpdId = $map['VpdId'];
+        }
+
+        if (isset($map['VpdVSwitchIds'])) {
+            if (!empty($map['VpdVSwitchIds'])) {
+                $model->vpdVSwitchIds = [];
+                $n1 = 0;
+                foreach ($map['VpdVSwitchIds'] as $item1) {
+                    $model->vpdVSwitchIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

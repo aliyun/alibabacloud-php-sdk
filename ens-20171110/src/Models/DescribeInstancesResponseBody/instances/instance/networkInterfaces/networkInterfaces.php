@@ -39,6 +39,16 @@ class networkInterfaces extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $vpdId;
+
+    /**
+     * @var string
+     */
+    public $vpdVSwitchId;
     protected $_name = [
         'ipv6Sets' => 'Ipv6Sets',
         'macAddress' => 'MacAddress',
@@ -46,6 +56,8 @@ class networkInterfaces extends Model
         'primaryIpAddress' => 'PrimaryIpAddress',
         'privateIpSets' => 'PrivateIpSets',
         'type' => 'Type',
+        'vpdId' => 'VpdId',
+        'vpdVSwitchId' => 'VpdVSwitchId',
     ];
 
     public function validate()
@@ -86,6 +98,14 @@ class networkInterfaces extends Model
             $res['Type'] = $this->type;
         }
 
+        if (null !== $this->vpdId) {
+            $res['VpdId'] = $this->vpdId;
+        }
+
+        if (null !== $this->vpdVSwitchId) {
+            $res['VpdVSwitchId'] = $this->vpdVSwitchId;
+        }
+
         return $res;
     }
 
@@ -119,6 +139,14 @@ class networkInterfaces extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['VpdId'])) {
+            $model->vpdId = $map['VpdId'];
+        }
+
+        if (isset($map['VpdVSwitchId'])) {
+            $model->vpdVSwitchId = $map['VpdVSwitchId'];
         }
 
         return $model;
