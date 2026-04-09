@@ -27,11 +27,17 @@ class GetAuthCodeRequest extends Model
      * @var string
      */
     public $policy;
+
+    /**
+     * @var string
+     */
+    public $tokenType;
     protected $_name = [
         'autoCreateUser' => 'AutoCreateUser',
         'endUserId' => 'EndUserId',
         'externalUserId' => 'ExternalUserId',
         'policy' => 'Policy',
+        'tokenType' => 'TokenType',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class GetAuthCodeRequest extends Model
 
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
+        }
+
+        if (null !== $this->tokenType) {
+            $res['TokenType'] = $this->tokenType;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class GetAuthCodeRequest extends Model
 
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
+        }
+
+        if (isset($map['TokenType'])) {
+            $model->tokenType = $map['TokenType'];
         }
 
         return $model;

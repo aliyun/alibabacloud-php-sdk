@@ -51,7 +51,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 登录token主动失效.
+     * Manually invalidates a logon token.
      *
      * @param request - ExpireLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -102,7 +102,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 登录token主动失效.
+     * Manually invalidates a logon token.
      *
      * @param request - ExpireLoginTokenRequest
      *
@@ -120,7 +120,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取授权码
+     * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
      *
      * @param request - GetAuthCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -135,6 +135,11 @@ class Appstreamcenter extends OpenApiClient
     public function getAuthCodeWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->tokenType) {
+            @$query['TokenType'] = $request->tokenType;
+        }
+
         $body = [];
         if (null !== $request->autoCreateUser) {
             @$body['AutoCreateUser'] = $request->autoCreateUser;
@@ -153,6 +158,7 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -171,7 +177,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取授权码
+     * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
      *
      * @param request - GetAuthCodeRequest
      *
