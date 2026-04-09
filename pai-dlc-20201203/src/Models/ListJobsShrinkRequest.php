@@ -26,6 +26,11 @@ class ListJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -186,6 +191,7 @@ class ListJobsShrinkRequest extends Model
         'accessibility' => 'Accessibility',
         'businessUserId' => 'BusinessUserId',
         'caller' => 'Caller',
+        'description' => 'Description',
         'displayName' => 'DisplayName',
         'displayNameSearchMode' => 'DisplayNameSearchMode',
         'enableAssignNode' => 'EnableAssignNode',
@@ -238,6 +244,10 @@ class ListJobsShrinkRequest extends Model
 
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->displayName) {
@@ -389,6 +399,10 @@ class ListJobsShrinkRequest extends Model
 
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DisplayName'])) {

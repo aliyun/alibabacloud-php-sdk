@@ -47,6 +47,11 @@ class GetJobResponseBody extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -245,6 +250,7 @@ class GetJobResponseBody extends Model
         'credentialConfig' => 'CredentialConfig',
         'customEnvs' => 'CustomEnvs',
         'dataSources' => 'DataSources',
+        'description' => 'Description',
         'displayName' => 'DisplayName',
         'duration' => 'Duration',
         'elasticSpec' => 'ElasticSpec',
@@ -375,6 +381,10 @@ class GetJobResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->displayName) {
@@ -632,6 +642,10 @@ class GetJobResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DisplayName'])) {

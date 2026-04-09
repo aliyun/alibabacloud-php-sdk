@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardResponse;
@@ -48,6 +49,7 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardResponse;
@@ -183,6 +185,10 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->debuggerConfigContent) {
             @$body['DebuggerConfigContent'] = $request->debuggerConfigContent;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
 
         if (null !== $request->displayName) {
@@ -438,19 +444,22 @@ class Paidlc extends OpenApiClient
     /**
      * Deletes a completed or stopped job.
      *
+     * @param request - DeleteJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteJobResponse
      *
-     * @param string         $JobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $JobId
+     * @param DeleteJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return DeleteJobResponse
      */
-    public function deleteJobWithOptions($JobId, $headers, $runtime)
+    public function deleteJobWithOptions($JobId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -472,18 +481,21 @@ class Paidlc extends OpenApiClient
     /**
      * Deletes a completed or stopped job.
      *
+     * @param request - DeleteJobRequest
+     *
      * @returns DeleteJobResponse
      *
-     * @param string $JobId
+     * @param string           $JobId
+     * @param DeleteJobRequest $request
      *
      * @return DeleteJobResponse
      */
-    public function deleteJob($JobId)
+    public function deleteJob($JobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteJobWithOptions($JobId, $headers, $runtime);
+        return $this->deleteJobWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
@@ -1594,6 +1606,10 @@ class Paidlc extends OpenApiClient
             @$query['Caller'] = $request->caller;
         }
 
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
         if (null !== $request->displayName) {
             @$query['DisplayName'] = $request->displayName;
         }
@@ -1963,19 +1979,22 @@ class Paidlc extends OpenApiClient
     /**
      * Stops a running job.
      *
+     * @param request - StopJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopJobResponse
      *
      * @param string         $JobId
+     * @param StopJobRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return StopJobResponse
      */
-    public function stopJobWithOptions($JobId, $headers, $runtime)
+    public function stopJobWithOptions($JobId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1997,18 +2016,21 @@ class Paidlc extends OpenApiClient
     /**
      * Stops a running job.
      *
+     * @param request - StopJobRequest
+     *
      * @returns StopJobResponse
      *
-     * @param string $JobId
+     * @param string         $JobId
+     * @param StopJobRequest $request
      *
      * @return StopJobResponse
      */
-    public function stopJob($JobId)
+    public function stopJob($JobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopJobWithOptions($JobId, $headers, $runtime);
+        return $this->stopJobWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
@@ -2096,6 +2118,10 @@ class Paidlc extends OpenApiClient
         $body = [];
         if (null !== $request->accessibility) {
             @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
 
         if (null !== $request->jobSpecs) {

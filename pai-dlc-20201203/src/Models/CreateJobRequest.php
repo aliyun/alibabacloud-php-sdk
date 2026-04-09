@@ -45,6 +45,11 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -138,6 +143,7 @@ class CreateJobRequest extends Model
         'customEnvs' => 'CustomEnvs',
         'dataSources' => 'DataSources',
         'debuggerConfigContent' => 'DebuggerConfigContent',
+        'description' => 'Description',
         'displayName' => 'DisplayName',
         'elasticSpec' => 'ElasticSpec',
         'envs' => 'Envs',
@@ -232,6 +238,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->debuggerConfigContent) {
             $res['DebuggerConfigContent'] = $this->debuggerConfigContent;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->displayName) {
@@ -372,6 +382,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['DebuggerConfigContent'])) {
             $model->debuggerConfigContent = $map['DebuggerConfigContent'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['DisplayName'])) {

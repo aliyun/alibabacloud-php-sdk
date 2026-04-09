@@ -14,6 +14,11 @@ class UpdateJobRequest extends Model
     public $accessibility;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var JobSpec[]
      */
     public $jobSpecs;
@@ -24,6 +29,7 @@ class UpdateJobRequest extends Model
     public $priority;
     protected $_name = [
         'accessibility' => 'Accessibility',
+        'description' => 'Description',
         'jobSpecs' => 'JobSpecs',
         'priority' => 'Priority',
     ];
@@ -41,6 +47,10 @@ class UpdateJobRequest extends Model
         $res = [];
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->jobSpecs) {
@@ -71,6 +81,10 @@ class UpdateJobRequest extends Model
         $model = new self();
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['JobSpecs'])) {
