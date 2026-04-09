@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class CreateABMetricRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $aggregationByUser;
+
+    /**
      * @var string
      */
     public $definition;
+
+    /**
+     * @var string
+     */
+    public $denominator;
 
     /**
      * @var string
@@ -24,6 +34,11 @@ class CreateABMetricRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $isBinomialDistribution;
+
+    /**
      * @var string
      */
     public $leftMetricId;
@@ -32,6 +47,16 @@ class CreateABMetricRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $needSignificance;
+
+    /**
+     * @var string
+     */
+    public $numerator;
 
     /**
      * @var string
@@ -73,11 +98,16 @@ class CreateABMetricRequest extends Model
      */
     public $type;
     protected $_name = [
+        'aggregationByUser' => 'AggregationByUser',
         'definition' => 'Definition',
+        'denominator' => 'Denominator',
         'description' => 'Description',
         'instanceId' => 'InstanceId',
+        'isBinomialDistribution' => 'IsBinomialDistribution',
         'leftMetricId' => 'LeftMetricId',
         'name' => 'Name',
+        'needSignificance' => 'NeedSignificance',
+        'numerator' => 'Numerator',
         'operator' => 'Operator',
         'realtime' => 'Realtime',
         'resultResourceId' => 'ResultResourceId',
@@ -96,8 +126,16 @@ class CreateABMetricRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aggregationByUser) {
+            $res['AggregationByUser'] = $this->aggregationByUser;
+        }
+
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
+        }
+
+        if (null !== $this->denominator) {
+            $res['Denominator'] = $this->denominator;
         }
 
         if (null !== $this->description) {
@@ -108,12 +146,24 @@ class CreateABMetricRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->isBinomialDistribution) {
+            $res['IsBinomialDistribution'] = $this->isBinomialDistribution;
+        }
+
         if (null !== $this->leftMetricId) {
             $res['LeftMetricId'] = $this->leftMetricId;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->needSignificance) {
+            $res['NeedSignificance'] = $this->needSignificance;
+        }
+
+        if (null !== $this->numerator) {
+            $res['Numerator'] = $this->numerator;
         }
 
         if (null !== $this->operator) {
@@ -159,8 +209,16 @@ class CreateABMetricRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregationByUser'])) {
+            $model->aggregationByUser = $map['AggregationByUser'];
+        }
+
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
+        }
+
+        if (isset($map['Denominator'])) {
+            $model->denominator = $map['Denominator'];
         }
 
         if (isset($map['Description'])) {
@@ -171,12 +229,24 @@ class CreateABMetricRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['IsBinomialDistribution'])) {
+            $model->isBinomialDistribution = $map['IsBinomialDistribution'];
+        }
+
         if (isset($map['LeftMetricId'])) {
             $model->leftMetricId = $map['LeftMetricId'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NeedSignificance'])) {
+            $model->needSignificance = $map['NeedSignificance'];
+        }
+
+        if (isset($map['Numerator'])) {
+            $model->numerator = $map['Numerator'];
         }
 
         if (isset($map['Operator'])) {

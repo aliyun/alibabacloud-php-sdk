@@ -103,6 +103,7 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentGroupRequest
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteExperimentResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteInstanceResourceRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteInstanceResourceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteLaboratoryRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteLaboratoryResponse;
@@ -160,7 +161,10 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetFeatureConsistencyCheckJo
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetFeatureConsistencyCheckJobConfigResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetFeatureConsistencyCheckJobRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetFeatureConsistencyCheckJobResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResourceRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResourceResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResourceTableRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResourceTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GetLaboratoryRequest;
@@ -1269,8 +1273,16 @@ class PaiRecService extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->aggregationByUser) {
+            @$body['AggregationByUser'] = $request->aggregationByUser;
+        }
+
         if (null !== $request->definition) {
             @$body['Definition'] = $request->definition;
+        }
+
+        if (null !== $request->denominator) {
+            @$body['Denominator'] = $request->denominator;
         }
 
         if (null !== $request->description) {
@@ -1281,12 +1293,24 @@ class PaiRecService extends OpenApiClient
             @$body['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->isBinomialDistribution) {
+            @$body['IsBinomialDistribution'] = $request->isBinomialDistribution;
+        }
+
         if (null !== $request->leftMetricId) {
             @$body['LeftMetricId'] = $request->leftMetricId;
         }
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->needSignificance) {
+            @$body['NeedSignificance'] = $request->needSignificance;
+        }
+
+        if (null !== $request->numerator) {
+            @$body['Numerator'] = $request->numerator;
         }
 
         if (null !== $request->operator) {
@@ -4435,20 +4459,23 @@ class PaiRecService extends OpenApiClient
     /**
      * 删除指定实例下的指定配置资源。
      *
+     * @param request - DeleteInstanceResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteInstanceResourceResponse
      *
-     * @param string         $InstanceId
-     * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                        $InstanceId
+     * @param string                        $ResourceId
+     * @param DeleteInstanceResourceRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
      * @return DeleteInstanceResourceResponse
      */
-    public function deleteInstanceResourceWithOptions($InstanceId, $ResourceId, $headers, $runtime)
+    public function deleteInstanceResourceWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4470,19 +4497,22 @@ class PaiRecService extends OpenApiClient
     /**
      * 删除指定实例下的指定配置资源。
      *
+     * @param request - DeleteInstanceResourceRequest
+     *
      * @returns DeleteInstanceResourceResponse
      *
-     * @param string $InstanceId
-     * @param string $ResourceId
+     * @param string                        $InstanceId
+     * @param string                        $ResourceId
+     * @param DeleteInstanceResourceRequest $request
      *
      * @return DeleteInstanceResourceResponse
      */
-    public function deleteInstanceResource($InstanceId, $ResourceId)
+    public function deleteInstanceResource($InstanceId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteInstanceResourceWithOptions($InstanceId, $ResourceId, $headers, $runtime);
+        return $this->deleteInstanceResourceWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6282,19 +6312,22 @@ class PaiRecService extends OpenApiClient
     /**
      * 获取指定推荐全链路深度定制开发平台实例信息。
      *
+     * @param request - GetInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceResponse
      *
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $InstanceId
+     * @param GetInstanceRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return GetInstanceResponse
      */
-    public function getInstanceWithOptions($InstanceId, $headers, $runtime)
+    public function getInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -6316,37 +6349,43 @@ class PaiRecService extends OpenApiClient
     /**
      * 获取指定推荐全链路深度定制开发平台实例信息。
      *
+     * @param request - GetInstanceRequest
+     *
      * @returns GetInstanceResponse
      *
-     * @param string $InstanceId
+     * @param string             $InstanceId
+     * @param GetInstanceRequest $request
      *
      * @return GetInstanceResponse
      */
-    public function getInstance($InstanceId)
+    public function getInstance($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getInstanceWithOptions($InstanceId, $headers, $runtime);
+        return $this->getInstanceWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
      * 获取指定实例下指定资源的详细信息。
      *
+     * @param request - GetInstanceResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceResourceResponse
      *
-     * @param string         $InstanceId
-     * @param string         $ResourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                     $InstanceId
+     * @param string                     $ResourceId
+     * @param GetInstanceResourceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
      * @return GetInstanceResourceResponse
      */
-    public function getInstanceResourceWithOptions($InstanceId, $ResourceId, $headers, $runtime)
+    public function getInstanceResourceWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -6368,39 +6407,45 @@ class PaiRecService extends OpenApiClient
     /**
      * 获取指定实例下指定资源的详细信息。
      *
+     * @param request - GetInstanceResourceRequest
+     *
      * @returns GetInstanceResourceResponse
      *
-     * @param string $InstanceId
-     * @param string $ResourceId
+     * @param string                     $InstanceId
+     * @param string                     $ResourceId
+     * @param GetInstanceResourceRequest $request
      *
      * @return GetInstanceResourceResponse
      */
-    public function getInstanceResource($InstanceId, $ResourceId)
+    public function getInstanceResource($InstanceId, $ResourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getInstanceResourceWithOptions($InstanceId, $ResourceId, $headers, $runtime);
+        return $this->getInstanceResourceWithOptions($InstanceId, $ResourceId, $request, $headers, $runtime);
     }
 
     /**
      * 获取数据源下指定表的详细信息。
      *
+     * @param request - GetInstanceResourceTableRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceResourceTableResponse
      *
-     * @param string         $InstanceId
-     * @param string         $ResourceId
-     * @param string         $TableName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $InstanceId
+     * @param string                          $ResourceId
+     * @param string                          $TableName
+     * @param GetInstanceResourceTableRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return GetInstanceResourceTableResponse
      */
-    public function getInstanceResourceTableWithOptions($InstanceId, $ResourceId, $TableName, $headers, $runtime)
+    public function getInstanceResourceTableWithOptions($InstanceId, $ResourceId, $TableName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -6422,20 +6467,23 @@ class PaiRecService extends OpenApiClient
     /**
      * 获取数据源下指定表的详细信息。
      *
+     * @param request - GetInstanceResourceTableRequest
+     *
      * @returns GetInstanceResourceTableResponse
      *
-     * @param string $InstanceId
-     * @param string $ResourceId
-     * @param string $TableName
+     * @param string                          $InstanceId
+     * @param string                          $ResourceId
+     * @param string                          $TableName
+     * @param GetInstanceResourceTableRequest $request
      *
      * @return GetInstanceResourceTableResponse
      */
-    public function getInstanceResourceTable($InstanceId, $ResourceId, $TableName)
+    public function getInstanceResourceTable($InstanceId, $ResourceId, $TableName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getInstanceResourceTableWithOptions($InstanceId, $ResourceId, $TableName, $headers, $runtime);
+        return $this->getInstanceResourceTableWithOptions($InstanceId, $ResourceId, $TableName, $request, $headers, $runtime);
     }
 
     /**
@@ -12100,8 +12148,16 @@ class PaiRecService extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->aggregationByUser) {
+            @$body['AggregationByUser'] = $request->aggregationByUser;
+        }
+
         if (null !== $request->definition) {
             @$body['Definition'] = $request->definition;
+        }
+
+        if (null !== $request->denominator) {
+            @$body['Denominator'] = $request->denominator;
         }
 
         if (null !== $request->description) {
@@ -12112,12 +12168,24 @@ class PaiRecService extends OpenApiClient
             @$body['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->isBinomialDistribution) {
+            @$body['IsBinomialDistribution'] = $request->isBinomialDistribution;
+        }
+
         if (null !== $request->leftMetricId) {
             @$body['LeftMetricId'] = $request->leftMetricId;
         }
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->needSignificance) {
+            @$body['NeedSignificance'] = $request->needSignificance;
+        }
+
+        if (null !== $request->numerator) {
+            @$body['Numerator'] = $request->numerator;
         }
 
         if (null !== $request->operator) {
