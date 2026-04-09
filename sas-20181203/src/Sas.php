@@ -32204,6 +32204,10 @@ class Sas extends OpenApiClient
             @$query['ExportId'] = $request->exportId;
         }
 
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -35131,6 +35135,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->raspDefend) {
             @$query['RaspDefend'] = $request->raspDefend;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->searchTags) {

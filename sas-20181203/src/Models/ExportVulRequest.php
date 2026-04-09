@@ -75,6 +75,11 @@ class ExportVulRequest extends Model
     public $raspDefend;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string
      */
     public $searchTags;
@@ -112,6 +117,7 @@ class ExportVulRequest extends Model
         'necessity' => 'Necessity',
         'path' => 'Path',
         'raspDefend' => 'RaspDefend',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'searchTags' => 'SearchTags',
         'type' => 'Type',
         'uuids' => 'Uuids',
@@ -180,6 +186,10 @@ class ExportVulRequest extends Model
 
         if (null !== $this->raspDefend) {
             $res['RaspDefend'] = $this->raspDefend;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->searchTags) {
@@ -270,6 +280,10 @@ class ExportVulRequest extends Model
 
         if (isset($map['RaspDefend'])) {
             $model->raspDefend = $map['RaspDefend'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['SearchTags'])) {
