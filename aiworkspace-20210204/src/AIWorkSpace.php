@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\AddImageLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\AddImageLabelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\AddImageRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\AddImageResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\AddMemberRoleRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\AddMemberRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ChangeResourceGroupResponse;
@@ -55,38 +56,51 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConnectionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConnectionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetJobConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetJobConfigResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetJobRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetJobResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetVersionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentLabelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentLabelResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteMembersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteMembersResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunLabelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunLabelResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteUserConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteUserConfigResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigResponse;
@@ -100,7 +114,9 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobConfigResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDefaultWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDefaultWorkspaceResponse;
@@ -110,7 +126,9 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetImageRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetImageResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetMemberRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetMemberResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelVersionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetPermissionResponse;
@@ -153,6 +171,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsShrinkRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelVersionsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelVersionsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPermissionsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPermissionsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListProductsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListProductsResponse;
@@ -172,11 +191,17 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceUsersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceUsersResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\LogRunMetricsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\LogRunMetricsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishCodeSourceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishDatasetRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishDatasetResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishImageRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\PublishImageResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveMemberRoleRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveMemberRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsResponse;
@@ -533,21 +558,24 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
      *
+     * @param request - AddMemberRoleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AddMemberRoleResponse
      *
-     * @param string         $WorkspaceId
-     * @param string         $MemberId
-     * @param string         $RoleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $WorkspaceId
+     * @param string               $MemberId
+     * @param string               $RoleName
+     * @param AddMemberRoleRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return AddMemberRoleResponse
      */
-    public function addMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $headers, $runtime)
+    public function addMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -569,20 +597,23 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
      *
+     * @param request - AddMemberRoleRequest
+     *
      * @returns AddMemberRoleResponse
      *
-     * @param string $WorkspaceId
-     * @param string $MemberId
-     * @param string $RoleName
+     * @param string               $WorkspaceId
+     * @param string               $MemberId
+     * @param string               $RoleName
+     * @param AddMemberRoleRequest $request
      *
      * @return AddMemberRoleResponse
      */
-    public function addMemberRole($WorkspaceId, $MemberId, $RoleName)
+    public function addMemberRole($WorkspaceId, $MemberId, $RoleName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $headers, $runtime);
+        return $this->addMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $request, $headers, $runtime);
     }
 
     /**
@@ -2379,19 +2410,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a code source based on the provided ID.
      *
+     * @param request - DeleteCodeSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCodeSourceResponse
      *
-     * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $CodeSourceId
+     * @param DeleteCodeSourceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteCodeSourceResponse
      */
-    public function deleteCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
+    public function deleteCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2413,18 +2447,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a code source based on the provided ID.
      *
+     * @param request - DeleteCodeSourceRequest
+     *
      * @returns DeleteCodeSourceResponse
      *
-     * @param string $CodeSourceId
+     * @param string                  $CodeSourceId
+     * @param DeleteCodeSourceRequest $request
      *
      * @return DeleteCodeSourceResponse
      */
-    public function deleteCodeSource($CodeSourceId)
+    public function deleteCodeSource($CodeSourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCodeSourceWithOptions($CodeSourceId, $headers, $runtime);
+        return $this->deleteCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2499,19 +2536,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a connection.
      *
+     * @param request - DeleteConnectionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteConnectionResponse
      *
-     * @param string         $ConnectionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $ConnectionId
+     * @param DeleteConnectionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteConnectionResponse
      */
-    public function deleteConnectionWithOptions($ConnectionId, $headers, $runtime)
+    public function deleteConnectionWithOptions($ConnectionId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2533,36 +2573,42 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a connection.
      *
+     * @param request - DeleteConnectionRequest
+     *
      * @returns DeleteConnectionResponse
      *
-     * @param string $ConnectionId
+     * @param string                  $ConnectionId
+     * @param DeleteConnectionRequest $request
      *
      * @return DeleteConnectionResponse
      */
-    public function deleteConnection($ConnectionId)
+    public function deleteConnection($ConnectionId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConnectionWithOptions($ConnectionId, $headers, $runtime);
+        return $this->deleteConnectionWithOptions($ConnectionId, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a dataset.
      *
+     * @param request - DeleteDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDatasetResponse
      *
-     * @param string         $DatasetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $DatasetId
+     * @param DeleteDatasetRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteDatasetResponse
      */
-    public function deleteDatasetWithOptions($DatasetId, $headers, $runtime)
+    public function deleteDatasetWithOptions($DatasetId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2584,18 +2630,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a dataset.
      *
+     * @param request - DeleteDatasetRequest
+     *
      * @returns DeleteDatasetResponse
      *
-     * @param string $DatasetId
+     * @param string               $DatasetId
+     * @param DeleteDatasetRequest $request
      *
      * @return DeleteDatasetResponse
      */
-    public function deleteDataset($DatasetId)
+    public function deleteDataset($DatasetId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDatasetWithOptions($DatasetId, $headers, $runtime);
+        return $this->deleteDatasetWithOptions($DatasetId, $request, $headers, $runtime);
     }
 
     /**
@@ -2672,20 +2721,23 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a dataset job.
      *
+     * @param request - DeleteDatasetJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDatasetJobResponse
      *
-     * @param string         $DatasetId
-     * @param string         $DatasetJobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $DatasetId
+     * @param string                  $DatasetJobId
+     * @param DeleteDatasetJobRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteDatasetJobResponse
      */
-    public function deleteDatasetJobWithOptions($DatasetId, $DatasetJobId, $headers, $runtime)
+    public function deleteDatasetJobWithOptions($DatasetId, $DatasetJobId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2707,19 +2759,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a dataset job.
      *
+     * @param request - DeleteDatasetJobRequest
+     *
      * @returns DeleteDatasetJobResponse
      *
-     * @param string $DatasetId
-     * @param string $DatasetJobId
+     * @param string                  $DatasetId
+     * @param string                  $DatasetJobId
+     * @param DeleteDatasetJobRequest $request
      *
      * @return DeleteDatasetJobResponse
      */
-    public function deleteDatasetJob($DatasetId, $DatasetJobId)
+    public function deleteDatasetJob($DatasetId, $DatasetJobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDatasetJobWithOptions($DatasetId, $DatasetJobId, $headers, $runtime);
+        return $this->deleteDatasetJobWithOptions($DatasetId, $DatasetJobId, $request, $headers, $runtime);
     }
 
     /**
@@ -2853,20 +2908,23 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
      *
+     * @param request - DeleteDatasetVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDatasetVersionResponse
      *
-     * @param string         $DatasetId
-     * @param string         $VersionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $DatasetId
+     * @param string                      $VersionName
+     * @param DeleteDatasetVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeleteDatasetVersionResponse
      */
-    public function deleteDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime)
+    public function deleteDatasetVersionWithOptions($DatasetId, $VersionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2888,19 +2946,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
      *
+     * @param request - DeleteDatasetVersionRequest
+     *
      * @returns DeleteDatasetVersionResponse
      *
-     * @param string $DatasetId
-     * @param string $VersionName
+     * @param string                      $DatasetId
+     * @param string                      $VersionName
+     * @param DeleteDatasetVersionRequest $request
      *
      * @return DeleteDatasetVersionResponse
      */
-    public function deleteDatasetVersion($DatasetId, $VersionName)
+    public function deleteDatasetVersion($DatasetId, $VersionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime);
+        return $this->deleteDatasetVersionWithOptions($DatasetId, $VersionName, $request, $headers, $runtime);
     }
 
     /**
@@ -2971,19 +3032,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes an experiment.
      *
+     * @param request - DeleteExperimentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteExperimentResponse
      *
-     * @param string         $ExperimentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $ExperimentId
+     * @param DeleteExperimentRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteExperimentResponse
      */
-    public function deleteExperimentWithOptions($ExperimentId, $headers, $runtime)
+    public function deleteExperimentWithOptions($ExperimentId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3005,37 +3069,43 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes an experiment.
      *
+     * @param request - DeleteExperimentRequest
+     *
      * @returns DeleteExperimentResponse
      *
-     * @param string $ExperimentId
+     * @param string                  $ExperimentId
+     * @param DeleteExperimentRequest $request
      *
      * @return DeleteExperimentResponse
      */
-    public function deleteExperiment($ExperimentId)
+    public function deleteExperiment($ExperimentId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteExperimentWithOptions($ExperimentId, $headers, $runtime);
+        return $this->deleteExperimentWithOptions($ExperimentId, $request, $headers, $runtime);
     }
 
     /**
      * Deletes an experiment tag.
      *
+     * @param request - DeleteExperimentLabelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteExperimentLabelResponse
      *
-     * @param string         $ExperimentId
-     * @param string         $Key
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $ExperimentId
+     * @param string                       $Key
+     * @param DeleteExperimentLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return DeleteExperimentLabelResponse
      */
-    public function deleteExperimentLabelWithOptions($ExperimentId, $Key, $headers, $runtime)
+    public function deleteExperimentLabelWithOptions($ExperimentId, $Key, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3057,19 +3127,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes an experiment tag.
      *
+     * @param request - DeleteExperimentLabelRequest
+     *
      * @returns DeleteExperimentLabelResponse
      *
-     * @param string $ExperimentId
-     * @param string $Key
+     * @param string                       $ExperimentId
+     * @param string                       $Key
+     * @param DeleteExperimentLabelRequest $request
      *
      * @return DeleteExperimentLabelResponse
      */
-    public function deleteExperimentLabel($ExperimentId, $Key)
+    public function deleteExperimentLabel($ExperimentId, $Key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteExperimentLabelWithOptions($ExperimentId, $Key, $headers, $runtime);
+        return $this->deleteExperimentLabelWithOptions($ExperimentId, $Key, $request, $headers, $runtime);
     }
 
     /**
@@ -3138,19 +3211,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a model.
      *
+     * @param request - DeleteModelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteModelResponse
      *
-     * @param string         $ModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $ModelId
+     * @param DeleteModelRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return DeleteModelResponse
      */
-    public function deleteModelWithOptions($ModelId, $headers, $runtime)
+    public function deleteModelWithOptions($ModelId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3172,18 +3248,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a model.
      *
+     * @param request - DeleteModelRequest
+     *
      * @returns DeleteModelResponse
      *
-     * @param string $ModelId
+     * @param string             $ModelId
+     * @param DeleteModelRequest $request
      *
      * @return DeleteModelResponse
      */
-    public function deleteModel($ModelId)
+    public function deleteModel($ModelId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteModelWithOptions($ModelId, $headers, $runtime);
+        return $this->deleteModelWithOptions($ModelId, $request, $headers, $runtime);
     }
 
     /**
@@ -3252,20 +3331,23 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a model version.
      *
+     * @param request - DeleteModelVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteModelVersionResponse
      *
-     * @param string         $ModelId
-     * @param string         $VersionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $ModelId
+     * @param string                    $VersionName
+     * @param DeleteModelVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteModelVersionResponse
      */
-    public function deleteModelVersionWithOptions($ModelId, $VersionName, $headers, $runtime)
+    public function deleteModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3287,19 +3369,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a model version.
      *
+     * @param request - DeleteModelVersionRequest
+     *
      * @returns DeleteModelVersionResponse
      *
-     * @param string $ModelId
-     * @param string $VersionName
+     * @param string                    $ModelId
+     * @param string                    $VersionName
+     * @param DeleteModelVersionRequest $request
      *
      * @return DeleteModelVersionResponse
      */
-    public function deleteModelVersion($ModelId, $VersionName)
+    public function deleteModelVersion($ModelId, $VersionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteModelVersionWithOptions($ModelId, $VersionName, $headers, $runtime);
+        return $this->deleteModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime);
     }
 
     /**
@@ -3370,19 +3455,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a run.
      *
+     * @param request - DeleteRunRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRunResponse
      *
-     * @param string         $RunId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $RunId
+     * @param DeleteRunRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return DeleteRunResponse
      */
-    public function deleteRunWithOptions($RunId, $headers, $runtime)
+    public function deleteRunWithOptions($RunId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3404,37 +3492,43 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a run.
      *
+     * @param request - DeleteRunRequest
+     *
      * @returns DeleteRunResponse
      *
-     * @param string $RunId
+     * @param string           $RunId
+     * @param DeleteRunRequest $request
      *
      * @return DeleteRunResponse
      */
-    public function deleteRun($RunId)
+    public function deleteRun($RunId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRunWithOptions($RunId, $headers, $runtime);
+        return $this->deleteRunWithOptions($RunId, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a tag that is added to a run.
      *
+     * @param request - DeleteRunLabelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRunLabelResponse
      *
-     * @param string         $RunId
-     * @param string         $Key
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $RunId
+     * @param string                $Key
+     * @param DeleteRunLabelRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return DeleteRunLabelResponse
      */
-    public function deleteRunLabelWithOptions($RunId, $Key, $headers, $runtime)
+    public function deleteRunLabelWithOptions($RunId, $Key, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3456,19 +3550,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a tag that is added to a run.
      *
+     * @param request - DeleteRunLabelRequest
+     *
      * @returns DeleteRunLabelResponse
      *
-     * @param string $RunId
-     * @param string $Key
+     * @param string                $RunId
+     * @param string                $Key
+     * @param DeleteRunLabelRequest $request
      *
      * @return DeleteRunLabelResponse
      */
-    public function deleteRunLabel($RunId, $Key)
+    public function deleteRunLabel($RunId, $Key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRunLabelWithOptions($RunId, $Key, $headers, $runtime);
+        return $this->deleteRunLabelWithOptions($RunId, $Key, $request, $headers, $runtime);
     }
 
     /**
@@ -3541,19 +3638,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
      *
+     * @param request - DeleteWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWorkspaceResponse
      *
-     * @param string         $WorkspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $WorkspaceId
+     * @param DeleteWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return DeleteWorkspaceResponse
      */
-    public function deleteWorkspaceWithOptions($WorkspaceId, $headers, $runtime)
+    public function deleteWorkspaceWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3575,18 +3675,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
      *
+     * @param request - DeleteWorkspaceRequest
+     *
      * @returns DeleteWorkspaceResponse
      *
-     * @param string $WorkspaceId
+     * @param string                 $WorkspaceId
+     * @param DeleteWorkspaceRequest $request
      *
      * @return DeleteWorkspaceResponse
      */
-    public function deleteWorkspace($WorkspaceId)
+    public function deleteWorkspace($WorkspaceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteWorkspaceWithOptions($WorkspaceId, $headers, $runtime);
+        return $this->deleteWorkspaceWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3675,19 +3778,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains the details of a code source.
      *
+     * @param request - GetCodeSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCodeSourceResponse
      *
-     * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $CodeSourceId
+     * @param GetCodeSourceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return GetCodeSourceResponse
      */
-    public function getCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
+    public function getCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3709,18 +3815,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains the details of a code source.
      *
+     * @param request - GetCodeSourceRequest
+     *
      * @returns GetCodeSourceResponse
      *
-     * @param string $CodeSourceId
+     * @param string               $CodeSourceId
+     * @param GetCodeSourceRequest $request
      *
      * @return GetCodeSourceResponse
      */
-    public function getCodeSource($CodeSourceId)
+    public function getCodeSource($CodeSourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCodeSourceWithOptions($CodeSourceId, $headers, $runtime);
+        return $this->getCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3860,19 +3969,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains a dataset.
      *
+     * @param request - GetDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDatasetResponse
      *
-     * @param string         $DatasetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $DatasetId
+     * @param GetDatasetRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetDatasetResponse
      */
-    public function getDatasetWithOptions($DatasetId, $headers, $runtime)
+    public function getDatasetWithOptions($DatasetId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3894,18 +4006,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains a dataset.
      *
+     * @param request - GetDatasetRequest
+     *
      * @returns GetDatasetResponse
      *
-     * @param string $DatasetId
+     * @param string            $DatasetId
+     * @param GetDatasetRequest $request
      *
      * @return GetDatasetResponse
      */
-    public function getDataset($DatasetId)
+    public function getDataset($DatasetId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDatasetWithOptions($DatasetId, $headers, $runtime);
+        return $this->getDatasetWithOptions($DatasetId, $request, $headers, $runtime);
     }
 
     /**
@@ -4189,20 +4304,23 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains the information about a specified version of a dataset.
      *
+     * @param request - GetDatasetVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDatasetVersionResponse
      *
-     * @param string         $DatasetId
-     * @param string         $VersionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $DatasetId
+     * @param string                   $VersionName
+     * @param GetDatasetVersionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return GetDatasetVersionResponse
      */
-    public function getDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime)
+    public function getDatasetVersionWithOptions($DatasetId, $VersionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4224,19 +4342,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains the information about a specified version of a dataset.
      *
+     * @param request - GetDatasetVersionRequest
+     *
      * @returns GetDatasetVersionResponse
      *
-     * @param string $DatasetId
-     * @param string $VersionName
+     * @param string                   $DatasetId
+     * @param string                   $VersionName
+     * @param GetDatasetVersionRequest $request
      *
      * @return GetDatasetVersionResponse
      */
-    public function getDatasetVersion($DatasetId, $VersionName)
+    public function getDatasetVersion($DatasetId, $VersionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDatasetVersionWithOptions($DatasetId, $VersionName, $headers, $runtime);
+        return $this->getDatasetVersionWithOptions($DatasetId, $VersionName, $request, $headers, $runtime);
     }
 
     /**
@@ -4496,19 +4617,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains the details of a specified model.
      *
+     * @param request - GetModelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetModelResponse
      *
-     * @param string         $ModelId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string          $ModelId
+     * @param GetModelRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
      *
      * @return GetModelResponse
      */
-    public function getModelWithOptions($ModelId, $headers, $runtime)
+    public function getModelWithOptions($ModelId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4530,37 +4654,43 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Obtains the details of a specified model.
      *
+     * @param request - GetModelRequest
+     *
      * @returns GetModelResponse
      *
-     * @param string $ModelId
+     * @param string          $ModelId
+     * @param GetModelRequest $request
      *
      * @return GetModelResponse
      */
-    public function getModel($ModelId)
+    public function getModel($ModelId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getModelWithOptions($ModelId, $headers, $runtime);
+        return $this->getModelWithOptions($ModelId, $request, $headers, $runtime);
     }
 
     /**
      * Queries a model version.
      *
+     * @param request - GetModelVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetModelVersionResponse
      *
-     * @param string         $ModelId
-     * @param string         $VersionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $ModelId
+     * @param string                 $VersionName
+     * @param GetModelVersionRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetModelVersionResponse
      */
-    public function getModelVersionWithOptions($ModelId, $VersionName, $headers, $runtime)
+    public function getModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4582,19 +4712,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Queries a model version.
      *
+     * @param request - GetModelVersionRequest
+     *
      * @returns GetModelVersionResponse
      *
-     * @param string $ModelId
-     * @param string $VersionName
+     * @param string                 $ModelId
+     * @param string                 $VersionName
+     * @param GetModelVersionRequest $request
      *
      * @return GetModelVersionResponse
      */
-    public function getModelVersion($ModelId, $VersionName)
+    public function getModelVersion($ModelId, $VersionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getModelVersionWithOptions($ModelId, $VersionName, $headers, $runtime);
+        return $this->getModelVersionWithOptions($ModelId, $VersionName, $request, $headers, $runtime);
     }
 
     /**
@@ -6086,6 +6219,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['Roles'] = $request->roles;
         }
 
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -6362,19 +6499,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Lists the permissions that a user has in a workspace.
      *
+     * @param request - ListPermissionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListPermissionsResponse
      *
-     * @param string         $WorkspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $WorkspaceId
+     * @param ListPermissionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return ListPermissionsResponse
      */
-    public function listPermissionsWithOptions($WorkspaceId, $headers, $runtime)
+    public function listPermissionsWithOptions($WorkspaceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -6396,18 +6536,21 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Lists the permissions that a user has in a workspace.
      *
+     * @param request - ListPermissionsRequest
+     *
      * @returns ListPermissionsResponse
      *
-     * @param string $WorkspaceId
+     * @param string                 $WorkspaceId
+     * @param ListPermissionsRequest $request
      *
      * @return ListPermissionsResponse
      */
-    public function listPermissions($WorkspaceId)
+    public function listPermissions($WorkspaceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPermissionsWithOptions($WorkspaceId, $headers, $runtime);
+        return $this->listPermissionsWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -7146,19 +7289,22 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Publishes a private code source to a workspace to make the code source publicly accessible.
      *
+     * @param request - PublishCodeSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PublishCodeSourceResponse
      *
-     * @param string         $CodeSourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $CodeSourceId
+     * @param PublishCodeSourceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return PublishCodeSourceResponse
      */
-    public function publishCodeSourceWithOptions($CodeSourceId, $headers, $runtime)
+    public function publishCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -7180,36 +7326,42 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Publishes a private code source to a workspace to make the code source publicly accessible.
      *
+     * @param request - PublishCodeSourceRequest
+     *
      * @returns PublishCodeSourceResponse
      *
-     * @param string $CodeSourceId
+     * @param string                   $CodeSourceId
+     * @param PublishCodeSourceRequest $request
      *
      * @return PublishCodeSourceResponse
      */
-    public function publishCodeSource($CodeSourceId)
+    public function publishCodeSource($CodeSourceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->publishCodeSourceWithOptions($CodeSourceId, $headers, $runtime);
+        return $this->publishCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime);
     }
 
     /**
      * Publishes a private dataset in a workspace.
      *
+     * @param request - PublishDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PublishDatasetResponse
      *
-     * @param string         $DatasetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $DatasetId
+     * @param PublishDatasetRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return PublishDatasetResponse
      */
-    public function publishDatasetWithOptions($DatasetId, $headers, $runtime)
+    public function publishDatasetWithOptions($DatasetId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -7231,36 +7383,42 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Publishes a private dataset in a workspace.
      *
+     * @param request - PublishDatasetRequest
+     *
      * @returns PublishDatasetResponse
      *
-     * @param string $DatasetId
+     * @param string                $DatasetId
+     * @param PublishDatasetRequest $request
      *
      * @return PublishDatasetResponse
      */
-    public function publishDataset($DatasetId)
+    public function publishDataset($DatasetId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->publishDatasetWithOptions($DatasetId, $headers, $runtime);
+        return $this->publishDatasetWithOptions($DatasetId, $request, $headers, $runtime);
     }
 
     /**
      * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
      *
+     * @param request - PublishImageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PublishImageResponse
      *
-     * @param string         $ImageId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $ImageId
+     * @param PublishImageRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return PublishImageResponse
      */
-    public function publishImageWithOptions($ImageId, $headers, $runtime)
+    public function publishImageWithOptions($ImageId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -7282,36 +7440,42 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
      *
+     * @param request - PublishImageRequest
+     *
      * @returns PublishImageResponse
      *
-     * @param string $ImageId
+     * @param string              $ImageId
+     * @param PublishImageRequest $request
      *
      * @return PublishImageResponse
      */
-    public function publishImage($ImageId)
+    public function publishImage($ImageId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->publishImageWithOptions($ImageId, $headers, $runtime);
+        return $this->publishImageWithOptions($ImageId, $request, $headers, $runtime);
     }
 
     /**
      * Removes an image.
      *
+     * @param request - RemoveImageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RemoveImageResponse
      *
-     * @param string         $ImageId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $ImageId
+     * @param RemoveImageRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return RemoveImageResponse
      */
-    public function removeImageWithOptions($ImageId, $headers, $runtime)
+    public function removeImageWithOptions($ImageId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -7333,37 +7497,43 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Removes an image.
      *
+     * @param request - RemoveImageRequest
+     *
      * @returns RemoveImageResponse
      *
-     * @param string $ImageId
+     * @param string             $ImageId
+     * @param RemoveImageRequest $request
      *
      * @return RemoveImageResponse
      */
-    public function removeImage($ImageId)
+    public function removeImage($ImageId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeImageWithOptions($ImageId, $headers, $runtime);
+        return $this->removeImageWithOptions($ImageId, $request, $headers, $runtime);
     }
 
     /**
      * Removes an image tag.
      *
+     * @param request - RemoveImageLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RemoveImageLabelsResponse
      *
-     * @param string         $ImageId
-     * @param string         $LabelKey
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $ImageId
+     * @param string                   $LabelKey
+     * @param RemoveImageLabelsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return RemoveImageLabelsResponse
      */
-    public function removeImageLabelsWithOptions($ImageId, $LabelKey, $headers, $runtime)
+    public function removeImageLabelsWithOptions($ImageId, $LabelKey, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -7385,39 +7555,45 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Removes an image tag.
      *
+     * @param request - RemoveImageLabelsRequest
+     *
      * @returns RemoveImageLabelsResponse
      *
-     * @param string $ImageId
-     * @param string $LabelKey
+     * @param string                   $ImageId
+     * @param string                   $LabelKey
+     * @param RemoveImageLabelsRequest $request
      *
      * @return RemoveImageLabelsResponse
      */
-    public function removeImageLabels($ImageId, $LabelKey)
+    public function removeImageLabels($ImageId, $LabelKey, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeImageLabelsWithOptions($ImageId, $LabelKey, $headers, $runtime);
+        return $this->removeImageLabelsWithOptions($ImageId, $LabelKey, $request, $headers, $runtime);
     }
 
     /**
      * Removes a member role.
      *
+     * @param request - RemoveMemberRoleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RemoveMemberRoleResponse
      *
-     * @param string         $WorkspaceId
-     * @param string         $MemberId
-     * @param string         $RoleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $WorkspaceId
+     * @param string                  $MemberId
+     * @param string                  $RoleName
+     * @param RemoveMemberRoleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return RemoveMemberRoleResponse
      */
-    public function removeMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $headers, $runtime)
+    public function removeMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -7439,20 +7615,23 @@ class AIWorkSpace extends OpenApiClient
     /**
      * Removes a member role.
      *
+     * @param request - RemoveMemberRoleRequest
+     *
      * @returns RemoveMemberRoleResponse
      *
-     * @param string $WorkspaceId
-     * @param string $MemberId
-     * @param string $RoleName
+     * @param string                  $WorkspaceId
+     * @param string                  $MemberId
+     * @param string                  $RoleName
+     * @param RemoveMemberRoleRequest $request
      *
      * @return RemoveMemberRoleResponse
      */
-    public function removeMemberRole($WorkspaceId, $MemberId, $RoleName)
+    public function removeMemberRole($WorkspaceId, $MemberId, $RoleName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $headers, $runtime);
+        return $this->removeMemberRoleWithOptions($WorkspaceId, $MemberId, $RoleName, $request, $headers, $runtime);
     }
 
     /**

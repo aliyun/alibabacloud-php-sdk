@@ -27,11 +27,17 @@ class ListMembersRequest extends Model
      * @var string
      */
     public $roles;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'memberName' => 'MemberName',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'roles' => 'Roles',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListMembersRequest extends Model
 
         if (null !== $this->roles) {
             $res['Roles'] = $this->roles;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListMembersRequest extends Model
 
         if (isset($map['Roles'])) {
             $model->roles = $map['Roles'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;
