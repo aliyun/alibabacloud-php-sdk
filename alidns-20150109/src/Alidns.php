@@ -8377,6 +8377,10 @@ class Alidns extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->domainKeywords) {
+            @$query['DomainKeywords'] = $request->domainKeywords;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

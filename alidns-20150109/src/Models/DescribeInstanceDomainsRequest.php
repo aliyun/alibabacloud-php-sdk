@@ -11,6 +11,11 @@ class DescribeInstanceDomainsRequest extends Model
     /**
      * @var string
      */
+    public $domainKeywords;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -28,6 +33,7 @@ class DescribeInstanceDomainsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'domainKeywords' => 'DomainKeywords',
         'instanceId' => 'InstanceId',
         'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
@@ -42,6 +48,10 @@ class DescribeInstanceDomainsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->domainKeywords) {
+            $res['DomainKeywords'] = $this->domainKeywords;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -69,6 +79,10 @@ class DescribeInstanceDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainKeywords'])) {
+            $model->domainKeywords = $map['DomainKeywords'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
