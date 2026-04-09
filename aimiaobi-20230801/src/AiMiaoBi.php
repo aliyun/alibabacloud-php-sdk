@@ -39,6 +39,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ConfirmAndPostProcessAuditNoteRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ConfirmAndPostProcessAuditNoteResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDataPermissionsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDataPermissionsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDataPermissionsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetShrinkRequest;
@@ -60,6 +63,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicByTopicRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicByTopicResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicViewPointByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicViewPointByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDataPermissionsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDataPermissionsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDataPermissionsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDatasetDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDatasetDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDatasetRequest;
@@ -248,6 +254,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDataPermissionsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDataPermissionsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetDocumentsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetDocumentsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetDocumentsShrinkRequest;
@@ -1647,6 +1655,81 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 用户数据集权限-批量添加.
+     *
+     * @param tmpReq - CreateDataPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataPermissionsResponse
+     *
+     * @param CreateDataPermissionsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDataPermissionsResponse
+     */
+    public function createDataPermissionsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDataPermissionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->permissionUserInfos) {
+            $request->permissionUserInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->permissionUserInfos, 'PermissionUserInfos', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dataId) {
+            @$body['DataId'] = $request->dataId;
+        }
+
+        if (null !== $request->dataType) {
+            @$body['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->permissionUserInfosShrink) {
+            @$body['PermissionUserInfos'] = $request->permissionUserInfosShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataPermissions',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户数据集权限-批量添加.
+     *
+     * @param request - CreateDataPermissionsRequest
+     *
+     * @returns CreateDataPermissionsResponse
+     *
+     * @param CreateDataPermissionsRequest $request
+     *
+     * @return CreateDataPermissionsResponse
+     */
+    public function createDataPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataPermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * 数据集管理-创建.
      *
      * @param tmpReq - CreateDatasetRequest
@@ -1673,6 +1756,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->accessLevel) {
+            @$body['AccessLevel'] = $request->accessLevel;
+        }
+
         if (null !== $request->datasetConfigShrink) {
             @$body['DatasetConfig'] = $request->datasetConfigShrink;
         }
@@ -2279,6 +2366,73 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomTopicViewPointByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用户数据集权限-批量删除.
+     *
+     * @param tmpReq - DeleteDataPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataPermissionsResponse
+     *
+     * @param DeleteDataPermissionsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDataPermissionsResponse
+     */
+    public function deleteDataPermissionsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteDataPermissionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataPermissions',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户数据集权限-批量删除.
+     *
+     * @param request - DeleteDataPermissionsRequest
+     *
+     * @returns DeleteDataPermissionsResponse
+     *
+     * @param DeleteDataPermissionsRequest $request
+     *
+     * @return DeleteDataPermissionsResponse
+     */
+    public function deleteDataPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataPermissionsWithOptions($request, $runtime);
     }
 
     /**
@@ -8112,6 +8266,79 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 用户数据集权限-列表.
+     *
+     * @param request - ListDataPermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataPermissionsResponse
+     *
+     * @param ListDataPermissionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDataPermissionsResponse
+     */
+    public function listDataPermissionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dataId) {
+            @$body['DataId'] = $request->dataId;
+        }
+
+        if (null !== $request->dataType) {
+            @$body['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataPermissions',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户数据集权限-列表.
+     *
+     * @param request - ListDataPermissionsRequest
+     *
+     * @returns ListDataPermissionsResponse
+     *
+     * @param ListDataPermissionsRequest $request
+     *
+     * @return ListDataPermissionsResponse
+     */
+    public function listDataPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataPermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询数据集文档列表.
      *
      * @param tmpReq - ListDatasetDocumentsRequest
@@ -8303,6 +8530,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->datasetDescription) {
+            @$body['DatasetDescription'] = $request->datasetDescription;
+        }
+
         if (null !== $request->datasetId) {
             @$body['DatasetId'] = $request->datasetId;
         }
@@ -18734,6 +18965,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->accessLevel) {
+            @$body['AccessLevel'] = $request->accessLevel;
+        }
+
         if (null !== $request->datasetConfigShrink) {
             @$body['DatasetConfig'] = $request->datasetConfigShrink;
         }

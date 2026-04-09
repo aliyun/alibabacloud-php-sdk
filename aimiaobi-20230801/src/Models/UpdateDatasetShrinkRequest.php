@@ -11,6 +11,11 @@ class UpdateDatasetShrinkRequest extends Model
     /**
      * @var string
      */
+    public $accessLevel;
+
+    /**
+     * @var string
+     */
     public $datasetConfigShrink;
 
     /**
@@ -33,6 +38,7 @@ class UpdateDatasetShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessLevel' => 'AccessLevel',
         'datasetConfigShrink' => 'DatasetConfig',
         'datasetDescription' => 'DatasetDescription',
         'datasetId' => 'DatasetId',
@@ -48,6 +54,10 @@ class UpdateDatasetShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessLevel) {
+            $res['AccessLevel'] = $this->accessLevel;
+        }
+
         if (null !== $this->datasetConfigShrink) {
             $res['DatasetConfig'] = $this->datasetConfigShrink;
         }
@@ -79,6 +89,10 @@ class UpdateDatasetShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessLevel'])) {
+            $model->accessLevel = $map['AccessLevel'];
+        }
+
         if (isset($map['DatasetConfig'])) {
             $model->datasetConfigShrink = $map['DatasetConfig'];
         }

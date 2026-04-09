@@ -5,9 +5,20 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDatasetsResponseBody\data\administrators;
 
 class data extends Model
 {
+    /**
+     * @var string
+     */
+    public $accessLevel;
+
+    /**
+     * @var administrators[]
+     */
+    public $administrators;
+
     /**
      * @var string
      */
@@ -48,6 +59,8 @@ class data extends Model
      */
     public $searchDatasetEnable;
     protected $_name = [
+        'accessLevel' => 'AccessLevel',
+        'administrators' => 'Administrators',
         'createTime' => 'CreateTime',
         'createUser' => 'CreateUser',
         'datasetDescription' => 'DatasetDescription',
@@ -60,12 +73,30 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->administrators)) {
+            Model::validateArray($this->administrators);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessLevel) {
+            $res['AccessLevel'] = $this->accessLevel;
+        }
+
+        if (null !== $this->administrators) {
+            if (\is_array($this->administrators)) {
+                $res['Administrators'] = [];
+                $n1 = 0;
+                foreach ($this->administrators as $item1) {
+                    $res['Administrators'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -109,6 +140,21 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessLevel'])) {
+            $model->accessLevel = $map['AccessLevel'];
+        }
+
+        if (isset($map['Administrators'])) {
+            if (!empty($map['Administrators'])) {
+                $model->administrators = [];
+                $n1 = 0;
+                foreach ($map['Administrators'] as $item1) {
+                    $model->administrators[$n1] = administrators::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

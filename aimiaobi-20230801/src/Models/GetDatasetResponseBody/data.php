@@ -13,6 +13,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $accessLevel;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -55,6 +60,7 @@ class data extends Model
      */
     public $searchDatasetEnable;
     protected $_name = [
+        'accessLevel' => 'AccessLevel',
         'createTime' => 'CreateTime',
         'createUser' => 'CreateUser',
         'datasetConfig' => 'DatasetConfig',
@@ -80,6 +86,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessLevel) {
+            $res['AccessLevel'] = $this->accessLevel;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -127,6 +137,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessLevel'])) {
+            $model->accessLevel = $map['AccessLevel'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

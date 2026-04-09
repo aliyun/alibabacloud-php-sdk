@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListDatasetsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $datasetDescription;
+
+    /**
      * @var int
      */
     public $datasetId;
@@ -58,6 +63,7 @@ class ListDatasetsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'datasetDescription' => 'DatasetDescription',
         'datasetId' => 'DatasetId',
         'datasetName' => 'DatasetName',
         'datasetType' => 'DatasetType',
@@ -78,6 +84,10 @@ class ListDatasetsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->datasetDescription) {
+            $res['DatasetDescription'] = $this->datasetDescription;
+        }
+
         if (null !== $this->datasetId) {
             $res['DatasetId'] = $this->datasetId;
         }
@@ -129,6 +139,10 @@ class ListDatasetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatasetDescription'])) {
+            $model->datasetDescription = $map['DatasetDescription'];
+        }
+
         if (isset($map['DatasetId'])) {
             $model->datasetId = $map['DatasetId'];
         }

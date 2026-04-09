@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateDatasetRequest\datasetConfi
 class UpdateDatasetRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accessLevel;
+
+    /**
      * @var datasetConfig
      */
     public $datasetConfig;
@@ -34,6 +39,7 @@ class UpdateDatasetRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessLevel' => 'AccessLevel',
         'datasetConfig' => 'DatasetConfig',
         'datasetDescription' => 'DatasetDescription',
         'datasetId' => 'DatasetId',
@@ -52,6 +58,10 @@ class UpdateDatasetRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessLevel) {
+            $res['AccessLevel'] = $this->accessLevel;
+        }
+
         if (null !== $this->datasetConfig) {
             $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toArray($noStream) : $this->datasetConfig;
         }
@@ -83,6 +93,10 @@ class UpdateDatasetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessLevel'])) {
+            $model->accessLevel = $map['AccessLevel'];
+        }
+
         if (isset($map['DatasetConfig'])) {
             $model->datasetConfig = datasetConfig::fromMap($map['DatasetConfig']);
         }
