@@ -14,6 +14,11 @@ class UpdateAgentRuntimeInput extends Model
     public $agentRuntimeName;
 
     /**
+     * @var ArmsConfiguration
+     */
+    public $armsConfiguration;
+
+    /**
      * @var string
      */
     public $artifactType;
@@ -119,6 +124,7 @@ class UpdateAgentRuntimeInput extends Model
     public $workspaceId;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
+        'armsConfiguration' => 'armsConfiguration',
         'artifactType' => 'artifactType',
         'codeConfiguration' => 'codeConfiguration',
         'containerConfiguration' => 'containerConfiguration',
@@ -144,6 +150,9 @@ class UpdateAgentRuntimeInput extends Model
 
     public function validate()
     {
+        if (null !== $this->armsConfiguration) {
+            $this->armsConfiguration->validate();
+        }
         if (null !== $this->codeConfiguration) {
             $this->codeConfiguration->validate();
         }
@@ -179,6 +188,10 @@ class UpdateAgentRuntimeInput extends Model
         $res = [];
         if (null !== $this->agentRuntimeName) {
             $res['agentRuntimeName'] = $this->agentRuntimeName;
+        }
+
+        if (null !== $this->armsConfiguration) {
+            $res['armsConfiguration'] = null !== $this->armsConfiguration ? $this->armsConfiguration->toArray($noStream) : $this->armsConfiguration;
         }
 
         if (null !== $this->artifactType) {
@@ -283,6 +296,10 @@ class UpdateAgentRuntimeInput extends Model
         $model = new self();
         if (isset($map['agentRuntimeName'])) {
             $model->agentRuntimeName = $map['agentRuntimeName'];
+        }
+
+        if (isset($map['armsConfiguration'])) {
+            $model->armsConfiguration = ArmsConfiguration::fromMap($map['armsConfiguration']);
         }
 
         if (isset($map['artifactType'])) {

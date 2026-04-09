@@ -21,6 +21,11 @@ class ListToolsRequest extends Model
     /**
      * @var string
      */
+    public $toolName;
+
+    /**
+     * @var string
+     */
     public $toolType;
 
     /**
@@ -35,6 +40,7 @@ class ListToolsRequest extends Model
     protected $_name = [
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'toolName' => 'toolName',
         'toolType' => 'toolType',
         'workspaceId' => 'workspaceId',
         'workspaceIds' => 'workspaceIds',
@@ -54,6 +60,10 @@ class ListToolsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->toolName) {
+            $res['toolName'] = $this->toolName;
         }
 
         if (null !== $this->toolType) {
@@ -85,6 +95,10 @@ class ListToolsRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['toolName'])) {
+            $model->toolName = $map['toolName'];
         }
 
         if (isset($map['toolType'])) {
