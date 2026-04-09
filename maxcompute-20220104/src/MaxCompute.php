@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateMmsFetchMetadataJobReques
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateMmsFetchMetadataJobResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateMmsJobRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateMmsJobResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateMmsTimerRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateMmsTimerResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreatePackageRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreatePackageResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateProjectRequest;
@@ -28,6 +30,7 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateRoleResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteMmsDataSourceResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteMmsJobResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteMmsTimerResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteQuotaPlanRequest;
@@ -49,6 +52,7 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsJobResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsPartitionResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsTableResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsTaskResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsTimerResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectRequest;
@@ -92,6 +96,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobMetricRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobMetricResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobSnapshotInfosRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobSnapshotInfosResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsDataSourceConfigItemsRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsDataSourceConfigItemsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsDataSourcesRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsDataSourcesResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsDbsRequest;
@@ -108,6 +114,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTablesShrinkRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTaskLogsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTasksRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTasksResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimerLogsRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimerLogsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListPackagesResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponse;
@@ -692,6 +700,129 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * CreateMmsTimer.
+     *
+     * @param request - CreateMmsTimerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMmsTimerResponse
+     *
+     * @param string                $sourceId
+     * @param CreateMmsTimerRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateMmsTimerResponse
+     */
+    public function createMmsTimerWithOptions($sourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->columnMapping) {
+            @$body['columnMapping'] = $request->columnMapping;
+        }
+
+        if (null !== $request->enableDataMigration) {
+            @$body['enableDataMigration'] = $request->enableDataMigration;
+        }
+
+        if (null !== $request->enableSchemaMigration) {
+            @$body['enableSchemaMigration'] = $request->enableSchemaMigration;
+        }
+
+        if (null !== $request->enableVerification) {
+            @$body['enableVerification'] = $request->enableVerification;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->others) {
+            @$body['others'] = $request->others;
+        }
+
+        if (null !== $request->partitionFilters) {
+            @$body['partitionFilters'] = $request->partitionFilters;
+        }
+
+        if (null !== $request->partitions) {
+            @$body['partitions'] = $request->partitions;
+        }
+
+        if (null !== $request->scheduleType) {
+            @$body['scheduleType'] = $request->scheduleType;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->srcDbName) {
+            @$body['srcDbName'] = $request->srcDbName;
+        }
+
+        if (null !== $request->tableBlackList) {
+            @$body['tableBlackList'] = $request->tableBlackList;
+        }
+
+        if (null !== $request->tableMapping) {
+            @$body['tableMapping'] = $request->tableMapping;
+        }
+
+        if (null !== $request->tableWhiteList) {
+            @$body['tableWhiteList'] = $request->tableWhiteList;
+        }
+
+        if (null !== $request->tables) {
+            @$body['tables'] = $request->tables;
+        }
+
+        if (null !== $request->value) {
+            @$body['value'] = $request->value;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMmsTimer',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMmsTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateMmsTimer.
+     *
+     * @param request - CreateMmsTimerRequest
+     *
+     * @returns CreateMmsTimerResponse
+     *
+     * @param string                $sourceId
+     * @param CreateMmsTimerRequest $request
+     *
+     * @return CreateMmsTimerResponse
+     */
+    public function createMmsTimer($sourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMmsTimerWithOptions($sourceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a package.
      *
      * @param request - CreatePackageRequest
@@ -1165,6 +1296,59 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->deleteMmsJobWithOptions($sourceId, $jobId, $headers, $runtime);
+    }
+
+    /**
+     * DeleteMmsTimer.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMmsTimerResponse
+     *
+     * @param string         $sourceId
+     * @param string         $timerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMmsTimerResponse
+     */
+    public function deleteMmsTimerWithOptions($sourceId, $timerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMmsTimer',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers/' . Url::percentEncode($timerId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMmsTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteMmsTimer.
+     *
+     * @returns DeleteMmsTimerResponse
+     *
+     * @param string $sourceId
+     * @param string $timerId
+     *
+     * @return DeleteMmsTimerResponse
+     */
+    public function deleteMmsTimer($sourceId, $timerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMmsTimerWithOptions($sourceId, $timerId, $headers, $runtime);
     }
 
     /**
@@ -2040,6 +2224,59 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->getMmsTaskWithOptions($sourceId, $taskId, $headers, $runtime);
+    }
+
+    /**
+     * GetMmsTimer.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMmsTimerResponse
+     *
+     * @param string         $sourceId
+     * @param string         $timerId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMmsTimerResponse
+     */
+    public function getMmsTimerWithOptions($sourceId, $timerId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMmsTimer',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers/' . Url::percentEncode($timerId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMmsTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetMmsTimer.
+     *
+     * @returns GetMmsTimerResponse
+     *
+     * @param string $sourceId
+     * @param string $timerId
+     *
+     * @return GetMmsTimerResponse
+     */
+    public function getMmsTimer($sourceId, $timerId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMmsTimerWithOptions($sourceId, $timerId, $headers, $runtime);
     }
 
     /**
@@ -3762,6 +3999,71 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsDataSourceConfigItems.
+     *
+     * @param request - ListMmsDataSourceConfigItemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMmsDataSourceConfigItemsResponse
+     *
+     * @param ListMmsDataSourceConfigItemsRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListMmsDataSourceConfigItemsResponse
+     */
+    public function listMmsDataSourceConfigItemsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['lang'] = $request->lang;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMmsDataSourceConfigItems',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/configItems',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMmsDataSourceConfigItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListMmsDataSourceConfigItems.
+     *
+     * @param request - ListMmsDataSourceConfigItemsRequest
+     *
+     * @returns ListMmsDataSourceConfigItemsResponse
+     *
+     * @param ListMmsDataSourceConfigItemsRequest $request
+     *
+     * @return ListMmsDataSourceConfigItemsResponse
+     */
+    public function listMmsDataSourceConfigItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMmsDataSourceConfigItemsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of MaxCompute Migration Assist (MMA) data sources.
      *
      * @param request - ListMmsDataSourcesRequest
@@ -4418,6 +4720,75 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->listMmsTasksWithOptions($sourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * ListMmsTimerLogs.
+     *
+     * @param request - ListMmsTimerLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMmsTimerLogsResponse
+     *
+     * @param string                  $sourceId
+     * @param string                  $timerId
+     * @param ListMmsTimerLogsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMmsTimerLogsResponse
+     */
+    public function listMmsTimerLogsWithOptions($sourceId, $timerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNum) {
+            @$query['pageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMmsTimerLogs',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers/' . Url::percentEncode($timerId) . '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMmsTimerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListMmsTimerLogs.
+     *
+     * @param request - ListMmsTimerLogsRequest
+     *
+     * @returns ListMmsTimerLogsResponse
+     *
+     * @param string                  $sourceId
+     * @param string                  $timerId
+     * @param ListMmsTimerLogsRequest $request
+     *
+     * @return ListMmsTimerLogsResponse
+     */
+    public function listMmsTimerLogs($sourceId, $timerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMmsTimerLogsWithOptions($sourceId, $timerId, $request, $headers, $runtime);
     }
 
     /**
