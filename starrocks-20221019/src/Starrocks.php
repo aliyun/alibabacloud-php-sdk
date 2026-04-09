@@ -664,6 +664,10 @@ class Starrocks extends OpenApiClient
             @$body['Duration'] = $request->duration;
         }
 
+        if (null !== $request->enableMultiAz) {
+            @$body['EnableMultiAz'] = $request->enableMultiAz;
+        }
+
         if (null !== $request->encrypted) {
             @$body['Encrypted'] = $request->encrypted;
         }

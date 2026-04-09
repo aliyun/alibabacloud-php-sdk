@@ -21,7 +21,17 @@ class data extends Model
     /**
      * @var int
      */
+    public $consoleRetryCount;
+
+    /**
+     * @var int
+     */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $errMessage;
 
     /**
      * @var string
@@ -35,7 +45,9 @@ class data extends Model
     protected $_name = [
         'activityId' => 'ActivityId',
         'activityStatus' => 'ActivityStatus',
+        'consoleRetryCount' => 'ConsoleRetryCount',
         'endTime' => 'EndTime',
+        'errMessage' => 'ErrMessage',
         'name' => 'Name',
         'startTime' => 'StartTime',
     ];
@@ -56,8 +68,16 @@ class data extends Model
             $res['ActivityStatus'] = $this->activityStatus;
         }
 
+        if (null !== $this->consoleRetryCount) {
+            $res['ConsoleRetryCount'] = $this->consoleRetryCount;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->errMessage) {
+            $res['ErrMessage'] = $this->errMessage;
         }
 
         if (null !== $this->name) {
@@ -87,8 +107,16 @@ class data extends Model
             $model->activityStatus = $map['ActivityStatus'];
         }
 
+        if (isset($map['ConsoleRetryCount'])) {
+            $model->consoleRetryCount = $map['ConsoleRetryCount'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['ErrMessage'])) {
+            $model->errMessage = $map['ErrMessage'];
         }
 
         if (isset($map['Name'])) {

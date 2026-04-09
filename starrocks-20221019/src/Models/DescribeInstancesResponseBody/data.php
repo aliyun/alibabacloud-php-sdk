@@ -38,6 +38,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $enableMultiAz;
+
+    /**
+     * @var bool
+     */
     public $enableSSL;
 
     /**
@@ -165,6 +170,7 @@ class data extends Model
         'beginTime' => 'BeginTime',
         'enableAiFunction' => 'EnableAiFunction',
         'enableAutoMinorVersionUpgrade' => 'EnableAutoMinorVersionUpgrade',
+        'enableMultiAz' => 'EnableMultiAz',
         'enableSSL' => 'EnableSSL',
         'enabledAuditLoader' => 'EnabledAuditLoader',
         'encrypted' => 'Encrypted',
@@ -224,6 +230,10 @@ class data extends Model
 
         if (null !== $this->enableAutoMinorVersionUpgrade) {
             $res['EnableAutoMinorVersionUpgrade'] = $this->enableAutoMinorVersionUpgrade;
+        }
+
+        if (null !== $this->enableMultiAz) {
+            $res['EnableMultiAz'] = $this->enableMultiAz;
         }
 
         if (null !== $this->enableSSL) {
@@ -369,6 +379,10 @@ class data extends Model
 
         if (isset($map['EnableAutoMinorVersionUpgrade'])) {
             $model->enableAutoMinorVersionUpgrade = $map['EnableAutoMinorVersionUpgrade'];
+        }
+
+        if (isset($map['EnableMultiAz'])) {
+            $model->enableMultiAz = $map['EnableMultiAz'];
         }
 
         if (isset($map['EnableSSL'])) {

@@ -62,6 +62,11 @@ class CreateInstanceV1Request extends Model
     /**
      * @var bool
      */
+    public $enableMultiAz;
+
+    /**
+     * @var bool
+     */
     public $encrypted;
 
     /**
@@ -178,6 +183,7 @@ class CreateInstanceV1Request extends Model
         'dlfCatalogName' => 'DlfCatalogName',
         'dlfCatalogType' => 'DlfCatalogType',
         'duration' => 'Duration',
+        'enableMultiAz' => 'EnableMultiAz',
         'encrypted' => 'Encrypted',
         'frontendNodeGroups' => 'FrontendNodeGroups',
         'gatewayType' => 'GatewayType',
@@ -269,6 +275,10 @@ class CreateInstanceV1Request extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->enableMultiAz) {
+            $res['EnableMultiAz'] = $this->enableMultiAz;
         }
 
         if (null !== $this->encrypted) {
@@ -439,6 +449,10 @@ class CreateInstanceV1Request extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['EnableMultiAz'])) {
+            $model->enableMultiAz = $map['EnableMultiAz'];
         }
 
         if (isset($map['Encrypted'])) {
