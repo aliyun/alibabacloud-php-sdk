@@ -759,6 +759,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeAIAppJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeAIAppJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitYikeStoryboardJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubYikeUserCreditRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubYikeUserCreditResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAdInsertionRequest;
@@ -9510,7 +9512,6 @@ class ICE extends OpenApiClient
     /**
      * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
      *
-     * @param request - GenerateKMSDataKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateKMSDataKeyResponse
@@ -10224,7 +10225,6 @@ class ICE extends OpenApiClient
     /**
      * 获取内容分析搜索配置.
      *
-     * @param request - GetContentAnalyzeConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetContentAnalyzeConfigResponse
@@ -10507,7 +10507,6 @@ class ICE extends OpenApiClient
     /**
      * 获取用户默认存储地址
      *
-     * @param request - GetDefaultStorageLocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDefaultStorageLocationResponse
@@ -10783,7 +10782,6 @@ class ICE extends OpenApiClient
     /**
      * Queries event callback configurations.
      *
-     * @param request - GetEventCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEventCallbackResponse
@@ -11626,7 +11624,6 @@ class ICE extends OpenApiClient
     /**
      * Retrieves all regions where MediaConnect is available.
      *
-     * @param request - GetMediaConnectAvailableRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMediaConnectAvailableRegionResponse
@@ -23270,6 +23267,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopRtcRobotInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 扣减用户积分.
+     *
+     * @param request - SubYikeUserCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubYikeUserCreditResponse
+     *
+     * @param SubYikeUserCreditRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubYikeUserCreditResponse
+     */
+    public function subYikeUserCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credit) {
+            @$query['Credit'] = $request->credit;
+        }
+
+        if (null !== $request->yikeUserId) {
+            @$query['YikeUserId'] = $request->yikeUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubYikeUserCredit',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubYikeUserCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 扣减用户积分.
+     *
+     * @param request - SubYikeUserCreditRequest
+     *
+     * @returns SubYikeUserCreditResponse
+     *
+     * @param SubYikeUserCreditRequest $request
+     *
+     * @return SubYikeUserCreditResponse
+     */
+    public function subYikeUserCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->subYikeUserCreditWithOptions($request, $runtime);
     }
 
     /**
