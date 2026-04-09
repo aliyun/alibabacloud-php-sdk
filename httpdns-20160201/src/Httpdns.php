@@ -99,11 +99,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -163,11 +160,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -229,11 +223,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -255,7 +246,6 @@ class Httpdns extends OpenApiClient
     /**
      * 获取用户信息包含配置项.
      *
-     * @param request - GetAccountInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAccountInfoResponse
@@ -278,11 +268,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAccountInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAccountInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -338,11 +325,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResolveCountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResolveCountSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResolveCountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -408,11 +392,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResolveStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResolveStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResolveStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,11 +459,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -544,11 +522,8 @@ class Httpdns extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RefreshResolveCacheResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshResolveCacheResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshResolveCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
