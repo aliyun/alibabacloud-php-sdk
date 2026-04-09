@@ -47,6 +47,11 @@ class ObtainCredentialResponseBody extends Model
     /**
      * @var string
      */
+    public $credentialSharingScope;
+
+    /**
+     * @var string
+     */
     public $credentialSubjectId;
 
     /**
@@ -63,6 +68,11 @@ class ObtainCredentialResponseBody extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $exclusiveUserId;
 
     /**
      * @var string
@@ -86,10 +96,12 @@ class ObtainCredentialResponseBody extends Model
         'credentialIdentifier' => 'credentialIdentifier',
         'credentialName' => 'credentialName',
         'credentialScenarioLabel' => 'credentialScenarioLabel',
+        'credentialSharingScope' => 'credentialSharingScope',
         'credentialSubjectId' => 'credentialSubjectId',
         'credentialSubjectType' => 'credentialSubjectType',
         'credentialType' => 'credentialType',
         'description' => 'description',
+        'exclusiveUserId' => 'exclusiveUserId',
         'instanceId' => 'instanceId',
         'status' => 'status',
         'updateTime' => 'updateTime',
@@ -134,6 +146,10 @@ class ObtainCredentialResponseBody extends Model
             $res['credentialScenarioLabel'] = $this->credentialScenarioLabel;
         }
 
+        if (null !== $this->credentialSharingScope) {
+            $res['credentialSharingScope'] = $this->credentialSharingScope;
+        }
+
         if (null !== $this->credentialSubjectId) {
             $res['credentialSubjectId'] = $this->credentialSubjectId;
         }
@@ -148,6 +164,10 @@ class ObtainCredentialResponseBody extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->exclusiveUserId) {
+            $res['exclusiveUserId'] = $this->exclusiveUserId;
         }
 
         if (null !== $this->instanceId) {
@@ -201,6 +221,10 @@ class ObtainCredentialResponseBody extends Model
             $model->credentialScenarioLabel = $map['credentialScenarioLabel'];
         }
 
+        if (isset($map['credentialSharingScope'])) {
+            $model->credentialSharingScope = $map['credentialSharingScope'];
+        }
+
         if (isset($map['credentialSubjectId'])) {
             $model->credentialSubjectId = $map['credentialSubjectId'];
         }
@@ -215,6 +239,10 @@ class ObtainCredentialResponseBody extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['exclusiveUserId'])) {
+            $model->exclusiveUserId = $map['exclusiveUserId'];
         }
 
         if (isset($map['instanceId'])) {
