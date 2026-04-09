@@ -103,6 +103,16 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $multiZone;
 
     /**
+     * @var string
+     */
+    public $OTelBearerToken;
+
+    /**
+     * @var string
+     */
+    public $OTelGrafanaServiceStatus;
+
+    /**
      * @var int
      */
     public $objectStoreSize;
@@ -195,6 +205,8 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'maintainEndtime' => 'MaintainEndtime',
         'maintainStarttime' => 'MaintainStarttime',
         'multiZone' => 'MultiZone',
+        'OTelBearerToken' => 'OTelBearerToken',
+        'OTelGrafanaServiceStatus' => 'OTelGrafanaServiceStatus',
         'objectStoreSize' => 'ObjectStoreSize',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
@@ -326,6 +338,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->OTelBearerToken) {
+            $res['OTelBearerToken'] = $this->OTelBearerToken;
+        }
+
+        if (null !== $this->OTelGrafanaServiceStatus) {
+            $res['OTelGrafanaServiceStatus'] = $this->OTelGrafanaServiceStatus;
         }
 
         if (null !== $this->objectStoreSize) {
@@ -504,6 +524,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['OTelBearerToken'])) {
+            $model->OTelBearerToken = $map['OTelBearerToken'];
+        }
+
+        if (isset($map['OTelGrafanaServiceStatus'])) {
+            $model->OTelGrafanaServiceStatus = $map['OTelGrafanaServiceStatus'];
         }
 
         if (isset($map['ObjectStoreSize'])) {
