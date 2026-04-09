@@ -59,6 +59,11 @@ class DBTaskSQLJobDetailList extends Model
     public $skip;
 
     /**
+     * @var int
+     */
+    public $sqlId;
+
+    /**
      * @var string
      */
     public $sqlType;
@@ -88,6 +93,7 @@ class DBTaskSQLJobDetailList extends Model
         'log' => 'Log',
         'logic' => 'Logic',
         'skip' => 'Skip',
+        'sqlId' => 'SqlId',
         'sqlType' => 'SqlType',
         'startTime' => 'StartTime',
         'status' => 'Status',
@@ -140,6 +146,10 @@ class DBTaskSQLJobDetailList extends Model
 
         if (null !== $this->skip) {
             $res['Skip'] = $this->skip;
+        }
+
+        if (null !== $this->sqlId) {
+            $res['SqlId'] = $this->sqlId;
         }
 
         if (null !== $this->sqlType) {
@@ -207,6 +217,10 @@ class DBTaskSQLJobDetailList extends Model
 
         if (isset($map['Skip'])) {
             $model->skip = $map['Skip'];
+        }
+
+        if (isset($map['SqlId'])) {
+            $model->sqlId = $map['SqlId'];
         }
 
         if (isset($map['SqlType'])) {
