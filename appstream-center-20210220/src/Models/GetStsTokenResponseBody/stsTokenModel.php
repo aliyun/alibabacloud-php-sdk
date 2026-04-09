@@ -11,6 +11,21 @@ class stsTokenModel extends Model
     /**
      * @var string
      */
+    public $endUserId;
+
+    /**
+     * @var string
+     */
+    public $loginToken;
+
+    /**
+     * @var string
+     */
+    public $profileRegion;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -23,6 +38,9 @@ class stsTokenModel extends Model
      */
     public $tenantId;
     protected $_name = [
+        'endUserId' => 'EndUserId',
+        'loginToken' => 'LoginToken',
+        'profileRegion' => 'ProfileRegion',
         'sessionId' => 'SessionId',
         'stsToken' => 'StsToken',
         'tenantId' => 'TenantId',
@@ -36,6 +54,18 @@ class stsTokenModel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->loginToken) {
+            $res['LoginToken'] = $this->loginToken;
+        }
+
+        if (null !== $this->profileRegion) {
+            $res['ProfileRegion'] = $this->profileRegion;
+        }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -59,6 +89,18 @@ class stsTokenModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndUserId'])) {
+            $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['LoginToken'])) {
+            $model->loginToken = $map['LoginToken'];
+        }
+
+        if (isset($map['ProfileRegion'])) {
+            $model->profileRegion = $map['ProfileRegion'];
+        }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
