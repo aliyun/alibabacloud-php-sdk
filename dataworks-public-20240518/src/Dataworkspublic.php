@@ -97,6 +97,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateParameterRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateParameterResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateParameterShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunShrinkRequest;
@@ -175,6 +178,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteParameterRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteParameterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRequest;
@@ -273,6 +278,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetParameterRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetParameterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunRequest;
@@ -411,6 +418,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParametersRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParametersResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParametersShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParameterVersionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParameterVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunItemsRequest;
@@ -500,6 +512,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesShrinkR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RollbackParameterRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RollbackParameterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\SetSuccessTaskInstancesShrinkRequest;
@@ -588,6 +602,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceAdvanceRequest;
@@ -733,11 +750,13 @@ class Dataworkspublic extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -3638,6 +3657,93 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 创建参数。
+     *
+     * @param tmpReq - CreateParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateParameterResponse
+     *
+     * @param CreateParameterRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateParameterResponse
+     */
+    public function createParameterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateParameterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->properties) {
+            $request->propertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->properties, 'Properties', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->propertiesShrink) {
+            @$body['Properties'] = $request->propertiesShrink;
+        }
+
+        if (null !== $request->scope) {
+            @$body['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateParameter',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建参数。
+     *
+     * @param Request - CreateParameterRequest
+     *
+     * @returns CreateParameterResponse
+     *
+     * @param CreateParameterRequest $request
+     *
+     * @return CreateParameterResponse
+     */
+    public function createParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createParameterWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a deployment process for entities in the Data Studio (new version).
      *
      * @remarks
@@ -4036,7 +4142,7 @@ class Dataworkspublic extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -4229,7 +4335,7 @@ class Dataworkspublic extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -6306,6 +6412,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除参数。
+     *
+     * @param Request - DeleteParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteParameterResponse
+     *
+     * @param DeleteParameterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteParameterResponse
+     */
+    public function deleteParameterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteParameter',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除参数。
+     *
+     * @param Request - DeleteParameterRequest
+     *
+     * @returns DeleteParameterResponse
+     *
+     * @param DeleteParameterRequest $request
+     *
+     * @return DeleteParameterResponse
+     */
+    public function deleteParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteParameterWithOptions($request, $runtime);
     }
 
     /**
@@ -9334,6 +9497,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 根据参数ID获取参数的详细信息。
+     *
+     * @param Request - GetParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetParameterResponse
+     *
+     * @param GetParameterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetParameterResponse
+     */
+    public function getParameterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetParameter',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据参数ID获取参数的详细信息。
+     *
+     * @param Request - GetParameterRequest
+     *
+     * @returns GetParameterResponse
+     *
+     * @param GetParameterRequest $request
+     *
+     * @return GetParameterResponse
+     */
+    public function getParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getParameterWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
      *
      * @remarks
@@ -10547,7 +10767,7 @@ class Dataworkspublic extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -11139,7 +11359,6 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
      *
-     * @param Request - ListCrawlerTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCrawlerTypesResponse
@@ -13627,6 +13846,174 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询参数版本列表。
+     *
+     * @param Request - ListParameterVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListParameterVersionsResponse
+     *
+     * @param ListParameterVersionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListParameterVersionsResponse
+     */
+    public function listParameterVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListParameterVersions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListParameterVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询参数版本列表。
+     *
+     * @param Request - ListParameterVersionsRequest
+     *
+     * @returns ListParameterVersionsResponse
+     *
+     * @param ListParameterVersionsRequest $request
+     *
+     * @return ListParameterVersionsResponse
+     */
+    public function listParameterVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listParameterVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询参数列表。
+     *
+     * @param tmpReq - ListParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListParametersResponse
+     *
+     * @param ListParametersRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListParametersResponse
+     */
+    public function listParametersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListParametersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+
+        if (null !== $tmpReq->names) {
+            $request->namesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->names, 'Names', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        if (null !== $request->namesShrink) {
+            @$body['Names'] = $request->namesShrink;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->scope) {
+            @$body['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListParameters',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询参数列表。
+     *
+     * @param Request - ListParametersRequest
+     *
+     * @returns ListParametersResponse
+     *
+     * @param ListParametersRequest $request
+     *
+     * @return ListParametersResponse
+     */
+    public function listParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listParametersWithOptions($request, $runtime);
     }
 
     /**
@@ -16350,6 +16737,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeMemberProjectRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 回滚参数版本。
+     *
+     * @param Request - RollbackParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackParameterResponse
+     *
+     * @param RollbackParameterRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RollbackParameterResponse
+     */
+    public function rollbackParameterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->rollbackVersion) {
+            @$body['RollbackVersion'] = $request->rollbackVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackParameter',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 回滚参数版本。
+     *
+     * @param Request - RollbackParameterRequest
+     *
+     * @returns RollbackParameterResponse
+     *
+     * @param RollbackParameterRequest $request
+     *
+     * @return RollbackParameterResponse
+     */
+    public function rollbackParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackParameterWithOptions($request, $runtime);
     }
 
     /**
@@ -19247,6 +19695,81 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 更新参数。
+     *
+     * @param tmpReq - UpdateParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateParameterResponse
+     *
+     * @param UpdateParameterRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateParameterResponse
+     */
+    public function updateParameterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateParameterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->properties) {
+            $request->propertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->properties, 'Properties', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->propertiesShrink) {
+            @$body['Properties'] = $request->propertiesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateParameter',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新参数。
+     *
+     * @param Request - UpdateParameterRequest
+     *
+     * @returns UpdateParameterResponse
+     *
+     * @param UpdateParameterRequest $request
+     *
+     * @return UpdateParameterResponse
+     */
+    public function updateParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateParameterWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates a DataWorks workspace.
      *
      * @param Request - UpdateProjectRequest
@@ -19473,7 +19996,7 @@ class Dataworkspublic extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
