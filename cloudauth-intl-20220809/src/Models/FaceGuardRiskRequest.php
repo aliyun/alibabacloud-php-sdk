@@ -27,11 +27,17 @@ class FaceGuardRiskRequest extends Model
      * @var string
      */
     public $productCode;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'bizId' => 'BizId',
         'deviceToken' => 'DeviceToken',
         'merchantBizId' => 'MerchantBizId',
         'productCode' => 'ProductCode',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class FaceGuardRiskRequest extends Model
 
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class FaceGuardRiskRequest extends Model
 
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
