@@ -20,9 +20,19 @@ class allocatedResource extends Model
     public $capacityReservationUsages;
 
     /**
+     * @var int
+     */
+    public $failedAmount;
+
+    /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var int
+     */
+    public $lockedAmount;
 
     /**
      * @var int
@@ -41,7 +51,9 @@ class allocatedResource extends Model
     protected $_name = [
         'availableAmount' => 'AvailableAmount',
         'capacityReservationUsages' => 'CapacityReservationUsages',
+        'failedAmount' => 'FailedAmount',
         'instanceType' => 'InstanceType',
+        'lockedAmount' => 'LockedAmount',
         'totalAmount' => 'TotalAmount',
         'usedAmount' => 'UsedAmount',
         'zoneId' => 'zoneId',
@@ -66,8 +78,16 @@ class allocatedResource extends Model
             $res['CapacityReservationUsages'] = null !== $this->capacityReservationUsages ? $this->capacityReservationUsages->toArray($noStream) : $this->capacityReservationUsages;
         }
 
+        if (null !== $this->failedAmount) {
+            $res['FailedAmount'] = $this->failedAmount;
+        }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->lockedAmount) {
+            $res['LockedAmount'] = $this->lockedAmount;
         }
 
         if (null !== $this->totalAmount) {
@@ -101,8 +121,16 @@ class allocatedResource extends Model
             $model->capacityReservationUsages = capacityReservationUsages::fromMap($map['CapacityReservationUsages']);
         }
 
+        if (isset($map['FailedAmount'])) {
+            $model->failedAmount = $map['FailedAmount'];
+        }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['LockedAmount'])) {
+            $model->lockedAmount = $map['LockedAmount'];
         }
 
         if (isset($map['TotalAmount'])) {

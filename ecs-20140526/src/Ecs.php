@@ -7968,7 +7968,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 创建运维窗口.
+     * Create an O\\\\\\&M window. If you set the TargetResource parameter in the O\\\\\\&M window to the associated ECS instance and need to schedule O\\\\\\&M to avoid potential hardware problems, the execution time is set based on the interval set by the TimePeriod parameter in the O\\\\\\&M window. When the execution time of an O\\\\\\&M event is reached, the platform automatically executes the response O\\\\\\&M operation based on the type of the O\\\\\\&M event.
      *
      * @param tmpReq - CreatePlanMaintenanceWindowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8037,7 +8037,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * 创建运维窗口.
+     * Create an O\\\\\\&M window. If you set the TargetResource parameter in the O\\\\\\&M window to the associated ECS instance and need to schedule O\\\\\\&M to avoid potential hardware problems, the execution time is set based on the interval set by the TimePeriod parameter in the O\\\\\\&M window. When the execution time of an O\\\\\\&M event is reached, the platform automatically executes the response O\\\\\\&M operation based on the type of the O\\\\\\&M event.
      *
      * @param request - CreatePlanMaintenanceWindowRequest
      *
@@ -19846,7 +19846,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
+     * The command type.
      *
      * @remarks
      * DescribeInvocations
@@ -19972,7 +19972,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Invoke the DescribeInvocations API to query the execution list and status of Cloud Assistant commands.
+     * The command type.
      *
      * @remarks
      * DescribeInvocations
@@ -29247,7 +29247,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a capacity reservation, including the name, description, release mode, and the total number of Elastic Compute Service (ECS) instances for which capacity is reserved.
+     * Modifies the information about a capacity reservation, including the name, description, expiration method, and the total number of ECS instances that can be reserved.
      *
      * @param request - ModifyCapacityReservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29330,7 +29330,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a capacity reservation, including the name, description, release mode, and the total number of Elastic Compute Service (ECS) instances for which capacity is reserved.
+     * Modifies the information about a capacity reservation, including the name, description, expiration method, and the total number of ECS instances that can be reserved.
      *
      * @param request - ModifyCapacityReservationRequest
      *
