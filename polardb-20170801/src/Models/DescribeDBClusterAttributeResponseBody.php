@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAttributeResponseBody\branch;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAttributeResponseBody\DBNodes;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAttributeResponseBody\tags;
 
@@ -39,6 +40,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @var int
      */
     public $blktagUsed;
+
+    /**
+     * @var branch
+     */
+    public $branch;
 
     /**
      * @var string
@@ -361,6 +367,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
         'blktagTotal' => 'BlktagTotal',
         'blktagUsed' => 'BlktagUsed',
+        'branch' => 'Branch',
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'compressStorageMode' => 'CompressStorageMode',
@@ -428,6 +435,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->branch) {
+            $this->branch->validate();
+        }
         if (\is_array($this->DBNodes)) {
             Model::validateArray($this->DBNodes);
         }
@@ -462,6 +472,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->blktagUsed) {
             $res['BlktagUsed'] = $this->blktagUsed;
+        }
+
+        if (null !== $this->branch) {
+            $res['Branch'] = null !== $this->branch ? $this->branch->toArray($noStream) : $this->branch;
         }
 
         if (null !== $this->burstingEnabled) {
@@ -763,6 +777,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (isset($map['BlktagUsed'])) {
             $model->blktagUsed = $map['BlktagUsed'];
+        }
+
+        if (isset($map['Branch'])) {
+            $model->branch = branch::fromMap($map['Branch']);
         }
 
         if (isset($map['BurstingEnabled'])) {

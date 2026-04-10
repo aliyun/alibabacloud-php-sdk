@@ -583,6 +583,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchMemoriesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SwitchOverGlobalDatabaseNetworkRequest;
@@ -15896,7 +15898,6 @@ class Polardb extends OpenApiClient
     /**
      * 查询资源包列表.
      *
-     * @param request - DescribeResourcePackagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeResourcePackagesResponse
@@ -25504,6 +25505,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeAccountPrivilegeZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检索记忆.
+     *
+     * @param request - SearchMemoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMemoriesResponse
+     *
+     * @param SearchMemoriesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchMemoriesResponse
+     */
+    public function searchMemoriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->createTimeBegin) {
+            @$query['CreateTimeBegin'] = $request->createTimeBegin;
+        }
+
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->memoryAgentId) {
+            @$query['MemoryAgentId'] = $request->memoryAgentId;
+        }
+
+        if (null !== $request->memoryUserId) {
+            @$query['MemoryUserId'] = $request->memoryUserId;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchMemories',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检索记忆.
+     *
+     * @param request - SearchMemoriesRequest
+     *
+     * @returns SearchMemoriesResponse
+     *
+     * @param SearchMemoriesRequest $request
+     *
+     * @return SearchMemoriesResponse
+     */
+    public function searchMemories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMemoriesWithOptions($request, $runtime);
     }
 
     /**
