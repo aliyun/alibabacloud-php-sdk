@@ -50,6 +50,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\EndToEndRealTimeDialogRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\EndToEndRealTimeDialogResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\EvictTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\EvictTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\ExchangeEntitlementHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\ExchangeEntitlementRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\ExchangeEntitlementResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetAppConfigRequest;
@@ -89,6 +92,9 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetTaskStatusResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetUsageHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetUsageRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetUsageResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetVideoCreationTaskResultHeaders;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetVideoCreationTaskResultRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetVideoCreationTaskResultResponse;
@@ -96,6 +102,12 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryApiKeysHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryApiKeysRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryApiKeysResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryRedemptionRecordsHeaders;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryRedemptionRecordsRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\QueryRedemptionRecordsResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RealtimeDialogAssistRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RealtimeDialogAssistResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RealTimeDialogRequest;
@@ -1524,6 +1536,96 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * 兑换权益.
+     *
+     * @param Request - ExchangeEntitlementRequest
+     * @param headers - ExchangeEntitlementHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExchangeEntitlementResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $tenantId
+     * @param ExchangeEntitlementRequest $request
+     * @param ExchangeEntitlementHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExchangeEntitlementResponse
+     */
+    public function exchangeEntitlementWithOptions($workspaceId, $tenantId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['externalUserId'] = $request->externalUserId;
+        }
+
+        if (null !== $request->keyHash) {
+            @$body['keyHash'] = $request->keyHash;
+        }
+
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExchangeEntitlement',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/v1/tenants/' . Url::percentEncode($tenantId) . '/redeem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExchangeEntitlementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 兑换权益.
+     *
+     * @param Request - ExchangeEntitlementRequest
+     *
+     * @returns ExchangeEntitlementResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $tenantId
+     * @param ExchangeEntitlementRequest $request
+     *
+     * @return ExchangeEntitlementResponse
+     */
+    public function exchangeEntitlement($workspaceId, $tenantId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ExchangeEntitlementHeaders([]);
+
+        return $this->exchangeEntitlementWithOptions($workspaceId, $tenantId, $request, $headers, $runtime);
+    }
+
+    /**
      * 根据文档解析问答QA.
      *
      * @param Request - GenDocQaResultRequest
@@ -2852,6 +2954,84 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * 查询用量明细.
+     *
+     * @param Request - GetUsageRequest
+     * @param headers - GetUsageHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUsageResponse
+     *
+     * @param string          $workspaceId
+     * @param string          $tenantId
+     * @param GetUsageRequest $request
+     * @param GetUsageHeaders $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetUsageResponse
+     */
+    public function getUsageWithOptions($workspaceId, $tenantId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->externalUserId) {
+            @$query['externalUserId'] = $request->externalUserId;
+        }
+
+        if (null !== $request->redemptionOrderNo) {
+            @$query['redemptionOrderNo'] = $request->redemptionOrderNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUsage',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/v1/tenants/' . Url::percentEncode($tenantId) . '/usage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用量明细.
+     *
+     * @param Request - GetUsageRequest
+     *
+     * @returns GetUsageResponse
+     *
+     * @param string          $workspaceId
+     * @param string          $tenantId
+     * @param GetUsageRequest $request
+     *
+     * @return GetUsageResponse
+     */
+    public function getUsage($workspaceId, $tenantId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUsageHeaders([]);
+
+        return $this->getUsageWithOptions($workspaceId, $tenantId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取视频生成任务结果.
      *
      * @param Request - GetVideoCreationTaskResultRequest
@@ -3055,6 +3235,166 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->previewDocumentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询兑换记录.
+     *
+     * @param Request - QueryApiKeysRequest
+     * @param headers - QueryApiKeysHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryApiKeysResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $tenantId
+     * @param QueryApiKeysRequest $request
+     * @param QueryApiKeysHeaders $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryApiKeysResponse
+     */
+    public function queryApiKeysWithOptions($workspaceId, $tenantId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->externalUserId) {
+            @$query['externalUserId'] = $request->externalUserId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryApiKeys',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/v1/tenants/' . Url::percentEncode($tenantId) . '/apikeys',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询兑换记录.
+     *
+     * @param Request - QueryApiKeysRequest
+     *
+     * @returns QueryApiKeysResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $tenantId
+     * @param QueryApiKeysRequest $request
+     *
+     * @return QueryApiKeysResponse
+     */
+    public function queryApiKeys($workspaceId, $tenantId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryApiKeysHeaders([]);
+
+        return $this->queryApiKeysWithOptions($workspaceId, $tenantId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询兑换记录.
+     *
+     * @param Request - QueryRedemptionRecordsRequest
+     * @param headers - QueryRedemptionRecordsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRedemptionRecordsResponse
+     *
+     * @param string                        $workspaceId
+     * @param string                        $tenantId
+     * @param QueryRedemptionRecordsRequest $request
+     * @param QueryRedemptionRecordsHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryRedemptionRecordsResponse
+     */
+    public function queryRedemptionRecordsWithOptions($workspaceId, $tenantId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->externalUserId) {
+            @$query['externalUserId'] = $request->externalUserId;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->redemptionOrderNo) {
+            @$query['redemptionOrderNo'] = $request->redemptionOrderNo;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xLoadTest) {
+            @$realHeaders['X-Load-Test'] = json_encode($headers->xLoadTest, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRedemptionRecords',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/v1/tenants/' . Url::percentEncode($tenantId) . '/redemption-records',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRedemptionRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询兑换记录.
+     *
+     * @param Request - QueryRedemptionRecordsRequest
+     *
+     * @returns QueryRedemptionRecordsResponse
+     *
+     * @param string                        $workspaceId
+     * @param string                        $tenantId
+     * @param QueryRedemptionRecordsRequest $request
+     *
+     * @return QueryRedemptionRecordsResponse
+     */
+    public function queryRedemptionRecords($workspaceId, $tenantId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryRedemptionRecordsHeaders([]);
+
+        return $this->queryRedemptionRecordsWithOptions($workspaceId, $tenantId, $request, $headers, $runtime);
     }
 
     /**
