@@ -19,6 +19,11 @@ class GetMemoriesRequest extends Model
     public $appId;
 
     /**
+     * @var mixed[]
+     */
+    public $filters;
+
+    /**
      * @var int
      */
     public $page;
@@ -40,6 +45,7 @@ class GetMemoriesRequest extends Model
     protected $_name = [
         'agentId' => 'agentId',
         'appId' => 'appId',
+        'filters' => 'filters',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'runId' => 'runId',
@@ -48,6 +54,9 @@ class GetMemoriesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
         parent::validate();
     }
 
@@ -60,6 +69,15 @@ class GetMemoriesRequest extends Model
 
         if (null !== $this->appId) {
             $res['appId'] = $this->appId;
+        }
+
+        if (null !== $this->filters) {
+            if (\is_array($this->filters)) {
+                $res['filters'] = [];
+                foreach ($this->filters as $key1 => $value1) {
+                    $res['filters'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->page) {
@@ -95,6 +113,15 @@ class GetMemoriesRequest extends Model
 
         if (isset($map['appId'])) {
             $model->appId = $map['appId'];
+        }
+
+        if (isset($map['filters'])) {
+            if (!empty($map['filters'])) {
+                $model->filters = [];
+                foreach ($map['filters'] as $key1 => $value1) {
+                    $model->filters[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['page'])) {

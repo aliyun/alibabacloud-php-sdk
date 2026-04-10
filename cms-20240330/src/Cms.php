@@ -29,6 +29,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
@@ -40,6 +41,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceObservabilityRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceObservabilityResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
@@ -51,33 +53,49 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDeliveryTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDeliveryTaskResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteEntityStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoriesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteThreadRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteThreadResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
@@ -85,34 +103,45 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonSchemaRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonSchemaResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDeliveryTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDeliveryTaskResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataHeaders;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetEntityStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetIntegrationVersionForCSResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoriesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryHistoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryHistoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponse;
@@ -120,15 +149,21 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetThreadResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonReleasesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonReleasesResponse;
@@ -152,6 +187,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillVersionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeeSkillVersionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesResponse;
@@ -159,6 +195,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListDigitalEmployeesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPoliciesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyAddonsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyAddonsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCollectorsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyCollectorsResponse;
@@ -1399,19 +1436,22 @@ class Cms extends OpenApiClient
     /**
      * Create storage related to EntityStore.
      *
+     * @param request - CreateEntityStoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateEntityStoreResponse
      *
-     * @param string         $workspaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $workspaceName
+     * @param CreateEntityStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return CreateEntityStoreResponse
      */
-    public function createEntityStoreWithOptions($workspaceName, $headers, $runtime)
+    public function createEntityStoreWithOptions($workspaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1433,18 +1473,21 @@ class Cms extends OpenApiClient
     /**
      * Create storage related to EntityStore.
      *
+     * @param request - CreateEntityStoreRequest
+     *
      * @returns CreateEntityStoreResponse
      *
-     * @param string $workspaceName
+     * @param string                   $workspaceName
+     * @param CreateEntityStoreRequest $request
      *
      * @return CreateEntityStoreResponse
      */
-    public function createEntityStore($workspaceName)
+    public function createEntityStore($workspaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createEntityStoreWithOptions($workspaceName, $headers, $runtime);
+        return $this->createEntityStoreWithOptions($workspaceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1994,20 +2037,23 @@ class Cms extends OpenApiClient
     /**
      * 创建应用可观测实例.
      *
+     * @param request - CreateServiceObservabilityRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateServiceObservabilityResponse
      *
-     * @param string         $workspace
-     * @param string         $type
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                            $workspace
+     * @param string                            $type
+     * @param CreateServiceObservabilityRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
      * @return CreateServiceObservabilityResponse
      */
-    public function createServiceObservabilityWithOptions($workspace, $type, $headers, $runtime)
+    public function createServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2029,19 +2075,22 @@ class Cms extends OpenApiClient
     /**
      * 创建应用可观测实例.
      *
+     * @param request - CreateServiceObservabilityRequest
+     *
      * @returns CreateServiceObservabilityResponse
      *
-     * @param string $workspace
-     * @param string $type
+     * @param string                            $workspace
+     * @param string                            $type
+     * @param CreateServiceObservabilityRequest $request
      *
      * @return CreateServiceObservabilityResponse
      */
-    public function createServiceObservability($workspace, $type)
+    public function createServiceObservability($workspace, $type, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createServiceObservabilityWithOptions($workspace, $type, $headers, $runtime);
+        return $this->createServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime);
     }
 
     /**
@@ -2323,20 +2372,23 @@ class Cms extends OpenApiClient
     /**
      * Delete Aggregation Task Group.
      *
+     * @param request - DeleteAggTaskGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAggTaskGroupResponse
      *
-     * @param string         $instanceId
-     * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $instanceId
+     * @param string                    $groupId
+     * @param DeleteAggTaskGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteAggTaskGroupResponse
      */
-    public function deleteAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime)
+    public function deleteAggTaskGroupWithOptions($instanceId, $groupId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2358,19 +2410,22 @@ class Cms extends OpenApiClient
     /**
      * Delete Aggregation Task Group.
      *
+     * @param request - DeleteAggTaskGroupRequest
+     *
      * @returns DeleteAggTaskGroupResponse
      *
-     * @param string $instanceId
-     * @param string $groupId
+     * @param string                    $instanceId
+     * @param string                    $groupId
+     * @param DeleteAggTaskGroupRequest $request
      *
      * @return DeleteAggTaskGroupResponse
      */
-    public function deleteAggTaskGroup($instanceId, $groupId)
+    public function deleteAggTaskGroup($instanceId, $groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime);
+        return $this->deleteAggTaskGroupWithOptions($instanceId, $groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -2443,19 +2498,22 @@ class Cms extends OpenApiClient
     /**
      * 删除业务链路.
      *
+     * @param request - DeleteBizTraceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteBizTraceResponse
      *
-     * @param string         $bizTraceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $bizTraceId
+     * @param DeleteBizTraceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return DeleteBizTraceResponse
      */
-    public function deleteBizTraceWithOptions($bizTraceId, $headers, $runtime)
+    public function deleteBizTraceWithOptions($bizTraceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2477,18 +2535,21 @@ class Cms extends OpenApiClient
     /**
      * 删除业务链路.
      *
+     * @param request - DeleteBizTraceRequest
+     *
      * @returns DeleteBizTraceResponse
      *
-     * @param string $bizTraceId
+     * @param string                $bizTraceId
+     * @param DeleteBizTraceRequest $request
      *
      * @return DeleteBizTraceResponse
      */
-    public function deleteBizTrace($bizTraceId)
+    public function deleteBizTrace($bizTraceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBizTraceWithOptions($bizTraceId, $headers, $runtime);
+        return $this->deleteBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2542,20 +2603,23 @@ class Cms extends OpenApiClient
     /**
      * 删除数据集.
      *
+     * @param request - DeleteDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDatasetResponse
      *
-     * @param string         $workspace
-     * @param string         $datasetName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $workspace
+     * @param string               $datasetName
+     * @param DeleteDatasetRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteDatasetResponse
      */
-    public function deleteDatasetWithOptions($workspace, $datasetName, $headers, $runtime)
+    public function deleteDatasetWithOptions($workspace, $datasetName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2577,37 +2641,43 @@ class Cms extends OpenApiClient
     /**
      * 删除数据集.
      *
+     * @param request - DeleteDatasetRequest
+     *
      * @returns DeleteDatasetResponse
      *
-     * @param string $workspace
-     * @param string $datasetName
+     * @param string               $workspace
+     * @param string               $datasetName
+     * @param DeleteDatasetRequest $request
      *
      * @return DeleteDatasetResponse
      */
-    public function deleteDataset($workspace, $datasetName)
+    public function deleteDataset($workspace, $datasetName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDatasetWithOptions($workspace, $datasetName, $headers, $runtime);
+        return $this->deleteDatasetWithOptions($workspace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
      * 删除数据投递任务
      *
+     * @param request - DeleteDeliveryTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDeliveryTaskResponse
      *
-     * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $taskId
+     * @param DeleteDeliveryTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteDeliveryTaskResponse
      */
-    public function deleteDeliveryTaskWithOptions($taskId, $headers, $runtime)
+    public function deleteDeliveryTaskWithOptions($taskId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2629,36 +2699,42 @@ class Cms extends OpenApiClient
     /**
      * 删除数据投递任务
      *
+     * @param request - DeleteDeliveryTaskRequest
+     *
      * @returns DeleteDeliveryTaskResponse
      *
-     * @param string $taskId
+     * @param string                    $taskId
+     * @param DeleteDeliveryTaskRequest $request
      *
      * @return DeleteDeliveryTaskResponse
      */
-    public function deleteDeliveryTask($taskId)
+    public function deleteDeliveryTask($taskId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDeliveryTaskWithOptions($taskId, $headers, $runtime);
+        return $this->deleteDeliveryTaskWithOptions($taskId, $request, $headers, $runtime);
     }
 
     /**
      * 删除DigitalEmployee.
      *
+     * @param request - DeleteDigitalEmployeeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDigitalEmployeeResponse
      *
-     * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $name
+     * @param DeleteDigitalEmployeeRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return DeleteDigitalEmployeeResponse
      */
-    public function deleteDigitalEmployeeWithOptions($name, $headers, $runtime)
+    public function deleteDigitalEmployeeWithOptions($name, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2680,37 +2756,43 @@ class Cms extends OpenApiClient
     /**
      * 删除DigitalEmployee.
      *
+     * @param request - DeleteDigitalEmployeeRequest
+     *
      * @returns DeleteDigitalEmployeeResponse
      *
-     * @param string $name
+     * @param string                       $name
+     * @param DeleteDigitalEmployeeRequest $request
      *
      * @return DeleteDigitalEmployeeResponse
      */
-    public function deleteDigitalEmployee($name)
+    public function deleteDigitalEmployee($name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDigitalEmployeeWithOptions($name, $headers, $runtime);
+        return $this->deleteDigitalEmployeeWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
      * 删除技能.
      *
+     * @param request - DeleteDigitalEmployeeSkillRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteDigitalEmployeeSkillResponse
      *
-     * @param string         $name
-     * @param string         $skillName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                            $name
+     * @param string                            $skillName
+     * @param DeleteDigitalEmployeeSkillRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
      * @return DeleteDigitalEmployeeSkillResponse
      */
-    public function deleteDigitalEmployeeSkillWithOptions($name, $skillName, $headers, $runtime)
+    public function deleteDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2732,37 +2814,43 @@ class Cms extends OpenApiClient
     /**
      * 删除技能.
      *
+     * @param request - DeleteDigitalEmployeeSkillRequest
+     *
      * @returns DeleteDigitalEmployeeSkillResponse
      *
-     * @param string $name
-     * @param string $skillName
+     * @param string                            $name
+     * @param string                            $skillName
+     * @param DeleteDigitalEmployeeSkillRequest $request
      *
      * @return DeleteDigitalEmployeeSkillResponse
      */
-    public function deleteDigitalEmployeeSkill($name, $skillName)
+    public function deleteDigitalEmployeeSkill($name, $skillName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteDigitalEmployeeSkillWithOptions($name, $skillName, $headers, $runtime);
+        return $this->deleteDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime);
     }
 
     /**
      * Delete EntityStore related storage.
      *
+     * @param request - DeleteEntityStoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteEntityStoreResponse
      *
-     * @param string         $workspaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $workspaceName
+     * @param DeleteEntityStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return DeleteEntityStoreResponse
      */
-    public function deleteEntityStoreWithOptions($workspaceName, $headers, $runtime)
+    public function deleteEntityStoreWithOptions($workspaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2784,18 +2872,21 @@ class Cms extends OpenApiClient
     /**
      * Delete EntityStore related storage.
      *
+     * @param request - DeleteEntityStoreRequest
+     *
      * @returns DeleteEntityStoreResponse
      *
-     * @param string $workspaceName
+     * @param string                   $workspaceName
+     * @param DeleteEntityStoreRequest $request
      *
      * @return DeleteEntityStoreResponse
      */
-    public function deleteEntityStore($workspaceName)
+    public function deleteEntityStore($workspaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteEntityStoreWithOptions($workspaceName, $headers, $runtime);
+        return $this->deleteEntityStoreWithOptions($workspaceName, $request, $headers, $runtime);
     }
 
     /**
@@ -2941,21 +3032,24 @@ class Cms extends OpenApiClient
     /**
      * 删除记忆.
      *
+     * @param request - DeleteMemoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMemoryResponse
      *
-     * @param string         $workspace
-     * @param string         $memoryStoreName
-     * @param string         $memoryId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $workspace
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return DeleteMemoryResponse
      */
-    public function deleteMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime)
+    public function deleteMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2977,39 +3071,45 @@ class Cms extends OpenApiClient
     /**
      * 删除记忆.
      *
+     * @param request - DeleteMemoryRequest
+     *
      * @returns DeleteMemoryResponse
      *
-     * @param string $workspace
-     * @param string $memoryStoreName
-     * @param string $memoryId
+     * @param string              $workspace
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
      *
      * @return DeleteMemoryResponse
      */
-    public function deleteMemory($workspace, $memoryStoreName, $memoryId)
+    public function deleteMemory($workspace, $memoryStoreName, $memoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime);
+        return $this->deleteMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime);
     }
 
     /**
      * 删除记忆库.
      *
+     * @param request - DeleteMemoryStoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMemoryStoreResponse
      *
-     * @param string         $workspace
-     * @param string         $memoryStoreName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $workspace
+     * @param string                   $memoryStoreName
+     * @param DeleteMemoryStoreRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return DeleteMemoryStoreResponse
      */
-    public function deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime)
+    public function deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3031,19 +3131,22 @@ class Cms extends OpenApiClient
     /**
      * 删除记忆库.
      *
+     * @param request - DeleteMemoryStoreRequest
+     *
      * @returns DeleteMemoryStoreResponse
      *
-     * @param string $workspace
-     * @param string $memoryStoreName
+     * @param string                   $workspace
+     * @param string                   $memoryStoreName
+     * @param DeleteMemoryStoreRequest $request
      *
      * @return DeleteMemoryStoreResponse
      */
-    public function deleteMemoryStore($workspace, $memoryStoreName)
+    public function deleteMemoryStore($workspace, $memoryStoreName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime);
+        return $this->deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -3052,19 +3155,22 @@ class Cms extends OpenApiClient
      * @remarks
      * Delete a Prometheus instance.
      *
+     * @param request - DeletePrometheusInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeletePrometheusInstanceResponse
      *
-     * @param string         $prometheusInstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $prometheusInstanceId
+     * @param DeletePrometheusInstanceRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return DeletePrometheusInstanceResponse
      */
-    public function deletePrometheusInstanceWithOptions($prometheusInstanceId, $headers, $runtime)
+    public function deletePrometheusInstanceWithOptions($prometheusInstanceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3089,18 +3195,21 @@ class Cms extends OpenApiClient
      * @remarks
      * Delete a Prometheus instance.
      *
+     * @param request - DeletePrometheusInstanceRequest
+     *
      * @returns DeletePrometheusInstanceResponse
      *
-     * @param string $prometheusInstanceId
+     * @param string                          $prometheusInstanceId
+     * @param DeletePrometheusInstanceRequest $request
      *
      * @return DeletePrometheusInstanceResponse
      */
-    public function deletePrometheusInstance($prometheusInstanceId)
+    public function deletePrometheusInstance($prometheusInstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePrometheusInstanceWithOptions($prometheusInstanceId, $headers, $runtime);
+        return $this->deletePrometheusInstanceWithOptions($prometheusInstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3109,19 +3218,22 @@ class Cms extends OpenApiClient
      * @remarks
      * Delete prometheus view instance.
      *
+     * @param request - DeletePrometheusViewRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeletePrometheusViewResponse
      *
-     * @param string         $prometheusViewId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $prometheusViewId
+     * @param DeletePrometheusViewRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeletePrometheusViewResponse
      */
-    public function deletePrometheusViewWithOptions($prometheusViewId, $headers, $runtime)
+    public function deletePrometheusViewWithOptions($prometheusViewId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3146,36 +3258,42 @@ class Cms extends OpenApiClient
      * @remarks
      * Delete prometheus view instance.
      *
+     * @param request - DeletePrometheusViewRequest
+     *
      * @returns DeletePrometheusViewResponse
      *
-     * @param string $prometheusViewId
+     * @param string                      $prometheusViewId
+     * @param DeletePrometheusViewRequest $request
      *
      * @return DeletePrometheusViewResponse
      */
-    public function deletePrometheusView($prometheusViewId)
+    public function deletePrometheusView($prometheusViewId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePrometheusViewWithOptions($prometheusViewId, $headers, $runtime);
+        return $this->deletePrometheusViewWithOptions($prometheusViewId, $request, $headers, $runtime);
     }
 
     /**
      * 删除 Prometheus 虚拟实例.
      *
+     * @param request - DeletePrometheusVirtualInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeletePrometheusVirtualInstanceResponse
      *
-     * @param string         $prometheusInstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                                 $prometheusInstanceId
+     * @param DeletePrometheusVirtualInstanceRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
      *
      * @return DeletePrometheusVirtualInstanceResponse
      */
-    public function deletePrometheusVirtualInstanceWithOptions($prometheusInstanceId, $headers, $runtime)
+    public function deletePrometheusVirtualInstanceWithOptions($prometheusInstanceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3197,37 +3315,43 @@ class Cms extends OpenApiClient
     /**
      * 删除 Prometheus 虚拟实例.
      *
+     * @param request - DeletePrometheusVirtualInstanceRequest
+     *
      * @returns DeletePrometheusVirtualInstanceResponse
      *
-     * @param string $prometheusInstanceId
+     * @param string                                 $prometheusInstanceId
+     * @param DeletePrometheusVirtualInstanceRequest $request
      *
      * @return DeletePrometheusVirtualInstanceResponse
      */
-    public function deletePrometheusVirtualInstance($prometheusInstanceId)
+    public function deletePrometheusVirtualInstance($prometheusInstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePrometheusVirtualInstanceWithOptions($prometheusInstanceId, $headers, $runtime);
+        return $this->deletePrometheusVirtualInstanceWithOptions($prometheusInstanceId, $request, $headers, $runtime);
     }
 
     /**
      * Delete Service.
      *
+     * @param request - DeleteServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteServiceResponse
      *
-     * @param string         $workspace
-     * @param string         $serviceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $workspace
+     * @param string               $serviceId
+     * @param DeleteServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteServiceResponse
      */
-    public function deleteServiceWithOptions($workspace, $serviceId, $headers, $runtime)
+    public function deleteServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3249,38 +3373,44 @@ class Cms extends OpenApiClient
     /**
      * Delete Service.
      *
+     * @param request - DeleteServiceRequest
+     *
      * @returns DeleteServiceResponse
      *
-     * @param string $workspace
-     * @param string $serviceId
+     * @param string               $workspace
+     * @param string               $serviceId
+     * @param DeleteServiceRequest $request
      *
      * @return DeleteServiceResponse
      */
-    public function deleteService($workspace, $serviceId)
+    public function deleteService($workspace, $serviceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteServiceWithOptions($workspace, $serviceId, $headers, $runtime);
+        return $this->deleteServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**
      * 删除会话.
      *
+     * @param request - DeleteThreadRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteThreadResponse
      *
-     * @param string         $name
-     * @param string         $threadId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $name
+     * @param string              $threadId
+     * @param DeleteThreadRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return DeleteThreadResponse
      */
-    public function deleteThreadWithOptions($name, $threadId, $headers, $runtime)
+    public function deleteThreadWithOptions($name, $threadId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3302,19 +3432,22 @@ class Cms extends OpenApiClient
     /**
      * 删除会话.
      *
+     * @param request - DeleteThreadRequest
+     *
      * @returns DeleteThreadResponse
      *
-     * @param string $name
-     * @param string $threadId
+     * @param string              $name
+     * @param string              $threadId
+     * @param DeleteThreadRequest $request
      *
      * @return DeleteThreadResponse
      */
-    public function deleteThread($name, $threadId)
+    public function deleteThread($name, $threadId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteThreadWithOptions($name, $threadId, $headers, $runtime);
+        return $this->deleteThreadWithOptions($name, $threadId, $request, $headers, $runtime);
     }
 
     /**
@@ -3323,19 +3456,22 @@ class Cms extends OpenApiClient
      * @remarks
      * Delete the Umodel under the specified workspace
      *
+     * @param request - DeleteUmodelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteUmodelResponse
      *
-     * @param string         $workspace
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $workspace
+     * @param DeleteUmodelRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return DeleteUmodelResponse
      */
-    public function deleteUmodelWithOptions($workspace, $headers, $runtime)
+    public function deleteUmodelWithOptions($workspace, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3360,18 +3496,21 @@ class Cms extends OpenApiClient
      * @remarks
      * Delete the Umodel under the specified workspace
      *
+     * @param request - DeleteUmodelRequest
+     *
      * @returns DeleteUmodelResponse
      *
-     * @param string $workspace
+     * @param string              $workspace
+     * @param DeleteUmodelRequest $request
      *
      * @return DeleteUmodelResponse
      */
-    public function deleteUmodel($workspace)
+    public function deleteUmodel($workspace, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteUmodelWithOptions($workspace, $headers, $runtime);
+        return $this->deleteUmodelWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -3517,19 +3656,22 @@ class Cms extends OpenApiClient
     /**
      * Delete Workspace.
      *
+     * @param request - DeleteWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWorkspaceResponse
      *
-     * @param string         $workspaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $workspaceName
+     * @param DeleteWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return DeleteWorkspaceResponse
      */
-    public function deleteWorkspaceWithOptions($workspaceName, $headers, $runtime)
+    public function deleteWorkspaceWithOptions($workspaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3551,18 +3693,21 @@ class Cms extends OpenApiClient
     /**
      * Delete Workspace.
      *
+     * @param request - DeleteWorkspaceRequest
+     *
      * @returns DeleteWorkspaceResponse
      *
-     * @param string $workspaceName
+     * @param string                 $workspaceName
+     * @param DeleteWorkspaceRequest $request
      *
      * @return DeleteWorkspaceResponse
      */
-    public function deleteWorkspace($workspaceName)
+    public function deleteWorkspace($workspaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteWorkspaceWithOptions($workspaceName, $headers, $runtime);
+        return $this->deleteWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
     }
 
     /**
@@ -3836,20 +3981,23 @@ class Cms extends OpenApiClient
     /**
      * Check addon release (view connection status).
      *
+     * @param request - GetAddonReleaseRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAddonReleaseResponse
      *
-     * @param string         $releaseName
-     * @param string         $policyId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $releaseName
+     * @param string                 $policyId
+     * @param GetAddonReleaseRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetAddonReleaseResponse
      */
-    public function getAddonReleaseWithOptions($releaseName, $policyId, $headers, $runtime)
+    public function getAddonReleaseWithOptions($releaseName, $policyId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3871,19 +4019,22 @@ class Cms extends OpenApiClient
     /**
      * Check addon release (view connection status).
      *
+     * @param request - GetAddonReleaseRequest
+     *
      * @returns GetAddonReleaseResponse
      *
-     * @param string $releaseName
-     * @param string $policyId
+     * @param string                 $releaseName
+     * @param string                 $policyId
+     * @param GetAddonReleaseRequest $request
      *
      * @return GetAddonReleaseResponse
      */
-    public function getAddonRelease($releaseName, $policyId)
+    public function getAddonRelease($releaseName, $policyId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAddonReleaseWithOptions($releaseName, $policyId, $headers, $runtime);
+        return $this->getAddonReleaseWithOptions($releaseName, $policyId, $request, $headers, $runtime);
     }
 
     /**
@@ -3960,20 +4111,23 @@ class Cms extends OpenApiClient
     /**
      * Describes the aggregation task group.
      *
+     * @param request - GetAggTaskGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAggTaskGroupResponse
      *
-     * @param string         $instanceId
-     * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $instanceId
+     * @param string                 $groupId
+     * @param GetAggTaskGroupRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetAggTaskGroupResponse
      */
-    public function getAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime)
+    public function getAggTaskGroupWithOptions($instanceId, $groupId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3995,37 +4149,43 @@ class Cms extends OpenApiClient
     /**
      * Describes the aggregation task group.
      *
+     * @param request - GetAggTaskGroupRequest
+     *
      * @returns GetAggTaskGroupResponse
      *
-     * @param string $instanceId
-     * @param string $groupId
+     * @param string                 $instanceId
+     * @param string                 $groupId
+     * @param GetAggTaskGroupRequest $request
      *
      * @return GetAggTaskGroupResponse
      */
-    public function getAggTaskGroup($instanceId, $groupId)
+    public function getAggTaskGroup($instanceId, $groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAggTaskGroupWithOptions($instanceId, $groupId, $headers, $runtime);
+        return $this->getAggTaskGroupWithOptions($instanceId, $groupId, $request, $headers, $runtime);
     }
 
     /**
      * 查询业务链路.
      *
+     * @param request - GetBizTraceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBizTraceResponse
      *
-     * @param string         $bizTraceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $bizTraceId
+     * @param GetBizTraceRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return GetBizTraceResponse
      */
-    public function getBizTraceWithOptions($bizTraceId, $headers, $runtime)
+    public function getBizTraceWithOptions($bizTraceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4047,18 +4207,21 @@ class Cms extends OpenApiClient
     /**
      * 查询业务链路.
      *
+     * @param request - GetBizTraceRequest
+     *
      * @returns GetBizTraceResponse
      *
-     * @param string $bizTraceId
+     * @param string             $bizTraceId
+     * @param GetBizTraceRequest $request
      *
      * @return GetBizTraceResponse
      */
-    public function getBizTrace($bizTraceId)
+    public function getBizTrace($bizTraceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBizTraceWithOptions($bizTraceId, $headers, $runtime);
+        return $this->getBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4246,20 +4409,23 @@ class Cms extends OpenApiClient
     /**
      * 查询数据集.
      *
+     * @param request - GetDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDatasetResponse
      *
-     * @param string         $workspace
-     * @param string         $datasetName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $workspace
+     * @param string            $datasetName
+     * @param GetDatasetRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetDatasetResponse
      */
-    public function getDatasetWithOptions($workspace, $datasetName, $headers, $runtime)
+    public function getDatasetWithOptions($workspace, $datasetName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4281,37 +4447,43 @@ class Cms extends OpenApiClient
     /**
      * 查询数据集.
      *
+     * @param request - GetDatasetRequest
+     *
      * @returns GetDatasetResponse
      *
-     * @param string $workspace
-     * @param string $datasetName
+     * @param string            $workspace
+     * @param string            $datasetName
+     * @param GetDatasetRequest $request
      *
      * @return GetDatasetResponse
      */
-    public function getDataset($workspace, $datasetName)
+    public function getDataset($workspace, $datasetName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDatasetWithOptions($workspace, $datasetName, $headers, $runtime);
+        return $this->getDatasetWithOptions($workspace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
      * 获取数据投递任务详情.
      *
+     * @param request - GetDeliveryTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDeliveryTaskResponse
      *
-     * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $taskId
+     * @param GetDeliveryTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetDeliveryTaskResponse
      */
-    public function getDeliveryTaskWithOptions($taskId, $headers, $runtime)
+    public function getDeliveryTaskWithOptions($taskId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4333,36 +4505,42 @@ class Cms extends OpenApiClient
     /**
      * 获取数据投递任务详情.
      *
+     * @param request - GetDeliveryTaskRequest
+     *
      * @returns GetDeliveryTaskResponse
      *
-     * @param string $taskId
+     * @param string                 $taskId
+     * @param GetDeliveryTaskRequest $request
      *
      * @return GetDeliveryTaskResponse
      */
-    public function getDeliveryTask($taskId)
+    public function getDeliveryTask($taskId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDeliveryTaskWithOptions($taskId, $headers, $runtime);
+        return $this->getDeliveryTaskWithOptions($taskId, $request, $headers, $runtime);
     }
 
     /**
      * 查询 DigitalEmployee.
      *
+     * @param request - GetDigitalEmployeeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDigitalEmployeeResponse
      *
-     * @param string         $name
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $name
+     * @param GetDigitalEmployeeRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return GetDigitalEmployeeResponse
      */
-    public function getDigitalEmployeeWithOptions($name, $headers, $runtime)
+    public function getDigitalEmployeeWithOptions($name, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4384,18 +4562,21 @@ class Cms extends OpenApiClient
     /**
      * 查询 DigitalEmployee.
      *
+     * @param request - GetDigitalEmployeeRequest
+     *
      * @returns GetDigitalEmployeeResponse
      *
-     * @param string $name
+     * @param string                    $name
+     * @param GetDigitalEmployeeRequest $request
      *
      * @return GetDigitalEmployeeResponse
      */
-    public function getDigitalEmployee($name)
+    public function getDigitalEmployee($name, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDigitalEmployeeWithOptions($name, $headers, $runtime);
+        return $this->getDigitalEmployeeWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -4466,19 +4647,22 @@ class Cms extends OpenApiClient
     /**
      * Get EntityStore related storage information.
      *
+     * @param request - GetEntityStoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetEntityStoreResponse
      *
-     * @param string         $workspaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $workspaceName
+     * @param GetEntityStoreRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return GetEntityStoreResponse
      */
-    public function getEntityStoreWithOptions($workspaceName, $headers, $runtime)
+    public function getEntityStoreWithOptions($workspaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4500,18 +4684,21 @@ class Cms extends OpenApiClient
     /**
      * Get EntityStore related storage information.
      *
+     * @param request - GetEntityStoreRequest
+     *
      * @returns GetEntityStoreResponse
      *
-     * @param string $workspaceName
+     * @param string                $workspaceName
+     * @param GetEntityStoreRequest $request
      *
      * @return GetEntityStoreResponse
      */
-    public function getEntityStore($workspaceName)
+    public function getEntityStore($workspaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEntityStoreWithOptions($workspaceName, $headers, $runtime);
+        return $this->getEntityStoreWithOptions($workspaceName, $request, $headers, $runtime);
     }
 
     /**
@@ -4597,19 +4784,22 @@ class Cms extends OpenApiClient
     /**
      * Query the list of access center policies.
      *
+     * @param request - GetIntegrationPolicyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetIntegrationPolicyResponse
      *
-     * @param string         $policyId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $policyId
+     * @param GetIntegrationPolicyRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return GetIntegrationPolicyResponse
      */
-    public function getIntegrationPolicyWithOptions($policyId, $headers, $runtime)
+    public function getIntegrationPolicyWithOptions($policyId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4631,18 +4821,21 @@ class Cms extends OpenApiClient
     /**
      * Query the list of access center policies.
      *
+     * @param request - GetIntegrationPolicyRequest
+     *
      * @returns GetIntegrationPolicyResponse
      *
-     * @param string $policyId
+     * @param string                      $policyId
+     * @param GetIntegrationPolicyRequest $request
      *
      * @return GetIntegrationPolicyResponse
      */
-    public function getIntegrationPolicy($policyId)
+    public function getIntegrationPolicy($policyId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getIntegrationPolicyWithOptions($policyId, $headers, $runtime);
+        return $this->getIntegrationPolicyWithOptions($policyId, $request, $headers, $runtime);
     }
 
     /**
@@ -4739,6 +4932,10 @@ class Cms extends OpenApiClient
             @$body['appId'] = $request->appId;
         }
 
+        if (null !== $request->filters) {
+            @$body['filters'] = $request->filters;
+        }
+
         if (null !== $request->page) {
             @$body['page'] = $request->page;
         }
@@ -4798,21 +4995,24 @@ class Cms extends OpenApiClient
     /**
      * 查询记忆.
      *
+     * @param request - GetMemoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMemoryResponse
      *
-     * @param string         $workspace
-     * @param string         $memoryStoreName
-     * @param string         $memoryId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $workspace
+     * @param string           $memoryStoreName
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return GetMemoryResponse
      */
-    public function getMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime)
+    public function getMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4834,40 +5034,46 @@ class Cms extends OpenApiClient
     /**
      * 查询记忆.
      *
+     * @param request - GetMemoryRequest
+     *
      * @returns GetMemoryResponse
      *
-     * @param string $workspace
-     * @param string $memoryStoreName
-     * @param string $memoryId
+     * @param string           $workspace
+     * @param string           $memoryStoreName
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
      *
      * @return GetMemoryResponse
      */
-    public function getMemory($workspace, $memoryStoreName, $memoryId)
+    public function getMemory($workspace, $memoryStoreName, $memoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime);
+        return $this->getMemoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime);
     }
 
     /**
      * 查询记忆历史记录.
      *
+     * @param request - GetMemoryHistoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMemoryHistoryResponse
      *
-     * @param string         $workspace
-     * @param string         $memoryStoreName
-     * @param string         $memoryId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $workspace
+     * @param string                  $memoryStoreName
+     * @param string                  $memoryId
+     * @param GetMemoryHistoryRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return GetMemoryHistoryResponse
      */
-    public function getMemoryHistoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime)
+    public function getMemoryHistoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4889,39 +5095,45 @@ class Cms extends OpenApiClient
     /**
      * 查询记忆历史记录.
      *
+     * @param request - GetMemoryHistoryRequest
+     *
      * @returns GetMemoryHistoryResponse
      *
-     * @param string $workspace
-     * @param string $memoryStoreName
-     * @param string $memoryId
+     * @param string                  $workspace
+     * @param string                  $memoryStoreName
+     * @param string                  $memoryId
+     * @param GetMemoryHistoryRequest $request
      *
      * @return GetMemoryHistoryResponse
      */
-    public function getMemoryHistory($workspace, $memoryStoreName, $memoryId)
+    public function getMemoryHistory($workspace, $memoryStoreName, $memoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMemoryHistoryWithOptions($workspace, $memoryStoreName, $memoryId, $headers, $runtime);
+        return $this->getMemoryHistoryWithOptions($workspace, $memoryStoreName, $memoryId, $request, $headers, $runtime);
     }
 
     /**
      * 查询记忆库.
      *
+     * @param request - GetMemoryStoreRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMemoryStoreResponse
      *
-     * @param string         $workspace
-     * @param string         $memoryStoreName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $workspace
+     * @param string                $memoryStoreName
+     * @param GetMemoryStoreRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return GetMemoryStoreResponse
      */
-    public function getMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime)
+    public function getMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -4943,19 +5155,22 @@ class Cms extends OpenApiClient
     /**
      * 查询记忆库.
      *
+     * @param request - GetMemoryStoreRequest
+     *
      * @returns GetMemoryStoreResponse
      *
-     * @param string $workspace
-     * @param string $memoryStoreName
+     * @param string                $workspace
+     * @param string                $memoryStoreName
+     * @param GetMemoryStoreRequest $request
      *
      * @return GetMemoryStoreResponse
      */
-    public function getMemoryStore($workspace, $memoryStoreName)
+    public function getMemoryStore($workspace, $memoryStoreName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMemoryStoreWithOptions($workspace, $memoryStoreName, $headers, $runtime);
+        return $this->getMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -5168,20 +5383,23 @@ class Cms extends OpenApiClient
     /**
      * Query Service.
      *
+     * @param request - GetServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetServiceResponse
      *
-     * @param string         $workspace
-     * @param string         $serviceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $workspace
+     * @param string            $serviceId
+     * @param GetServiceRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetServiceResponse
      */
-    public function getServiceWithOptions($workspace, $serviceId, $headers, $runtime)
+    public function getServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5203,38 +5421,44 @@ class Cms extends OpenApiClient
     /**
      * Query Service.
      *
+     * @param request - GetServiceRequest
+     *
      * @returns GetServiceResponse
      *
-     * @param string $workspace
-     * @param string $serviceId
+     * @param string            $workspace
+     * @param string            $serviceId
+     * @param GetServiceRequest $request
      *
      * @return GetServiceResponse
      */
-    public function getService($workspace, $serviceId)
+    public function getService($workspace, $serviceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceWithOptions($workspace, $serviceId, $headers, $runtime);
+        return $this->getServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**
      * Get Application Observability Instance.
      *
+     * @param request - GetServiceObservabilityRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetServiceObservabilityResponse
      *
-     * @param string         $workspace
-     * @param string         $type
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $workspace
+     * @param string                         $type
+     * @param GetServiceObservabilityRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return GetServiceObservabilityResponse
      */
-    public function getServiceObservabilityWithOptions($workspace, $type, $headers, $runtime)
+    public function getServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5256,38 +5480,44 @@ class Cms extends OpenApiClient
     /**
      * Get Application Observability Instance.
      *
+     * @param request - GetServiceObservabilityRequest
+     *
      * @returns GetServiceObservabilityResponse
      *
-     * @param string $workspace
-     * @param string $type
+     * @param string                         $workspace
+     * @param string                         $type
+     * @param GetServiceObservabilityRequest $request
      *
      * @return GetServiceObservabilityResponse
      */
-    public function getServiceObservability($workspace, $type)
+    public function getServiceObservability($workspace, $type, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getServiceObservabilityWithOptions($workspace, $type, $headers, $runtime);
+        return $this->getServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime);
     }
 
     /**
      * 获取会话.
      *
+     * @param request - GetThreadRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetThreadResponse
      *
-     * @param string         $name
-     * @param string         $threadId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $name
+     * @param string           $threadId
+     * @param GetThreadRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return GetThreadResponse
      */
-    public function getThreadWithOptions($name, $threadId, $headers, $runtime)
+    public function getThreadWithOptions($name, $threadId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5309,19 +5539,22 @@ class Cms extends OpenApiClient
     /**
      * 获取会话.
      *
+     * @param request - GetThreadRequest
+     *
      * @returns GetThreadResponse
      *
-     * @param string $name
-     * @param string $threadId
+     * @param string           $name
+     * @param string           $threadId
+     * @param GetThreadRequest $request
      *
      * @return GetThreadResponse
      */
-    public function getThread($name, $threadId)
+    public function getThread($name, $threadId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getThreadWithOptions($name, $threadId, $headers, $runtime);
+        return $this->getThreadWithOptions($name, $threadId, $request, $headers, $runtime);
     }
 
     /**
@@ -5399,19 +5632,22 @@ class Cms extends OpenApiClient
      * @remarks
      * Get Umodel configuration information
      *
+     * @param request - GetUmodelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUmodelResponse
      *
-     * @param string         $workspace
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $workspace
+     * @param GetUmodelRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return GetUmodelResponse
      */
-    public function getUmodelWithOptions($workspace, $headers, $runtime)
+    public function getUmodelWithOptions($workspace, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5436,36 +5672,42 @@ class Cms extends OpenApiClient
      * @remarks
      * Get Umodel configuration information
      *
+     * @param request - GetUmodelRequest
+     *
      * @returns GetUmodelResponse
      *
-     * @param string $workspace
+     * @param string           $workspace
+     * @param GetUmodelRequest $request
      *
      * @return GetUmodelResponse
      */
-    public function getUmodel($workspace)
+    public function getUmodel($workspace, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUmodelWithOptions($workspace, $headers, $runtime);
+        return $this->getUmodelWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
      * 获取Umodel配置信息.
      *
+     * @param request - GetUmodelCommonSchemaRefRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUmodelCommonSchemaRefResponse
      *
-     * @param string         $workspace
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $workspace
+     * @param GetUmodelCommonSchemaRefRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return GetUmodelCommonSchemaRefResponse
      */
-    public function getUmodelCommonSchemaRefWithOptions($workspace, $headers, $runtime)
+    public function getUmodelCommonSchemaRefWithOptions($workspace, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5487,18 +5729,21 @@ class Cms extends OpenApiClient
     /**
      * 获取Umodel配置信息.
      *
+     * @param request - GetUmodelCommonSchemaRefRequest
+     *
      * @returns GetUmodelCommonSchemaRefResponse
      *
-     * @param string $workspace
+     * @param string                          $workspace
+     * @param GetUmodelCommonSchemaRefRequest $request
      *
      * @return GetUmodelCommonSchemaRefResponse
      */
-    public function getUmodelCommonSchemaRef($workspace)
+    public function getUmodelCommonSchemaRef($workspace, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUmodelCommonSchemaRefWithOptions($workspace, $headers, $runtime);
+        return $this->getUmodelCommonSchemaRefWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -5579,19 +5824,22 @@ class Cms extends OpenApiClient
     /**
      * Get Workspace.
      *
+     * @param request - GetWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWorkspaceResponse
      *
-     * @param string         $workspaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $workspaceName
+     * @param GetWorkspaceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return GetWorkspaceResponse
      */
-    public function getWorkspaceWithOptions($workspaceName, $headers, $runtime)
+    public function getWorkspaceWithOptions($workspaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5613,18 +5861,21 @@ class Cms extends OpenApiClient
     /**
      * Get Workspace.
      *
+     * @param request - GetWorkspaceRequest
+     *
      * @returns GetWorkspaceResponse
      *
-     * @param string $workspaceName
+     * @param string              $workspaceName
+     * @param GetWorkspaceRequest $request
      *
      * @return GetWorkspaceResponse
      */
-    public function getWorkspace($workspaceName)
+    public function getWorkspace($workspaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkspaceWithOptions($workspaceName, $headers, $runtime);
+        return $this->getWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
     }
 
     /**
@@ -6262,20 +6513,23 @@ class Cms extends OpenApiClient
     /**
      * 列出技能版本.
      *
+     * @param request - ListDigitalEmployeeSkillVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDigitalEmployeeSkillVersionsResponse
      *
-     * @param string         $name
-     * @param string         $skillName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                                  $name
+     * @param string                                  $skillName
+     * @param ListDigitalEmployeeSkillVersionsRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
      *
      * @return ListDigitalEmployeeSkillVersionsResponse
      */
-    public function listDigitalEmployeeSkillVersionsWithOptions($name, $skillName, $headers, $runtime)
+    public function listDigitalEmployeeSkillVersionsWithOptions($name, $skillName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -6297,19 +6551,22 @@ class Cms extends OpenApiClient
     /**
      * 列出技能版本.
      *
+     * @param request - ListDigitalEmployeeSkillVersionsRequest
+     *
      * @returns ListDigitalEmployeeSkillVersionsResponse
      *
-     * @param string $name
-     * @param string $skillName
+     * @param string                                  $name
+     * @param string                                  $skillName
+     * @param ListDigitalEmployeeSkillVersionsRequest $request
      *
      * @return ListDigitalEmployeeSkillVersionsResponse
      */
-    public function listDigitalEmployeeSkillVersions($name, $skillName)
+    public function listDigitalEmployeeSkillVersions($name, $skillName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDigitalEmployeeSkillVersionsWithOptions($name, $skillName, $headers, $runtime);
+        return $this->listDigitalEmployeeSkillVersionsWithOptions($name, $skillName, $request, $headers, $runtime);
     }
 
     /**
@@ -6602,19 +6859,22 @@ class Cms extends OpenApiClient
     /**
      * 策略addon列表.
      *
+     * @param request - ListIntegrationPolicyAddonsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListIntegrationPolicyAddonsResponse
      *
-     * @param string         $policyId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                             $policyId
+     * @param ListIntegrationPolicyAddonsRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
      * @return ListIntegrationPolicyAddonsResponse
      */
-    public function listIntegrationPolicyAddonsWithOptions($policyId, $headers, $runtime)
+    public function listIntegrationPolicyAddonsWithOptions($policyId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -6636,18 +6896,21 @@ class Cms extends OpenApiClient
     /**
      * 策略addon列表.
      *
+     * @param request - ListIntegrationPolicyAddonsRequest
+     *
      * @returns ListIntegrationPolicyAddonsResponse
      *
-     * @param string $policyId
+     * @param string                             $policyId
+     * @param ListIntegrationPolicyAddonsRequest $request
      *
      * @return ListIntegrationPolicyAddonsResponse
      */
-    public function listIntegrationPolicyAddons($policyId)
+    public function listIntegrationPolicyAddons($policyId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listIntegrationPolicyAddonsWithOptions($policyId, $headers, $runtime);
+        return $this->listIntegrationPolicyAddonsWithOptions($policyId, $request, $headers, $runtime);
     }
 
     /**
@@ -8119,8 +8382,8 @@ class Cms extends OpenApiClient
             @$body['appId'] = $request->appId;
         }
 
-        if (null !== $request->metadata) {
-            @$body['metadata'] = $request->metadata;
+        if (null !== $request->filters) {
+            @$body['filters'] = $request->filters;
         }
 
         if (null !== $request->query) {
@@ -8131,8 +8394,16 @@ class Cms extends OpenApiClient
             @$body['rerank'] = $request->rerank;
         }
 
+        if (null !== $request->retrieveLevel) {
+            @$body['retrieveLevel'] = $request->retrieveLevel;
+        }
+
         if (null !== $request->runId) {
             @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->threshold) {
+            @$body['threshold'] = $request->threshold;
         }
 
         if (null !== $request->topK) {

@@ -21,7 +21,7 @@ class SearchMemoriesRequest extends Model
     /**
      * @var mixed[]
      */
-    public $metadata;
+    public $filters;
 
     /**
      * @var string
@@ -36,7 +36,17 @@ class SearchMemoriesRequest extends Model
     /**
      * @var string
      */
+    public $retrieveLevel;
+
+    /**
+     * @var string
+     */
     public $runId;
+
+    /**
+     * @var float
+     */
+    public $threshold;
 
     /**
      * @var int
@@ -50,18 +60,20 @@ class SearchMemoriesRequest extends Model
     protected $_name = [
         'agentId' => 'agentId',
         'appId' => 'appId',
-        'metadata' => 'metadata',
+        'filters' => 'filters',
         'query' => 'query',
         'rerank' => 'rerank',
+        'retrieveLevel' => 'retrieveLevel',
         'runId' => 'runId',
+        'threshold' => 'threshold',
         'topK' => 'topK',
         'userId' => 'userId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
         }
         parent::validate();
     }
@@ -77,11 +89,11 @@ class SearchMemoriesRequest extends Model
             $res['appId'] = $this->appId;
         }
 
-        if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['metadata'][$key1] = $value1;
+        if (null !== $this->filters) {
+            if (\is_array($this->filters)) {
+                $res['filters'] = [];
+                foreach ($this->filters as $key1 => $value1) {
+                    $res['filters'][$key1] = $value1;
                 }
             }
         }
@@ -94,8 +106,16 @@ class SearchMemoriesRequest extends Model
             $res['rerank'] = $this->rerank;
         }
 
+        if (null !== $this->retrieveLevel) {
+            $res['retrieveLevel'] = $this->retrieveLevel;
+        }
+
         if (null !== $this->runId) {
             $res['runId'] = $this->runId;
+        }
+
+        if (null !== $this->threshold) {
+            $res['threshold'] = $this->threshold;
         }
 
         if (null !== $this->topK) {
@@ -125,11 +145,11 @@ class SearchMemoriesRequest extends Model
             $model->appId = $map['appId'];
         }
 
-        if (isset($map['metadata'])) {
-            if (!empty($map['metadata'])) {
-                $model->metadata = [];
-                foreach ($map['metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
+        if (isset($map['filters'])) {
+            if (!empty($map['filters'])) {
+                $model->filters = [];
+                foreach ($map['filters'] as $key1 => $value1) {
+                    $model->filters[$key1] = $value1;
                 }
             }
         }
@@ -142,8 +162,16 @@ class SearchMemoriesRequest extends Model
             $model->rerank = $map['rerank'];
         }
 
+        if (isset($map['retrieveLevel'])) {
+            $model->retrieveLevel = $map['retrieveLevel'];
+        }
+
         if (isset($map['runId'])) {
             $model->runId = $map['runId'];
+        }
+
+        if (isset($map['threshold'])) {
+            $model->threshold = $map['threshold'];
         }
 
         if (isset($map['topK'])) {

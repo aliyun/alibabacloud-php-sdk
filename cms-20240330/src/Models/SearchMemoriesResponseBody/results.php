@@ -39,7 +39,7 @@ class results extends Model
     public $memory;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $metadata;
 
@@ -84,6 +84,9 @@ class results extends Model
 
     public function validate()
     {
+        if (\is_array($this->metadata)) {
+            Model::validateArray($this->metadata);
+        }
         parent::validate();
     }
 
@@ -115,7 +118,12 @@ class results extends Model
         }
 
         if (null !== $this->metadata) {
-            $res['metadata'] = $this->metadata;
+            if (\is_array($this->metadata)) {
+                $res['metadata'] = [];
+                foreach ($this->metadata as $key1 => $value1) {
+                    $res['metadata'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->role) {
@@ -174,7 +182,12 @@ class results extends Model
         }
 
         if (isset($map['metadata'])) {
-            $model->metadata = $map['metadata'];
+            if (!empty($map['metadata'])) {
+                $model->metadata = [];
+                foreach ($map['metadata'] as $key1 => $value1) {
+                    $model->metadata[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['role'])) {
