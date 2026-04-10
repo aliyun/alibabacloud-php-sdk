@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
@@ -2019,6 +2021,87 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 查询沙箱模板列表.
+     *
+     * @param request - DescribeSandboxTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSandboxTemplatesResponse
+     *
+     * @param DescribeSandboxTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSandboxTemplatesResponse
+     */
+    public function describeSandboxTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSandboxTemplates',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSandboxTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询沙箱模板列表.
+     *
+     * @param request - DescribeSandboxTemplatesRequest
+     *
+     * @returns DescribeSandboxTemplatesResponse
+     *
+     * @param DescribeSandboxTemplatesRequest $request
+     *
+     * @return DescribeSandboxTemplatesResponse
+     */
+    public function describeSandboxTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSandboxTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the history conversations of a user.
      *
      * @param request - GetConversationsRequest
@@ -2614,7 +2697,6 @@ class RdsAi extends OpenApiClient
     /**
      * Queries the custom agent tools of the user.
      *
-     * @param request - ListCustomAgentToolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCustomAgentToolsResponse
