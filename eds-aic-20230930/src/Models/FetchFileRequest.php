@@ -16,6 +16,11 @@ class FetchFileRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $sourceFilePath;
 
     /**
@@ -34,6 +39,7 @@ class FetchFileRequest extends Model
     public $uploadUrl;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
+        'clientToken' => 'ClientToken',
         'sourceFilePath' => 'SourceFilePath',
         'uploadEndpoint' => 'UploadEndpoint',
         'uploadType' => 'UploadType',
@@ -60,6 +66,10 @@ class FetchFileRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->sourceFilePath) {
@@ -98,6 +108,10 @@ class FetchFileRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['SourceFilePath'])) {

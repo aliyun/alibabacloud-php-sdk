@@ -57,6 +57,11 @@ class DescribeAndroidInstancesRequest extends Model
     /**
      * @var string
      */
+    public $instanceVersion;
+
+    /**
+     * @var string
+     */
     public $keyPairId;
 
     /**
@@ -102,6 +107,16 @@ class DescribeAndroidInstancesRequest extends Model
     /**
      * @var string
      */
+    public $sortKey;
+
+    /**
+     * @var string
+     */
+    public $sortType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -118,6 +133,7 @@ class DescribeAndroidInstancesRequest extends Model
         'instanceGroupId' => 'InstanceGroupId',
         'instanceGroupIds' => 'InstanceGroupIds',
         'instanceGroupName' => 'InstanceGroupName',
+        'instanceVersion' => 'InstanceVersion',
         'keyPairId' => 'KeyPairId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -127,6 +143,8 @@ class DescribeAndroidInstancesRequest extends Model
         'privateIpAddress' => 'PrivateIpAddress',
         'qosRuleIds' => 'QosRuleIds',
         'saleMode' => 'SaleMode',
+        'sortKey' => 'SortKey',
+        'sortType' => 'SortType',
         'status' => 'Status',
         'tag' => 'Tag',
     ];
@@ -204,6 +222,10 @@ class DescribeAndroidInstancesRequest extends Model
             $res['InstanceGroupName'] = $this->instanceGroupName;
         }
 
+        if (null !== $this->instanceVersion) {
+            $res['InstanceVersion'] = $this->instanceVersion;
+        }
+
         if (null !== $this->keyPairId) {
             $res['KeyPairId'] = $this->keyPairId;
         }
@@ -252,6 +274,14 @@ class DescribeAndroidInstancesRequest extends Model
 
         if (null !== $this->saleMode) {
             $res['SaleMode'] = $this->saleMode;
+        }
+
+        if (null !== $this->sortKey) {
+            $res['SortKey'] = $this->sortKey;
+        }
+
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
 
         if (null !== $this->status) {
@@ -330,6 +360,10 @@ class DescribeAndroidInstancesRequest extends Model
             $model->instanceGroupName = $map['InstanceGroupName'];
         }
 
+        if (isset($map['InstanceVersion'])) {
+            $model->instanceVersion = $map['InstanceVersion'];
+        }
+
         if (isset($map['KeyPairId'])) {
             $model->keyPairId = $map['KeyPairId'];
         }
@@ -378,6 +412,14 @@ class DescribeAndroidInstancesRequest extends Model
 
         if (isset($map['SaleMode'])) {
             $model->saleMode = $map['SaleMode'];
+        }
+
+        if (isset($map['SortKey'])) {
+            $model->sortKey = $map['SortKey'];
+        }
+
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         if (isset($map['Status'])) {

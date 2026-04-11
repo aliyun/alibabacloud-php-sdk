@@ -76,6 +76,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $instanceGroupSpec;
 
     /**
+     * @var string
+     */
+    public $instanceVersion;
+
+    /**
      * @var int
      */
     public $ipv6Bandwidth;
@@ -163,6 +168,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'imageId' => 'ImageId',
         'instanceGroupName' => 'InstanceGroupName',
         'instanceGroupSpec' => 'InstanceGroupSpec',
+        'instanceVersion' => 'InstanceVersion',
         'ipv6Bandwidth' => 'Ipv6Bandwidth',
         'keyPairId' => 'KeyPairId',
         'networkInfo' => 'NetworkInfo',
@@ -244,6 +250,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->instanceGroupSpec) {
             $res['InstanceGroupSpec'] = $this->instanceGroupSpec;
+        }
+
+        if (null !== $this->instanceVersion) {
+            $res['InstanceVersion'] = $this->instanceVersion;
         }
 
         if (null !== $this->ipv6Bandwidth) {
@@ -374,6 +384,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['InstanceGroupSpec'])) {
             $model->instanceGroupSpec = $map['InstanceGroupSpec'];
+        }
+
+        if (isset($map['InstanceVersion'])) {
+            $model->instanceVersion = $map['InstanceVersion'];
         }
 
         if (isset($map['Ipv6Bandwidth'])) {

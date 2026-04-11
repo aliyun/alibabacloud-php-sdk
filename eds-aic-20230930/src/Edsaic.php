@@ -961,6 +961,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceGroupSpec'] = $request->instanceGroupSpec;
         }
 
+        if (null !== $request->instanceVersion) {
+            @$query['InstanceVersion'] = $request->instanceVersion;
+        }
+
         if (null !== $request->ipv6Bandwidth) {
             @$query['Ipv6Bandwidth'] = $request->ipv6Bandwidth;
         }
@@ -2290,6 +2294,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
 
+        if (null !== $request->instanceVersion) {
+            @$query['InstanceVersion'] = $request->instanceVersion;
+        }
+
         if (null !== $request->keyPairId) {
             @$query['KeyPairId'] = $request->keyPairId;
         }
@@ -2407,6 +2415,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
 
+        if (null !== $request->instanceVersion) {
+            @$query['InstanceVersion'] = $request->instanceVersion;
+        }
+
         if (null !== $request->keyPairId) {
             @$query['KeyPairId'] = $request->keyPairId;
         }
@@ -2441,6 +2453,14 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->saleMode) {
             @$query['SaleMode'] = $request->saleMode;
+        }
+
+        if (null !== $request->sortKey) {
+            @$query['SortKey'] = $request->sortKey;
+        }
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
         }
 
         if (null !== $request->status) {
@@ -4229,6 +4249,10 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (null !== $request->androidInstanceIdList) {
             @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->sourceFilePath) {
@@ -6468,6 +6492,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->autoInstall) {
             @$query['AutoInstall'] = $request->autoInstall;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->sourceFilePath) {

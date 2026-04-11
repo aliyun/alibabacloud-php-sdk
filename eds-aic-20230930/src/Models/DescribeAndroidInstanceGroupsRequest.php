@@ -32,6 +32,11 @@ class DescribeAndroidInstanceGroupsRequest extends Model
     /**
      * @var string
      */
+    public $instanceVersion;
+
+    /**
+     * @var string
+     */
     public $keyPairId;
 
     /**
@@ -68,6 +73,7 @@ class DescribeAndroidInstanceGroupsRequest extends Model
         'chargeType' => 'ChargeType',
         'instanceGroupIds' => 'InstanceGroupIds',
         'instanceGroupName' => 'InstanceGroupName',
+        'instanceVersion' => 'InstanceVersion',
         'keyPairId' => 'KeyPairId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -112,6 +118,10 @@ class DescribeAndroidInstanceGroupsRequest extends Model
 
         if (null !== $this->instanceGroupName) {
             $res['InstanceGroupName'] = $this->instanceGroupName;
+        }
+
+        if (null !== $this->instanceVersion) {
+            $res['InstanceVersion'] = $this->instanceVersion;
         }
 
         if (null !== $this->keyPairId) {
@@ -181,6 +191,10 @@ class DescribeAndroidInstanceGroupsRequest extends Model
 
         if (isset($map['InstanceGroupName'])) {
             $model->instanceGroupName = $map['InstanceGroupName'];
+        }
+
+        if (isset($map['InstanceVersion'])) {
+            $model->instanceVersion = $map['InstanceVersion'];
         }
 
         if (isset($map['KeyPairId'])) {

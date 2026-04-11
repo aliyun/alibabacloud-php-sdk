@@ -21,6 +21,11 @@ class SendFileRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $sourceFilePath;
 
     /**
@@ -45,6 +50,7 @@ class SendFileRequest extends Model
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
         'autoInstall' => 'AutoInstall',
+        'clientToken' => 'ClientToken',
         'sourceFilePath' => 'SourceFilePath',
         'targetFileName' => 'TargetFileName',
         'uploadEndpoint' => 'UploadEndpoint',
@@ -76,6 +82,10 @@ class SendFileRequest extends Model
 
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->sourceFilePath) {
@@ -122,6 +132,10 @@ class SendFileRequest extends Model
 
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['SourceFilePath'])) {
