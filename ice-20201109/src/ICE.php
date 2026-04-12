@@ -404,6 +404,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeStoryboardJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeUserCreditRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeUserCreditResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeUserRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetYikeUserResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsRequest;
@@ -14101,6 +14103,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getYikeStoryboardJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取一刻子用户信息.
+     *
+     * @param request - GetYikeUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeUserResponse
+     *
+     * @param GetYikeUserRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetYikeUserResponse
+     */
+    public function getYikeUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeUser',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻子用户信息.
+     *
+     * @param request - GetYikeUserRequest
+     *
+     * @returns GetYikeUserResponse
+     *
+     * @param GetYikeUserRequest $request
+     *
+     * @return GetYikeUserResponse
+     */
+    public function getYikeUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeUserWithOptions($request, $runtime);
     }
 
     /**
