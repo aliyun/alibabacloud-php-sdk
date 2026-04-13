@@ -98,6 +98,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $templateVersion;
+
+    /**
+     * @var string
+     */
     public $version;
 
     /**
@@ -132,6 +137,7 @@ class data extends Model
         'runningTime' => 'RunningTime',
         'sgId' => 'SgId',
         'tags' => 'Tags',
+        'templateVersion' => 'TemplateVersion',
         'version' => 'Version',
         'vpcId' => 'VpcId',
         'vswId' => 'VswId',
@@ -225,6 +231,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         if (null !== $this->version) {
@@ -327,6 +337,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         if (isset($map['Version'])) {

@@ -34,6 +34,11 @@ class milvusResourceInfoList extends Model
     public $diskType;
 
     /**
+     * @var string
+     */
+    public $payType;
+
+    /**
      * @var int
      */
     public $replica;
@@ -48,6 +53,7 @@ class milvusResourceInfoList extends Model
         'cuRatio' => 'CuRatio',
         'diskSize' => 'DiskSize',
         'diskType' => 'DiskType',
+        'payType' => 'PayType',
         'replica' => 'Replica',
         'zoneId' => 'ZoneId',
     ];
@@ -78,6 +84,10 @@ class milvusResourceInfoList extends Model
 
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
+        }
+
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
 
         if (null !== $this->replica) {
@@ -117,6 +127,10 @@ class milvusResourceInfoList extends Model
 
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
+        }
+
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
         }
 
         if (isset($map['Replica'])) {

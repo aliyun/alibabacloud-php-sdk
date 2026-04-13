@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest\backupRestoreInfo;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest\components;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest\tags;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest\vSwitchIds;
@@ -19,12 +20,27 @@ class CreateInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $aiFunction;
+
+    /**
+     * @var bool
+     */
     public $autoBackup;
 
     /**
      * @var bool
      */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
     public $autoRenew;
+
+    /**
+     * @var backupRestoreInfo
+     */
+    public $backupRestoreInfo;
 
     /**
      * @var components[]
@@ -132,8 +148,11 @@ class CreateInstanceRequest extends Model
     public $clientToken;
     protected $_name = [
         'regionId' => 'RegionId',
+        'aiFunction' => 'aiFunction',
         'autoBackup' => 'autoBackup',
+        'autoPay' => 'autoPay',
         'autoRenew' => 'autoRenew',
+        'backupRestoreInfo' => 'backupRestoreInfo',
         'components' => 'components',
         'configuration' => 'configuration',
         'dbAdminPassword' => 'dbAdminPassword',
@@ -159,6 +178,9 @@ class CreateInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->backupRestoreInfo) {
+            $this->backupRestoreInfo->validate();
+        }
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
         }
@@ -178,12 +200,24 @@ class CreateInstanceRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->aiFunction) {
+            $res['aiFunction'] = $this->aiFunction;
+        }
+
         if (null !== $this->autoBackup) {
             $res['autoBackup'] = $this->autoBackup;
         }
 
+        if (null !== $this->autoPay) {
+            $res['autoPay'] = $this->autoPay;
+        }
+
         if (null !== $this->autoRenew) {
             $res['autoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->backupRestoreInfo) {
+            $res['backupRestoreInfo'] = null !== $this->backupRestoreInfo ? $this->backupRestoreInfo->toArray($noStream) : $this->backupRestoreInfo;
         }
 
         if (null !== $this->components) {
@@ -306,12 +340,24 @@ class CreateInstanceRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['aiFunction'])) {
+            $model->aiFunction = $map['aiFunction'];
+        }
+
         if (isset($map['autoBackup'])) {
             $model->autoBackup = $map['autoBackup'];
         }
 
+        if (isset($map['autoPay'])) {
+            $model->autoPay = $map['autoPay'];
+        }
+
         if (isset($map['autoRenew'])) {
             $model->autoRenew = $map['autoRenew'];
+        }
+
+        if (isset($map['backupRestoreInfo'])) {
+            $model->backupRestoreInfo = backupRestoreInfo::fromMap($map['backupRestoreInfo']);
         }
 
         if (isset($map['components'])) {

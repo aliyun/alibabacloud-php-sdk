@@ -233,12 +233,24 @@ class Milvus extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->aiFunction) {
+            @$body['aiFunction'] = $request->aiFunction;
+        }
+
         if (null !== $request->autoBackup) {
             @$body['autoBackup'] = $request->autoBackup;
         }
 
+        if (null !== $request->autoPay) {
+            @$body['autoPay'] = $request->autoPay;
+        }
+
         if (null !== $request->autoRenew) {
             @$body['autoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->backupRestoreInfo) {
+            @$body['backupRestoreInfo'] = $request->backupRestoreInfo;
         }
 
         if (null !== $request->components) {
@@ -1191,6 +1203,10 @@ class Milvus extends OpenApiClient
         $body = [];
         if (null !== $request->autoBackup) {
             @$body['autoBackup'] = $request->autoBackup;
+        }
+
+        if (null !== $request->autoPay) {
+            @$body['autoPay'] = $request->autoPay;
         }
 
         if (null !== $request->components) {

@@ -79,6 +79,11 @@ class data extends Model
     public $kmsKeyId;
 
     /**
+     * @var string
+     */
+    public $maintainablePeriod;
+
+    /**
      * @var measureConfig
      */
     public $measureConfig;
@@ -186,6 +191,7 @@ class data extends Model
         'instanceId' => 'InstanceId',
         'instanceStatus' => 'InstanceStatus',
         'kmsKeyId' => 'KmsKeyId',
+        'maintainablePeriod' => 'MaintainablePeriod',
         'measureConfig' => 'MeasureConfig',
         'multiZoneMode' => 'MultiZoneMode',
         'nodeType' => 'NodeType',
@@ -280,6 +286,10 @@ class data extends Model
 
         if (null !== $this->kmsKeyId) {
             $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
+        if (null !== $this->maintainablePeriod) {
+            $res['MaintainablePeriod'] = $this->maintainablePeriod;
         }
 
         if (null !== $this->measureConfig) {
@@ -433,6 +443,10 @@ class data extends Model
 
         if (isset($map['KmsKeyId'])) {
             $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
+        if (isset($map['MaintainablePeriod'])) {
+            $model->maintainablePeriod = $map['MaintainablePeriod'];
         }
 
         if (isset($map['MeasureConfig'])) {

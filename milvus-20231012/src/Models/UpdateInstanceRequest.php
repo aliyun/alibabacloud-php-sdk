@@ -20,6 +20,11 @@ class UpdateInstanceRequest extends Model
     public $autoBackup;
 
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -51,6 +56,7 @@ class UpdateInstanceRequest extends Model
     protected $_name = [
         'regionId' => 'RegionId',
         'autoBackup' => 'autoBackup',
+        'autoPay' => 'autoPay',
         'components' => 'components',
         'configuration' => 'configuration',
         'ha' => 'ha',
@@ -76,6 +82,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->autoBackup) {
             $res['autoBackup'] = $this->autoBackup;
+        }
+
+        if (null !== $this->autoPay) {
+            $res['autoPay'] = $this->autoPay;
         }
 
         if (null !== $this->components) {
@@ -126,6 +136,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['autoBackup'])) {
             $model->autoBackup = $map['autoBackup'];
+        }
+
+        if (isset($map['autoPay'])) {
+            $model->autoPay = $map['autoPay'];
         }
 
         if (isset($map['components'])) {

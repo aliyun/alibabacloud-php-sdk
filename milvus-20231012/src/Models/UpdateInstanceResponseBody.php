@@ -19,12 +19,18 @@ class UpdateInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $orderId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
         'data' => 'data',
+        'orderId' => 'orderId',
         'success' => 'success',
     ];
 
@@ -42,6 +48,10 @@ class UpdateInstanceResponseBody extends Model
 
         if (null !== $this->data) {
             $res['data'] = $this->data;
+        }
+
+        if (null !== $this->orderId) {
+            $res['orderId'] = $this->orderId;
         }
 
         if (null !== $this->success) {
@@ -65,6 +75,10 @@ class UpdateInstanceResponseBody extends Model
 
         if (isset($map['data'])) {
             $model->data = $map['data'];
+        }
+
+        if (isset($map['orderId'])) {
+            $model->orderId = $map['orderId'];
         }
 
         if (isset($map['success'])) {

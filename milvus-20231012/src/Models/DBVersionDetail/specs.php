@@ -25,6 +25,11 @@ class specs extends Model
     public $isStandalone;
 
     /**
+     * @var bool
+     */
+    public $isStandalonePro;
+
+    /**
      * @var string
      */
     public $zoneMode;
@@ -32,6 +37,7 @@ class specs extends Model
         'componentSpecs' => 'componentSpecs',
         'isHA' => 'isHA',
         'isStandalone' => 'isStandalone',
+        'isStandalonePro' => 'isStandalonePro',
         'zoneMode' => 'zoneMode',
     ];
 
@@ -63,6 +69,10 @@ class specs extends Model
 
         if (null !== $this->isStandalone) {
             $res['isStandalone'] = $this->isStandalone;
+        }
+
+        if (null !== $this->isStandalonePro) {
+            $res['isStandalonePro'] = $this->isStandalonePro;
         }
 
         if (null !== $this->zoneMode) {
@@ -97,6 +107,10 @@ class specs extends Model
 
         if (isset($map['isStandalone'])) {
             $model->isStandalone = $map['isStandalone'];
+        }
+
+        if (isset($map['isStandalonePro'])) {
+            $model->isStandalonePro = $map['isStandalonePro'];
         }
 
         if (isset($map['zoneMode'])) {

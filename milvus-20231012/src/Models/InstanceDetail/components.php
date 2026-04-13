@@ -24,6 +24,11 @@ class components extends Model
     public $diskSizeType;
 
     /**
+     * @var string
+     */
+    public $payType;
+
+    /**
      * @var int
      */
     public $replica;
@@ -36,6 +41,7 @@ class components extends Model
         'cuNum' => 'cuNum',
         'cuType' => 'cuType',
         'diskSizeType' => 'diskSizeType',
+        'payType' => 'payType',
         'replica' => 'replica',
         'type' => 'type',
     ];
@@ -58,6 +64,10 @@ class components extends Model
 
         if (null !== $this->diskSizeType) {
             $res['diskSizeType'] = $this->diskSizeType;
+        }
+
+        if (null !== $this->payType) {
+            $res['payType'] = $this->payType;
         }
 
         if (null !== $this->replica) {
@@ -89,6 +99,10 @@ class components extends Model
 
         if (isset($map['diskSizeType'])) {
             $model->diskSizeType = $map['diskSizeType'];
+        }
+
+        if (isset($map['payType'])) {
+            $model->payType = $map['payType'];
         }
 
         if (isset($map['replica'])) {
