@@ -21,6 +21,11 @@ class events extends Model
     /**
      * @var string
      */
+    public $resource;
+
+    /**
+     * @var string
+     */
     public $time;
 
     /**
@@ -30,6 +35,7 @@ class events extends Model
     protected $_name = [
         'message' => 'Message',
         'reason' => 'Reason',
+        'resource' => 'Resource',
         'time' => 'Time',
         'type' => 'Type',
     ];
@@ -48,6 +54,10 @@ class events extends Model
 
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
         }
 
         if (null !== $this->time) {
@@ -75,6 +85,10 @@ class events extends Model
 
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
         }
 
         if (isset($map['Time'])) {
