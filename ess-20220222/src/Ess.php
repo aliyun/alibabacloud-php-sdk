@@ -70,6 +70,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeCandidateInstanceTypeRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeCandidateInstanceTypeResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeDiagnoseReportsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeDiagnoseReportsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailRequest;
@@ -3948,6 +3950,123 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAlertConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询备选规格
+     *
+     * @param request - DescribeCandidateInstanceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCandidateInstanceTypeResponse
+     *
+     * @param DescribeCandidateInstanceTypeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeCandidateInstanceTypeResponse
+     */
+    public function describeCandidateInstanceTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowCrossAz) {
+            @$query['AllowCrossAz'] = $request->allowCrossAz;
+        }
+
+        if (null !== $request->allowDifferentGeneration) {
+            @$query['AllowDifferentGeneration'] = $request->allowDifferentGeneration;
+        }
+
+        if (null !== $request->dataDiskCategories) {
+            @$query['DataDiskCategories'] = $request->dataDiskCategories;
+        }
+
+        if (null !== $request->imageFamily) {
+            @$query['ImageFamily'] = $request->imageFamily;
+        }
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageName) {
+            @$query['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->instanceTypes) {
+            @$query['InstanceTypes'] = $request->instanceTypes;
+        }
+
+        if (null !== $request->ipv6AddressCount) {
+            @$query['Ipv6AddressCount'] = $request->ipv6AddressCount;
+        }
+
+        if (null !== $request->maxPrice) {
+            @$query['MaxPrice'] = $request->maxPrice;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->spotStrategy) {
+            @$query['SpotStrategy'] = $request->spotStrategy;
+        }
+
+        if (null !== $request->systemDiskCategories) {
+            @$query['SystemDiskCategories'] = $request->systemDiskCategories;
+        }
+
+        if (null !== $request->zoneIds) {
+            @$query['ZoneIds'] = $request->zoneIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCandidateInstanceType',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCandidateInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询备选规格
+     *
+     * @param request - DescribeCandidateInstanceTypeRequest
+     *
+     * @returns DescribeCandidateInstanceTypeResponse
+     *
+     * @param DescribeCandidateInstanceTypeRequest $request
+     *
+     * @return DescribeCandidateInstanceTypeResponse
+     */
+    public function describeCandidateInstanceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCandidateInstanceTypeWithOptions($request, $runtime);
     }
 
     /**

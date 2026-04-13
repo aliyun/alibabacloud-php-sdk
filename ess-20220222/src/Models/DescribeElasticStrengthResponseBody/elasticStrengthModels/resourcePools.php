@@ -17,6 +17,11 @@ class resourcePools extends Model
     /**
      * @var string
      */
+    public $elasticStrength;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -50,6 +55,7 @@ class resourcePools extends Model
     public $zoneId;
     protected $_name = [
         'code' => 'Code',
+        'elasticStrength' => 'ElasticStrength',
         'instanceType' => 'InstanceType',
         'inventoryHealth' => 'InventoryHealth',
         'msg' => 'Msg',
@@ -75,6 +81,10 @@ class resourcePools extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->elasticStrength) {
+            $res['ElasticStrength'] = $this->elasticStrength;
         }
 
         if (null !== $this->instanceType) {
@@ -125,6 +135,10 @@ class resourcePools extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['ElasticStrength'])) {
+            $model->elasticStrength = $map['ElasticStrength'];
         }
 
         if (isset($map['InstanceType'])) {
