@@ -1919,7 +1919,6 @@ class Eventbridge extends OpenApiClient
      * @remarks
      * You can call this API operation to query all Alibaba Cloud service event sources.
      *
-     * @param request - ListAliyunOfficialEventSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAliyunOfficialEventSourcesResponse
