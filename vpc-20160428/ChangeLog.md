@@ -1,3 +1,9 @@
+2026-04-13 Version: 7.2.0
+- Support API AssociateMacSecKey.
+- Support API DisassociateMacSecKey.
+- Update API DescribePhysicalConnections: add response parameters Body.PhysicalConnectionSet.$.MacsecKeys.
+
+
 2026-04-09 Version: 7.1.2
 - Update API AddCommonBandwidthPackageIp: add request parameters DryRun.
 - Update API CreateIpv6EgressOnlyRule: add request parameters DryRun.

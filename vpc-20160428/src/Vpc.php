@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateEipAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateEipAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateHaVipRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateHaVipResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateMacSecKeyRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateMacSecKeyResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateNetworkAclRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociateNetworkAclResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\AssociatePhysicalConnectionToVirtualBorderRouterRequest;
@@ -480,6 +482,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DiagnoseVpnGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DiagnoseVpnGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableVpcClassicLinkRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DisableVpcClassicLinkResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DisassociateMacSecKeyRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DisassociateMacSecKeyResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateRouteTableFromGatewayRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateRouteTableFromGatewayResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DissociateRouteTablesFromVpcGatewayEndpointRequest;
@@ -2924,6 +2928,79 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->associateHaVipWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关联MACSec配置到物理专线
+     *
+     * @param request - AssociateMacSecKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateMacSecKeyResponse
+     *
+     * @param AssociateMacSecKeyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AssociateMacSecKeyResponse
+     */
+    public function associateMacSecKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cak) {
+            @$query['Cak'] = $request->cak;
+        }
+
+        if (null !== $request->cipherSuite) {
+            @$query['CipherSuite'] = $request->cipherSuite;
+        }
+
+        if (null !== $request->ckn) {
+            @$query['Ckn'] = $request->ckn;
+        }
+
+        if (null !== $request->physicalConnectionId) {
+            @$query['PhysicalConnectionId'] = $request->physicalConnectionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateMacSecKey',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateMacSecKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关联MACSec配置到物理专线
+     *
+     * @param request - AssociateMacSecKeyRequest
+     *
+     * @returns AssociateMacSecKeyResponse
+     *
+     * @param AssociateMacSecKeyRequest $request
+     *
+     * @return AssociateMacSecKeyResponse
+     */
+    public function associateMacSecKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateMacSecKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -25368,6 +25445,71 @@ class Vpc extends OpenApiClient
     }
 
     /**
+     * 取消关联MACSec配置到物理专线
+     *
+     * @param request - DisassociateMacSecKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisassociateMacSecKeyResponse
+     *
+     * @param DisassociateMacSecKeyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DisassociateMacSecKeyResponse
+     */
+    public function disassociateMacSecKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ckn) {
+            @$query['Ckn'] = $request->ckn;
+        }
+
+        if (null !== $request->physicalConnectionId) {
+            @$query['PhysicalConnectionId'] = $request->physicalConnectionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisassociateMacSecKey',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisassociateMacSecKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消关联MACSec配置到物理专线
+     *
+     * @param request - DisassociateMacSecKeyRequest
+     *
+     * @returns DisassociateMacSecKeyResponse
+     *
+     * @param DisassociateMacSecKeyRequest $request
+     *
+     * @return DisassociateMacSecKeyResponse
+     */
+    public function disassociateMacSecKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disassociateMacSecKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Disassociates a gateway route table from an IPv4 gateway.
      *
      * @param request - DissociateRouteTableFromGatewayRequest
@@ -39637,7 +39779,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改增强型VPN实例属性.
+     * Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
      *
      * @param request - UpdateEnhancedVpnGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39712,7 +39854,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 修改增强型VPN实例属性.
+     * Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
      *
      * @param request - UpdateEnhancedVpnGatewayRequest
      *

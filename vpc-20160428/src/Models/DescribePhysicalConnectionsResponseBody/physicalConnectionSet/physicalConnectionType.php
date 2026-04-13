@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponseBody\physicalConnectionSet;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponseBody\physicalConnectionSet\physicalConnectionType\macsecKeys;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponseBody\physicalConnectionSet\physicalConnectionType\tags;
 
 class physicalConnectionType extends Model
@@ -88,6 +89,11 @@ class physicalConnectionType extends Model
      * @var string
      */
     public $loaStatus;
+
+    /**
+     * @var macsecKeys
+     */
+    public $macsecKeys;
 
     /**
      * @var string
@@ -220,6 +226,7 @@ class physicalConnectionType extends Model
         'hasReservationData' => 'HasReservationData',
         'lineOperator' => 'LineOperator',
         'loaStatus' => 'LoaStatus',
+        'macsecKeys' => 'MacsecKeys',
         'name' => 'Name',
         'opticalModuleModel' => 'OpticalModuleModel',
         'orderMode' => 'OrderMode',
@@ -247,6 +254,9 @@ class physicalConnectionType extends Model
 
     public function validate()
     {
+        if (null !== $this->macsecKeys) {
+            $this->macsecKeys->validate();
+        }
         if (null !== $this->tags) {
             $this->tags->validate();
         }
@@ -318,6 +328,10 @@ class physicalConnectionType extends Model
 
         if (null !== $this->loaStatus) {
             $res['LoaStatus'] = $this->loaStatus;
+        }
+
+        if (null !== $this->macsecKeys) {
+            $res['MacsecKeys'] = null !== $this->macsecKeys ? $this->macsecKeys->toArray($noStream) : $this->macsecKeys;
         }
 
         if (null !== $this->name) {
@@ -485,6 +499,10 @@ class physicalConnectionType extends Model
 
         if (isset($map['LoaStatus'])) {
             $model->loaStatus = $map['LoaStatus'];
+        }
+
+        if (isset($map['MacsecKeys'])) {
+            $model->macsecKeys = macsecKeys::fromMap($map['MacsecKeys']);
         }
 
         if (isset($map['Name'])) {
