@@ -12,8 +12,14 @@ class backChannelConfig extends Model
      * @var bool
      */
     public $userTurnEnd;
+
+    /**
+     * @var int
+     */
+    public $version;
     protected $_name = [
         'userTurnEnd' => 'UserTurnEnd',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class backChannelConfig extends Model
         $res = [];
         if (null !== $this->userTurnEnd) {
             $res['UserTurnEnd'] = $this->userTurnEnd;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class backChannelConfig extends Model
         $model = new self();
         if (isset($map['UserTurnEnd'])) {
             $model->userTurnEnd = $map['UserTurnEnd'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;
