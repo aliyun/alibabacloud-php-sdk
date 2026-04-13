@@ -17,12 +17,16 @@ use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AddSharedAccountsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AddSharedAccountsResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateDetectConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateDetectConfigResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateParameterSetRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\AssociateParameterSetResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CancelResourceExportTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CancelResourceExportTaskResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateDetectConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateDetectConfigResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateJobRequest;
@@ -43,15 +47,32 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteDetectConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteDetectConfigResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteGroupResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteModuleResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteParameterSetRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteParameterSetResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryModuleResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryModuleVersionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryModuleVersionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryNamespaceRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteRegistryNamespaceResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteResourceExportTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteResourceExportTaskResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteStackRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteStackResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteTaskResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DetectTerraformStateRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DetectTerraformStateResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateDetectConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateDetectConfigResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DissociateParameterSetRequest;
@@ -68,23 +89,44 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteTerraformPlanRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ExecuteTerraformPlanResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GenerateModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GenerateModuleResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetDetectConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetDetectConfigResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetExecuteStateRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetExecuteStateResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetGroupRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetGroupResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleVersionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleVersionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleVersionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryModuleVersionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryNamespaceRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRegistryNamespaceResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceTypeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceTypeResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackDeploymentsRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackDeploymentsResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackExecutionResultRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackExecutionResultResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTerraformStateDetectionRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTerraformStateDetectionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListDetectConfigRelationsRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListDetectConfigRelationsResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListDetectConfigsRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListDetectConfigsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListExplorerRegistryModuleExamplesRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListExplorerRegistryModuleExamplesResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListExplorerRegistryModulesRequest;
@@ -141,6 +183,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\RemoveSharedAccountsShrinkRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\TriggerStackExecutionRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\TriggerStackExecutionResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateDetectConfigRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateDetectConfigResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateExplorerModuleAttributeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateExplorerModuleAttributeResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateGroupRequest;
@@ -226,11 +270,13 @@ class IaCService extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -368,6 +414,75 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->addSharedAccountsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 将参数集关联资源.
+     *
+     * @param Request - AssociateDetectConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateDetectConfigResponse
+     *
+     * @param AssociateDetectConfigRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AssociateDetectConfigResponse
+     */
+    public function associateDetectConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->detectConfigId) {
+            @$body['detectConfigId'] = $request->detectConfigId;
+        }
+
+        if (null !== $request->targetId) {
+            @$body['targetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetType) {
+            @$body['targetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateDetectConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig/operations/associate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateDetectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 将参数集关联资源.
+     *
+     * @param Request - AssociateDetectConfigRequest
+     *
+     * @returns AssociateDetectConfigResponse
+     *
+     * @param AssociateDetectConfigRequest $request
+     *
+     * @return AssociateDetectConfigResponse
+     */
+    public function associateDetectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->associateDetectConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -575,6 +690,91 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->cancelResourceExportTaskWithOptions($exportTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建偏差检测配置.
+     *
+     * @param Request - CreateDetectConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDetectConfigResponse
+     *
+     * @param CreateDetectConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDetectConfigResponse
+     */
+    public function createDetectConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alarmConfigs) {
+            @$body['alarmConfigs'] = $request->alarmConfigs;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cronExpression) {
+            @$body['cronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->detectConfigName) {
+            @$body['detectConfigName'] = $request->detectConfigName;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->triggerType) {
+            @$body['triggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDetectConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDetectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建偏差检测配置.
+     *
+     * @param Request - CreateDetectConfigRequest
+     *
+     * @returns CreateDetectConfigResponse
+     *
+     * @param CreateDetectConfigRequest $request
+     *
+     * @return CreateDetectConfigResponse
+     */
+    public function createDetectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDetectConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1456,21 +1656,81 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 删除偏差检测配置.
+     *
+     * @param Request - DeleteDetectConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDetectConfigResponse
+     *
+     * @param string                    $detectConfigId
+     * @param DeleteDetectConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDetectConfigResponse
+     */
+    public function deleteDetectConfigWithOptions($detectConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDetectConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig/' . Url::percentEncode($detectConfigId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDetectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除偏差检测配置.
+     *
+     * @param Request - DeleteDetectConfigRequest
+     *
+     * @returns DeleteDetectConfigResponse
+     *
+     * @param string                    $detectConfigId
+     * @param DeleteDetectConfigRequest $request
+     *
+     * @return DeleteDetectConfigResponse
+     */
+    public function deleteDetectConfig($detectConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDetectConfigWithOptions($detectConfigId, $request, $headers, $runtime);
+    }
+
+    /**
      * 删除分组.
      *
+     * @param Request - DeleteGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteGroupResponse
      *
-     * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $groupId
+     * @param DeleteGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return DeleteGroupResponse
      */
-    public function deleteGroupWithOptions($groupId, $headers, $runtime)
+    public function deleteGroupWithOptions($groupId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1492,36 +1752,42 @@ class IaCService extends OpenApiClient
     /**
      * 删除分组.
      *
+     * @param Request - DeleteGroupRequest
+     *
      * @returns DeleteGroupResponse
      *
-     * @param string $groupId
+     * @param string             $groupId
+     * @param DeleteGroupRequest $request
      *
      * @return DeleteGroupResponse
      */
-    public function deleteGroup($groupId)
+    public function deleteGroup($groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteGroupWithOptions($groupId, $headers, $runtime);
+        return $this->deleteGroupWithOptions($groupId, $request, $headers, $runtime);
     }
 
     /**
      * 删除模板
      *
+     * @param Request - DeleteModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteModuleResponse
      *
-     * @param string         $moduleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $moduleId
+     * @param DeleteModuleRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return DeleteModuleResponse
      */
-    public function deleteModuleWithOptions($moduleId, $headers, $runtime)
+    public function deleteModuleWithOptions($moduleId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1543,36 +1809,42 @@ class IaCService extends OpenApiClient
     /**
      * 删除模板
      *
+     * @param Request - DeleteModuleRequest
+     *
      * @returns DeleteModuleResponse
      *
-     * @param string $moduleId
+     * @param string              $moduleId
+     * @param DeleteModuleRequest $request
      *
      * @return DeleteModuleResponse
      */
-    public function deleteModule($moduleId)
+    public function deleteModule($moduleId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteModuleWithOptions($moduleId, $headers, $runtime);
+        return $this->deleteModuleWithOptions($moduleId, $request, $headers, $runtime);
     }
 
     /**
      * 删除参数集.
      *
+     * @param Request - DeleteParameterSetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteParameterSetResponse
      *
-     * @param string         $parameterSetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $parameterSetId
+     * @param DeleteParameterSetRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteParameterSetResponse
      */
-    public function deleteParameterSetWithOptions($parameterSetId, $headers, $runtime)
+    public function deleteParameterSetWithOptions($parameterSetId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1594,36 +1866,42 @@ class IaCService extends OpenApiClient
     /**
      * 删除参数集.
      *
+     * @param Request - DeleteParameterSetRequest
+     *
      * @returns DeleteParameterSetResponse
      *
-     * @param string $parameterSetId
+     * @param string                    $parameterSetId
+     * @param DeleteParameterSetRequest $request
      *
      * @return DeleteParameterSetResponse
      */
-    public function deleteParameterSet($parameterSetId)
+    public function deleteParameterSet($parameterSetId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteParameterSetWithOptions($parameterSetId, $headers, $runtime);
+        return $this->deleteParameterSetWithOptions($parameterSetId, $request, $headers, $runtime);
     }
 
     /**
      * 删除项目.
      *
+     * @param Request - DeleteProjectRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteProjectResponse
      *
-     * @param string         $projectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $projectId
+     * @param DeleteProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteProjectResponse
      */
-    public function deleteProjectWithOptions($projectId, $headers, $runtime)
+    public function deleteProjectWithOptions($projectId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1645,37 +1923,43 @@ class IaCService extends OpenApiClient
     /**
      * 删除项目.
      *
+     * @param Request - DeleteProjectRequest
+     *
      * @returns DeleteProjectResponse
      *
-     * @param string $projectId
+     * @param string               $projectId
+     * @param DeleteProjectRequest $request
      *
      * @return DeleteProjectResponse
      */
-    public function deleteProject($projectId)
+    public function deleteProject($projectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteProjectWithOptions($projectId, $headers, $runtime);
+        return $this->deleteProjectWithOptions($projectId, $request, $headers, $runtime);
     }
 
     /**
      * 删除RegistryModule.
      *
+     * @param Request - DeleteRegistryModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRegistryModuleResponse
      *
-     * @param string         $namespaceName
-     * @param string         $moduleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $namespaceName
+     * @param string                      $moduleName
+     * @param DeleteRegistryModuleRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeleteRegistryModuleResponse
      */
-    public function deleteRegistryModuleWithOptions($namespaceName, $moduleName, $headers, $runtime)
+    public function deleteRegistryModuleWithOptions($namespaceName, $moduleName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1697,39 +1981,45 @@ class IaCService extends OpenApiClient
     /**
      * 删除RegistryModule.
      *
+     * @param Request - DeleteRegistryModuleRequest
+     *
      * @returns DeleteRegistryModuleResponse
      *
-     * @param string $namespaceName
-     * @param string $moduleName
+     * @param string                      $namespaceName
+     * @param string                      $moduleName
+     * @param DeleteRegistryModuleRequest $request
      *
      * @return DeleteRegistryModuleResponse
      */
-    public function deleteRegistryModule($namespaceName, $moduleName)
+    public function deleteRegistryModule($namespaceName, $moduleName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRegistryModuleWithOptions($namespaceName, $moduleName, $headers, $runtime);
+        return $this->deleteRegistryModuleWithOptions($namespaceName, $moduleName, $request, $headers, $runtime);
     }
 
     /**
      * 删除RegistryModule版本.
      *
+     * @param Request - DeleteRegistryModuleVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRegistryModuleVersionResponse
      *
-     * @param string         $namespaceName
-     * @param string         $moduleName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                             $namespaceName
+     * @param string                             $moduleName
+     * @param string                             $version
+     * @param DeleteRegistryModuleVersionRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
      * @return DeleteRegistryModuleVersionResponse
      */
-    public function deleteRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $headers, $runtime)
+    public function deleteRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1751,38 +2041,44 @@ class IaCService extends OpenApiClient
     /**
      * 删除RegistryModule版本.
      *
+     * @param Request - DeleteRegistryModuleVersionRequest
+     *
      * @returns DeleteRegistryModuleVersionResponse
      *
-     * @param string $namespaceName
-     * @param string $moduleName
-     * @param string $version
+     * @param string                             $namespaceName
+     * @param string                             $moduleName
+     * @param string                             $version
+     * @param DeleteRegistryModuleVersionRequest $request
      *
      * @return DeleteRegistryModuleVersionResponse
      */
-    public function deleteRegistryModuleVersion($namespaceName, $moduleName, $version)
+    public function deleteRegistryModuleVersion($namespaceName, $moduleName, $version, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $headers, $runtime);
+        return $this->deleteRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $request, $headers, $runtime);
     }
 
     /**
      * 删除工作空间.
      *
+     * @param Request - DeleteRegistryNamespaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteRegistryNamespaceResponse
      *
-     * @param string         $namespaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $namespaceName
+     * @param DeleteRegistryNamespaceRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return DeleteRegistryNamespaceResponse
      */
-    public function deleteRegistryNamespaceWithOptions($namespaceName, $headers, $runtime)
+    public function deleteRegistryNamespaceWithOptions($namespaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1804,36 +2100,42 @@ class IaCService extends OpenApiClient
     /**
      * 删除工作空间.
      *
+     * @param Request - DeleteRegistryNamespaceRequest
+     *
      * @returns DeleteRegistryNamespaceResponse
      *
-     * @param string $namespaceName
+     * @param string                         $namespaceName
+     * @param DeleteRegistryNamespaceRequest $request
      *
      * @return DeleteRegistryNamespaceResponse
      */
-    public function deleteRegistryNamespace($namespaceName)
+    public function deleteRegistryNamespace($namespaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteRegistryNamespaceWithOptions($namespaceName, $headers, $runtime);
+        return $this->deleteRegistryNamespaceWithOptions($namespaceName, $request, $headers, $runtime);
     }
 
     /**
      * 删除资源导出任务
      *
+     * @param Request - DeleteResourceExportTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteResourceExportTaskResponse
      *
-     * @param string         $exportTaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $exportTaskId
+     * @param DeleteResourceExportTaskRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return DeleteResourceExportTaskResponse
      */
-    public function deleteResourceExportTaskWithOptions($exportTaskId, $headers, $runtime)
+    public function deleteResourceExportTaskWithOptions($exportTaskId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1855,36 +2157,105 @@ class IaCService extends OpenApiClient
     /**
      * 删除资源导出任务
      *
+     * @param Request - DeleteResourceExportTaskRequest
+     *
      * @returns DeleteResourceExportTaskResponse
      *
-     * @param string $exportTaskId
+     * @param string                          $exportTaskId
+     * @param DeleteResourceExportTaskRequest $request
      *
      * @return DeleteResourceExportTaskResponse
      */
-    public function deleteResourceExportTask($exportTaskId)
+    public function deleteResourceExportTask($exportTaskId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteResourceExportTaskWithOptions($exportTaskId, $headers, $runtime);
+        return $this->deleteResourceExportTaskWithOptions($exportTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除资源栈.
+     *
+     * @param Request - DeleteStackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStackResponse
+     *
+     * @param string             $stackId
+     * @param DeleteStackRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteStackResponse
+     */
+    public function deleteStackWithOptions($stackId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cleanResources) {
+            @$query['cleanResources'] = $request->cleanResources;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStack',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/' . Url::percentEncode($stackId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除资源栈.
+     *
+     * @param Request - DeleteStackRequest
+     *
+     * @returns DeleteStackResponse
+     *
+     * @param string             $stackId
+     * @param DeleteStackRequest $request
+     *
+     * @return DeleteStackResponse
+     */
+    public function deleteStack($stackId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteStackWithOptions($stackId, $request, $headers, $runtime);
     }
 
     /**
      * 删除任务
      *
+     * @param Request - DeleteTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteTaskResponse
      *
-     * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $taskId
+     * @param DeleteTaskRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return DeleteTaskResponse
      */
-    public function deleteTaskWithOptions($taskId, $headers, $runtime)
+    public function deleteTaskWithOptions($taskId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1906,18 +2277,159 @@ class IaCService extends OpenApiClient
     /**
      * 删除任务
      *
+     * @param Request - DeleteTaskRequest
+     *
      * @returns DeleteTaskResponse
      *
-     * @param string $taskId
+     * @param string            $taskId
+     * @param DeleteTaskRequest $request
      *
      * @return DeleteTaskResponse
      */
-    public function deleteTask($taskId)
+    public function deleteTask($taskId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTaskWithOptions($taskId, $headers, $runtime);
+        return $this->deleteTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 发起状态文件一致性检测.
+     *
+     * @param Request - DetectTerraformStateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectTerraformStateResponse
+     *
+     * @param DetectTerraformStateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DetectTerraformStateResponse
+     */
+    public function detectTerraformStateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->identifier) {
+            @$body['identifier'] = $request->identifier;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DetectTerraformState',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detect',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DetectTerraformStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发起状态文件一致性检测.
+     *
+     * @param Request - DetectTerraformStateRequest
+     *
+     * @returns DetectTerraformStateResponse
+     *
+     * @param DetectTerraformStateRequest $request
+     *
+     * @return DetectTerraformStateResponse
+     */
+    public function detectTerraformState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->detectTerraformStateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 解除参数集关联资源关系.
+     *
+     * @param Request - DissociateDetectConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DissociateDetectConfigResponse
+     *
+     * @param DissociateDetectConfigRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DissociateDetectConfigResponse
+     */
+    public function dissociateDetectConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->detectConfigId) {
+            @$body['detectConfigId'] = $request->detectConfigId;
+        }
+
+        if (null !== $request->targetId) {
+            @$body['targetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetType) {
+            @$body['targetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DissociateDetectConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig/operations/dissociate',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DissociateDetectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除参数集关联资源关系.
+     *
+     * @param Request - DissociateDetectConfigRequest
+     *
+     * @returns DissociateDetectConfigResponse
+     *
+     * @param DissociateDetectConfigRequest $request
+     *
+     * @return DissociateDetectConfigResponse
+     */
+    public function dissociateDetectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->dissociateDetectConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2483,21 +2995,81 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 偏差检测配置详情.
+     *
+     * @param Request - GetDetectConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDetectConfigResponse
+     *
+     * @param string                 $detectConfigId
+     * @param GetDetectConfigRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDetectConfigResponse
+     */
+    public function getDetectConfigWithOptions($detectConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetDetectConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig/' . Url::percentEncode($detectConfigId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDetectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 偏差检测配置详情.
+     *
+     * @param Request - GetDetectConfigRequest
+     *
+     * @returns GetDetectConfigResponse
+     *
+     * @param string                 $detectConfigId
+     * @param GetDetectConfigRequest $request
+     *
+     * @return GetDetectConfigResponse
+     */
+    public function getDetectConfig($detectConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDetectConfigWithOptions($detectConfigId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取Terraform运行结果.
      *
+     * @param Request - GetExecuteStateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetExecuteStateResponse
      *
-     * @param string         $stateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $stateId
+     * @param GetExecuteStateRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetExecuteStateResponse
      */
-    public function getExecuteStateWithOptions($stateId, $headers, $runtime)
+    public function getExecuteStateWithOptions($stateId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2519,36 +3091,42 @@ class IaCService extends OpenApiClient
     /**
      * 获取Terraform运行结果.
      *
+     * @param Request - GetExecuteStateRequest
+     *
      * @returns GetExecuteStateResponse
      *
-     * @param string $stateId
+     * @param string                 $stateId
+     * @param GetExecuteStateRequest $request
      *
      * @return GetExecuteStateResponse
      */
-    public function getExecuteState($stateId)
+    public function getExecuteState($stateId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getExecuteStateWithOptions($stateId, $headers, $runtime);
+        return $this->getExecuteStateWithOptions($stateId, $request, $headers, $runtime);
     }
 
     /**
      * 查询分组.
      *
+     * @param Request - GetGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetGroupResponse
      *
-     * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string          $groupId
+     * @param GetGroupRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
      *
      * @return GetGroupResponse
      */
-    public function getGroupWithOptions($groupId, $headers, $runtime)
+    public function getGroupWithOptions($groupId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2570,18 +3148,21 @@ class IaCService extends OpenApiClient
     /**
      * 查询分组.
      *
+     * @param Request - GetGroupRequest
+     *
      * @returns GetGroupResponse
      *
-     * @param string $groupId
+     * @param string          $groupId
+     * @param GetGroupRequest $request
      *
      * @return GetGroupResponse
      */
-    public function getGroup($groupId)
+    public function getGroup($groupId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getGroupWithOptions($groupId, $headers, $runtime);
+        return $this->getGroupWithOptions($groupId, $request, $headers, $runtime);
     }
 
     /**
@@ -2652,19 +3233,22 @@ class IaCService extends OpenApiClient
     /**
      * Get Module Details.
      *
+     * @param Request - GetModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetModuleResponse
      *
-     * @param string         $moduleId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $moduleId
+     * @param GetModuleRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return GetModuleResponse
      */
-    public function getModuleWithOptions($moduleId, $headers, $runtime)
+    public function getModuleWithOptions($moduleId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2686,37 +3270,43 @@ class IaCService extends OpenApiClient
     /**
      * Get Module Details.
      *
+     * @param Request - GetModuleRequest
+     *
      * @returns GetModuleResponse
      *
-     * @param string $moduleId
+     * @param string           $moduleId
+     * @param GetModuleRequest $request
      *
      * @return GetModuleResponse
      */
-    public function getModule($moduleId)
+    public function getModule($moduleId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getModuleWithOptions($moduleId, $headers, $runtime);
+        return $this->getModuleWithOptions($moduleId, $request, $headers, $runtime);
     }
 
     /**
      * 模板版本详情.
      *
+     * @param Request - GetModuleVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetModuleVersionResponse
      *
-     * @param string         $moduleId
-     * @param string         $moduleVersion
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $moduleId
+     * @param string                  $moduleVersion
+     * @param GetModuleVersionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return GetModuleVersionResponse
      */
-    public function getModuleVersionWithOptions($moduleId, $moduleVersion, $headers, $runtime)
+    public function getModuleVersionWithOptions($moduleId, $moduleVersion, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2738,37 +3328,43 @@ class IaCService extends OpenApiClient
     /**
      * 模板版本详情.
      *
+     * @param Request - GetModuleVersionRequest
+     *
      * @returns GetModuleVersionResponse
      *
-     * @param string $moduleId
-     * @param string $moduleVersion
+     * @param string                  $moduleId
+     * @param string                  $moduleVersion
+     * @param GetModuleVersionRequest $request
      *
      * @return GetModuleVersionResponse
      */
-    public function getModuleVersion($moduleId, $moduleVersion)
+    public function getModuleVersion($moduleId, $moduleVersion, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getModuleVersionWithOptions($moduleId, $moduleVersion, $headers, $runtime);
+        return $this->getModuleVersionWithOptions($moduleId, $moduleVersion, $request, $headers, $runtime);
     }
 
     /**
      * 参数集详情.
      *
+     * @param Request - GetParameterSetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetParameterSetResponse
      *
-     * @param string         $parameterSetId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $parameterSetId
+     * @param GetParameterSetRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetParameterSetResponse
      */
-    public function getParameterSetWithOptions($parameterSetId, $headers, $runtime)
+    public function getParameterSetWithOptions($parameterSetId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2790,36 +3386,42 @@ class IaCService extends OpenApiClient
     /**
      * 参数集详情.
      *
+     * @param Request - GetParameterSetRequest
+     *
      * @returns GetParameterSetResponse
      *
-     * @param string $parameterSetId
+     * @param string                 $parameterSetId
+     * @param GetParameterSetRequest $request
      *
      * @return GetParameterSetResponse
      */
-    public function getParameterSet($parameterSetId)
+    public function getParameterSet($parameterSetId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getParameterSetWithOptions($parameterSetId, $headers, $runtime);
+        return $this->getParameterSetWithOptions($parameterSetId, $request, $headers, $runtime);
     }
 
     /**
      * 查询项目.
      *
+     * @param Request - GetProjectRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetProjectResponse
      *
-     * @param string         $projectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $projectId
+     * @param GetProjectRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetProjectResponse
      */
-    public function getProjectWithOptions($projectId, $headers, $runtime)
+    public function getProjectWithOptions($projectId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2841,37 +3443,43 @@ class IaCService extends OpenApiClient
     /**
      * 查询项目.
      *
+     * @param Request - GetProjectRequest
+     *
      * @returns GetProjectResponse
      *
-     * @param string $projectId
+     * @param string            $projectId
+     * @param GetProjectRequest $request
      *
      * @return GetProjectResponse
      */
-    public function getProject($projectId)
+    public function getProject($projectId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getProjectWithOptions($projectId, $headers, $runtime);
+        return $this->getProjectWithOptions($projectId, $request, $headers, $runtime);
     }
 
     /**
      * 获取RegistryModule信息.
      *
+     * @param Request - GetRegistryModuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRegistryModuleResponse
      *
-     * @param string         $namespaceName
-     * @param string         $moduleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $namespaceName
+     * @param string                   $moduleName
+     * @param GetRegistryModuleRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return GetRegistryModuleResponse
      */
-    public function getRegistryModuleWithOptions($namespaceName, $moduleName, $headers, $runtime)
+    public function getRegistryModuleWithOptions($namespaceName, $moduleName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2893,39 +3501,45 @@ class IaCService extends OpenApiClient
     /**
      * 获取RegistryModule信息.
      *
+     * @param Request - GetRegistryModuleRequest
+     *
      * @returns GetRegistryModuleResponse
      *
-     * @param string $namespaceName
-     * @param string $moduleName
+     * @param string                   $namespaceName
+     * @param string                   $moduleName
+     * @param GetRegistryModuleRequest $request
      *
      * @return GetRegistryModuleResponse
      */
-    public function getRegistryModule($namespaceName, $moduleName)
+    public function getRegistryModule($namespaceName, $moduleName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRegistryModuleWithOptions($namespaceName, $moduleName, $headers, $runtime);
+        return $this->getRegistryModuleWithOptions($namespaceName, $moduleName, $request, $headers, $runtime);
     }
 
     /**
      * 获取RegistryModule版本信息.
      *
+     * @param Request - GetRegistryModuleVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRegistryModuleVersionResponse
      *
-     * @param string         $namespaceName
-     * @param string         $moduleName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $namespaceName
+     * @param string                          $moduleName
+     * @param string                          $version
+     * @param GetRegistryModuleVersionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return GetRegistryModuleVersionResponse
      */
-    public function getRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $headers, $runtime)
+    public function getRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2947,38 +3561,44 @@ class IaCService extends OpenApiClient
     /**
      * 获取RegistryModule版本信息.
      *
+     * @param Request - GetRegistryModuleVersionRequest
+     *
      * @returns GetRegistryModuleVersionResponse
      *
-     * @param string $namespaceName
-     * @param string $moduleName
-     * @param string $version
+     * @param string                          $namespaceName
+     * @param string                          $moduleName
+     * @param string                          $version
+     * @param GetRegistryModuleVersionRequest $request
      *
      * @return GetRegistryModuleVersionResponse
      */
-    public function getRegistryModuleVersion($namespaceName, $moduleName, $version)
+    public function getRegistryModuleVersion($namespaceName, $moduleName, $version, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $headers, $runtime);
+        return $this->getRegistryModuleVersionWithOptions($namespaceName, $moduleName, $version, $request, $headers, $runtime);
     }
 
     /**
      * 获取工作空间信息.
      *
+     * @param Request - GetRegistryNamespaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRegistryNamespaceResponse
      *
-     * @param string         $namespaceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $namespaceName
+     * @param GetRegistryNamespaceRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return GetRegistryNamespaceResponse
      */
-    public function getRegistryNamespaceWithOptions($namespaceName, $headers, $runtime)
+    public function getRegistryNamespaceWithOptions($namespaceName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3000,18 +3620,21 @@ class IaCService extends OpenApiClient
     /**
      * 获取工作空间信息.
      *
+     * @param Request - GetRegistryNamespaceRequest
+     *
      * @returns GetRegistryNamespaceResponse
      *
-     * @param string $namespaceName
+     * @param string                      $namespaceName
+     * @param GetRegistryNamespaceRequest $request
      *
      * @return GetRegistryNamespaceResponse
      */
-    public function getRegistryNamespace($namespaceName)
+    public function getRegistryNamespace($namespaceName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getRegistryNamespaceWithOptions($namespaceName, $headers, $runtime);
+        return $this->getRegistryNamespaceWithOptions($namespaceName, $request, $headers, $runtime);
     }
 
     /**
@@ -3149,21 +3772,107 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 部署详情接口.
+     *
+     * @param Request - GetStackDeploymentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStackDeploymentsResponse
+     *
+     * @param string                     $stackId
+     * @param GetStackDeploymentsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetStackDeploymentsResponse
+     */
+    public function getStackDeploymentsWithOptions($stackId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configVersion) {
+            @$query['configVersion'] = $request->configVersion;
+        }
+
+        if (null !== $request->deploymentName) {
+            @$query['deploymentName'] = $request->deploymentName;
+        }
+
+        if (null !== $request->deploymentNo) {
+            @$query['deploymentNo'] = $request->deploymentNo;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStackDeployments',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/' . Url::percentEncode($stackId) . '/deployments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStackDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 部署详情接口.
+     *
+     * @param Request - GetStackDeploymentsRequest
+     *
+     * @returns GetStackDeploymentsResponse
+     *
+     * @param string                     $stackId
+     * @param GetStackDeploymentsRequest $request
+     *
+     * @return GetStackDeploymentsResponse
+     */
+    public function getStackDeployments($stackId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStackDeploymentsWithOptions($stackId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取资源栈部署结果.
      *
+     * @param Request - GetStackExecutionResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetStackExecutionResultResponse
      *
-     * @param string         $triggerId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $triggerId
+     * @param GetStackExecutionResultRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return GetStackExecutionResultResponse
      */
-    public function getStackExecutionResultWithOptions($triggerId, $headers, $runtime)
+    public function getStackExecutionResultWithOptions($triggerId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3185,36 +3894,42 @@ class IaCService extends OpenApiClient
     /**
      * 获取资源栈部署结果.
      *
+     * @param Request - GetStackExecutionResultRequest
+     *
      * @returns GetStackExecutionResultResponse
      *
-     * @param string $triggerId
+     * @param string                         $triggerId
+     * @param GetStackExecutionResultRequest $request
      *
      * @return GetStackExecutionResultResponse
      */
-    public function getStackExecutionResult($triggerId)
+    public function getStackExecutionResult($triggerId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getStackExecutionResultWithOptions($triggerId, $headers, $runtime);
+        return $this->getStackExecutionResultWithOptions($triggerId, $request, $headers, $runtime);
     }
 
     /**
      * 查询任务详情.
      *
+     * @param Request - GetTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTaskResponse
      *
      * @param string         $taskId
+     * @param GetTaskRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return GetTaskResponse
      */
-    public function getTaskWithOptions($taskId, $headers, $runtime)
+    public function getTaskWithOptions($taskId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3236,18 +3951,216 @@ class IaCService extends OpenApiClient
     /**
      * 查询任务详情.
      *
+     * @param Request - GetTaskRequest
+     *
      * @returns GetTaskResponse
      *
-     * @param string $taskId
+     * @param string         $taskId
+     * @param GetTaskRequest $request
      *
      * @return GetTaskResponse
      */
-    public function getTask($taskId)
+    public function getTask($taskId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTaskWithOptions($taskId, $headers, $runtime);
+        return $this->getTaskWithOptions($taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取状态文件检测结果.
+     *
+     * @param Request - GetTerraformStateDetectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTerraformStateDetectionResponse
+     *
+     * @param string                            $detectionId
+     * @param GetTerraformStateDetectionRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetTerraformStateDetectionResponse
+     */
+    public function getTerraformStateDetectionWithOptions($detectionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTerraformStateDetection',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detect/' . Url::percentEncode($detectionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTerraformStateDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取状态文件检测结果.
+     *
+     * @param Request - GetTerraformStateDetectionRequest
+     *
+     * @returns GetTerraformStateDetectionResponse
+     *
+     * @param string                            $detectionId
+     * @param GetTerraformStateDetectionRequest $request
+     *
+     * @return GetTerraformStateDetectionResponse
+     */
+    public function getTerraformStateDetection($detectionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTerraformStateDetectionWithOptions($detectionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 关联到资源的偏差检测配置列表.
+     *
+     * @param Request - ListDetectConfigRelationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDetectConfigRelationsResponse
+     *
+     * @param ListDetectConfigRelationsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDetectConfigRelationsResponse
+     */
+    public function listDetectConfigRelationsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->detectConfigId) {
+            @$query['detectConfigId'] = $request->detectConfigId;
+        }
+
+        if (null !== $request->targetId) {
+            @$query['targetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['targetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDetectConfigRelations',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig/operations/relation',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDetectConfigRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关联到资源的偏差检测配置列表.
+     *
+     * @param Request - ListDetectConfigRelationsRequest
+     *
+     * @returns ListDetectConfigRelationsResponse
+     *
+     * @param ListDetectConfigRelationsRequest $request
+     *
+     * @return ListDetectConfigRelationsResponse
+     */
+    public function listDetectConfigRelations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDetectConfigRelationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 偏差检测配置列表.
+     *
+     * @param Request - ListDetectConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDetectConfigsResponse
+     *
+     * @param ListDetectConfigsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDetectConfigsResponse
+     */
+    public function listDetectConfigsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->detectConfigName) {
+            @$query['detectConfigName'] = $request->detectConfigName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDetectConfigs',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDetectConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 偏差检测配置列表.
+     *
+     * @param Request - ListDetectConfigsRequest
+     *
+     * @returns ListDetectConfigsResponse
+     *
+     * @param ListDetectConfigsRequest $request
+     *
+     * @return ListDetectConfigsResponse
+     */
+    public function listDetectConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDetectConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5228,6 +6141,93 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 更新偏差检测配置.
+     *
+     * @param Request - UpdateDetectConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDetectConfigResponse
+     *
+     * @param string                    $detectConfigId
+     * @param UpdateDetectConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateDetectConfigResponse
+     */
+    public function updateDetectConfigWithOptions($detectConfigId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alarmConfigs) {
+            @$body['alarmConfigs'] = $request->alarmConfigs;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cronExpression) {
+            @$body['cronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->detectConfigName) {
+            @$body['detectConfigName'] = $request->detectConfigName;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->triggerType) {
+            @$body['triggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDetectConfig',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/terraformState/detectConfig/' . Url::percentEncode($detectConfigId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDetectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新偏差检测配置.
+     *
+     * @param Request - UpdateDetectConfigRequest
+     *
+     * @returns UpdateDetectConfigResponse
+     *
+     * @param string                    $detectConfigId
+     * @param UpdateDetectConfigRequest $request
+     *
+     * @return UpdateDetectConfigResponse
+     */
+    public function updateDetectConfig($detectConfigId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDetectConfigWithOptions($detectConfigId, $request, $headers, $runtime);
+    }
+
+    /**
      * 修改ExplorerModule.
      *
      * @param Request - UpdateExplorerModuleAttributeRequest
@@ -6164,7 +7164,7 @@ class IaCService extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
