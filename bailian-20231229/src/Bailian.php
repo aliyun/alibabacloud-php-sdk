@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddTableRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddTableResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddTableShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyTempStorageLeaseRequest;
@@ -33,20 +36,27 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreatePromptTemplateRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\CreatePromptTemplateResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteAgentResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteChunkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteChunkResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteChunkShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryNodeRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryNodeResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeletePromptTemplateRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeletePromptTemplateResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayTransferStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayTransferStatusResponse;
@@ -58,11 +68,15 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexMonitorRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexMonitorResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetParseSettingsRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetParseSettingsResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPromptTemplateRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPromptTemplateResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetPublishedAgentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\HighCodeDeployRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\HighCodeDeployResponse;
@@ -113,6 +127,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdatePromptTemplateRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdatePromptTemplateResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateTableFromAuthorizedOssRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateTableFromAuthorizedOssResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -435,6 +451,83 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->addFilesFromAuthorizedOssWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 添加表格
+     *
+     * @param tmpReq - AddTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTableResponse
+     *
+     * @param string          $WorkspaceId
+     * @param AddTableRequest $tmpReq
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return AddTableResponse
+     */
+    public function addTableWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableColumns) {
+            $request->tableColumnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableColumns, 'TableColumns', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->tableColumnsShrink) {
+            @$body['TableColumns'] = $request->tableColumnsShrink;
+        }
+
+        if (null !== $request->tableName) {
+            @$body['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddTable',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/table',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加表格
+     *
+     * @param request - AddTableRequest
+     *
+     * @returns AddTableResponse
+     *
+     * @param string          $WorkspaceId
+     * @param AddTableRequest $request
+     *
+     * @return AddTableResponse
+     */
+    public function addTable($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addTableWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1208,20 +1301,23 @@ class Bailian extends OpenApiClient
     /**
      * 删除智能体.
      *
+     * @param request - DeleteAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAgentResponse
      *
-     * @param string         $workspaceId
-     * @param string         $appCode
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $workspaceId
+     * @param string             $appCode
+     * @param DeleteAgentRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return DeleteAgentResponse
      */
-    public function deleteAgentWithOptions($workspaceId, $appCode, $headers, $runtime)
+    public function deleteAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1243,38 +1339,44 @@ class Bailian extends OpenApiClient
     /**
      * 删除智能体.
      *
+     * @param request - DeleteAgentRequest
+     *
      * @returns DeleteAgentResponse
      *
-     * @param string $workspaceId
-     * @param string $appCode
+     * @param string             $workspaceId
+     * @param string             $appCode
+     * @param DeleteAgentRequest $request
      *
      * @return DeleteAgentResponse
      */
-    public function deleteAgent($workspaceId, $appCode)
+    public function deleteAgent($workspaceId, $appCode, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAgentWithOptions($workspaceId, $appCode, $headers, $runtime);
+        return $this->deleteAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a specified category permanently.
      *
+     * @param request - DeleteCategoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCategoryResponse
      *
-     * @param string         $CategoryId
-     * @param string         $WorkspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $CategoryId
+     * @param string                $WorkspaceId
+     * @param DeleteCategoryRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return DeleteCategoryResponse
      */
-    public function deleteCategoryWithOptions($CategoryId, $WorkspaceId, $headers, $runtime)
+    public function deleteCategoryWithOptions($CategoryId, $WorkspaceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1296,19 +1398,22 @@ class Bailian extends OpenApiClient
     /**
      * Deletes a specified category permanently.
      *
+     * @param request - DeleteCategoryRequest
+     *
      * @returns DeleteCategoryResponse
      *
-     * @param string $CategoryId
-     * @param string $WorkspaceId
+     * @param string                $CategoryId
+     * @param string                $WorkspaceId
+     * @param DeleteCategoryRequest $request
      *
      * @return DeleteCategoryResponse
      */
-    public function deleteCategory($CategoryId, $WorkspaceId)
+    public function deleteCategory($CategoryId, $WorkspaceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCategoryWithOptions($CategoryId, $WorkspaceId, $headers, $runtime);
+        return $this->deleteCategoryWithOptions($CategoryId, $WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1409,20 +1514,23 @@ class Bailian extends OpenApiClient
     /**
      * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
      *
+     * @param request - DeleteFileRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFileResponse
      *
-     * @param string         $FileId
-     * @param string         $WorkspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $FileId
+     * @param string            $WorkspaceId
+     * @param DeleteFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return DeleteFileResponse
      */
-    public function deleteFileWithOptions($FileId, $WorkspaceId, $headers, $runtime)
+    public function deleteFileWithOptions($FileId, $WorkspaceId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1444,19 +1552,22 @@ class Bailian extends OpenApiClient
     /**
      * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
      *
+     * @param request - DeleteFileRequest
+     *
      * @returns DeleteFileResponse
      *
-     * @param string $FileId
-     * @param string $WorkspaceId
+     * @param string            $FileId
+     * @param string            $WorkspaceId
+     * @param DeleteFileRequest $request
      *
      * @return DeleteFileResponse
      */
-    public function deleteFile($FileId, $WorkspaceId)
+    public function deleteFile($FileId, $WorkspaceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFileWithOptions($FileId, $WorkspaceId, $headers, $runtime);
+        return $this->deleteFileWithOptions($FileId, $WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1626,20 +1737,23 @@ class Bailian extends OpenApiClient
     /**
      * 删除memory.
      *
+     * @param request - DeleteMemoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMemoryResponse
      *
-     * @param string         $workspaceId
-     * @param string         $memoryId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $workspaceId
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return DeleteMemoryResponse
      */
-    public function deleteMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime)
+    public function deleteMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1661,39 +1775,45 @@ class Bailian extends OpenApiClient
     /**
      * 删除memory.
      *
+     * @param request - DeleteMemoryRequest
+     *
      * @returns DeleteMemoryResponse
      *
-     * @param string $workspaceId
-     * @param string $memoryId
+     * @param string              $workspaceId
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
      *
      * @return DeleteMemoryResponse
      */
-    public function deleteMemory($workspaceId, $memoryId)
+    public function deleteMemory($workspaceId, $memoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime);
+        return $this->deleteMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime);
     }
 
     /**
      * 删除记忆Node.
      *
+     * @param request - DeleteMemoryNodeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMemoryNodeResponse
      *
-     * @param string         $workspaceId
-     * @param string         $memoryId
-     * @param string         $memoryNodeId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $workspaceId
+     * @param string                  $memoryId
+     * @param string                  $memoryNodeId
+     * @param DeleteMemoryNodeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteMemoryNodeResponse
      */
-    public function deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime)
+    public function deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1715,39 +1835,45 @@ class Bailian extends OpenApiClient
     /**
      * 删除记忆Node.
      *
+     * @param request - DeleteMemoryNodeRequest
+     *
      * @returns DeleteMemoryNodeResponse
      *
-     * @param string $workspaceId
-     * @param string $memoryId
-     * @param string $memoryNodeId
+     * @param string                  $workspaceId
+     * @param string                  $memoryId
+     * @param string                  $memoryNodeId
+     * @param DeleteMemoryNodeRequest $request
      *
      * @return DeleteMemoryNodeResponse
      */
-    public function deleteMemoryNode($workspaceId, $memoryId, $memoryNodeId)
+    public function deleteMemoryNode($workspaceId, $memoryId, $memoryNodeId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime);
+        return $this->deleteMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a prompt template based on the template ID.
      *
+     * @param request - DeletePromptTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeletePromptTemplateResponse
      *
-     * @param string         $workspaceId
-     * @param string         $promptTemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $workspaceId
+     * @param string                      $promptTemplateId
+     * @param DeletePromptTemplateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeletePromptTemplateResponse
      */
-    public function deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime)
+    public function deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1769,19 +1895,22 @@ class Bailian extends OpenApiClient
     /**
      * Deletes a prompt template based on the template ID.
      *
+     * @param request - DeletePromptTemplateRequest
+     *
      * @returns DeletePromptTemplateResponse
      *
-     * @param string $workspaceId
-     * @param string $promptTemplateId
+     * @param string                      $workspaceId
+     * @param string                      $promptTemplateId
+     * @param DeletePromptTemplateRequest $request
      *
      * @return DeletePromptTemplateResponse
      */
-    public function deletePromptTemplate($workspaceId, $promptTemplateId)
+    public function deletePromptTemplate($workspaceId, $promptTemplateId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime);
+        return $this->deletePromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime);
     }
 
     /**
@@ -1793,20 +1922,23 @@ class Bailian extends OpenApiClient
      * *   This operation is idempotent.
      * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
      *
+     * @param request - DescribeFileRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeFileResponse
      *
-     * @param string         $WorkspaceId
-     * @param string         $FileId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $WorkspaceId
+     * @param string              $FileId
+     * @param DescribeFileRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
      * @return DescribeFileResponse
      */
-    public function describeFileWithOptions($WorkspaceId, $FileId, $headers, $runtime)
+    public function describeFileWithOptions($WorkspaceId, $FileId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1834,19 +1966,22 @@ class Bailian extends OpenApiClient
      * *   This operation is idempotent.
      * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
      *
+     * @param request - DescribeFileRequest
+     *
      * @returns DescribeFileResponse
      *
-     * @param string $WorkspaceId
-     * @param string $FileId
+     * @param string              $WorkspaceId
+     * @param string              $FileId
+     * @param DescribeFileRequest $request
      *
      * @return DescribeFileResponse
      */
-    public function describeFile($WorkspaceId, $FileId)
+    public function describeFile($WorkspaceId, $FileId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeFileWithOptions($WorkspaceId, $FileId, $headers, $runtime);
+        return $this->describeFileWithOptions($WorkspaceId, $FileId, $request, $headers, $runtime);
     }
 
     /**
@@ -2201,20 +2336,23 @@ class Bailian extends OpenApiClient
     /**
      * 获取memory.
      *
+     * @param request - GetMemoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMemoryResponse
      *
-     * @param string         $workspaceId
-     * @param string         $memoryId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string           $workspaceId
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return GetMemoryResponse
      */
-    public function getMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime)
+    public function getMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2236,39 +2374,45 @@ class Bailian extends OpenApiClient
     /**
      * 获取memory.
      *
+     * @param request - GetMemoryRequest
+     *
      * @returns GetMemoryResponse
      *
-     * @param string $workspaceId
-     * @param string $memoryId
+     * @param string           $workspaceId
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
      *
      * @return GetMemoryResponse
      */
-    public function getMemory($workspaceId, $memoryId)
+    public function getMemory($workspaceId, $memoryId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMemoryWithOptions($workspaceId, $memoryId, $headers, $runtime);
+        return $this->getMemoryWithOptions($workspaceId, $memoryId, $request, $headers, $runtime);
     }
 
     /**
      * 获取记忆Node.
      *
+     * @param request - GetMemoryNodeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMemoryNodeResponse
      *
-     * @param string         $workspaceId
-     * @param string         $memoryId
-     * @param string         $memoryNodeId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $workspaceId
+     * @param string               $memoryId
+     * @param string               $memoryNodeId
+     * @param GetMemoryNodeRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return GetMemoryNodeResponse
      */
-    public function getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime)
+    public function getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2290,20 +2434,23 @@ class Bailian extends OpenApiClient
     /**
      * 获取记忆Node.
      *
+     * @param request - GetMemoryNodeRequest
+     *
      * @returns GetMemoryNodeResponse
      *
-     * @param string $workspaceId
-     * @param string $memoryId
-     * @param string $memoryNodeId
+     * @param string               $workspaceId
+     * @param string               $memoryId
+     * @param string               $memoryNodeId
+     * @param GetMemoryNodeRequest $request
      *
      * @return GetMemoryNodeResponse
      */
-    public function getMemoryNode($workspaceId, $memoryId, $memoryNodeId)
+    public function getMemoryNode($workspaceId, $memoryId, $memoryNodeId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $headers, $runtime);
+        return $this->getMemoryNodeWithOptions($workspaceId, $memoryId, $memoryNodeId, $request, $headers, $runtime);
     }
 
     /**
@@ -2372,20 +2519,23 @@ class Bailian extends OpenApiClient
     /**
      * Obtains a prompt template based on the template ID.
      *
+     * @param request - GetPromptTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPromptTemplateResponse
      *
-     * @param string         $workspaceId
-     * @param string         $promptTemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $workspaceId
+     * @param string                   $promptTemplateId
+     * @param GetPromptTemplateRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return GetPromptTemplateResponse
      */
-    public function getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime)
+    public function getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2407,38 +2557,44 @@ class Bailian extends OpenApiClient
     /**
      * Obtains a prompt template based on the template ID.
      *
+     * @param request - GetPromptTemplateRequest
+     *
      * @returns GetPromptTemplateResponse
      *
-     * @param string $workspaceId
-     * @param string $promptTemplateId
+     * @param string                   $workspaceId
+     * @param string                   $promptTemplateId
+     * @param GetPromptTemplateRequest $request
      *
      * @return GetPromptTemplateResponse
      */
-    public function getPromptTemplate($workspaceId, $promptTemplateId)
+    public function getPromptTemplate($workspaceId, $promptTemplateId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $headers, $runtime);
+        return $this->getPromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime);
     }
 
     /**
      * 获取发布态智能体应用.
      *
+     * @param request - GetPublishedAgentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPublishedAgentResponse
      *
-     * @param string         $workspaceId
-     * @param string         $appCode
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                   $workspaceId
+     * @param string                   $appCode
+     * @param GetPublishedAgentRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
      * @return GetPublishedAgentResponse
      */
-    public function getPublishedAgentWithOptions($workspaceId, $appCode, $headers, $runtime)
+    public function getPublishedAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2460,19 +2616,22 @@ class Bailian extends OpenApiClient
     /**
      * 获取发布态智能体应用.
      *
+     * @param request - GetPublishedAgentRequest
+     *
      * @returns GetPublishedAgentResponse
      *
-     * @param string $workspaceId
-     * @param string $appCode
+     * @param string                   $workspaceId
+     * @param string                   $appCode
+     * @param GetPublishedAgentRequest $request
      *
      * @return GetPublishedAgentResponse
      */
-    public function getPublishedAgent($workspaceId, $appCode)
+    public function getPublishedAgent($workspaceId, $appCode, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getPublishedAgentWithOptions($workspaceId, $appCode, $headers, $runtime);
+        return $this->getPublishedAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
     }
 
     /**
@@ -4329,5 +4488,82 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updatePromptTemplateWithOptions($workspaceId, $promptTemplateId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 从oss上传table.
+     *
+     * @param request - UpdateTableFromAuthorizedOssRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTableFromAuthorizedOssResponse
+     *
+     * @param string                              $WorkspaceId
+     * @param string                              $TableId
+     * @param UpdateTableFromAuthorizedOssRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateTableFromAuthorizedOssResponse
+     */
+    public function updateTableFromAuthorizedOssWithOptions($WorkspaceId, $TableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->ossBucket) {
+            @$body['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossKey) {
+            @$body['OssKey'] = $request->ossKey;
+        }
+
+        if (null !== $request->ossRegionId) {
+            @$body['OssRegionId'] = $request->ossRegionId;
+        }
+
+        if (null !== $request->updateMode) {
+            @$body['UpdateMode'] = $request->updateMode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTableFromAuthorizedOss',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/table/fromoss/' . Url::percentEncode($TableId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTableFromAuthorizedOssResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从oss上传table.
+     *
+     * @param request - UpdateTableFromAuthorizedOssRequest
+     *
+     * @returns UpdateTableFromAuthorizedOssResponse
+     *
+     * @param string                              $WorkspaceId
+     * @param string                              $TableId
+     * @param UpdateTableFromAuthorizedOssRequest $request
+     *
+     * @return UpdateTableFromAuthorizedOssResponse
+     */
+    public function updateTableFromAuthorizedOss($WorkspaceId, $TableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTableFromAuthorizedOssWithOptions($WorkspaceId, $TableId, $request, $headers, $runtime);
     }
 }
