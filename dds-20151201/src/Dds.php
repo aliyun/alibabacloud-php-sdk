@@ -79,6 +79,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupStorageRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupStorageResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBinlogFilesRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBinlogFilesResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterBackupsResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeClusterRecoverTimeRequest;
@@ -277,7 +279,7 @@ class Dds extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'cn-qingdao' => 'mongodb.aliyuncs.com',
+            'cn-qingdao' => 'mongodb.cn-qingdao.aliyuncs.com',
             'cn-beijing' => 'mongodb.aliyuncs.com',
             'cn-zhangjiakou' => 'mongodb.cn-zhangjiakou.aliyuncs.com',
             'cn-huhehaote' => 'mongodb.cn-huhehaote.aliyuncs.com',
@@ -305,7 +307,7 @@ class Dds extends OpenApiClient
             'cn-shenzhen-finance-1' => 'mongodb.cn-shenzhen-finance-1.aliyuncs.com',
             'cn-north-2-gov-1' => 'mongodb.cn-north-2-gov-1.aliyuncs.com',
             'ap-northeast-2-pop' => 'mongodb.aliyuncs.com',
-            'cn-beijing-finance-1' => 'mongodb.aliyuncs.com',
+            'cn-beijing-finance-1' => 'mongodb.cn-beijing-finance-1.aliyuncs.com',
             'cn-beijing-finance-pop' => 'mongodb.aliyuncs.com',
             'cn-beijing-gov-1' => 'mongodb.aliyuncs.com',
             'cn-beijing-nu16-b01' => 'mongodb.aliyuncs.com',
@@ -366,6 +368,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+     *
      * @param request - AllocateDBInstanceSrvNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -427,6 +431,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+     *
      * @param request - AllocateDBInstanceSrvNetworkAddressRequest
      *
      * @returns AllocateDBInstanceSrvNetworkAddressResponse
@@ -690,7 +696,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     * Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
      *
      * @remarks
      * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
@@ -752,7 +758,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     * Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
      *
      * @remarks
      * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
@@ -894,7 +900,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * Checks whether a service-linked role (SLR) is created for an instance.
      *
      * @param request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -941,7 +947,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * Checks whether a service-linked role (SLR) is created for an instance.
      *
      * @param request - CheckServiceLinkedRoleRequest
      *
@@ -1981,7 +1987,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 删除MongoDB备份集.
+     * Deletes the backup set of MongoDB.
      *
      * @param request - DeleteBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2040,7 +2046,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 删除MongoDB备份集.
+     * Deletes the backup set of MongoDB.
      *
      * @param request - DeleteBackupRequest
      *
@@ -2641,6 +2647,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Query maintenance task types and task quantities.
+     *
      * @param request - DescribeActiveOperationTaskRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2698,6 +2706,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Query maintenance task types and task quantities.
+     *
      * @param request - DescribeActiveOperationTaskRegionRequest
      *
      * @returns DescribeActiveOperationTaskRegionResponse
@@ -3346,7 +3356,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     * Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
      *
      * @param request - DescribeAvailableEngineVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3401,7 +3411,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     * Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
      *
      * @param request - DescribeAvailableEngineVersionRequest
      *
@@ -3724,7 +3734,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     * Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
      *
      * @param request - DescribeBackupStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3787,7 +3797,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     * Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
      *
      * @param request - DescribeBackupStorageRequest
      *
@@ -3996,6 +4006,119 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries binary log files bound to an ApsaraDB for MongoDB instance.
+     *
+     * @param request - DescribeBinlogFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBinlogFilesResponse
+     *
+     * @param DescribeBinlogFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBinlogFilesResponse
+     */
+    public function describeBinlogFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->binlogId) {
+            @$query['BinlogId'] = $request->binlogId;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->destRegion) {
+            @$query['DestRegion'] = $request->destRegion;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->srcRegion) {
+            @$query['SrcRegion'] = $request->srcRegion;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBinlogFiles',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBinlogFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries binary log files bound to an ApsaraDB for MongoDB instance.
+     *
+     * @param request - DescribeBinlogFilesRequest
+     *
+     * @returns DescribeBinlogFilesResponse
+     *
+     * @param DescribeBinlogFilesRequest $request
+     *
+     * @return DescribeBinlogFilesResponse
+     */
+    public function describeBinlogFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBinlogFilesWithOptions($request, $runtime);
     }
 
     /**
@@ -4648,7 +4771,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 查看规格信息详情.
+     * Queries the specifications of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeDBInstanceSpecInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4707,7 +4830,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 查看规格信息详情.
+     * Queries the specifications of an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeDBInstanceSpecInfoRequest
      *
@@ -7071,7 +7194,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+     * Queries the operational logs of an ApsaraDB for MongoDB instance.
      *
      * @remarks
      *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
@@ -7178,7 +7301,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+     * Queries the operational logs of an ApsaraDB for MongoDB instance.
      *
      * @remarks
      *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
@@ -7200,7 +7323,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     * Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeSecurityGroupConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7255,7 +7378,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     * Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
      *
      * @param request - DescribeSecurityGroupConfigurationRequest
      *
@@ -8407,6 +8530,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Modifies the O\\\\\\&M task configurations for an instance.
+     *
      * @param request - ModifyActiveOperationMaintenanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8476,6 +8601,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Modifies the O\\\\\\&M task configurations for an instance.
+     *
      * @param request - ModifyActiveOperationMaintenanceConfigRequest
      *
      * @returns ModifyActiveOperationMaintenanceConfigResponse
@@ -8492,7 +8619,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     * Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8559,7 +8686,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     * Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyActiveOperationTasksRequest
      *
@@ -8700,6 +8827,10 @@ class Dds extends OpenApiClient
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
+        if (null !== $request->hotStoragePeriod) {
+            @$query['HotStoragePeriod'] = $request->hotStoragePeriod;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -8765,7 +8896,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改MongoDB备份集的过期时间.
+     * Modifies the expiration time of MongoDB backup sets.
      *
      * @param request - ModifyBackupExpireTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8828,7 +8959,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改MongoDB备份集的过期时间.
+     * Modifies the expiration time of MongoDB backup sets.
      *
      * @param request - ModifyBackupExpireTimeRequest
      *
@@ -9005,6 +9136,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Modifies existing release protection configurations.
+     *
      * @param request - ModifyDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9062,6 +9195,8 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * Modifies existing release protection configurations.
+     *
      * @param request - ModifyDBInstanceAttributeRequest
      *
      * @returns ModifyDBInstanceAttributeResponse
@@ -9078,7 +9213,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * Modifies the configurations of an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9141,7 +9276,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * Modifies the configurations of an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifyDBInstanceConfigRequest
      *
@@ -9188,6 +9323,14 @@ class Dds extends OpenApiClient
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
 
+        if (null !== $request->forceModifySuffix) {
+            @$query['ForceModifySuffix'] = $request->forceModifySuffix;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
         if (null !== $request->newConnectionString) {
             @$query['NewConnectionString'] = $request->newConnectionString;
         }
@@ -9206,6 +9349,10 @@ class Dds extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->portModifyOnly) {
+            @$query['PortModifyOnly'] = $request->portModifyOnly;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -11232,7 +11379,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改MongoDB实例的SRV连接地址
+     * Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifySrvNetworkAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11295,7 +11442,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改MongoDB实例的SRV连接地址
+     * Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
      *
      * @param request - ModifySrvNetworkAddressRequest
      *

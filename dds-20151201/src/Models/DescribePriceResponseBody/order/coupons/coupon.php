@@ -15,6 +15,11 @@ class coupon extends Model
     public $activityCategory;
 
     /**
+     * @var mixed[]
+     */
+    public $activityExtInfo;
+
+    /**
      * @var string
      */
     public $couponNo;
@@ -23,6 +28,11 @@ class coupon extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $effective;
 
     /**
      * @var string
@@ -50,8 +60,10 @@ class coupon extends Model
     public $promotionRuleIdList;
     protected $_name = [
         'activityCategory' => 'ActivityCategory',
+        'activityExtInfo' => 'ActivityExtInfo',
         'couponNo' => 'CouponNo',
         'description' => 'Description',
+        'effective' => 'Effective',
         'isSelected' => 'IsSelected',
         'name' => 'Name',
         'optionCode' => 'OptionCode',
@@ -61,6 +73,9 @@ class coupon extends Model
 
     public function validate()
     {
+        if (\is_array($this->activityExtInfo)) {
+            Model::validateArray($this->activityExtInfo);
+        }
         if (null !== $this->promotionRuleIdList) {
             $this->promotionRuleIdList->validate();
         }
@@ -74,12 +89,25 @@ class coupon extends Model
             $res['ActivityCategory'] = $this->activityCategory;
         }
 
+        if (null !== $this->activityExtInfo) {
+            if (\is_array($this->activityExtInfo)) {
+                $res['ActivityExtInfo'] = [];
+                foreach ($this->activityExtInfo as $key1 => $value1) {
+                    $res['ActivityExtInfo'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->effective) {
+            $res['Effective'] = $this->effective;
         }
 
         if (null !== $this->isSelected) {
@@ -117,12 +145,25 @@ class coupon extends Model
             $model->activityCategory = $map['ActivityCategory'];
         }
 
+        if (isset($map['ActivityExtInfo'])) {
+            if (!empty($map['ActivityExtInfo'])) {
+                $model->activityExtInfo = [];
+                foreach ($map['ActivityExtInfo'] as $key1 => $value1) {
+                    $model->activityExtInfo[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Effective'])) {
+            $model->effective = $map['Effective'];
         }
 
         if (isset($map['IsSelected'])) {

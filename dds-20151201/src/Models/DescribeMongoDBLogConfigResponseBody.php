@@ -16,6 +16,11 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $hotTtlForV2Standard;
+
+    /**
+     * @var int
+     */
     public $isEtlMetaExist;
 
     /**
@@ -56,6 +61,11 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $ttlForV2Standard;
+
+    /**
+     * @var int
+     */
     public $usedStorageForStandard;
 
     /**
@@ -69,6 +79,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $userProjectName;
     protected $_name = [
         'enableAudit' => 'EnableAudit',
+        'hotTtlForV2Standard' => 'HotTtlForV2Standard',
         'isEtlMetaExist' => 'IsEtlMetaExist',
         'isUserProjectLogstoreExist' => 'IsUserProjectLogstoreExist',
         'preserveStorageForStandard' => 'PreserveStorageForStandard',
@@ -77,6 +88,7 @@ class DescribeMongoDBLogConfigResponseBody extends Model
         'serviceType' => 'ServiceType',
         'ttlForStandard' => 'TtlForStandard',
         'ttlForTrail' => 'TtlForTrail',
+        'ttlForV2Standard' => 'TtlForV2Standard',
         'usedStorageForStandard' => 'UsedStorageForStandard',
         'usedStorageForTrail' => 'UsedStorageForTrail',
         'userProjectName' => 'UserProjectName',
@@ -92,6 +104,10 @@ class DescribeMongoDBLogConfigResponseBody extends Model
         $res = [];
         if (null !== $this->enableAudit) {
             $res['EnableAudit'] = $this->enableAudit;
+        }
+
+        if (null !== $this->hotTtlForV2Standard) {
+            $res['HotTtlForV2Standard'] = $this->hotTtlForV2Standard;
         }
 
         if (null !== $this->isEtlMetaExist) {
@@ -126,6 +142,10 @@ class DescribeMongoDBLogConfigResponseBody extends Model
             $res['TtlForTrail'] = $this->ttlForTrail;
         }
 
+        if (null !== $this->ttlForV2Standard) {
+            $res['TtlForV2Standard'] = $this->ttlForV2Standard;
+        }
+
         if (null !== $this->usedStorageForStandard) {
             $res['UsedStorageForStandard'] = $this->usedStorageForStandard;
         }
@@ -151,6 +171,10 @@ class DescribeMongoDBLogConfigResponseBody extends Model
         $model = new self();
         if (isset($map['EnableAudit'])) {
             $model->enableAudit = $map['EnableAudit'];
+        }
+
+        if (isset($map['HotTtlForV2Standard'])) {
+            $model->hotTtlForV2Standard = $map['HotTtlForV2Standard'];
         }
 
         if (isset($map['IsEtlMetaExist'])) {
@@ -183,6 +207,10 @@ class DescribeMongoDBLogConfigResponseBody extends Model
 
         if (isset($map['TtlForTrail'])) {
             $model->ttlForTrail = $map['TtlForTrail'];
+        }
+
+        if (isset($map['TtlForV2Standard'])) {
+            $model->ttlForV2Standard = $map['TtlForV2Standard'];
         }
 
         if (isset($map['UsedStorageForStandard'])) {

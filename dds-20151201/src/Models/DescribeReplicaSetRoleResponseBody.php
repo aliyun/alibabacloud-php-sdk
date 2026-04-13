@@ -12,6 +12,11 @@ class DescribeReplicaSetRoleResponseBody extends Model
     /**
      * @var string
      */
+    public $connectionStringSuffix;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
 
     /**
@@ -24,6 +29,7 @@ class DescribeReplicaSetRoleResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'connectionStringSuffix' => 'ConnectionStringSuffix',
         'DBInstanceId' => 'DBInstanceId',
         'replicaSets' => 'ReplicaSets',
         'requestId' => 'RequestId',
@@ -40,6 +46,10 @@ class DescribeReplicaSetRoleResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->connectionStringSuffix) {
+            $res['ConnectionStringSuffix'] = $this->connectionStringSuffix;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -63,6 +73,10 @@ class DescribeReplicaSetRoleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionStringSuffix'])) {
+            $model->connectionStringSuffix = $map['ConnectionStringSuffix'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

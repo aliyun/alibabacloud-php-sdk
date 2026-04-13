@@ -11,8 +11,14 @@ class ModifyDBInstanceConnectionStringResponseBody extends Model
     /**
      * @var string
      */
+    public $modifiedConnectionString;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'modifiedConnectionString' => 'ModifiedConnectionString',
         'requestId' => 'RequestId',
     ];
 
@@ -24,6 +30,10 @@ class ModifyDBInstanceConnectionStringResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modifiedConnectionString) {
+            $res['ModifiedConnectionString'] = $this->modifiedConnectionString;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,6 +49,10 @@ class ModifyDBInstanceConnectionStringResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ModifiedConnectionString'])) {
+            $model->modifiedConnectionString = $map['ModifiedConnectionString'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

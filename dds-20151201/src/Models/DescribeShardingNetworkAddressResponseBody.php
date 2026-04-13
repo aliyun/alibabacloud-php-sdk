@@ -16,6 +16,11 @@ class DescribeShardingNetworkAddressResponseBody extends Model
     public $compatibleConnections;
 
     /**
+     * @var string
+     */
+    public $connectionStringSuffix;
+
+    /**
      * @var networkAddresses
      */
     public $networkAddresses;
@@ -26,6 +31,7 @@ class DescribeShardingNetworkAddressResponseBody extends Model
     public $requestId;
     protected $_name = [
         'compatibleConnections' => 'CompatibleConnections',
+        'connectionStringSuffix' => 'ConnectionStringSuffix',
         'networkAddresses' => 'NetworkAddresses',
         'requestId' => 'RequestId',
     ];
@@ -46,6 +52,10 @@ class DescribeShardingNetworkAddressResponseBody extends Model
         $res = [];
         if (null !== $this->compatibleConnections) {
             $res['CompatibleConnections'] = null !== $this->compatibleConnections ? $this->compatibleConnections->toArray($noStream) : $this->compatibleConnections;
+        }
+
+        if (null !== $this->connectionStringSuffix) {
+            $res['ConnectionStringSuffix'] = $this->connectionStringSuffix;
         }
 
         if (null !== $this->networkAddresses) {
@@ -69,6 +79,10 @@ class DescribeShardingNetworkAddressResponseBody extends Model
         $model = new self();
         if (isset($map['CompatibleConnections'])) {
             $model->compatibleConnections = compatibleConnections::fromMap($map['CompatibleConnections']);
+        }
+
+        if (isset($map['ConnectionStringSuffix'])) {
+            $model->connectionStringSuffix = $map['ConnectionStringSuffix'];
         }
 
         if (isset($map['NetworkAddresses'])) {

@@ -29,6 +29,11 @@ class DBInstance extends Model
     public $chargeType;
 
     /**
+     * @var bool
+     */
+    public $coldDataEnabled;
+
+    /**
      * @var configserverList
      */
     public $configserverList;
@@ -296,6 +301,7 @@ class DBInstance extends Model
         'burstingEnabled' => 'BurstingEnabled',
         'capacityUnit' => 'CapacityUnit',
         'chargeType' => 'ChargeType',
+        'coldDataEnabled' => 'ColdDataEnabled',
         'configserverList' => 'ConfigserverList',
         'creationTime' => 'CreationTime',
         'currentKernelVersion' => 'CurrentKernelVersion',
@@ -384,6 +390,10 @@ class DBInstance extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->coldDataEnabled) {
+            $res['ColdDataEnabled'] = $this->coldDataEnabled;
         }
 
         if (null !== $this->configserverList) {
@@ -619,6 +629,10 @@ class DBInstance extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ColdDataEnabled'])) {
+            $model->coldDataEnabled = $map['ColdDataEnabled'];
         }
 
         if (isset($map['ConfigserverList'])) {

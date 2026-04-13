@@ -24,6 +24,11 @@ class ModifyAuditPolicyRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $hotStoragePeriod;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -56,6 +61,7 @@ class ModifyAuditPolicyRequest extends Model
         'auditLogSwitchSource' => 'AuditLogSwitchSource',
         'auditStatus' => 'AuditStatus',
         'DBInstanceId' => 'DBInstanceId',
+        'hotStoragePeriod' => 'HotStoragePeriod',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -82,6 +88,10 @@ class ModifyAuditPolicyRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->hotStoragePeriod) {
+            $res['HotStoragePeriod'] = $this->hotStoragePeriod;
         }
 
         if (null !== $this->ownerAccount) {
@@ -129,6 +139,10 @@ class ModifyAuditPolicyRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['HotStoragePeriod'])) {
+            $model->hotStoragePeriod = $map['HotStoragePeriod'];
         }
 
         if (isset($map['OwnerAccount'])) {
