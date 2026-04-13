@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeletePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeletePolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteSystemPropertyTemplatesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteSystemPropertyTemplatesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAgentTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstanceGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesRequest;
@@ -168,6 +170,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunSyncCommandRequest;
@@ -2259,6 +2263,63 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSystemPropertyTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询具体Task的相关信息.
+     *
+     * @param request - DescribeAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgentTaskResponse
+     *
+     * @param DescribeAgentTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAgentTaskResponse
+     */
+    public function describeAgentTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgentTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询具体Task的相关信息.
+     *
+     * @param request - DescribeAgentTaskRequest
+     *
+     * @returns DescribeAgentTaskResponse
+     *
+     * @param DescribeAgentTaskRequest $request
+     *
+     * @return DescribeAgentTaskResponse
+     */
+    public function describeAgentTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgentTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -6322,6 +6383,79 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAndroidInstancesInGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 触发云手机内的 Agent 执行 AI 自动化任务。
+     *
+     * @param request - RunAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunAgentTaskResponse
+     *
+     * @param RunAgentTaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RunAgentTaskResponse
+     */
+    public function runAgentTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->maxSteps) {
+            @$query['MaxSteps'] = $request->maxSteps;
+        }
+
+        if (null !== $request->timeoutSeconds) {
+            @$query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+
+        if (null !== $request->userPrompt) {
+            @$query['UserPrompt'] = $request->userPrompt;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunAgentTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 触发云手机内的 Agent 执行 AI 自动化任务。
+     *
+     * @param request - RunAgentTaskRequest
+     *
+     * @returns RunAgentTaskResponse
+     *
+     * @param RunAgentTaskRequest $request
+     *
+     * @return RunAgentTaskResponse
+     */
+    public function runAgentTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runAgentTaskWithOptions($request, $runtime);
     }
 
     /**
