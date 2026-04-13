@@ -4985,7 +4985,6 @@ class Hbr extends OpenApiClient
     /**
      * Queries available regions.
      *
-     * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRegionsResponse
@@ -6231,6 +6230,10 @@ class Hbr extends OpenApiClient
             @$query['CreatedByProduct'] = $request->createdByProduct;
         }
 
+        if (null !== $request->hasSnapshot) {
+            @$query['HasSnapshot'] = $request->hasSnapshot;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -6290,7 +6293,6 @@ class Hbr extends OpenApiClient
     /**
      * Activates Cloud Backup.
      *
-     * @param request - OpenHbrServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OpenHbrServiceResponse

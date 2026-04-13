@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class protectedResources extends Model
 {
     /**
+     * @var int
+     */
+    public $backupPlanCount;
+
+    /**
      * @var string
      */
     public $createdByProduct;
@@ -34,6 +39,11 @@ class protectedResources extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $resourceRegionId;
+
+    /**
      * @var int
      */
     public $snapshotCount;
@@ -43,11 +53,13 @@ class protectedResources extends Model
      */
     public $sourceType;
     protected $_name = [
+        'backupPlanCount' => 'BackupPlanCount',
         'createdByProduct' => 'CreatedByProduct',
         'protectedDataSize' => 'ProtectedDataSize',
         'protectedResourceId' => 'ProtectedResourceId',
         'resourceId' => 'ResourceId',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceRegionId' => 'ResourceRegionId',
         'snapshotCount' => 'SnapshotCount',
         'sourceType' => 'SourceType',
     ];
@@ -60,6 +72,10 @@ class protectedResources extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backupPlanCount) {
+            $res['BackupPlanCount'] = $this->backupPlanCount;
+        }
+
         if (null !== $this->createdByProduct) {
             $res['CreatedByProduct'] = $this->createdByProduct;
         }
@@ -78,6 +94,10 @@ class protectedResources extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->resourceRegionId) {
+            $res['ResourceRegionId'] = $this->resourceRegionId;
         }
 
         if (null !== $this->snapshotCount) {
@@ -99,6 +119,10 @@ class protectedResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupPlanCount'])) {
+            $model->backupPlanCount = $map['BackupPlanCount'];
+        }
+
         if (isset($map['CreatedByProduct'])) {
             $model->createdByProduct = $map['CreatedByProduct'];
         }
@@ -117,6 +141,10 @@ class protectedResources extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['ResourceRegionId'])) {
+            $model->resourceRegionId = $map['ResourceRegionId'];
         }
 
         if (isset($map['SnapshotCount'])) {

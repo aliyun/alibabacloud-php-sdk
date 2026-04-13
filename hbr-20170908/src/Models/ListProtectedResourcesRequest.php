@@ -14,6 +14,11 @@ class ListProtectedResourcesRequest extends Model
     public $createdByProduct;
 
     /**
+     * @var bool
+     */
+    public $hasSnapshot;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -39,6 +44,7 @@ class ListProtectedResourcesRequest extends Model
     public $sourceType;
     protected $_name = [
         'createdByProduct' => 'CreatedByProduct',
+        'hasSnapshot' => 'HasSnapshot',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'resourceId' => 'ResourceId',
@@ -56,6 +62,10 @@ class ListProtectedResourcesRequest extends Model
         $res = [];
         if (null !== $this->createdByProduct) {
             $res['CreatedByProduct'] = $this->createdByProduct;
+        }
+
+        if (null !== $this->hasSnapshot) {
+            $res['HasSnapshot'] = $this->hasSnapshot;
         }
 
         if (null !== $this->maxResults) {
@@ -91,6 +101,10 @@ class ListProtectedResourcesRequest extends Model
         $model = new self();
         if (isset($map['CreatedByProduct'])) {
             $model->createdByProduct = $map['CreatedByProduct'];
+        }
+
+        if (isset($map['HasSnapshot'])) {
+            $model->hasSnapshot = $map['HasSnapshot'];
         }
 
         if (isset($map['MaxResults'])) {

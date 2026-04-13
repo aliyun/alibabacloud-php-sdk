@@ -163,6 +163,11 @@ class restoreJob extends Model
     /**
      * @var string
      */
+    public $sourceResourceId;
+
+    /**
+     * @var string
+     */
     public $sourceType;
 
     /**
@@ -285,6 +290,7 @@ class restoreJob extends Model
         'snapshotHash' => 'SnapshotHash',
         'snapshotId' => 'SnapshotId',
         'sourceInstanceId' => 'SourceInstanceId',
+        'sourceResourceId' => 'SourceResourceId',
         'sourceType' => 'SourceType',
         'speed' => 'Speed',
         'startTime' => 'StartTime',
@@ -438,6 +444,10 @@ class restoreJob extends Model
 
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
+        }
+
+        if (null !== $this->sourceResourceId) {
+            $res['SourceResourceId'] = $this->sourceResourceId;
         }
 
         if (null !== $this->sourceType) {
@@ -645,6 +655,10 @@ class restoreJob extends Model
 
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
+        }
+
+        if (isset($map['SourceResourceId'])) {
+            $model->sourceResourceId = $map['SourceResourceId'];
         }
 
         if (isset($map['SourceType'])) {
