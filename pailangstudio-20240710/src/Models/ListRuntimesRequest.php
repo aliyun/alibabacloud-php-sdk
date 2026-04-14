@@ -11,6 +11,11 @@ class ListRuntimesRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -73,6 +78,7 @@ class ListRuntimesRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'creator' => 'Creator',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -96,6 +102,10 @@ class ListRuntimesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
@@ -159,6 +169,10 @@ class ListRuntimesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }

@@ -1283,6 +1283,10 @@ class PAILangStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->creator) {
             @$query['Creator'] = $request->creator;
         }
@@ -1480,6 +1484,10 @@ class PAILangStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->jobAction) {
             @$query['JobAction'] = $request->jobAction;
         }
@@ -1578,6 +1586,10 @@ class PAILangStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->creator) {
             @$query['Creator'] = $request->creator;
         }
@@ -1679,6 +1691,10 @@ class PAILangStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->creator) {
             @$query['Creator'] = $request->creator;
         }
@@ -1788,6 +1804,10 @@ class PAILangStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
         if (null !== $request->creationType) {
             @$query['CreationType'] = $request->creationType;
         }

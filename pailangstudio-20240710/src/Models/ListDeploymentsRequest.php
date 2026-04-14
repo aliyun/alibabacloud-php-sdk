@@ -11,6 +11,11 @@ class ListDeploymentsRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -83,6 +88,7 @@ class ListDeploymentsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'creator' => 'Creator',
         'deploymentId' => 'DeploymentId',
         'deploymentStatus' => 'DeploymentStatus',
@@ -108,6 +114,10 @@ class ListDeploymentsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
@@ -179,6 +189,10 @@ class ListDeploymentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }

@@ -11,6 +11,11 @@ class ListSnapshotsRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string
+     */
     public $creationType;
 
     /**
@@ -73,6 +78,7 @@ class ListSnapshotsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'creationType' => 'CreationType',
         'creator' => 'Creator',
         'maxResults' => 'MaxResults',
@@ -96,6 +102,10 @@ class ListSnapshotsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->creationType) {
             $res['CreationType'] = $this->creationType;
         }
@@ -159,6 +169,10 @@ class ListSnapshotsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['CreationType'])) {
             $model->creationType = $map['CreationType'];
         }

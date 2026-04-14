@@ -11,6 +11,11 @@ class ListKnowledgeBaseJobsRequest extends Model
     /**
      * @var string
      */
+    public $accessibility;
+
+    /**
+     * @var string
+     */
     public $jobAction;
 
     /**
@@ -58,6 +63,7 @@ class ListKnowledgeBaseJobsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessibility' => 'Accessibility',
         'jobAction' => 'JobAction',
         'knowledgeBaseJobId' => 'KnowledgeBaseJobId',
         'maxResults' => 'MaxResults',
@@ -78,6 +84,10 @@ class ListKnowledgeBaseJobsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessibility) {
+            $res['Accessibility'] = $this->accessibility;
+        }
+
         if (null !== $this->jobAction) {
             $res['JobAction'] = $this->jobAction;
         }
@@ -129,6 +139,10 @@ class ListKnowledgeBaseJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Accessibility'])) {
+            $model->accessibility = $map['Accessibility'];
+        }
+
         if (isset($map['JobAction'])) {
             $model->jobAction = $map['JobAction'];
         }
