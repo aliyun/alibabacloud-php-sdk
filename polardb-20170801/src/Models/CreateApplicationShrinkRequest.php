@@ -82,6 +82,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $knowledgeApplicationSpecShrink;
+
+    /**
+     * @var string
+     */
     public $memApplicationSpecShrink;
 
     /**
@@ -213,6 +218,7 @@ class CreateApplicationShrinkRequest extends Model
         'description' => 'Description',
         'dryRun' => 'DryRun',
         'endpointsShrink' => 'Endpoints',
+        'knowledgeApplicationSpecShrink' => 'KnowledgeApplicationSpec',
         'memApplicationSpecShrink' => 'MemApplicationSpec',
         'modelApi' => 'ModelApi',
         'modelApiKey' => 'ModelApiKey',
@@ -304,6 +310,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->endpointsShrink) {
             $res['Endpoints'] = $this->endpointsShrink;
+        }
+
+        if (null !== $this->knowledgeApplicationSpecShrink) {
+            $res['KnowledgeApplicationSpec'] = $this->knowledgeApplicationSpecShrink;
         }
 
         if (null !== $this->memApplicationSpecShrink) {
@@ -474,6 +484,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['Endpoints'])) {
             $model->endpointsShrink = $map['Endpoints'];
+        }
+
+        if (isset($map['KnowledgeApplicationSpec'])) {
+            $model->knowledgeApplicationSpecShrink = $map['KnowledgeApplicationSpec'];
         }
 
         if (isset($map['MemApplicationSpec'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\components;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\endpoints;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\knowledgeApplicationSpec;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\memApplicationSpec;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\parameters;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationRequest\tag;
@@ -82,6 +83,11 @@ class CreateApplicationRequest extends Model
      * @var endpoints[]
      */
     public $endpoints;
+
+    /**
+     * @var knowledgeApplicationSpec
+     */
+    public $knowledgeApplicationSpec;
 
     /**
      * @var memApplicationSpec
@@ -217,6 +223,7 @@ class CreateApplicationRequest extends Model
         'description' => 'Description',
         'dryRun' => 'DryRun',
         'endpoints' => 'Endpoints',
+        'knowledgeApplicationSpec' => 'KnowledgeApplicationSpec',
         'memApplicationSpec' => 'MemApplicationSpec',
         'modelApi' => 'ModelApi',
         'modelApiKey' => 'ModelApiKey',
@@ -250,6 +257,9 @@ class CreateApplicationRequest extends Model
         }
         if (\is_array($this->endpoints)) {
             Model::validateArray($this->endpoints);
+        }
+        if (null !== $this->knowledgeApplicationSpec) {
+            $this->knowledgeApplicationSpec->validate();
         }
         if (null !== $this->memApplicationSpec) {
             $this->memApplicationSpec->validate();
@@ -334,6 +344,10 @@ class CreateApplicationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->knowledgeApplicationSpec) {
+            $res['KnowledgeApplicationSpec'] = null !== $this->knowledgeApplicationSpec ? $this->knowledgeApplicationSpec->toArray($noStream) : $this->knowledgeApplicationSpec;
         }
 
         if (null !== $this->memApplicationSpec) {
@@ -525,6 +539,10 @@ class CreateApplicationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['KnowledgeApplicationSpec'])) {
+            $model->knowledgeApplicationSpec = knowledgeApplicationSpec::fromMap($map['KnowledgeApplicationSpec']);
         }
 
         if (isset($map['MemApplicationSpec'])) {

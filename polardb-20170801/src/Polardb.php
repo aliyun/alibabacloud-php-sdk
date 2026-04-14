@@ -2773,6 +2773,10 @@ class Polardb extends OpenApiClient
             $request->endpointsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endpoints, 'Endpoints', 'json');
         }
 
+        if (null !== $tmpReq->knowledgeApplicationSpec) {
+            $request->knowledgeApplicationSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeApplicationSpec, 'KnowledgeApplicationSpec', 'json');
+        }
+
         if (null !== $tmpReq->memApplicationSpec) {
             $request->memApplicationSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memApplicationSpec, 'MemApplicationSpec', 'json');
         }
@@ -2836,6 +2840,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->endpointsShrink) {
             @$query['Endpoints'] = $request->endpointsShrink;
+        }
+
+        if (null !== $request->knowledgeApplicationSpecShrink) {
+            @$query['KnowledgeApplicationSpec'] = $request->knowledgeApplicationSpecShrink;
         }
 
         if (null !== $request->memApplicationSpecShrink) {
