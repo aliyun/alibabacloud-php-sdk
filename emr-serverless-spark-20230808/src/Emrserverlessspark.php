@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeReques
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateLivyComputeTokenResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateNetworkServiceRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateNetworkServiceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleShrinkRequest;
@@ -90,6 +92,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListLogContentsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListNetworkServicesRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListNetworkServicesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
@@ -760,6 +764,95 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->createLivyComputeTokenWithOptions($workspaceBizId, $livyComputeId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建网络服务
+     *
+     * @param request - CreateNetworkServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNetworkServiceResponse
+     *
+     * @param string                      $workspaceId
+     * @param CreateNetworkServiceRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateNetworkServiceResponse
+     */
+    public function createNetworkServiceWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$body['securityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['vpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vswitchIds) {
+            @$body['vswitchIds'] = $request->vswitchIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNetworkService',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/networkServices',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNetworkServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网络服务
+     *
+     * @param request - CreateNetworkServiceRequest
+     *
+     * @returns CreateNetworkServiceResponse
+     *
+     * @param string                      $workspaceId
+     * @param CreateNetworkServiceRequest $request
+     *
+     * @return CreateNetworkServiceResponse
+     */
+    public function createNetworkService($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createNetworkServiceWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3524,6 +3617,69 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listMembersWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看网络服务列表.
+     *
+     * @param request - ListNetworkServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNetworkServicesResponse
+     *
+     * @param string                     $workspaceId
+     * @param ListNetworkServicesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListNetworkServicesResponse
+     */
+    public function listNetworkServicesWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNetworkServices',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/networkServices',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNetworkServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看网络服务列表.
+     *
+     * @param request - ListNetworkServicesRequest
+     *
+     * @returns ListNetworkServicesResponse
+     *
+     * @param string                     $workspaceId
+     * @param ListNetworkServicesRequest $request
+     *
+     * @return ListNetworkServicesResponse
+     */
+    public function listNetworkServices($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNetworkServicesWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
