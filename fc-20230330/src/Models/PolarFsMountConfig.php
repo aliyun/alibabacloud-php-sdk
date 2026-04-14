@@ -19,12 +19,18 @@ class PolarFsMountConfig extends Model
     public $mountDir;
 
     /**
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
      * @var string
      */
     public $remoteDir;
     protected $_name = [
         'instanceId' => 'instanceId',
         'mountDir' => 'mountDir',
+        'readOnly' => 'readOnly',
         'remoteDir' => 'remoteDir',
     ];
 
@@ -42,6 +48,10 @@ class PolarFsMountConfig extends Model
 
         if (null !== $this->mountDir) {
             $res['mountDir'] = $this->mountDir;
+        }
+
+        if (null !== $this->readOnly) {
+            $res['readOnly'] = $this->readOnly;
         }
 
         if (null !== $this->remoteDir) {
@@ -65,6 +75,10 @@ class PolarFsMountConfig extends Model
 
         if (isset($map['mountDir'])) {
             $model->mountDir = $map['mountDir'];
+        }
+
+        if (isset($map['readOnly'])) {
+            $model->readOnly = $map['readOnly'];
         }
 
         if (isset($map['remoteDir'])) {

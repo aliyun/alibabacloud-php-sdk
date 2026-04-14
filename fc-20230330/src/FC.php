@@ -23,13 +23,19 @@ use AlibabaCloud\SDK\FC\V20230330\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateVpcBindingRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\CreateVpcBindingResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteAliasRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteAsyncInvokeConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteConcurrencyConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteConcurrencyConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteCustomDomainRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteCustomDomainResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteFunctionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteFunctionVersionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteFunctionVersionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteLayerVersionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteLayerVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteProvisionConfigResponse;
@@ -37,25 +43,33 @@ use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteSessionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteTriggerResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DeleteVpcBindingResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\DisableFunctionInvocationRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\DisableFunctionInvocationResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\EnableFunctionInvocationRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\EnableFunctionInvocationResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetAliasRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAliasResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncInvokeConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncTaskRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetAsyncTaskResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetConcurrencyConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetConcurrencyConfigResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetCustomDomainRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetCustomDomainResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetFunctionCodeRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetFunctionCodeResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetFunctionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionByArnRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionByArnResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetLayerVersionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetProvisionConfigResponse;
@@ -63,6 +77,7 @@ use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetScalingConfigResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetSessionResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\GetTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionHeaders;
 use AlibabaCloud\SDK\FC\V20230330\Models\InvokeFunctionRequest;
@@ -100,6 +115,7 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTriggersRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListTriggersResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListVpcBindingsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListVpcBindingsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\PauseSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\PauseSessionResponse;
@@ -658,20 +674,23 @@ class FC extends OpenApiClient
     /**
      * Deletes an alias.
      *
+     * @param request - DeleteAliasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAliasResponse
      *
-     * @param string         $functionName
-     * @param string         $aliasName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string             $functionName
+     * @param string             $aliasName
+     * @param DeleteAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
      * @return DeleteAliasResponse
      */
-    public function deleteAliasWithOptions($functionName, $aliasName, $headers, $runtime)
+    public function deleteAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -693,19 +712,22 @@ class FC extends OpenApiClient
     /**
      * Deletes an alias.
      *
+     * @param request - DeleteAliasRequest
+     *
      * @returns DeleteAliasResponse
      *
-     * @param string $functionName
-     * @param string $aliasName
+     * @param string             $functionName
+     * @param string             $aliasName
+     * @param DeleteAliasRequest $request
      *
      * @return DeleteAliasResponse
      */
-    public function deleteAlias($functionName, $aliasName)
+    public function deleteAlias($functionName, $aliasName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAliasWithOptions($functionName, $aliasName, $headers, $runtime);
+        return $this->deleteAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime);
     }
 
     /**
@@ -774,19 +796,22 @@ class FC extends OpenApiClient
     /**
      * Deletes a concurrency configuration.
      *
+     * @param request - DeleteConcurrencyConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteConcurrencyConfigResponse
      *
-     * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                         $functionName
+     * @param DeleteConcurrencyConfigRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
      * @return DeleteConcurrencyConfigResponse
      */
-    public function deleteConcurrencyConfigWithOptions($functionName, $headers, $runtime)
+    public function deleteConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -808,36 +833,42 @@ class FC extends OpenApiClient
     /**
      * Deletes a concurrency configuration.
      *
+     * @param request - DeleteConcurrencyConfigRequest
+     *
      * @returns DeleteConcurrencyConfigResponse
      *
-     * @param string $functionName
+     * @param string                         $functionName
+     * @param DeleteConcurrencyConfigRequest $request
      *
      * @return DeleteConcurrencyConfigResponse
      */
-    public function deleteConcurrencyConfig($functionName)
+    public function deleteConcurrencyConfig($functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteConcurrencyConfigWithOptions($functionName, $headers, $runtime);
+        return $this->deleteConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a custom domain name.
      *
+     * @param request - DeleteCustomDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCustomDomainResponse
      *
-     * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $domainName
+     * @param DeleteCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteCustomDomainResponse
      */
-    public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
+    public function deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -859,36 +890,42 @@ class FC extends OpenApiClient
     /**
      * Deletes a custom domain name.
      *
+     * @param request - DeleteCustomDomainRequest
+     *
      * @returns DeleteCustomDomainResponse
      *
-     * @param string $domainName
+     * @param string                    $domainName
+     * @param DeleteCustomDomainRequest $request
      *
      * @return DeleteCustomDomainResponse
      */
-    public function deleteCustomDomain($domainName)
+    public function deleteCustomDomain($domainName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCustomDomainWithOptions($domainName, $headers, $runtime);
+        return $this->deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a function.
      *
+     * @param request - DeleteFunctionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFunctionResponse
      *
-     * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                $functionName
+     * @param DeleteFunctionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
      * @return DeleteFunctionResponse
      */
-    public function deleteFunctionWithOptions($functionName, $headers, $runtime)
+    public function deleteFunctionWithOptions($functionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -910,37 +947,43 @@ class FC extends OpenApiClient
     /**
      * Deletes a function.
      *
+     * @param request - DeleteFunctionRequest
+     *
      * @returns DeleteFunctionResponse
      *
-     * @param string $functionName
+     * @param string                $functionName
+     * @param DeleteFunctionRequest $request
      *
      * @return DeleteFunctionResponse
      */
-    public function deleteFunction($functionName)
+    public function deleteFunction($functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFunctionWithOptions($functionName, $headers, $runtime);
+        return $this->deleteFunctionWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a function version.
      *
+     * @param request - DeleteFunctionVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteFunctionVersionResponse
      *
-     * @param string         $functionName
-     * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                       $functionName
+     * @param string                       $versionId
+     * @param DeleteFunctionVersionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
      * @return DeleteFunctionVersionResponse
      */
-    public function deleteFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime)
+    public function deleteFunctionVersionWithOptions($functionName, $versionId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -962,38 +1005,44 @@ class FC extends OpenApiClient
     /**
      * Deletes a function version.
      *
+     * @param request - DeleteFunctionVersionRequest
+     *
      * @returns DeleteFunctionVersionResponse
      *
-     * @param string $functionName
-     * @param string $versionId
+     * @param string                       $functionName
+     * @param string                       $versionId
+     * @param DeleteFunctionVersionRequest $request
      *
      * @return DeleteFunctionVersionResponse
      */
-    public function deleteFunctionVersion($functionName, $versionId)
+    public function deleteFunctionVersion($functionName, $versionId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteFunctionVersionWithOptions($functionName, $versionId, $headers, $runtime);
+        return $this->deleteFunctionVersionWithOptions($functionName, $versionId, $request, $headers, $runtime);
     }
 
     /**
      * Deletes a layer version.
      *
+     * @param request - DeleteLayerVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteLayerVersionResponse
      *
-     * @param string         $layerName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $layerName
+     * @param string                    $version
+     * @param DeleteLayerVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteLayerVersionResponse
      */
-    public function deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime)
+    public function deleteLayerVersionWithOptions($layerName, $version, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1015,19 +1064,22 @@ class FC extends OpenApiClient
     /**
      * Deletes a layer version.
      *
+     * @param request - DeleteLayerVersionRequest
+     *
      * @returns DeleteLayerVersionResponse
      *
-     * @param string $layerName
-     * @param string $version
+     * @param string                    $layerName
+     * @param string                    $version
+     * @param DeleteLayerVersionRequest $request
      *
      * @return DeleteLayerVersionResponse
      */
-    public function deleteLayerVersion($layerName, $version)
+    public function deleteLayerVersion($layerName, $version, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime);
+        return $this->deleteLayerVersionWithOptions($layerName, $version, $request, $headers, $runtime);
     }
 
     /**
@@ -1224,20 +1276,23 @@ class FC extends OpenApiClient
     /**
      * Deletes a trigger.
      *
+     * @param request - DeleteTriggerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteTriggerResponse
      *
-     * @param string         $functionName
-     * @param string         $triggerName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string               $functionName
+     * @param string               $triggerName
+     * @param DeleteTriggerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
      * @return DeleteTriggerResponse
      */
-    public function deleteTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
+    public function deleteTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1259,38 +1314,44 @@ class FC extends OpenApiClient
     /**
      * Deletes a trigger.
      *
+     * @param request - DeleteTriggerRequest
+     *
      * @returns DeleteTriggerResponse
      *
-     * @param string $functionName
-     * @param string $triggerName
+     * @param string               $functionName
+     * @param string               $triggerName
+     * @param DeleteTriggerRequest $request
      *
      * @return DeleteTriggerResponse
      */
-    public function deleteTrigger($functionName, $triggerName)
+    public function deleteTrigger($functionName, $triggerName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTriggerWithOptions($functionName, $triggerName, $headers, $runtime);
+        return $this->deleteTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime);
     }
 
     /**
      * Deletes an access control policy from a specified policy group for a VPC firewall.
      *
+     * @param request - DeleteVpcBindingRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteVpcBindingResponse
      *
-     * @param string         $functionName
-     * @param string         $vpcId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $functionName
+     * @param string                  $vpcId
+     * @param DeleteVpcBindingRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteVpcBindingResponse
      */
-    public function deleteVpcBindingWithOptions($functionName, $vpcId, $headers, $runtime)
+    public function deleteVpcBindingWithOptions($functionName, $vpcId, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1312,19 +1373,22 @@ class FC extends OpenApiClient
     /**
      * Deletes an access control policy from a specified policy group for a VPC firewall.
      *
+     * @param request - DeleteVpcBindingRequest
+     *
      * @returns DeleteVpcBindingResponse
      *
-     * @param string $functionName
-     * @param string $vpcId
+     * @param string                  $functionName
+     * @param string                  $vpcId
+     * @param DeleteVpcBindingRequest $request
      *
      * @return DeleteVpcBindingResponse
      */
-    public function deleteVpcBinding($functionName, $vpcId)
+    public function deleteVpcBinding($functionName, $vpcId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteVpcBindingWithOptions($functionName, $vpcId, $headers, $runtime);
+        return $this->deleteVpcBindingWithOptions($functionName, $vpcId, $request, $headers, $runtime);
     }
 
     /**
@@ -1464,19 +1528,22 @@ class FC extends OpenApiClient
     /**
      * The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
      *
+     * @param request - EnableFunctionInvocationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EnableFunctionInvocationResponse
      *
-     * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                          $functionName
+     * @param EnableFunctionInvocationRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
      * @return EnableFunctionInvocationResponse
      */
-    public function enableFunctionInvocationWithOptions($functionName, $headers, $runtime)
+    public function enableFunctionInvocationWithOptions($functionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1498,37 +1565,43 @@ class FC extends OpenApiClient
     /**
      * The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
      *
+     * @param request - EnableFunctionInvocationRequest
+     *
      * @returns EnableFunctionInvocationResponse
      *
-     * @param string $functionName
+     * @param string                          $functionName
+     * @param EnableFunctionInvocationRequest $request
      *
      * @return EnableFunctionInvocationResponse
      */
-    public function enableFunctionInvocation($functionName)
+    public function enableFunctionInvocation($functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->enableFunctionInvocationWithOptions($functionName, $headers, $runtime);
+        return $this->enableFunctionInvocationWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
      * Queries information about an alias.
      *
+     * @param request - GetAliasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAliasResponse
      *
-     * @param string         $functionName
-     * @param string         $aliasName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string          $functionName
+     * @param string          $aliasName
+     * @param GetAliasRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
      *
      * @return GetAliasResponse
      */
-    public function getAliasWithOptions($functionName, $aliasName, $headers, $runtime)
+    public function getAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1550,19 +1623,22 @@ class FC extends OpenApiClient
     /**
      * Queries information about an alias.
      *
+     * @param request - GetAliasRequest
+     *
      * @returns GetAliasResponse
      *
-     * @param string $functionName
-     * @param string $aliasName
+     * @param string          $functionName
+     * @param string          $aliasName
+     * @param GetAliasRequest $request
      *
      * @return GetAliasResponse
      */
-    public function getAlias($functionName, $aliasName)
+    public function getAlias($functionName, $aliasName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAliasWithOptions($functionName, $aliasName, $headers, $runtime);
+        return $this->getAliasWithOptions($functionName, $aliasName, $request, $headers, $runtime);
     }
 
     /**
@@ -1696,19 +1772,22 @@ class FC extends OpenApiClient
     /**
      * Obtains a concurrency configuration.
      *
+     * @param request - GetConcurrencyConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetConcurrencyConfigResponse
      *
-     * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $functionName
+     * @param GetConcurrencyConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return GetConcurrencyConfigResponse
      */
-    public function getConcurrencyConfigWithOptions($functionName, $headers, $runtime)
+    public function getConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1730,36 +1809,42 @@ class FC extends OpenApiClient
     /**
      * Obtains a concurrency configuration.
      *
+     * @param request - GetConcurrencyConfigRequest
+     *
      * @returns GetConcurrencyConfigResponse
      *
-     * @param string $functionName
+     * @param string                      $functionName
+     * @param GetConcurrencyConfigRequest $request
      *
      * @return GetConcurrencyConfigResponse
      */
-    public function getConcurrencyConfig($functionName)
+    public function getConcurrencyConfig($functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getConcurrencyConfigWithOptions($functionName, $headers, $runtime);
+        return $this->getConcurrencyConfigWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
      * Queries information about a custom domain name.
      *
+     * @param request - GetCustomDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCustomDomainResponse
      *
-     * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $domainName
+     * @param GetCustomDomainRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetCustomDomainResponse
      */
-    public function getCustomDomainWithOptions($domainName, $headers, $runtime)
+    public function getCustomDomainWithOptions($domainName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1781,18 +1866,21 @@ class FC extends OpenApiClient
     /**
      * Queries information about a custom domain name.
      *
+     * @param request - GetCustomDomainRequest
+     *
      * @returns GetCustomDomainResponse
      *
-     * @param string $domainName
+     * @param string                 $domainName
+     * @param GetCustomDomainRequest $request
      *
      * @return GetCustomDomainResponse
      */
-    public function getCustomDomain($domainName)
+    public function getCustomDomain($domainName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCustomDomainWithOptions($domainName, $headers, $runtime);
+        return $this->getCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
 
     /**
@@ -1924,20 +2012,23 @@ class FC extends OpenApiClient
     /**
      * Queries versions of a layer.
      *
+     * @param request - GetLayerVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetLayerVersionResponse
      *
-     * @param string         $layerName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $layerName
+     * @param string                 $version
+     * @param GetLayerVersionRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetLayerVersionResponse
      */
-    public function getLayerVersionWithOptions($layerName, $version, $headers, $runtime)
+    public function getLayerVersionWithOptions($layerName, $version, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1959,37 +2050,43 @@ class FC extends OpenApiClient
     /**
      * Queries versions of a layer.
      *
+     * @param request - GetLayerVersionRequest
+     *
      * @returns GetLayerVersionResponse
      *
-     * @param string $layerName
-     * @param string $version
+     * @param string                 $layerName
+     * @param string                 $version
+     * @param GetLayerVersionRequest $request
      *
      * @return GetLayerVersionResponse
      */
-    public function getLayerVersion($layerName, $version)
+    public function getLayerVersion($layerName, $version, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLayerVersionWithOptions($layerName, $version, $headers, $runtime);
+        return $this->getLayerVersionWithOptions($layerName, $version, $request, $headers, $runtime);
     }
 
     /**
      * Obtain version information of a layer by using ARNs.
      *
+     * @param request - GetLayerVersionByArnRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetLayerVersionByArnResponse
      *
-     * @param string         $arn
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $arn
+     * @param GetLayerVersionByArnRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return GetLayerVersionByArnResponse
      */
-    public function getLayerVersionByArnWithOptions($arn, $headers, $runtime)
+    public function getLayerVersionByArnWithOptions($arn, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2011,18 +2108,21 @@ class FC extends OpenApiClient
     /**
      * Obtain version information of a layer by using ARNs.
      *
+     * @param request - GetLayerVersionByArnRequest
+     *
      * @returns GetLayerVersionByArnResponse
      *
-     * @param string $arn
+     * @param string                      $arn
+     * @param GetLayerVersionByArnRequest $request
      *
      * @return GetLayerVersionByArnResponse
      */
-    public function getLayerVersionByArn($arn)
+    public function getLayerVersionByArn($arn, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLayerVersionByArnWithOptions($arn, $headers, $runtime);
+        return $this->getLayerVersionByArnWithOptions($arn, $request, $headers, $runtime);
     }
 
     /**
@@ -2219,20 +2319,23 @@ class FC extends OpenApiClient
     /**
      * Queries information about a trigger.
      *
+     * @param request - GetTriggerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTriggerResponse
      *
-     * @param string         $functionName
-     * @param string         $triggerName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $functionName
+     * @param string            $triggerName
+     * @param GetTriggerRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetTriggerResponse
      */
-    public function getTriggerWithOptions($functionName, $triggerName, $headers, $runtime)
+    public function getTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2254,19 +2357,22 @@ class FC extends OpenApiClient
     /**
      * Queries information about a trigger.
      *
+     * @param request - GetTriggerRequest
+     *
      * @returns GetTriggerResponse
      *
-     * @param string $functionName
-     * @param string $triggerName
+     * @param string            $functionName
+     * @param string            $triggerName
+     * @param GetTriggerRequest $request
      *
      * @return GetTriggerResponse
      */
-    public function getTrigger($functionName, $triggerName)
+    public function getTrigger($functionName, $triggerName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTriggerWithOptions($functionName, $triggerName, $headers, $runtime);
+        return $this->getTriggerWithOptions($functionName, $triggerName, $request, $headers, $runtime);
     }
 
     /**
@@ -3543,19 +3649,22 @@ class FC extends OpenApiClient
     /**
      * Queries a list of existing VPC connections.
      *
+     * @param request - ListVpcBindingsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListVpcBindingsResponse
      *
-     * @param string         $functionName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $functionName
+     * @param ListVpcBindingsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return ListVpcBindingsResponse
      */
-    public function listVpcBindingsWithOptions($functionName, $headers, $runtime)
+    public function listVpcBindingsWithOptions($functionName, $request, $headers, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3577,18 +3686,21 @@ class FC extends OpenApiClient
     /**
      * Queries a list of existing VPC connections.
      *
+     * @param request - ListVpcBindingsRequest
+     *
      * @returns ListVpcBindingsResponse
      *
-     * @param string $functionName
+     * @param string                 $functionName
+     * @param ListVpcBindingsRequest $request
      *
      * @return ListVpcBindingsResponse
      */
-    public function listVpcBindings($functionName)
+    public function listVpcBindings($functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listVpcBindingsWithOptions($functionName, $headers, $runtime);
+        return $this->listVpcBindingsWithOptions($functionName, $request, $headers, $runtime);
     }
 
     /**
