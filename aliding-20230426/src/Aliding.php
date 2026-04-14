@@ -666,6 +666,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponse;
@@ -15250,6 +15255,92 @@ class Aliding extends OpenApiClient
         $headers = new GetRunningTasksHeaders([]);
 
         return $this->getRunningTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询群信息.
+     *
+     * @param tmpReq - GetScenegroupRequest
+     * @param tmpHeader - GetScenegroupHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScenegroupResponse
+     *
+     * @param GetScenegroupRequest $tmpReq
+     * @param GetScenegroupHeaders $tmpHeader
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetScenegroupResponse
+     */
+    public function getScenegroupWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetScenegroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetScenegroupShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->openConversationId) {
+            @$body['OpenConversationId'] = $request->openConversationId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetScenegroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getScenegroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScenegroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询群信息.
+     *
+     * @param request - GetScenegroupRequest
+     *
+     * @returns GetScenegroupResponse
+     *
+     * @param GetScenegroupRequest $request
+     *
+     * @return GetScenegroupResponse
+     */
+    public function getScenegroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetScenegroupHeaders([]);
+
+        return $this->getScenegroupWithOptions($request, $headers, $runtime);
     }
 
     /**
