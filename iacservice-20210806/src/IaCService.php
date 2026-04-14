@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateRegistryNamespaceRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateRegistryNamespaceResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateResourceExportTaskResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateStackRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateStackResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\DeleteDetectConfigRequest;
@@ -119,6 +121,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackDeploymentsRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackDeploymentsResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackExecutionResultRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackExecutionResultResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetStackResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTaskResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetTerraformStateDetectionRequest;
@@ -167,6 +171,10 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourcesResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceTypesResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourceTypesShrinkRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListStackConfigsRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListStackConfigsResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListStacksRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\ListStacksResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTasksRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTasksResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListTasksShrinkRequest;
@@ -201,6 +209,8 @@ use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateRegistryNamespaceAttribut
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateRegistryNamespaceAttributeResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeResponse;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateStackRequest;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateStackResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateTaskAttributeRequest;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateTaskAttributeResponse;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UploadModuleAdvanceRequest;
@@ -1532,6 +1542,91 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->createResourceExportTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建资源栈.
+     *
+     * @param Request - CreateStackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStackResponse
+     *
+     * @param CreateStackRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateStackResponse
+     */
+    public function createStackWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->ramRole) {
+            @$body['ramRole'] = $request->ramRole;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        if (null !== $request->sourcePath) {
+            @$body['sourcePath'] = $request->sourcePath;
+        }
+
+        if (null !== $request->workingDirectory) {
+            @$body['workingDirectory'] = $request->workingDirectory;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStack',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建资源栈.
+     *
+     * @param Request - CreateStackRequest
+     *
+     * @returns CreateStackResponse
+     *
+     * @param CreateStackRequest $request
+     *
+     * @return CreateStackResponse
+     */
+    public function createStack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createStackWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3772,6 +3867,63 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 获取资源栈.
+     *
+     * @param Request - GetStackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStackResponse
+     *
+     * @param string          $stackId
+     * @param GetStackRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStackResponse
+     */
+    public function getStackWithOptions($stackId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetStack',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/' . Url::percentEncode($stackId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取资源栈.
+     *
+     * @param Request - GetStackRequest
+     *
+     * @returns GetStackResponse
+     *
+     * @param string          $stackId
+     * @param GetStackRequest $request
+     *
+     * @return GetStackResponse
+     */
+    public function getStack($stackId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStackWithOptions($stackId, $request, $headers, $runtime);
+    }
+
+    /**
      * 部署详情接口.
      *
      * @param Request - GetStackDeploymentsRequest
@@ -5592,6 +5744,162 @@ class IaCService extends OpenApiClient
     }
 
     /**
+     * 查询资源栈配置列表.
+     *
+     * @param Request - ListStackConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStackConfigsResponse
+     *
+     * @param string                  $stackId
+     * @param ListStackConfigsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListStackConfigsResponse
+     */
+    public function listStackConfigsWithOptions($stackId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStackConfigs',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/' . Url::percentEncode($stackId) . '/configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStackConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源栈配置列表.
+     *
+     * @param Request - ListStackConfigsRequest
+     *
+     * @returns ListStackConfigsResponse
+     *
+     * @param string                  $stackId
+     * @param ListStackConfigsRequest $request
+     *
+     * @return ListStackConfigsResponse
+     */
+    public function listStackConfigs($stackId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listStackConfigsWithOptions($stackId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列举资源栈.
+     *
+     * @param Request - ListStacksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStacksResponse
+     *
+     * @param ListStacksRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListStacksResponse
+     */
+    public function listStacksWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStacks',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStacksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举资源栈.
+     *
+     * @param Request - ListStacksRequest
+     *
+     * @returns ListStacksResponse
+     *
+     * @param ListStacksRequest $request
+     *
+     * @return ListStacksResponse
+     */
+    public function listStacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listStacksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 任务列表.
      *
      * @param tmpReq - ListTasksRequest
@@ -6887,6 +7195,89 @@ class IaCService extends OpenApiClient
         $headers = [];
 
         return $this->updateResourceExportTaskAttributeWithOptions($exportTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新资源栈.
+     *
+     * @param Request - UpdateStackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStackResponse
+     *
+     * @param string             $stackId
+     * @param UpdateStackRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateStackResponse
+     */
+    public function updateStackWithOptions($stackId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->ramRole) {
+            @$body['ramRole'] = $request->ramRole;
+        }
+
+        if (null !== $request->sourcePath) {
+            @$body['sourcePath'] = $request->sourcePath;
+        }
+
+        if (null !== $request->workingDirectory) {
+            @$body['workingDirectory'] = $request->workingDirectory;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateStack',
+            'version' => '2021-08-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/stacks/' . Url::percentEncode($stackId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新资源栈.
+     *
+     * @param Request - UpdateStackRequest
+     *
+     * @returns UpdateStackResponse
+     *
+     * @param string             $stackId
+     * @param UpdateStackRequest $request
+     *
+     * @return UpdateStackResponse
+     */
+    public function updateStack($stackId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateStackWithOptions($stackId, $request, $headers, $runtime);
     }
 
     /**
