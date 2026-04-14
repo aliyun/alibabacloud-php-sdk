@@ -31,11 +31,6 @@ class ListInstanceRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var int
-     */
     public $pageIndex;
 
     /**
@@ -51,28 +46,15 @@ class ListInstanceRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
     public $submitTime;
     protected $_name = [
         'channelType' => 'ChannelType',
         'filterStr' => 'FilterStr',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'ownerId' => 'OwnerId',
         'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId' => 'ResourceOwnerId',
         'submitTime' => 'SubmitTime',
     ];
 
@@ -100,10 +82,6 @@ class ListInstanceRequest extends Model
             $res['InstanceName'] = $this->instanceName;
         }
 
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
@@ -114,14 +92,6 @@ class ListInstanceRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->submitTime) {
@@ -155,10 +125,6 @@ class ListInstanceRequest extends Model
             $model->instanceName = $map['InstanceName'];
         }
 
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
@@ -169,14 +135,6 @@ class ListInstanceRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['SubmitTime'])) {

@@ -16,7 +16,17 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $businessRole;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var int
+     */
+    public $gmtModifier;
 
     /**
      * @var string
@@ -26,7 +36,17 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $groupLink;
+
+    /**
+     * @var string
+     */
     public $groupStatus;
+
+    /**
+     * @var string
+     */
+    public $groupType;
 
     /**
      * @var string
@@ -42,14 +62,24 @@ class list_ extends Model
      * @var string
      */
     public $subject;
+
+    /**
+     * @var int
+     */
+    public $totalParticipantCount;
     protected $_name = [
         'businessNumber' => 'BusinessNumber',
+        'businessRole' => 'BusinessRole',
         'description' => 'Description',
+        'gmtModifier' => 'GmtModifier',
         'groupId' => 'GroupId',
+        'groupLink' => 'GroupLink',
         'groupStatus' => 'GroupStatus',
+        'groupType' => 'GroupType',
         'inviteLink' => 'InviteLink',
         'profilePictureFile' => 'ProfilePictureFile',
         'subject' => 'Subject',
+        'totalParticipantCount' => 'TotalParticipantCount',
     ];
 
     public function validate()
@@ -64,16 +94,32 @@ class list_ extends Model
             $res['BusinessNumber'] = $this->businessNumber;
         }
 
+        if (null !== $this->businessRole) {
+            $res['BusinessRole'] = $this->businessRole;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->gmtModifier) {
+            $res['GmtModifier'] = $this->gmtModifier;
         }
 
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
 
+        if (null !== $this->groupLink) {
+            $res['GroupLink'] = $this->groupLink;
+        }
+
         if (null !== $this->groupStatus) {
             $res['GroupStatus'] = $this->groupStatus;
+        }
+
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
         }
 
         if (null !== $this->inviteLink) {
@@ -86,6 +132,10 @@ class list_ extends Model
 
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
+        }
+
+        if (null !== $this->totalParticipantCount) {
+            $res['TotalParticipantCount'] = $this->totalParticipantCount;
         }
 
         return $res;
@@ -103,16 +153,32 @@ class list_ extends Model
             $model->businessNumber = $map['BusinessNumber'];
         }
 
+        if (isset($map['BusinessRole'])) {
+            $model->businessRole = $map['BusinessRole'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['GmtModifier'])) {
+            $model->gmtModifier = $map['GmtModifier'];
         }
 
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
 
+        if (isset($map['GroupLink'])) {
+            $model->groupLink = $map['GroupLink'];
+        }
+
         if (isset($map['GroupStatus'])) {
             $model->groupStatus = $map['GroupStatus'];
+        }
+
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
         }
 
         if (isset($map['InviteLink'])) {
@@ -125,6 +191,10 @@ class list_ extends Model
 
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];
+        }
+
+        if (isset($map['TotalParticipantCount'])) {
+            $model->totalParticipantCount = $map['TotalParticipantCount'];
         }
 
         return $model;

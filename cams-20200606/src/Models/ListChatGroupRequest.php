@@ -27,7 +27,17 @@ class ListChatGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupLink;
+
+    /**
+     * @var string
+     */
     public $groupStatus;
+
+    /**
+     * @var string
+     */
+    public $groupType;
 
     /**
      * @var int
@@ -57,7 +67,9 @@ class ListChatGroupRequest extends Model
         'businessNumber' => 'BusinessNumber',
         'channelType' => 'ChannelType',
         'custSpaceId' => 'CustSpaceId',
+        'groupLink' => 'GroupLink',
         'groupStatus' => 'GroupStatus',
+        'groupType' => 'GroupType',
         'ownerId' => 'OwnerId',
         'page' => 'Page',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -88,8 +100,16 @@ class ListChatGroupRequest extends Model
             $res['CustSpaceId'] = $this->custSpaceId;
         }
 
+        if (null !== $this->groupLink) {
+            $res['GroupLink'] = $this->groupLink;
+        }
+
         if (null !== $this->groupStatus) {
             $res['GroupStatus'] = $this->groupStatus;
+        }
+
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
         }
 
         if (null !== $this->ownerId) {
@@ -135,8 +155,16 @@ class ListChatGroupRequest extends Model
             $model->custSpaceId = $map['CustSpaceId'];
         }
 
+        if (isset($map['GroupLink'])) {
+            $model->groupLink = $map['GroupLink'];
+        }
+
         if (isset($map['GroupStatus'])) {
             $model->groupStatus = $map['GroupStatus'];
+        }
+
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
         }
 
         if (isset($map['OwnerId'])) {

@@ -73,7 +73,27 @@ class auditRecord extends Model
     /**
      * @var string
      */
+    public $contactEmail;
+
+    /**
+     * @var string
+     */
     public $contactMail;
+
+    /**
+     * @var string
+     */
+    public $contactName;
+
+    /**
+     * @var string
+     */
+    public $contactPhone;
+
+    /**
+     * @var string
+     */
+    public $contactPosition;
 
     /**
      * @var string
@@ -167,7 +187,11 @@ class auditRecord extends Model
         'companyRegisteredCountry' => 'CompanyRegisteredCountry',
         'companyTel' => 'CompanyTel',
         'completeAddressOfHeadquarters' => 'CompleteAddressOfHeadquarters',
+        'contactEmail' => 'ContactEmail',
         'contactMail' => 'ContactMail',
+        'contactName' => 'ContactName',
+        'contactPhone' => 'ContactPhone',
+        'contactPosition' => 'ContactPosition',
         'enableAutoReply' => 'EnableAutoReply',
         'industryDescription' => 'IndustryDescription',
         'industryInvolved' => 'IndustryInvolved',
@@ -271,8 +295,24 @@ class auditRecord extends Model
             $res['CompleteAddressOfHeadquarters'] = $this->completeAddressOfHeadquarters;
         }
 
+        if (null !== $this->contactEmail) {
+            $res['ContactEmail'] = $this->contactEmail;
+        }
+
         if (null !== $this->contactMail) {
             $res['ContactMail'] = $this->contactMail;
+        }
+
+        if (null !== $this->contactName) {
+            $res['ContactName'] = $this->contactName;
+        }
+
+        if (null !== $this->contactPhone) {
+            $res['ContactPhone'] = $this->contactPhone;
+        }
+
+        if (null !== $this->contactPosition) {
+            $res['ContactPosition'] = $this->contactPosition;
         }
 
         if (null !== $this->enableAutoReply) {
@@ -433,8 +473,24 @@ class auditRecord extends Model
             $model->completeAddressOfHeadquarters = $map['CompleteAddressOfHeadquarters'];
         }
 
+        if (isset($map['ContactEmail'])) {
+            $model->contactEmail = $map['ContactEmail'];
+        }
+
         if (isset($map['ContactMail'])) {
             $model->contactMail = $map['ContactMail'];
+        }
+
+        if (isset($map['ContactName'])) {
+            $model->contactName = $map['ContactName'];
+        }
+
+        if (isset($map['ContactPhone'])) {
+            $model->contactPhone = $map['ContactPhone'];
+        }
+
+        if (isset($map['ContactPosition'])) {
+            $model->contactPosition = $map['ContactPosition'];
         }
 
         if (isset($map['EnableAutoReply'])) {

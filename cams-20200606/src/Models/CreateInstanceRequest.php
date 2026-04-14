@@ -54,24 +54,9 @@ class CreateInstanceRequest extends Model
     public $officeAddress;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
     protected $_name = [
         'channelType' => 'ChannelType',
         'contactMail' => 'ContactMail',
@@ -82,10 +67,7 @@ class CreateInstanceRequest extends Model
         'isConfirmAudit' => 'IsConfirmAudit',
         'isvTerms' => 'IsvTerms',
         'officeAddress' => 'OfficeAddress',
-        'ownerId' => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -132,20 +114,8 @@ class CreateInstanceRequest extends Model
             $res['OfficeAddress'] = $this->officeAddress;
         }
 
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -195,20 +165,8 @@ class CreateInstanceRequest extends Model
             $model->officeAddress = $map['OfficeAddress'];
         }
 
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

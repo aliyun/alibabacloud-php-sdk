@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteInstanceRequest extends Model
+class ListWhatAppTemplateRequest extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $custSpaceId;
+
+    /**
+     * @var string
+     */
+    public $hetuParams;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'custSpaceId' => 'CustSpaceId',
+        'hetuParams' => 'HetuParams',
     ];
 
     public function validate()
@@ -24,8 +30,12 @@ class DeleteInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->custSpaceId) {
+            $res['CustSpaceId'] = $this->custSpaceId;
+        }
+
+        if (null !== $this->hetuParams) {
+            $res['HetuParams'] = $this->hetuParams;
         }
 
         return $res;
@@ -39,8 +49,12 @@ class DeleteInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['CustSpaceId'])) {
+            $model->custSpaceId = $map['CustSpaceId'];
+        }
+
+        if (isset($map['HetuParams'])) {
+            $model->hetuParams = $map['HetuParams'];
         }
 
         return $model;

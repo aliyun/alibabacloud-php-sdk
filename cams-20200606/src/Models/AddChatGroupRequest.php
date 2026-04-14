@@ -29,6 +29,11 @@ class AddChatGroupRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $groupLink;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -52,6 +57,7 @@ class AddChatGroupRequest extends Model
         'channelType' => 'ChannelType',
         'custSpaceId' => 'CustSpaceId',
         'description' => 'Description',
+        'groupLink' => 'GroupLink',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
@@ -80,6 +86,10 @@ class AddChatGroupRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->groupLink) {
+            $res['GroupLink'] = $this->groupLink;
         }
 
         if (null !== $this->ownerId) {
@@ -123,6 +133,10 @@ class AddChatGroupRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['GroupLink'])) {
+            $model->groupLink = $map['GroupLink'];
         }
 
         if (isset($map['OwnerId'])) {

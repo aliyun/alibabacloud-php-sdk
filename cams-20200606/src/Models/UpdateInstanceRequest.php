@@ -52,21 +52,6 @@ class UpdateInstanceRequest extends Model
      * @var string
      */
     public $officeAddress;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
     protected $_name = [
         'contactMail' => 'ContactMail',
         'countryId' => 'CountryId',
@@ -77,9 +62,6 @@ class UpdateInstanceRequest extends Model
         'isConfirmAudit' => 'IsConfirmAudit',
         'isvTerms' => 'IsvTerms',
         'officeAddress' => 'OfficeAddress',
-        'ownerId' => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -124,18 +106,6 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->officeAddress) {
             $res['OfficeAddress'] = $this->officeAddress;
-        }
-
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -183,18 +153,6 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['OfficeAddress'])) {
             $model->officeAddress = $map['OfficeAddress'];
-        }
-
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;
