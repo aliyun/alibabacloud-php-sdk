@@ -284,11 +284,13 @@ class Cloudauth extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -1010,7 +1012,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -1687,7 +1689,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -2023,7 +2025,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -2765,7 +2767,6 @@ class Cloudauth extends OpenApiClient
      * Request Method: Supports sending requests via HTTPS POST and GET methods.
      * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
      *
-     * @param Request - DescribeAntAndCloudAuthUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAntAndCloudAuthUserStatusResponse
@@ -3229,7 +3230,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询任务导出记录.
+     * Query export task records.
      *
      * @param Request - DescribeInfoCheckExportRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3284,7 +3285,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询任务导出记录.
+     * Query export task records.
      *
      * @param Request - DescribeInfoCheckExportRecordRequest
      *
@@ -3533,7 +3534,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询页面元数据.
+     * Query Page Metadata.
      *
      * @param Request - DescribeMetaSearchPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3624,7 +3625,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询页面元数据.
+     * Query Page Metadata.
      *
      * @param Request - DescribeMetaSearchPageListRequest
      *
@@ -3642,7 +3643,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询认证统计信息.
+     * Query Authentication Statistics.
      *
      * @param Request - DescribeMetaStatisticsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3689,7 +3690,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询认证统计信息.
+     * Query Authentication Statistics.
      *
      * @param Request - DescribeMetaStatisticsListRequest
      *
@@ -3707,7 +3708,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询认证统计页面.
+     * Query Authentication Statistics Page.
      *
      * @param Request - DescribeMetaStatisticsPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3762,7 +3763,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * 查询认证统计页面.
+     * Query Authentication Statistics Page.
      *
      * @param Request - DescribeMetaStatisticsPageListRequest
      *
@@ -3916,7 +3917,6 @@ class Cloudauth extends OpenApiClient
     /**
      * Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
      *
-     * @param Request - DescribeOssUploadTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeOssUploadTokenResponse
@@ -4040,7 +4040,6 @@ class Cloudauth extends OpenApiClient
      * @remarks
      * Request Method: Only supports sending requests via HTTPS POST method.
      *
-     * @param Request - DescribePageSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribePageSettingResponse
@@ -4090,7 +4089,6 @@ class Cloudauth extends OpenApiClient
      * @remarks
      * Request Method: Supports sending requests via HTTPS GET/POST methods.
      *
-     * @param Request - DescribeProductCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeProductCodeResponse
@@ -5822,7 +5820,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -5845,7 +5843,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -6020,7 +6018,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -6187,7 +6185,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -6210,7 +6208,7 @@ class Cloudauth extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -8448,9 +8446,7 @@ class Cloudauth extends OpenApiClient
      * Update Ant Blockchain Transaction Scenario.
      *
      * @remarks
-     * Update the information of a financial-level authentication scenario based on the scenario ID.
-     * - Service address: cloudauth.aliyuncs.com.
-     * - Request method: HTTPS POST.
+     * Content of the uploaded verification file.
      *
      * @param Request - UpdateAntCloudAuthSceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8536,9 +8532,7 @@ class Cloudauth extends OpenApiClient
      * Update Ant Blockchain Transaction Scenario.
      *
      * @remarks
-     * Update the information of a financial-level authentication scenario based on the scenario ID.
-     * - Service address: cloudauth.aliyuncs.com.
-     * - Request method: HTTPS POST.
+     * Content of the uploaded verification file.
      *
      * @param Request - UpdateAntCloudAuthSceneRequest
      *

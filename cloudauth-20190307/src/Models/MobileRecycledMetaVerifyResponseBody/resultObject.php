@@ -16,9 +16,15 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $ispName;
+
+    /**
+     * @var string
+     */
     public $subCode;
     protected $_name = [
         'bizCode' => 'BizCode',
+        'ispName' => 'IspName',
         'subCode' => 'SubCode',
     ];
 
@@ -32,6 +38,10 @@ class resultObject extends Model
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
+        }
+
+        if (null !== $this->ispName) {
+            $res['IspName'] = $this->ispName;
         }
 
         if (null !== $this->subCode) {
@@ -51,6 +61,10 @@ class resultObject extends Model
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
+        }
+
+        if (isset($map['IspName'])) {
+            $model->ispName = $map['IspName'];
         }
 
         if (isset($map['SubCode'])) {
