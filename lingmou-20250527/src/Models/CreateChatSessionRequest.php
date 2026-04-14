@@ -11,6 +11,16 @@ class CreateChatSessionRequest extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -23,6 +33,8 @@ class CreateChatSessionRequest extends Model
      */
     public $platform;
     protected $_name = [
+        'appId' => 'appId',
+        'deviceId' => 'deviceId',
         'instanceId' => 'instanceId',
         'license' => 'license',
         'platform' => 'platform',
@@ -36,6 +48,14 @@ class CreateChatSessionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['appId'] = $this->appId;
+        }
+
+        if (null !== $this->deviceId) {
+            $res['deviceId'] = $this->deviceId;
+        }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
@@ -59,6 +79,14 @@ class CreateChatSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appId'])) {
+            $model->appId = $map['appId'];
+        }
+
+        if (isset($map['deviceId'])) {
+            $model->deviceId = $map['deviceId'];
+        }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }

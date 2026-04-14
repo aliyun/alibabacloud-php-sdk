@@ -651,6 +651,14 @@ class LingMou extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appId) {
+            @$query['appId'] = $request->appId;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['deviceId'] = $request->deviceId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['instanceId'] = $request->instanceId;
         }
