@@ -63,7 +63,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取连接信息.
+     * Queries the credential used to connect to an app instance.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -198,7 +198,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取连接信息.
+     * Queries the credential used to connect to an app instance.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -216,7 +216,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 已上架应用列表.
+     * Queries information about published apps.
      *
      * @param request - ListPublishedAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -311,7 +311,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 已上架应用列表.
+     * Queries information about published apps.
      *
      * @param request - ListPublishedAppInfoRequest
      *
@@ -329,7 +329,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 运行中应用列表.
+     * Queries running apps.
      *
      * @param request - ListRunningAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -412,7 +412,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 运行中应用列表.
+     * Queries running apps.
      *
      * @param request - ListRunningAppsRequest
      *
@@ -430,7 +430,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 重置应用资源.
+     * Resets app resources.
      *
      * @param request - ResetAppResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -517,7 +517,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 重置应用资源.
+     * Resets app resources.
      *
      * @param request - ResetAppResourcesRequest
      *
@@ -535,7 +535,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 重启应用资源.
+     * Restarts app resources.
      *
      * @param request - RestartAppResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -622,7 +622,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 重启应用资源.
+     * Restarts app resources.
      *
      * @param request - RestartAppResourcesRequest
      *
@@ -640,7 +640,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 启动应用资源.
+     * Starts app resources.
      *
      * @param request - StartAppResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -727,7 +727,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 启动应用资源.
+     * Starts app resources.
      *
      * @param request - StartAppResourcesRequest
      *
@@ -745,7 +745,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 停止应用.
+     * Stops a specific app.
      *
      * @param request - StopAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -864,7 +864,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 停止应用.
+     * Stops a specific app.
      *
      * @param request - StopAppRequest
      *
@@ -882,7 +882,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 关闭应用资源.
+     * Stops app resources.
      *
      * @param request - StopAppResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -969,7 +969,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 关闭应用资源.
+     * Stops app resources.
      *
      * @param request - StopAppResourcesRequest
      *
@@ -987,7 +987,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 解绑实例.
+     * Unbinds an app instance from a user.
      *
      * @param request - UnbindRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1078,7 +1078,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 解绑实例.
+     * Unbinds an app instance from a user.
      *
      * @param request - UnbindRequest
      *
