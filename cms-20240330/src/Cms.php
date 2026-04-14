@@ -1898,6 +1898,10 @@ class Cms extends OpenApiClient
             @$body['namespace'] = $request->namespace;
         }
 
+        if (null !== $request->tenantId) {
+            @$body['tenantId'] = $request->tenantId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -7747,6 +7751,10 @@ class Cms extends OpenApiClient
         $query = [];
         if (null !== $request->namespace) {
             @$query['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
         }
 
         $req = new OpenApiRequest([

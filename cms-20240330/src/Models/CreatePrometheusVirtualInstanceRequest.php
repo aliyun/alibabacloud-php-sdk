@@ -12,8 +12,14 @@ class CreatePrometheusVirtualInstanceRequest extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
     protected $_name = [
         'namespace' => 'namespace',
+        'tenantId' => 'tenantId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class CreatePrometheusVirtualInstanceRequest extends Model
         $res = [];
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['tenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class CreatePrometheusVirtualInstanceRequest extends Model
         $model = new self();
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['tenantId'])) {
+            $model->tenantId = $map['tenantId'];
         }
 
         return $model;
