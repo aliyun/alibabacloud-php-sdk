@@ -28,6 +28,11 @@ class ext extends Model
     public $examples;
 
     /**
+     * @var bool
+     */
+    public $langDetect;
+
+    /**
      * @var string[]
      */
     public $sensitives;
@@ -45,6 +50,7 @@ class ext extends Model
         'config' => 'config',
         'domainHint' => 'domainHint',
         'examples' => 'examples',
+        'langDetect' => 'langDetect',
         'sensitives' => 'sensitives',
         'terminologies' => 'terminologies',
         'textTransform' => 'textTransform',
@@ -90,6 +96,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->langDetect) {
+            $res['langDetect'] = $this->langDetect;
         }
 
         if (null !== $this->sensitives) {
@@ -146,6 +156,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['langDetect'])) {
+            $model->langDetect = $map['langDetect'];
         }
 
         if (isset($map['sensitives'])) {

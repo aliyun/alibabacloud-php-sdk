@@ -33,6 +33,11 @@ class ext extends Model
     public $examples;
 
     /**
+     * @var bool
+     */
+    public $langDetect;
+
+    /**
      * @var mixed
      */
     public $paramMap;
@@ -61,6 +66,7 @@ class ext extends Model
         'config' => 'config',
         'domainHint' => 'domainHint',
         'examples' => 'examples',
+        'langDetect' => 'langDetect',
         'paramMap' => 'paramMap',
         'prefix' => 'prefix',
         'sensitives' => 'sensitives',
@@ -112,6 +118,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->langDetect) {
+            $res['langDetect'] = $this->langDetect;
         }
 
         if (null !== $this->paramMap) {
@@ -180,6 +190,10 @@ class ext extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['langDetect'])) {
+            $model->langDetect = $map['langDetect'];
         }
 
         if (isset($map['paramMap'])) {
