@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest\dingtal
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest\larkConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest\ldapConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest\oidcConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest\samlConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest\weComConfig;
 
 class UpdateIdentityProviderRequest extends Model
@@ -64,6 +65,11 @@ class UpdateIdentityProviderRequest extends Model
     public $oidcConfig;
 
     /**
+     * @var samlConfig
+     */
+    public $samlConfig;
+
+    /**
      * @var weComConfig
      */
     public $weComConfig;
@@ -78,6 +84,7 @@ class UpdateIdentityProviderRequest extends Model
         'logoUrl' => 'LogoUrl',
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
         'oidcConfig' => 'OidcConfig',
+        'samlConfig' => 'SamlConfig',
         'weComConfig' => 'WeComConfig',
     ];
 
@@ -94,6 +101,9 @@ class UpdateIdentityProviderRequest extends Model
         }
         if (null !== $this->oidcConfig) {
             $this->oidcConfig->validate();
+        }
+        if (null !== $this->samlConfig) {
+            $this->samlConfig->validate();
         }
         if (null !== $this->weComConfig) {
             $this->weComConfig->validate();
@@ -142,6 +152,10 @@ class UpdateIdentityProviderRequest extends Model
 
         if (null !== $this->oidcConfig) {
             $res['OidcConfig'] = null !== $this->oidcConfig ? $this->oidcConfig->toArray($noStream) : $this->oidcConfig;
+        }
+
+        if (null !== $this->samlConfig) {
+            $res['SamlConfig'] = null !== $this->samlConfig ? $this->samlConfig->toArray($noStream) : $this->samlConfig;
         }
 
         if (null !== $this->weComConfig) {
@@ -197,6 +211,10 @@ class UpdateIdentityProviderRequest extends Model
 
         if (isset($map['OidcConfig'])) {
             $model->oidcConfig = oidcConfig::fromMap($map['OidcConfig']);
+        }
+
+        if (isset($map['SamlConfig'])) {
+            $model->samlConfig = samlConfig::fromMap($map['SamlConfig']);
         }
 
         if (isset($map['WeComConfig'])) {

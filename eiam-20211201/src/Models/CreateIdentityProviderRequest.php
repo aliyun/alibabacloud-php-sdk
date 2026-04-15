@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\dingtal
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\larkConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\ldapConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\oidcConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\samlConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPullConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPushConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\weComConfig;
@@ -90,6 +91,11 @@ class CreateIdentityProviderRequest extends Model
     public $oidcConfig;
 
     /**
+     * @var samlConfig
+     */
+    public $samlConfig;
+
+    /**
      * @var udPullConfig
      */
     public $udPullConfig;
@@ -118,6 +124,7 @@ class CreateIdentityProviderRequest extends Model
         'logoUrl' => 'LogoUrl',
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
         'oidcConfig' => 'OidcConfig',
+        'samlConfig' => 'SamlConfig',
         'udPullConfig' => 'UdPullConfig',
         'udPushConfig' => 'UdPushConfig',
         'weComConfig' => 'WeComConfig',
@@ -148,6 +155,9 @@ class CreateIdentityProviderRequest extends Model
         }
         if (null !== $this->oidcConfig) {
             $this->oidcConfig->validate();
+        }
+        if (null !== $this->samlConfig) {
+            $this->samlConfig->validate();
         }
         if (null !== $this->udPullConfig) {
             $this->udPullConfig->validate();
@@ -218,6 +228,10 @@ class CreateIdentityProviderRequest extends Model
 
         if (null !== $this->oidcConfig) {
             $res['OidcConfig'] = null !== $this->oidcConfig ? $this->oidcConfig->toArray($noStream) : $this->oidcConfig;
+        }
+
+        if (null !== $this->samlConfig) {
+            $res['SamlConfig'] = null !== $this->samlConfig ? $this->samlConfig->toArray($noStream) : $this->samlConfig;
         }
 
         if (null !== $this->udPullConfig) {
@@ -297,6 +311,10 @@ class CreateIdentityProviderRequest extends Model
 
         if (isset($map['OidcConfig'])) {
             $model->oidcConfig = oidcConfig::fromMap($map['OidcConfig']);
+        }
+
+        if (isset($map['SamlConfig'])) {
+            $model->samlConfig = samlConfig::fromMap($map['SamlConfig']);
         }
 
         if (isset($map['UdPullConfig'])) {

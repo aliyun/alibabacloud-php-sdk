@@ -3715,6 +3715,10 @@ class Eiam extends OpenApiClient
             @$query['OidcConfig'] = $request->oidcConfig;
         }
 
+        if (null !== $request->samlConfig) {
+            @$query['SamlConfig'] = $request->samlConfig;
+        }
+
         if (null !== $request->udPullConfig) {
             @$query['UdPullConfig'] = $request->udPullConfig;
         }
@@ -9672,6 +9676,10 @@ class Eiam extends OpenApiClient
             @$query['OidcIssuer'] = $request->oidcIssuer;
         }
 
+        if (null !== $request->samlMetadataUrl) {
+            @$query['SamlMetadataUrl'] = $request->samlMetadataUrl;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -11634,7 +11642,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get identity provider.
+     * Obtains an identity provider (IdP).
      *
      * @param request - GetIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11677,7 +11685,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get identity provider.
+     * Obtains an identity provider (IdP).
      *
      * @param request - GetIdentityProviderRequest
      *
@@ -23278,6 +23286,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->oidcConfig) {
             @$query['OidcConfig'] = $request->oidcConfig;
+        }
+
+        if (null !== $request->samlConfig) {
+            @$query['SamlConfig'] = $request->samlConfig;
         }
 
         if (null !== $request->weComConfig) {

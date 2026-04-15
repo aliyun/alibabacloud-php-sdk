@@ -27,11 +27,17 @@ class ExecIdentityProviderMetadataUrlResolutionRequest extends Model
      * @var string
      */
     public $oidcIssuer;
+
+    /**
+     * @var string
+     */
+    public $samlMetadataUrl;
     protected $_name = [
         'identityProviderId' => 'IdentityProviderId',
         'instanceId' => 'InstanceId',
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
         'oidcIssuer' => 'OidcIssuer',
+        'samlMetadataUrl' => 'SamlMetadataUrl',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ExecIdentityProviderMetadataUrlResolutionRequest extends Model
 
         if (null !== $this->oidcIssuer) {
             $res['OidcIssuer'] = $this->oidcIssuer;
+        }
+
+        if (null !== $this->samlMetadataUrl) {
+            $res['SamlMetadataUrl'] = $this->samlMetadataUrl;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ExecIdentityProviderMetadataUrlResolutionRequest extends Model
 
         if (isset($map['OidcIssuer'])) {
             $model->oidcIssuer = $map['OidcIssuer'];
+        }
+
+        if (isset($map['SamlMetadataUrl'])) {
+            $model->samlMetadataUrl = $map['SamlMetadataUrl'];
         }
 
         return $model;

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrl
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionResponseBody\identityProviderMetadata\oidcOpenIdConfiguration;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ExecIdentityProviderMetadataUrlResolutionResponseBody\identityProviderMetadata\samlMetadataConfiguration;
 
 class identityProviderMetadata extends Model
 {
@@ -13,14 +14,23 @@ class identityProviderMetadata extends Model
      * @var oidcOpenIdConfiguration
      */
     public $oidcOpenIdConfiguration;
+
+    /**
+     * @var samlMetadataConfiguration
+     */
+    public $samlMetadataConfiguration;
     protected $_name = [
         'oidcOpenIdConfiguration' => 'OidcOpenIdConfiguration',
+        'samlMetadataConfiguration' => 'SamlMetadataConfiguration',
     ];
 
     public function validate()
     {
         if (null !== $this->oidcOpenIdConfiguration) {
             $this->oidcOpenIdConfiguration->validate();
+        }
+        if (null !== $this->samlMetadataConfiguration) {
+            $this->samlMetadataConfiguration->validate();
         }
         parent::validate();
     }
@@ -30,6 +40,10 @@ class identityProviderMetadata extends Model
         $res = [];
         if (null !== $this->oidcOpenIdConfiguration) {
             $res['OidcOpenIdConfiguration'] = null !== $this->oidcOpenIdConfiguration ? $this->oidcOpenIdConfiguration->toArray($noStream) : $this->oidcOpenIdConfiguration;
+        }
+
+        if (null !== $this->samlMetadataConfiguration) {
+            $res['SamlMetadataConfiguration'] = null !== $this->samlMetadataConfiguration ? $this->samlMetadataConfiguration->toArray($noStream) : $this->samlMetadataConfiguration;
         }
 
         return $res;
@@ -45,6 +59,10 @@ class identityProviderMetadata extends Model
         $model = new self();
         if (isset($map['OidcOpenIdConfiguration'])) {
             $model->oidcOpenIdConfiguration = oidcOpenIdConfiguration::fromMap($map['OidcOpenIdConfiguration']);
+        }
+
+        if (isset($map['SamlMetadataConfiguration'])) {
+            $model->samlMetadataConfiguration = samlMetadataConfiguration::fromMap($map['SamlMetadataConfiguration']);
         }
 
         return $model;

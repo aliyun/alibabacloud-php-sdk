@@ -7,9 +7,11 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\dingtalkAppConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\dingtalkProvisioningConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\endpointMetadata;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\larkConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\ldapConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\oidcConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\samlConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\udPullConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\udPushConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\weComConfig;
@@ -55,6 +57,11 @@ class identityProviderDetail extends Model
      * @var dingtalkProvisioningConfig
      */
     public $dingtalkProvisioningConfig;
+
+    /**
+     * @var endpointMetadata
+     */
+    public $endpointMetadata;
 
     /**
      * @var string
@@ -117,6 +124,11 @@ class identityProviderDetail extends Model
     public $oidcConfig;
 
     /**
+     * @var samlConfig
+     */
+    public $samlConfig;
+
+    /**
      * @var udPullConfig
      */
     public $udPullConfig;
@@ -154,6 +166,7 @@ class identityProviderDetail extends Model
         'description' => 'Description',
         'dingtalkAppConfig' => 'DingtalkAppConfig',
         'dingtalkProvisioningConfig' => 'DingtalkProvisioningConfig',
+        'endpointMetadata' => 'EndpointMetadata',
         'identityProviderExternalId' => 'IdentityProviderExternalId',
         'identityProviderId' => 'IdentityProviderId',
         'identityProviderName' => 'IdentityProviderName',
@@ -166,6 +179,7 @@ class identityProviderDetail extends Model
         'logoUrl' => 'LogoUrl',
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
         'oidcConfig' => 'OidcConfig',
+        'samlConfig' => 'SamlConfig',
         'udPullConfig' => 'UdPullConfig',
         'udPullStatus' => 'UdPullStatus',
         'udPushConfig' => 'UdPushConfig',
@@ -182,6 +196,9 @@ class identityProviderDetail extends Model
         if (null !== $this->dingtalkProvisioningConfig) {
             $this->dingtalkProvisioningConfig->validate();
         }
+        if (null !== $this->endpointMetadata) {
+            $this->endpointMetadata->validate();
+        }
         if (null !== $this->larkConfig) {
             $this->larkConfig->validate();
         }
@@ -190,6 +207,9 @@ class identityProviderDetail extends Model
         }
         if (null !== $this->oidcConfig) {
             $this->oidcConfig->validate();
+        }
+        if (null !== $this->samlConfig) {
+            $this->samlConfig->validate();
         }
         if (null !== $this->udPullConfig) {
             $this->udPullConfig->validate();
@@ -238,6 +258,10 @@ class identityProviderDetail extends Model
             $res['DingtalkProvisioningConfig'] = null !== $this->dingtalkProvisioningConfig ? $this->dingtalkProvisioningConfig->toArray($noStream) : $this->dingtalkProvisioningConfig;
         }
 
+        if (null !== $this->endpointMetadata) {
+            $res['EndpointMetadata'] = null !== $this->endpointMetadata ? $this->endpointMetadata->toArray($noStream) : $this->endpointMetadata;
+        }
+
         if (null !== $this->identityProviderExternalId) {
             $res['IdentityProviderExternalId'] = $this->identityProviderExternalId;
         }
@@ -284,6 +308,10 @@ class identityProviderDetail extends Model
 
         if (null !== $this->oidcConfig) {
             $res['OidcConfig'] = null !== $this->oidcConfig ? $this->oidcConfig->toArray($noStream) : $this->oidcConfig;
+        }
+
+        if (null !== $this->samlConfig) {
+            $res['SamlConfig'] = null !== $this->samlConfig ? $this->samlConfig->toArray($noStream) : $this->samlConfig;
         }
 
         if (null !== $this->udPullConfig) {
@@ -353,6 +381,10 @@ class identityProviderDetail extends Model
             $model->dingtalkProvisioningConfig = dingtalkProvisioningConfig::fromMap($map['DingtalkProvisioningConfig']);
         }
 
+        if (isset($map['EndpointMetadata'])) {
+            $model->endpointMetadata = endpointMetadata::fromMap($map['EndpointMetadata']);
+        }
+
         if (isset($map['IdentityProviderExternalId'])) {
             $model->identityProviderExternalId = $map['IdentityProviderExternalId'];
         }
@@ -399,6 +431,10 @@ class identityProviderDetail extends Model
 
         if (isset($map['OidcConfig'])) {
             $model->oidcConfig = oidcConfig::fromMap($map['OidcConfig']);
+        }
+
+        if (isset($map['SamlConfig'])) {
+            $model->samlConfig = samlConfig::fromMap($map['SamlConfig']);
         }
 
         if (isset($map['UdPullConfig'])) {
