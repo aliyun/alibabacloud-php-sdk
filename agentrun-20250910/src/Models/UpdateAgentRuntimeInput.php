@@ -54,6 +54,11 @@ class UpdateAgentRuntimeInput extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $enableSessionIsolation;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -132,6 +137,7 @@ class UpdateAgentRuntimeInput extends Model
         'credentialName' => 'credentialName',
         'description' => 'description',
         'diskSize' => 'diskSize',
+        'enableSessionIsolation' => 'enableSessionIsolation',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'externalAgentEndpointUrl' => 'externalAgentEndpointUrl',
@@ -220,6 +226,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (null !== $this->diskSize) {
             $res['diskSize'] = $this->diskSize;
+        }
+
+        if (null !== $this->enableSessionIsolation) {
+            $res['enableSessionIsolation'] = $this->enableSessionIsolation;
         }
 
         if (null !== $this->environmentVariables) {
@@ -328,6 +338,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (isset($map['diskSize'])) {
             $model->diskSize = $map['diskSize'];
+        }
+
+        if (isset($map['enableSessionIsolation'])) {
+            $model->enableSessionIsolation = $map['enableSessionIsolation'];
         }
 
         if (isset($map['environmentVariables'])) {

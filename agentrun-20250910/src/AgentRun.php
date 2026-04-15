@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ActivateTemplateMCPRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ActivateTemplateMCPResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ConvertFlowDSLRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ConvertFlowDSLResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateAgentRuntimeRequest;
@@ -20,6 +22,10 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCustomDomainRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateCustomDomainResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowEndpointRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowEndpointResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryCollectionRequest;
@@ -48,6 +54,12 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCustomDomainRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCustomDomainResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowEndpointRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowEndpointResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowVersionRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowVersionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryCollectionRequest;
@@ -78,6 +90,14 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCustomDomainRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCustomDomainResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowDraftRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowDraftResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowEndpointRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowEndpointResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowVersionRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowVersionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryCollectionRequest;
@@ -110,6 +130,12 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCredentialsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCustomDomainsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListCustomDomainsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowEndpointsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowEndpointsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowVersionsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowVersionsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryCollectionsRequest;
@@ -130,6 +156,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PauseSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PauseSandboxResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishFlowVersionRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishFlowVersionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ResumeSandboxRequest;
@@ -146,6 +174,12 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCredentialResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCustomDomainRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateCustomDomainResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowDraftRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowDraftResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowEndpointRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowEndpointResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryCollectionRequest;
@@ -266,6 +300,68 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->activateTemplateMCPWithOptions($templateName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 转换Flow DSL.
+     *
+     * @remarks
+     * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+     *
+     * @param request - ConvertFlowDSLRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertFlowDSLResponse
+     *
+     * @param ConvertFlowDSLRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ConvertFlowDSLResponse
+     */
+    public function convertFlowDSLWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertFlowDSL',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/action/convertDsl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ConvertFlowDSLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 转换Flow DSL.
+     *
+     * @remarks
+     * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+     *
+     * @param request - ConvertFlowDSLRequest
+     *
+     * @returns ConvertFlowDSLResponse
+     *
+     * @param ConvertFlowDSLRequest $request
+     *
+     * @return ConvertFlowDSLResponse
+     */
+    public function convertFlowDSL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->convertFlowDSLWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -628,6 +724,132 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->createCustomDomainWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建工作流
+     *
+     * @remarks
+     * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+     *
+     * @param request - CreateFlowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFlowResponse
+     *
+     * @param CreateFlowRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFlowResponse
+     */
+    public function createFlowWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFlow',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工作流
+     *
+     * @remarks
+     * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+     *
+     * @param request - CreateFlowRequest
+     *
+     * @returns CreateFlowResponse
+     *
+     * @param CreateFlowRequest $request
+     *
+     * @return CreateFlowResponse
+     */
+    public function createFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFlowWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建工作流端点.
+     *
+     * @remarks
+     * 为指定工作流创建一个新的端点，用于对外提供服务访问。
+     *
+     * @param request - CreateFlowEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFlowEndpointResponse
+     *
+     * @param string                    $flowName
+     * @param CreateFlowEndpointRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateFlowEndpointResponse
+     */
+    public function createFlowEndpointWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFlowEndpoint',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/endpoints',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFlowEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建工作流端点.
+     *
+     * @remarks
+     * 为指定工作流创建一个新的端点，用于对外提供服务访问。
+     *
+     * @param request - CreateFlowEndpointRequest
+     *
+     * @returns CreateFlowEndpointResponse
+     *
+     * @param string                    $flowName
+     * @param CreateFlowEndpointRequest $request
+     *
+     * @return CreateFlowEndpointResponse
+     */
+    public function createFlowEndpoint($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFlowEndpointWithOptions($flowName, $request, $headers, $runtime);
     }
 
     /**
@@ -1462,6 +1684,199 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除工作流
+     *
+     * @remarks
+     * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     *
+     * @param request - DeleteFlowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowResponse
+     *
+     * @param string            $flowName
+     * @param DeleteFlowRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFlowResponse
+     */
+    public function deleteFlowWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlow',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工作流
+     *
+     * @remarks
+     * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     *
+     * @param request - DeleteFlowRequest
+     *
+     * @returns DeleteFlowResponse
+     *
+     * @param string            $flowName
+     * @param DeleteFlowRequest $request
+     *
+     * @return DeleteFlowResponse
+     */
+    public function deleteFlow($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFlowWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除工作流端点.
+     *
+     * @remarks
+     * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+     *
+     * @param request - DeleteFlowEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowEndpointResponse
+     *
+     * @param string                    $flowName
+     * @param string                    $flowEndpointName
+     * @param DeleteFlowEndpointRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteFlowEndpointResponse
+     */
+    public function deleteFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlowEndpoint',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/endpoints/' . Url::percentEncode($flowEndpointName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工作流端点.
+     *
+     * @remarks
+     * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+     *
+     * @param request - DeleteFlowEndpointRequest
+     *
+     * @returns DeleteFlowEndpointResponse
+     *
+     * @param string                    $flowName
+     * @param string                    $flowEndpointName
+     * @param DeleteFlowEndpointRequest $request
+     *
+     * @return DeleteFlowEndpointResponse
+     */
+    public function deleteFlowEndpoint($flowName, $flowEndpointName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除工作流版本.
+     *
+     * @remarks
+     * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+     *
+     * @param request - DeleteFlowVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowVersionResponse
+     *
+     * @param string                   $flowName
+     * @param string                   $flowVersion
+     * @param DeleteFlowVersionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteFlowVersionResponse
+     */
+    public function deleteFlowVersionWithOptions($flowName, $flowVersion, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlowVersion',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/versions/' . Url::percentEncode($flowVersion) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工作流版本.
+     *
+     * @remarks
+     * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+     *
+     * @param request - DeleteFlowVersionRequest
+     *
+     * @returns DeleteFlowVersionResponse
+     *
+     * @param string                   $flowName
+     * @param string                   $flowVersion
+     * @param DeleteFlowVersionRequest $request
+     *
+     * @return DeleteFlowVersionResponse
+     */
+    public function deleteFlowVersion($flowName, $flowVersion, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFlowVersionWithOptions($flowName, $flowVersion, $request, $headers, $runtime);
     }
 
     /**
@@ -2376,6 +2791,262 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 获取工作流详情.
+     *
+     * @remarks
+     * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+     *
+     * @param request - GetFlowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlowResponse
+     *
+     * @param string         $flowName
+     * @param GetFlowRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFlowResponse
+     */
+    public function getFlowWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetFlow',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作流详情.
+     *
+     * @remarks
+     * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+     *
+     * @param request - GetFlowRequest
+     *
+     * @returns GetFlowResponse
+     *
+     * @param string         $flowName
+     * @param GetFlowRequest $request
+     *
+     * @return GetFlowResponse
+     */
+    public function getFlow($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getFlowWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取工作流草稿
+     *
+     * @remarks
+     * 获取指定工作流的草稿版本，返回草稿中的配置信息。
+     *
+     * @param request - GetFlowDraftRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlowDraftResponse
+     *
+     * @param string              $flowName
+     * @param GetFlowDraftRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetFlowDraftResponse
+     */
+    public function getFlowDraftWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetFlowDraft',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/draft',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlowDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作流草稿
+     *
+     * @remarks
+     * 获取指定工作流的草稿版本，返回草稿中的配置信息。
+     *
+     * @param request - GetFlowDraftRequest
+     *
+     * @returns GetFlowDraftResponse
+     *
+     * @param string              $flowName
+     * @param GetFlowDraftRequest $request
+     *
+     * @return GetFlowDraftResponse
+     */
+    public function getFlowDraft($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getFlowDraftWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取工作流端点详情.
+     *
+     * @remarks
+     * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+     *
+     * @param request - GetFlowEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlowEndpointResponse
+     *
+     * @param string                 $flowName
+     * @param string                 $flowEndpointName
+     * @param GetFlowEndpointRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetFlowEndpointResponse
+     */
+    public function getFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetFlowEndpoint',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/endpoints/' . Url::percentEncode($flowEndpointName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlowEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作流端点详情.
+     *
+     * @remarks
+     * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+     *
+     * @param request - GetFlowEndpointRequest
+     *
+     * @returns GetFlowEndpointResponse
+     *
+     * @param string                 $flowName
+     * @param string                 $flowEndpointName
+     * @param GetFlowEndpointRequest $request
+     *
+     * @return GetFlowEndpointResponse
+     */
+    public function getFlowEndpoint($flowName, $flowEndpointName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取工作流版本详情.
+     *
+     * @remarks
+     * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+     *
+     * @param request - GetFlowVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlowVersionResponse
+     *
+     * @param string                $flowName
+     * @param string                $flowVersion
+     * @param GetFlowVersionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetFlowVersionResponse
+     */
+    public function getFlowVersionWithOptions($flowName, $flowVersion, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetFlowVersion',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/versions/' . Url::percentEncode($flowVersion) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作流版本详情.
+     *
+     * @remarks
+     * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+     *
+     * @param request - GetFlowVersionRequest
+     *
+     * @returns GetFlowVersionResponse
+     *
+     * @param string                $flowName
+     * @param string                $flowVersion
+     * @param GetFlowVersionRequest $request
+     *
+     * @return GetFlowVersionResponse
+     */
+    public function getFlowVersion($flowName, $flowVersion, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getFlowVersionWithOptions($flowName, $flowVersion, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取知识库.
      *
      * @param request - GetKnowledgeBaseRequest
@@ -3110,6 +3781,10 @@ class AgentRun extends OpenApiClient
             @$query['status'] = $request->status;
         }
 
+        if (null !== $request->systemTags) {
+            @$query['systemTags'] = $request->systemTags;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['workspaceId'] = $request->workspaceId;
         }
@@ -3485,6 +4160,235 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->listCustomDomainsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出工作流端点.
+     *
+     * @remarks
+     * 获取指定工作流的所有端点列表，支持分页查询。
+     *
+     * @param request - ListFlowEndpointsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowEndpointsResponse
+     *
+     * @param string                   $flowId
+     * @param ListFlowEndpointsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListFlowEndpointsResponse
+     */
+    public function listFlowEndpointsWithOptions($flowId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlowEndpoints',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowId) . '/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出工作流端点.
+     *
+     * @remarks
+     * 获取指定工作流的所有端点列表，支持分页查询。
+     *
+     * @param request - ListFlowEndpointsRequest
+     *
+     * @returns ListFlowEndpointsResponse
+     *
+     * @param string                   $flowId
+     * @param ListFlowEndpointsRequest $request
+     *
+     * @return ListFlowEndpointsResponse
+     */
+    public function listFlowEndpoints($flowId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFlowEndpointsWithOptions($flowId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出工作流版本.
+     *
+     * @remarks
+     * 获取指定工作流的所有版本列表，支持分页查询。
+     *
+     * @param request - ListFlowVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowVersionsResponse
+     *
+     * @param string                  $flowName
+     * @param ListFlowVersionsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListFlowVersionsResponse
+     */
+    public function listFlowVersionsWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlowVersions',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出工作流版本.
+     *
+     * @remarks
+     * 获取指定工作流的所有版本列表，支持分页查询。
+     *
+     * @param request - ListFlowVersionsRequest
+     *
+     * @returns ListFlowVersionsResponse
+     *
+     * @param string                  $flowName
+     * @param ListFlowVersionsRequest $request
+     *
+     * @return ListFlowVersionsResponse
+     */
+    public function listFlowVersions($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFlowVersionsWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出工作流
+     *
+     * @remarks
+     * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+     *
+     * @param request - ListFlowsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowsResponse
+     *
+     * @param ListFlowsRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFlowsResponse
+     */
+    public function listFlowsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowName) {
+            @$query['flowName'] = $request->flowName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceIds) {
+            @$query['workspaceIds'] = $request->workspaceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlows',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出工作流
+     *
+     * @remarks
+     * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+     *
+     * @param request - ListFlowsRequest
+     *
+     * @returns ListFlowsResponse
+     *
+     * @param ListFlowsRequest $request
+     *
+     * @return ListFlowsResponse
+     */
+    public function listFlows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFlowsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4300,6 +5204,70 @@ class AgentRun extends OpenApiClient
     }
 
     /**
+     * 发布工作流版本.
+     *
+     * @remarks
+     * 为指定工作流发布新版本，用于版本管理和回滚。
+     *
+     * @param request - PublishFlowVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishFlowVersionResponse
+     *
+     * @param string                    $flowName
+     * @param PublishFlowVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PublishFlowVersionResponse
+     */
+    public function publishFlowVersionWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishFlowVersion',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布工作流版本.
+     *
+     * @remarks
+     * 为指定工作流发布新版本，用于版本管理和回滚。
+     *
+     * @param request - PublishFlowVersionRequest
+     *
+     * @returns PublishFlowVersionResponse
+     *
+     * @param string                    $flowName
+     * @param PublishFlowVersionRequest $request
+     *
+     * @return PublishFlowVersionResponse
+     */
+    public function publishFlowVersion($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->publishFlowVersionWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
      * 发布运行时版本.
      *
      * @remarks
@@ -4778,6 +5746,200 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateCustomDomainWithOptions($domainName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新工作流
+     *
+     * @remarks
+     * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+     *
+     * @param request - UpdateFlowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFlowResponse
+     *
+     * @param string            $flowName
+     * @param UpdateFlowRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFlowResponse
+     */
+    public function updateFlowWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFlow',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新工作流
+     *
+     * @remarks
+     * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+     *
+     * @param request - UpdateFlowRequest
+     *
+     * @returns UpdateFlowResponse
+     *
+     * @param string            $flowName
+     * @param UpdateFlowRequest $request
+     *
+     * @return UpdateFlowResponse
+     */
+    public function updateFlow($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFlowWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新工作流草稿
+     *
+     * @remarks
+     * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+     *
+     * @param request - UpdateFlowDraftRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFlowDraftResponse
+     *
+     * @param string                 $flowName
+     * @param UpdateFlowDraftRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateFlowDraftResponse
+     */
+    public function updateFlowDraftWithOptions($flowName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFlowDraft',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/draft',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFlowDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新工作流草稿
+     *
+     * @remarks
+     * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+     *
+     * @param request - UpdateFlowDraftRequest
+     *
+     * @returns UpdateFlowDraftResponse
+     *
+     * @param string                 $flowName
+     * @param UpdateFlowDraftRequest $request
+     *
+     * @return UpdateFlowDraftResponse
+     */
+    public function updateFlowDraft($flowName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFlowDraftWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新工作流端点.
+     *
+     * @remarks
+     * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+     *
+     * @param request - UpdateFlowEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFlowEndpointResponse
+     *
+     * @param string                    $flowName
+     * @param string                    $flowEndpointName
+     * @param UpdateFlowEndpointRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateFlowEndpointResponse
+     */
+    public function updateFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFlowEndpoint',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/flows/' . Url::percentEncode($flowName) . '/endpoints/' . Url::percentEncode($flowEndpointName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFlowEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新工作流端点.
+     *
+     * @remarks
+     * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+     *
+     * @param request - UpdateFlowEndpointRequest
+     *
+     * @returns UpdateFlowEndpointResponse
+     *
+     * @param string                    $flowName
+     * @param string                    $flowEndpointName
+     * @param UpdateFlowEndpointRequest $request
+     *
+     * @return UpdateFlowEndpointResponse
+     */
+    public function updateFlowEndpoint($flowName, $flowEndpointName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime);
     }
 
     /**

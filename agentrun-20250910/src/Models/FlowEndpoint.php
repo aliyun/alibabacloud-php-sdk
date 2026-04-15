@@ -49,11 +49,6 @@ class FlowEndpoint extends Model
     public $routingConfiguration;
 
     /**
-     * @var string[]
-     */
-    public $tags;
-
-    /**
      * @var string
      */
     public $targetVersion;
@@ -66,7 +61,6 @@ class FlowEndpoint extends Model
         'flowId' => 'flowId',
         'lastUpdatedAt' => 'lastUpdatedAt',
         'routingConfiguration' => 'routingConfiguration',
-        'tags' => 'tags',
         'targetVersion' => 'targetVersion',
     ];
 
@@ -74,9 +68,6 @@ class FlowEndpoint extends Model
     {
         if (\is_array($this->routingConfiguration)) {
             Model::validateArray($this->routingConfiguration);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -118,17 +109,6 @@ class FlowEndpoint extends Model
                 $n1 = 0;
                 foreach ($this->routingConfiguration as $item1) {
                     $res['routingConfiguration'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -183,17 +163,6 @@ class FlowEndpoint extends Model
                 $n1 = 0;
                 foreach ($map['routingConfiguration'] as $item1) {
                     $model->routingConfiguration[$n1] = FlowEndpointRoutingConfig::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = $item1;
                     ++$n1;
                 }
             }

@@ -49,11 +49,6 @@ class CreateFlowInput extends Model
     public $resourceGroupId;
 
     /**
-     * @var string[]
-     */
-    public $tags;
-
-    /**
      * @var TracingConfiguration
      */
     public $tracingConfiguration;
@@ -71,7 +66,6 @@ class CreateFlowInput extends Model
         'flowName' => 'flowName',
         'loggingConfiguration' => 'loggingConfiguration',
         'resourceGroupId' => 'resourceGroupId',
-        'tags' => 'tags',
         'tracingConfiguration' => 'tracingConfiguration',
         'workspaceId' => 'workspaceId',
     ];
@@ -83,9 +77,6 @@ class CreateFlowInput extends Model
         }
         if (null !== $this->loggingConfiguration) {
             $this->loggingConfiguration->validate();
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
         }
         if (null !== $this->tracingConfiguration) {
             $this->tracingConfiguration->validate();
@@ -126,17 +117,6 @@ class CreateFlowInput extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
-        }
-
-        if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->tracingConfiguration) {
@@ -188,17 +168,6 @@ class CreateFlowInput extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
-        }
-
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['tracingConfiguration'])) {

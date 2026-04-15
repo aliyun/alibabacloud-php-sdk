@@ -1,3 +1,24 @@
+2026-04-15 Version: 5.8.0
+- Support API ConvertFlowDSL.
+- Support API CreateFlow.
+- Support API CreateFlowEndpoint.
+- Support API DeleteFlow.
+- Support API DeleteFlowEndpoint.
+- Support API DeleteFlowVersion.
+- Support API GetFlow.
+- Support API GetFlowDraft.
+- Support API GetFlowEndpoint.
+- Support API GetFlowVersion.
+- Support API ListFlowEndpoints.
+- Support API ListFlowVersions.
+- Support API ListFlows.
+- Support API PublishFlowVersion.
+- Support API UpdateFlow.
+- Support API UpdateFlowDraft.
+- Support API UpdateFlowEndpoint.
+- Update API ListAgentRuntimes: add request parameters systemTags.
+
+
 2026-04-09 Version: 5.7.3
 - Update API ListTools: add request parameters toolName.
 

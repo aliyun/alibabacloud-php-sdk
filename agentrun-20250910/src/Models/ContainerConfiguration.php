@@ -32,18 +32,27 @@ class ContainerConfiguration extends Model
      * @var int
      */
     public $port;
+
+    /**
+     * @var RegistryConfig
+     */
+    public $registryConfig;
     protected $_name = [
         'acrInstanceId' => 'acrInstanceId',
         'command' => 'command',
         'image' => 'image',
         'imageRegistryType' => 'imageRegistryType',
         'port' => 'port',
+        'registryConfig' => 'registryConfig',
     ];
 
     public function validate()
     {
         if (\is_array($this->command)) {
             Model::validateArray($this->command);
+        }
+        if (null !== $this->registryConfig) {
+            $this->registryConfig->validate();
         }
         parent::validate();
     }
@@ -76,6 +85,10 @@ class ContainerConfiguration extends Model
 
         if (null !== $this->port) {
             $res['port'] = $this->port;
+        }
+
+        if (null !== $this->registryConfig) {
+            $res['registryConfig'] = null !== $this->registryConfig ? $this->registryConfig->toArray($noStream) : $this->registryConfig;
         }
 
         return $res;
@@ -114,6 +127,10 @@ class ContainerConfiguration extends Model
 
         if (isset($map['port'])) {
             $model->port = $map['port'];
+        }
+
+        if (isset($map['registryConfig'])) {
+            $model->registryConfig = RegistryConfig::fromMap($map['registryConfig']);
         }
 
         return $model;

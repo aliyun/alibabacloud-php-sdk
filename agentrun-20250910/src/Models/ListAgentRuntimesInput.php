@@ -27,17 +27,26 @@ class ListAgentRuntimesInput extends Model
      * @var string[]
      */
     public $statuses;
+
+    /**
+     * @var string[]
+     */
+    public $systemTags;
     protected $_name = [
         'agentRuntimeName' => 'agentRuntimeName',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'statuses' => 'statuses',
+        'systemTags' => 'systemTags',
     ];
 
     public function validate()
     {
         if (\is_array($this->statuses)) {
             Model::validateArray($this->statuses);
+        }
+        if (\is_array($this->systemTags)) {
+            Model::validateArray($this->systemTags);
         }
         parent::validate();
     }
@@ -63,6 +72,17 @@ class ListAgentRuntimesInput extends Model
                 $n1 = 0;
                 foreach ($this->statuses as $item1) {
                     $res['statuses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->systemTags) {
+            if (\is_array($this->systemTags)) {
+                $res['systemTags'] = [];
+                $n1 = 0;
+                foreach ($this->systemTags as $item1) {
+                    $res['systemTags'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -97,6 +117,17 @@ class ListAgentRuntimesInput extends Model
                 $n1 = 0;
                 foreach ($map['statuses'] as $item1) {
                     $model->statuses[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['systemTags'])) {
+            if (!empty($map['systemTags'])) {
+                $model->systemTags = [];
+                $n1 = 0;
+                foreach ($map['systemTags'] as $item1) {
+                    $model->systemTags[$n1] = $item1;
                     ++$n1;
                 }
             }

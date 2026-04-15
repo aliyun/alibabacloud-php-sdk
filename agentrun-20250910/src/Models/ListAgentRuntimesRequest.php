@@ -46,6 +46,11 @@ class ListAgentRuntimesRequest extends Model
     /**
      * @var string
      */
+    public $systemTags;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
 
     /**
@@ -60,6 +65,7 @@ class ListAgentRuntimesRequest extends Model
         'resourceGroupId' => 'resourceGroupId',
         'searchMode' => 'searchMode',
         'status' => 'status',
+        'systemTags' => 'systemTags',
         'workspaceId' => 'workspaceId',
         'workspaceIds' => 'workspaceIds',
     ];
@@ -98,6 +104,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->systemTags) {
+            $res['systemTags'] = $this->systemTags;
         }
 
         if (null !== $this->workspaceId) {
@@ -145,6 +155,10 @@ class ListAgentRuntimesRequest extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['systemTags'])) {
+            $model->systemTags = $map['systemTags'];
         }
 
         if (isset($map['workspaceId'])) {
