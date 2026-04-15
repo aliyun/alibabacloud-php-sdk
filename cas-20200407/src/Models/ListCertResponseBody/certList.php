@@ -14,6 +14,11 @@ class certList extends Model
     public $afterDate;
 
     /**
+     * @var string
+     */
+    public $algorithm;
+
+    /**
      * @var int
      */
     public $beforeDate;
@@ -51,6 +56,16 @@ class certList extends Model
     /**
      * @var string
      */
+    public $serialNo;
+
+    /**
+     * @var string
+     */
+    public $signAlgorithm;
+
+    /**
+     * @var string
+     */
     public $sourceType;
 
     /**
@@ -69,6 +84,7 @@ class certList extends Model
     public $whInstanceId;
     protected $_name = [
         'afterDate' => 'AfterDate',
+        'algorithm' => 'Algorithm',
         'beforeDate' => 'BeforeDate',
         'certType' => 'CertType',
         'commonName' => 'CommonName',
@@ -76,6 +92,8 @@ class certList extends Model
         'identifier' => 'Identifier',
         'issuer' => 'Issuer',
         'sans' => 'Sans',
+        'serialNo' => 'SerialNo',
+        'signAlgorithm' => 'SignAlgorithm',
         'sourceType' => 'SourceType',
         'status' => 'Status',
         'whId' => 'WhId',
@@ -92,6 +110,10 @@ class certList extends Model
         $res = [];
         if (null !== $this->afterDate) {
             $res['AfterDate'] = $this->afterDate;
+        }
+
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
         }
 
         if (null !== $this->beforeDate) {
@@ -120,6 +142,14 @@ class certList extends Model
 
         if (null !== $this->sans) {
             $res['Sans'] = $this->sans;
+        }
+
+        if (null !== $this->serialNo) {
+            $res['SerialNo'] = $this->serialNo;
+        }
+
+        if (null !== $this->signAlgorithm) {
+            $res['SignAlgorithm'] = $this->signAlgorithm;
         }
 
         if (null !== $this->sourceType) {
@@ -153,6 +183,10 @@ class certList extends Model
             $model->afterDate = $map['AfterDate'];
         }
 
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
         if (isset($map['BeforeDate'])) {
             $model->beforeDate = $map['BeforeDate'];
         }
@@ -179,6 +213,14 @@ class certList extends Model
 
         if (isset($map['Sans'])) {
             $model->sans = $map['Sans'];
+        }
+
+        if (isset($map['SerialNo'])) {
+            $model->serialNo = $map['SerialNo'];
+        }
+
+        if (isset($map['SignAlgorithm'])) {
+            $model->signAlgorithm = $map['SignAlgorithm'];
         }
 
         if (isset($map['SourceType'])) {

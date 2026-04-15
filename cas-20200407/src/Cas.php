@@ -2246,7 +2246,6 @@ class Cas extends OpenApiClient
     /**
      * 统计资产数量.
      *
-     * @param request - GetAssetCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAssetCountResponse
@@ -2293,7 +2292,6 @@ class Cas extends OpenApiClient
      * @remarks
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
-     * @param request - GetCertWarehouseQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCertWarehouseQuotaResponse
@@ -2568,7 +2566,6 @@ class Cas extends OpenApiClient
     /**
      * 统计风险资产数量.
      *
-     * @param request - GetRiskCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRiskCountResponse
