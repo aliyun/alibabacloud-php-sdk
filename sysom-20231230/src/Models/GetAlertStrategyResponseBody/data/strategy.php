@@ -16,9 +16,15 @@ class strategy extends Model
     /**
      * @var mixed
      */
+    public $destinations;
+
+    /**
+     * @var mixed
+     */
     public $items;
     protected $_name = [
         'clusters' => 'clusters',
+        'destinations' => 'destinations',
         'items' => 'items',
     ];
 
@@ -42,6 +48,10 @@ class strategy extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->destinations) {
+            $res['destinations'] = $this->destinations;
         }
 
         if (null !== $this->items) {
@@ -68,6 +78,10 @@ class strategy extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['destinations'])) {
+            $model->destinations = $map['destinations'];
         }
 
         if (isset($map['items'])) {

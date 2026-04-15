@@ -9,10 +9,16 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CpuHighAgentStreamResponseRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CpuHighAgentStreamResponseResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertDestinationRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DescribeMetricListRequest;
@@ -29,6 +35,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAIQueryResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAIQueryResultResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertDestinationRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertStrategyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryRequest;
@@ -82,6 +90,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentInstallRecordsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentInstallRecordsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertDestinationsRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertDestinationsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertItemsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertStrategiesRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertStrategiesResponse;
@@ -119,6 +129,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertDestinationRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertStrategyRequest;
@@ -306,6 +318,195 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * cpu高agent流式接口.
+     *
+     * @param request - CpuHighAgentStreamResponseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CpuHighAgentStreamResponseResponse
+     *
+     * @param CpuHighAgentStreamResponseRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CpuHighAgentStreamResponseResponse
+     */
+    public function cpuHighAgentStreamResponseWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->llmParamString) {
+            @$body['llmParamString'] = $request->llmParamString;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CpuHighAgentStreamResponse',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/highCpuAgent/streamResponse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield CpuHighAgentStreamResponseResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * cpu高agent流式接口.
+     *
+     * @param request - CpuHighAgentStreamResponseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CpuHighAgentStreamResponseResponse
+     *
+     * @param CpuHighAgentStreamResponseRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CpuHighAgentStreamResponseResponse
+     */
+    public function cpuHighAgentStreamResponseWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->llmParamString) {
+            @$body['llmParamString'] = $request->llmParamString;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CpuHighAgentStreamResponse',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/highCpuAgent/streamResponse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CpuHighAgentStreamResponseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * cpu高agent流式接口.
+     *
+     * @param request - CpuHighAgentStreamResponseRequest
+     *
+     * @returns CpuHighAgentStreamResponseResponse
+     *
+     * @param CpuHighAgentStreamResponseRequest $request
+     *
+     * @return CpuHighAgentStreamResponseResponse
+     */
+    public function cpuHighAgentStreamResponse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cpuHighAgentStreamResponseWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建一个告警联系人.
+     *
+     * @param request - CreateAlertDestinationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertDestinationResponse
+     *
+     * @param CreateAlertDestinationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateAlertDestinationResponse
+     */
+    public function createAlertDestinationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        if (null !== $request->target) {
+            @$body['target'] = $request->target;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlertDestination',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/createDestination',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlertDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个告警联系人.
+     *
+     * @param request - CreateAlertDestinationRequest
+     *
+     * @returns CreateAlertDestinationResponse
+     *
+     * @param CreateAlertDestinationRequest $request
+     *
+     * @return CreateAlertDestinationResponse
+     */
+    public function createAlertDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertDestinationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 新增推送告警的策略.
      *
      * @param request - CreateAlertStrategyRequest
@@ -453,6 +654,67 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->createVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除告警联系人.
+     *
+     * @param request - DeleteAlertDestinationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertDestinationResponse
+     *
+     * @param DeleteAlertDestinationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAlertDestinationResponse
+     */
+    public function deleteAlertDestinationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlertDestination',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/deleteDestination',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlertDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除告警联系人.
+     *
+     * @param request - DeleteAlertDestinationRequest
+     *
+     * @returns DeleteAlertDestinationResponse
+     *
+     * @param DeleteAlertDestinationRequest $request
+     *
+     * @return DeleteAlertDestinationResponse
+     */
+    public function deleteAlertDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertDestinationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -691,16 +953,17 @@ class SysOM extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield GenerateCopilotStreamResponseResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield GenerateCopilotStreamResponseResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -1035,6 +1298,67 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->getAgentTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取告警联系人详情.
+     *
+     * @param request - GetAlertDestinationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlertDestinationResponse
+     *
+     * @param GetAlertDestinationRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAlertDestinationResponse
+     */
+    public function getAlertDestinationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAlertDestination',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/getDestination',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlertDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取告警联系人详情.
+     *
+     * @param request - GetAlertDestinationRequest
+     *
+     * @returns GetAlertDestinationResponse
+     *
+     * @param GetAlertDestinationRequest $request
+     *
+     * @return GetAlertDestinationResponse
+     */
+    public function getAlertDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlertDestinationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2938,6 +3262,83 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 查看告警联系人列表.
+     *
+     * @param request - ListAlertDestinationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertDestinationsResponse
+     *
+     * @param ListAlertDestinationsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAlertDestinationsResponse
+     */
+    public function listAlertDestinationsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertDestinations',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/listDestinations',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看告警联系人列表.
+     *
+     * @param request - ListAlertDestinationsRequest
+     *
+     * @returns ListAlertDestinationsResponse
+     *
+     * @param ListAlertDestinationsRequest $request
+     *
+     * @return ListAlertDestinationsResponse
+     */
+    public function listAlertDestinations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertDestinationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取所有告警项.
      *
      * @param headers - map
@@ -3399,7 +3800,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 获取一定时间内集群节点/Pod健康度列表.
+     * Obtain a list of cluster node or pod health degrees within a specified time period.
      *
      * @param request - ListInstanceHealthRequest
      * @param headers - map
@@ -3461,7 +3862,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * 获取一定时间内集群节点/Pod健康度列表.
+     * Obtain a list of cluster node or pod health degrees within a specified time period.
      *
      * @param request - ListInstanceHealthRequest
      *
@@ -4418,6 +4819,89 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->uninstallAgentForClusterWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新告警联系人.
+     *
+     * @remarks
+     * 、
+     *
+     * @param request - UpdateAlertDestinationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertDestinationResponse
+     *
+     * @param UpdateAlertDestinationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAlertDestinationResponse
+     */
+    public function updateAlertDestinationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        if (null !== $request->target) {
+            @$body['target'] = $request->target;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertDestination',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/alertPusher/alert/updateDestination',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新告警联系人.
+     *
+     * @remarks
+     * 、
+     *
+     * @param request - UpdateAlertDestinationRequest
+     *
+     * @returns UpdateAlertDestinationResponse
+     *
+     * @param UpdateAlertDestinationRequest $request
+     *
+     * @return UpdateAlertDestinationResponse
+     */
+    public function updateAlertDestination($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertDestinationWithOptions($request, $headers, $runtime);
     }
 
     /**

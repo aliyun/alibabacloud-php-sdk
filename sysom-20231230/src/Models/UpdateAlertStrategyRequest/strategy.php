@@ -14,11 +14,17 @@ class strategy extends Model
     public $clusters;
 
     /**
+     * @var int[]
+     */
+    public $destinations;
+
+    /**
      * @var string[]
      */
     public $items;
     protected $_name = [
         'clusters' => 'clusters',
+        'destinations' => 'destinations',
         'items' => 'items',
     ];
 
@@ -26,6 +32,9 @@ class strategy extends Model
     {
         if (\is_array($this->clusters)) {
             Model::validateArray($this->clusters);
+        }
+        if (\is_array($this->destinations)) {
+            Model::validateArray($this->destinations);
         }
         if (\is_array($this->items)) {
             Model::validateArray($this->items);
@@ -42,6 +51,17 @@ class strategy extends Model
                 $n1 = 0;
                 foreach ($this->clusters as $item1) {
                     $res['clusters'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->destinations) {
+            if (\is_array($this->destinations)) {
+                $res['destinations'] = [];
+                $n1 = 0;
+                foreach ($this->destinations as $item1) {
+                    $res['destinations'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -75,6 +95,17 @@ class strategy extends Model
                 $n1 = 0;
                 foreach ($map['clusters'] as $item1) {
                     $model->clusters[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['destinations'])) {
+            if (!empty($map['destinations'])) {
+                $model->destinations = [];
+                $n1 = 0;
+                foreach ($map['destinations'] as $item1) {
+                    $model->destinations[$n1] = $item1;
                     ++$n1;
                 }
             }

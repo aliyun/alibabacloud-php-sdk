@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateCopilotStreamResponseResponse extends Model
+class CpuHighAgentStreamResponseResponse extends Model
 {
     /**
      * @var string[]
@@ -29,7 +29,7 @@ class GenerateCopilotStreamResponseResponse extends Model
     public $event;
 
     /**
-     * @var GenerateCopilotStreamResponseResponseBody
+     * @var CpuHighAgentStreamResponseResponseBody
      */
     public $body;
     protected $_name = [
@@ -112,7 +112,7 @@ class GenerateCopilotStreamResponseResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GenerateCopilotStreamResponseResponseBody::fromMap($map['body']);
+            $model->body = CpuHighAgentStreamResponseResponseBody::fromMap($map['body']);
         }
 
         return $model;
