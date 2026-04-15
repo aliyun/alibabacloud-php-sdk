@@ -38,6 +38,11 @@ class configs extends Model
     /**
      * @var string
      */
+    public $failedReason;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -50,6 +55,7 @@ class configs extends Model
         'createTime' => 'createTime',
         'deploymentConfig' => 'deploymentConfig',
         'deploymentContent' => 'deploymentContent',
+        'failedReason' => 'failedReason',
         'status' => 'status',
         'version' => 'version',
     ];
@@ -86,6 +92,10 @@ class configs extends Model
 
         if (null !== $this->deploymentContent) {
             $res['deploymentContent'] = $this->deploymentContent;
+        }
+
+        if (null !== $this->failedReason) {
+            $res['failedReason'] = $this->failedReason;
         }
 
         if (null !== $this->status) {
@@ -125,6 +135,10 @@ class configs extends Model
 
         if (isset($map['deploymentContent'])) {
             $model->deploymentContent = $map['deploymentContent'];
+        }
+
+        if (isset($map['failedReason'])) {
+            $model->failedReason = $map['failedReason'];
         }
 
         if (isset($map['status'])) {
