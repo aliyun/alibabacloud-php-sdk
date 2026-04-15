@@ -32,12 +32,24 @@ class CreateScheduleConferenceResponseBody extends Model
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $vendorRequestId;
+
+    /**
+     * @var string
+     */
+    public $vendorType;
     protected $_name = [
         'phones' => 'phones',
         'requestId' => 'requestId',
         'roomCode' => 'roomCode',
         'scheduleConferenceId' => 'scheduleConferenceId',
         'url' => 'url',
+        'vendorRequestId' => 'vendorRequestId',
+        'vendorType' => 'vendorType',
     ];
 
     public function validate()
@@ -78,6 +90,14 @@ class CreateScheduleConferenceResponseBody extends Model
             $res['url'] = $this->url;
         }
 
+        if (null !== $this->vendorRequestId) {
+            $res['vendorRequestId'] = $this->vendorRequestId;
+        }
+
+        if (null !== $this->vendorType) {
+            $res['vendorType'] = $this->vendorType;
+        }
+
         return $res;
     }
 
@@ -114,6 +134,14 @@ class CreateScheduleConferenceResponseBody extends Model
 
         if (isset($map['url'])) {
             $model->url = $map['url'];
+        }
+
+        if (isset($map['vendorRequestId'])) {
+            $model->vendorRequestId = $map['vendorRequestId'];
+        }
+
+        if (isset($map['vendorType'])) {
+            $model->vendorType = $map['vendorType'];
         }
 
         return $model;

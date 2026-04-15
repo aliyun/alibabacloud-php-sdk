@@ -25,6 +25,11 @@ class moziConfVirtualExtraSetting extends Model
     public $enableWebAnonymousJoin;
 
     /**
+     * @var bool
+     */
+    public $hiddenOwnerNick;
+
+    /**
      * @var int
      */
     public $joinBeforeHost;
@@ -43,6 +48,21 @@ class moziConfVirtualExtraSetting extends Model
      * @var string
      */
     public $minutesOwnerUserId;
+
+    /**
+     * @var string
+     */
+    public $minutesSummaryDiyTemplateVersion;
+
+    /**
+     * @var string
+     */
+    public $minutesSummaryTemplateId;
+
+    /**
+     * @var string
+     */
+    public $minutesSummaryTemplateType;
 
     /**
      * @var moziConfExtensionAppSettings[]
@@ -72,10 +92,14 @@ class moziConfVirtualExtraSetting extends Model
         'cloudRecordOwnerUserId' => 'CloudRecordOwnerUserId',
         'enableChat' => 'EnableChat',
         'enableWebAnonymousJoin' => 'EnableWebAnonymousJoin',
+        'hiddenOwnerNick' => 'HiddenOwnerNick',
         'joinBeforeHost' => 'JoinBeforeHost',
         'lockMediaStatusMicMute' => 'LockMediaStatusMicMute',
         'lockNick' => 'LockNick',
         'minutesOwnerUserId' => 'MinutesOwnerUserId',
+        'minutesSummaryDiyTemplateVersion' => 'MinutesSummaryDiyTemplateVersion',
+        'minutesSummaryTemplateId' => 'MinutesSummaryTemplateId',
+        'minutesSummaryTemplateType' => 'MinutesSummaryTemplateType',
         'moziConfExtensionAppSettings' => 'MoziConfExtensionAppSettings',
         'pushAllMeetingRecords' => 'PushAllMeetingRecords',
         'pushCloudRecordCard' => 'PushCloudRecordCard',
@@ -106,6 +130,10 @@ class moziConfVirtualExtraSetting extends Model
             $res['EnableWebAnonymousJoin'] = $this->enableWebAnonymousJoin;
         }
 
+        if (null !== $this->hiddenOwnerNick) {
+            $res['HiddenOwnerNick'] = $this->hiddenOwnerNick;
+        }
+
         if (null !== $this->joinBeforeHost) {
             $res['JoinBeforeHost'] = $this->joinBeforeHost;
         }
@@ -120,6 +148,18 @@ class moziConfVirtualExtraSetting extends Model
 
         if (null !== $this->minutesOwnerUserId) {
             $res['MinutesOwnerUserId'] = $this->minutesOwnerUserId;
+        }
+
+        if (null !== $this->minutesSummaryDiyTemplateVersion) {
+            $res['MinutesSummaryDiyTemplateVersion'] = $this->minutesSummaryDiyTemplateVersion;
+        }
+
+        if (null !== $this->minutesSummaryTemplateId) {
+            $res['MinutesSummaryTemplateId'] = $this->minutesSummaryTemplateId;
+        }
+
+        if (null !== $this->minutesSummaryTemplateType) {
+            $res['MinutesSummaryTemplateType'] = $this->minutesSummaryTemplateType;
         }
 
         if (null !== $this->moziConfExtensionAppSettings) {
@@ -172,6 +212,10 @@ class moziConfVirtualExtraSetting extends Model
             $model->enableWebAnonymousJoin = $map['EnableWebAnonymousJoin'];
         }
 
+        if (isset($map['HiddenOwnerNick'])) {
+            $model->hiddenOwnerNick = $map['HiddenOwnerNick'];
+        }
+
         if (isset($map['JoinBeforeHost'])) {
             $model->joinBeforeHost = $map['JoinBeforeHost'];
         }
@@ -186,6 +230,18 @@ class moziConfVirtualExtraSetting extends Model
 
         if (isset($map['MinutesOwnerUserId'])) {
             $model->minutesOwnerUserId = $map['MinutesOwnerUserId'];
+        }
+
+        if (isset($map['MinutesSummaryDiyTemplateVersion'])) {
+            $model->minutesSummaryDiyTemplateVersion = $map['MinutesSummaryDiyTemplateVersion'];
+        }
+
+        if (isset($map['MinutesSummaryTemplateId'])) {
+            $model->minutesSummaryTemplateId = $map['MinutesSummaryTemplateId'];
+        }
+
+        if (isset($map['MinutesSummaryTemplateType'])) {
+            $model->minutesSummaryTemplateType = $map['MinutesSummaryTemplateType'];
         }
 
         if (isset($map['MoziConfExtensionAppSettings'])) {

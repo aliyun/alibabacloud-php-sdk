@@ -79,6 +79,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchRemovalByFormInstanceIdListHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchRemovalByFormInstanceIdListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchRemovalByFormInstanceIdListResponse;
@@ -666,6 +671,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRunningTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScencegroupFileDownloadurlHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScencegroupFileDownloadurlRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScencegroupFileDownloadurlResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScencegroupFileDownloadurlShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScencegroupFileDownloadurlShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScenegroupResponse;
@@ -2789,6 +2799,104 @@ class Aliding extends OpenApiClient
         $headers = new BatchGetFormDataByIdListHeaders([]);
 
         return $this->batchGetFormDataByIdListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询群成员.
+     *
+     * @param tmpReq - BatchQueryGroupMemberRequest
+     * @param tmpHeader - BatchQueryGroupMemberHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchQueryGroupMemberResponse
+     *
+     * @param BatchQueryGroupMemberRequest $tmpReq
+     * @param BatchQueryGroupMemberHeaders $tmpHeader
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchQueryGroupMemberResponse
+     */
+    public function batchQueryGroupMemberWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchQueryGroupMemberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new BatchQueryGroupMemberShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->coolAppCode) {
+            @$body['CoolAppCode'] = $request->coolAppCode;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->openConversationId) {
+            @$body['OpenConversationId'] = $request->openConversationId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchQueryGroupMember',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/batchQueryGroupMember',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchQueryGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询群成员.
+     *
+     * @param request - BatchQueryGroupMemberRequest
+     *
+     * @returns BatchQueryGroupMemberResponse
+     *
+     * @param BatchQueryGroupMemberRequest $request
+     *
+     * @return BatchQueryGroupMemberResponse
+     */
+    public function batchQueryGroupMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchQueryGroupMemberHeaders([]);
+
+        return $this->batchQueryGroupMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15255,6 +15363,92 @@ class Aliding extends OpenApiClient
         $headers = new GetRunningTasksHeaders([]);
 
         return $this->getRunningTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取场景群文件下载链接.
+     *
+     * @param tmpReq - GetScencegroupFileDownloadurlRequest
+     * @param tmpHeader - GetScencegroupFileDownloadurlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScencegroupFileDownloadurlResponse
+     *
+     * @param GetScencegroupFileDownloadurlRequest $tmpReq
+     * @param GetScencegroupFileDownloadurlHeaders $tmpHeader
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetScencegroupFileDownloadurlResponse
+     */
+    public function getScencegroupFileDownloadurlWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetScencegroupFileDownloadurlShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetScencegroupFileDownloadurlShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->downloadCode) {
+            @$body['DownloadCode'] = $request->downloadCode;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetScencegroupFileDownloadurl',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getScencegroupFileDownloadurl',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScencegroupFileDownloadurlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取场景群文件下载链接.
+     *
+     * @param request - GetScencegroupFileDownloadurlRequest
+     *
+     * @returns GetScencegroupFileDownloadurlResponse
+     *
+     * @param GetScencegroupFileDownloadurlRequest $request
+     *
+     * @return GetScencegroupFileDownloadurlResponse
+     */
+    public function getScencegroupFileDownloadurl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetScencegroupFileDownloadurlHeaders([]);
+
+        return $this->getScencegroupFileDownloadurlWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\aiAgentSummarySetting;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\moziConfOpenRecordSetting;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting;
 
 class scheduleConfSettingModel extends Model
 {
+    /**
+     * @var aiAgentSummarySetting
+     */
+    public $aiAgentSummarySetting;
+
     /**
      * @var string[]
      */
@@ -50,6 +56,7 @@ class scheduleConfSettingModel extends Model
      */
     public $screenShareForbidden;
     protected $_name = [
+        'aiAgentSummarySetting' => 'AiAgentSummarySetting',
         'cohostUserIds' => 'CohostUserIds',
         'confAllowedCorpId' => 'ConfAllowedCorpId',
         'hostUserId' => 'HostUserId',
@@ -62,6 +69,9 @@ class scheduleConfSettingModel extends Model
 
     public function validate()
     {
+        if (null !== $this->aiAgentSummarySetting) {
+            $this->aiAgentSummarySetting->validate();
+        }
         if (\is_array($this->cohostUserIds)) {
             Model::validateArray($this->cohostUserIds);
         }
@@ -77,6 +87,10 @@ class scheduleConfSettingModel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiAgentSummarySetting) {
+            $res['AiAgentSummarySetting'] = null !== $this->aiAgentSummarySetting ? $this->aiAgentSummarySetting->toArray($noStream) : $this->aiAgentSummarySetting;
+        }
+
         if (null !== $this->cohostUserIds) {
             if (\is_array($this->cohostUserIds)) {
                 $res['CohostUserIds'] = [];
@@ -127,6 +141,10 @@ class scheduleConfSettingModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiAgentSummarySetting'])) {
+            $model->aiAgentSummarySetting = aiAgentSummarySetting::fromMap($map['AiAgentSummarySetting']);
+        }
+
         if (isset($map['CohostUserIds'])) {
             if (!empty($map['CohostUserIds'])) {
                 $model->cohostUserIds = [];
