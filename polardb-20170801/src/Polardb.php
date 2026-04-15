@@ -201,6 +201,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableCrossRegionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableCrossRegionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableModelsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableModelsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupPolicyRequest;
@@ -9041,6 +9043,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableCrossRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取ai集群模型列表.
+     *
+     * @param request - DescribeAvailableModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAvailableModelsResponse
+     *
+     * @param DescribeAvailableModelsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAvailableModelsResponse
+     */
+    public function describeAvailableModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->kubeType) {
+            @$query['KubeType'] = $request->kubeType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAvailableModels',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAvailableModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取ai集群模型列表.
+     *
+     * @param request - DescribeAvailableModelsRequest
+     *
+     * @returns DescribeAvailableModelsResponse
+     *
+     * @param DescribeAvailableModelsRequest $request
+     *
+     * @return DescribeAvailableModelsResponse
+     */
+    public function describeAvailableModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableModelsWithOptions($request, $runtime);
     }
 
     /**
