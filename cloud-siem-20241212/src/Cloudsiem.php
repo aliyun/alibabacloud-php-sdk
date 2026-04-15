@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaRequest
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateNormalizationSchemaResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateProductRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateProductResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateResponseRuleRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateResponseRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateVendorRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateVendorResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteDataIngestionRequest;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationRuleVersionRe
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationRuleVersionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteProductRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteProductResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteResponseRuleRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteResponseRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteVendorRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteVendorResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DisableDataIngestionRequest;
@@ -122,6 +126,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListNormalizationSchemasResponse
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListProductsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListProductsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListProductsShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListResponseRulesRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListResponseRulesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListTrafficStatisticsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListTrafficStatisticsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListTrafficStatisticsShrinkRequest;
@@ -167,6 +173,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationSchemaRequest
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateNormalizationSchemaResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateProductRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateProductResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateResponseRuleRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateResponseRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateVendorRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateVendorResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ValidateLogStoreRequest;
@@ -1265,6 +1273,107 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * 创建自动响应规则.
+     *
+     * @param request - CreateResponseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResponseRuleResponse
+     *
+     * @param CreateResponseRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateResponseRuleResponse
+     */
+    public function createResponseRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->responseActionConfig) {
+            @$body['ResponseActionConfig'] = $request->responseActionConfig;
+        }
+
+        if (null !== $request->responseActionType) {
+            @$body['ResponseActionType'] = $request->responseActionType;
+        }
+
+        if (null !== $request->responseExecutionCondition) {
+            @$body['ResponseExecutionCondition'] = $request->responseExecutionCondition;
+        }
+
+        if (null !== $request->responseRuleName) {
+            @$body['ResponseRuleName'] = $request->responseRuleName;
+        }
+
+        if (null !== $request->responseRulePriority) {
+            @$body['ResponseRulePriority'] = $request->responseRulePriority;
+        }
+
+        if (null !== $request->responseTriggerType) {
+            @$body['ResponseTriggerType'] = $request->responseTriggerType;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateResponseRule',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateResponseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自动响应规则.
+     *
+     * @param request - CreateResponseRuleRequest
+     *
+     * @returns CreateResponseRuleResponse
+     *
+     * @param CreateResponseRuleRequest $request
+     *
+     * @return CreateResponseRuleResponse
+     */
+    public function createResponseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResponseRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建厂商.
      *
      * @param request - CreateVendorRequest
@@ -1975,6 +2084,79 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * 删除自动响应规则.
+     *
+     * @param request - DeleteResponseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResponseRuleResponse
+     *
+     * @param DeleteResponseRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteResponseRuleResponse
+     */
+    public function deleteResponseRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->responseRuleId) {
+            @$body['ResponseRuleId'] = $request->responseRuleId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteResponseRule',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteResponseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自动响应规则.
+     *
+     * @param request - DeleteResponseRuleRequest
+     *
+     * @returns DeleteResponseRuleResponse
+     *
+     * @param DeleteResponseRuleRequest $request
+     *
+     * @return DeleteResponseRuleResponse
+     */
+    public function deleteResponseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteResponseRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除厂商.
      *
      * @param request - DeleteVendorRequest
@@ -2620,7 +2802,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 获取事件列表.
+     * Queries the details of a management event.
      *
      * @param request - GetIncidentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2671,7 +2853,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 获取事件列表.
+     * Queries the details of a management event.
      *
      * @param request - GetIncidentRequest
      *
@@ -3799,7 +3981,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 获取事件列表.
+     * Queries the management event list.
      *
      * @param tmpReq - ListIncidentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3926,7 +4108,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * 获取事件列表.
+     * Queries the management event list.
      *
      * @param request - ListIncidentsRequest
      *
@@ -4785,6 +4967,111 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listProductsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询自动响应规则.
+     *
+     * @param request - ListResponseRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResponseRulesResponse
+     *
+     * @param ListResponseRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListResponseRulesResponse
+     */
+    public function listResponseRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->responseActionType) {
+            @$body['ResponseActionType'] = $request->responseActionType;
+        }
+
+        if (null !== $request->responseRuleName) {
+            @$body['ResponseRuleName'] = $request->responseRuleName;
+        }
+
+        if (null !== $request->responseRuleStatus) {
+            @$body['ResponseRuleStatus'] = $request->responseRuleStatus;
+        }
+
+        if (null !== $request->responseRuleType) {
+            @$body['ResponseRuleType'] = $request->responseRuleType;
+        }
+
+        if (null !== $request->responseTriggerType) {
+            @$body['ResponseTriggerType'] = $request->responseTriggerType;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListResponseRules',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResponseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询自动响应规则.
+     *
+     * @param request - ListResponseRulesRequest
+     *
+     * @returns ListResponseRulesResponse
+     *
+     * @param ListResponseRulesRequest $request
+     *
+     * @return ListResponseRulesResponse
+     */
+    public function listResponseRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResponseRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -6595,6 +6882,107 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新自动响应规则.
+     *
+     * @param request - UpdateResponseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResponseRuleResponse
+     *
+     * @param UpdateResponseRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateResponseRuleResponse
+     */
+    public function updateResponseRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->responseActionConfig) {
+            @$body['ResponseActionConfig'] = $request->responseActionConfig;
+        }
+
+        if (null !== $request->responseActionType) {
+            @$body['ResponseActionType'] = $request->responseActionType;
+        }
+
+        if (null !== $request->responseExecutionCondition) {
+            @$body['ResponseExecutionCondition'] = $request->responseExecutionCondition;
+        }
+
+        if (null !== $request->responseRuleId) {
+            @$body['ResponseRuleId'] = $request->responseRuleId;
+        }
+
+        if (null !== $request->responseRuleName) {
+            @$body['ResponseRuleName'] = $request->responseRuleName;
+        }
+
+        if (null !== $request->responseRulePriority) {
+            @$body['ResponseRulePriority'] = $request->responseRulePriority;
+        }
+
+        if (null !== $request->responseRuleStatus) {
+            @$body['ResponseRuleStatus'] = $request->responseRuleStatus;
+        }
+
+        if (null !== $request->responseTriggerType) {
+            @$body['ResponseTriggerType'] = $request->responseTriggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateResponseRule',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateResponseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自动响应规则.
+     *
+     * @param request - UpdateResponseRuleRequest
+     *
+     * @returns UpdateResponseRuleResponse
+     *
+     * @param UpdateResponseRuleRequest $request
+     *
+     * @return UpdateResponseRuleResponse
+     */
+    public function updateResponseRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateResponseRuleWithOptions($request, $runtime);
     }
 
     /**
