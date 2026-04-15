@@ -65,6 +65,9 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenGlobalDataRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenGlobalDataResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenSingleDataRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenSingleDataResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreatePayOrderToMsenceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreatePayOrderToMsenceResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreatePayOrderToMsenceShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteCubecardWhitelistContentRequest;
@@ -95,6 +98,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExistMcubeRsaKeyRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExistMcubeRsaKeyResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetAuthTokenToMsenceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetAuthTokenToMsenceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGameReviewByStatusRequest;
@@ -123,6 +128,7 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppUploadProcessInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppUploadProcessInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListAnalysisCoreIndexRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListAnalysisCoreIndexResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListCubecardAppsRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListCubecardAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponse;
@@ -214,6 +220,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMscpRiskInfoRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMscpRiskInfoResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPayOrderToMsenceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPayOrderToMsenceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisCoreIndexRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisCoreIndexResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisTaskDetailRequest;
@@ -222,6 +230,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisTaskListRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisTaskListResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushSchedulerListRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushSchedulerListResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryUserInfoToMsenceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryUserInfoToMsenceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\RevokePushMessageRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\RevokePushMessageResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\RevokePushTaskRequest;
@@ -230,6 +240,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\RunMsaDiffRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\RunMsaDiffResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveMgsApirestRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveMgsApirestResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkRequest;
@@ -250,6 +262,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadMcubeRsaKeyRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadMcubeRsaKeyResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadUserAppToMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadUserAppToMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\VirtualDeliveryToMsceneRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\VirtualDeliveryToMsceneResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2976,6 +2990,101 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 获取token.
+     *
+     * @param tmpReq - CreatePayOrderToMsenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePayOrderToMsenceResponse
+     *
+     * @param CreatePayOrderToMsenceRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePayOrderToMsenceResponse
+     */
+    public function createPayOrderToMsenceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePayOrderToMsenceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extraInfo) {
+            $request->extraInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extraInfo, 'ExtraInfo', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->authToken) {
+            @$body['AuthToken'] = $request->authToken;
+        }
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
+        }
+
+        if (null !== $request->extraInfoShrink) {
+            @$body['ExtraInfo'] = $request->extraInfoShrink;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePayOrderToMsence',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePayOrderToMsenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取token.
+     *
+     * @param request - CreatePayOrderToMsenceRequest
+     *
+     * @returns CreatePayOrderToMsenceResponse
+     *
+     * @param CreatePayOrderToMsenceRequest $request
+     *
+     * @return CreatePayOrderToMsenceResponse
+     */
+    public function createPayOrderToMsence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPayOrderToMsenceWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建模版.
      *
      * @param request - CreateTemplateRequest
@@ -4031,6 +4140,83 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 获取授权token.
+     *
+     * @param request - GetAuthTokenToMsenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthTokenToMsenceResponse
+     *
+     * @param GetAuthTokenToMsenceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAuthTokenToMsenceResponse
+     */
+    public function getAuthTokenToMsenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->authCode) {
+            @$body['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuthTokenToMsence',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuthTokenToMsenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取授权token.
+     *
+     * @param request - GetAuthTokenToMsenceRequest
+     *
+     * @returns GetAuthTokenToMsenceResponse
+     *
+     * @param GetAuthTokenToMsenceRequest $request
+     *
+     * @return GetAuthTokenToMsenceResponse
+     */
+    public function getAuthTokenToMsence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthTokenToMsenceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - GetFileTokenForUploadToMsaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4998,12 +5184,14 @@ class MPaaS extends OpenApiClient
      *
      * @returns ListCubecardAppsResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param ListCubecardAppsRequest $request
+     * @param RuntimeOptions          $runtime
      *
      * @return ListCubecardAppsResponse
      */
-    public function listCubecardAppsWithOptions($runtime)
+    public function listCubecardAppsWithOptions($request, $runtime)
     {
+        $request->validate();
         $req = new OpenApiRequest([]);
         $params = new Params([
             'action' => 'ListCubecardApps',
@@ -5021,19 +5209,22 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * @param request - ListCubecardAppsRequest
+     *
      * @returns ListCubecardAppsResponse
+     *
+     * @param ListCubecardAppsRequest $request
      *
      * @return ListCubecardAppsResponse
      */
-    public function listCubecardApps()
+    public function listCubecardApps($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listCubecardAppsWithOptions($runtime);
+        return $this->listCubecardAppsWithOptions($request, $runtime);
     }
 
     /**
-     * @param request - ListMappCenterAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMappCenterAppsResponse
@@ -5073,7 +5264,6 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param request - ListMappCenterWorkspacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListMappCenterWorkspacesResponse
@@ -8635,6 +8825,83 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 查询支付订单信息.
+     *
+     * @param request - QueryPayOrderToMsenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPayOrderToMsenceResponse
+     *
+     * @param QueryPayOrderToMsenceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryPayOrderToMsenceResponse
+     */
+    public function queryPayOrderToMsenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPayOrderToMsence',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPayOrderToMsenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询支付订单信息.
+     *
+     * @param request - QueryPayOrderToMsenceRequest
+     *
+     * @returns QueryPayOrderToMsenceResponse
+     *
+     * @param QueryPayOrderToMsenceRequest $request
+     *
+     * @return QueryPayOrderToMsenceResponse
+     */
+    public function queryPayOrderToMsence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPayOrderToMsenceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - QueryPushAnalysisCoreIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8951,6 +9218,83 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 查询用户信息.
+     *
+     * @param request - QueryUserInfoToMsenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserInfoToMsenceResponse
+     *
+     * @param QueryUserInfoToMsenceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryUserInfoToMsenceResponse
+     */
+    public function queryUserInfoToMsenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->authToken) {
+            @$body['AuthToken'] = $request->authToken;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryUserInfoToMsence',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryUserInfoToMsenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户信息.
+     *
+     * @param request - QueryUserInfoToMsenceRequest
+     *
+     * @returns QueryUserInfoToMsenceResponse
+     *
+     * @param QueryUserInfoToMsenceRequest $request
+     *
+     * @return QueryUserInfoToMsenceResponse
+     */
+    public function queryUserInfoToMsence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserInfoToMsenceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - RevokePushMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9212,6 +9556,99 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveMgsApirestWithOptions($request, $runtime);
+    }
+
+    /**
+     * 关联订单信息.
+     *
+     * @param request - SaveOrderRelationInfoToMsenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveOrderRelationInfoToMsenceResponse
+     *
+     * @param SaveOrderRelationInfoToMsenceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SaveOrderRelationInfoToMsenceResponse
+     */
+    public function saveOrderRelationInfoToMsenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->bizOrderId) {
+            @$body['BizOrderId'] = $request->bizOrderId;
+        }
+
+        if (null !== $request->bizOrderStatus) {
+            @$body['BizOrderStatus'] = $request->bizOrderStatus;
+        }
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->openUid) {
+            @$body['OpenUid'] = $request->openUid;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveOrderRelationInfoToMsence',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveOrderRelationInfoToMsenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关联订单信息.
+     *
+     * @param request - SaveOrderRelationInfoToMsenceRequest
+     *
+     * @returns SaveOrderRelationInfoToMsenceResponse
+     *
+     * @param SaveOrderRelationInfoToMsenceRequest $request
+     *
+     * @return SaveOrderRelationInfoToMsenceResponse
+     */
+    public function saveOrderRelationInfoToMsence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveOrderRelationInfoToMsenceWithOptions($request, $runtime);
     }
 
     /**
@@ -10112,5 +10549,82 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadUserAppToMsaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 虚拟发货接口.
+     *
+     * @param request - VirtualDeliveryToMsceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VirtualDeliveryToMsceneResponse
+     *
+     * @param VirtualDeliveryToMsceneRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return VirtualDeliveryToMsceneResponse
+     */
+    public function virtualDeliveryToMsceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'VirtualDeliveryToMscene',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VirtualDeliveryToMsceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 虚拟发货接口.
+     *
+     * @param request - VirtualDeliveryToMsceneRequest
+     *
+     * @returns VirtualDeliveryToMsceneResponse
+     *
+     * @param VirtualDeliveryToMsceneRequest $request
+     *
+     * @return VirtualDeliveryToMsceneResponse
+     */
+    public function virtualDeliveryToMscene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->virtualDeliveryToMsceneWithOptions($request, $runtime);
     }
 }
