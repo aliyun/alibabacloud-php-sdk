@@ -14,6 +14,11 @@ class CreateSupabaseProjectRequest extends Model
     public $accountPassword;
 
     /**
+     * @var bool
+     */
+    public $autoScale;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -79,6 +84,7 @@ class CreateSupabaseProjectRequest extends Model
     public $zoneId;
     protected $_name = [
         'accountPassword' => 'AccountPassword',
+        'autoScale' => 'AutoScale',
         'clientToken' => 'ClientToken',
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
         'payType' => 'PayType',
@@ -104,6 +110,10 @@ class CreateSupabaseProjectRequest extends Model
         $res = [];
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
+        }
+
+        if (null !== $this->autoScale) {
+            $res['AutoScale'] = $this->autoScale;
         }
 
         if (null !== $this->clientToken) {
@@ -171,6 +181,10 @@ class CreateSupabaseProjectRequest extends Model
         $model = new self();
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
+        }
+
+        if (isset($map['AutoScale'])) {
+            $model->autoScale = $map['AutoScale'];
         }
 
         if (isset($map['ClientToken'])) {

@@ -613,11 +613,13 @@ class Gpdb extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -4236,6 +4238,10 @@ class Gpdb extends OpenApiClient
         $query = [];
         if (null !== $request->accountPassword) {
             @$query['AccountPassword'] = $request->accountPassword;
+        }
+
+        if (null !== $request->autoScale) {
+            @$query['AutoScale'] = $request->autoScale;
         }
 
         if (null !== $request->clientToken) {
@@ -15428,6 +15434,22 @@ class Gpdb extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->searchField) {
+            @$query['SearchField'] = $request->searchField;
+        }
+
+        if (null !== $request->searchValue) {
+            @$query['SearchValue'] = $request->searchValue;
+        }
+
+        if (null !== $request->sortField) {
+            @$query['SortField'] = $request->sortField;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -18455,7 +18477,7 @@ class Gpdb extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -20616,7 +20638,7 @@ class Gpdb extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -21009,7 +21031,7 @@ class Gpdb extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],

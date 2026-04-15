@@ -32,12 +32,36 @@ class ListSupabaseProjectsRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $searchField;
+
+    /**
+     * @var string
+     */
+    public $searchValue;
+
+    /**
+     * @var string
+     */
+    public $sortField;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'searchField' => 'SearchField',
+        'searchValue' => 'SearchValue',
+        'sortField' => 'SortField',
+        'sortOrder' => 'SortOrder',
     ];
 
     public function validate()
@@ -66,6 +90,22 @@ class ListSupabaseProjectsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->searchField) {
+            $res['SearchField'] = $this->searchField;
+        }
+
+        if (null !== $this->searchValue) {
+            $res['SearchValue'] = $this->searchValue;
+        }
+
+        if (null !== $this->sortField) {
+            $res['SortField'] = $this->sortField;
+        }
+
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
         }
 
         return $res;
@@ -97,6 +137,22 @@ class ListSupabaseProjectsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SearchField'])) {
+            $model->searchField = $map['SearchField'];
+        }
+
+        if (isset($map['SearchValue'])) {
+            $model->searchValue = $map['SearchValue'];
+        }
+
+        if (isset($map['SortField'])) {
+            $model->sortField = $map['SortField'];
+        }
+
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
         }
 
         return $model;
