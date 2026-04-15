@@ -7,6 +7,9 @@ namespace AlibabaCloud\SDK\VoiceNavigator\V20251111;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateLlmAccessProfileRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateLlmAccessProfileResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateLlmAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateScriptResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateScriptVersionRequest;
@@ -22,6 +25,8 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateVoiceAccessProfileRes
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateVoiceAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteLlmAccessProfileRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteLlmAccessProfileResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteScriptResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteVariableRequest;
@@ -62,6 +67,8 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceModelsRequest
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListLlmAccessProfilesRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListLlmAccessProfilesResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListNluModelsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListNluModelsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListScriptProfileTemplatesRequest;
@@ -86,6 +93,9 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\PublishScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\PublishScriptResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateLlmAccessProfileRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateLlmAccessProfileResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateLlmAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateSubscriptionRequest;
@@ -201,6 +211,73 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建语言模型配置信息.
+     *
+     * @param tmpReq - CreateLlmAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLlmAccessProfileResponse
+     *
+     * @param CreateLlmAccessProfileRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateLlmAccessProfileResponse
+     */
+    public function createLlmAccessProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateLlmAccessProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->profile) {
+            $request->profileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->profile, 'Profile', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->profileShrink) {
+            @$body['Profile'] = $request->profileShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLlmAccessProfile',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLlmAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建语言模型配置信息.
+     *
+     * @param request - CreateLlmAccessProfileRequest
+     *
+     * @returns CreateLlmAccessProfileResponse
+     *
+     * @param CreateLlmAccessProfileRequest $request
+     *
+     * @return CreateLlmAccessProfileResponse
+     */
+    public function createLlmAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLlmAccessProfileWithOptions($request, $runtime);
     }
 
     /**
@@ -657,6 +734,67 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除语言模型配置信息.
+     *
+     * @param request - DeleteLlmAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLlmAccessProfileResponse
+     *
+     * @param DeleteLlmAccessProfileRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteLlmAccessProfileResponse
+     */
+    public function deleteLlmAccessProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessProfileId) {
+            @$body['AccessProfileId'] = $request->accessProfileId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLlmAccessProfile',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLlmAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除语言模型配置信息.
+     *
+     * @param request - DeleteLlmAccessProfileRequest
+     *
+     * @returns DeleteLlmAccessProfileResponse
+     *
+     * @param DeleteLlmAccessProfileRequest $request
+     *
+     * @return DeleteLlmAccessProfileResponse
+     */
+    public function deleteLlmAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLlmAccessProfileWithOptions($request, $runtime);
     }
 
     /**
@@ -1905,6 +2043,71 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 获取语言模型配置信息.
+     *
+     * @param request - ListLlmAccessProfilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLlmAccessProfilesResponse
+     *
+     * @param ListLlmAccessProfilesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLlmAccessProfilesResponse
+     */
+    public function listLlmAccessProfilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLlmAccessProfiles',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLlmAccessProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取语言模型配置信息.
+     *
+     * @param request - ListLlmAccessProfilesRequest
+     *
+     * @returns ListLlmAccessProfilesResponse
+     *
+     * @param ListLlmAccessProfilesRequest $request
+     *
+     * @return ListLlmAccessProfilesResponse
+     */
+    public function listLlmAccessProfiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLlmAccessProfilesWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取对话模型列表.
      *
      * @param request - ListNluModelsRequest
@@ -2657,6 +2860,77 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新语言模型配置信息.
+     *
+     * @param tmpReq - UpdateLlmAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLlmAccessProfileResponse
+     *
+     * @param UpdateLlmAccessProfileRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateLlmAccessProfileResponse
+     */
+    public function updateLlmAccessProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateLlmAccessProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->profile) {
+            $request->profileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->profile, 'Profile', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accessProfileId) {
+            @$body['AccessProfileId'] = $request->accessProfileId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->profileShrink) {
+            @$body['Profile'] = $request->profileShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLlmAccessProfile',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLlmAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新语言模型配置信息.
+     *
+     * @param request - UpdateLlmAccessProfileRequest
+     *
+     * @returns UpdateLlmAccessProfileResponse
+     *
+     * @param UpdateLlmAccessProfileRequest $request
+     *
+     * @return UpdateLlmAccessProfileResponse
+     */
+    public function updateLlmAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLlmAccessProfileWithOptions($request, $runtime);
     }
 
     /**
