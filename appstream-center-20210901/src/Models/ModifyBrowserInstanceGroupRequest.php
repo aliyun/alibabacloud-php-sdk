@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\browserConfig;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\network;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\policy;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\storagePolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyBrowserInstanceGroupRequest\timers;
 
 class ModifyBrowserInstanceGroupRequest extends Model
@@ -28,6 +29,11 @@ class ModifyBrowserInstanceGroupRequest extends Model
     public $cloudBrowserName;
 
     /**
+     * @var int
+     */
+    public $maxAmount;
+
+    /**
      * @var network
      */
     public $network;
@@ -38,6 +44,11 @@ class ModifyBrowserInstanceGroupRequest extends Model
     public $policy;
 
     /**
+     * @var storagePolicy
+     */
+    public $storagePolicy;
+
+    /**
      * @var timers[]
      */
     public $timers;
@@ -45,8 +56,10 @@ class ModifyBrowserInstanceGroupRequest extends Model
         'browserConfig' => 'BrowserConfig',
         'browserInstanceGroupId' => 'BrowserInstanceGroupId',
         'cloudBrowserName' => 'CloudBrowserName',
+        'maxAmount' => 'MaxAmount',
         'network' => 'Network',
         'policy' => 'Policy',
+        'storagePolicy' => 'StoragePolicy',
         'timers' => 'Timers',
     ];
 
@@ -60,6 +73,9 @@ class ModifyBrowserInstanceGroupRequest extends Model
         }
         if (null !== $this->policy) {
             $this->policy->validate();
+        }
+        if (null !== $this->storagePolicy) {
+            $this->storagePolicy->validate();
         }
         if (\is_array($this->timers)) {
             Model::validateArray($this->timers);
@@ -82,12 +98,20 @@ class ModifyBrowserInstanceGroupRequest extends Model
             $res['CloudBrowserName'] = $this->cloudBrowserName;
         }
 
+        if (null !== $this->maxAmount) {
+            $res['MaxAmount'] = $this->maxAmount;
+        }
+
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
         if (null !== $this->policy) {
             $res['Policy'] = null !== $this->policy ? $this->policy->toArray($noStream) : $this->policy;
+        }
+
+        if (null !== $this->storagePolicy) {
+            $res['StoragePolicy'] = null !== $this->storagePolicy ? $this->storagePolicy->toArray($noStream) : $this->storagePolicy;
         }
 
         if (null !== $this->timers) {
@@ -124,12 +148,20 @@ class ModifyBrowserInstanceGroupRequest extends Model
             $model->cloudBrowserName = $map['CloudBrowserName'];
         }
 
+        if (isset($map['MaxAmount'])) {
+            $model->maxAmount = $map['MaxAmount'];
+        }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }
 
         if (isset($map['Policy'])) {
             $model->policy = policy::fromMap($map['Policy']);
+        }
+
+        if (isset($map['StoragePolicy'])) {
+            $model->storagePolicy = storagePolicy::fromMap($map['StoragePolicy']);
         }
 
         if (isset($map['Timers'])) {

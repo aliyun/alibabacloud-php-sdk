@@ -17,7 +17,17 @@ class browserConfig extends Model
     /**
      * @var string
      */
+    public $bookmarksFilePath;
+
+    /**
+     * @var string
+     */
     public $browserParam;
+
+    /**
+     * @var string
+     */
+    public $cookiesSync;
 
     /**
      * @var string
@@ -30,7 +40,9 @@ class browserConfig extends Model
     public $removeBookmarks;
     protected $_name = [
         'bookmarks' => 'Bookmarks',
+        'bookmarksFilePath' => 'BookmarksFilePath',
         'browserParam' => 'BrowserParam',
+        'cookiesSync' => 'CookiesSync',
         'homepage' => 'Homepage',
         'removeBookmarks' => 'RemoveBookmarks',
     ];
@@ -60,8 +72,16 @@ class browserConfig extends Model
             }
         }
 
+        if (null !== $this->bookmarksFilePath) {
+            $res['BookmarksFilePath'] = $this->bookmarksFilePath;
+        }
+
         if (null !== $this->browserParam) {
             $res['BrowserParam'] = $this->browserParam;
+        }
+
+        if (null !== $this->cookiesSync) {
+            $res['CookiesSync'] = $this->cookiesSync;
         }
 
         if (null !== $this->homepage) {
@@ -101,8 +121,16 @@ class browserConfig extends Model
             }
         }
 
+        if (isset($map['BookmarksFilePath'])) {
+            $model->bookmarksFilePath = $map['BookmarksFilePath'];
+        }
+
         if (isset($map['BrowserParam'])) {
             $model->browserParam = $map['BrowserParam'];
+        }
+
+        if (isset($map['CookiesSync'])) {
+            $model->cookiesSync = $map['CookiesSync'];
         }
 
         if (isset($map['Homepage'])) {

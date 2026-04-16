@@ -2616,7 +2616,6 @@ class Appstreamcenter extends OpenApiClient
     /**
      * Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
      *
-     * @param request - ListTenantConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTenantConfigResponse
@@ -3061,6 +3060,10 @@ class Appstreamcenter extends OpenApiClient
             $request->policyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->policy, 'Policy', 'json');
         }
 
+        if (null !== $tmpReq->storagePolicy) {
+            $request->storagePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storagePolicy, 'StoragePolicy', 'json');
+        }
+
         if (null !== $tmpReq->timers) {
             $request->timersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->timers, 'Timers', 'json');
         }
@@ -3087,8 +3090,16 @@ class Appstreamcenter extends OpenApiClient
             @$body['CloudBrowserName'] = $request->cloudBrowserName;
         }
 
+        if (null !== $request->maxAmount) {
+            @$body['MaxAmount'] = $request->maxAmount;
+        }
+
         if (null !== $request->networkShrink) {
             @$body['Network'] = $request->networkShrink;
+        }
+
+        if (null !== $request->storagePolicyShrink) {
+            @$body['StoragePolicy'] = $request->storagePolicyShrink;
         }
 
         $req = new OpenApiRequest([

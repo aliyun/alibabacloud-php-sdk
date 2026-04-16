@@ -23,10 +23,16 @@ class network extends Model
      * @var restrictedURLs[]
      */
     public $restrictedURLs;
+
+    /**
+     * @var string
+     */
+    public $restrictedURLsFilePath;
     protected $_name = [
         'accessRestriction' => 'AccessRestriction',
         'removeRestrictedURLIds' => 'RemoveRestrictedURLIds',
         'restrictedURLs' => 'RestrictedURLs',
+        'restrictedURLsFilePath' => 'RestrictedURLsFilePath',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class network extends Model
             }
         }
 
+        if (null !== $this->restrictedURLsFilePath) {
+            $res['RestrictedURLsFilePath'] = $this->restrictedURLsFilePath;
+        }
+
         return $res;
     }
 
@@ -104,6 +114,10 @@ class network extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RestrictedURLsFilePath'])) {
+            $model->restrictedURLsFilePath = $map['RestrictedURLsFilePath'];
         }
 
         return $model;
