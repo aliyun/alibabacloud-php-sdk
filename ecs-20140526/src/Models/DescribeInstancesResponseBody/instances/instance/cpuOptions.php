@@ -26,6 +26,11 @@ class cpuOptions extends Model
     /**
      * @var string
      */
+    public $nestedVirtualization;
+
+    /**
+     * @var string
+     */
     public $numa;
 
     /**
@@ -46,6 +51,7 @@ class cpuOptions extends Model
         'coreCount' => 'CoreCount',
         'enableVISST' => 'EnableVISST',
         'enableVRDT' => 'EnableVRDT',
+        'nestedVirtualization' => 'NestedVirtualization',
         'numa' => 'Numa',
         'threadsPerCore' => 'ThreadsPerCore',
         'topologyType' => 'TopologyType',
@@ -70,6 +76,10 @@ class cpuOptions extends Model
 
         if (null !== $this->enableVRDT) {
             $res['EnableVRDT'] = $this->enableVRDT;
+        }
+
+        if (null !== $this->nestedVirtualization) {
+            $res['NestedVirtualization'] = $this->nestedVirtualization;
         }
 
         if (null !== $this->numa) {
@@ -109,6 +119,10 @@ class cpuOptions extends Model
 
         if (isset($map['EnableVRDT'])) {
             $model->enableVRDT = $map['EnableVRDT'];
+        }
+
+        if (isset($map['NestedVirtualization'])) {
+            $model->nestedVirtualization = $map['NestedVirtualization'];
         }
 
         if (isset($map['Numa'])) {

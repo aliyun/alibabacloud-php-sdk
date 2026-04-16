@@ -12,8 +12,14 @@ class additionalInfo extends Model
      * @var bool
      */
     public $enableHighDensityMode;
+
+    /**
+     * @var string
+     */
+    public $nodeSerialNumber;
     protected $_name = [
         'enableHighDensityMode' => 'EnableHighDensityMode',
+        'nodeSerialNumber' => 'NodeSerialNumber',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class additionalInfo extends Model
         $res = [];
         if (null !== $this->enableHighDensityMode) {
             $res['EnableHighDensityMode'] = $this->enableHighDensityMode;
+        }
+
+        if (null !== $this->nodeSerialNumber) {
+            $res['NodeSerialNumber'] = $this->nodeSerialNumber;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class additionalInfo extends Model
         $model = new self();
         if (isset($map['EnableHighDensityMode'])) {
             $model->enableHighDensityMode = $map['EnableHighDensityMode'];
+        }
+
+        if (isset($map['NodeSerialNumber'])) {
+            $model->nodeSerialNumber = $map['NodeSerialNumber'];
         }
 
         return $model;
