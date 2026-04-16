@@ -19,6 +19,11 @@ class JobSpec extends Model
     public $autoScalingSpec;
 
     /**
+     * @var bool
+     */
+    public $considerInSuccessPolicy;
+
+    /**
      * @var string
      */
     public $ecsSpec;
@@ -105,6 +110,7 @@ class JobSpec extends Model
     protected $_name = [
         'assignNodeSpec' => 'AssignNodeSpec',
         'autoScalingSpec' => 'AutoScalingSpec',
+        'considerInSuccessPolicy' => 'ConsiderInSuccessPolicy',
         'ecsSpec' => 'EcsSpec',
         'extraPodSpec' => 'ExtraPodSpec',
         'image' => 'Image',
@@ -168,6 +174,10 @@ class JobSpec extends Model
 
         if (null !== $this->autoScalingSpec) {
             $res['AutoScalingSpec'] = null !== $this->autoScalingSpec ? $this->autoScalingSpec->toArray($noStream) : $this->autoScalingSpec;
+        }
+
+        if (null !== $this->considerInSuccessPolicy) {
+            $res['ConsiderInSuccessPolicy'] = $this->considerInSuccessPolicy;
         }
 
         if (null !== $this->ecsSpec) {
@@ -269,6 +279,10 @@ class JobSpec extends Model
 
         if (isset($map['AutoScalingSpec'])) {
             $model->autoScalingSpec = AutoScalingSpec::fromMap($map['AutoScalingSpec']);
+        }
+
+        if (isset($map['ConsiderInSuccessPolicy'])) {
+            $model->considerInSuccessPolicy = $map['ConsiderInSuccessPolicy'];
         }
 
         if (isset($map['EcsSpec'])) {
