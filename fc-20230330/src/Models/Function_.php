@@ -154,6 +154,11 @@ class Function_ extends Model
     public $layers;
 
     /**
+     * @var FunctionLockInfo
+     */
+    public $lockInfo;
+
+    /**
      * @var LogConfig
      */
     public $logConfig;
@@ -267,6 +272,7 @@ class Function_ extends Model
         'lastUpdateStatusReason' => 'lastUpdateStatusReason',
         'lastUpdateStatusReasonCode' => 'lastUpdateStatusReasonCode',
         'layers' => 'layers',
+        'lockInfo' => 'lockInfo',
         'logConfig' => 'logConfig',
         'memorySize' => 'memorySize',
         'nasConfig' => 'nasConfig',
@@ -311,6 +317,9 @@ class Function_ extends Model
         }
         if (\is_array($this->layers)) {
             Model::validateArray($this->layers);
+        }
+        if (null !== $this->lockInfo) {
+            $this->lockInfo->validate();
         }
         if (null !== $this->logConfig) {
             $this->logConfig->validate();
@@ -465,6 +474,10 @@ class Function_ extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->lockInfo) {
+            $res['lockInfo'] = null !== $this->lockInfo ? $this->lockInfo->toArray($noStream) : $this->lockInfo;
         }
 
         if (null !== $this->logConfig) {
@@ -679,6 +692,10 @@ class Function_ extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['lockInfo'])) {
+            $model->lockInfo = FunctionLockInfo::fromMap($map['lockInfo']);
         }
 
         if (isset($map['logConfig'])) {
