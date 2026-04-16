@@ -59,6 +59,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $columnTable;
+
+    /**
+     * @var string
+     */
     public $compressStorageMode;
 
     /**
@@ -370,6 +375,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'branch' => 'Branch',
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
+        'columnTable' => 'ColumnTable',
         'compressStorageMode' => 'CompressStorageMode',
         'compressStorageUsed' => 'CompressStorageUsed',
         'creationTime' => 'CreationTime',
@@ -484,6 +490,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->columnTable) {
+            $res['ColumnTable'] = $this->columnTable;
         }
 
         if (null !== $this->compressStorageMode) {
@@ -789,6 +799,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['ColumnTable'])) {
+            $model->columnTable = $map['ColumnTable'];
         }
 
         if (isset($map['CompressStorageMode'])) {
