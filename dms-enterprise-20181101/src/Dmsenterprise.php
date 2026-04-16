@@ -2592,6 +2592,14 @@ class Dmsenterprise extends OpenApiClient
             @$query['ThinkingBudget'] = $request->thinkingBudget;
         }
 
+        if (null !== $request->toolChoice) {
+            @$query['ToolChoice'] = $request->toolChoice;
+        }
+
+        if (null !== $request->tools) {
+            @$query['Tools'] = $request->tools;
+        }
+
         if (null !== $request->topK) {
             @$query['TopK'] = $request->topK;
         }
@@ -2777,6 +2785,14 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->thinkingBudget) {
             @$query['ThinkingBudget'] = $request->thinkingBudget;
+        }
+
+        if (null !== $request->toolChoice) {
+            @$query['ToolChoice'] = $request->toolChoice;
+        }
+
+        if (null !== $request->tools) {
+            @$query['Tools'] = $request->tools;
         }
 
         if (null !== $request->topK) {

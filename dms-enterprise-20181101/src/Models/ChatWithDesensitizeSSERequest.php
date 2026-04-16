@@ -129,6 +129,16 @@ class ChatWithDesensitizeSSERequest extends Model
     public $thinkingBudget;
 
     /**
+     * @var string
+     */
+    public $toolChoice;
+
+    /**
+     * @var string
+     */
+    public $tools;
+
+    /**
      * @var int
      */
     public $topK;
@@ -177,6 +187,8 @@ class ChatWithDesensitizeSSERequest extends Model
         'stream' => 'Stream',
         'temperature' => 'Temperature',
         'thinkingBudget' => 'ThinkingBudget',
+        'toolChoice' => 'ToolChoice',
+        'tools' => 'Tools',
         'topK' => 'TopK',
         'topLogprobs' => 'TopLogprobs',
         'topP' => 'TopP',
@@ -324,6 +336,14 @@ class ChatWithDesensitizeSSERequest extends Model
 
         if (null !== $this->thinkingBudget) {
             $res['ThinkingBudget'] = $this->thinkingBudget;
+        }
+
+        if (null !== $this->toolChoice) {
+            $res['ToolChoice'] = $this->toolChoice;
+        }
+
+        if (null !== $this->tools) {
+            $res['Tools'] = $this->tools;
         }
 
         if (null !== $this->topK) {
@@ -477,6 +497,14 @@ class ChatWithDesensitizeSSERequest extends Model
 
         if (isset($map['ThinkingBudget'])) {
             $model->thinkingBudget = $map['ThinkingBudget'];
+        }
+
+        if (isset($map['ToolChoice'])) {
+            $model->toolChoice = $map['ToolChoice'];
+        }
+
+        if (isset($map['Tools'])) {
+            $model->tools = $map['Tools'];
         }
 
         if (isset($map['TopK'])) {
