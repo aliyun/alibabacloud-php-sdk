@@ -30,6 +30,11 @@ class configSets extends Model
     public $ipPool;
 
     /**
+     * @var bool
+     */
+    public $isPublicChannelBackoff;
+
+    /**
      * @var string
      */
     public $name;
@@ -38,6 +43,7 @@ class configSets extends Model
         'fromAddresses' => 'FromAddresses',
         'id' => 'Id',
         'ipPool' => 'IpPool',
+        'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
     ];
 
@@ -78,6 +84,10 @@ class configSets extends Model
             $res['IpPool'] = null !== $this->ipPool ? $this->ipPool->toArray($noStream) : $this->ipPool;
         }
 
+        if (null !== $this->isPublicChannelBackoff) {
+            $res['IsPublicChannelBackoff'] = $this->isPublicChannelBackoff;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -114,6 +124,10 @@ class configSets extends Model
 
         if (isset($map['IpPool'])) {
             $model->ipPool = ipPool::fromMap($map['IpPool']);
+        }
+
+        if (isset($map['IsPublicChannelBackoff'])) {
+            $model->isPublicChannelBackoff = $map['IsPublicChannelBackoff'];
         }
 
         if (isset($map['Name'])) {

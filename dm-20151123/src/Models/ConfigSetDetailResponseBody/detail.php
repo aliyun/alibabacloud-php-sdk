@@ -25,6 +25,11 @@ class detail extends Model
     public $ipPool;
 
     /**
+     * @var bool
+     */
+    public $isPublicChannelBackoff;
+
+    /**
      * @var string
      */
     public $name;
@@ -32,6 +37,7 @@ class detail extends Model
         'description' => 'Description',
         'id' => 'Id',
         'ipPool' => 'IpPool',
+        'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
     ];
 
@@ -56,6 +62,10 @@ class detail extends Model
 
         if (null !== $this->ipPool) {
             $res['IpPool'] = null !== $this->ipPool ? $this->ipPool->toArray($noStream) : $this->ipPool;
+        }
+
+        if (null !== $this->isPublicChannelBackoff) {
+            $res['IsPublicChannelBackoff'] = $this->isPublicChannelBackoff;
         }
 
         if (null !== $this->name) {
@@ -83,6 +93,10 @@ class detail extends Model
 
         if (isset($map['IpPool'])) {
             $model->ipPool = ipPool::fromMap($map['IpPool']);
+        }
+
+        if (isset($map['IsPublicChannelBackoff'])) {
+            $model->isPublicChannelBackoff = $map['IsPublicChannelBackoff'];
         }
 
         if (isset($map['Name'])) {

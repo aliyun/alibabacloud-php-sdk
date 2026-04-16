@@ -24,6 +24,11 @@ class ConfigSetUpdateRequest extends Model
     public $ipPoolId;
 
     /**
+     * @var bool
+     */
+    public $isPublicChannelBackoff;
+
+    /**
      * @var string
      */
     public $name;
@@ -31,6 +36,7 @@ class ConfigSetUpdateRequest extends Model
         'description' => 'Description',
         'id' => 'Id',
         'ipPoolId' => 'IpPoolId',
+        'isPublicChannelBackoff' => 'IsPublicChannelBackoff',
         'name' => 'Name',
     ];
 
@@ -52,6 +58,10 @@ class ConfigSetUpdateRequest extends Model
 
         if (null !== $this->ipPoolId) {
             $res['IpPoolId'] = $this->ipPoolId;
+        }
+
+        if (null !== $this->isPublicChannelBackoff) {
+            $res['IsPublicChannelBackoff'] = $this->isPublicChannelBackoff;
         }
 
         if (null !== $this->name) {
@@ -79,6 +89,10 @@ class ConfigSetUpdateRequest extends Model
 
         if (isset($map['IpPoolId'])) {
             $model->ipPoolId = $map['IpPoolId'];
+        }
+
+        if (isset($map['IsPublicChannelBackoff'])) {
+            $model->isPublicChannelBackoff = $map['IsPublicChannelBackoff'];
         }
 
         if (isset($map['Name'])) {

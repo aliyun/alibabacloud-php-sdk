@@ -1,3 +1,11 @@
+2026-04-16 Version: 1.9.1
+- Update API ConfigSetCreate: add request parameters IsPublicChannelBackoff.
+- Update API ConfigSetDetail: add response parameters Body.Detail.IsPublicChannelBackoff.
+- Update API ConfigSetList: add response parameters Body.ConfigSets.$.IsPublicChannelBackoff.
+- Update API ConfigSetUpdate: add request parameters IsPublicChannelBackoff.
+- Update API DescDomain: add response parameters Body.DomainVersion.
+
+
 2026-03-23 Version: 1.9.0
 - Support API GetSendifyAutoLoginURL.
 - Support API GetSendifyInfo.

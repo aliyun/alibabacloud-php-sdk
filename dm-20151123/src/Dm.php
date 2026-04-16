@@ -230,11 +230,13 @@ class Dm extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -305,7 +307,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 添加IP防护信息.
+     * Add IP Protection Information.
      *
      * @param Request - AddIpfilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -356,7 +358,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 添加IP防护信息.
+     * Add IP Protection Information.
      *
      * @param Request - AddIpfilterRequest
      *
@@ -443,7 +445,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sends a batch of emails.
+     * Batch Send Emails.
      *
      * @param Request - BatchSendMailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -542,7 +544,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sends a batch of emails.
+     * Batch Send Emails.
      *
      * @param Request - BatchSendMailRequest
      *
@@ -836,7 +838,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Disassociates a sender address from a configuration set.
+     * 配置集取消关联发信地址
      *
      * @param Request - ConfigSetCancelRelationFromAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -879,7 +881,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Disassociates a sender address from a configuration set.
+     * 配置集取消关联发信地址
      *
      * @param Request - ConfigSetCancelRelationFromAddressRequest
      *
@@ -897,7 +899,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a configuration set. You can create up to 100 configuration sets.
+     * 配置集创建.
      *
      * @param Request - ConfigSetCreateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -919,6 +921,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->ipPoolId) {
             @$query['IpPoolId'] = $request->ipPoolId;
+        }
+
+        if (null !== $request->isPublicChannelBackoff) {
+            @$query['IsPublicChannelBackoff'] = $request->isPublicChannelBackoff;
         }
 
         if (null !== $request->name) {
@@ -944,7 +950,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a configuration set. You can create up to 100 configuration sets.
+     * 配置集创建.
      *
      * @param Request - ConfigSetCreateRequest
      *
@@ -962,7 +968,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes configuration sets.
+     * 删除配置集.
      *
      * @param Request - ConfigSetDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1005,7 +1011,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes configuration sets.
+     * 删除配置集.
      *
      * @param Request - ConfigSetDeleteRequest
      *
@@ -1023,7 +1029,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a configuration set.
+     * 配置集详情.
      *
      * @param Request - ConfigSetDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1062,7 +1068,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a configuration set.
+     * 配置集详情.
      *
      * @param Request - ConfigSetDetailRequest
      *
@@ -1080,7 +1086,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists configuration sets.
+     * 配置集列表.
      *
      * @param Request - ConfigSetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1131,7 +1137,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists configuration sets.
+     * 配置集列表.
      *
      * @param Request - ConfigSetListRequest
      *
@@ -1149,7 +1155,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Associates a configuration set with a sender address.
+     * 配置集关联发信地址
      *
      * @param Request - ConfigSetRelationFromAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1192,7 +1198,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Associates a configuration set with a sender address.
+     * 配置集关联发信地址
      *
      * @param Request - ConfigSetRelationFromAddressRequest
      *
@@ -1210,7 +1216,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Updates a configuration set.
+     * 配置集更新.
      *
      * @param Request - ConfigSetUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1238,6 +1244,10 @@ class Dm extends OpenApiClient
             @$query['IpPoolId'] = $request->ipPoolId;
         }
 
+        if (null !== $request->isPublicChannelBackoff) {
+            @$query['IsPublicChannelBackoff'] = $request->isPublicChannelBackoff;
+        }
+
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
         }
@@ -1261,7 +1271,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Updates a configuration set.
+     * 配置集更新.
      *
      * @param Request - ConfigSetUpdateRequest
      *
@@ -1506,7 +1516,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a tag.
+     * Create Tag.
      *
      * @param Request - CreateTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1561,7 +1571,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a tag.
+     * Create Tag.
      *
      * @param Request - CreateTagRequest
      *
@@ -1648,7 +1658,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sets auto-renewal for a dedicated IP address.
+     * Set Dedicated IP Auto Renewal.
      *
      * @param Request - DedicatedIpAutoRenewalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1691,7 +1701,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sets auto-renewal for a dedicated IP address.
+     * Set Dedicated IP Auto Renewal.
      *
      * @param Request - DedicatedIpAutoRenewalRequest
      *
@@ -1709,7 +1719,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Updates the prefetch method for a dedicated IP address.
+     * Change the warmup method for a dedicated IP.
      *
      * @param Request - DedicatedIpChangeWarmupTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1752,7 +1762,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Updates the prefetch method for a dedicated IP address.
+     * Change the warmup method for a dedicated IP.
      *
      * @param Request - DedicatedIpChangeWarmupTypeRequest
      *
@@ -1770,7 +1780,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses that you have purchased.
+     * Dedicated IP User IP List.
      *
      * @param Request - DedicatedIpListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1817,7 +1827,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses that you have purchased.
+     * Dedicated IP User IP List.
      *
      * @param Request - DedicatedIpListRequest
      *
@@ -1835,9 +1845,8 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists the IP addresses that are not assigned to any IP pool. This operation is used for IP pool configuration.
+     * Purchased Independent IPs Not Added to Pool.
      *
-     * @param Request - DedicatedIpNonePoolListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DedicatedIpNonePoolListResponse
@@ -1865,7 +1874,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists the IP addresses that are not assigned to any IP pool. This operation is used for IP pool configuration.
+     * Purchased Independent IPs Not Added to Pool.
      *
      * @returns DedicatedIpNonePoolListResponse
      *
@@ -1879,7 +1888,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a dedicated IP pool.
+     * Creation of Independent IP Pool.
      *
      * @param Request - DedicatedIpPoolCreateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1922,7 +1931,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Creates a dedicated IP pool.
+     * Creation of Independent IP Pool.
      *
      * @param Request - DedicatedIpPoolCreateRequest
      *
@@ -1940,7 +1949,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes a dedicated IP pool.
+     * Dedicated IP Pool Deletion.
      *
      * @param Request - DedicatedIpPoolDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1979,7 +1988,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes a dedicated IP pool.
+     * Dedicated IP Pool Deletion.
      *
      * @param Request - DedicatedIpPoolDeleteRequest
      *
@@ -1997,7 +2006,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists IP pools.
+     * Dedicated IP Pool List.
      *
      * @param Request - DedicatedIpPoolListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,7 +2061,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Lists IP pools.
+     * Dedicated IP Pool List.
      *
      * @param Request - DedicatedIpPoolListRequest
      *
@@ -2070,7 +2079,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Updates an IP pool.
+     * Update of dedicated IP Pool.
      *
      * @param Request - DedicatedIpPoolUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2117,7 +2126,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Updates an IP pool.
+     * Update of dedicated IP Pool.
      *
      * @param Request - DedicatedIpPoolUpdateRequest
      *
@@ -2626,7 +2635,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes the verification file after the verification process is complete.
+     * 删除批量校验任务的结果文件.
      *
      * @param Request - DeleteValidateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2665,7 +2674,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes the verification file after the verification process is complete.
+     * 删除批量校验任务的结果文件.
      *
      * @param Request - DeleteValidateFileRequest
      *
@@ -2683,7 +2692,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves account information.
+     * Retrieve account information.
      *
      * @param Request - DescAccountSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2730,7 +2739,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves account information.
+     * Retrieve account information.
      *
      * @param Request - DescAccountSummaryRequest
      *
@@ -2748,7 +2757,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * You can configure domain names.
+     * Get Domain Details.
      *
      * @param Request - DescDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2803,7 +2812,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * You can configure domain names.
+     * Get Domain Details.
      *
      * @param Request - DescDomainRequest
      *
@@ -2821,10 +2830,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Views the information about a template.
-     *
-     * @remarks
-     * You can call this operation to view the information about a template.
+     * 查看模板信息.
      *
      * @param Request - DescTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2879,10 +2885,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Views the information about a template.
-     *
-     * @remarks
-     * You can call this operation to view the information about a template.
+     * 查看模板信息.
      *
      * @param Request - DescTemplateRequest
      *
@@ -3026,7 +3029,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 获取IP保护信息.
+     * Get IP Protection Information.
      *
      * @param Request - GetIpProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3073,7 +3076,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 获取IP保护信息.
+     * Get IP Protection Information.
      *
      * @param Request - GetIpProtectionRequest
      *
@@ -3158,7 +3161,6 @@ class Dm extends OpenApiClient
     /**
      * 获取sendify免登链接.
      *
-     * @param Request - GetSendifyAutoLoginURLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSendifyAutoLoginURLResponse
@@ -3202,7 +3204,6 @@ class Dm extends OpenApiClient
     /**
      * 免费试用Sendify.
      *
-     * @param Request - GetSendifyInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSendifyInfoResponse
@@ -3309,7 +3310,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Email Tracking retrieves data on sent emails.
+     * Get tracking information.
      *
      * @param Request - GetTrackListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3416,7 +3417,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Email Tracking retrieves data on sent emails.
+     * Get tracking information.
      *
      * @param Request - GetTrackListRequest
      *
@@ -3434,7 +3435,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves email tracking data that meets specified conditions.
+     * Get tracking information based on the sender address and tag name.
      *
      * @param Request - GetTrackListByMailFromAndTagNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3537,7 +3538,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves email tracking data that meets specified conditions.
+     * Get tracking information based on the sender address and tag name.
      *
      * @param Request - GetTrackListByMailFromAndTagNameRequest
      *
@@ -3555,9 +3556,8 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 获取账号详情.
+     * Get Account Details.
      *
-     * @param Request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUserResponse
@@ -3585,7 +3585,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 获取账号详情.
+     * Get Account Details.
      *
      * @returns GetUserResponse
      *
@@ -3599,7 +3599,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the results file of a batch validation task.
+     * 获取批量校验任务的结果文件.
      *
      * @param Request - GetValidateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3638,7 +3638,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the results file of a batch validation task.
+     * 获取批量校验任务的结果文件.
      *
      * @param Request - GetValidateFileRequest
      *
@@ -3656,7 +3656,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the status of a validation file.
+     * 获取批量校验任务的状态
      *
      * @param Request - GetValidateFileStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3695,7 +3695,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the status of a validation file.
+     * 获取批量校验任务的状态
      *
      * @param Request - GetValidateFileStatusRequest
      *
@@ -3713,9 +3713,8 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the email validation quota.
+     * 获取电子邮件校验额度.
      *
-     * @param Request - GetValidationQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetValidationQuotaResponse
@@ -3743,7 +3742,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the email validation quota.
+     * 获取电子邮件校验额度.
      *
      * @returns GetValidationQuotaResponse
      *
@@ -3757,10 +3756,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries the email sending blacklist.
-     *
-     * @remarks
-     * Queries data about unsubscribes or spam reports.
+     * 获取发信的黑名单列表.
      *
      * @param Request - ListBlockSendingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3823,10 +3819,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries the email sending blacklist.
-     *
-     * @remarks
-     * Queries data about unsubscribes or spam reports.
+     * 获取发信的黑名单列表.
      *
      * @param Request - ListBlockSendingRequest
      *
@@ -3937,7 +3930,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of uploaded validation files.
+     * 获取上传的校验文件的列表.
      *
      * @param Request - ListValidateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3992,7 +3985,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of uploaded validation files.
+     * 获取上传的校验文件的列表.
      *
      * @param Request - ListValidateFileRequest
      *
@@ -4239,7 +4232,6 @@ class Dm extends OpenApiClient
     /**
      * 免费试用Sendify.
      *
-     * @param Request - OpenSendifyTrialServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OpenSendifyTrialServiceResponse
@@ -4453,7 +4445,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries a list of sender addresses.
+     * Query the list of sending addresses.
      *
      * @param Request - QueryMailAddressByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4516,7 +4508,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries a list of sender addresses.
+     * Query the list of sending addresses.
      *
      * @param Request - QueryMailAddressByParamRequest
      *
@@ -4534,7 +4526,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Query the recipient list.
+     * Query the details of the recipient list.
      *
      * @param Request - QueryReceiverByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4597,7 +4589,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Query the recipient list.
+     * Query the details of the recipient list.
      *
      * @param Request - QueryReceiverByParamRequest
      *
@@ -4773,7 +4765,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries tasks based on specified parameters.
+     * Query task list.
      *
      * @param Request - QueryTaskByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4836,7 +4828,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries tasks based on specified parameters.
+     * Query task list.
      *
      * @param Request - QueryTaskByParamRequest
      *
@@ -4854,10 +4846,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve a list of templates.
-     *
-     * @remarks
-     * Performs a paged query to retrieve a list of templates.
+     * 查询模板信息.
      *
      * @param Request - QueryTemplateByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4924,10 +4913,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve a list of templates.
-     *
-     * @remarks
-     * Performs a paged query to retrieve a list of templates.
+     * 查询模板信息.
      *
      * @param Request - QueryTemplateByParamRequest
      *
@@ -4945,7 +4931,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes system-identified and manually added addresses from the user-level suppression list.
+     * Delete User\\"s Invalid Addresses.
      *
      * @param Request - RemoveUserSuppressionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4996,7 +4982,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Deletes system-identified and manually added addresses from the user-level suppression list.
+     * Delete User\\"s Invalid Addresses.
      *
      * @param Request - RemoveUserSuppressionRequest
      *
@@ -5014,7 +5000,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Create a single recipient.
+     * Create a Single Recipient.
      *
      * @param Request - SaveReceiverDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5073,7 +5059,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Create a single recipient.
+     * Create a Single Recipient.
      *
      * @param Request - SaveReceiverDetailRequest
      *
@@ -5091,7 +5077,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * You can send a test email.
+     * Send Template Test Email.
      *
      * @param Request - SendTestByTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5174,7 +5160,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * You can send a test email.
+     * Send Template Test Email.
      *
      * @param Request - SendTestByTemplateRequest
      *
@@ -5192,7 +5178,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * You can upload the list of addresses to be verified.
+     * 提交批量校验任务
      *
      * @param Request - SendValidateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5247,7 +5233,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * You can upload the list of addresses to be verified.
+     * 提交批量校验任务
      *
      * @param Request - SendValidateFileRequest
      *
@@ -5341,7 +5327,7 @@ class Dm extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -5357,7 +5343,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves sending statistics that match specified criteria.
+     * Retrieve Sending Data under Specified Conditions.
      *
      * @param Request - SenderStatisticsByTagNameAndBatchIDRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5436,7 +5422,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves sending statistics that match specified criteria.
+     * Retrieve Sending Data under Specified Conditions.
      *
      * @param Request - SenderStatisticsByTagNameAndBatchIDRequest
      *
@@ -5454,7 +5440,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries sending details.
+     * Query Delivery Result Details.
      *
      * @param Request - SenderStatisticsDetailByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5541,7 +5527,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Queries sending details.
+     * Query Delivery Result Details.
      *
      * @param Request - SenderStatisticsDetailByParamRequest
      *
@@ -5628,7 +5614,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sends a single email.
+     * API for Sending Emails.
      *
      * @param tmpReq - SingleSendMailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5763,7 +5749,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sends a single email.
+     * API for Sending Emails.
      *
      * @param Request - SingleSendMailRequest
      *
@@ -5861,7 +5847,7 @@ class Dm extends OpenApiClient
                         'contentType' => '',
                     ]);
                     $ossHeader = [
-                        'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                        'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                         'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                         'policy' => @$authResponseBody['EncodedPolicy'],
                         'Signature' => @$authResponseBody['Signature'],
@@ -5881,7 +5867,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Removes sending restrictions caused by unsubscribes or complaints.
+     * Lift sending restrictions due to unsubscription, reporting, etc.
      *
      * @param Request - UnblockSendingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5928,7 +5914,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Removes sending restrictions caused by unsubscribes or complaints.
+     * Lift sending restrictions due to unsubscription, reporting, etc.
      *
      * @param Request - UnblockSendingRequest
      *
@@ -6015,7 +6001,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 更新帐号信息.
+     * Update account information.
      *
      * @param tmpReq - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6060,7 +6046,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * 更新帐号信息.
+     * Update account information.
      *
      * @param Request - UpdateUserRequest
      *
@@ -6078,7 +6064,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Validates an email address.
+     * 校验电子邮件地址
      *
      * @param Request - ValidateEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6125,7 +6111,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Validates an email address.
+     * 校验电子邮件地址
      *
      * @param Request - ValidateEmailRequest
      *

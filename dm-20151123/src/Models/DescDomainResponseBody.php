@@ -109,6 +109,11 @@ class DescDomainResponseBody extends Model
     public $domainType;
 
     /**
+     * @var int
+     */
+    public $domainVersion;
+
+    /**
      * @var string
      */
     public $hostRecord;
@@ -178,6 +183,7 @@ class DescDomainResponseBody extends Model
         'domainName' => 'DomainName',
         'domainStatus' => 'DomainStatus',
         'domainType' => 'DomainType',
+        'domainVersion' => 'DomainVersion',
         'hostRecord' => 'HostRecord',
         'icpStatus' => 'IcpStatus',
         'mxAuthStatus' => 'MxAuthStatus',
@@ -276,6 +282,10 @@ class DescDomainResponseBody extends Model
 
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
+        }
+
+        if (null !== $this->domainVersion) {
+            $res['DomainVersion'] = $this->domainVersion;
         }
 
         if (null !== $this->hostRecord) {
@@ -407,6 +417,10 @@ class DescDomainResponseBody extends Model
 
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
+        }
+
+        if (isset($map['DomainVersion'])) {
+            $model->domainVersion = $map['DomainVersion'];
         }
 
         if (isset($map['HostRecord'])) {
