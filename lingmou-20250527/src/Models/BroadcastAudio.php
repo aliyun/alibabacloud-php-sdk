@@ -21,6 +21,11 @@ class BroadcastAudio extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -40,6 +45,7 @@ class BroadcastAudio extends Model
     protected $_name = [
         'audioLength' => 'audioLength',
         'createTime' => 'createTime',
+        'errorCode' => 'errorCode',
         'id' => 'id',
         'modifiedTime' => 'modifiedTime',
         'name' => 'name',
@@ -60,6 +66,10 @@ class BroadcastAudio extends Model
 
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
+        }
+
+        if (null !== $this->errorCode) {
+            $res['errorCode'] = $this->errorCode;
         }
 
         if (null !== $this->id) {
@@ -95,6 +105,10 @@ class BroadcastAudio extends Model
 
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
+        }
+
+        if (isset($map['errorCode'])) {
+            $model->errorCode = $map['errorCode'];
         }
 
         if (isset($map['id'])) {

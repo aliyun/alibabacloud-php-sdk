@@ -1,3 +1,6 @@
+2026-04-16 Version: 1.6.4
+- Generated php 2025-05-27 for LingMou.
+
 2026-04-14 Version: 1.6.3
 - Update API CreateChatSession: add request parameters appId.
 - Update API CreateChatSession: add request parameters deviceId.
