@@ -17,6 +17,15 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelShrinkRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudStartTaskRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudStartTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateTaskRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskRequest;
@@ -78,8 +87,6 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVideoPlayProgressRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVideoPlayProgressResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsRealNumberCallConnectionRateInfoRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsRealNumberCallConnectionRateInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVmsVirtualNumberRelationByPageRequest;
@@ -160,7 +167,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Adds the association relationship between a virtual number and real numbers in batches.
+     * Binds multiple real numbers to a service instance at a time.
      *
      * @remarks
      * ### QPS limits
@@ -231,7 +238,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Adds the association relationship between a virtual number and real numbers in batches.
+     * Binds multiple real numbers to a service instance at a time.
      *
      * @remarks
      * ### QPS limits
@@ -253,7 +260,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Initiates an outbound robocall task.
+     * Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
      *
      * @remarks
      *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
@@ -353,7 +360,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Initiates an outbound robocall task.
+     * Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
      *
      * @remarks
      *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
@@ -380,6 +387,8 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * Cancels the two-way call that is initiated by calling the ClickToDial operation.
+     *
      * @param request - CancelCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -429,6 +438,8 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * Cancels the two-way call that is initiated by calling the ClickToDial operation.
+     *
      * @param request - CancelCallRequest
      *
      * @returns CancelCallResponse
@@ -682,7 +693,717 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Creates a task for sending voice notifications or voice verification codes.
+     * 新增任务
+     *
+     * @param request - CloudCreateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudCreateTaskResponse
+     *
+     * @param CloudCreateTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloudCreateTaskResponse
+     */
+    public function cloudCreateTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentGroup) {
+            @$query['AgentGroup'] = $request->agentGroup;
+        }
+
+        if (null !== $request->agentTimeout) {
+            @$query['AgentTimeout'] = $request->agentTimeout;
+        }
+
+        if (null !== $request->answerRate) {
+            @$query['AnswerRate'] = $request->answerRate;
+        }
+
+        if (null !== $request->autoComplete) {
+            @$query['AutoComplete'] = $request->autoComplete;
+        }
+
+        if (null !== $request->autoDelete) {
+            @$query['AutoDelete'] = $request->autoDelete;
+        }
+
+        if (null !== $request->autoStart) {
+            @$query['AutoStart'] = $request->autoStart;
+        }
+
+        if (null !== $request->autoStartDay) {
+            @$query['AutoStartDay'] = $request->autoStartDay;
+        }
+
+        if (null !== $request->autoStartTime) {
+            @$query['AutoStartTime'] = $request->autoStartTime;
+        }
+
+        if (null !== $request->autoStop) {
+            @$query['AutoStop'] = $request->autoStop;
+        }
+
+        if (null !== $request->autoStopDay) {
+            @$query['AutoStopDay'] = $request->autoStopDay;
+        }
+
+        if (null !== $request->autoStopTime) {
+            @$query['AutoStopTime'] = $request->autoStopTime;
+        }
+
+        if (null !== $request->autoTaskType) {
+            @$query['AutoTaskType'] = $request->autoTaskType;
+        }
+
+        if (null !== $request->autoTriggerTimeStrategy) {
+            @$query['AutoTriggerTimeStrategy'] = $request->autoTriggerTimeStrategy;
+        }
+
+        if (null !== $request->callGroupType) {
+            @$query['CallGroupType'] = $request->callGroupType;
+        }
+
+        if (null !== $request->callLimitStrategy) {
+            @$query['CallLimitStrategy'] = $request->callLimitStrategy;
+        }
+
+        if (null !== $request->callPriorityStrategy) {
+            @$query['CallPriorityStrategy'] = $request->callPriorityStrategy;
+        }
+
+        if (null !== $request->callRouteStrategy) {
+            @$query['CallRouteStrategy'] = $request->callRouteStrategy;
+        }
+
+        if (null !== $request->callStrategy) {
+            @$query['CallStrategy'] = $request->callStrategy;
+        }
+
+        if (null !== $request->callVariables) {
+            @$query['CallVariables'] = $request->callVariables;
+        }
+
+        if (null !== $request->clidProperty) {
+            @$query['ClidProperty'] = $request->clidProperty;
+        }
+
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->concurrency) {
+            @$query['Concurrency'] = $request->concurrency;
+        }
+
+        if (null !== $request->customerClidType) {
+            @$query['CustomerClidType'] = $request->customerClidType;
+        }
+
+        if (null !== $request->customerClidWeight) {
+            @$query['CustomerClidWeight'] = $request->customerClidWeight;
+        }
+
+        if (null !== $request->customerClidWeightFlag) {
+            @$query['CustomerClidWeightFlag'] = $request->customerClidWeightFlag;
+        }
+
+        if (null !== $request->customerClids) {
+            @$query['CustomerClids'] = $request->customerClids;
+        }
+
+        if (null !== $request->customerClidsCategory) {
+            @$query['CustomerClidsCategory'] = $request->customerClidsCategory;
+        }
+
+        if (null !== $request->customerClidsGroup) {
+            @$query['CustomerClidsGroup'] = $request->customerClidsGroup;
+        }
+
+        if (null !== $request->customerMoh) {
+            @$query['CustomerMoh'] = $request->customerMoh;
+        }
+
+        if (null !== $request->customerTimeout) {
+            @$query['CustomerTimeout'] = $request->customerTimeout;
+        }
+
+        if (null !== $request->customerVoice) {
+            @$query['CustomerVoice'] = $request->customerVoice;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->forceEndFlag) {
+            @$query['ForceEndFlag'] = $request->forceEndFlag;
+        }
+
+        if (null !== $request->isRewarm) {
+            @$query['IsRewarm'] = $request->isRewarm;
+        }
+
+        if (null !== $request->ivrId) {
+            @$query['IvrId'] = $request->ivrId;
+        }
+
+        if (null !== $request->ivrName) {
+            @$query['IvrName'] = $request->ivrName;
+        }
+
+        if (null !== $request->maxWaitTime) {
+            @$query['MaxWaitTime'] = $request->maxWaitTime;
+        }
+
+        if (null !== $request->minAvailableAgentCount) {
+            @$query['MinAvailableAgentCount'] = $request->minAvailableAgentCount;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->predictAdjust) {
+            @$query['PredictAdjust'] = $request->predictAdjust;
+        }
+
+        if (null !== $request->quotiety) {
+            @$query['Quotiety'] = $request->quotiety;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->retryStrategy) {
+            @$query['RetryStrategy'] = $request->retryStrategy;
+        }
+
+        if (null !== $request->retryStrategyOnlyToday) {
+            @$query['RetryStrategyOnlyToday'] = $request->retryStrategyOnlyToday;
+        }
+
+        if (null !== $request->retryStrategyTimeType) {
+            @$query['RetryStrategyTimeType'] = $request->retryStrategyTimeType;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->timeStrategy) {
+            @$query['TimeStrategy'] = $request->timeStrategy;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->userFields) {
+            @$query['UserFields'] = $request->userFields;
+        }
+
+        if (null !== $request->warmUpDuration) {
+            @$query['WarmUpDuration'] = $request->warmUpDuration;
+        }
+
+        if (null !== $request->wrapup) {
+            @$query['Wrapup'] = $request->wrapup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudCreateTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudCreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增任务
+     *
+     * @param request - CloudCreateTaskRequest
+     *
+     * @returns CloudCreateTaskResponse
+     *
+     * @param CloudCreateTaskRequest $request
+     *
+     * @return CloudCreateTaskResponse
+     */
+    public function cloudCreateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudCreateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 任务号码导入.
+     *
+     * @param tmpReq - CloudImportTaskTelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudImportTaskTelResponse
+     *
+     * @param CloudImportTaskTelRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CloudImportTaskTelResponse
+     */
+    public function cloudImportTaskTelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CloudImportTaskTelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskTelList) {
+            $request->taskTelListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskTelList, 'TaskTelList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bridgeVoicePath) {
+            @$query['BridgeVoicePath'] = $request->bridgeVoicePath;
+        }
+
+        if (null !== $request->bridgeVoiceType) {
+            @$query['BridgeVoiceType'] = $request->bridgeVoiceType;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->importTelAutoStart) {
+            @$query['ImportTelAutoStart'] = $request->importTelAutoStart;
+        }
+
+        if (null !== $request->isRepeat) {
+            @$query['IsRepeat'] = $request->isRepeat;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskTelListShrink) {
+            @$query['TaskTelList'] = $request->taskTelListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudImportTaskTel',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudImportTaskTelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 任务号码导入.
+     *
+     * @param request - CloudImportTaskTelRequest
+     *
+     * @returns CloudImportTaskTelResponse
+     *
+     * @param CloudImportTaskTelRequest $request
+     *
+     * @return CloudImportTaskTelResponse
+     */
+    public function cloudImportTaskTel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudImportTaskTelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 任务启动.
+     *
+     * @param request - CloudStartTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudStartTaskResponse
+     *
+     * @param CloudStartTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CloudStartTaskResponse
+     */
+    public function cloudStartTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudStartTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudStartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 任务启动.
+     *
+     * @param request - CloudStartTaskRequest
+     *
+     * @returns CloudStartTaskResponse
+     *
+     * @param CloudStartTaskRequest $request
+     *
+     * @return CloudStartTaskResponse
+     */
+    public function cloudStartTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudStartTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新任务
+     *
+     * @param request - CloudUpdateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudUpdateTaskResponse
+     *
+     * @param CloudUpdateTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloudUpdateTaskResponse
+     */
+    public function cloudUpdateTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentGroup) {
+            @$query['AgentGroup'] = $request->agentGroup;
+        }
+
+        if (null !== $request->agentTimeout) {
+            @$query['AgentTimeout'] = $request->agentTimeout;
+        }
+
+        if (null !== $request->answerRate) {
+            @$query['AnswerRate'] = $request->answerRate;
+        }
+
+        if (null !== $request->autoComplete) {
+            @$query['AutoComplete'] = $request->autoComplete;
+        }
+
+        if (null !== $request->autoStart) {
+            @$query['AutoStart'] = $request->autoStart;
+        }
+
+        if (null !== $request->autoStartDay) {
+            @$query['AutoStartDay'] = $request->autoStartDay;
+        }
+
+        if (null !== $request->autoStartTime) {
+            @$query['AutoStartTime'] = $request->autoStartTime;
+        }
+
+        if (null !== $request->autoStop) {
+            @$query['AutoStop'] = $request->autoStop;
+        }
+
+        if (null !== $request->autoStopDay) {
+            @$query['AutoStopDay'] = $request->autoStopDay;
+        }
+
+        if (null !== $request->autoStopTime) {
+            @$query['AutoStopTime'] = $request->autoStopTime;
+        }
+
+        if (null !== $request->autoTaskType) {
+            @$query['AutoTaskType'] = $request->autoTaskType;
+        }
+
+        if (null !== $request->autoTriggerTimeStrategy) {
+            @$query['AutoTriggerTimeStrategy'] = $request->autoTriggerTimeStrategy;
+        }
+
+        if (null !== $request->callLimitStrategy) {
+            @$query['CallLimitStrategy'] = $request->callLimitStrategy;
+        }
+
+        if (null !== $request->callPriorityStrategy) {
+            @$query['CallPriorityStrategy'] = $request->callPriorityStrategy;
+        }
+
+        if (null !== $request->callRouteStrategy) {
+            @$query['CallRouteStrategy'] = $request->callRouteStrategy;
+        }
+
+        if (null !== $request->callStrategy) {
+            @$query['CallStrategy'] = $request->callStrategy;
+        }
+
+        if (null !== $request->callVariables) {
+            @$query['CallVariables'] = $request->callVariables;
+        }
+
+        if (null !== $request->clidProperty) {
+            @$query['ClidProperty'] = $request->clidProperty;
+        }
+
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->concurrency) {
+            @$query['Concurrency'] = $request->concurrency;
+        }
+
+        if (null !== $request->customerClidType) {
+            @$query['CustomerClidType'] = $request->customerClidType;
+        }
+
+        if (null !== $request->customerClidWeight) {
+            @$query['CustomerClidWeight'] = $request->customerClidWeight;
+        }
+
+        if (null !== $request->customerClidWeightFlag) {
+            @$query['CustomerClidWeightFlag'] = $request->customerClidWeightFlag;
+        }
+
+        if (null !== $request->customerClids) {
+            @$query['CustomerClids'] = $request->customerClids;
+        }
+
+        if (null !== $request->customerClidsCategory) {
+            @$query['CustomerClidsCategory'] = $request->customerClidsCategory;
+        }
+
+        if (null !== $request->customerClidsGroup) {
+            @$query['CustomerClidsGroup'] = $request->customerClidsGroup;
+        }
+
+        if (null !== $request->customerMoh) {
+            @$query['CustomerMoh'] = $request->customerMoh;
+        }
+
+        if (null !== $request->customerTimeout) {
+            @$query['CustomerTimeout'] = $request->customerTimeout;
+        }
+
+        if (null !== $request->customerVoice) {
+            @$query['CustomerVoice'] = $request->customerVoice;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->forceEndFlag) {
+            @$query['ForceEndFlag'] = $request->forceEndFlag;
+        }
+
+        if (null !== $request->isRewarm) {
+            @$query['IsRewarm'] = $request->isRewarm;
+        }
+
+        if (null !== $request->ivrId) {
+            @$query['IvrId'] = $request->ivrId;
+        }
+
+        if (null !== $request->ivrName) {
+            @$query['IvrName'] = $request->ivrName;
+        }
+
+        if (null !== $request->maxWaitTime) {
+            @$query['MaxWaitTime'] = $request->maxWaitTime;
+        }
+
+        if (null !== $request->minAvailableAgentCount) {
+            @$query['MinAvailableAgentCount'] = $request->minAvailableAgentCount;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->predictAdjust) {
+            @$query['PredictAdjust'] = $request->predictAdjust;
+        }
+
+        if (null !== $request->quotiety) {
+            @$query['Quotiety'] = $request->quotiety;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->retryStrategy) {
+            @$query['RetryStrategy'] = $request->retryStrategy;
+        }
+
+        if (null !== $request->retryStrategyOnlyToday) {
+            @$query['RetryStrategyOnlyToday'] = $request->retryStrategyOnlyToday;
+        }
+
+        if (null !== $request->retryStrategyTimeType) {
+            @$query['RetryStrategyTimeType'] = $request->retryStrategyTimeType;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->timeStrategy) {
+            @$query['TimeStrategy'] = $request->timeStrategy;
+        }
+
+        if (null !== $request->userFields) {
+            @$query['UserFields'] = $request->userFields;
+        }
+
+        if (null !== $request->warmUpDuration) {
+            @$query['WarmUpDuration'] = $request->warmUpDuration;
+        }
+
+        if (null !== $request->wrapup) {
+            @$query['Wrapup'] = $request->wrapup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudUpdateTask',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudUpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新任务
+     *
+     * @param request - CloudUpdateTaskRequest
+     *
+     * @returns CloudUpdateTaskResponse
+     *
+     * @param CloudUpdateTaskRequest $request
+     *
+     * @return CloudUpdateTaskResponse
+     */
+    public function cloudUpdateTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudUpdateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
      *
      * @remarks
      * You can create up to 1,000 voice notifications for each task.
@@ -778,7 +1499,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Creates a task for sending voice notifications or voice verification codes.
+     * Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
      *
      * @remarks
      * You can create up to 1,000 voice notifications for each task.
@@ -916,7 +1637,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * DegradeVideoFile.
+     * Downgrades from a video call to a voice call.
      *
      * @param request - DegradeVideoFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -979,7 +1700,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * DegradeVideoFile.
+     * Downgrades from a video call to a voice call.
      *
      * @param request - DegradeVideoFileRequest
      *
@@ -1161,7 +1882,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * GetCallMediaType.
+     * Obtains the call type during a call.
      *
      * @param request - GetCallMediaTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1216,7 +1937,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * GetCallMediaType.
+     * Obtains the call type during a call.
      *
      * @param request - GetCallMediaTypeRequest
      *
@@ -1384,7 +2105,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * GetTemporaryFileUrl.
+     * Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
      *
      * @param request - GetTemporaryFileUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1435,7 +2156,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * GetTemporaryFileUrl.
+     * Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
      *
      * @param request - GetTemporaryFileUrlRequest
      *
@@ -1718,7 +2439,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries task information.
+     * Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
      *
      * @remarks
      * ### QPS limits
@@ -1797,7 +2518,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries task information.
+     * Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
      *
      * @remarks
      * ### QPS limits
@@ -1819,7 +2540,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries the information about a task based on the task ID.
+     * Queries the details of call tasks based on task IDs after call tasks are complete.
      *
      * @remarks
      * ### QPS limits
@@ -1890,7 +2611,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries the information about a task based on the task ID.
+     * Queries the details of call tasks based on task IDs after call tasks are complete.
      *
      * @remarks
      * ### QPS limits
@@ -2092,7 +2813,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * PauseVideoFile.
+     * Pauses video playback when a video file is played back during a voice call.
      *
      * @param request - PauseVideoFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2147,7 +2868,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * PauseVideoFile.
+     * Pauses video playback when a video file is played back during a voice call.
      *
      * @param request - PauseVideoFileRequest
      *
@@ -2165,7 +2886,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * PlayVideoFile.
+     * Plays back a video file during a voice call.
      *
      * @param request - PlayVideoFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2232,7 +2953,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * PlayVideoFile.
+     * Plays back a video file during a voice call.
      *
      * @param request - PlayVideoFileRequest
      *
@@ -2584,7 +3305,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of robots.
+     * Queries a list of robots to obtain their details.
      *
      * @param request - QueryRobotInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2635,7 +3356,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of robots.
+     * Queries a list of robots to obtain their details.
      *
      * @param request - QueryRobotInfoListRequest
      *
@@ -2653,7 +3374,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries the call details of a called number in a robocall task.
+     * Queries the call details of a called number.
      *
      * @remarks
      * ### QPS limits
@@ -2716,7 +3437,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries the call details of a called number in a robocall task.
+     * Queries the call details of a called number.
      *
      * @remarks
      * ### QPS limits
@@ -3094,7 +3815,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * QueryVideoPlayProgress.
+     * Queries the video playback progress after you play a video file during a voice call.
      *
      * @param request - QueryVideoPlayProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3149,7 +3870,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * QueryVideoPlayProgress.
+     * Queries the video playback progress after you play a video file during a voice call.
      *
      * @param request - QueryVideoPlayProgressRequest
      *
@@ -3167,96 +3888,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of virtual numbers.
-     *
-     * @remarks
-     * ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *
-     * @param request - QueryVirtualNumberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryVirtualNumberResponse
-     *
-     * @param QueryVirtualNumberRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return QueryVirtualNumberResponse
-     */
-    public function queryVirtualNumberWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
-        }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->prodCode) {
-            @$query['ProdCode'] = $request->prodCode;
-        }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-
-        if (null !== $request->routeType) {
-            @$query['RouteType'] = $request->routeType;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'QueryVirtualNumber',
-            'version' => '2017-05-25',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return QueryVirtualNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries a list of virtual numbers.
-     *
-     * @remarks
-     * ### QPS limits
-     * You can call this operation up to 100 times per second per account.
-     *
-     * @param request - QueryVirtualNumberRequest
-     *
-     * @returns QueryVirtualNumberResponse
-     *
-     * @param QueryVirtualNumberRequest $request
-     *
-     * @return QueryVirtualNumberResponse
-     */
-    public function queryVirtualNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryVirtualNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries a list of associations between virtual numbers and real numbers.
+     * Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
      *
      * @remarks
      * ### QPS limits
@@ -3343,7 +3975,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of associations between virtual numbers and real numbers.
+     * Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
      *
      * @remarks
      * ### QPS limits
@@ -3677,7 +4309,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ResumeVideoFile.
+     * Resumes video playback after you pause video playback during a voice call.
      *
      * @param request - ResumeVideoFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3732,7 +4364,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * ResumeVideoFile.
+     * Resumes video playback after you pause video playback during a voice call.
      *
      * @param request - ResumeVideoFileRequest
      *
@@ -4110,7 +4742,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * 语音视频单呼接口.
+     * Sends voice file notifications or video file notifications to a single called number.
      *
      * @param request - SingleCallByVideoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4189,7 +4821,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * 语音视频单呼接口.
+     * Sends voice file notifications or video file notifications to a single called number.
      *
      * @param request - SingleCallByVideoRequest
      *
@@ -4312,7 +4944,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * SkipVideoFile.
+     * Fast forwards or rewinds a video when you play the video.
      *
      * @param request - SkipVideoFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4375,7 +5007,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * SkipVideoFile.
+     * Fast forwards or rewinds a video when you play the video.
      *
      * @param request - SkipVideoFileRequest
      *
@@ -4896,7 +5528,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Submits a China 400 number for registration.
+     * Submits a 400 number for registration.
      *
      * @remarks
      * ### QPS limits
@@ -4987,7 +5619,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * Submits a China 400 number for registration.
+     * Submits a 400 number for registration.
      *
      * @remarks
      * ### QPS limits
@@ -5009,7 +5641,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * UpgradeVideoFile.
+     * Upgrades from a voice call to a video call.
      *
      * @param request - UpgradeVideoFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5072,7 +5704,7 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * UpgradeVideoFile.
+     * Upgrades from a voice call to a video call.
      *
      * @param request - UpgradeVideoFileRequest
      *

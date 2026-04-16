@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryVirtualNumberResponse extends Model
+class CloudStartTaskResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class QueryVirtualNumberResponse extends Model
     public $statusCode;
 
     /**
-     * @var QueryVirtualNumberResponseBody
+     * @var CloudStartTaskResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class QueryVirtualNumberResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = QueryVirtualNumberResponseBody::fromMap($map['body']);
+            $model->body = CloudStartTaskResponseBody::fromMap($map['body']);
         }
 
         return $model;

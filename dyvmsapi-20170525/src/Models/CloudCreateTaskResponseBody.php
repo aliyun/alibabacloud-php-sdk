@@ -5,43 +5,67 @@
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskResponseBody\data;
 
-class QueryVirtualNumberResponseBody extends Model
+class CloudCreateTaskResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $code;
 
     /**
-     * @var string
+     * @var data
      */
     public $data;
 
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
         'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
 
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+        }
+
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         if (null !== $this->requestId) {
@@ -59,12 +83,20 @@ class QueryVirtualNumberResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
 
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            $model->data = data::fromMap($map['Data']);
+        }
+
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         if (isset($map['RequestId'])) {

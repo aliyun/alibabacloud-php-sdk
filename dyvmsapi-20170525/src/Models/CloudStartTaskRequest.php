@@ -6,27 +6,17 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryVirtualNumberRequest extends Model
+class CloudStartTaskRequest extends Model
 {
     /**
      * @var int
      */
+    public $enterpriseId;
+
+    /**
+     * @var int
+     */
     public $ownerId;
-
-    /**
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $prodCode;
 
     /**
      * @var string
@@ -41,15 +31,13 @@ class QueryVirtualNumberRequest extends Model
     /**
      * @var int
      */
-    public $routeType;
+    public $taskId;
     protected $_name = [
+        'enterpriseId' => 'EnterpriseId',
         'ownerId' => 'OwnerId',
-        'pageNo' => 'PageNo',
-        'pageSize' => 'PageSize',
-        'prodCode' => 'ProdCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'routeType' => 'RouteType',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -60,20 +48,12 @@ class QueryVirtualNumberRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enterpriseId) {
+            $res['EnterpriseId'] = $this->enterpriseId;
+        }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-
-        if (null !== $this->prodCode) {
-            $res['ProdCode'] = $this->prodCode;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -84,8 +64,8 @@ class QueryVirtualNumberRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->routeType) {
-            $res['RouteType'] = $this->routeType;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -99,20 +79,12 @@ class QueryVirtualNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnterpriseId'])) {
+            $model->enterpriseId = $map['EnterpriseId'];
+        }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-
-        if (isset($map['ProdCode'])) {
-            $model->prodCode = $map['ProdCode'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {
@@ -123,8 +95,8 @@ class QueryVirtualNumberRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['RouteType'])) {
-            $model->routeType = $map['RouteType'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;
