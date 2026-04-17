@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeResourceConstraintsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\DataZoneSupportCompactionServiceValue;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeResourceConstraintsResponseBody\data\beNumber;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeResourceConstraintsResponseBody\data\beStorageConstraints;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\DescribeResourceConstraintsResponseBody\data\bigDataInstanceTypeConstraints;
@@ -119,6 +120,11 @@ class data extends Model
      * @var compactionServiceCuConstraint
      */
     public $compactionServiceCuConstraint;
+
+    /**
+     * @var DataZoneSupportCompactionServiceValue[][]
+     */
+    public $zoneSupportCompactionService;
     protected $_name = [
         'agentCu' => 'AgentCu',
         'beCu' => 'BeCu',
@@ -140,6 +146,7 @@ class data extends Model
         'zoneSupportedEedTypes' => 'ZoneSupportedEedTypes',
         'zoneSupportedSpecTypes' => 'ZoneSupportedSpecTypes',
         'compactionServiceCuConstraint' => 'compactionServiceCuConstraint',
+        'zoneSupportCompactionService' => 'zoneSupportCompactionService',
     ];
 
     public function validate()
@@ -203,6 +210,9 @@ class data extends Model
         }
         if (null !== $this->compactionServiceCuConstraint) {
             $this->compactionServiceCuConstraint->validate();
+        }
+        if (\is_array($this->zoneSupportCompactionService)) {
+            Model::validateArray($this->zoneSupportCompactionService);
         }
         parent::validate();
     }
@@ -387,6 +397,22 @@ class data extends Model
 
         if (null !== $this->compactionServiceCuConstraint) {
             $res['compactionServiceCuConstraint'] = null !== $this->compactionServiceCuConstraint ? $this->compactionServiceCuConstraint->toArray($noStream) : $this->compactionServiceCuConstraint;
+        }
+
+        if (null !== $this->zoneSupportCompactionService) {
+            if (\is_array($this->zoneSupportCompactionService)) {
+                $res['zoneSupportCompactionService'] = [];
+                foreach ($this->zoneSupportCompactionService as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['zoneSupportCompactionService'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['zoneSupportCompactionService'][$key1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
@@ -577,6 +603,22 @@ class data extends Model
 
         if (isset($map['compactionServiceCuConstraint'])) {
             $model->compactionServiceCuConstraint = compactionServiceCuConstraint::fromMap($map['compactionServiceCuConstraint']);
+        }
+
+        if (isset($map['zoneSupportCompactionService'])) {
+            if (!empty($map['zoneSupportCompactionService'])) {
+                $model->zoneSupportCompactionService = [];
+                foreach ($map['zoneSupportCompactionService'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->zoneSupportCompactionService[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->zoneSupportCompactionService[$key1][$n2] = DataZoneSupportCompactionServiceValue::fromMap($item2);
+                            ++$n2;
+                        }
+                    }
+                }
+            }
         }
 
         return $model;
