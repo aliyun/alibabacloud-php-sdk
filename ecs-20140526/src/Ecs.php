@@ -84,6 +84,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticMetricSetRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticMetricSetResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticReportRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticReportResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiagnosticReportShrinkRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateDiskResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateElasticityAssuranceRequest;
@@ -5235,20 +5236,30 @@ class Ecs extends OpenApiClient
     /**
      * Creates a diagnostic report for a resource. When you call this operation, you can configure the MetricSetId parameter to create a diagnostic report based on the specified diagnostic metric set. Then, you can call the DescribeDiagnosticReportAttributes operation based on the returned diagnostic report ID to view the details of the diagnostic report.
      *
-     * @param request - CreateDiagnosticReportRequest
+     * @param tmpReq - CreateDiagnosticReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateDiagnosticReportResponse
      *
-     * @param CreateDiagnosticReportRequest $request
+     * @param CreateDiagnosticReportRequest $tmpReq
      * @param RuntimeOptions                $runtime
      *
      * @return CreateDiagnosticReportResponse
      */
-    public function createDiagnosticReportWithOptions($request, $runtime)
+    public function createDiagnosticReportWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateDiagnosticReportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->additionalOptions) {
+            $request->additionalOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->additionalOptions, 'AdditionalOptions', 'json');
+        }
+
         $query = [];
+        if (null !== $request->additionalOptionsShrink) {
+            @$query['AdditionalOptions'] = $request->additionalOptionsShrink;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }

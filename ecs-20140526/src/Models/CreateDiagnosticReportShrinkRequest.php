@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateDiagnosticReportRequest extends Model
+class CreateDiagnosticReportShrinkRequest extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $additionalOptions;
+    public $additionalOptionsShrink;
 
     /**
      * @var string
@@ -38,7 +38,7 @@ class CreateDiagnosticReportRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'additionalOptions' => 'AdditionalOptions',
+        'additionalOptionsShrink' => 'AdditionalOptions',
         'endTime' => 'EndTime',
         'metricSetId' => 'MetricSetId',
         'regionId' => 'RegionId',
@@ -48,22 +48,14 @@ class CreateDiagnosticReportRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->additionalOptions)) {
-            Model::validateArray($this->additionalOptions);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->additionalOptions) {
-            if (\is_array($this->additionalOptions)) {
-                $res['AdditionalOptions'] = [];
-                foreach ($this->additionalOptions as $key1 => $value1) {
-                    $res['AdditionalOptions'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->additionalOptionsShrink) {
+            $res['AdditionalOptions'] = $this->additionalOptionsShrink;
         }
 
         if (null !== $this->endTime) {
@@ -98,12 +90,7 @@ class CreateDiagnosticReportRequest extends Model
     {
         $model = new self();
         if (isset($map['AdditionalOptions'])) {
-            if (!empty($map['AdditionalOptions'])) {
-                $model->additionalOptions = [];
-                foreach ($map['AdditionalOptions'] as $key1 => $value1) {
-                    $model->additionalOptions[$key1] = $value1;
-                }
-            }
+            $model->additionalOptionsShrink = $map['AdditionalOptions'];
         }
 
         if (isset($map['EndTime'])) {
