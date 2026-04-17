@@ -90,6 +90,11 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
     public $nodeName;
 
     /**
+     * @var string
+     */
+    public $paidCallBackUrl;
+
+    /**
      * @var int
      */
     public $period;
@@ -180,6 +185,7 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
         'networkInfoShrink' => 'NetworkInfo',
         'networkType' => 'NetworkType',
         'nodeName' => 'NodeName',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'phoneCount' => 'PhoneCount',
@@ -270,6 +276,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->period) {
@@ -412,6 +422,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['Period'])) {

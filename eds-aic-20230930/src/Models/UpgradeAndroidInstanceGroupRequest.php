@@ -26,11 +26,17 @@ class UpgradeAndroidInstanceGroupRequest extends Model
     /**
      * @var string
      */
+    public $paidCallBackUrl;
+
+    /**
+     * @var string
+     */
     public $promotionId;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'increaseNumberOfInstance' => 'IncreaseNumberOfInstance',
         'instanceGroupId' => 'InstanceGroupId',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'promotionId' => 'PromotionId',
     ];
 
@@ -52,6 +58,10 @@ class UpgradeAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->instanceGroupId) {
             $res['InstanceGroupId'] = $this->instanceGroupId;
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->promotionId) {
@@ -79,6 +89,10 @@ class UpgradeAndroidInstanceGroupRequest extends Model
 
         if (isset($map['InstanceGroupId'])) {
             $model->instanceGroupId = $map['InstanceGroupId'];
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['PromotionId'])) {

@@ -11,6 +11,11 @@ class runCommandInfos extends Model
     /**
      * @var string
      */
+    public $childTaskId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -18,6 +23,7 @@ class runCommandInfos extends Model
      */
     public $invokeId;
     protected $_name = [
+        'childTaskId' => 'ChildTaskId',
         'instanceId' => 'InstanceId',
         'invokeId' => 'InvokeId',
     ];
@@ -30,6 +36,10 @@ class runCommandInfos extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->childTaskId) {
+            $res['ChildTaskId'] = $this->childTaskId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,6 +59,10 @@ class runCommandInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChildTaskId'])) {
+            $model->childTaskId = $map['ChildTaskId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

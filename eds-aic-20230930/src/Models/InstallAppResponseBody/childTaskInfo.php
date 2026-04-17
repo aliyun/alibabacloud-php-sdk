@@ -11,6 +11,11 @@ class childTaskInfo extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $childTaskId;
 
     /**
@@ -18,6 +23,7 @@ class childTaskInfo extends Model
      */
     public $instanceId;
     protected $_name = [
+        'appId' => 'AppId',
         'childTaskId' => 'ChildTaskId',
         'instanceId' => 'InstanceId',
     ];
@@ -30,6 +36,10 @@ class childTaskInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+
         if (null !== $this->childTaskId) {
             $res['ChildTaskId'] = $this->childTaskId;
         }
@@ -49,6 +59,10 @@ class childTaskInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+
         if (isset($map['ChildTaskId'])) {
             $model->childTaskId = $map['ChildTaskId'];
         }

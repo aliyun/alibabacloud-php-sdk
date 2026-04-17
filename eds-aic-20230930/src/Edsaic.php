@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CancelAgentTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CancelAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
@@ -716,6 +718,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 取消云手机实例上正在运行的Agent任务。
+     *
+     * @param request - CancelAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAgentTaskResponse
+     *
+     * @param CancelAgentTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelAgentTaskResponse
+     */
+    public function cancelAgentTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAgentTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消云手机实例上正在运行的Agent任务。
+     *
+     * @param request - CancelAgentTaskRequest
+     *
+     * @returns CancelAgentTaskResponse
+     *
+     * @param CancelAgentTaskRequest $request
+     *
+     * @return CancelAgentTaskResponse
+     */
+    public function cancelAgentTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAgentTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改云手机矩阵的配置.
      *
      * @param request - ChangeCloudPhoneNodeRequest
@@ -1280,6 +1339,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->nodeName) {
             @$query['NodeName'] = $request->nodeName;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
         }
 
         if (null !== $request->period) {
@@ -4167,6 +4230,10 @@ class Edsaic extends OpenApiClient
             @$query['NodeIds'] = $request->nodeIds;
         }
 
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
+        }
+
         if (null !== $request->phoneDataVolume) {
             @$query['PhoneDataVolume'] = $request->phoneDataVolume;
         }
@@ -4242,6 +4309,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
         }
 
         if (null !== $request->phoneDataVolume) {
@@ -6183,6 +6254,10 @@ class Edsaic extends OpenApiClient
             @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
 
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
+        }
+
         if (null !== $request->period) {
             @$query['Period'] = $request->period;
         }
@@ -6250,6 +6325,10 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (null !== $request->autoPay) {
             @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
         }
 
         if (null !== $request->promotionId) {
@@ -7631,6 +7710,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->instanceGroupId) {
             @$query['InstanceGroupId'] = $request->instanceGroupId;
+        }
+
+        if (null !== $request->paidCallBackUrl) {
+            @$query['PaidCallBackUrl'] = $request->paidCallBackUrl;
         }
 
         if (null !== $request->promotionId) {

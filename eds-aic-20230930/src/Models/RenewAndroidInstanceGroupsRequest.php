@@ -19,6 +19,11 @@ class RenewAndroidInstanceGroupsRequest extends Model
     public $instanceGroupIds;
 
     /**
+     * @var string
+     */
+    public $paidCallBackUrl;
+
+    /**
      * @var int
      */
     public $period;
@@ -35,6 +40,7 @@ class RenewAndroidInstanceGroupsRequest extends Model
     protected $_name = [
         'autoPay' => 'AutoPay',
         'instanceGroupIds' => 'InstanceGroupIds',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
@@ -64,6 +70,10 @@ class RenewAndroidInstanceGroupsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->period) {
@@ -102,6 +112,10 @@ class RenewAndroidInstanceGroupsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['Period'])) {

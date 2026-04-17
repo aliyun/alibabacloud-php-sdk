@@ -24,6 +24,11 @@ class RenewCloudPhoneNodesRequest extends Model
     public $nodeIds;
 
     /**
+     * @var string
+     */
+    public $paidCallBackUrl;
+
+    /**
      * @var int
      */
     public $period;
@@ -41,6 +46,7 @@ class RenewCloudPhoneNodesRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'nodeIds' => 'NodeIds',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
@@ -74,6 +80,10 @@ class RenewCloudPhoneNodesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->period) {
@@ -116,6 +126,10 @@ class RenewCloudPhoneNodesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['Period'])) {

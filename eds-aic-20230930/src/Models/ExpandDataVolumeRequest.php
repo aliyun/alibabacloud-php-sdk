@@ -24,6 +24,11 @@ class ExpandDataVolumeRequest extends Model
     public $nodeIds;
 
     /**
+     * @var string
+     */
+    public $paidCallBackUrl;
+
+    /**
      * @var int
      */
     public $phoneDataVolume;
@@ -41,6 +46,7 @@ class ExpandDataVolumeRequest extends Model
         'autoPay' => 'AutoPay',
         'bizRegionId' => 'BizRegionId',
         'nodeIds' => 'NodeIds',
+        'paidCallBackUrl' => 'PaidCallBackUrl',
         'phoneDataVolume' => 'PhoneDataVolume',
         'promotionId' => 'PromotionId',
         'shareDataVolume' => 'ShareDataVolume',
@@ -74,6 +80,10 @@ class ExpandDataVolumeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->paidCallBackUrl) {
+            $res['PaidCallBackUrl'] = $this->paidCallBackUrl;
         }
 
         if (null !== $this->phoneDataVolume) {
@@ -116,6 +126,10 @@ class ExpandDataVolumeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PaidCallBackUrl'])) {
+            $model->paidCallBackUrl = $map['PaidCallBackUrl'];
         }
 
         if (isset($map['PhoneDataVolume'])) {

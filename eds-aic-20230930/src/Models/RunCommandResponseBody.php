@@ -23,10 +23,16 @@ class RunCommandResponseBody extends Model
      * @var runCommandInfos[]
      */
     public $runCommandInfos;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'invokeId' => 'InvokeId',
         'requestId' => 'RequestId',
         'runCommandInfos' => 'RunCommandInfos',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -59,6 +65,10 @@ class RunCommandResponseBody extends Model
             }
         }
 
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+
         return $res;
     }
 
@@ -87,6 +97,10 @@ class RunCommandResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;
