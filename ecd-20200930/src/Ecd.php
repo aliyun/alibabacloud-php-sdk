@@ -17747,8 +17747,16 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->targetMemberIp) {
+            @$query['TargetMemberIp'] = $request->targetMemberIp;
+        }
+
         if (null !== $request->targetOfficeSiteId) {
             @$query['TargetOfficeSiteId'] = $request->targetOfficeSiteId;
+        }
+
+        if (null !== $request->targetSubnetId) {
+            @$query['TargetSubnetId'] = $request->targetSubnetId;
         }
 
         $req = new OpenApiRequest([

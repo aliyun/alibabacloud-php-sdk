@@ -21,11 +21,23 @@ class MigrateDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $targetMemberIp;
+
+    /**
+     * @var string
+     */
     public $targetOfficeSiteId;
+
+    /**
+     * @var string
+     */
+    public $targetSubnetId;
     protected $_name = [
         'desktopId' => 'DesktopId',
         'regionId' => 'RegionId',
+        'targetMemberIp' => 'TargetMemberIp',
         'targetOfficeSiteId' => 'TargetOfficeSiteId',
+        'targetSubnetId' => 'TargetSubnetId',
     ];
 
     public function validate()
@@ -54,8 +66,16 @@ class MigrateDesktopsRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->targetMemberIp) {
+            $res['TargetMemberIp'] = $this->targetMemberIp;
+        }
+
         if (null !== $this->targetOfficeSiteId) {
             $res['TargetOfficeSiteId'] = $this->targetOfficeSiteId;
+        }
+
+        if (null !== $this->targetSubnetId) {
+            $res['TargetSubnetId'] = $this->targetSubnetId;
         }
 
         return $res;
@@ -84,8 +104,16 @@ class MigrateDesktopsRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['TargetMemberIp'])) {
+            $model->targetMemberIp = $map['TargetMemberIp'];
+        }
+
         if (isset($map['TargetOfficeSiteId'])) {
             $model->targetOfficeSiteId = $map['TargetOfficeSiteId'];
+        }
+
+        if (isset($map['TargetSubnetId'])) {
+            $model->targetSubnetId = $map['TargetSubnetId'];
         }
 
         return $model;
