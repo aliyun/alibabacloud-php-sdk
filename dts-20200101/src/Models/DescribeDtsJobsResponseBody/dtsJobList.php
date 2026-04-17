@@ -176,6 +176,11 @@ class dtsJobList extends Model
     public $incDataCheckStatus;
 
     /**
+     * @var bool
+     */
+    public $insightModule;
+
+    /**
      * @var string
      */
     public $jobType;
@@ -330,6 +335,7 @@ class dtsJobList extends Model
         'expireTime' => 'ExpireTime',
         'fullDataCheckStatus' => 'FullDataCheckStatus',
         'incDataCheckStatus' => 'IncDataCheckStatus',
+        'insightModule' => 'InsightModule',
         'jobType' => 'JobType',
         'maxDu' => 'MaxDu',
         'memUsage' => 'MemUsage',
@@ -541,6 +547,10 @@ class dtsJobList extends Model
 
         if (null !== $this->incDataCheckStatus) {
             $res['IncDataCheckStatus'] = null !== $this->incDataCheckStatus ? $this->incDataCheckStatus->toArray($noStream) : $this->incDataCheckStatus;
+        }
+
+        if (null !== $this->insightModule) {
+            $res['InsightModule'] = $this->insightModule;
         }
 
         if (null !== $this->jobType) {
@@ -786,6 +796,10 @@ class dtsJobList extends Model
 
         if (isset($map['IncDataCheckStatus'])) {
             $model->incDataCheckStatus = incDataCheckStatus::fromMap($map['IncDataCheckStatus']);
+        }
+
+        if (isset($map['InsightModule'])) {
+            $model->insightModule = $map['InsightModule'];
         }
 
         if (isset($map['JobType'])) {

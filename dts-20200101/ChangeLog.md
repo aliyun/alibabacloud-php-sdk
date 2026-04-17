@@ -1,3 +1,7 @@
+2026-04-17 Version: 1.10.4
+- Update API DescribeDtsJobs: add response parameters Body.DtsJobList.$.InsightModule.
+
+
 2026-04-07 Version: 1.10.3
 - Update API DescribeDocParserJobResult: add response parameters Body.OuterFileUrl.
 
