@@ -28,6 +28,11 @@ class engineList extends Model
     /**
      * @var string
      */
+    public $enableMaaS;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -53,6 +58,7 @@ class engineList extends Model
         'connectAddressList' => 'ConnectAddressList',
         'enableBackup' => 'EnableBackup',
         'enableCDC' => 'EnableCDC',
+        'enableMaaS' => 'EnableMaaS',
         'engine' => 'Engine',
         'isLastVersion' => 'IsLastVersion',
         'latestVersion' => 'LatestVersion',
@@ -91,6 +97,10 @@ class engineList extends Model
 
         if (null !== $this->enableCDC) {
             $res['EnableCDC'] = $this->enableCDC;
+        }
+
+        if (null !== $this->enableMaaS) {
+            $res['EnableMaaS'] = $this->enableMaaS;
         }
 
         if (null !== $this->engine) {
@@ -148,6 +158,10 @@ class engineList extends Model
 
         if (isset($map['EnableCDC'])) {
             $model->enableCDC = $map['EnableCDC'];
+        }
+
+        if (isset($map['EnableMaaS'])) {
+            $model->enableMaaS = $map['EnableMaaS'];
         }
 
         if (isset($map['Engine'])) {

@@ -7,8 +7,12 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CheckCreateLindormV2InstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CheckCreateLindormV2InstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CheckLdpsColumnarIndexStatusRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CheckLdpsColumnarIndexStatusResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateAdditionalVpcLinkRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateAdditionalVpcLinkResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateAutoScalingConfigRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateAutoScalingConfigResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateAutoScalingConfigShrinkRequest;
@@ -248,6 +252,147 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * Lindormv2创建预校验.
+     *
+     * @param request - CheckCreateLindormV2InstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckCreateLindormV2InstanceResponse
+     *
+     * @param CheckCreateLindormV2InstanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckCreateLindormV2InstanceResponse
+     */
+    public function checkCreateLindormV2InstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->arbiterVSwitchId) {
+            @$query['ArbiterVSwitchId'] = $request->arbiterVSwitchId;
+        }
+
+        if (null !== $request->arbiterZoneId) {
+            @$query['ArbiterZoneId'] = $request->arbiterZoneId;
+        }
+
+        if (null !== $request->archVersion) {
+            @$query['ArchVersion'] = $request->archVersion;
+        }
+
+        if (null !== $request->cloudStorageSize) {
+            @$query['CloudStorageSize'] = $request->cloudStorageSize;
+        }
+
+        if (null !== $request->cloudStorageType) {
+            @$query['CloudStorageType'] = $request->cloudStorageType;
+        }
+
+        if (null !== $request->clusterPattern) {
+            @$query['ClusterPattern'] = $request->clusterPattern;
+        }
+
+        if (null !== $request->engineList) {
+            @$query['EngineList'] = $request->engineList;
+        }
+
+        if (null !== $request->instanceAlias) {
+            @$query['InstanceAlias'] = $request->instanceAlias;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->primaryVSwitchId) {
+            @$query['PrimaryVSwitchId'] = $request->primaryVSwitchId;
+        }
+
+        if (null !== $request->primaryZoneId) {
+            @$query['PrimaryZoneId'] = $request->primaryZoneId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->standbyVSwitchId) {
+            @$query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        }
+
+        if (null !== $request->standbyZoneId) {
+            @$query['StandbyZoneId'] = $request->standbyZoneId;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckCreateLindormV2Instance',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckCreateLindormV2InstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lindormv2创建预校验.
+     *
+     * @param request - CheckCreateLindormV2InstanceRequest
+     *
+     * @returns CheckCreateLindormV2InstanceResponse
+     *
+     * @param CheckCreateLindormV2InstanceRequest $request
+     *
+     * @return CheckCreateLindormV2InstanceResponse
+     */
+    public function checkCreateLindormV2Instance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCreateLindormV2InstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - CheckLdpsColumnarIndexStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -318,6 +463,79 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkLdpsColumnarIndexStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * vpc打通.
+     *
+     * @param request - CreateAdditionalVpcLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAdditionalVpcLinkResponse
+     *
+     * @param CreateAdditionalVpcLinkRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAdditionalVpcLinkResponse
+     */
+    public function createAdditionalVpcLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->additionalVpcId) {
+            @$query['AdditionalVpcId'] = $request->additionalVpcId;
+        }
+
+        if (null !== $request->additionalVswitchId) {
+            @$query['AdditionalVswitchId'] = $request->additionalVswitchId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAdditionalVpcLink',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAdditionalVpcLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * vpc打通.
+     *
+     * @param request - CreateAdditionalVpcLinkRequest
+     *
+     * @returns CreateAdditionalVpcLinkResponse
+     *
+     * @param CreateAdditionalVpcLinkRequest $request
+     *
+     * @return CreateAdditionalVpcLinkResponse
+     */
+    public function createAdditionalVpcLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAdditionalVpcLinkWithOptions($request, $runtime);
     }
 
     /**
@@ -5267,7 +5485,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Associates tags with a single or multiple Lindorm instances.
+     * Adds tags to one or more Lindorm instances.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5338,7 +5556,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Associates tags with a single or multiple Lindorm instances.
+     * Adds tags to one or more Lindorm instances.
      *
      * @param request - TagResourcesRequest
      *
