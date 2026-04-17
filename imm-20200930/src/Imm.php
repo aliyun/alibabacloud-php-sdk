@@ -7806,6 +7806,10 @@ class Imm extends OpenApiClient
             @$query['MaxResults'] = $request->maxResults;
         }
 
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
         }
