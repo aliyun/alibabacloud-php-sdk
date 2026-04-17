@@ -44,6 +44,11 @@ class SearchMemoriesRequest extends Model
     public $runId;
 
     /**
+     * @var string
+     */
+    public $searchType;
+
+    /**
      * @var float
      */
     public $threshold;
@@ -65,6 +70,7 @@ class SearchMemoriesRequest extends Model
         'rerank' => 'rerank',
         'retrieveLevel' => 'retrieveLevel',
         'runId' => 'runId',
+        'searchType' => 'searchType',
         'threshold' => 'threshold',
         'topK' => 'topK',
         'userId' => 'userId',
@@ -112,6 +118,10 @@ class SearchMemoriesRequest extends Model
 
         if (null !== $this->runId) {
             $res['runId'] = $this->runId;
+        }
+
+        if (null !== $this->searchType) {
+            $res['searchType'] = $this->searchType;
         }
 
         if (null !== $this->threshold) {
@@ -168,6 +178,10 @@ class SearchMemoriesRequest extends Model
 
         if (isset($map['runId'])) {
             $model->runId = $map['runId'];
+        }
+
+        if (isset($map['searchType'])) {
+            $model->searchType = $map['searchType'];
         }
 
         if (isset($map['threshold'])) {

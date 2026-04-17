@@ -8410,6 +8410,10 @@ class Cms extends OpenApiClient
             @$body['runId'] = $request->runId;
         }
 
+        if (null !== $request->searchType) {
+            @$body['searchType'] = $request->searchType;
+        }
+
         if (null !== $request->threshold) {
             @$body['threshold'] = $request->threshold;
         }
