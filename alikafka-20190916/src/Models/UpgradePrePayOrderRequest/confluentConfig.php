@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest\confluentConfig\ksqlList;
 
 class confluentConfig extends Model
 {
@@ -64,6 +65,11 @@ class confluentConfig extends Model
     public $ksqlCU;
 
     /**
+     * @var ksqlList[]
+     */
+    public $ksqlList;
+
+    /**
      * @var int
      */
     public $ksqlReplica;
@@ -109,6 +115,7 @@ class confluentConfig extends Model
         'kafkaRestProxyReplica' => 'KafkaRestProxyReplica',
         'kafkaStorage' => 'KafkaStorage',
         'ksqlCU' => 'KsqlCU',
+        'ksqlList' => 'KsqlList',
         'ksqlReplica' => 'KsqlReplica',
         'ksqlStorage' => 'KsqlStorage',
         'schemaRegistryCU' => 'SchemaRegistryCU',
@@ -120,6 +127,9 @@ class confluentConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->ksqlList)) {
+            Model::validateArray($this->ksqlList);
+        }
         parent::validate();
     }
 
@@ -168,6 +178,17 @@ class confluentConfig extends Model
 
         if (null !== $this->ksqlCU) {
             $res['KsqlCU'] = $this->ksqlCU;
+        }
+
+        if (null !== $this->ksqlList) {
+            if (\is_array($this->ksqlList)) {
+                $res['KsqlList'] = [];
+                $n1 = 0;
+                foreach ($this->ksqlList as $item1) {
+                    $res['KsqlList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ksqlReplica) {
@@ -251,6 +272,17 @@ class confluentConfig extends Model
 
         if (isset($map['KsqlCU'])) {
             $model->ksqlCU = $map['KsqlCU'];
+        }
+
+        if (isset($map['KsqlList'])) {
+            if (!empty($map['KsqlList'])) {
+                $model->ksqlList = [];
+                $n1 = 0;
+                foreach ($map['KsqlList'] as $item1) {
+                    $model->ksqlList[$n1] = ksqlList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['KsqlReplica'])) {

@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Alikafka\V20190916;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\AddUserDefinedSgRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\AddUserDefinedSgResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\AddUserDefinedSgShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ConvertPostPayOrderRequest;
@@ -44,6 +47,9 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteScheduledScalingRuleRequest
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteScheduledScalingRuleResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteTopicRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteTopicResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteUserDefinedSgRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteUserDefinedSgResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteUserDefinedSgShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclResourceNameRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclResourceNameResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsRequest;
@@ -98,6 +104,9 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyScheduledScalingRuleRequest
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyScheduledScalingRuleResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyTopicRemarkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyTopicRemarkResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyUserDefinedSgRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyUserDefinedSgResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyUserDefinedSgShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ReleaseInstanceRequest;
@@ -166,6 +175,77 @@ class Alikafka extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * AddUserDefinedSg.
+     *
+     * @param tmpReq - AddUserDefinedSgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserDefinedSgResponse
+     *
+     * @param AddUserDefinedSgRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddUserDefinedSgResponse
+     */
+    public function addUserDefinedSgWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddUserDefinedSgShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sgIdList) {
+            $request->sgIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sgIdList, 'SgIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sgIdListShrink) {
+            @$query['SgIdList'] = $request->sgIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddUserDefinedSg',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUserDefinedSgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AddUserDefinedSg.
+     *
+     * @param request - AddUserDefinedSgRequest
+     *
+     * @returns AddUserDefinedSgResponse
+     *
+     * @param AddUserDefinedSgRequest $request
+     *
+     * @return AddUserDefinedSgResponse
+     */
+    public function addUserDefinedSg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserDefinedSgWithOptions($request, $runtime);
     }
 
     /**
@@ -469,7 +549,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 创建后付费实例。
+     * Creates a pay-as-you-go instance and returns the instance ID and order ID.
      *
      * @param tmpReq - CreatePostPayInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -558,7 +638,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 创建后付费实例。
+     * Creates a pay-as-you-go instance and returns the instance ID and order ID.
      *
      * @param request - CreatePostPayInstanceRequest
      *
@@ -697,7 +777,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 创建预付费实例.
+     * Creates a subscription instance and returns the instance ID and order ID.
      *
      * @param tmpReq - CreatePrePayInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -790,7 +870,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 创建预付费实例.
+     * Creates a subscription instance and returns the instance ID and order ID.
      *
      * @param request - CreatePrePayInstanceRequest
      *
@@ -1658,7 +1738,78 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 查询acl资源名.
+     * DeleteUserDefinedSg.
+     *
+     * @param tmpReq - DeleteUserDefinedSgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserDefinedSgResponse
+     *
+     * @param DeleteUserDefinedSgRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteUserDefinedSgResponse
+     */
+    public function deleteUserDefinedSgWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteUserDefinedSgShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sgIdList) {
+            $request->sgIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sgIdList, 'SgIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sgIdListShrink) {
+            @$query['SgIdList'] = $request->sgIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUserDefinedSg',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUserDefinedSgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteUserDefinedSg.
+     *
+     * @param request - DeleteUserDefinedSgRequest
+     *
+     * @returns DeleteUserDefinedSgResponse
+     *
+     * @param DeleteUserDefinedSgRequest $request
+     *
+     * @return DeleteUserDefinedSgResponse
+     */
+    public function deleteUserDefinedSg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserDefinedSgWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the name of the resource with which an access control list (ACL) is associated.
      *
      * @param request - DescribeAclResourceNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1709,7 +1860,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 查询acl资源名.
+     * Queries the name of the resource with which an access control list (ACL) is associated.
      *
      * @param request - DescribeAclResourceNameRequest
      *
@@ -3138,7 +3289,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 获取Rebalance详情.
+     * Obtains the rebalance details of a consumer group.
      *
      * @param request - ListRebalanceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3185,7 +3336,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * 获取Rebalance详情.
+     * Obtains the rebalance details of a consumer group.
      *
      * @param request - ListRebalanceInfoRequest
      *
@@ -3551,6 +3702,77 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTopicRemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyUserDefinedSg.
+     *
+     * @param tmpReq - ModifyUserDefinedSgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserDefinedSgResponse
+     *
+     * @param ModifyUserDefinedSgRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyUserDefinedSgResponse
+     */
+    public function modifyUserDefinedSgWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyUserDefinedSgShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sgIdList) {
+            $request->sgIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sgIdList, 'SgIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sgIdListShrink) {
+            @$query['SgIdList'] = $request->sgIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyUserDefinedSg',
+            'version' => '2019-09-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyUserDefinedSgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyUserDefinedSg.
+     *
+     * @param request - ModifyUserDefinedSgRequest
+     *
+     * @returns ModifyUserDefinedSgResponse
+     *
+     * @param ModifyUserDefinedSgRequest $request
+     *
+     * @return ModifyUserDefinedSgResponse
+     */
+    public function modifyUserDefinedSg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserDefinedSgWithOptions($request, $runtime);
     }
 
     /**
@@ -4625,7 +4847,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+     * Upgrade Prepaid Instance.
      *
      * @remarks
      * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
@@ -4717,7 +4939,7 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+     * Upgrade Prepaid Instance.
      *
      * @remarks
      * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).

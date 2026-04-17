@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\confluentConfig\ksqlList;
 
 class confluentConfig extends Model
 {
@@ -64,6 +65,11 @@ class confluentConfig extends Model
     public $ksqlCU;
 
     /**
+     * @var ksqlList
+     */
+    public $ksqlList;
+
+    /**
      * @var int
      */
     public $ksqlReplica;
@@ -109,6 +115,7 @@ class confluentConfig extends Model
         'kafkaRestProxyReplica' => 'KafkaRestProxyReplica',
         'kafkaStorage' => 'KafkaStorage',
         'ksqlCU' => 'KsqlCU',
+        'ksqlList' => 'KsqlList',
         'ksqlReplica' => 'KsqlReplica',
         'ksqlStorage' => 'KsqlStorage',
         'schemaRegistryCU' => 'SchemaRegistryCU',
@@ -120,6 +127,9 @@ class confluentConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->ksqlList) {
+            $this->ksqlList->validate();
+        }
         parent::validate();
     }
 
@@ -168,6 +178,10 @@ class confluentConfig extends Model
 
         if (null !== $this->ksqlCU) {
             $res['KsqlCU'] = $this->ksqlCU;
+        }
+
+        if (null !== $this->ksqlList) {
+            $res['KsqlList'] = null !== $this->ksqlList ? $this->ksqlList->toArray($noStream) : $this->ksqlList;
         }
 
         if (null !== $this->ksqlReplica) {
@@ -251,6 +265,10 @@ class confluentConfig extends Model
 
         if (isset($map['KsqlCU'])) {
             $model->ksqlCU = $map['KsqlCU'];
+        }
+
+        if (isset($map['KsqlList'])) {
+            $model->ksqlList = ksqlList::fromMap($map['KsqlList']);
         }
 
         if (isset($map['KsqlReplica'])) {

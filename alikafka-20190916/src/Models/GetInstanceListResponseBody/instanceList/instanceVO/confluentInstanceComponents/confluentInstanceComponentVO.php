@@ -27,11 +27,17 @@ class confluentInstanceComponentVO extends Model
      * @var string
      */
     public $vpcEndpoint;
+
+    /**
+     * @var string
+     */
+    public $internalId;
     protected $_name = [
         'componentType' => 'ComponentType',
         'deployModule' => 'DeployModule',
         'pubEndpoint' => 'PubEndpoint',
         'vpcEndpoint' => 'VpcEndpoint',
+        'internalId' => 'internalId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class confluentInstanceComponentVO extends Model
 
         if (null !== $this->vpcEndpoint) {
             $res['VpcEndpoint'] = $this->vpcEndpoint;
+        }
+
+        if (null !== $this->internalId) {
+            $res['internalId'] = $this->internalId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class confluentInstanceComponentVO extends Model
 
         if (isset($map['VpcEndpoint'])) {
             $model->vpcEndpoint = $map['VpcEndpoint'];
+        }
+
+        if (isset($map['internalId'])) {
+            $model->internalId = $map['internalId'];
         }
 
         return $model;
