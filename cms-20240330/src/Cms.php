@@ -175,11 +175,20 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertRobotsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertRobotsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertRobotsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListBizTracesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactGroupsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactGroupsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactGroupsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksRequest;
@@ -6209,6 +6218,97 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询机器人.
+     *
+     * @param tmpReq - ListAlertRobotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertRobotsResponse
+     *
+     * @param ListAlertRobotsRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAlertRobotsResponse
+     */
+    public function listAlertRobotsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAlertRobotsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->robotIds) {
+            $request->robotIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->robotIds, 'robotIds', 'json');
+        }
+
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->robotIdsShrink) {
+            @$query['robotIds'] = $request->robotIdsShrink;
+        }
+
+        if (null !== $request->typesShrink) {
+            @$query['types'] = $request->typesShrink;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertRobots',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/robots',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertRobotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询机器人.
+     *
+     * @param request - ListAlertRobotsRequest
+     *
+     * @returns ListAlertRobotsResponse
+     *
+     * @param ListAlertRobotsRequest $request
+     *
+     * @return ListAlertRobotsResponse
+     */
+    public function listAlertRobots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertRobotsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询Webhook.
      *
      * @param tmpReq - ListAlertWebhooksRequest
@@ -6358,6 +6458,188 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listBizTracesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询联系人组.
+     *
+     * @param tmpReq - ListContactGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContactGroupsResponse
+     *
+     * @param ListContactGroupsRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListContactGroupsResponse
+     */
+    public function listContactGroupsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListContactGroupsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactGroupIds) {
+            $request->contactGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'contactGroupIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->contactGroupIdsShrink) {
+            @$query['contactGroupIds'] = $request->contactGroupIdsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContactGroups',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contactGroups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContactGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联系人组.
+     *
+     * @param request - ListContactGroupsRequest
+     *
+     * @returns ListContactGroupsResponse
+     *
+     * @param ListContactGroupsRequest $request
+     *
+     * @return ListContactGroupsResponse
+     */
+    public function listContactGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listContactGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询联系人.
+     *
+     * @param tmpReq - ListContactsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContactsResponse
+     *
+     * @param ListContactsRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListContactsResponse
+     */
+    public function listContactsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListContactsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactIds) {
+            $request->contactIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactIds, 'contactIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->contactIdsShrink) {
+            @$query['contactIds'] = $request->contactIdsShrink;
+        }
+
+        if (null !== $request->email) {
+            @$query['email'] = $request->email;
+        }
+
+        if (null !== $request->groupId) {
+            @$query['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->phone) {
+            @$query['phone'] = $request->phone;
+        }
+
+        if (null !== $request->queryUngroupedContacts) {
+            @$query['queryUngroupedContacts'] = $request->queryUngroupedContacts;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContacts',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contact',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询联系人.
+     *
+     * @param request - ListContactsRequest
+     *
+     * @returns ListContactsResponse
+     *
+     * @param ListContactsRequest $request
+     *
+     * @return ListContactsResponse
+     */
+    public function listContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listContactsWithOptions($request, $headers, $runtime);
     }
 
     /**
