@@ -44,6 +44,11 @@ class ModelDTO extends Model
     public $gmtModified;
 
     /**
+     * @var bool
+     */
+    public $hasBillingRule;
+
+    /**
      * @var int
      */
     public $id;
@@ -110,6 +115,7 @@ class ModelDTO extends Model
         'extensions' => 'extensions',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
+        'hasBillingRule' => 'hasBillingRule',
         'id' => 'id',
         'inOut' => 'inOut',
         'isCustom' => 'isCustom',
@@ -158,6 +164,10 @@ class ModelDTO extends Model
 
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->hasBillingRule) {
+            $res['hasBillingRule'] = $this->hasBillingRule;
         }
 
         if (null !== $this->id) {
@@ -245,6 +255,10 @@ class ModelDTO extends Model
 
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
+        }
+
+        if (isset($map['hasBillingRule'])) {
+            $model->hasBillingRule = $map['hasBillingRule'];
         }
 
         if (isset($map['id'])) {

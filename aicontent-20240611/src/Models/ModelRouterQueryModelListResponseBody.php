@@ -30,6 +30,11 @@ class ModelRouterQueryModelListResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -43,6 +48,7 @@ class ModelRouterQueryModelListResponseBody extends Model
         'errCode' => 'errCode',
         'errMessage' => 'errMessage',
         'httpStatusCode' => 'httpStatusCode',
+        'maxResults' => 'maxResults',
         'requestId' => 'requestId',
         'success' => 'success',
     ];
@@ -72,6 +78,10 @@ class ModelRouterQueryModelListResponseBody extends Model
 
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
         }
 
         if (null !== $this->requestId) {
@@ -107,6 +117,10 @@ class ModelRouterQueryModelListResponseBody extends Model
 
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
+        }
+
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
         }
 
         if (isset($map['requestId'])) {

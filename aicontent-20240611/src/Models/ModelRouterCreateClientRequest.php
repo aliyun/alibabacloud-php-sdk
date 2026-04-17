@@ -24,6 +24,11 @@ class ModelRouterCreateClientRequest extends Model
     public $contact;
 
     /**
+     * @var float
+     */
+    public $discount;
+
+    /**
      * @var string
      */
     public $name;
@@ -41,6 +46,7 @@ class ModelRouterCreateClientRequest extends Model
         'address' => 'address',
         'allowedModels' => 'allowedModels',
         'contact' => 'contact',
+        'discount' => 'discount',
         'name' => 'name',
         'parentId' => 'parentId',
         'remark' => 'remark',
@@ -64,6 +70,10 @@ class ModelRouterCreateClientRequest extends Model
 
         if (null !== $this->contact) {
             $res['contact'] = $this->contact;
+        }
+
+        if (null !== $this->discount) {
+            $res['discount'] = $this->discount;
         }
 
         if (null !== $this->name) {
@@ -99,6 +109,10 @@ class ModelRouterCreateClientRequest extends Model
 
         if (isset($map['contact'])) {
             $model->contact = $map['contact'];
+        }
+
+        if (isset($map['discount'])) {
+            $model->discount = $map['discount'];
         }
 
         if (isset($map['name'])) {

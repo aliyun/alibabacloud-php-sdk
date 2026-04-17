@@ -3465,6 +3465,10 @@ class AiContent extends OpenApiClient
             @$body['contact'] = $request->contact;
         }
 
+        if (null !== $request->discount) {
+            @$body['discount'] = $request->discount;
+        }
+
         if (null !== $request->name) {
             @$body['name'] = $request->name;
         }
@@ -4961,6 +4965,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->contact) {
             @$body['contact'] = $request->contact;
+        }
+
+        if (null !== $request->discount) {
+            @$body['discount'] = $request->discount;
         }
 
         if (null !== $request->name) {

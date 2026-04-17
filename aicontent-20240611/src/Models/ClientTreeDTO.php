@@ -39,6 +39,11 @@ class ClientTreeDTO extends Model
     public $deleteTag;
 
     /**
+     * @var float
+     */
+    public $discount;
+
+    /**
      * @var string
      */
     public $gmtCreate;
@@ -84,6 +89,7 @@ class ClientTreeDTO extends Model
         'clientUuid' => 'clientUuid',
         'contact' => 'contact',
         'deleteTag' => 'deleteTag',
+        'discount' => 'discount',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'id' => 'id',
@@ -134,6 +140,10 @@ class ClientTreeDTO extends Model
 
         if (null !== $this->deleteTag) {
             $res['deleteTag'] = $this->deleteTag;
+        }
+
+        if (null !== $this->discount) {
+            $res['discount'] = $this->discount;
         }
 
         if (null !== $this->gmtCreate) {
@@ -208,6 +218,10 @@ class ClientTreeDTO extends Model
 
         if (isset($map['deleteTag'])) {
             $model->deleteTag = $map['deleteTag'];
+        }
+
+        if (isset($map['discount'])) {
+            $model->discount = $map['discount'];
         }
 
         if (isset($map['gmtCreate'])) {
