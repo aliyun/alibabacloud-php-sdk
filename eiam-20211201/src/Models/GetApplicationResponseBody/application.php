@@ -131,6 +131,11 @@ class application extends Model
     public $serviceManaged;
 
     /**
+     * @var string[]
+     */
+    public $smartConfigCapabilities;
+
+    /**
      * @var string
      */
     public $ssoType;
@@ -169,6 +174,7 @@ class application extends Model
         'resourceServerSourceType' => 'ResourceServerSourceType',
         'resourceServerStatus' => 'ResourceServerStatus',
         'serviceManaged' => 'ServiceManaged',
+        'smartConfigCapabilities' => 'SmartConfigCapabilities',
         'ssoType' => 'SsoType',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
@@ -184,6 +190,9 @@ class application extends Model
         }
         if (\is_array($this->customFields)) {
             Model::validateArray($this->customFields);
+        }
+        if (\is_array($this->smartConfigCapabilities)) {
+            Model::validateArray($this->smartConfigCapabilities);
         }
         parent::validate();
     }
@@ -299,6 +308,17 @@ class application extends Model
 
         if (null !== $this->serviceManaged) {
             $res['ServiceManaged'] = $this->serviceManaged;
+        }
+
+        if (null !== $this->smartConfigCapabilities) {
+            if (\is_array($this->smartConfigCapabilities)) {
+                $res['SmartConfigCapabilities'] = [];
+                $n1 = 0;
+                foreach ($this->smartConfigCapabilities as $item1) {
+                    $res['SmartConfigCapabilities'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ssoType) {
@@ -432,6 +452,17 @@ class application extends Model
 
         if (isset($map['ServiceManaged'])) {
             $model->serviceManaged = $map['ServiceManaged'];
+        }
+
+        if (isset($map['SmartConfigCapabilities'])) {
+            if (!empty($map['SmartConfigCapabilities'])) {
+                $model->smartConfigCapabilities = [];
+                $n1 = 0;
+                foreach ($map['SmartConfigCapabilities'] as $item1) {
+                    $model->smartConfigCapabilities[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SsoType'])) {
