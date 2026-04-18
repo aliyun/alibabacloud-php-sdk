@@ -500,6 +500,10 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyUserToDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryMetricDistributionRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryMetricDistributionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsRequest;
@@ -22397,6 +22401,132 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveCdsFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询历史活跃用户数量.
+     *
+     * @param request - QueryHistoryActiveUserCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHistoryActiveUserCountResponse
+     *
+     * @param QueryHistoryActiveUserCountRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryHistoryActiveUserCountResponse
+     */
+    public function queryHistoryActiveUserCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataDate) {
+            @$query['DataDate'] = $request->dataDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHistoryActiveUserCount',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHistoryActiveUserCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询历史活跃用户数量.
+     *
+     * @param request - QueryHistoryActiveUserCountRequest
+     *
+     * @returns QueryHistoryActiveUserCountResponse
+     *
+     * @param QueryHistoryActiveUserCountRequest $request
+     *
+     * @return QueryHistoryActiveUserCountResponse
+     */
+    public function queryHistoryActiveUserCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHistoryActiveUserCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询桌面历史指标分布.
+     *
+     * @param request - QueryHistoryMetricDistributionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHistoryMetricDistributionResponse
+     *
+     * @param QueryHistoryMetricDistributionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryHistoryMetricDistributionResponse
+     */
+    public function queryHistoryMetricDistributionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->ranges) {
+            @$query['Ranges'] = $request->ranges;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHistoryMetricDistribution',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHistoryMetricDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询桌面历史指标分布.
+     *
+     * @param request - QueryHistoryMetricDistributionRequest
+     *
+     * @returns QueryHistoryMetricDistributionResponse
+     *
+     * @param QueryHistoryMetricDistributionRequest $request
+     *
+     * @return QueryHistoryMetricDistributionResponse
+     */
+    public function queryHistoryMetricDistribution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHistoryMetricDistributionWithOptions($request, $runtime);
     }
 
     /**
