@@ -1,3 +1,7 @@
+2026-04-19 Version: 1.23.0
+- Support API ChangeResourceGroup.
+
+
 2026-04-15 Version: 1.22.1
 - Generated php 2023-08-08 for emr-serverless-spark.
 

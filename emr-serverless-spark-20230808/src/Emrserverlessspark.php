@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelKyuubiSparkApplicationRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelKyuubiSparkApplicationResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateKyuubiServiceRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateKyuubiServiceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateKyuubiTokenRequest;
@@ -382,6 +384,79 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->cancelKyuubiSparkApplicationWithOptions($workspaceId, $kyuubiServiceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/changeResourceGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 资源转组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
