@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteAgentPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteAgentPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeChatMessageRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeChatMessageResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoRequest;
@@ -352,6 +354,139 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEmbodiedAIPlatformWithOptions($request, $runtime);
+    }
+
+    /**
+     * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断.
+     *
+     * @param request - DescribeChatMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeChatMessageResponse
+     *
+     * @param DescribeChatMessageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeChatMessageResponse
+     */
+    public function describeChatMessageWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->timezone) {
+            @$query['Timezone'] = $request->timezone;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeChatMessage',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield DescribeChatMessageResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断.
+     *
+     * @param request - DescribeChatMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeChatMessageResponse
+     *
+     * @param DescribeChatMessageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeChatMessageResponse
+     */
+    public function describeChatMessageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->timezone) {
+            @$query['Timezone'] = $request->timezone;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeChatMessage',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断.
+     *
+     * @param request - DescribeChatMessageRequest
+     *
+     * @returns DescribeChatMessageResponse
+     *
+     * @param DescribeChatMessageRequest $request
+     *
+     * @return DescribeChatMessageResponse
+     */
+    public function describeChatMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChatMessageWithOptions($request, $runtime);
     }
 
     /**
