@@ -124,6 +124,11 @@ class UpdateAgentRuntimeInput extends Model
     public $sessionIdleTimeoutSeconds;
 
     /**
+     * @var string[]
+     */
+    public $systemTags;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -151,6 +156,7 @@ class UpdateAgentRuntimeInput extends Model
         'protocolConfiguration' => 'protocolConfiguration',
         'sessionConcurrencyLimitPerInstance' => 'sessionConcurrencyLimitPerInstance',
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
+        'systemTags' => 'systemTags',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -185,6 +191,9 @@ class UpdateAgentRuntimeInput extends Model
         }
         if (null !== $this->protocolConfiguration) {
             $this->protocolConfiguration->validate();
+        }
+        if (\is_array($this->systemTags)) {
+            Model::validateArray($this->systemTags);
         }
         parent::validate();
     }
@@ -287,6 +296,17 @@ class UpdateAgentRuntimeInput extends Model
 
         if (null !== $this->sessionIdleTimeoutSeconds) {
             $res['sessionIdleTimeoutSeconds'] = $this->sessionIdleTimeoutSeconds;
+        }
+
+        if (null !== $this->systemTags) {
+            if (\is_array($this->systemTags)) {
+                $res['systemTags'] = [];
+                $n1 = 0;
+                foreach ($this->systemTags as $item1) {
+                    $res['systemTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workspaceId) {
@@ -399,6 +419,17 @@ class UpdateAgentRuntimeInput extends Model
 
         if (isset($map['sessionIdleTimeoutSeconds'])) {
             $model->sessionIdleTimeoutSeconds = $map['sessionIdleTimeoutSeconds'];
+        }
+
+        if (isset($map['systemTags'])) {
+            if (!empty($map['systemTags'])) {
+                $model->systemTags = [];
+                $n1 = 0;
+                foreach ($map['systemTags'] as $item1) {
+                    $model->systemTags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['workspaceId'])) {

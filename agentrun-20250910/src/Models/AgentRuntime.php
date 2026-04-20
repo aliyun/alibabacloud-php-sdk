@@ -159,6 +159,11 @@ class AgentRuntime extends Model
     public $statusReason;
 
     /**
+     * @var string[]
+     */
+    public $systemTags;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -193,6 +198,7 @@ class AgentRuntime extends Model
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
         'status' => 'status',
         'statusReason' => 'statusReason',
+        'systemTags' => 'systemTags',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -224,6 +230,9 @@ class AgentRuntime extends Model
         }
         if (null !== $this->protocolConfiguration) {
             $this->protocolConfiguration->validate();
+        }
+        if (\is_array($this->systemTags)) {
+            Model::validateArray($this->systemTags);
         }
         parent::validate();
     }
@@ -354,6 +363,17 @@ class AgentRuntime extends Model
 
         if (null !== $this->statusReason) {
             $res['statusReason'] = $this->statusReason;
+        }
+
+        if (null !== $this->systemTags) {
+            if (\is_array($this->systemTags)) {
+                $res['systemTags'] = [];
+                $n1 = 0;
+                foreach ($this->systemTags as $item1) {
+                    $res['systemTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workspaceId) {
@@ -494,6 +514,17 @@ class AgentRuntime extends Model
 
         if (isset($map['statusReason'])) {
             $model->statusReason = $map['statusReason'];
+        }
+
+        if (isset($map['systemTags'])) {
+            if (!empty($map['systemTags'])) {
+                $model->systemTags = [];
+                $n1 = 0;
+                foreach ($map['systemTags'] as $item1) {
+                    $model->systemTags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['workspaceId'])) {
