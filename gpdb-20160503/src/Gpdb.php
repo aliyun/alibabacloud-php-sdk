@@ -452,6 +452,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationRequest;
@@ -17723,6 +17725,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyStreamingJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改Supabase自动启停策略.
+     *
+     * @param Request - ModifySupabaseAutoScalePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseAutoScalePolicyResponse
+     *
+     * @param ModifySupabaseAutoScalePolicyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifySupabaseAutoScalePolicyResponse
+     */
+    public function modifySupabaseAutoScalePolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoScale) {
+            @$query['AutoScale'] = $request->autoScale;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseAutoScalePolicy',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseAutoScalePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改Supabase自动启停策略.
+     *
+     * @param Request - ModifySupabaseAutoScalePolicyRequest
+     *
+     * @returns ModifySupabaseAutoScalePolicyResponse
+     *
+     * @param ModifySupabaseAutoScalePolicyRequest $request
+     *
+     * @return ModifySupabaseAutoScalePolicyResponse
+     */
+    public function modifySupabaseAutoScalePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseAutoScalePolicyWithOptions($request, $runtime);
     }
 
     /**
