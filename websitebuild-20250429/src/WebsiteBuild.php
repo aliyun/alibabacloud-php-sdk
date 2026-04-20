@@ -1898,7 +1898,6 @@ class WebsiteBuild extends OpenApiClient
     /**
      * 查询万小智灵感值服务
      *
-     * @param request - GetAppTokenServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAppTokenServiceResponse
@@ -2378,10 +2377,12 @@ class WebsiteBuild extends OpenApiClient
         return $this->listAppAssistantAgentsWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
      * 获取商品配置信息.
      *
-     * @param request - ListAppCommoditySpecificationsForPartnerRequest
+     * @deprecated openAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAppCommoditySpecificationsForPartnerResponse
@@ -2408,8 +2409,11 @@ class WebsiteBuild extends OpenApiClient
         return ListAppCommoditySpecificationsForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * 获取商品配置信息.
+     *
+     * @deprecated openAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead
      *
      * @returns ListAppCommoditySpecificationsForPartnerResponse
      *
@@ -3558,7 +3562,6 @@ class WebsiteBuild extends OpenApiClient
     /**
      * 查询灵感值余额总览.
      *
-     * @param request - QueryInspirationBalanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryInspirationBalanceResponse

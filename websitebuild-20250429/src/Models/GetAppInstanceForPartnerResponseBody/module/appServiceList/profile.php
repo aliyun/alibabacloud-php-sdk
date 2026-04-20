@@ -57,6 +57,11 @@ class profile extends Model
      * @var string
      */
     public $serviceSpecText;
+
+    /**
+     * @var string
+     */
+    public $upgradeStatus;
     protected $_name = [
         'bizId' => 'BizId',
         'designType' => 'DesignType',
@@ -68,6 +73,7 @@ class profile extends Model
         'orderId' => 'OrderId',
         'serviceSpec' => 'ServiceSpec',
         'serviceSpecText' => 'ServiceSpecText',
+        'upgradeStatus' => 'UpgradeStatus',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class profile extends Model
 
         if (null !== $this->serviceSpecText) {
             $res['ServiceSpecText'] = $this->serviceSpecText;
+        }
+
+        if (null !== $this->upgradeStatus) {
+            $res['UpgradeStatus'] = $this->upgradeStatus;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class profile extends Model
 
         if (isset($map['ServiceSpecText'])) {
             $model->serviceSpecText = $map['ServiceSpecText'];
+        }
+
+        if (isset($map['UpgradeStatus'])) {
+            $model->upgradeStatus = $map['UpgradeStatus'];
         }
 
         return $model;

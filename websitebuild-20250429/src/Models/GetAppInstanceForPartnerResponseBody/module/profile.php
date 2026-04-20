@@ -157,6 +157,11 @@ class profile extends Model
      * @var string
      */
     public $thumbnail;
+
+    /**
+     * @var string
+     */
+    public $upgradeStatus;
     protected $_name = [
         'adminUrl' => 'AdminUrl',
         'applicationType' => 'ApplicationType',
@@ -188,6 +193,7 @@ class profile extends Model
         'templateId' => 'TemplateId',
         'textList' => 'TextList',
         'thumbnail' => 'Thumbnail',
+        'upgradeStatus' => 'UpgradeStatus',
     ];
 
     public function validate()
@@ -316,6 +322,10 @@ class profile extends Model
 
         if (null !== $this->thumbnail) {
             $res['Thumbnail'] = $this->thumbnail;
+        }
+
+        if (null !== $this->upgradeStatus) {
+            $res['UpgradeStatus'] = $this->upgradeStatus;
         }
 
         return $res;
@@ -447,6 +457,10 @@ class profile extends Model
 
         if (isset($map['Thumbnail'])) {
             $model->thumbnail = $map['Thumbnail'];
+        }
+
+        if (isset($map['UpgradeStatus'])) {
+            $model->upgradeStatus = $map['UpgradeStatus'];
         }
 
         return $model;
