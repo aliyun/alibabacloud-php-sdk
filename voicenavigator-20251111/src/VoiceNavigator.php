@@ -5,8 +5,16 @@
 namespace AlibabaCloud\SDK\VoiceNavigator\V20251111;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\BeginSessionRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\BeginSessionResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\BridgeWebCallRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\BridgeWebCallResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateCallCenterProviderRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateCallCenterProviderResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateInstructionRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateInstructionResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateLlmAccessProfileRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateLlmAccessProfileResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateLlmAccessProfileShrinkRequest;
@@ -23,8 +31,12 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateVocabularyShrinkReque
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateVoiceAccessProfileRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateVoiceAccessProfileResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\CreateVoiceAccessProfileShrinkRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteCallCenterProviderRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteCallCenterProviderResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteInstructionRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteInstructionResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteLlmAccessProfileRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteLlmAccessProfileResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteScriptRequest;
@@ -35,8 +47,12 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteVocabularyRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteVocabularyResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteVoiceAccessProfileRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DeleteVoiceAccessProfileResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DialogueRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DialogueResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DisableSubscriptionRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\DisableSubscriptionResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\EndSessionRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\EndSessionResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ExportScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ExportScriptResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ExportVocabularyRequest;
@@ -46,6 +62,8 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GenerateFileUploadParamsReq
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GenerateFileUploadParamsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetCallDetailRecordResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetDataChannelCredentialRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetDataChannelCredentialResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRealtimeInstanceStatsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRealtimeInstanceStatsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRecordingRequest;
@@ -60,6 +78,8 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ImportVocabularyRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ImportVocabularyResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListBackgroundMusicsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListBackgroundMusicsResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCallCenterProvidersRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCallCenterProvidersResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCallDetailRecordsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCallDetailRecordsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCallDetailRecordsShrinkRequest;
@@ -67,6 +87,8 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceModelsRequest
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListInstructionsRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListInstructionsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListLlmAccessProfilesRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListLlmAccessProfilesResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListNluModelsRequest;
@@ -91,8 +113,12 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\PreviewVoiceResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\PreviewVoiceShrinkRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\PublishScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\PublishScriptResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateCallCenterProviderRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateCallCenterProviderResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateInstructionRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateInstructionResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateLlmAccessProfileRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateLlmAccessProfileResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\UpdateLlmAccessProfileShrinkRequest;
@@ -146,6 +172,323 @@ class VoiceNavigator extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 开启会话.
+     *
+     * @param request - BeginSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BeginSessionResponse
+     */
+    public function beginSessionWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->vendorParams) {
+            @$query['VendorParams'] = $request->vendorParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BeginSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield BeginSessionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 开启会话.
+     *
+     * @param request - BeginSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BeginSessionResponse
+     */
+    public function beginSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->vendorParams) {
+            @$query['VendorParams'] = $request->vendorParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BeginSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BeginSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启会话.
+     *
+     * @param request - BeginSessionRequest
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     *
+     * @return BeginSessionResponse
+     */
+    public function beginSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->beginSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发起呼叫.
+     *
+     * @param request - BridgeWebCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BridgeWebCallResponse
+     *
+     * @param BridgeWebCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BridgeWebCallResponse
+     */
+    public function bridgeWebCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessChannelId) {
+            @$query['AccessChannelId'] = $request->accessChannelId;
+        }
+
+        if (null !== $request->accessChannelType) {
+            @$query['AccessChannelType'] = $request->accessChannelType;
+        }
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sampleRate) {
+            @$query['SampleRate'] = $request->sampleRate;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->timeoutSeconds) {
+            @$query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BridgeWebCall',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BridgeWebCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发起呼叫.
+     *
+     * @param request - BridgeWebCallRequest
+     *
+     * @returns BridgeWebCallResponse
+     *
+     * @param BridgeWebCallRequest $request
+     *
+     * @return BridgeWebCallResponse
+     */
+    public function bridgeWebCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bridgeWebCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建服务提供商.
+     *
+     * @param request - CreateCallCenterProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCallCenterProviderResponse
+     *
+     * @param CreateCallCenterProviderRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateCallCenterProviderResponse
+     */
+    public function createCallCenterProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        $body = [];
+        if (null !== $request->destination) {
+            @$body['Destination'] = $request->destination;
+        }
+
+        if (null !== $request->extras) {
+            @$body['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->originator) {
+            @$body['Originator'] = $request->originator;
+        }
+
+        if (null !== $request->providerType) {
+            @$body['ProviderType'] = $request->providerType;
+        }
+
+        if (null !== $request->referTo) {
+            @$body['ReferTo'] = $request->referTo;
+        }
+
+        if (null !== $request->trunkId) {
+            @$body['TrunkId'] = $request->trunkId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCallCenterProvider',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCallCenterProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建服务提供商.
+     *
+     * @param request - CreateCallCenterProviderRequest
+     *
+     * @returns CreateCallCenterProviderResponse
+     *
+     * @param CreateCallCenterProviderRequest $request
+     *
+     * @return CreateCallCenterProviderResponse
+     */
+    public function createCallCenterProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCallCenterProviderWithOptions($request, $runtime);
     }
 
     /**
@@ -211,6 +554,79 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建指令.
+     *
+     * @param request - CreateInstructionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstructionResponse
+     *
+     * @param CreateInstructionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateInstructionResponse
+     */
+    public function createInstructionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
+        }
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstruction',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstructionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建指令.
+     *
+     * @param request - CreateInstructionRequest
+     *
+     * @returns CreateInstructionResponse
+     *
+     * @param CreateInstructionRequest $request
+     *
+     * @return CreateInstructionResponse
+     */
+    public function createInstruction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstructionWithOptions($request, $runtime);
     }
 
     /**
@@ -676,6 +1092,67 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 删除服务提供商.
+     *
+     * @param request - DeleteCallCenterProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCallCenterProviderResponse
+     *
+     * @param DeleteCallCenterProviderRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCallCenterProviderResponse
+     */
+    public function deleteCallCenterProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->providerId) {
+            @$body['ProviderId'] = $request->providerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCallCenterProvider',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCallCenterProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除服务提供商.
+     *
+     * @param request - DeleteCallCenterProviderRequest
+     *
+     * @returns DeleteCallCenterProviderResponse
+     *
+     * @param DeleteCallCenterProviderRequest $request
+     *
+     * @return DeleteCallCenterProviderResponse
+     */
+    public function deleteCallCenterProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCallCenterProviderWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除场景.
      *
      * @param request - DeleteCloneVoiceRequest
@@ -734,6 +1211,67 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除指令.
+     *
+     * @param request - DeleteInstructionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstructionResponse
+     *
+     * @param DeleteInstructionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteInstructionResponse
+     */
+    public function deleteInstructionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstruction',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstructionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除指令.
+     *
+     * @param request - DeleteInstructionRequest
+     *
+     * @returns DeleteInstructionResponse
+     *
+     * @param DeleteInstructionRequest $request
+     *
+     * @return DeleteInstructionResponse
+     */
+    public function deleteInstruction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInstructionWithOptions($request, $runtime);
     }
 
     /**
@@ -1042,6 +1580,147 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 开启会话.
+     *
+     * @param request - DialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DialogueResponse
+     */
+    public function dialogueWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extras) {
+            @$query['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'Dialogue',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield DialogueResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 开启会话.
+     *
+     * @param request - DialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DialogueResponse
+     */
+    public function dialogueWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extras) {
+            @$query['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'Dialogue',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启会话.
+     *
+     * @param request - DialogueRequest
+     *
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     *
+     * @return DialogueResponse
+     */
+    public function dialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dialogueWithOptions($request, $runtime);
+    }
+
+    /**
      * 禁用消息订阅.
      *
      * @param request - DisableSubscriptionRequest
@@ -1096,6 +1775,71 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disableSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 结束会话.
+     *
+     * @param request - EndSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EndSessionResponse
+     *
+     * @param EndSessionRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EndSessionResponse
+     */
+    public function endSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EndSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EndSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 结束会话.
+     *
+     * @param request - EndSessionRequest
+     *
+     * @returns EndSessionResponse
+     *
+     * @param EndSessionRequest $request
+     *
+     * @return EndSessionResponse
+     */
+    public function endSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->endSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -1350,6 +2094,67 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCallDetailRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取语音对话参数.
+     *
+     * @param request - GetDataChannelCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataChannelCredentialResponse
+     *
+     * @param GetDataChannelCredentialRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataChannelCredentialResponse
+     */
+    public function getDataChannelCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataChannelCredential',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataChannelCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取语音对话参数.
+     *
+     * @param request - GetDataChannelCredentialRequest
+     *
+     * @returns GetDataChannelCredentialResponse
+     *
+     * @param GetDataChannelCredentialRequest $request
+     *
+     * @return GetDataChannelCredentialResponse
+     */
+    public function getDataChannelCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataChannelCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -1776,6 +2581,75 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 查询服务提供商.
+     *
+     * @param request - ListCallCenterProvidersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCallCenterProvidersResponse
+     *
+     * @param ListCallCenterProvidersRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCallCenterProvidersResponse
+     */
+    public function listCallCenterProvidersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->providerId) {
+            @$body['ProviderId'] = $request->providerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCallCenterProviders',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCallCenterProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务提供商.
+     *
+     * @param request - ListCallCenterProvidersRequest
+     *
+     * @returns ListCallCenterProvidersResponse
+     *
+     * @param ListCallCenterProvidersRequest $request
+     *
+     * @return ListCallCenterProvidersResponse
+     */
+    public function listCallCenterProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallCenterProvidersWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取实例详情.
      *
      * @param tmpReq - ListCallDetailRecordsRequest
@@ -2040,6 +2914,75 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCloneVoiceModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指令.
+     *
+     * @param request - ListInstructionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstructionsResponse
+     *
+     * @param ListInstructionsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListInstructionsResponse
+     */
+    public function listInstructionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->providerId) {
+            @$body['ProviderId'] = $request->providerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstructions',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstructionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指令.
+     *
+     * @param request - ListInstructionsRequest
+     *
+     * @returns ListInstructionsResponse
+     *
+     * @param ListInstructionsRequest $request
+     *
+     * @return ListInstructionsResponse
+     */
+    public function listInstructions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstructionsWithOptions($request, $runtime);
     }
 
     /**
@@ -2798,6 +3741,101 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 修改服务提供商.
+     *
+     * @param request - UpdateCallCenterProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCallCenterProviderResponse
+     *
+     * @param UpdateCallCenterProviderRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateCallCenterProviderResponse
+     */
+    public function updateCallCenterProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        $body = [];
+        if (null !== $request->destination) {
+            @$body['Destination'] = $request->destination;
+        }
+
+        if (null !== $request->extras) {
+            @$body['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->originator) {
+            @$body['Originator'] = $request->originator;
+        }
+
+        if (null !== $request->providerId) {
+            @$body['ProviderId'] = $request->providerId;
+        }
+
+        if (null !== $request->providerType) {
+            @$body['ProviderType'] = $request->providerType;
+        }
+
+        if (null !== $request->referTo) {
+            @$body['ReferTo'] = $request->referTo;
+        }
+
+        if (null !== $request->trunkId) {
+            @$body['TrunkId'] = $request->trunkId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCallCenterProvider',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCallCenterProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改服务提供商.
+     *
+     * @param request - UpdateCallCenterProviderRequest
+     *
+     * @returns UpdateCallCenterProviderResponse
+     *
+     * @param UpdateCallCenterProviderRequest $request
+     *
+     * @return UpdateCallCenterProviderResponse
+     */
+    public function updateCallCenterProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCallCenterProviderWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新实例.
      *
      * @param request - UpdateCloneVoiceRequest
@@ -2860,6 +3898,79 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCloneVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改指令.
+     *
+     * @param request - UpdateInstructionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstructionResponse
+     *
+     * @param UpdateInstructionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateInstructionResponse
+     */
+    public function updateInstructionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
+        }
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstruction',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstructionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改指令.
+     *
+     * @param request - UpdateInstructionRequest
+     *
+     * @returns UpdateInstructionResponse
+     *
+     * @param UpdateInstructionRequest $request
+     *
+     * @return UpdateInstructionResponse
+     */
+    public function updateInstruction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstructionWithOptions($request, $runtime);
     }
 
     /**
