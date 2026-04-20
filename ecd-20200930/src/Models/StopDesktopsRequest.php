@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class StopDesktopsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $createSnapshot;
+
+    /**
      * @var string[]
      */
     public $desktopId;
@@ -21,6 +26,11 @@ class StopDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $patchId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -28,8 +38,10 @@ class StopDesktopsRequest extends Model
      */
     public $stoppedMode;
     protected $_name = [
+        'createSnapshot' => 'CreateSnapshot',
         'desktopId' => 'DesktopId',
         'osUpdate' => 'OsUpdate',
+        'patchId' => 'PatchId',
         'regionId' => 'RegionId',
         'stoppedMode' => 'StoppedMode',
     ];
@@ -45,6 +57,10 @@ class StopDesktopsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->createSnapshot) {
+            $res['CreateSnapshot'] = $this->createSnapshot;
+        }
+
         if (null !== $this->desktopId) {
             if (\is_array($this->desktopId)) {
                 $res['DesktopId'] = [];
@@ -58,6 +74,10 @@ class StopDesktopsRequest extends Model
 
         if (null !== $this->osUpdate) {
             $res['OsUpdate'] = $this->osUpdate;
+        }
+
+        if (null !== $this->patchId) {
+            $res['PatchId'] = $this->patchId;
         }
 
         if (null !== $this->regionId) {
@@ -79,6 +99,10 @@ class StopDesktopsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateSnapshot'])) {
+            $model->createSnapshot = $map['CreateSnapshot'];
+        }
+
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = [];
@@ -92,6 +116,10 @@ class StopDesktopsRequest extends Model
 
         if (isset($map['OsUpdate'])) {
             $model->osUpdate = $map['OsUpdate'];
+        }
+
+        if (isset($map['PatchId'])) {
+            $model->patchId = $map['PatchId'];
         }
 
         if (isset($map['RegionId'])) {

@@ -14,6 +14,11 @@ class segmentTimers extends Model
     public $appointmentTimer;
 
     /**
+     * @var bool
+     */
+    public $createSnapshot;
+
+    /**
      * @var string
      */
     public $endCronExpression;
@@ -49,6 +54,11 @@ class segmentTimers extends Model
     public $operationType;
 
     /**
+     * @var string
+     */
+    public $patchId;
+
+    /**
      * @var string[]
      */
     public $processWhitelist;
@@ -79,6 +89,7 @@ class segmentTimers extends Model
     public $triggerType;
     protected $_name = [
         'appointmentTimer' => 'AppointmentTimer',
+        'createSnapshot' => 'CreateSnapshot',
         'endCronExpression' => 'EndCronExpression',
         'enforce' => 'Enforce',
         'imageId' => 'ImageId',
@@ -86,6 +97,7 @@ class segmentTimers extends Model
         'lockScreenTime' => 'LockScreenTime',
         'notificationTime' => 'NotificationTime',
         'operationType' => 'OperationType',
+        'patchId' => 'PatchId',
         'processWhitelist' => 'ProcessWhitelist',
         'resetType' => 'ResetType',
         'startCronExpression' => 'StartCronExpression',
@@ -107,6 +119,10 @@ class segmentTimers extends Model
         $res = [];
         if (null !== $this->appointmentTimer) {
             $res['AppointmentTimer'] = $this->appointmentTimer;
+        }
+
+        if (null !== $this->createSnapshot) {
+            $res['CreateSnapshot'] = $this->createSnapshot;
         }
 
         if (null !== $this->endCronExpression) {
@@ -135,6 +151,10 @@ class segmentTimers extends Model
 
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
+        }
+
+        if (null !== $this->patchId) {
+            $res['PatchId'] = $this->patchId;
         }
 
         if (null !== $this->processWhitelist) {
@@ -183,6 +203,10 @@ class segmentTimers extends Model
             $model->appointmentTimer = $map['AppointmentTimer'];
         }
 
+        if (isset($map['CreateSnapshot'])) {
+            $model->createSnapshot = $map['CreateSnapshot'];
+        }
+
         if (isset($map['EndCronExpression'])) {
             $model->endCronExpression = $map['EndCronExpression'];
         }
@@ -209,6 +233,10 @@ class segmentTimers extends Model
 
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
+        }
+
+        if (isset($map['PatchId'])) {
+            $model->patchId = $map['PatchId'];
         }
 
         if (isset($map['ProcessWhitelist'])) {

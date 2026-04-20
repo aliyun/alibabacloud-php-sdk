@@ -22549,12 +22549,20 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->createSnapshot) {
+            @$query['CreateSnapshot'] = $request->createSnapshot;
+        }
+
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
         }
 
         if (null !== $request->osUpdate) {
             @$query['OsUpdate'] = $request->osUpdate;
+        }
+
+        if (null !== $request->patchId) {
+            @$query['PatchId'] = $request->patchId;
         }
 
         if (null !== $request->regionId) {
@@ -24436,12 +24444,20 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->createSnapshot) {
+            @$query['CreateSnapshot'] = $request->createSnapshot;
+        }
+
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
         }
 
         if (null !== $request->osUpdate) {
             @$query['OsUpdate'] = $request->osUpdate;
+        }
+
+        if (null !== $request->patchId) {
+            @$query['PatchId'] = $request->patchId;
         }
 
         if (null !== $request->regionId) {
