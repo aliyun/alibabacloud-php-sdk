@@ -12,8 +12,26 @@ class options extends Model
      * @var bool
      */
     public $compatibilityCheck;
+
+    /**
+     * @var string
+     */
+    public $credentialName;
+
+    /**
+     * @var string
+     */
+    public $flowName;
+
+    /**
+     * @var string
+     */
+    public $vpcEndpointName;
     protected $_name = [
         'compatibilityCheck' => 'compatibilityCheck',
+        'credentialName' => 'credentialName',
+        'flowName' => 'flowName',
+        'vpcEndpointName' => 'vpcEndpointName',
     ];
 
     public function validate()
@@ -26,6 +44,18 @@ class options extends Model
         $res = [];
         if (null !== $this->compatibilityCheck) {
             $res['compatibilityCheck'] = $this->compatibilityCheck;
+        }
+
+        if (null !== $this->credentialName) {
+            $res['credentialName'] = $this->credentialName;
+        }
+
+        if (null !== $this->flowName) {
+            $res['flowName'] = $this->flowName;
+        }
+
+        if (null !== $this->vpcEndpointName) {
+            $res['vpcEndpointName'] = $this->vpcEndpointName;
         }
 
         return $res;
@@ -41,6 +71,18 @@ class options extends Model
         $model = new self();
         if (isset($map['compatibilityCheck'])) {
             $model->compatibilityCheck = $map['compatibilityCheck'];
+        }
+
+        if (isset($map['credentialName'])) {
+            $model->credentialName = $map['credentialName'];
+        }
+
+        if (isset($map['flowName'])) {
+            $model->flowName = $map['flowName'];
+        }
+
+        if (isset($map['vpcEndpointName'])) {
+            $model->vpcEndpointName = $map['vpcEndpointName'];
         }
 
         return $model;
