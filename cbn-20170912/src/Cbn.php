@@ -1585,6 +1585,10 @@ class Cbn extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->consoleDryRun) {
+            @$query['ConsoleDryRun'] = $request->consoleDryRun;
+        }
+
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
         }

@@ -22,6 +22,11 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     /**
      * @var bool
      */
+    public $consoleDryRun;
+
+    /**
+     * @var bool
+     */
     public $dryRun;
 
     /**
@@ -71,6 +76,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     protected $_name = [
         'bandwidthGuaranteeMode' => 'BandwidthGuaranteeMode',
         'clientToken' => 'ClientToken',
+        'consoleDryRun' => 'ConsoleDryRun',
         'dryRun' => 'DryRun',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -100,6 +106,10 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->consoleDryRun) {
+            $res['ConsoleDryRun'] = $this->consoleDryRun;
         }
 
         if (null !== $this->dryRun) {
@@ -166,6 +176,10 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['ConsoleDryRun'])) {
+            $model->consoleDryRun = $map['ConsoleDryRun'];
         }
 
         if (isset($map['DryRun'])) {
