@@ -29,6 +29,11 @@ class data extends Model
     public $authAdminUser;
 
     /**
+     * @var string[]
+     */
+    public $copilotModules;
+
+    /**
      * @var bool
      */
     public $isDeleted;
@@ -67,6 +72,7 @@ class data extends Model
         'accountName' => 'AccountName',
         'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
+        'copilotModules' => 'CopilotModules',
         'isDeleted' => 'IsDeleted',
         'joinedDate' => 'JoinedDate',
         'lastLoginTime' => 'LastLoginTime',
@@ -78,6 +84,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->copilotModules)) {
+            Model::validateArray($this->copilotModules);
+        }
         if (\is_array($this->roleIdList)) {
             Model::validateArray($this->roleIdList);
         }
@@ -101,6 +110,17 @@ class data extends Model
 
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
+        }
+
+        if (null !== $this->copilotModules) {
+            if (\is_array($this->copilotModules)) {
+                $res['CopilotModules'] = [];
+                $n1 = 0;
+                foreach ($this->copilotModules as $item1) {
+                    $res['CopilotModules'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->isDeleted) {
@@ -163,6 +183,17 @@ class data extends Model
 
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
+        }
+
+        if (isset($map['CopilotModules'])) {
+            if (!empty($map['CopilotModules'])) {
+                $model->copilotModules = [];
+                $n1 = 0;
+                foreach ($map['CopilotModules'] as $item1) {
+                    $model->copilotModules[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['IsDeleted'])) {

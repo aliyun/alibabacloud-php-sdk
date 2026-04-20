@@ -19,6 +19,11 @@ class UpdateUserRequest extends Model
     public $authAdminUser;
 
     /**
+     * @var string
+     */
+    public $copilotModules;
+
+    /**
      * @var bool
      */
     public $isDeleted;
@@ -45,6 +50,7 @@ class UpdateUserRequest extends Model
     protected $_name = [
         'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
+        'copilotModules' => 'CopilotModules',
         'isDeleted' => 'IsDeleted',
         'nickName' => 'NickName',
         'roleIds' => 'RoleIds',
@@ -66,6 +72,10 @@ class UpdateUserRequest extends Model
 
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
+        }
+
+        if (null !== $this->copilotModules) {
+            $res['CopilotModules'] = $this->copilotModules;
         }
 
         if (null !== $this->isDeleted) {
@@ -105,6 +115,10 @@ class UpdateUserRequest extends Model
 
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
+        }
+
+        if (isset($map['CopilotModules'])) {
+            $model->copilotModules = $map['CopilotModules'];
         }
 
         if (isset($map['IsDeleted'])) {

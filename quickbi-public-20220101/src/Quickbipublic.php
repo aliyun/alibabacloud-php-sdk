@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserTagMetaRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserTagMetaResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserToWorkspaceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserToWorkspaceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorksAuthorizationRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorksAuthorizationResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AllotDatasetAccelerationTaskRequest;
@@ -369,7 +371,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 43342***435,1553a****41231.
+     * Modifies the whitelist of the row and column permissions for a specified dataset.
      *
      * @remarks
      * ROW_LEVEL
@@ -427,7 +429,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 43342***435,1553a****41231.
+     * Modifies the whitelist of the row and column permissions for a specified dataset.
      *
      * @remarks
      * ROW_LEVEL
@@ -608,6 +610,10 @@ class Quickbipublic extends OpenApiClient
 
         if (null !== $request->authAdminUser) {
             @$query['AuthAdminUser'] = $request->authAdminUser;
+        }
+
+        if (null !== $request->copilotModules) {
+            @$query['CopilotModules'] = $request->copilotModules;
         }
 
         if (null !== $request->nickName) {
@@ -906,6 +912,83 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUserToWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增作品的协同授权记录.
+     *
+     * @param request - AddWorksAuthorizationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddWorksAuthorizationResponse
+     *
+     * @param AddWorksAuthorizationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddWorksAuthorizationResponse
+     */
+    public function addWorksAuthorizationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authPoints) {
+            @$query['AuthPoints'] = $request->authPoints;
+        }
+
+        if (null !== $request->authorizeScope) {
+            @$query['AuthorizeScope'] = $request->authorizeScope;
+        }
+
+        if (null !== $request->authorizedId) {
+            @$query['AuthorizedId'] = $request->authorizedId;
+        }
+
+        if (null !== $request->expireDay) {
+            @$query['ExpireDay'] = $request->expireDay;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddWorksAuthorization',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddWorksAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增作品的协同授权记录.
+     *
+     * @param request - AddWorksAuthorizationRequest
+     *
+     * @returns AddWorksAuthorizationResponse
+     *
+     * @param AddWorksAuthorizationRequest $request
+     *
+     * @return AddWorksAuthorizationResponse
+     */
+    public function addWorksAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addWorksAuthorizationWithOptions($request, $runtime);
     }
 
     /**
@@ -2349,7 +2432,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }.
+     * Deletes a selected group of people for a single row and column permission rule.
      *
      * @remarks
      * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
@@ -2391,7 +2474,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }.
+     * Deletes a selected group of people for a single row and column permission rule.
      *
      * @remarks
      * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
@@ -2412,7 +2495,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Deletes a single row or column permission rule.
      *
      * @remarks
      * The ID of the training dataset that you want to remove from the specified custom linguistic model.
@@ -2458,7 +2541,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Deletes a single row or column permission rule.
      *
      * @remarks
      * The ID of the training dataset that you want to remove from the specified custom linguistic model.
@@ -3808,7 +3891,6 @@ class Quickbipublic extends OpenApiClient
     /**
      * Retrieve the list of custom roles at the organization level.
      *
-     * @param request - ListOrganizationRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListOrganizationRolesResponse
@@ -5602,8 +5684,8 @@ class Quickbipublic extends OpenApiClient
 
     /**
      * Indicates whether the table is a custom SQL table. Valid values:
-     * \\*   true: custom SQL table
-     * \\*   false: non-custom SQL table
+     * \\\\*   true: custom SQL table
+     * \\\\*   false: non-custom SQL table
      *
      * @param request - QueryDatasetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5643,8 +5725,8 @@ class Quickbipublic extends OpenApiClient
 
     /**
      * Indicates whether the table is a custom SQL table. Valid values:
-     * \\*   true: custom SQL table
-     * \\*   false: non-custom SQL table
+     * \\\\*   true: custom SQL table
+     * \\\\*   false: non-custom SQL table
      *
      * @param request - QueryDatasetInfoRequest
      *
@@ -5662,7 +5744,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The name of the training dataset.
+     * Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
      *
      * @param request - QueryDatasetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5721,7 +5803,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The name of the training dataset.
+     * Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
      *
      * @param request - QueryDatasetListRequest
      *
@@ -5861,7 +5943,6 @@ class Quickbipublic extends OpenApiClient
     /**
      * Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
      *
-     * @param request - QueryEmbeddedInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryEmbeddedInfoResponse
@@ -7053,7 +7134,6 @@ class Quickbipublic extends OpenApiClient
     /**
      * Queries the metadata list of member tags in an organization.
      *
-     * @param request - QueryUserTagMetaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryUserTagMetaListResponse
@@ -7922,7 +8002,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch Management of Smart Q\\\\\\&A Authorizations.
+     * Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations.
      *
      * @remarks
      * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
@@ -7984,7 +8064,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch Management of Smart Q\\\\\\&A Authorizations.
+     * Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations.
      *
      * @remarks
      * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
@@ -8153,9 +8233,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
-     * *   true: The request was successful.
-     * *   false: The request failed.
+     * Updates the status of the row and column permission switch for a dataset.
      *
      * @remarks
      * The execution result of the interface. Valid values:
@@ -8207,9 +8285,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
-     * *   true: The request was successful.
-     * *   false: The request failed.
+     * Updates the status of the row and column permission switch for a dataset.
      *
      * @remarks
      * The execution result of the interface. Valid values:
@@ -8433,6 +8509,10 @@ class Quickbipublic extends OpenApiClient
 
         if (null !== $request->authAdminUser) {
             @$query['AuthAdminUser'] = $request->authAdminUser;
+        }
+
+        if (null !== $request->copilotModules) {
+            @$query['CopilotModules'] = $request->copilotModules;
         }
 
         if (null !== $request->isDeleted) {

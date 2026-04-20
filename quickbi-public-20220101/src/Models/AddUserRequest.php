@@ -31,6 +31,11 @@ class AddUserRequest extends Model
     /**
      * @var string
      */
+    public $copilotModules;
+
+    /**
+     * @var string
+     */
     public $nickName;
 
     /**
@@ -47,6 +52,7 @@ class AddUserRequest extends Model
         'accountName' => 'AccountName',
         'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
+        'copilotModules' => 'CopilotModules',
         'nickName' => 'NickName',
         'roleIds' => 'RoleIds',
         'userType' => 'UserType',
@@ -74,6 +80,10 @@ class AddUserRequest extends Model
 
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
+        }
+
+        if (null !== $this->copilotModules) {
+            $res['CopilotModules'] = $this->copilotModules;
         }
 
         if (null !== $this->nickName) {
@@ -113,6 +123,10 @@ class AddUserRequest extends Model
 
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
+        }
+
+        if (isset($map['CopilotModules'])) {
+            $model->copilotModules = $map['CopilotModules'];
         }
 
         if (isset($map['NickName'])) {
