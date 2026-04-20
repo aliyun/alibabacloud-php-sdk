@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\cpuOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\customPriorities;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instancePatternInfos;
@@ -27,6 +28,11 @@ class scalingConfigurations extends Model
      * @var int
      */
     public $cpu;
+
+    /**
+     * @var cpuOptions
+     */
+    public $cpuOptions;
 
     /**
      * @var string
@@ -390,6 +396,7 @@ class scalingConfigurations extends Model
     protected $_name = [
         'affinity' => 'Affinity',
         'cpu' => 'Cpu',
+        'cpuOptions' => 'CpuOptions',
         'creationTime' => 'CreationTime',
         'creditSpecification' => 'CreditSpecification',
         'customPriorities' => 'CustomPriorities',
@@ -466,6 +473,9 @@ class scalingConfigurations extends Model
 
     public function validate()
     {
+        if (null !== $this->cpuOptions) {
+            $this->cpuOptions->validate();
+        }
         if (\is_array($this->customPriorities)) {
             Model::validateArray($this->customPriorities);
         }
@@ -520,6 +530,10 @@ class scalingConfigurations extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->cpuOptions) {
+            $res['CpuOptions'] = null !== $this->cpuOptions ? $this->cpuOptions->toArray($noStream) : $this->cpuOptions;
         }
 
         if (null !== $this->creationTime) {
@@ -897,6 +911,10 @@ class scalingConfigurations extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['CpuOptions'])) {
+            $model->cpuOptions = cpuOptions::fromMap($map['CpuOptions']);
         }
 
         if (isset($map['CreationTime'])) {
