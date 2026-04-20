@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateUserRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceRequest;
@@ -19,6 +21,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSSLResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSSLResponse;
@@ -424,6 +428,73 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 添加用户.
+     *
+     * @param request - CreateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserResponse
+     *
+     * @param string            $instanceId
+     * @param CreateUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
+     */
+    public function createUserWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->superUser) {
+            @$body['superUser'] = $request->superUser;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUser',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/createUser',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加用户.
+     *
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
+     * @param string            $instanceId
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
+     */
+    public function createUser($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createUserWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a virtual warehouse.
      *
      * @param request - DeleteHoloWarehouseRequest
@@ -671,6 +742,73 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->disableSSLWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 删除用户.
+     *
+     * @param request - DropUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DropUserResponse
+     *
+     * @param string          $instanceId
+     * @param DropUserRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DropUserResponse
+     */
+    public function dropUserWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->superUser) {
+            @$body['superUser'] = $request->superUser;
+        }
+
+        if (null !== $request->userName) {
+            @$body['userName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DropUser',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/dropUser',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DropUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户.
+     *
+     * @param request - DropUserRequest
+     *
+     * @returns DropUserResponse
+     *
+     * @param string          $instanceId
+     * @param DropUserRequest $request
+     *
+     * @return DropUserResponse
+     */
+    public function dropUser($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->dropUserWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
