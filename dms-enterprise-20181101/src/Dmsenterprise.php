@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTableToCategoryResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddWorkspaceUserRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddWorkspaceUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnswerSqlSyntaxByMetaAgentRequest;
@@ -524,6 +526,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesRequest
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkspacesResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkspaceUsersRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkspaceUsersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MakeTaskFlowInstanceSuccessRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MakeTaskFlowInstanceSuccessResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ModifyDataCorrectExecSQLRequest;
@@ -562,6 +566,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveDataExportJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveDataExportJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveTableFromCategoryRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveTableFromCategoryResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveWorkspaceUserRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RemoveWorkspaceUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReRunTaskFlowInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ReRunTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\RestartDataCorrectSQLJobRequest;
@@ -585,6 +591,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchWorkspaceRolesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchWorkspaceRolesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetWorkflowExtraInfoRequest;
@@ -675,6 +683,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateWorkspaceResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateWorkspaceUserRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateWorkspaceUserResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1356,6 +1366,75 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addTaskFlowEdgesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 工作空间添加用户.
+     *
+     * @param request - AddWorkspaceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddWorkspaceUserResponse
+     *
+     * @param AddWorkspaceUserRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddWorkspaceUserResponse
+     */
+    public function addWorkspaceUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dmsUserIds) {
+            @$query['DmsUserIds'] = $request->dmsUserIds;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->roleSource) {
+            @$query['RoleSource'] = $request->roleSource;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddWorkspaceUser',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddWorkspaceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工作空间添加用户.
+     *
+     * @param request - AddWorkspaceUserRequest
+     *
+     * @returns AddWorkspaceUserResponse
+     *
+     * @param AddWorkspaceUserRequest $request
+     *
+     * @return AddWorkspaceUserResponse
+     */
+    public function addWorkspaceUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addWorkspaceUserWithOptions($request, $runtime);
     }
 
     /**
@@ -19056,6 +19135,75 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 列出工作空间内的用户.
+     *
+     * @param request - ListWorkspaceUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkspaceUsersResponse
+     *
+     * @param ListWorkspaceUsersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListWorkspaceUsersResponse
+     */
+    public function listWorkspaceUsersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkspaceUsers',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出工作空间内的用户.
+     *
+     * @param request - ListWorkspaceUsersRequest
+     *
+     * @returns ListWorkspaceUsersResponse
+     *
+     * @param ListWorkspaceUsersRequest $request
+     *
+     * @return ListWorkspaceUsersResponse
+     */
+    public function listWorkspaceUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkspaceUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of workspaces of the tenant.
      *
      * @param request - ListWorkspacesRequest
@@ -20745,6 +20893,67 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 工作空间添加用户.
+     *
+     * @param request - RemoveWorkspaceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveWorkspaceUserResponse
+     *
+     * @param RemoveWorkspaceUserRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveWorkspaceUserResponse
+     */
+    public function removeWorkspaceUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dmsUserIds) {
+            @$query['DmsUserIds'] = $request->dmsUserIds;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveWorkspaceUser',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveWorkspaceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工作空间添加用户.
+     *
+     * @param request - RemoveWorkspaceUserRequest
+     *
+     * @returns RemoveWorkspaceUserResponse
+     *
+     * @param RemoveWorkspaceUserRequest $request
+     *
+     * @return RemoveWorkspaceUserResponse
+     */
+    public function removeWorkspaceUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeWorkspaceUserWithOptions($request, $runtime);
+    }
+
+    /**
      * Reruns a failed SQL task for data change.
      *
      * @param request - RestartDataCorrectSQLJobRequest
@@ -21534,6 +21743,81 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchTableKnowledgeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 搜索工作空间内的角色.
+     *
+     * @param request - SearchWorkspaceRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchWorkspaceRolesResponse
+     *
+     * @param SearchWorkspaceRolesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchWorkspaceRolesResponse
+     */
+    public function searchWorkspaceRolesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchWorkspaceRoles',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 搜索工作空间内的角色.
+     *
+     * @param request - SearchWorkspaceRolesRequest
+     *
+     * @returns SearchWorkspaceRolesResponse
+     *
+     * @param SearchWorkspaceRolesRequest $request
+     *
+     * @return SearchWorkspaceRolesResponse
+     */
+    public function searchWorkspaceRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchWorkspaceRolesWithOptions($request, $runtime);
     }
 
     /**
@@ -24582,5 +24866,70 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改工作空间的用户权限等信息.
+     *
+     * @param request - UpdateWorkspaceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkspaceUserResponse
+     *
+     * @param UpdateWorkspaceUserRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateWorkspaceUserResponse
+     */
+    public function updateWorkspaceUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dmsUserId) {
+            @$query['DmsUserId'] = $request->dmsUserId;
+        }
+
+        if (null !== $request->roleIds) {
+            @$query['RoleIds'] = $request->roleIds;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkspaceUser',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkspaceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改工作空间的用户权限等信息.
+     *
+     * @param request - UpdateWorkspaceUserRequest
+     *
+     * @returns UpdateWorkspaceUserResponse
+     *
+     * @param UpdateWorkspaceUserRequest $request
+     *
+     * @return UpdateWorkspaceUserResponse
+     */
+    public function updateWorkspaceUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWorkspaceUserWithOptions($request, $runtime);
     }
 }
