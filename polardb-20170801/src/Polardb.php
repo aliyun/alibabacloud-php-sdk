@@ -56,6 +56,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
@@ -109,8 +113,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAINodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationEndpointAddressRequest;
@@ -176,14 +184,20 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterDatasetsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterDatasetsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskLogFilesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskLogFilesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskMetricsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskMetricsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTasksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRequest;
@@ -2379,6 +2393,228 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->continueDBClusterMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建数据集.
+     *
+     * @param request - CreateAIDBClusterDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIDBClusterDatasetResponse
+     *
+     * @param CreateAIDBClusterDatasetRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAIDBClusterDatasetResponse
+     */
+    public function createAIDBClusterDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
+        }
+
+        if (null !== $request->datasetType) {
+            @$query['DatasetType'] = $request->datasetType;
+        }
+
+        if (null !== $request->importMode) {
+            @$query['ImportMode'] = $request->importMode;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->trainMode) {
+            @$query['TrainMode'] = $request->trainMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIDBClusterDataset',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIDBClusterDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建数据集.
+     *
+     * @param request - CreateAIDBClusterDatasetRequest
+     *
+     * @returns CreateAIDBClusterDatasetResponse
+     *
+     * @param CreateAIDBClusterDatasetRequest $request
+     *
+     * @return CreateAIDBClusterDatasetResponse
+     */
+    public function createAIDBClusterDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIDBClusterDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模型评测任务
+     *
+     * @param request - CreateAIDBClusterTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIDBClusterTaskResponse
+     *
+     * @param CreateAIDBClusterTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateAIDBClusterTaskResponse
+     */
+    public function createAIDBClusterTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        }
+
+        if (null !== $request->datasetPath) {
+            @$query['DatasetPath'] = $request->datasetPath;
+        }
+
+        if (null !== $request->evalDatasetPath) {
+            @$query['EvalDatasetPath'] = $request->evalDatasetPath;
+        }
+
+        if (null !== $request->kubeType) {
+            @$query['KubeType'] = $request->kubeType;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelSource) {
+            @$query['ModelSource'] = $request->modelSource;
+        }
+
+        if (null !== $request->modelType) {
+            @$query['ModelType'] = $request->modelType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->runningParameter) {
+            @$query['RunningParameter'] = $request->runningParameter;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIDBClusterTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIDBClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型评测任务
+     *
+     * @param request - CreateAIDBClusterTaskRequest
+     *
+     * @returns CreateAIDBClusterTaskResponse
+     *
+     * @param CreateAIDBClusterTaskRequest $request
+     *
+     * @return CreateAIDBClusterTaskResponse
+     */
+    public function createAIDBClusterTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIDBClusterTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5426,6 +5662,168 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除数据集.
+     *
+     * @param request - DeleteAIDBClusterDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIDBClusterDatasetResponse
+     *
+     * @param DeleteAIDBClusterDatasetRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteAIDBClusterDatasetResponse
+     */
+    public function deleteAIDBClusterDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetId) {
+            @$query['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAIDBClusterDataset',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAIDBClusterDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除数据集.
+     *
+     * @param request - DeleteAIDBClusterDatasetRequest
+     *
+     * @returns DeleteAIDBClusterDatasetResponse
+     *
+     * @param DeleteAIDBClusterDatasetRequest $request
+     *
+     * @return DeleteAIDBClusterDatasetResponse
+     */
+    public function deleteAIDBClusterDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIDBClusterDatasetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除任务实例.
+     *
+     * @param request - DeleteAIDBClusterTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIDBClusterTaskResponse
+     *
+     * @param DeleteAIDBClusterTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAIDBClusterTaskResponse
+     */
+    public function deleteAIDBClusterTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAIDBClusterTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAIDBClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除任务实例.
+     *
+     * @param request - DeleteAIDBClusterTaskRequest
+     *
+     * @returns DeleteAIDBClusterTaskResponse
+     *
+     * @param DeleteAIDBClusterTaskRequest $request
+     *
+     * @return DeleteAIDBClusterTaskResponse
+     */
+    public function deleteAIDBClusterTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIDBClusterTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除ai实例子节点.
      *
      * @param request - DeleteAINodesRequest
@@ -7606,6 +8004,107 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询数据集列表.
+     *
+     * @param request - DescribeAIDBClusterDatasetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterDatasetsResponse
+     *
+     * @param DescribeAIDBClusterDatasetsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAIDBClusterDatasetsResponse
+     */
+    public function describeAIDBClusterDatasetsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->continuationToken) {
+            @$query['ContinuationToken'] = $request->continuationToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->datasetId) {
+            @$query['DatasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->datasetType) {
+            @$query['DatasetType'] = $request->datasetType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->trainMode) {
+            @$query['TrainMode'] = $request->trainMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterDatasets',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据集列表.
+     *
+     * @param request - DescribeAIDBClusterDatasetsRequest
+     *
+     * @returns DescribeAIDBClusterDatasetsResponse
+     *
+     * @param DescribeAIDBClusterDatasetsRequest $request
+     *
+     * @return DescribeAIDBClusterDatasetsResponse
+     */
+    public function describeAIDBClusterDatasets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterDatasetsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取ai容器性能指标.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
@@ -7676,6 +8175,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAIDBClusterPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取任务实例详情.
+     *
+     * @param request - DescribeAIDBClusterTaskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterTaskAttributeResponse
+     *
+     * @param DescribeAIDBClusterTaskAttributeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAIDBClusterTaskAttributeResponse
+     */
+    public function describeAIDBClusterTaskAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->describeType) {
+            @$query['DescribeType'] = $request->describeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterTaskAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterTaskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务实例详情.
+     *
+     * @param request - DescribeAIDBClusterTaskAttributeRequest
+     *
+     * @returns DescribeAIDBClusterTaskAttributeResponse
+     *
+     * @param DescribeAIDBClusterTaskAttributeRequest $request
+     *
+     * @return DescribeAIDBClusterTaskAttributeResponse
+     */
+    public function describeAIDBClusterTaskAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterTaskAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -7846,6 +8426,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAIDBClusterTaskMetricsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取任务实例列表.
+     *
+     * @param request - DescribeAIDBClusterTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterTasksResponse
+     *
+     * @param DescribeAIDBClusterTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAIDBClusterTasksResponse
+     */
+    public function describeAIDBClusterTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->kubeType) {
+            @$query['KubeType'] = $request->kubeType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务实例列表.
+     *
+     * @param request - DescribeAIDBClusterTasksRequest
+     *
+     * @returns DescribeAIDBClusterTasksResponse
+     *
+     * @param DescribeAIDBClusterTasksRequest $request
+     *
+     * @return DescribeAIDBClusterTasksResponse
+     */
+    public function describeAIDBClusterTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterTasksWithOptions($request, $runtime);
     }
 
     /**
