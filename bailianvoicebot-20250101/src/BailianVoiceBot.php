@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteCloneVoiceRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteCloneVoiceResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVariableRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVariableResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GenerateFileUploadParamsRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GenerateFileUploadParamsResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialRequest;
@@ -658,6 +660,71 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVariableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件上传信息.
+     *
+     * @param request - GenerateFileUploadParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateFileUploadParamsResponse
+     *
+     * @param GenerateFileUploadParamsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateFileUploadParamsResponse
+     */
+    public function generateFileUploadParamsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessType) {
+            @$body['BusinessType'] = $request->businessType;
+        }
+
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateFileUploadParams',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateFileUploadParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件上传信息.
+     *
+     * @param request - GenerateFileUploadParamsRequest
+     *
+     * @returns GenerateFileUploadParamsResponse
+     *
+     * @param GenerateFileUploadParamsRequest $request
+     *
+     * @return GenerateFileUploadParamsResponse
+     */
+    public function generateFileUploadParams($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateFileUploadParamsWithOptions($request, $runtime);
     }
 
     /**
