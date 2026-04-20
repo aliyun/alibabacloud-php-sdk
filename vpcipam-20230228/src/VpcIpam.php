@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolNextAvailableCidrReques
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolNextAvailableCidrResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredIpAddressesRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredIpAddressesResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamMembersRequest;
@@ -1852,6 +1854,91 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
+     * 查询VPC或VSwitch下已使用IP信息。
+     *
+     * @param request - ListIpamDiscoveredIpAddressesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIpamDiscoveredIpAddressesResponse
+     *
+     * @param ListIpamDiscoveredIpAddressesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListIpamDiscoveredIpAddressesResponse
+     */
+    public function listIpamDiscoveredIpAddressesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cidr) {
+            @$query['Cidr'] = $request->cidr;
+        }
+
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
+        }
+
+        if (null !== $request->ipamResourceDiscoveryId) {
+            @$query['IpamResourceDiscoveryId'] = $request->ipamResourceDiscoveryId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIpamDiscoveredIpAddresses',
+            'version' => '2023-02-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIpamDiscoveredIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询VPC或VSwitch下已使用IP信息。
+     *
+     * @param request - ListIpamDiscoveredIpAddressesRequest
+     *
+     * @returns ListIpamDiscoveredIpAddressesResponse
+     *
+     * @param ListIpamDiscoveredIpAddressesRequest $request
+     *
+     * @return ListIpamDiscoveredIpAddressesResponse
+     */
+    public function listIpamDiscoveredIpAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIpamDiscoveredIpAddressesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries discovered resources.
      *
      * @param request - ListIpamDiscoveredResourceRequest
@@ -3231,7 +3318,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Updates an IP Address Manager (IPAM).
+     * Modifies an IPAM instance.
      *
      * @param request - UpdateIpamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3314,7 +3401,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Updates an IP Address Manager (IPAM).
+     * Modifies an IPAM instance.
      *
      * @param request - UpdateIpamRequest
      *
