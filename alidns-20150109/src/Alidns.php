@@ -4567,7 +4567,6 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeCloudGtmSystemLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCloudGtmSystemLinesResponse

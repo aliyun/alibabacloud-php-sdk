@@ -24,6 +24,11 @@ class alertConfig extends Model
     public $noticeType;
 
     /**
+     * @var int
+     */
+    public $qpsThreshold;
+
+    /**
      * @var bool
      */
     public $smsNotice;
@@ -36,6 +41,7 @@ class alertConfig extends Model
         'dingtalkNotice' => 'DingtalkNotice',
         'emailNotice' => 'EmailNotice',
         'noticeType' => 'NoticeType',
+        'qpsThreshold' => 'QpsThreshold',
         'smsNotice' => 'SmsNotice',
         'threshold' => 'Threshold',
     ];
@@ -58,6 +64,10 @@ class alertConfig extends Model
 
         if (null !== $this->noticeType) {
             $res['NoticeType'] = $this->noticeType;
+        }
+
+        if (null !== $this->qpsThreshold) {
+            $res['QpsThreshold'] = $this->qpsThreshold;
         }
 
         if (null !== $this->smsNotice) {
@@ -89,6 +99,10 @@ class alertConfig extends Model
 
         if (isset($map['NoticeType'])) {
             $model->noticeType = $map['NoticeType'];
+        }
+
+        if (isset($map['QpsThreshold'])) {
+            $model->qpsThreshold = $map['QpsThreshold'];
         }
 
         if (isset($map['SmsNotice'])) {
