@@ -261,6 +261,21 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
+    public $templateRanCount;
+
+    /**
+     * @var string
+     */
+    public $templateType;
+
+    /**
+     * @var string
+     */
     public $useNFC;
 
     /**
@@ -318,6 +333,9 @@ class InitializeShrinkRequest extends Model
         'styleConfig' => 'StyleConfig',
         'targetFacePicture' => 'TargetFacePicture',
         'targetFacePictureUrl' => 'TargetFacePictureUrl',
+        'templateConfig' => 'TemplateConfig',
+        'templateRanCount' => 'TemplateRanCount',
+        'templateType' => 'TemplateType',
         'useNFC' => 'UseNFC',
         'verifyModel' => 'VerifyModel',
     ];
@@ -528,6 +546,18 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->targetFacePictureUrl) {
             $res['TargetFacePictureUrl'] = $this->targetFacePictureUrl;
+        }
+
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
+        }
+
+        if (null !== $this->templateRanCount) {
+            $res['TemplateRanCount'] = $this->templateRanCount;
+        }
+
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         if (null !== $this->useNFC) {
@@ -747,6 +777,18 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['TargetFacePictureUrl'])) {
             $model->targetFacePictureUrl = $map['TargetFacePictureUrl'];
+        }
+
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
+        }
+
+        if (isset($map['TemplateRanCount'])) {
+            $model->templateRanCount = $map['TemplateRanCount'];
+        }
+
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         if (isset($map['UseNFC'])) {

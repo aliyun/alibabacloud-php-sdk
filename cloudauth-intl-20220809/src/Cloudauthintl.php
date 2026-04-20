@@ -3786,6 +3786,18 @@ class Cloudauthintl extends OpenApiClient
             @$query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
         }
 
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
+        }
+
+        if (null !== $request->templateRanCount) {
+            @$query['TemplateRanCount'] = $request->templateRanCount;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
         if (null !== $request->useNFC) {
             @$query['UseNFC'] = $request->useNFC;
         }
