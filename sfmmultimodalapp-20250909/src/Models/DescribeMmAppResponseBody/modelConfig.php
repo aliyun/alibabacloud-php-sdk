@@ -21,6 +21,11 @@ class modelConfig extends Model
     /**
      * @var bool
      */
+    public $openMemory;
+
+    /**
+     * @var bool
+     */
     public $openWebSearch;
 
     /**
@@ -30,6 +35,7 @@ class modelConfig extends Model
     protected $_name = [
         'historyLimit' => 'HistoryLimit',
         'modelType' => 'ModelType',
+        'openMemory' => 'OpenMemory',
         'openWebSearch' => 'OpenWebSearch',
         'textModal' => 'TextModal',
     ];
@@ -48,6 +54,10 @@ class modelConfig extends Model
 
         if (null !== $this->modelType) {
             $res['ModelType'] = $this->modelType;
+        }
+
+        if (null !== $this->openMemory) {
+            $res['OpenMemory'] = $this->openMemory;
         }
 
         if (null !== $this->openWebSearch) {
@@ -75,6 +85,10 @@ class modelConfig extends Model
 
         if (isset($map['ModelType'])) {
             $model->modelType = $map['ModelType'];
+        }
+
+        if (isset($map['OpenMemory'])) {
+            $model->openMemory = $map['OpenMemory'];
         }
 
         if (isset($map['OpenWebSearch'])) {

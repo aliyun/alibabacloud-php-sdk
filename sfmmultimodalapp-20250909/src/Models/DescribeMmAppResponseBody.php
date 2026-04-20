@@ -5,11 +5,18 @@
 namespace AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppResponseBody\appConfig;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppResponseBody\bindingConfig;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppResponseBody\conversationConfig;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppResponseBody\modelConfig;
 
 class DescribeMmAppResponseBody extends Model
 {
+    /**
+     * @var appConfig
+     */
+    public $appConfig;
+
     /**
      * @var string
      */
@@ -19,6 +26,11 @@ class DescribeMmAppResponseBody extends Model
      * @var string
      */
     public $appName;
+
+    /**
+     * @var bindingConfig
+     */
+    public $bindingConfig;
 
     /**
      * @var conversationConfig
@@ -80,8 +92,10 @@ class DescribeMmAppResponseBody extends Model
      */
     public $status;
     protected $_name = [
+        'appConfig' => 'AppConfig',
         'appId' => 'AppId',
         'appName' => 'AppName',
+        'bindingConfig' => 'BindingConfig',
         'conversationConfig' => 'ConversationConfig',
         'createUserId' => 'CreateUserId',
         'createUserName' => 'CreateUserName',
@@ -98,6 +112,12 @@ class DescribeMmAppResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->appConfig) {
+            $this->appConfig->validate();
+        }
+        if (null !== $this->bindingConfig) {
+            $this->bindingConfig->validate();
+        }
         if (null !== $this->conversationConfig) {
             $this->conversationConfig->validate();
         }
@@ -110,12 +130,20 @@ class DescribeMmAppResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appConfig) {
+            $res['AppConfig'] = null !== $this->appConfig ? $this->appConfig->toArray($noStream) : $this->appConfig;
+        }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->bindingConfig) {
+            $res['BindingConfig'] = null !== $this->bindingConfig ? $this->bindingConfig->toArray($noStream) : $this->bindingConfig;
         }
 
         if (null !== $this->conversationConfig) {
@@ -177,12 +205,20 @@ class DescribeMmAppResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppConfig'])) {
+            $model->appConfig = appConfig::fromMap($map['AppConfig']);
+        }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['BindingConfig'])) {
+            $model->bindingConfig = bindingConfig::fromMap($map['BindingConfig']);
         }
 
         if (isset($map['ConversationConfig'])) {

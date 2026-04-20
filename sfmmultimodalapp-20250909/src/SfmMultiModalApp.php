@@ -35,6 +35,12 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListPublishedMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingMcpRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingMcpResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingMcpShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingRagRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingRagResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\MmAppBindingRagShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PatchMemoryConfigRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PatchMemoryConfigResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PublishMmAppRequest;
@@ -53,9 +59,20 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateCommandShrinkReques
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMemoryShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppMemoryRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppMemoryResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagConfigRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagConfigResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagWeightRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagWeightResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRagWeightShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppShrinkRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppTransitionRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateMmAppTransitionResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateProfileRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateProfileResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\UpdateProfileShrinkRequest;
@@ -1080,6 +1097,148 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 多模态应用绑定MCP.
+     *
+     * @param tmpReq - MmAppBindingMcpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MmAppBindingMcpResponse
+     *
+     * @param MmAppBindingMcpRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MmAppBindingMcpResponse
+     */
+    public function mmAppBindingMcpWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MmAppBindingMcpShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->mcps) {
+            $request->mcpsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mcps, 'Mcps', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->mcpsShrink) {
+            @$query['Mcps'] = $request->mcpsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MmAppBindingMcp',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MmAppBindingMcpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态应用绑定MCP.
+     *
+     * @param request - MmAppBindingMcpRequest
+     *
+     * @returns MmAppBindingMcpResponse
+     *
+     * @param MmAppBindingMcpRequest $request
+     *
+     * @return MmAppBindingMcpResponse
+     */
+    public function mmAppBindingMcp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mmAppBindingMcpWithOptions($request, $runtime);
+    }
+
+    /**
+     * 多模态应用绑定知识库.
+     *
+     * @param tmpReq - MmAppBindingRagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MmAppBindingRagResponse
+     *
+     * @param MmAppBindingRagRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MmAppBindingRagResponse
+     */
+    public function mmAppBindingRagWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MmAppBindingRagShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->knowledgeBaseCodeList) {
+            $request->knowledgeBaseCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeBaseCodeList, 'KnowledgeBaseCodeList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->knowledgeBaseCodeListShrink) {
+            @$query['KnowledgeBaseCodeList'] = $request->knowledgeBaseCodeListShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MmAppBindingRag',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MmAppBindingRagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 多模态应用绑定知识库.
+     *
+     * @param request - MmAppBindingRagRequest
+     *
+     * @returns MmAppBindingRagResponse
+     *
+     * @param MmAppBindingRagRequest $request
+     *
+     * @return MmAppBindingRagResponse
+     */
+    public function mmAppBindingRag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mmAppBindingRagWithOptions($request, $runtime);
+    }
+
+    /**
      * 变更用户记忆配置.
      *
      * @param request - PatchMemoryConfigRequest
@@ -1780,6 +1939,345 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMmAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改多模态应用长期记忆开关.
+     *
+     * @param request - UpdateMmAppMemoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmAppMemoryResponse
+     *
+     * @param UpdateMmAppMemoryRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateMmAppMemoryResponse
+     */
+    public function updateMmAppMemoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmAppMemory',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmAppMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改多模态应用长期记忆开关.
+     *
+     * @param request - UpdateMmAppMemoryRequest
+     *
+     * @returns UpdateMmAppMemoryResponse
+     *
+     * @param UpdateMmAppMemoryRequest $request
+     *
+     * @return UpdateMmAppMemoryResponse
+     */
+    public function updateMmAppMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMmAppMemoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改知识库开关.
+     *
+     * @param request - UpdateMmAppRagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmAppRagResponse
+     *
+     * @param UpdateMmAppRagRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateMmAppRagResponse
+     */
+    public function updateMmAppRagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmAppRag',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmAppRagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改知识库开关.
+     *
+     * @param request - UpdateMmAppRagRequest
+     *
+     * @returns UpdateMmAppRagResponse
+     *
+     * @param UpdateMmAppRagRequest $request
+     *
+     * @return UpdateMmAppRagResponse
+     */
+    public function updateMmAppRag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMmAppRagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改知识库配置.
+     *
+     * @param request - UpdateMmAppRagConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmAppRagConfigResponse
+     *
+     * @param UpdateMmAppRagConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMmAppRagConfigResponse
+     */
+    public function updateMmAppRagConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->promptStrategy) {
+            @$query['PromptStrategy'] = $request->promptStrategy;
+        }
+
+        if (null !== $request->retrieveMaxLength) {
+            @$query['RetrieveMaxLength'] = $request->retrieveMaxLength;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmAppRagConfig',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmAppRagConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改知识库配置.
+     *
+     * @param request - UpdateMmAppRagConfigRequest
+     *
+     * @returns UpdateMmAppRagConfigResponse
+     *
+     * @param UpdateMmAppRagConfigRequest $request
+     *
+     * @return UpdateMmAppRagConfigResponse
+     */
+    public function updateMmAppRagConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMmAppRagConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改知识库权重.
+     *
+     * @param tmpReq - UpdateMmAppRagWeightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmAppRagWeightResponse
+     *
+     * @param UpdateMmAppRagWeightRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMmAppRagWeightResponse
+     */
+    public function updateMmAppRagWeightWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMmAppRagWeightShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rankWeights) {
+            $request->rankWeightsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rankWeights, 'RankWeights', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->rankWeightsShrink) {
+            @$query['RankWeights'] = $request->rankWeightsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmAppRagWeight',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmAppRagWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改知识库权重.
+     *
+     * @param request - UpdateMmAppRagWeightRequest
+     *
+     * @returns UpdateMmAppRagWeightResponse
+     *
+     * @param UpdateMmAppRagWeightRequest $request
+     *
+     * @return UpdateMmAppRagWeightResponse
+     */
+    public function updateMmAppRagWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMmAppRagWeightWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改应用承接语开关.
+     *
+     * @param request - UpdateMmAppTransitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmAppTransitionResponse
+     *
+     * @param UpdateMmAppTransitionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateMmAppTransitionResponse
+     */
+    public function updateMmAppTransitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmAppTransition',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmAppTransitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改应用承接语开关.
+     *
+     * @param request - UpdateMmAppTransitionRequest
+     *
+     * @returns UpdateMmAppTransitionResponse
+     *
+     * @param UpdateMmAppTransitionRequest $request
+     *
+     * @return UpdateMmAppTransitionResponse
+     */
+    public function updateMmAppTransition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMmAppTransitionWithOptions($request, $runtime);
     }
 
     /**
