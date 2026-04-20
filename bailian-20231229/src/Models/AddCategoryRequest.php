@@ -21,10 +21,16 @@ class AddCategoryRequest extends Model
     /**
      * @var string
      */
+    public $connectorId;
+
+    /**
+     * @var string
+     */
     public $parentCategoryId;
     protected $_name = [
         'categoryName' => 'CategoryName',
         'categoryType' => 'CategoryType',
+        'connectorId' => 'ConnectorId',
         'parentCategoryId' => 'ParentCategoryId',
     ];
 
@@ -42,6 +48,10 @@ class AddCategoryRequest extends Model
 
         if (null !== $this->categoryType) {
             $res['CategoryType'] = $this->categoryType;
+        }
+
+        if (null !== $this->connectorId) {
+            $res['ConnectorId'] = $this->connectorId;
         }
 
         if (null !== $this->parentCategoryId) {
@@ -65,6 +75,10 @@ class AddCategoryRequest extends Model
 
         if (isset($map['CategoryType'])) {
             $model->categoryType = $map['CategoryType'];
+        }
+
+        if (isset($map['ConnectorId'])) {
+            $model->connectorId = $map['ConnectorId'];
         }
 
         if (isset($map['ParentCategoryId'])) {

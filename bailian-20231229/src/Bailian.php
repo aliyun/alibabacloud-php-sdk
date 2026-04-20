@@ -203,6 +203,10 @@ class Bailian extends OpenApiClient
             @$body['CategoryType'] = $request->categoryType;
         }
 
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
         if (null !== $request->parentCategoryId) {
             @$body['ParentCategoryId'] = $request->parentCategoryId;
         }
