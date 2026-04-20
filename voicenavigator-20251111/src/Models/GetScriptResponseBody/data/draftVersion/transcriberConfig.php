@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptResponseBody\data\draftVersion;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptResponseBody\data\draftVersion\transcriberConfig\correctionRules;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptResponseBody\data\draftVersion\transcriberConfig\nlsAccessProfile;
 
 class transcriberConfig extends Model
 {
+    /**
+     * @var correctionRules[]
+     */
+    public $correctionRules;
+
     /**
      * @var string
      */
@@ -49,6 +55,7 @@ class transcriberConfig extends Model
      */
     public $vocabularyId;
     protected $_name = [
+        'correctionRules' => 'CorrectionRules',
         'customizationId' => 'CustomizationId',
         'endSilenceTimeout' => 'EndSilenceTimeout',
         'model' => 'Model',
@@ -61,6 +68,9 @@ class transcriberConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->correctionRules)) {
+            Model::validateArray($this->correctionRules);
+        }
         if (null !== $this->nlsAccessProfile) {
             $this->nlsAccessProfile->validate();
         }
@@ -70,6 +80,17 @@ class transcriberConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->correctionRules) {
+            if (\is_array($this->correctionRules)) {
+                $res['CorrectionRules'] = [];
+                $n1 = 0;
+                foreach ($this->correctionRules as $item1) {
+                    $res['CorrectionRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->customizationId) {
             $res['CustomizationId'] = $this->customizationId;
         }
@@ -113,6 +134,17 @@ class transcriberConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CorrectionRules'])) {
+            if (!empty($map['CorrectionRules'])) {
+                $model->correctionRules = [];
+                $n1 = 0;
+                foreach ($map['CorrectionRules'] as $item1) {
+                    $model->correctionRules[$n1] = correctionRules::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CustomizationId'])) {
             $model->customizationId = $map['CustomizationId'];
         }
