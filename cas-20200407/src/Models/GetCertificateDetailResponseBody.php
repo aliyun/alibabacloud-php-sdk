@@ -51,6 +51,16 @@ class GetCertificateDetailResponseBody extends Model
     public $commonName;
 
     /**
+     * @var int
+     */
+    public $companyId;
+
+    /**
+     * @var int
+     */
+    public $contactId;
+
+    /**
      * @var string
      */
     public $domain;
@@ -123,6 +133,8 @@ class GetCertificateDetailResponseBody extends Model
         'certificateSource' => 'CertificateSource',
         'certificateStatus' => 'CertificateStatus',
         'commonName' => 'CommonName',
+        'companyId' => 'CompanyId',
+        'contactId' => 'ContactId',
         'domain' => 'Domain',
         'existPrivateKey' => 'ExistPrivateKey',
         'fingerPrint' => 'FingerPrint',
@@ -195,6 +207,14 @@ class GetCertificateDetailResponseBody extends Model
 
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
+        }
+
+        if (null !== $this->companyId) {
+            $res['CompanyId'] = $this->companyId;
+        }
+
+        if (null !== $this->contactId) {
+            $res['ContactId'] = $this->contactId;
         }
 
         if (null !== $this->domain) {
@@ -318,6 +338,14 @@ class GetCertificateDetailResponseBody extends Model
 
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
+        }
+
+        if (isset($map['CompanyId'])) {
+            $model->companyId = $map['CompanyId'];
+        }
+
+        if (isset($map['ContactId'])) {
+            $model->contactId = $map['ContactId'];
         }
 
         if (isset($map['Domain'])) {
