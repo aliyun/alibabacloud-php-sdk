@@ -78,6 +78,11 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @var string[]
+     */
+    public $langfuseInstanceIds;
+
+    /**
      * @var int
      */
     public $lockMode;
@@ -200,6 +205,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
         'gmtModified' => 'GmtModified',
+        'langfuseInstanceIds' => 'LangfuseInstanceIds',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
         'maintainEndtime' => 'MaintainEndtime',
@@ -231,6 +237,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         }
         if (\is_array($this->DBClusterList)) {
             Model::validateArray($this->DBClusterList);
+        }
+        if (\is_array($this->langfuseInstanceIds)) {
+            Model::validateArray($this->langfuseInstanceIds);
         }
         if (\is_array($this->multiZone)) {
             Model::validateArray($this->multiZone);
@@ -311,6 +320,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->langfuseInstanceIds) {
+            if (\is_array($this->langfuseInstanceIds)) {
+                $res['LangfuseInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->langfuseInstanceIds as $item1) {
+                    $res['LangfuseInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->lockMode) {
@@ -497,6 +517,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
 
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+
+        if (isset($map['LangfuseInstanceIds'])) {
+            if (!empty($map['LangfuseInstanceIds'])) {
+                $model->langfuseInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['LangfuseInstanceIds'] as $item1) {
+                    $model->langfuseInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LockMode'])) {
