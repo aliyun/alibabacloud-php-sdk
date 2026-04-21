@@ -592,6 +592,10 @@ class Emrserverlessspark extends OpenApiClient
             @$body['name'] = $request->name;
         }
 
+        if (null !== $request->sparkRole) {
+            @$body['sparkRole'] = $request->sparkRole;
+        }
+
         if (null !== $request->token) {
             @$body['token'] = $request->token;
         }
@@ -5292,6 +5296,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->sparkRole) {
+            @$body['sparkRole'] = $request->sparkRole;
         }
 
         if (null !== $request->token) {

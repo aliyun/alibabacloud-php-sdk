@@ -25,6 +25,11 @@ class CreateKyuubiTokenRequest extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $sparkRole;
+
+    /**
      * @var string
      */
     public $token;
@@ -37,6 +42,7 @@ class CreateKyuubiTokenRequest extends Model
         'autoExpireConfiguration' => 'autoExpireConfiguration',
         'memberArns' => 'memberArns',
         'name' => 'name',
+        'sparkRole' => 'sparkRole',
         'token' => 'token',
         'regionId' => 'regionId',
     ];
@@ -48,6 +54,9 @@ class CreateKyuubiTokenRequest extends Model
         }
         if (\is_array($this->memberArns)) {
             Model::validateArray($this->memberArns);
+        }
+        if (\is_array($this->sparkRole)) {
+            Model::validateArray($this->sparkRole);
         }
         parent::validate();
     }
@@ -72,6 +81,17 @@ class CreateKyuubiTokenRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->sparkRole) {
+            if (\is_array($this->sparkRole)) {
+                $res['sparkRole'] = [];
+                $n1 = 0;
+                foreach ($this->sparkRole as $item1) {
+                    $res['sparkRole'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->token) {
@@ -110,6 +130,17 @@ class CreateKyuubiTokenRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['sparkRole'])) {
+            if (!empty($map['sparkRole'])) {
+                $model->sparkRole = [];
+                $n1 = 0;
+                foreach ($map['sparkRole'] as $item1) {
+                    $model->sparkRole[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['token'])) {
