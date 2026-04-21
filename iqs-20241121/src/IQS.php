@@ -18,15 +18,25 @@ use AlibabaCloud\SDK\IQS\V20241121\Models\GetAccountConfigInfoResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\GetAccountReviewRecordResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\GetMeteringSummaryRequest;
 use AlibabaCloud\SDK\IQS\V20241121\Models\GetMeteringSummaryResponse;
+use AlibabaCloud\SDK\IQS\V20241121\Models\GetNormalServiceConfigRequest;
+use AlibabaCloud\SDK\IQS\V20241121\Models\GetNormalServiceConfigResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\GetServiceConfigResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ListApiCallDailyDetailRequest;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ListApiCallDailyDetailResponse;
+use AlibabaCloud\SDK\IQS\V20241121\Models\ListApiInfosRequest;
+use AlibabaCloud\SDK\IQS\V20241121\Models\ListApiInfosResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ListApiNamesResponse;
+use AlibabaCloud\SDK\IQS\V20241121\Models\ListLimitationsRequest;
+use AlibabaCloud\SDK\IQS\V20241121\Models\ListLimitationsResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ListMeteringDailyDetailRequest;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ListMeteringDailyDetailResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ListSubAccountInfoResponse;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ManageSearchAccountInfoRequest;
 use AlibabaCloud\SDK\IQS\V20241121\Models\ManageSearchAccountInfoResponse;
+use AlibabaCloud\SDK\IQS\V20241121\Models\OpenAutoNormalReviewRequest;
+use AlibabaCloud\SDK\IQS\V20241121\Models\OpenAutoNormalReviewResponse;
+use AlibabaCloud\SDK\IQS\V20241121\Models\StopAutoNormalReviewRequest;
+use AlibabaCloud\SDK\IQS\V20241121\Models\StopAutoNormalReviewResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -512,6 +522,61 @@ class IQS extends OpenApiClient
     }
 
     /**
+     * 查询转正用户调用量信息.
+     *
+     * @param request - GetNormalServiceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNormalServiceConfigResponse
+     *
+     * @param GetNormalServiceConfigRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetNormalServiceConfigResponse
+     */
+    public function getNormalServiceConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetNormalServiceConfig',
+            'version' => '2024-11-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-admin/console/v1/services/commands/normalServiceConfig',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNormalServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询转正用户调用量信息.
+     *
+     * @param request - GetNormalServiceConfigRequest
+     *
+     * @returns GetNormalServiceConfigResponse
+     *
+     * @param GetNormalServiceConfigRequest $request
+     *
+     * @return GetNormalServiceConfigResponse
+     */
+    public function getNormalServiceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getNormalServiceConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询服务额度信息.
      *
      * @param headers - map
@@ -641,6 +706,61 @@ class IQS extends OpenApiClient
     }
 
     /**
+     * api基础信息.
+     *
+     * @param request - ListApiInfosRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiInfosResponse
+     *
+     * @param ListApiInfosRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListApiInfosResponse
+     */
+    public function listApiInfosWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListApiInfos',
+            'version' => '2024-11-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-admin/console/v1/monitors/commands/apiInfos',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * api基础信息.
+     *
+     * @param request - ListApiInfosRequest
+     *
+     * @returns ListApiInfosResponse
+     *
+     * @param ListApiInfosRequest $request
+     *
+     * @return ListApiInfosResponse
+     */
+    public function listApiInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApiInfosWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Api名称列表.
      *
      * @param headers - map
@@ -686,6 +806,61 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->listApiNamesWithOptions($headers, $runtime);
+    }
+
+    /**
+     * api基础信息.
+     *
+     * @param request - ListLimitationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLimitationsResponse
+     *
+     * @param ListLimitationsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListLimitationsResponse
+     */
+    public function listLimitationsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListLimitations',
+            'version' => '2024-11-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-admin/openService/v1/console/limitation/commands/list/account',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLimitationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * api基础信息.
+     *
+     * @param request - ListLimitationsRequest
+     *
+     * @returns ListLimitationsResponse
+     *
+     * @param ListLimitationsRequest $request
+     *
+     * @return ListLimitationsResponse
+     */
+    public function listLimitations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLimitationsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -875,5 +1050,115 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->manageSearchAccountInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 停止自动转正.
+     *
+     * @param request - OpenAutoNormalReviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenAutoNormalReviewResponse
+     *
+     * @param OpenAutoNormalReviewRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return OpenAutoNormalReviewResponse
+     */
+    public function openAutoNormalReviewWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'OpenAutoNormalReview',
+            'version' => '2024-11-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-admin/openService/v1/account/commands/openAutoNormalReview',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenAutoNormalReviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止自动转正.
+     *
+     * @param request - OpenAutoNormalReviewRequest
+     *
+     * @returns OpenAutoNormalReviewResponse
+     *
+     * @param OpenAutoNormalReviewRequest $request
+     *
+     * @return OpenAutoNormalReviewResponse
+     */
+    public function openAutoNormalReview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->openAutoNormalReviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 停止自动转正.
+     *
+     * @param request - StopAutoNormalReviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAutoNormalReviewResponse
+     *
+     * @param StopAutoNormalReviewRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopAutoNormalReviewResponse
+     */
+    public function stopAutoNormalReviewWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopAutoNormalReview',
+            'version' => '2024-11-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-admin/openService/v1/account/commands/stopAutoNormalReview',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopAutoNormalReviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止自动转正.
+     *
+     * @param request - StopAutoNormalReviewRequest
+     *
+     * @returns StopAutoNormalReviewResponse
+     *
+     * @param StopAutoNormalReviewRequest $request
+     *
+     * @return StopAutoNormalReviewResponse
+     */
+    public function stopAutoNormalReview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopAutoNormalReviewWithOptions($request, $headers, $runtime);
     }
 }
