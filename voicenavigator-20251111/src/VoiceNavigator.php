@@ -64,12 +64,18 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetCallDetailRecordResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetDataChannelCredentialRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetDataChannelCredentialResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetInstanceTrendingReportRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetInstanceTrendingReportResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRealtimeInstanceStatsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRealtimeInstanceStatsResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRealtimeScriptStatsRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRealtimeScriptStatsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRecordingRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetRecordingResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptTrendingReportRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetScriptTrendingReportResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetSubscriptionRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetSubscriptionResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\GetVocabularyRequest;
@@ -87,12 +93,21 @@ use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceModelsRequest
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListCloneVoiceResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListHistoricalInstanceReportRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListHistoricalInstanceReportResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListHistoricalInstanceReportShrinkRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListHistoricalScriptReportRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListHistoricalScriptReportResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListHistoricalScriptReportShrinkRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListInstructionsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListInstructionsResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListLlmAccessProfilesRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListLlmAccessProfilesResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListNluModelsRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListNluModelsResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListRealtimeInstanceStatsRequest;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListRealtimeInstanceStatsResponse;
+use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListRealtimeInstanceStatsShrinkRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListScriptProfileTemplatesRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListScriptProfileTemplatesResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20251111\Models\ListScriptsRequest;
@@ -2158,6 +2173,75 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 获取实例指标趋势详情.
+     *
+     * @param request - GetInstanceTrendingReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceTrendingReportResponse
+     *
+     * @param GetInstanceTrendingReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetInstanceTrendingReportResponse
+     */
+    public function getInstanceTrendingReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeInterval) {
+            @$body['TimeInterval'] = $request->timeInterval;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceTrendingReport',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceTrendingReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例指标趋势详情.
+     *
+     * @param request - GetInstanceTrendingReportRequest
+     *
+     * @returns GetInstanceTrendingReportResponse
+     *
+     * @param GetInstanceTrendingReportRequest $request
+     *
+     * @return GetInstanceTrendingReportResponse
+     */
+    public function getInstanceTrendingReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceTrendingReportWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取实例实时指标.
      *
      * @param request - GetRealtimeInstanceStatsRequest
@@ -2212,6 +2296,67 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRealtimeInstanceStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取场景实时指标.
+     *
+     * @param request - GetRealtimeScriptStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRealtimeScriptStatsResponse
+     *
+     * @param GetRealtimeScriptStatsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRealtimeScriptStatsResponse
+     */
+    public function getRealtimeScriptStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$body['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRealtimeScriptStats',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRealtimeScriptStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取场景实时指标.
+     *
+     * @param request - GetRealtimeScriptStatsRequest
+     *
+     * @returns GetRealtimeScriptStatsResponse
+     *
+     * @param GetRealtimeScriptStatsRequest $request
+     *
+     * @return GetRealtimeScriptStatsResponse
+     */
+    public function getRealtimeScriptStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRealtimeScriptStatsWithOptions($request, $runtime);
     }
 
     /**
@@ -2334,6 +2479,79 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getScriptWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取场景指标趋势详情.
+     *
+     * @param request - GetScriptTrendingReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScriptTrendingReportResponse
+     *
+     * @param GetScriptTrendingReportRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetScriptTrendingReportResponse
+     */
+    public function getScriptTrendingReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$body['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->timeInterval) {
+            @$body['TimeInterval'] = $request->timeInterval;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetScriptTrendingReport',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScriptTrendingReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取场景指标趋势详情.
+     *
+     * @param request - GetScriptTrendingReportRequest
+     *
+     * @returns GetScriptTrendingReportResponse
+     *
+     * @param GetScriptTrendingReportRequest $request
+     *
+     * @return GetScriptTrendingReportResponse
+     */
+    public function getScriptTrendingReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getScriptTrendingReportWithOptions($request, $runtime);
     }
 
     /**
@@ -2917,6 +3135,168 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 获取实例指标汇总数据.
+     *
+     * @param tmpReq - ListHistoricalInstanceReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHistoricalInstanceReportResponse
+     *
+     * @param ListHistoricalInstanceReportRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListHistoricalInstanceReportResponse
+     */
+    public function listHistoricalInstanceReportWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListHistoricalInstanceReportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$body['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListHistoricalInstanceReport',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHistoricalInstanceReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例指标汇总数据.
+     *
+     * @param request - ListHistoricalInstanceReportRequest
+     *
+     * @returns ListHistoricalInstanceReportResponse
+     *
+     * @param ListHistoricalInstanceReportRequest $request
+     *
+     * @return ListHistoricalInstanceReportResponse
+     */
+    public function listHistoricalInstanceReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHistoricalInstanceReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取场景指标汇总数据.
+     *
+     * @param tmpReq - ListHistoricalScriptReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHistoricalScriptReportResponse
+     *
+     * @param ListHistoricalScriptReportRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListHistoricalScriptReportResponse
+     */
+    public function listHistoricalScriptReportWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListHistoricalScriptReportShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scriptIds) {
+            $request->scriptIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scriptIds, 'ScriptIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scriptIdsShrink) {
+            @$body['ScriptIds'] = $request->scriptIdsShrink;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListHistoricalScriptReport',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHistoricalScriptReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取场景指标汇总数据.
+     *
+     * @param request - ListHistoricalScriptReportRequest
+     *
+     * @returns ListHistoricalScriptReportResponse
+     *
+     * @param ListHistoricalScriptReportRequest $request
+     *
+     * @return ListHistoricalScriptReportResponse
+     */
+    public function listHistoricalScriptReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHistoricalScriptReportWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询指令.
      *
      * @param request - ListInstructionsRequest
@@ -3105,6 +3485,77 @@ class VoiceNavigator extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNluModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实例实时指标.
+     *
+     * @param tmpReq - ListRealtimeInstanceStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRealtimeInstanceStatsResponse
+     *
+     * @param ListRealtimeInstanceStatsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListRealtimeInstanceStatsResponse
+     */
+    public function listRealtimeInstanceStatsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListRealtimeInstanceStatsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->instanceIdsShrink) {
+            @$body['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRealtimeInstanceStats',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRealtimeInstanceStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例实时指标.
+     *
+     * @param request - ListRealtimeInstanceStatsRequest
+     *
+     * @returns ListRealtimeInstanceStatsResponse
+     *
+     * @param ListRealtimeInstanceStatsRequest $request
+     *
+     * @return ListRealtimeInstanceStatsResponse
+     */
+    public function listRealtimeInstanceStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRealtimeInstanceStatsWithOptions($request, $runtime);
     }
 
     /**
