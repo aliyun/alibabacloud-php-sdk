@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\ADBAI\V20250812\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponseBody\acuDetails;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponseBody\gpuDetails;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponseBody\slbTraffic;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoResponseBody\storageUsage;
 
 class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends Model
 {
+    /**
+     * @var acuDetails
+     */
+    public $acuDetails;
+
     /**
      * @var gpuDetails[]
      */
@@ -41,6 +47,7 @@ class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends Model
      */
     public $storageUsage;
     protected $_name = [
+        'acuDetails' => 'AcuDetails',
         'gpuDetails' => 'GpuDetails',
         'maxRegisteredDevices' => 'MaxRegisteredDevices',
         'registeredDeviceCount' => 'RegisteredDeviceCount',
@@ -51,6 +58,9 @@ class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->acuDetails) {
+            $this->acuDetails->validate();
+        }
         if (\is_array($this->gpuDetails)) {
             Model::validateArray($this->gpuDetails);
         }
@@ -66,6 +76,10 @@ class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->acuDetails) {
+            $res['AcuDetails'] = null !== $this->acuDetails ? $this->acuDetails->toArray($noStream) : $this->acuDetails;
+        }
+
         if (null !== $this->gpuDetails) {
             if (\is_array($this->gpuDetails)) {
                 $res['GpuDetails'] = [];
@@ -108,6 +122,10 @@ class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcuDetails'])) {
+            $model->acuDetails = acuDetails::fromMap($map['AcuDetails']);
+        }
+
         if (isset($map['GpuDetails'])) {
             if (!empty($map['GpuDetails'])) {
                 $model->gpuDetails = [];

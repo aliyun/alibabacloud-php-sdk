@@ -16,6 +16,11 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
     /**
      * @var string
      */
+    public $deviceCount;
+
+    /**
+     * @var string
+     */
     public $platformName;
 
     /**
@@ -34,6 +39,7 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
     public $webserverSpecName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'deviceCount' => 'DeviceCount',
         'platformName' => 'PlatformName',
         'rayConfigShrink' => 'RayConfig',
         'regionId' => 'RegionId',
@@ -50,6 +56,10 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->deviceCount) {
+            $res['DeviceCount'] = $this->deviceCount;
         }
 
         if (null !== $this->platformName) {
@@ -81,6 +91,10 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['DeviceCount'])) {
+            $model->deviceCount = $map['DeviceCount'];
         }
 
         if (isset($map['PlatformName'])) {

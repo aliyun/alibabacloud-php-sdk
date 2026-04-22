@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DeleteEmbodiedAIPlatformResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeChatMessageRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeChatMessageResponse;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEapDeviceResourceAllocationRequest;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEapDeviceResourceAllocationResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsRequest;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponse;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\GetEmbodiedAIPlatformResourceUsageInfoRequest;
@@ -172,6 +174,10 @@ class ADBAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->deviceCount) {
+            @$query['DeviceCount'] = $request->deviceCount;
         }
 
         if (null !== $request->platformName) {
@@ -487,6 +493,71 @@ class ADBAI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeChatMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询具身智能平台设备资源分配方案.
+     *
+     * @param request - DescribeEapDeviceResourceAllocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEapDeviceResourceAllocationResponse
+     *
+     * @param DescribeEapDeviceResourceAllocationRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeEapDeviceResourceAllocationResponse
+     */
+    public function describeEapDeviceResourceAllocationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->deviceCount) {
+            @$query['DeviceCount'] = $request->deviceCount;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEapDeviceResourceAllocation',
+            'version' => '2025-08-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEapDeviceResourceAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询具身智能平台设备资源分配方案.
+     *
+     * @param request - DescribeEapDeviceResourceAllocationRequest
+     *
+     * @returns DescribeEapDeviceResourceAllocationResponse
+     *
+     * @param DescribeEapDeviceResourceAllocationRequest $request
+     *
+     * @return DescribeEapDeviceResourceAllocationResponse
+     */
+    public function describeEapDeviceResourceAllocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEapDeviceResourceAllocationWithOptions($request, $runtime);
     }
 
     /**
@@ -820,6 +891,10 @@ class ADBAI extends OpenApiClient
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->deviceCount) {
+            @$query['DeviceCount'] = $request->deviceCount;
         }
 
         if (null !== $request->platformName) {
