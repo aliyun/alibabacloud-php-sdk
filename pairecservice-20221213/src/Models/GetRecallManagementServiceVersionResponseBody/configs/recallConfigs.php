@@ -72,6 +72,11 @@ class recallConfigs extends Model
     /**
      * @var string
      */
+    public $sortFields;
+
+    /**
+     * @var string
+     */
     public $userVectorField;
 
     /**
@@ -91,6 +96,7 @@ class recallConfigs extends Model
         'recallManagementServiceVersionConfigId' => 'RecallManagementServiceVersionConfigId',
         'recallManagementTableId' => 'RecallManagementTableId',
         'recallType' => 'RecallType',
+        'sortFields' => 'SortFields',
         'userVectorField' => 'UserVectorField',
         'userVectorRecallManagementTableId' => 'UserVectorRecallManagementTableId',
     ];
@@ -159,6 +165,10 @@ class recallConfigs extends Model
 
         if (null !== $this->recallType) {
             $res['RecallType'] = $this->recallType;
+        }
+
+        if (null !== $this->sortFields) {
+            $res['SortFields'] = $this->sortFields;
         }
 
         if (null !== $this->userVectorField) {
@@ -233,6 +243,10 @@ class recallConfigs extends Model
 
         if (isset($map['RecallType'])) {
             $model->recallType = $map['RecallType'];
+        }
+
+        if (isset($map['SortFields'])) {
+            $model->sortFields = $map['SortFields'];
         }
 
         if (isset($map['UserVectorField'])) {
