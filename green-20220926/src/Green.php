@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\DeleteOnlineTestRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteOnlineTestResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DescribeOnlineTestResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DescribeOnlineTestResultResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DescribeOssV2ResultRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DescribeOssV2ResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportAnswerSampleRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportAnswerSampleResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportCipStatsRequest;
@@ -150,6 +152,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ListServiceConfigsRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListServiceConfigsResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\LlmStreamChatResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\MarkOssV2ResultRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\MarkOssV2ResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyAnswerLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyCallbackRequest;
@@ -1896,6 +1900,87 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOnlineTestResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取oss结果v2.
+     *
+     * @param request - DescribeOssV2ResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOssV2ResultResponse
+     *
+     * @param DescribeOssV2ResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOssV2ResultResponse
+     */
+    public function describeOssV2ResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucket) {
+            @$query['Bucket'] = $request->bucket;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->riskLevel) {
+            @$query['RiskLevel'] = $request->riskLevel;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOssV2Result',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOssV2ResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取oss结果v2.
+     *
+     * @param request - DescribeOssV2ResultRequest
+     *
+     * @returns DescribeOssV2ResultResponse
+     *
+     * @param DescribeOssV2ResultRequest $request
+     *
+     * @return DescribeOssV2ResultResponse
+     */
+    public function describeOssV2Result($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOssV2ResultWithOptions($request, $runtime);
     }
 
     /**
@@ -5205,6 +5290,83 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->llmStreamChatWithOptions($request, $runtime);
+    }
+
+    /**
+     * oss结果反馈.
+     *
+     * @param request - MarkOssV2ResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MarkOssV2ResultResponse
+     *
+     * @param MarkOssV2ResultRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MarkOssV2ResultResponse
+     */
+    public function markOssV2ResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->freezeType) {
+            @$query['FreezeType'] = $request->freezeType;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->requestIds) {
+            @$query['RequestIds'] = $request->requestIds;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MarkOssV2Result',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MarkOssV2ResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * oss结果反馈.
+     *
+     * @param request - MarkOssV2ResultRequest
+     *
+     * @returns MarkOssV2ResultResponse
+     *
+     * @param MarkOssV2ResultRequest $request
+     *
+     * @return MarkOssV2ResultResponse
+     */
+    public function markOssV2Result($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->markOssV2ResultWithOptions($request, $runtime);
     }
 
     /**
