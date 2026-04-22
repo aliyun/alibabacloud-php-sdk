@@ -228,6 +228,14 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlansRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeGtmRecoveryPlansResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInstanceDomainsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInstanceDomainsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsGlobalOverviewRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsGlobalOverviewResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsHistoryRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsHistoryResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsSummaryRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsSummaryResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsZoneOverviewRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInterAuthStatisticsZoneOverviewResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInternetDnsLogsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeInternetDnsLogsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeIspFlushCacheInstancesRequest;
@@ -8430,6 +8438,330 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 公网权威解析统计信息全局总览.
+     *
+     * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInterAuthStatisticsGlobalOverviewResponse
+     *
+     * @param DescribeInterAuthStatisticsGlobalOverviewRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeInterAuthStatisticsGlobalOverviewResponse
+     */
+    public function describeInterAuthStatisticsGlobalOverviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->overviewPeriod) {
+            @$query['OverviewPeriod'] = $request->overviewPeriod;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInterAuthStatisticsGlobalOverview',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInterAuthStatisticsGlobalOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 公网权威解析统计信息全局总览.
+     *
+     * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
+     *
+     * @returns DescribeInterAuthStatisticsGlobalOverviewResponse
+     *
+     * @param DescribeInterAuthStatisticsGlobalOverviewRequest $request
+     *
+     * @return DescribeInterAuthStatisticsGlobalOverviewResponse
+     */
+    public function describeInterAuthStatisticsGlobalOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInterAuthStatisticsGlobalOverviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * 公网权威解析统计信息趋势
+     *
+     * @param request - DescribeInterAuthStatisticsHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInterAuthStatisticsHistoryResponse
+     *
+     * @param DescribeInterAuthStatisticsHistoryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeInterAuthStatisticsHistoryResponse
+     */
+    public function describeInterAuthStatisticsHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->rcode) {
+            @$query['Rcode'] = $request->rcode;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
+        }
+
+        if (null !== $request->statisticalType) {
+            @$query['StatisticalType'] = $request->statisticalType;
+        }
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInterAuthStatisticsHistory',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInterAuthStatisticsHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 公网权威解析统计信息趋势
+     *
+     * @param request - DescribeInterAuthStatisticsHistoryRequest
+     *
+     * @returns DescribeInterAuthStatisticsHistoryResponse
+     *
+     * @param DescribeInterAuthStatisticsHistoryRequest $request
+     *
+     * @return DescribeInterAuthStatisticsHistoryResponse
+     */
+    public function describeInterAuthStatisticsHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInterAuthStatisticsHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 公网权威解析统计信息摘要列表.
+     *
+     * @param request - DescribeInterAuthStatisticsSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInterAuthStatisticsSummaryResponse
+     *
+     * @param DescribeInterAuthStatisticsSummaryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeInterAuthStatisticsSummaryResponse
+     */
+    public function describeInterAuthStatisticsSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->growType) {
+            @$query['GrowType'] = $request->growType;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->rcode) {
+            @$query['Rcode'] = $request->rcode;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
+        }
+
+        if (null !== $request->statisticalType) {
+            @$query['StatisticalType'] = $request->statisticalType;
+        }
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInterAuthStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInterAuthStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 公网权威解析统计信息摘要列表.
+     *
+     * @param request - DescribeInterAuthStatisticsSummaryRequest
+     *
+     * @returns DescribeInterAuthStatisticsSummaryResponse
+     *
+     * @param DescribeInterAuthStatisticsSummaryRequest $request
+     *
+     * @return DescribeInterAuthStatisticsSummaryResponse
+     */
+    public function describeInterAuthStatisticsSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInterAuthStatisticsSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 公网权威解析统计信息Zone维度总览.
+     *
+     * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInterAuthStatisticsZoneOverviewResponse
+     *
+     * @param DescribeInterAuthStatisticsZoneOverviewRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeInterAuthStatisticsZoneOverviewResponse
+     */
+    public function describeInterAuthStatisticsZoneOverviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->overviewPeriod) {
+            @$query['OverviewPeriod'] = $request->overviewPeriod;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInterAuthStatisticsZoneOverview',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInterAuthStatisticsZoneOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 公网权威解析统计信息Zone维度总览.
+     *
+     * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
+     *
+     * @returns DescribeInterAuthStatisticsZoneOverviewResponse
+     *
+     * @param DescribeInterAuthStatisticsZoneOverviewRequest $request
+     *
+     * @return DescribeInterAuthStatisticsZoneOverviewResponse
+     */
+    public function describeInterAuthStatisticsZoneOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInterAuthStatisticsZoneOverviewWithOptions($request, $runtime);
     }
 
     /**
