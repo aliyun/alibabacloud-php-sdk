@@ -37,6 +37,11 @@ class GetChatContentResponseBody extends Model
      * @var int
      */
     public $level;
+
+    /**
+     * @var string
+     */
+    public $timestamp;
     protected $_name = [
         'category' => 'category',
         'checkpoint' => 'checkpoint',
@@ -44,6 +49,7 @@ class GetChatContentResponseBody extends Model
         'contentType' => 'content_type',
         'eventType' => 'event_type',
         'level' => 'level',
+        'timestamp' => 'timestamp',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class GetChatContentResponseBody extends Model
 
         if (null !== $this->level) {
             $res['level'] = $this->level;
+        }
+
+        if (null !== $this->timestamp) {
+            $res['timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class GetChatContentResponseBody extends Model
 
         if (isset($map['level'])) {
             $model->level = $map['level'];
+        }
+
+        if (isset($map['timestamp'])) {
+            $model->timestamp = $map['timestamp'];
         }
 
         return $model;

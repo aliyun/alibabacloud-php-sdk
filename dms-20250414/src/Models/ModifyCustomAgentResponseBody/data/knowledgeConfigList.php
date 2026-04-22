@@ -16,9 +16,15 @@ class knowledgeConfigList extends Model
     /**
      * @var string
      */
+    public $kbUuid;
+
+    /**
+     * @var string
+     */
     public $mcpServerId;
     protected $_name = [
         'accessType' => 'AccessType',
+        'kbUuid' => 'KbUuid',
         'mcpServerId' => 'McpServerId',
     ];
 
@@ -32,6 +38,10 @@ class knowledgeConfigList extends Model
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
+        }
+
+        if (null !== $this->kbUuid) {
+            $res['KbUuid'] = $this->kbUuid;
         }
 
         if (null !== $this->mcpServerId) {
@@ -51,6 +61,10 @@ class knowledgeConfigList extends Model
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
+        }
+
+        if (isset($map['KbUuid'])) {
+            $model->kbUuid = $map['KbUuid'];
         }
 
         if (isset($map['McpServerId'])) {

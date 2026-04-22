@@ -34,6 +34,11 @@ class sessionConfig extends Model
     public $encryptType;
 
     /**
+     * @var string[]
+     */
+    public $kbUuidList;
+
+    /**
      * @var string
      */
     public $language;
@@ -68,6 +73,7 @@ class sessionConfig extends Model
         'enableSearch' => 'EnableSearch',
         'encryptKey' => 'EncryptKey',
         'encryptType' => 'EncryptType',
+        'kbUuidList' => 'KbUuidList',
         'language' => 'Language',
         'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
@@ -78,6 +84,9 @@ class sessionConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->kbUuidList)) {
+            Model::validateArray($this->kbUuidList);
+        }
         if (\is_array($this->mcpServerIds)) {
             Model::validateArray($this->mcpServerIds);
         }
@@ -105,6 +114,17 @@ class sessionConfig extends Model
 
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
+        }
+
+        if (null !== $this->kbUuidList) {
+            if (\is_array($this->kbUuidList)) {
+                $res['KbUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->kbUuidList as $item1) {
+                    $res['KbUuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->language) {
@@ -167,6 +187,17 @@ class sessionConfig extends Model
 
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
+        }
+
+        if (isset($map['KbUuidList'])) {
+            if (!empty($map['KbUuidList'])) {
+                $model->kbUuidList = [];
+                $n1 = 0;
+                foreach ($map['KbUuidList'] as $item1) {
+                    $model->kbUuidList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Language'])) {
