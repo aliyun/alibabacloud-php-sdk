@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Milvus\V20231012;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateAclGroupRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateAclGroupResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateDefaultRoleResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceResponse;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ListAclGroupsRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ListAclGroupsResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesShrinkRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Milvus\V20231012\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UnTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAccessControlListRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAccessControlListResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAclGroupCidrsRequest;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAclGroupCidrsResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceRequest;
@@ -155,6 +161,79 @@ class Milvus extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建白名单分组.
+     *
+     * @param request - CreateAclGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAclGroupResponse
+     *
+     * @param CreateAclGroupRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAclGroupResponse
+     */
+    public function createAclGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cidrs) {
+            @$query['cidrs'] = $request->cidrs;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['groupName'] = $request->groupName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAclGroup',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/milvus/createAclGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAclGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建白名单分组.
+     *
+     * @param request - CreateAclGroupRequest
+     *
+     * @returns CreateAclGroupResponse
+     *
+     * @param CreateAclGroupRequest $request
+     *
+     * @return CreateAclGroupResponse
+     */
+    public function createAclGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAclGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -686,6 +765,71 @@ class Milvus extends OpenApiClient
     }
 
     /**
+     * 获取当前用户下的分组信息和内容.
+     *
+     * @param request - ListAclGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAclGroupsResponse
+     *
+     * @param ListAclGroupsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListAclGroupsResponse
+     */
+    public function listAclGroupsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAclGroups',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/milvus/listAclGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAclGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取当前用户下的分组信息和内容.
+     *
+     * @param request - ListAclGroupsRequest
+     *
+     * @returns ListAclGroupsResponse
+     *
+     * @param ListAclGroupsRequest $request
+     *
+     * @return ListAclGroupsResponse
+     */
+    public function listAclGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAclGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Get the list of Milvus instances under the current account.
      *
      * @param tmpReq - ListInstancesRequest
@@ -1171,6 +1315,75 @@ class Milvus extends OpenApiClient
         $headers = [];
 
         return $this->updateAccessControlListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 修改分组内的白名单.
+     *
+     * @param request - UpdateAclGroupCidrsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAclGroupCidrsResponse
+     *
+     * @param UpdateAclGroupCidrsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateAclGroupCidrsResponse
+     */
+    public function updateAclGroupCidrsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['groupName'] = $request->groupName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->newCidrs) {
+            @$query['newCidrs'] = $request->newCidrs;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAclGroupCidrs',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/milvus/updateAclGroupCidrs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAclGroupCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改分组内的白名单.
+     *
+     * @param request - UpdateAclGroupCidrsRequest
+     *
+     * @returns UpdateAclGroupCidrsResponse
+     *
+     * @param UpdateAclGroupCidrsRequest $request
+     *
+     * @return UpdateAclGroupCidrsResponse
+     */
+    public function updateAclGroupCidrs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAclGroupCidrsWithOptions($request, $headers, $runtime);
     }
 
     /**
