@@ -202,6 +202,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationLogsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationLogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersShrinkRequest;
@@ -9268,6 +9270,115 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * AI 应用日志明细.
+     *
+     * @param request - DescribeApplicationLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationLogsResponse
+     *
+     * @param DescribeApplicationLogsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeApplicationLogsResponse
+     */
+    public function describeApplicationLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->componentName) {
+            @$query['ComponentName'] = $request->componentName;
+        }
+
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationLogs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AI 应用日志明细.
+     *
+     * @param request - DescribeApplicationLogsRequest
+     *
+     * @returns DescribeApplicationLogsResponse
+     *
+     * @param DescribeApplicationLogsRequest $request
+     *
+     * @return DescribeApplicationLogsResponse
+     */
+    public function describeApplicationLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationLogsWithOptions($request, $runtime);
     }
 
     /**
