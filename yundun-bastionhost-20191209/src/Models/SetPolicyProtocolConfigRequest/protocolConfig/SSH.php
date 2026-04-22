@@ -66,6 +66,11 @@ class SSH extends Model
     /**
      * @var string
      */
+    public $tcpForwarding;
+
+    /**
+     * @var string
+     */
     public $x11Forwarding;
     protected $_name = [
         'allowDirectTcp' => 'AllowDirectTcp',
@@ -79,6 +84,7 @@ class SSH extends Model
         'SFTPRmdir' => 'SFTPRmdir',
         'SFTPUploadFile' => 'SFTPUploadFile',
         'SSHChannel' => 'SSHChannel',
+        'tcpForwarding' => 'TcpForwarding',
         'x11Forwarding' => 'X11Forwarding',
     ];
 
@@ -132,6 +138,10 @@ class SSH extends Model
 
         if (null !== $this->SSHChannel) {
             $res['SSHChannel'] = $this->SSHChannel;
+        }
+
+        if (null !== $this->tcpForwarding) {
+            $res['TcpForwarding'] = $this->tcpForwarding;
         }
 
         if (null !== $this->x11Forwarding) {
@@ -191,6 +201,10 @@ class SSH extends Model
 
         if (isset($map['SSHChannel'])) {
             $model->SSHChannel = $map['SSHChannel'];
+        }
+
+        if (isset($map['TcpForwarding'])) {
+            $model->tcpForwarding = $map['TcpForwarding'];
         }
 
         if (isset($map['X11Forwarding'])) {
