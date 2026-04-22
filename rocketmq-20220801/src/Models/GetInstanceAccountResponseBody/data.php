@@ -21,10 +21,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
         'accountStatus' => 'accountStatus',
         'password' => 'password',
+        'remark' => 'remark',
         'username' => 'username',
     ];
 
@@ -42,6 +48,10 @@ class data extends Model
 
         if (null !== $this->password) {
             $res['password'] = $this->password;
+        }
+
+        if (null !== $this->remark) {
+            $res['remark'] = $this->remark;
         }
 
         if (null !== $this->username) {
@@ -65,6 +75,10 @@ class data extends Model
 
         if (isset($map['password'])) {
             $model->password = $map['password'];
+        }
+
+        if (isset($map['remark'])) {
+            $model->remark = $map['remark'];
         }
 
         if (isset($map['username'])) {

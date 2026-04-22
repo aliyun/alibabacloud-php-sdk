@@ -16,9 +16,15 @@ class CreateInstanceAccountRequest extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
         'password' => 'password',
+        'remark' => 'remark',
         'username' => 'username',
     ];
 
@@ -32,6 +38,10 @@ class CreateInstanceAccountRequest extends Model
         $res = [];
         if (null !== $this->password) {
             $res['password'] = $this->password;
+        }
+
+        if (null !== $this->remark) {
+            $res['remark'] = $this->remark;
         }
 
         if (null !== $this->username) {
@@ -51,6 +61,10 @@ class CreateInstanceAccountRequest extends Model
         $model = new self();
         if (isset($map['password'])) {
             $model->password = $map['password'];
+        }
+
+        if (isset($map['remark'])) {
+            $model->remark = $map['remark'];
         }
 
         if (isset($map['username'])) {

@@ -17,9 +17,15 @@ class UpdateInstanceAccountRequest extends Model
      * @var string
      */
     public $password;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
         'accountStatus' => 'accountStatus',
         'password' => 'password',
+        'remark' => 'remark',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class UpdateInstanceAccountRequest extends Model
 
         if (null !== $this->password) {
             $res['password'] = $this->password;
+        }
+
+        if (null !== $this->remark) {
+            $res['remark'] = $this->remark;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class UpdateInstanceAccountRequest extends Model
 
         if (isset($map['password'])) {
             $model->password = $map['password'];
+        }
+
+        if (isset($map['remark'])) {
+            $model->remark = $map['remark'];
         }
 
         return $model;

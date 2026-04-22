@@ -641,6 +641,10 @@ class RocketMQ extends OpenApiClient
             @$body['password'] = $request->password;
         }
 
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
         if (null !== $request->username) {
             @$body['username'] = $request->username;
         }
@@ -4657,6 +4661,10 @@ class RocketMQ extends OpenApiClient
 
         if (null !== $request->password) {
             @$query['password'] = $request->password;
+        }
+
+        if (null !== $request->remark) {
+            @$query['remark'] = $request->remark;
         }
 
         $req = new OpenApiRequest([

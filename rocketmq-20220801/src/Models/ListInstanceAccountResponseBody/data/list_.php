@@ -31,12 +31,18 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $username;
     protected $_name = [
         'accountStatus' => 'accountStatus',
         'accountType' => 'accountType',
         'instanceId' => 'instanceId',
         'regionId' => 'regionId',
+        'remark' => 'remark',
         'username' => 'username',
     ];
 
@@ -62,6 +68,10 @@ class list_ extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->remark) {
+            $res['remark'] = $this->remark;
         }
 
         if (null !== $this->username) {
@@ -93,6 +103,10 @@ class list_ extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['remark'])) {
+            $model->remark = $map['remark'];
         }
 
         if (isset($map['username'])) {
