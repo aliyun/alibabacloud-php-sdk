@@ -26,8 +26,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEv
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleShrinkRequest;
@@ -210,6 +216,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessRequest;
@@ -322,6 +334,15 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportCertificateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportCertificateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ImportWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionArtifactsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionArtifactsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionArtifactsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesShrinkRequest;
@@ -477,6 +498,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowInstancesShrin
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListWorkflowsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\LoadAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\LoadAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\LoadAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveNodeRequest;
@@ -487,6 +511,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesRequest;
@@ -762,6 +789,7 @@ class Dataworkspublic extends OpenApiClient
                 ];
                 @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
                 $_request->body = FormUtil::toFileForm($form, $boundary);
+                $_runtime['stream'] = true;
                 $_lastRequest = $_request;
                 $_response = Dara::send($_request, $_runtime);
                 $_lastResponse = $_response;
@@ -1179,6 +1207,77 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 取消并停止Agent当前正在进行中的Session会话.
+     *
+     * @param tmpReq - CancelAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAgentSessionResponse
+     *
+     * @param CancelAgentSessionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelAgentSessionResponse
+     */
+    public function cancelAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CancelAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消并停止Agent当前正在进行中的Session会话.
+     *
+     * @param Request - CancelAgentSessionRequest
+     *
+     * @returns CancelAgentSessionResponse
+     *
+     * @param CancelAgentSessionRequest $request
+     *
+     * @return CancelAgentSessionResponse
+     */
+    public function cancelAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
      * Clones an existing data source.
      *
      * @remarks
@@ -1247,6 +1346,77 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloneDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个Agent Session会话.
+     *
+     * @param tmpReq - CreateAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentSessionResponse
+     *
+     * @param CreateAgentSessionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAgentSessionResponse
+     */
+    public function createAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个Agent Session会话.
+     *
+     * @param Request - CreateAgentSessionRequest
+     *
+     * @returns CreateAgentSessionResponse
+     *
+     * @param CreateAgentSessionRequest $request
+     *
+     * @return CreateAgentSessionResponse
+     */
+    public function createAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -3657,7 +3827,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建参数。
+     * Creates a parameter.
      *
      * @param tmpReq - CreateParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3726,7 +3896,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建参数。
+     * Creates a parameter.
      *
      * @param Request - CreateParameterRequest
      *
@@ -6415,7 +6585,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除参数。
+     * Remove specified parameters.
      *
      * @param Request - DeleteParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6454,7 +6624,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除参数。
+     * Remove specified parameters.
      *
      * @param Request - DeleteParameterRequest
      *
@@ -7454,6 +7624,148 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeAdhocWorkflowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Agent指定Session下的模型产出物详情.
+     *
+     * @param tmpReq - GetAgentSessionArtifactMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentSessionArtifactMetaResponse
+     *
+     * @param GetAgentSessionArtifactMetaRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAgentSessionArtifactMetaResponse
+     */
+    public function getAgentSessionArtifactMetaWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAgentSessionArtifactMetaShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentSessionArtifactMeta',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentSessionArtifactMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Agent指定Session下的模型产出物详情.
+     *
+     * @param Request - GetAgentSessionArtifactMetaRequest
+     *
+     * @returns GetAgentSessionArtifactMetaResponse
+     *
+     * @param GetAgentSessionArtifactMetaRequest $request
+     *
+     * @return GetAgentSessionArtifactMetaResponse
+     */
+    public function getAgentSessionArtifactMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentSessionArtifactMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Agent指定Session下的Token用量.
+     *
+     * @param tmpReq - GetAgentSessionTokenUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentSessionTokenUsageResponse
+     *
+     * @param GetAgentSessionTokenUsageRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAgentSessionTokenUsageResponse
+     */
+    public function getAgentSessionTokenUsageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAgentSessionTokenUsageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentSessionTokenUsage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentSessionTokenUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Agent指定Session下的Token用量.
+     *
+     * @param Request - GetAgentSessionTokenUsageRequest
+     *
+     * @returns GetAgentSessionTokenUsageResponse
+     *
+     * @param GetAgentSessionTokenUsageRequest $request
+     *
+     * @return GetAgentSessionTokenUsageResponse
+     */
+    public function getAgentSessionTokenUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentSessionTokenUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -9497,7 +9809,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 根据参数ID获取参数的详细信息。
+     * Obtains the details of a parameter by parameter ID.
      *
      * @param Request - GetParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9536,7 +9848,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 根据参数ID获取参数的详细信息。
+     * Obtains the details of a parameter by parameter ID.
      *
      * @param Request - GetParameterRequest
      *
@@ -10851,6 +11163,219 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importWorkflowDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Agent指定Session下的模型产出物清单列表.
+     *
+     * @param tmpReq - ListAgentSessionArtifactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentSessionArtifactsResponse
+     *
+     * @param ListAgentSessionArtifactsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAgentSessionArtifactsResponse
+     */
+    public function listAgentSessionArtifactsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAgentSessionArtifactsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentSessionArtifacts',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentSessionArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Agent指定Session下的模型产出物清单列表.
+     *
+     * @param Request - ListAgentSessionArtifactsRequest
+     *
+     * @returns ListAgentSessionArtifactsResponse
+     *
+     * @param ListAgentSessionArtifactsRequest $request
+     *
+     * @return ListAgentSessionArtifactsResponse
+     */
+    public function listAgentSessionArtifacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentSessionArtifactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 加载Agent Session对话历史列表.
+     *
+     * @param tmpReq - ListAgentSessionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentSessionsResponse
+     *
+     * @param ListAgentSessionsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAgentSessionsResponse
+     */
+    public function listAgentSessionsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAgentSessionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentSessions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 加载Agent Session对话历史列表.
+     *
+     * @param Request - ListAgentSessionsRequest
+     *
+     * @returns ListAgentSessionsResponse
+     *
+     * @param ListAgentSessionsRequest $request
+     *
+     * @return ListAgentSessionsResponse
+     */
+    public function listAgentSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentSessionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取DataAgent的Agent定义列表.
+     *
+     * @param tmpReq - ListAgentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAgentsResponse
+     */
+    public function listAgentsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAgentsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgents',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取DataAgent的Agent定义列表.
+     *
+     * @param Request - ListAgentsRequest
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     *
+     * @return ListAgentsResponse
+     */
+    public function listAgents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentsWithOptions($request, $runtime);
     }
 
     /**
@@ -13849,7 +14374,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询参数版本列表。
+     * Queries the list of parameter versions.
      *
      * @param Request - ListParameterVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13900,7 +14425,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询参数版本列表。
+     * Queries the list of parameter versions.
      *
      * @param Request - ListParameterVersionsRequest
      *
@@ -13918,7 +14443,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询参数列表。
+     * Queries a list of parameters.
      *
      * @param tmpReq - ListParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13999,7 +14524,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询参数列表。
+     * Queries a list of parameters.
      *
      * @param Request - ListParametersRequest
      *
@@ -15693,6 +16218,143 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 加载Agent Session对话历史.
+     *
+     * @param tmpReq - LoadAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LoadAgentSessionResponse
+     *
+     * @param LoadAgentSessionRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return LoadAgentSessionResponse
+     */
+    public function loadAgentSessionWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new LoadAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'LoadAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield LoadAgentSessionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 加载Agent Session对话历史.
+     *
+     * @param tmpReq - LoadAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LoadAgentSessionResponse
+     *
+     * @param LoadAgentSessionRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return LoadAgentSessionResponse
+     */
+    public function loadAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new LoadAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'LoadAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LoadAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 加载Agent Session对话历史.
+     *
+     * @param Request - LoadAgentSessionRequest
+     *
+     * @returns LoadAgentSessionResponse
+     *
+     * @param LoadAgentSessionRequest $request
+     *
+     * @return LoadAgentSessionResponse
+     */
+    public function loadAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->loadAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
      * Moves a user-defined function (UDF) to a path in DataStudio.
      *
      * @param Request - MoveFunctionRequest
@@ -16007,6 +16669,143 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->previewDatasetVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 在当前的Agent Session中发起一轮新的对话.
+     *
+     * @param tmpReq - PromptAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PromptAgentSessionResponse
+     *
+     * @param PromptAgentSessionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PromptAgentSessionResponse
+     */
+    public function promptAgentSessionWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PromptAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PromptAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield PromptAgentSessionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 在当前的Agent Session中发起一轮新的对话.
+     *
+     * @param tmpReq - PromptAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PromptAgentSessionResponse
+     *
+     * @param PromptAgentSessionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PromptAgentSessionResponse
+     */
+    public function promptAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PromptAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PromptAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PromptAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 在当前的Agent Session中发起一轮新的对话.
+     *
+     * @param Request - PromptAgentSessionRequest
+     *
+     * @returns PromptAgentSessionResponse
+     *
+     * @param PromptAgentSessionRequest $request
+     *
+     * @return PromptAgentSessionResponse
+     */
+    public function promptAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->promptAgentSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -16740,7 +17539,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 回滚参数版本。
+     * Rolls back the specified parameter.
      *
      * @param Request - RollbackParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16783,7 +17582,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 回滚参数版本。
+     * Rolls back the specified parameter.
      *
      * @param Request - RollbackParameterRequest
      *
@@ -19695,7 +20494,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新参数。
+     * Updates a parameter. Incremental modification. Only the specified columns are modified.
      *
      * @param tmpReq - UpdateParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19752,7 +20551,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新参数。
+     * Updates a parameter. Incremental modification. Only the specified columns are modified.
      *
      * @param Request - UpdateParameterRequest
      *
