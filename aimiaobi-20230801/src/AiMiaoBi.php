@@ -227,6 +227,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ImportInterveneFileResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationV2Request;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationV2Response;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyShrinkRequest;
@@ -268,6 +270,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocumentRetrieveRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocumentRetrieveResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListEnterprisePptTemplatesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListEnterprisePptTemplatesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneralConfigsRequest;
@@ -7377,6 +7381,91 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 初始化PPT创建操作V2.
+     *
+     * @param request - InitiatePptCreationV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitiatePptCreationV2Response
+     *
+     * @param InitiatePptCreationV2Request $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return InitiatePptCreationV2Response
+     */
+    public function initiatePptCreationV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
+        if (null !== $request->isMobile) {
+            @$body['IsMobile'] = $request->isMobile;
+        }
+
+        if (null !== $request->outline) {
+            @$body['Outline'] = $request->outline;
+        }
+
+        if (null !== $request->pptTemplateId) {
+            @$body['PptTemplateId'] = $request->pptTemplateId;
+        }
+
+        if (null !== $request->pptTemplateType) {
+            @$body['PptTemplateType'] = $request->pptTemplateType;
+        }
+
+        if (null !== $request->processType) {
+            @$body['ProcessType'] = $request->processType;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InitiatePptCreationV2',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitiatePptCreationV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 初始化PPT创建操作V2.
+     *
+     * @param request - InitiatePptCreationV2Request
+     *
+     * @returns InitiatePptCreationV2Response
+     *
+     * @param InitiatePptCreationV2Request $request
+     *
+     * @return InitiatePptCreationV2Response
+     */
+    public function initiatePptCreationV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initiatePptCreationV2WithOptions($request, $runtime);
+    }
+
+    /**
      * 设置干预全局回复.
      *
      * @param tmpReq - InsertInterveneGlobalReplyRequest
@@ -8891,6 +8980,77 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDocumentRetrieveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PPT模板列表.
+     *
+     * @param request - ListEnterprisePptTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnterprisePptTemplatesResponse
+     *
+     * @param ListEnterprisePptTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListEnterprisePptTemplatesResponse
+     */
+    public function listEnterprisePptTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->skip) {
+            @$query['Skip'] = $request->skip;
+        }
+
+        $body = [];
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListEnterprisePptTemplates',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEnterprisePptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PPT模板列表.
+     *
+     * @param request - ListEnterprisePptTemplatesRequest
+     *
+     * @returns ListEnterprisePptTemplatesResponse
+     *
+     * @param ListEnterprisePptTemplatesRequest $request
+     *
+     * @return ListEnterprisePptTemplatesResponse
+     */
+    public function listEnterprisePptTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnterprisePptTemplatesWithOptions($request, $runtime);
     }
 
     /**
