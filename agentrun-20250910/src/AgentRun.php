@@ -42,17 +42,11 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateToolRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateToolResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateWorkspaceResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeEndpointResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteAgentRuntimeResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteBrowserResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCodeInterpreterResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCredentialResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCustomDomainRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteCustomDomainResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowEndpointResponse;
@@ -60,35 +54,22 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowVersionResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryCollectionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryCollectionResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelServiceResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteSandboxResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteTemplateResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteToolRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteToolResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAccessTokenResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetAgentRuntimeResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetBrowserResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCodeInterpreterResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCredentialResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCustomDomainRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetCustomDomainResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowDraftRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowDraftResponse;
@@ -98,23 +79,14 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowVersionResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryCollectionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryCollectionResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelServiceResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetSandboxResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetTemplateResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetToolRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetToolResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceDiscoveryEndpointsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceDiscoveryEndpointsResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListAgentRuntimeEndpointsResponse;
@@ -154,17 +126,13 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListToolsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListToolsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListWorkspacesResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\PauseSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PauseSandboxResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishFlowVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishFlowVersionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\PublishRuntimeVersionResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\ResumeSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ResumeSandboxResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopSandboxRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopSandboxResponse;
-use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopTemplateMCPRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\StopTemplateMCPResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateAgentRuntimeEndpointResponse;
@@ -1330,22 +1298,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
      *
-     * @param request - DeleteAgentRuntimeRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAgentRuntimeResponse
      *
-     * @param string                    $agentRuntimeId
-     * @param DeleteAgentRuntimeRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param string         $agentRuntimeId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteAgentRuntimeResponse
      */
-    public function deleteAgentRuntimeWithOptions($agentRuntimeId, $request, $headers, $runtime)
+    public function deleteAgentRuntimeWithOptions($agentRuntimeId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1370,43 +1335,37 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
      *
-     * @param request - DeleteAgentRuntimeRequest
-     *
      * @returns DeleteAgentRuntimeResponse
      *
-     * @param string                    $agentRuntimeId
-     * @param DeleteAgentRuntimeRequest $request
+     * @param string $agentRuntimeId
      *
      * @return DeleteAgentRuntimeResponse
      */
-    public function deleteAgentRuntime($agentRuntimeId, $request)
+    public function deleteAgentRuntime($agentRuntimeId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAgentRuntimeWithOptions($agentRuntimeId, $request, $headers, $runtime);
+        return $this->deleteAgentRuntimeWithOptions($agentRuntimeId, $headers, $runtime);
     }
 
     /**
      * Delete an agent runtime endpoint.
      *
-     * @param request - DeleteAgentRuntimeEndpointRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAgentRuntimeEndpointResponse
      *
-     * @param string                            $agentRuntimeId
-     * @param string                            $agentRuntimeEndpointId
-     * @param DeleteAgentRuntimeEndpointRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param string         $agentRuntimeId
+     * @param string         $agentRuntimeEndpointId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteAgentRuntimeEndpointResponse
      */
-    public function deleteAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $request, $headers, $runtime)
+    public function deleteAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1428,22 +1387,19 @@ class AgentRun extends OpenApiClient
     /**
      * Delete an agent runtime endpoint.
      *
-     * @param request - DeleteAgentRuntimeEndpointRequest
-     *
      * @returns DeleteAgentRuntimeEndpointResponse
      *
-     * @param string                            $agentRuntimeId
-     * @param string                            $agentRuntimeEndpointId
-     * @param DeleteAgentRuntimeEndpointRequest $request
+     * @param string $agentRuntimeId
+     * @param string $agentRuntimeEndpointId
      *
      * @return DeleteAgentRuntimeEndpointResponse
      */
-    public function deleteAgentRuntimeEndpoint($agentRuntimeId, $agentRuntimeEndpointId, $request)
+    public function deleteAgentRuntimeEndpoint($agentRuntimeId, $agentRuntimeEndpointId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $request, $headers, $runtime);
+        return $this->deleteAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $headers, $runtime);
     }
 
     /**
@@ -1452,22 +1408,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
      *
-     * @param request - DeleteBrowserRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteBrowserResponse
      *
-     * @param string               $browserId
-     * @param DeleteBrowserRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param string         $browserId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteBrowserResponse
      */
-    public function deleteBrowserWithOptions($browserId, $request, $headers, $runtime)
+    public function deleteBrowserWithOptions($browserId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1492,21 +1445,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
      *
-     * @param request - DeleteBrowserRequest
-     *
      * @returns DeleteBrowserResponse
      *
-     * @param string               $browserId
-     * @param DeleteBrowserRequest $request
+     * @param string $browserId
      *
      * @return DeleteBrowserResponse
      */
-    public function deleteBrowser($browserId, $request)
+    public function deleteBrowser($browserId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBrowserWithOptions($browserId, $request, $headers, $runtime);
+        return $this->deleteBrowserWithOptions($browserId, $headers, $runtime);
     }
 
     /**
@@ -1515,22 +1465,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
      *
-     * @param request - DeleteCodeInterpreterRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCodeInterpreterResponse
      *
-     * @param string                       $codeInterpreterId
-     * @param DeleteCodeInterpreterRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param string         $codeInterpreterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteCodeInterpreterResponse
      */
-    public function deleteCodeInterpreterWithOptions($codeInterpreterId, $request, $headers, $runtime)
+    public function deleteCodeInterpreterWithOptions($codeInterpreterId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1555,42 +1502,36 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
      *
-     * @param request - DeleteCodeInterpreterRequest
-     *
      * @returns DeleteCodeInterpreterResponse
      *
-     * @param string                       $codeInterpreterId
-     * @param DeleteCodeInterpreterRequest $request
+     * @param string $codeInterpreterId
      *
      * @return DeleteCodeInterpreterResponse
      */
-    public function deleteCodeInterpreter($codeInterpreterId, $request)
+    public function deleteCodeInterpreter($codeInterpreterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCodeInterpreterWithOptions($codeInterpreterId, $request, $headers, $runtime);
+        return $this->deleteCodeInterpreterWithOptions($codeInterpreterId, $headers, $runtime);
     }
 
     /**
      * Delete a credential.
      *
-     * @param request - DeleteCredentialRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCredentialResponse
      *
-     * @param string                  $credentialName
-     * @param DeleteCredentialRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $credentialName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteCredentialResponse
      */
-    public function deleteCredentialWithOptions($credentialName, $request, $headers, $runtime)
+    public function deleteCredentialWithOptions($credentialName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1612,42 +1553,36 @@ class AgentRun extends OpenApiClient
     /**
      * Delete a credential.
      *
-     * @param request - DeleteCredentialRequest
-     *
      * @returns DeleteCredentialResponse
      *
-     * @param string                  $credentialName
-     * @param DeleteCredentialRequest $request
+     * @param string $credentialName
      *
      * @return DeleteCredentialResponse
      */
-    public function deleteCredential($credentialName, $request)
+    public function deleteCredential($credentialName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCredentialWithOptions($credentialName, $request, $headers, $runtime);
+        return $this->deleteCredentialWithOptions($credentialName, $headers, $runtime);
     }
 
     /**
      * Delete a custom domain.
      *
-     * @param request - DeleteCustomDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCustomDomainResponse
      *
-     * @param string                    $domainName
-     * @param DeleteCustomDomainRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteCustomDomainResponse
      */
-    public function deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime)
+    public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1669,21 +1604,18 @@ class AgentRun extends OpenApiClient
     /**
      * Delete a custom domain.
      *
-     * @param request - DeleteCustomDomainRequest
-     *
      * @returns DeleteCustomDomainResponse
      *
-     * @param string                    $domainName
-     * @param DeleteCustomDomainRequest $request
+     * @param string $domainName
      *
      * @return DeleteCustomDomainResponse
      */
-    public function deleteCustomDomain($domainName, $request)
+    public function deleteCustomDomain($domainName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime);
+        return $this->deleteCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
@@ -1882,22 +1814,19 @@ class AgentRun extends OpenApiClient
     /**
      * 删除知识库.
      *
-     * @param request - DeleteKnowledgeBaseRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteKnowledgeBaseResponse
      *
-     * @param string                     $knowledgeBaseName
-     * @param DeleteKnowledgeBaseRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param string         $knowledgeBaseName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteKnowledgeBaseResponse
      */
-    public function deleteKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime)
+    public function deleteKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1919,42 +1848,36 @@ class AgentRun extends OpenApiClient
     /**
      * 删除知识库.
      *
-     * @param request - DeleteKnowledgeBaseRequest
-     *
      * @returns DeleteKnowledgeBaseResponse
      *
-     * @param string                     $knowledgeBaseName
-     * @param DeleteKnowledgeBaseRequest $request
+     * @param string $knowledgeBaseName
      *
      * @return DeleteKnowledgeBaseResponse
      */
-    public function deleteKnowledgeBase($knowledgeBaseName, $request)
+    public function deleteKnowledgeBase($knowledgeBaseName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime);
+        return $this->deleteKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime);
     }
 
     /**
      * 删除记忆存储.
      *
-     * @param request - DeleteMemoryCollectionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteMemoryCollectionResponse
      *
-     * @param string                        $memoryCollectionName
-     * @param DeleteMemoryCollectionRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string         $memoryCollectionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteMemoryCollectionResponse
      */
-    public function deleteMemoryCollectionWithOptions($memoryCollectionName, $request, $headers, $runtime)
+    public function deleteMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -1976,42 +1899,36 @@ class AgentRun extends OpenApiClient
     /**
      * 删除记忆存储.
      *
-     * @param request - DeleteMemoryCollectionRequest
-     *
      * @returns DeleteMemoryCollectionResponse
      *
-     * @param string                        $memoryCollectionName
-     * @param DeleteMemoryCollectionRequest $request
+     * @param string $memoryCollectionName
      *
      * @return DeleteMemoryCollectionResponse
      */
-    public function deleteMemoryCollection($memoryCollectionName, $request)
+    public function deleteMemoryCollection($memoryCollectionName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMemoryCollectionWithOptions($memoryCollectionName, $request, $headers, $runtime);
+        return $this->deleteMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime);
     }
 
     /**
      * 删除模型.
      *
-     * @param request - DeleteModelProxyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteModelProxyResponse
      *
-     * @param string                  $modelProxyName
-     * @param DeleteModelProxyRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $modelProxyName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteModelProxyResponse
      */
-    public function deleteModelProxyWithOptions($modelProxyName, $request, $headers, $runtime)
+    public function deleteModelProxyWithOptions($modelProxyName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2033,42 +1950,36 @@ class AgentRun extends OpenApiClient
     /**
      * 删除模型.
      *
-     * @param request - DeleteModelProxyRequest
-     *
      * @returns DeleteModelProxyResponse
      *
-     * @param string                  $modelProxyName
-     * @param DeleteModelProxyRequest $request
+     * @param string $modelProxyName
      *
      * @return DeleteModelProxyResponse
      */
-    public function deleteModelProxy($modelProxyName, $request)
+    public function deleteModelProxy($modelProxyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteModelProxyWithOptions($modelProxyName, $request, $headers, $runtime);
+        return $this->deleteModelProxyWithOptions($modelProxyName, $headers, $runtime);
     }
 
     /**
      * 删除模型.
      *
-     * @param request - DeleteModelServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteModelServiceResponse
      *
-     * @param string                    $modelServiceName
-     * @param DeleteModelServiceRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param string         $modelServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteModelServiceResponse
      */
-    public function deleteModelServiceWithOptions($modelServiceName, $request, $headers, $runtime)
+    public function deleteModelServiceWithOptions($modelServiceName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2090,42 +2001,36 @@ class AgentRun extends OpenApiClient
     /**
      * 删除模型.
      *
-     * @param request - DeleteModelServiceRequest
-     *
      * @returns DeleteModelServiceResponse
      *
-     * @param string                    $modelServiceName
-     * @param DeleteModelServiceRequest $request
+     * @param string $modelServiceName
      *
      * @return DeleteModelServiceResponse
      */
-    public function deleteModelService($modelServiceName, $request)
+    public function deleteModelService($modelServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteModelServiceWithOptions($modelServiceName, $request, $headers, $runtime);
+        return $this->deleteModelServiceWithOptions($modelServiceName, $headers, $runtime);
     }
 
     /**
      * 删除Sandbox.
      *
-     * @param request - DeleteSandboxRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteSandboxResponse
      *
-     * @param string               $sandboxId
-     * @param DeleteSandboxRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteSandboxResponse
      */
-    public function deleteSandboxWithOptions($sandboxId, $request, $headers, $runtime)
+    public function deleteSandboxWithOptions($sandboxId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2147,21 +2052,18 @@ class AgentRun extends OpenApiClient
     /**
      * 删除Sandbox.
      *
-     * @param request - DeleteSandboxRequest
-     *
      * @returns DeleteSandboxResponse
      *
-     * @param string               $sandboxId
-     * @param DeleteSandboxRequest $request
+     * @param string $sandboxId
      *
      * @return DeleteSandboxResponse
      */
-    public function deleteSandbox($sandboxId, $request)
+    public function deleteSandbox($sandboxId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteSandboxWithOptions($sandboxId, $request, $headers, $runtime);
+        return $this->deleteSandboxWithOptions($sandboxId, $headers, $runtime);
     }
 
     /**
@@ -2170,22 +2072,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
      *
-     * @param request - DeleteTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteTemplateResponse
      *
-     * @param string                $templateName
-     * @param DeleteTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param string         $templateName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteTemplateResponse
      */
-    public function deleteTemplateWithOptions($templateName, $request, $headers, $runtime)
+    public function deleteTemplateWithOptions($templateName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2210,21 +2109,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
      *
-     * @param request - DeleteTemplateRequest
-     *
      * @returns DeleteTemplateResponse
      *
-     * @param string                $templateName
-     * @param DeleteTemplateRequest $request
+     * @param string $templateName
      *
      * @return DeleteTemplateResponse
      */
-    public function deleteTemplate($templateName, $request)
+    public function deleteTemplate($templateName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTemplateWithOptions($templateName, $request, $headers, $runtime);
+        return $this->deleteTemplateWithOptions($templateName, $headers, $runtime);
     }
 
     /**
@@ -2233,22 +2129,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
      *
-     * @param request - DeleteToolRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteToolResponse
      *
-     * @param string            $toolName
-     * @param DeleteToolRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param string         $toolName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteToolResponse
      */
-    public function deleteToolWithOptions($toolName, $request, $headers, $runtime)
+    public function deleteToolWithOptions($toolName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2273,21 +2166,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
      *
-     * @param request - DeleteToolRequest
-     *
      * @returns DeleteToolResponse
      *
-     * @param string            $toolName
-     * @param DeleteToolRequest $request
+     * @param string $toolName
      *
      * @return DeleteToolResponse
      */
-    public function deleteTool($toolName, $request)
+    public function deleteTool($toolName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteToolWithOptions($toolName, $request, $headers, $runtime);
+        return $this->deleteToolWithOptions($toolName, $headers, $runtime);
     }
 
     /**
@@ -2296,22 +2186,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除工作空间
      *
-     * @param request - DeleteWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteWorkspaceResponse
      *
-     * @param string                 $workspaceId
-     * @param DeleteWorkspaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteWorkspaceResponse
      */
-    public function deleteWorkspaceWithOptions($workspaceId, $request, $headers, $runtime)
+    public function deleteWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2336,21 +2223,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 删除工作空间
      *
-     * @param request - DeleteWorkspaceRequest
-     *
      * @returns DeleteWorkspaceResponse
      *
-     * @param string                 $workspaceId
-     * @param DeleteWorkspaceRequest $request
+     * @param string $workspaceId
      *
      * @return DeleteWorkspaceResponse
      */
-    public function deleteWorkspace($workspaceId, $request)
+    public function deleteWorkspace($workspaceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
+        return $this->deleteWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -2494,23 +2378,20 @@ class AgentRun extends OpenApiClient
     /**
      * Get an agent runtime endpoint.
      *
-     * @param request - GetAgentRuntimeEndpointRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAgentRuntimeEndpointResponse
      *
-     * @param string                         $agentRuntimeId
-     * @param string                         $agentRuntimeEndpointId
-     * @param GetAgentRuntimeEndpointRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param string         $agentRuntimeId
+     * @param string         $agentRuntimeEndpointId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetAgentRuntimeEndpointResponse
      */
-    public function getAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $request, $headers, $runtime)
+    public function getAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2532,22 +2413,19 @@ class AgentRun extends OpenApiClient
     /**
      * Get an agent runtime endpoint.
      *
-     * @param request - GetAgentRuntimeEndpointRequest
-     *
      * @returns GetAgentRuntimeEndpointResponse
      *
-     * @param string                         $agentRuntimeId
-     * @param string                         $agentRuntimeEndpointId
-     * @param GetAgentRuntimeEndpointRequest $request
+     * @param string $agentRuntimeId
+     * @param string $agentRuntimeEndpointId
      *
      * @return GetAgentRuntimeEndpointResponse
      */
-    public function getAgentRuntimeEndpoint($agentRuntimeId, $agentRuntimeEndpointId, $request)
+    public function getAgentRuntimeEndpoint($agentRuntimeId, $agentRuntimeEndpointId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $request, $headers, $runtime);
+        return $this->getAgentRuntimeEndpointWithOptions($agentRuntimeId, $agentRuntimeEndpointId, $headers, $runtime);
     }
 
     /**
@@ -2556,22 +2434,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
      *
-     * @param request - GetBrowserRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBrowserResponse
      *
-     * @param string            $browserId
-     * @param GetBrowserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param string         $browserId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetBrowserResponse
      */
-    public function getBrowserWithOptions($browserId, $request, $headers, $runtime)
+    public function getBrowserWithOptions($browserId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2596,21 +2471,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
      *
-     * @param request - GetBrowserRequest
-     *
      * @returns GetBrowserResponse
      *
-     * @param string            $browserId
-     * @param GetBrowserRequest $request
+     * @param string $browserId
      *
      * @return GetBrowserResponse
      */
-    public function getBrowser($browserId, $request)
+    public function getBrowser($browserId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBrowserWithOptions($browserId, $request, $headers, $runtime);
+        return $this->getBrowserWithOptions($browserId, $headers, $runtime);
     }
 
     /**
@@ -2619,22 +2491,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
      *
-     * @param request - GetCodeInterpreterRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCodeInterpreterResponse
      *
-     * @param string                    $codeInterpreterId
-     * @param GetCodeInterpreterRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param string         $codeInterpreterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetCodeInterpreterResponse
      */
-    public function getCodeInterpreterWithOptions($codeInterpreterId, $request, $headers, $runtime)
+    public function getCodeInterpreterWithOptions($codeInterpreterId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2659,42 +2528,36 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
      *
-     * @param request - GetCodeInterpreterRequest
-     *
      * @returns GetCodeInterpreterResponse
      *
-     * @param string                    $codeInterpreterId
-     * @param GetCodeInterpreterRequest $request
+     * @param string $codeInterpreterId
      *
      * @return GetCodeInterpreterResponse
      */
-    public function getCodeInterpreter($codeInterpreterId, $request)
+    public function getCodeInterpreter($codeInterpreterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCodeInterpreterWithOptions($codeInterpreterId, $request, $headers, $runtime);
+        return $this->getCodeInterpreterWithOptions($codeInterpreterId, $headers, $runtime);
     }
 
     /**
      * Get a credential.
      *
-     * @param request - GetCredentialRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCredentialResponse
      *
-     * @param string               $credentialName
-     * @param GetCredentialRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param string         $credentialName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetCredentialResponse
      */
-    public function getCredentialWithOptions($credentialName, $request, $headers, $runtime)
+    public function getCredentialWithOptions($credentialName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2716,42 +2579,36 @@ class AgentRun extends OpenApiClient
     /**
      * Get a credential.
      *
-     * @param request - GetCredentialRequest
-     *
      * @returns GetCredentialResponse
      *
-     * @param string               $credentialName
-     * @param GetCredentialRequest $request
+     * @param string $credentialName
      *
      * @return GetCredentialResponse
      */
-    public function getCredential($credentialName, $request)
+    public function getCredential($credentialName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCredentialWithOptions($credentialName, $request, $headers, $runtime);
+        return $this->getCredentialWithOptions($credentialName, $headers, $runtime);
     }
 
     /**
      * 获取自定义域名详情.
      *
-     * @param request - GetCustomDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCustomDomainResponse
      *
-     * @param string                 $domainName
-     * @param GetCustomDomainRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string         $domainName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetCustomDomainResponse
      */
-    public function getCustomDomainWithOptions($domainName, $request, $headers, $runtime)
+    public function getCustomDomainWithOptions($domainName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2773,21 +2630,18 @@ class AgentRun extends OpenApiClient
     /**
      * 获取自定义域名详情.
      *
-     * @param request - GetCustomDomainRequest
-     *
      * @returns GetCustomDomainResponse
      *
-     * @param string                 $domainName
-     * @param GetCustomDomainRequest $request
+     * @param string $domainName
      *
      * @return GetCustomDomainResponse
      */
-    public function getCustomDomain($domainName, $request)
+    public function getCustomDomain($domainName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCustomDomainWithOptions($domainName, $request, $headers, $runtime);
+        return $this->getCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
@@ -3049,22 +2903,19 @@ class AgentRun extends OpenApiClient
     /**
      * 获取知识库.
      *
-     * @param request - GetKnowledgeBaseRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetKnowledgeBaseResponse
      *
-     * @param string                  $knowledgeBaseName
-     * @param GetKnowledgeBaseRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $knowledgeBaseName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetKnowledgeBaseResponse
      */
-    public function getKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime)
+    public function getKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3086,42 +2937,36 @@ class AgentRun extends OpenApiClient
     /**
      * 获取知识库.
      *
-     * @param request - GetKnowledgeBaseRequest
-     *
      * @returns GetKnowledgeBaseResponse
      *
-     * @param string                  $knowledgeBaseName
-     * @param GetKnowledgeBaseRequest $request
+     * @param string $knowledgeBaseName
      *
      * @return GetKnowledgeBaseResponse
      */
-    public function getKnowledgeBase($knowledgeBaseName, $request)
+    public function getKnowledgeBase($knowledgeBaseName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getKnowledgeBaseWithOptions($knowledgeBaseName, $request, $headers, $runtime);
+        return $this->getKnowledgeBaseWithOptions($knowledgeBaseName, $headers, $runtime);
     }
 
     /**
      * 查询记忆存储详情.
      *
-     * @param request - GetMemoryCollectionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetMemoryCollectionResponse
      *
-     * @param string                     $memoryCollectionName
-     * @param GetMemoryCollectionRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param string         $memoryCollectionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetMemoryCollectionResponse
      */
-    public function getMemoryCollectionWithOptions($memoryCollectionName, $request, $headers, $runtime)
+    public function getMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3143,42 +2988,36 @@ class AgentRun extends OpenApiClient
     /**
      * 查询记忆存储详情.
      *
-     * @param request - GetMemoryCollectionRequest
-     *
      * @returns GetMemoryCollectionResponse
      *
-     * @param string                     $memoryCollectionName
-     * @param GetMemoryCollectionRequest $request
+     * @param string $memoryCollectionName
      *
      * @return GetMemoryCollectionResponse
      */
-    public function getMemoryCollection($memoryCollectionName, $request)
+    public function getMemoryCollection($memoryCollectionName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMemoryCollectionWithOptions($memoryCollectionName, $request, $headers, $runtime);
+        return $this->getMemoryCollectionWithOptions($memoryCollectionName, $headers, $runtime);
     }
 
     /**
      * 查看model.
      *
-     * @param request - GetModelProxyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetModelProxyResponse
      *
-     * @param string               $modelProxyName
-     * @param GetModelProxyRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param string         $modelProxyName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetModelProxyResponse
      */
-    public function getModelProxyWithOptions($modelProxyName, $request, $headers, $runtime)
+    public function getModelProxyWithOptions($modelProxyName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3200,42 +3039,36 @@ class AgentRun extends OpenApiClient
     /**
      * 查看model.
      *
-     * @param request - GetModelProxyRequest
-     *
      * @returns GetModelProxyResponse
      *
-     * @param string               $modelProxyName
-     * @param GetModelProxyRequest $request
+     * @param string $modelProxyName
      *
      * @return GetModelProxyResponse
      */
-    public function getModelProxy($modelProxyName, $request)
+    public function getModelProxy($modelProxyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getModelProxyWithOptions($modelProxyName, $request, $headers, $runtime);
+        return $this->getModelProxyWithOptions($modelProxyName, $headers, $runtime);
     }
 
     /**
      * 查看model.
      *
-     * @param request - GetModelServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetModelServiceResponse
      *
-     * @param string                 $modelServiceName
-     * @param GetModelServiceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string         $modelServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetModelServiceResponse
      */
-    public function getModelServiceWithOptions($modelServiceName, $request, $headers, $runtime)
+    public function getModelServiceWithOptions($modelServiceName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3257,21 +3090,18 @@ class AgentRun extends OpenApiClient
     /**
      * 查看model.
      *
-     * @param request - GetModelServiceRequest
-     *
      * @returns GetModelServiceResponse
      *
-     * @param string                 $modelServiceName
-     * @param GetModelServiceRequest $request
+     * @param string $modelServiceName
      *
      * @return GetModelServiceResponse
      */
-    public function getModelService($modelServiceName, $request)
+    public function getModelService($modelServiceName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getModelServiceWithOptions($modelServiceName, $request, $headers, $runtime);
+        return $this->getModelServiceWithOptions($modelServiceName, $headers, $runtime);
     }
 
     /**
@@ -3280,22 +3110,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
      *
-     * @param request - GetSandboxRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSandboxResponse
      *
-     * @param string            $sandboxId
-     * @param GetSandboxRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetSandboxResponse
      */
-    public function getSandboxWithOptions($sandboxId, $request, $headers, $runtime)
+    public function getSandboxWithOptions($sandboxId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3320,21 +3147,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
      *
-     * @param request - GetSandboxRequest
-     *
      * @returns GetSandboxResponse
      *
-     * @param string            $sandboxId
-     * @param GetSandboxRequest $request
+     * @param string $sandboxId
      *
      * @return GetSandboxResponse
      */
-    public function getSandbox($sandboxId, $request)
+    public function getSandbox($sandboxId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSandboxWithOptions($sandboxId, $request, $headers, $runtime);
+        return $this->getSandboxWithOptions($sandboxId, $headers, $runtime);
     }
 
     /**
@@ -3343,22 +3167,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
      *
-     * @param request - GetTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTemplateResponse
      *
-     * @param string             $templateName
-     * @param GetTemplateRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param string         $templateName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetTemplateResponse
      */
-    public function getTemplateWithOptions($templateName, $request, $headers, $runtime)
+    public function getTemplateWithOptions($templateName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3383,21 +3204,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
      *
-     * @param request - GetTemplateRequest
-     *
      * @returns GetTemplateResponse
      *
-     * @param string             $templateName
-     * @param GetTemplateRequest $request
+     * @param string $templateName
      *
      * @return GetTemplateResponse
      */
-    public function getTemplate($templateName, $request)
+    public function getTemplate($templateName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTemplateWithOptions($templateName, $request, $headers, $runtime);
+        return $this->getTemplateWithOptions($templateName, $headers, $runtime);
     }
 
     /**
@@ -3406,22 +3224,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
      *
-     * @param request - GetToolRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetToolResponse
      *
      * @param string         $toolName
-     * @param GetToolRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return GetToolResponse
      */
-    public function getToolWithOptions($toolName, $request, $headers, $runtime)
+    public function getToolWithOptions($toolName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3446,21 +3261,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
      *
-     * @param request - GetToolRequest
-     *
      * @returns GetToolResponse
      *
-     * @param string         $toolName
-     * @param GetToolRequest $request
+     * @param string $toolName
      *
      * @return GetToolResponse
      */
-    public function getTool($toolName, $request)
+    public function getTool($toolName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getToolWithOptions($toolName, $request, $headers, $runtime);
+        return $this->getToolWithOptions($toolName, $headers, $runtime);
     }
 
     /**
@@ -3469,22 +3281,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 查看工作空间
      *
-     * @param request - GetWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWorkspaceResponse
      *
-     * @param string              $workspaceId
-     * @param GetWorkspaceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetWorkspaceResponse
      */
-    public function getWorkspaceWithOptions($workspaceId, $request, $headers, $runtime)
+    public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3509,42 +3318,36 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 查看工作空间
      *
-     * @param request - GetWorkspaceRequest
-     *
      * @returns GetWorkspaceResponse
      *
-     * @param string              $workspaceId
-     * @param GetWorkspaceRequest $request
+     * @param string $workspaceId
      *
      * @return GetWorkspaceResponse
      */
-    public function getWorkspace($workspaceId, $request)
+    public function getWorkspace($workspaceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
+        return $this->getWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
      * 获取工作空间下的发现端点.
      *
-     * @param request - GetWorkspaceDiscoveryEndpointsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWorkspaceDiscoveryEndpointsResponse
      *
-     * @param string                                $workspaceId
-     * @param GetWorkspaceDiscoveryEndpointsRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @param string         $workspaceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return GetWorkspaceDiscoveryEndpointsResponse
      */
-    public function getWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $request, $headers, $runtime)
+    public function getWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -3566,21 +3369,18 @@ class AgentRun extends OpenApiClient
     /**
      * 获取工作空间下的发现端点.
      *
-     * @param request - GetWorkspaceDiscoveryEndpointsRequest
-     *
      * @returns GetWorkspaceDiscoveryEndpointsResponse
      *
-     * @param string                                $workspaceId
-     * @param GetWorkspaceDiscoveryEndpointsRequest $request
+     * @param string $workspaceId
      *
      * @return GetWorkspaceDiscoveryEndpointsResponse
      */
-    public function getWorkspaceDiscoveryEndpoints($workspaceId, $request)
+    public function getWorkspaceDiscoveryEndpoints($workspaceId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $request, $headers, $runtime);
+        return $this->getWorkspaceDiscoveryEndpointsWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -5146,22 +4946,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
      *
-     * @param request - PauseSandboxRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns PauseSandboxResponse
      *
-     * @param string              $sandboxId
-     * @param PauseSandboxRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return PauseSandboxResponse
      */
-    public function pauseSandboxWithOptions($sandboxId, $request, $headers, $runtime)
+    public function pauseSandboxWithOptions($sandboxId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5186,21 +4983,18 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
      *
-     * @param request - PauseSandboxRequest
-     *
      * @returns PauseSandboxResponse
      *
-     * @param string              $sandboxId
-     * @param PauseSandboxRequest $request
+     * @param string $sandboxId
      *
      * @return PauseSandboxResponse
      */
-    public function pauseSandbox($sandboxId, $request)
+    public function pauseSandbox($sandboxId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->pauseSandboxWithOptions($sandboxId, $request, $headers, $runtime);
+        return $this->pauseSandboxWithOptions($sandboxId, $headers, $runtime);
     }
 
     /**
@@ -5334,22 +5128,19 @@ class AgentRun extends OpenApiClient
     /**
      * 恢复沙箱.
      *
-     * @param request - ResumeSandboxRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ResumeSandboxResponse
      *
-     * @param string               $sandboxId
-     * @param ResumeSandboxRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return ResumeSandboxResponse
      */
-    public function resumeSandboxWithOptions($sandboxId, $request, $headers, $runtime)
+    public function resumeSandboxWithOptions($sandboxId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5371,21 +5162,18 @@ class AgentRun extends OpenApiClient
     /**
      * 恢复沙箱.
      *
-     * @param request - ResumeSandboxRequest
-     *
      * @returns ResumeSandboxResponse
      *
-     * @param string               $sandboxId
-     * @param ResumeSandboxRequest $request
+     * @param string $sandboxId
      *
      * @return ResumeSandboxResponse
      */
-    public function resumeSandbox($sandboxId, $request)
+    public function resumeSandbox($sandboxId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeSandboxWithOptions($sandboxId, $request, $headers, $runtime);
+        return $this->resumeSandboxWithOptions($sandboxId, $headers, $runtime);
     }
 
     /**
@@ -5394,22 +5182,19 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
      *
-     * @param request - StopSandboxRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopSandboxResponse
      *
-     * @param string             $sandboxId
-     * @param StopSandboxRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param string         $sandboxId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return StopSandboxResponse
      */
-    public function stopSandboxWithOptions($sandboxId, $request, $headers, $runtime)
+    public function stopSandboxWithOptions($sandboxId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5434,42 +5219,36 @@ class AgentRun extends OpenApiClient
      * @remarks
      * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
      *
-     * @param request - StopSandboxRequest
-     *
      * @returns StopSandboxResponse
      *
-     * @param string             $sandboxId
-     * @param StopSandboxRequest $request
+     * @param string $sandboxId
      *
      * @return StopSandboxResponse
      */
-    public function stopSandbox($sandboxId, $request)
+    public function stopSandbox($sandboxId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopSandboxWithOptions($sandboxId, $request, $headers, $runtime);
+        return $this->stopSandboxWithOptions($sandboxId, $headers, $runtime);
     }
 
     /**
      * Stop the TemplateMCP service.
      *
-     * @param request - StopTemplateMCPRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopTemplateMCPResponse
      *
-     * @param string                 $templateName
-     * @param StopTemplateMCPRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string         $templateName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return StopTemplateMCPResponse
      */
-    public function stopTemplateMCPWithOptions($templateName, $request, $headers, $runtime)
+    public function stopTemplateMCPWithOptions($templateName, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -5491,21 +5270,18 @@ class AgentRun extends OpenApiClient
     /**
      * Stop the TemplateMCP service.
      *
-     * @param request - StopTemplateMCPRequest
-     *
      * @returns StopTemplateMCPResponse
      *
-     * @param string                 $templateName
-     * @param StopTemplateMCPRequest $request
+     * @param string $templateName
      *
      * @return StopTemplateMCPResponse
      */
-    public function stopTemplateMCP($templateName, $request)
+    public function stopTemplateMCP($templateName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopTemplateMCPWithOptions($templateName, $request, $headers, $runtime);
+        return $this->stopTemplateMCPWithOptions($templateName, $headers, $runtime);
     }
 
     /**
