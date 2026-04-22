@@ -43,6 +43,16 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLineInfoRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLineInfoResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLinesRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeCustomLinesResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeIntranetUserCanAnalysisVpcsRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeIntranetUserCanAnalysisVpcsResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsGlobalOverviewRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsGlobalOverviewResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsHistoryRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsHistoryResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsSummaryRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsSummaryResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsZoneOverviewRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribePvtzStatisticsZoneOverviewResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeRequestGraphRequest;
@@ -1551,6 +1561,431 @@ class Pvtz extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCustomLinesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户可以分析的VPC列表.
+     *
+     * @param request - DescribeIntranetUserCanAnalysisVpcsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeIntranetUserCanAnalysisVpcsResponse
+     *
+     * @param DescribeIntranetUserCanAnalysisVpcsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeIntranetUserCanAnalysisVpcsResponse
+     */
+    public function describeIntranetUserCanAnalysisVpcsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryTreeLevel) {
+            @$query['QueryTreeLevel'] = $request->queryTreeLevel;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->vpcOwner) {
+            @$query['VpcOwner'] = $request->vpcOwner;
+        }
+
+        if (null !== $request->vpcType) {
+            @$query['VpcType'] = $request->vpcType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeIntranetUserCanAnalysisVpcs',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeIntranetUserCanAnalysisVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户可以分析的VPC列表.
+     *
+     * @param request - DescribeIntranetUserCanAnalysisVpcsRequest
+     *
+     * @returns DescribeIntranetUserCanAnalysisVpcsResponse
+     *
+     * @param DescribeIntranetUserCanAnalysisVpcsRequest $request
+     *
+     * @return DescribeIntranetUserCanAnalysisVpcsResponse
+     */
+    public function describeIntranetUserCanAnalysisVpcs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeIntranetUserCanAnalysisVpcsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pvtz解析统计信息全局总览.
+     *
+     * @param request - DescribePvtzStatisticsGlobalOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePvtzStatisticsGlobalOverviewResponse
+     *
+     * @param DescribePvtzStatisticsGlobalOverviewRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribePvtzStatisticsGlobalOverviewResponse
+     */
+    public function describePvtzStatisticsGlobalOverviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkParams) {
+            @$query['NetworkParams'] = $request->networkParams;
+        }
+
+        if (null !== $request->overviewPeriod) {
+            @$query['OverviewPeriod'] = $request->overviewPeriod;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePvtzStatisticsGlobalOverview',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePvtzStatisticsGlobalOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pvtz解析统计信息全局总览.
+     *
+     * @param request - DescribePvtzStatisticsGlobalOverviewRequest
+     *
+     * @returns DescribePvtzStatisticsGlobalOverviewResponse
+     *
+     * @param DescribePvtzStatisticsGlobalOverviewRequest $request
+     *
+     * @return DescribePvtzStatisticsGlobalOverviewResponse
+     */
+    public function describePvtzStatisticsGlobalOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePvtzStatisticsGlobalOverviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pvtz解析统计信息趋势
+     *
+     * @param request - DescribePvtzStatisticsHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePvtzStatisticsHistoryResponse
+     *
+     * @param DescribePvtzStatisticsHistoryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePvtzStatisticsHistoryResponse
+     */
+    public function describePvtzStatisticsHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->module) {
+            @$query['Module'] = $request->module;
+        }
+
+        if (null !== $request->networkParams) {
+            @$query['NetworkParams'] = $request->networkParams;
+        }
+
+        if (null !== $request->rcode) {
+            @$query['Rcode'] = $request->rcode;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
+        }
+
+        if (null !== $request->statisticalType) {
+            @$query['StatisticalType'] = $request->statisticalType;
+        }
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePvtzStatisticsHistory',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePvtzStatisticsHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pvtz解析统计信息趋势
+     *
+     * @param request - DescribePvtzStatisticsHistoryRequest
+     *
+     * @returns DescribePvtzStatisticsHistoryResponse
+     *
+     * @param DescribePvtzStatisticsHistoryRequest $request
+     *
+     * @return DescribePvtzStatisticsHistoryResponse
+     */
+    public function describePvtzStatisticsHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePvtzStatisticsHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pvtz解析统计信息摘要列表.
+     *
+     * @param request - DescribePvtzStatisticsSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePvtzStatisticsSummaryResponse
+     *
+     * @param DescribePvtzStatisticsSummaryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePvtzStatisticsSummaryResponse
+     */
+    public function describePvtzStatisticsSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->growType) {
+            @$query['GrowType'] = $request->growType;
+        }
+
+        if (null !== $request->module) {
+            @$query['Module'] = $request->module;
+        }
+
+        if (null !== $request->networkParams) {
+            @$query['NetworkParams'] = $request->networkParams;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->rcode) {
+            @$query['Rcode'] = $request->rcode;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
+        }
+
+        if (null !== $request->statisticalType) {
+            @$query['StatisticalType'] = $request->statisticalType;
+        }
+
+        if (null !== $request->zoneName) {
+            @$query['ZoneName'] = $request->zoneName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePvtzStatisticsSummary',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePvtzStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pvtz解析统计信息摘要列表.
+     *
+     * @param request - DescribePvtzStatisticsSummaryRequest
+     *
+     * @returns DescribePvtzStatisticsSummaryResponse
+     *
+     * @param DescribePvtzStatisticsSummaryRequest $request
+     *
+     * @return DescribePvtzStatisticsSummaryResponse
+     */
+    public function describePvtzStatisticsSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePvtzStatisticsSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pvtz解析统计信息Zone维度总览.
+     *
+     * @param request - DescribePvtzStatisticsZoneOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePvtzStatisticsZoneOverviewResponse
+     *
+     * @param DescribePvtzStatisticsZoneOverviewRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribePvtzStatisticsZoneOverviewResponse
+     */
+    public function describePvtzStatisticsZoneOverviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->module) {
+            @$query['Module'] = $request->module;
+        }
+
+        if (null !== $request->networkParams) {
+            @$query['NetworkParams'] = $request->networkParams;
+        }
+
+        if (null !== $request->overviewPeriod) {
+            @$query['OverviewPeriod'] = $request->overviewPeriod;
+        }
+
+        if (null !== $request->serverRegion) {
+            @$query['ServerRegion'] = $request->serverRegion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePvtzStatisticsZoneOverview',
+            'version' => '2018-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePvtzStatisticsZoneOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pvtz解析统计信息Zone维度总览.
+     *
+     * @param request - DescribePvtzStatisticsZoneOverviewRequest
+     *
+     * @returns DescribePvtzStatisticsZoneOverviewResponse
+     *
+     * @param DescribePvtzStatisticsZoneOverviewRequest $request
+     *
+     * @return DescribePvtzStatisticsZoneOverviewResponse
+     */
+    public function describePvtzStatisticsZoneOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePvtzStatisticsZoneOverviewWithOptions($request, $runtime);
     }
 
     /**
