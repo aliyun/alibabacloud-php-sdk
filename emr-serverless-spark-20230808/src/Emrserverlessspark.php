@@ -73,6 +73,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListCatalogsResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListExecutorLogsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListExecutorLogsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobExecutorsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobExecutorsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
@@ -2884,6 +2886,85 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listCatalogsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出作业executor的日志文件列表.
+     *
+     * @param request - ListExecutorLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExecutorLogsResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $jobRunId
+     * @param string                  $executorId
+     * @param ListExecutorLogsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListExecutorLogsResponse
+     */
+    public function listExecutorLogsWithOptions($workspaceId, $jobRunId, $executorId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->logType) {
+            @$query['logType'] = $request->logType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListExecutorLogs',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/jobRuns/' . Url::percentEncode($jobRunId) . '/executors/' . Url::percentEncode($executorId) . '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListExecutorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出作业executor的日志文件列表.
+     *
+     * @param request - ListExecutorLogsRequest
+     *
+     * @returns ListExecutorLogsResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $jobRunId
+     * @param string                  $executorId
+     * @param ListExecutorLogsRequest $request
+     *
+     * @return ListExecutorLogsResponse
+     */
+    public function listExecutorLogs($workspaceId, $jobRunId, $executorId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listExecutorLogsWithOptions($workspaceId, $jobRunId, $executorId, $request, $headers, $runtime);
     }
 
     /**
