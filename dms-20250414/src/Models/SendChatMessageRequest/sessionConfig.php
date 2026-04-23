@@ -26,11 +26,17 @@ class sessionConfig extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @var string
+     */
     public $reportWaterMark;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
         'language' => 'Language',
+        'mode' => 'Mode',
         'reportWaterMark' => 'ReportWaterMark',
     ];
 
@@ -52,6 +58,10 @@ class sessionConfig extends Model
 
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         if (null !== $this->reportWaterMark) {
@@ -79,6 +89,10 @@ class sessionConfig extends Model
 
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         if (isset($map['ReportWaterMark'])) {

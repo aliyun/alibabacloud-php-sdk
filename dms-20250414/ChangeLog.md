@@ -1,3 +1,7 @@
+2026-04-23 Version: 1.10.4
+- Update API SendChatMessage: add request parameters SessionConfig.Mode.
+
+
 2026-04-22 Version: 1.10.3
 - Update API CreateCustomAgent: add request parameters KnowledgeConfigList.$.KbUuid.
 - Update API CreateCustomAgent: add response parameters Body.Data.KnowledgeConfigList.$.KbUuid.

@@ -21,6 +21,16 @@ class OneMetaKnowledgeBase extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $extraInfo;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -50,6 +60,8 @@ class OneMetaKnowledgeBase extends Model
     protected $_name = [
         'creator' => 'Creator',
         'description' => 'Description',
+        'domain' => 'Domain',
+        'extraInfo' => 'ExtraInfo',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'kbUuid' => 'KbUuid',
@@ -72,6 +84,14 @@ class OneMetaKnowledgeBase extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
 
         if (null !== $this->gmtCreate) {
@@ -115,6 +135,14 @@ class OneMetaKnowledgeBase extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
 
         if (isset($map['GmtCreate'])) {
