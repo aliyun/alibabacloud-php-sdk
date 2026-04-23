@@ -80,6 +80,8 @@ use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListOperationActivityRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListOperationActivityResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListOperationHistoryRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListOperationHistoryResponse;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListSSLDetailsRequest;
+use AlibabaCloud\SDK\Starrocks\V20221019\Models\ListSSLDetailsResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyChargeTypeRequest;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyChargeTypeResponse;
 use AlibabaCloud\SDK\Starrocks\V20221019\Models\ModifyCuPreCheckRequest;
@@ -610,7 +612,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 创建StarRocks集群.
+     * Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
      *
      * @param request - CreateInstanceV1Request
      * @param headers - map
@@ -776,7 +778,7 @@ class Starrocks extends OpenApiClient
     }
 
     /**
-     * 创建StarRocks集群.
+     * Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
      *
      * @param request - CreateInstanceV1Request
      *
@@ -3002,6 +3004,67 @@ class Starrocks extends OpenApiClient
         $headers = [];
 
         return $this->listOperationHistoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取集群SSL详情.
+     *
+     * @param request - ListSSLDetailsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSSLDetailsResponse
+     *
+     * @param ListSSLDetailsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListSSLDetailsResponse
+     */
+    public function listSSLDetailsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSSLDetails',
+            'version' => '2022-10-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/starrocks/listSSLDetails',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSSLDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取集群SSL详情.
+     *
+     * @param request - ListSSLDetailsRequest
+     *
+     * @returns ListSSLDetailsResponse
+     *
+     * @param ListSSLDetailsRequest $request
+     *
+     * @return ListSSLDetailsResponse
+     */
+    public function listSSLDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSSLDetailsWithOptions($request, $headers, $runtime);
     }
 
     /**
