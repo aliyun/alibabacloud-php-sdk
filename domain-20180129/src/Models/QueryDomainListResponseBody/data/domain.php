@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainListResponseBody\data\do
 class domain extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoRenewEnabled;
+
+    /**
      * @var string
      */
     public $ccompany;
@@ -125,6 +130,7 @@ class domain extends Model
      */
     public $tag;
     protected $_name = [
+        'autoRenewEnabled' => 'AutoRenewEnabled',
         'ccompany' => 'Ccompany',
         'chgholderStatus' => 'ChgholderStatus',
         'dnsList' => 'DnsList',
@@ -164,6 +170,10 @@ class domain extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRenewEnabled) {
+            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
+        }
+
         if (null !== $this->ccompany) {
             $res['Ccompany'] = $this->ccompany;
         }
@@ -267,6 +277,10 @@ class domain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRenewEnabled'])) {
+            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
+        }
+
         if (isset($map['Ccompany'])) {
             $model->ccompany = $map['Ccompany'];
         }

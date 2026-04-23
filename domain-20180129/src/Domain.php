@@ -697,7 +697,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 修改实例所在资源组.
+     * ChangeResourceGroup.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -752,7 +752,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 修改实例所在资源组.
+     * ChangeResourceGroup.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -770,6 +770,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * Checks whether a domain name can be registered.
+     *
      * @param request - CheckDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -823,6 +825,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * Checks whether a domain name can be registered.
+     *
      * @param request - CheckDomainRequest
      *
      * @returns CheckDomainResponse
@@ -900,7 +904,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 校验在售国际一口价域名状态和询价.
+     * Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
      *
      * @param request - CheckIntlFixPriceDomainStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -939,7 +943,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 校验在售国际一口价域名状态和询价.
+     * Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
      *
      * @param request - CheckIntlFixPriceDomainStatusRequest
      *
@@ -1217,7 +1221,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 创建国际一口价订单.
+     * Creates a fixed-price order at the international site (alibabacloud.com).
      *
      * @param request - CreateIntlFixedPriceDomainOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1268,7 +1272,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 创建国际一口价订单.
+     * Creates a fixed-price order at the international site (alibabacloud.com).
      *
      * @param request - CreateIntlFixedPriceDomainOrderRequest
      *
@@ -2234,7 +2238,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 搜索域名列表.
+     * Searches for domain names by using the advanced search feature.
      *
      * @param request - QueryAdvancedDomainListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2385,7 +2389,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 搜索域名列表.
+     * Searches for domain names by using the advanced search feature.
      *
      * @param request - QueryAdvancedDomainListRequest
      *
@@ -2464,7 +2468,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询操作记录.
+     * Queries the operations logs of a domain name.
      *
      * @param request - QueryChangeLogListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2527,7 +2531,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询操作记录.
+     * Queries the operations logs of a domain name.
      *
      * @param request - QueryChangeLogListRequest
      *
@@ -2919,7 +2923,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询域名分组信息.
+     * Queries a list of domain name groups.
      *
      * @param request - QueryDomainGroupListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2978,7 +2982,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询域名分组信息.
+     * Queries a list of domain name groups.
      *
      * @param request - QueryDomainGroupListRequest
      *
@@ -3012,6 +3016,10 @@ class Domain extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoRenewEnabled) {
+            @$query['AutoRenewEnabled'] = $request->autoRenewEnabled;
+        }
+
         if (null !== $request->ccompany) {
             @$query['Ccompany'] = $request->ccompany;
         }
@@ -3765,7 +3773,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询国际一口价订单列表.
+     * Queries the list of fixed-price orders at the international site (alibabacloud.com).
      *
      * @param request - QueryIntlFixedPriceOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3816,7 +3824,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询国际一口价订单列表.
+     * Queries the list of fixed-price orders at the international site (alibabacloud.com).
      *
      * @param request - QueryIntlFixedPriceOrderListRequest
      *
@@ -4574,7 +4582,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询任务列表.
+     * Queries the domain name tasks under your account by page.
      *
      * @param request - QueryTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4633,7 +4641,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询任务列表.
+     * Queries the domain name tasks under your account by page.
      *
      * @param request - QueryTaskListRequest
      *
@@ -4712,6 +4720,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * Queries the domain names that are transferred to Alibaba Cloud.
+     *
      * @param request - QueryTransferInListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4777,6 +4787,8 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * Queries the domain names that are transferred to Alibaba Cloud.
+     *
      * @param request - QueryTransferInListRequest
      *
      * @returns QueryTransferInListResponse
@@ -5197,7 +5209,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 保存批量任务-注册订单.
+     * Submits a task to register multiple domain names at a time.
      *
      * @param request - SaveBatchTaskForCreatingOrderActivateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5260,7 +5272,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 保存批量任务-注册订单.
+     * Submits a task to register multiple domain names at a time.
      *
      * @param request - SaveBatchTaskForCreatingOrderActivateRequest
      *
@@ -5726,7 +5738,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 提交批量预定删除抢注域名任务
+     * Submits a task to reserve multiple domain names that are provided by HiChina.
      *
      * @param request - SaveBatchTaskForReserveDropListDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5769,7 +5781,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 提交批量预定删除抢注域名任务
+     * Submits a task to reserve multiple domain names that are provided by HiChina.
      *
      * @param request - SaveBatchTaskForReserveDropListDomainRequest
      *
@@ -5787,7 +5799,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 基于转移码的批量转出任务提交.
+     * Submits multiple transfer-out tasks based on the transfer keys of domain names.
      *
      * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5826,7 +5838,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 基于转移码的批量转出任务提交.
+     * Submits multiple transfer-out tasks based on the transfer keys of domain names.
      *
      * @param request - SaveBatchTaskForTransferOutByAuthorizationCodeRequest
      *
@@ -8326,7 +8338,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Submit a single transfer-out task based on the transfer key of domain names.
+     * Submits a single transfer-out task based on the transfer key of a domain name.
      *
      * @remarks
      * The task ID.
@@ -8372,7 +8384,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * Submit a single transfer-out task based on the transfer key of domain names.
+     * Submits a single transfer-out task based on the transfer key of a domain name.
      *
      * @remarks
      * The task ID.

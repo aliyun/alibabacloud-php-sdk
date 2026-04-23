@@ -123,6 +123,11 @@ class QueryDomainByDomainNameResponseBody extends Model
     /**
      * @var string
      */
+    public $registrar;
+
+    /**
+     * @var string
+     */
     public $registrationDate;
 
     /**
@@ -202,6 +207,7 @@ class QueryDomainByDomainNameResponseBody extends Model
         'registrantOrganization' => 'RegistrantOrganization',
         'registrantType' => 'RegistrantType',
         'registrantUpdatingStatus' => 'RegistrantUpdatingStatus',
+        'registrar' => 'Registrar',
         'registrationDate' => 'RegistrationDate',
         'registrationDateLong' => 'RegistrationDateLong',
         'remark' => 'Remark',
@@ -316,6 +322,10 @@ class QueryDomainByDomainNameResponseBody extends Model
 
         if (null !== $this->registrantUpdatingStatus) {
             $res['RegistrantUpdatingStatus'] = $this->registrantUpdatingStatus;
+        }
+
+        if (null !== $this->registrar) {
+            $res['Registrar'] = $this->registrar;
         }
 
         if (null !== $this->registrationDate) {
@@ -463,6 +473,10 @@ class QueryDomainByDomainNameResponseBody extends Model
 
         if (isset($map['RegistrantUpdatingStatus'])) {
             $model->registrantUpdatingStatus = $map['RegistrantUpdatingStatus'];
+        }
+
+        if (isset($map['Registrar'])) {
+            $model->registrar = $map['Registrar'];
         }
 
         if (isset($map['RegistrationDate'])) {
