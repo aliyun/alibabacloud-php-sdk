@@ -78,11 +78,15 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolume
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCopyApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateBillingRuleRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationRequest;
@@ -96,11 +100,25 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingRuleListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingRuleListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientDiscountLogsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientDiscountLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientTreeRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientTreeResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostModelDetailRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostModelDetailResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostModelListRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostModelListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostOverviewMetricsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostOverviewMetricsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostTrendMetricsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryCostTrendMetricsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryModelResponse;
@@ -114,6 +132,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsR
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateConversationRequest;
@@ -3217,6 +3237,71 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 计费管理/获取成本监控Tab配置.
+     *
+     * @param request - ModelRouterBillingCostTabsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterBillingCostTabsResponse
+     *
+     * @param ModelRouterBillingCostTabsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterBillingCostTabsResponse
+     */
+    public function modelRouterBillingCostTabsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterBillingCostTabs',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/cost/tabs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterBillingCostTabsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/获取成本监控Tab配置.
+     *
+     * @param request - ModelRouterBillingCostTabsRequest
+     *
+     * @returns ModelRouterBillingCostTabsResponse
+     *
+     * @param ModelRouterBillingCostTabsRequest $request
+     *
+     * @return ModelRouterBillingCostTabsResponse
+     */
+    public function modelRouterBillingCostTabs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterBillingCostTabsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 聊天/聊天接口.
      *
      * @param request - ModelRouterChatCompletionsRequest
@@ -3432,6 +3517,87 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterCreateApiKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 计费管理/创建计费规则.
+     *
+     * @param request - ModelRouterCreateBillingRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateBillingRuleResponse
+     *
+     * @param ModelRouterCreateBillingRuleRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModelRouterCreateBillingRuleResponse
+     */
+    public function modelRouterCreateBillingRuleWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->billingType) {
+            @$body['billingType'] = $request->billingType;
+        }
+
+        if (null !== $request->effectiveTime) {
+            @$body['effectiveTime'] = $request->effectiveTime;
+        }
+
+        if (null !== $request->expireTime) {
+            @$body['expireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->pricingConfig) {
+            @$body['pricingConfig'] = $request->pricingConfig;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateBillingRule',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/rules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateBillingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/创建计费规则.
+     *
+     * @param request - ModelRouterCreateBillingRuleRequest
+     *
+     * @returns ModelRouterCreateBillingRuleResponse
+     *
+     * @param ModelRouterCreateBillingRuleRequest $request
+     *
+     * @return ModelRouterCreateBillingRuleResponse
+     */
+    public function modelRouterCreateBillingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateBillingRuleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4050,6 +4216,166 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 计费管理/查询计费规则列表.
+     *
+     * @param request - ModelRouterQueryBillingRuleListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryBillingRuleListResponse
+     *
+     * @param ModelRouterQueryBillingRuleListRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModelRouterQueryBillingRuleListResponse
+     */
+    public function modelRouterQueryBillingRuleListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->activeOnly) {
+            @$query['activeOnly'] = $request->activeOnly;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelCode) {
+            @$query['modelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelType) {
+            @$query['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryBillingRuleList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryBillingRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/查询计费规则列表.
+     *
+     * @param request - ModelRouterQueryBillingRuleListRequest
+     *
+     * @returns ModelRouterQueryBillingRuleListResponse
+     *
+     * @param ModelRouterQueryBillingRuleListRequest $request
+     *
+     * @return ModelRouterQueryBillingRuleListResponse
+     */
+    public function modelRouterQueryBillingRuleList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryBillingRuleListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/获取部门折扣修改历史.
+     *
+     * @param request - ModelRouterQueryClientDiscountLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryClientDiscountLogsResponse
+     *
+     * @param string                                    $id
+     * @param ModelRouterQueryClientDiscountLogsRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModelRouterQueryClientDiscountLogsResponse
+     */
+    public function modelRouterQueryClientDiscountLogsWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryClientDiscountLogs',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/discount-logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryClientDiscountLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/获取部门折扣修改历史.
+     *
+     * @param request - ModelRouterQueryClientDiscountLogsRequest
+     *
+     * @returns ModelRouterQueryClientDiscountLogsResponse
+     *
+     * @param string                                    $id
+     * @param ModelRouterQueryClientDiscountLogsRequest $request
+     *
+     * @return ModelRouterQueryClientDiscountLogsResponse
+     */
+    public function modelRouterQueryClientDiscountLogs($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryClientDiscountLogsWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
      * 客户管理/获取客户列表.
      *
      * @param request - ModelRouterQueryClientListRequest
@@ -4144,6 +4470,71 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryClientListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/获取客户树.
+     *
+     * @param request - ModelRouterQueryClientTreeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryClientTreeResponse
+     *
+     * @param ModelRouterQueryClientTreeRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModelRouterQueryClientTreeResponse
+     */
+    public function modelRouterQueryClientTreeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryClientTree',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/tree',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryClientTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/获取客户树.
+     *
+     * @param request - ModelRouterQueryClientTreeRequest
+     *
+     * @returns ModelRouterQueryClientTreeResponse
+     *
+     * @param ModelRouterQueryClientTreeRequest $request
+     *
+     * @return ModelRouterQueryClientTreeResponse
+     */
+    public function modelRouterQueryClientTree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryClientTreeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4292,6 +4683,358 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryConversationListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 计费管理/获取模型明细.
+     *
+     * @param request - ModelRouterQueryCostModelDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryCostModelDetailResponse
+     *
+     * @param ModelRouterQueryCostModelDetailRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModelRouterQueryCostModelDetailResponse
+     */
+    public function modelRouterQueryCostModelDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryCostModelDetail',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/cost/model-detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryCostModelDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/获取模型明细.
+     *
+     * @param request - ModelRouterQueryCostModelDetailRequest
+     *
+     * @returns ModelRouterQueryCostModelDetailResponse
+     *
+     * @param ModelRouterQueryCostModelDetailRequest $request
+     *
+     * @return ModelRouterQueryCostModelDetailResponse
+     */
+    public function modelRouterQueryCostModelDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryCostModelDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 计费管理/获取调用模型列表.
+     *
+     * @param request - ModelRouterQueryCostModelListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryCostModelListResponse
+     *
+     * @param ModelRouterQueryCostModelListRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterQueryCostModelListResponse
+     */
+    public function modelRouterQueryCostModelListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelTypes) {
+            @$query['modelTypes'] = $request->modelTypes;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryCostModelList',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/cost/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryCostModelListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/获取调用模型列表.
+     *
+     * @param request - ModelRouterQueryCostModelListRequest
+     *
+     * @returns ModelRouterQueryCostModelListResponse
+     *
+     * @param ModelRouterQueryCostModelListRequest $request
+     *
+     * @return ModelRouterQueryCostModelListResponse
+     */
+    public function modelRouterQueryCostModelList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryCostModelListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 计费管理/获取成本概览指标.
+     *
+     * @param request - ModelRouterQueryCostOverviewMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryCostOverviewMetricsResponse
+     *
+     * @param ModelRouterQueryCostOverviewMetricsRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModelRouterQueryCostOverviewMetricsResponse
+     */
+    public function modelRouterQueryCostOverviewMetricsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelTypes) {
+            @$query['modelTypes'] = $request->modelTypes;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryCostOverviewMetrics',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/cost/overview',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryCostOverviewMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/获取成本概览指标.
+     *
+     * @param request - ModelRouterQueryCostOverviewMetricsRequest
+     *
+     * @returns ModelRouterQueryCostOverviewMetricsResponse
+     *
+     * @param ModelRouterQueryCostOverviewMetricsRequest $request
+     *
+     * @return ModelRouterQueryCostOverviewMetricsResponse
+     */
+    public function modelRouterQueryCostOverviewMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryCostOverviewMetricsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 计费管理/获取费用趋势
+     *
+     * @param request - ModelRouterQueryCostTrendMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryCostTrendMetricsResponse
+     *
+     * @param ModelRouterQueryCostTrendMetricsRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModelRouterQueryCostTrendMetricsResponse
+     */
+    public function modelRouterQueryCostTrendMetricsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelTypes) {
+            @$query['modelTypes'] = $request->modelTypes;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryCostTrendMetrics',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/cost/trend',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryCostTrendMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/获取费用趋势
+     *
+     * @param request - ModelRouterQueryCostTrendMetricsRequest
+     *
+     * @returns ModelRouterQueryCostTrendMetricsResponse
+     *
+     * @param ModelRouterQueryCostTrendMetricsRequest $request
+     *
+     * @return ModelRouterQueryCostTrendMetricsResponse
+     */
+    public function modelRouterQueryCostTrendMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryCostTrendMetricsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4933,6 +5676,89 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryObservationMetricsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 计费管理/更新计费规则.
+     *
+     * @param request - ModelRouterUpdateBillingRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterUpdateBillingRuleResponse
+     *
+     * @param string                              $id
+     * @param ModelRouterUpdateBillingRuleRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModelRouterUpdateBillingRuleResponse
+     */
+    public function modelRouterUpdateBillingRuleWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->billingType) {
+            @$body['billingType'] = $request->billingType;
+        }
+
+        if (null !== $request->effectiveTime) {
+            @$body['effectiveTime'] = $request->effectiveTime;
+        }
+
+        if (null !== $request->expireTime) {
+            @$body['expireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->pricingConfig) {
+            @$body['pricingConfig'] = $request->pricingConfig;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterUpdateBillingRule',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/rules/' . Url::percentEncode($id) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterUpdateBillingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/更新计费规则.
+     *
+     * @param request - ModelRouterUpdateBillingRuleRequest
+     *
+     * @returns ModelRouterUpdateBillingRuleResponse
+     *
+     * @param string                              $id
+     * @param ModelRouterUpdateBillingRuleRequest $request
+     *
+     * @return ModelRouterUpdateBillingRuleResponse
+     */
+    public function modelRouterUpdateBillingRule($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterUpdateBillingRuleWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
