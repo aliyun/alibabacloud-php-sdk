@@ -16,6 +16,11 @@ class components extends Model
     /**
      * @var string
      */
+    public $cuType;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -29,6 +34,7 @@ class components extends Model
     public $type;
     protected $_name = [
         'cuNum' => 'cuNum',
+        'cuType' => 'cuType',
         'payType' => 'payType',
         'replica' => 'replica',
         'type' => 'type',
@@ -44,6 +50,10 @@ class components extends Model
         $res = [];
         if (null !== $this->cuNum) {
             $res['cuNum'] = $this->cuNum;
+        }
+
+        if (null !== $this->cuType) {
+            $res['cuType'] = $this->cuType;
         }
 
         if (null !== $this->payType) {
@@ -71,6 +81,10 @@ class components extends Model
         $model = new self();
         if (isset($map['cuNum'])) {
             $model->cuNum = $map['cuNum'];
+        }
+
+        if (isset($map['cuType'])) {
+            $model->cuType = $map['cuType'];
         }
 
         if (isset($map['payType'])) {
