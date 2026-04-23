@@ -58,8 +58,12 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChatWithDesensitizeSSEShrink
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckBatchTableAccessPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckInventoryJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CheckInventoryJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ConfirmInventoryKnowledgeRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ConfirmInventoryKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacAuthorizationRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacAuthorizationResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacPolicyRequest;
@@ -104,6 +108,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDifyInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateInventoryJobRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateInventoryJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLakeHouseSpaceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLakeHouseSpaceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseRequest;
@@ -587,6 +593,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryKnowledgeRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
@@ -3025,6 +3033,69 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 查询资产盘点任务的执行状态与进度信息.
+     *
+     * @remarks
+     * 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+     *
+     * @param request - CheckInventoryJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckInventoryJobResponse
+     *
+     * @param CheckInventoryJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckInventoryJobResponse
+     */
+    public function checkInventoryJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckInventoryJob',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckInventoryJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资产盘点任务的执行状态与进度信息.
+     *
+     * @remarks
+     * 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+     *
+     * @param request - CheckInventoryJobRequest
+     *
+     * @returns CheckInventoryJobResponse
+     *
+     * @param CheckInventoryJobRequest $request
+     *
+     * @return CheckInventoryJobResponse
+     */
+    public function checkInventoryJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkInventoryJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Closes a ticket.
      *
      * @param request - CloseOrderRequest
@@ -3087,6 +3158,77 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->closeOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 确认盘点任务中的单条知识，将其标记为已认证
+     *
+     * @remarks
+     * 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+     *
+     * @param request - ConfirmInventoryKnowledgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfirmInventoryKnowledgeResponse
+     *
+     * @param ConfirmInventoryKnowledgeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ConfirmInventoryKnowledgeResponse
+     */
+    public function confirmInventoryKnowledgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->knowledgeType) {
+            @$query['KnowledgeType'] = $request->knowledgeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfirmInventoryKnowledge',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfirmInventoryKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 确认盘点任务中的单条知识，将其标记为已认证
+     *
+     * @remarks
+     * 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+     *
+     * @param request - ConfirmInventoryKnowledgeRequest
+     *
+     * @returns ConfirmInventoryKnowledgeResponse
+     *
+     * @param ConfirmInventoryKnowledgeRequest $request
+     *
+     * @return ConfirmInventoryKnowledgeResponse
+     */
+    public function confirmInventoryKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmInventoryKnowledgeWithOptions($request, $runtime);
     }
 
     /**
@@ -4713,6 +4855,69 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFreeLockCorrectOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建资产盘点任务，对指定实例/数据库/表进行知识盘点.
+     *
+     * @remarks
+     * 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+     *
+     * @param request - CreateInventoryJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInventoryJobResponse
+     *
+     * @param CreateInventoryJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateInventoryJobResponse
+     */
+    public function createInventoryJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInventoryJob',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInventoryJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建资产盘点任务，对指定实例/数据库/表进行知识盘点.
+     *
+     * @remarks
+     * 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+     *
+     * @param request - CreateInventoryJobRequest
+     *
+     * @returns CreateInventoryJobResponse
+     *
+     * @param CreateInventoryJobRequest $request
+     *
+     * @return CreateInventoryJobResponse
+     */
+    public function createInventoryJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInventoryJobWithOptions($request, $runtime);
     }
 
     /**
@@ -21577,6 +21782,93 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选.
+     *
+     * @remarks
+     * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+     *
+     * @param request - SearchInventoryKnowledgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchInventoryKnowledgeResponse
+     *
+     * @param SearchInventoryKnowledgeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SearchInventoryKnowledgeResponse
+     */
+    public function searchInventoryKnowledgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->showType) {
+            @$query['ShowType'] = $request->showType;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchInventoryKnowledge',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchInventoryKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选.
+     *
+     * @remarks
+     * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+     *
+     * @param request - SearchInventoryKnowledgeRequest
+     *
+     * @returns SearchInventoryKnowledgeResponse
+     *
+     * @param SearchInventoryKnowledgeRequest $request
+     *
+     * @return SearchInventoryKnowledgeResponse
+     */
+    public function searchInventoryKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchInventoryKnowledgeWithOptions($request, $runtime);
     }
 
     /**
