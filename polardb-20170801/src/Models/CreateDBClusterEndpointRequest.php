@@ -87,6 +87,16 @@ class CreateDBClusterEndpointRequest extends Model
      * @var string
      */
     public $sccMode;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
         'autoAddNewNodes' => 'AutoAddNewNodes',
         'clientToken' => 'ClientToken',
@@ -104,6 +114,8 @@ class CreateDBClusterEndpointRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sccMode' => 'SccMode',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
@@ -176,6 +188,14 @@ class CreateDBClusterEndpointRequest extends Model
 
         if (null !== $this->sccMode) {
             $res['SccMode'] = $this->sccMode;
+        }
+
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -251,6 +271,14 @@ class CreateDBClusterEndpointRequest extends Model
 
         if (isset($map['SccMode'])) {
             $model->sccMode = $map['SccMode'];
+        }
+
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

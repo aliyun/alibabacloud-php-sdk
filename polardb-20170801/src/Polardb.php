@@ -4045,6 +4045,14 @@ class Polardb extends OpenApiClient
             @$query['SccMode'] = $request->sccMode;
         }
 
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
