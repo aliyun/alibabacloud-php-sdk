@@ -14,11 +14,17 @@ class DescribeVodDomainCertificateInfoRequest extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $heraApiAutoVersion;
+
+    /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
         'domainName' => 'DomainName',
+        'heraApiAutoVersion' => 'HeraApiAutoVersion',
         'ownerId' => 'OwnerId',
     ];
 
@@ -32,6 +38,10 @@ class DescribeVodDomainCertificateInfoRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->heraApiAutoVersion) {
+            $res['HeraApiAutoVersion'] = $this->heraApiAutoVersion;
         }
 
         if (null !== $this->ownerId) {
@@ -51,6 +61,10 @@ class DescribeVodDomainCertificateInfoRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['HeraApiAutoVersion'])) {
+            $model->heraApiAutoVersion = $map['HeraApiAutoVersion'];
         }
 
         if (isset($map['OwnerId'])) {
