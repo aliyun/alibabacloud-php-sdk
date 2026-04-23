@@ -264,6 +264,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAIAgentConcurrencyRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAIAgentConcurrencyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcAuthCodeListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcAuthCodeListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAiRtcLicenseInfoListRequest;
@@ -9621,6 +9623,63 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateMessageChatTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取智能体当前通话并发数.
+     *
+     * @param request - GetAIAgentConcurrencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIAgentConcurrencyResponse
+     *
+     * @param GetAIAgentConcurrencyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAIAgentConcurrencyResponse
+     */
+    public function getAIAgentConcurrencyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAIAgentConcurrency',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAIAgentConcurrencyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取智能体当前通话并发数.
+     *
+     * @param request - GetAIAgentConcurrencyRequest
+     *
+     * @returns GetAIAgentConcurrencyResponse
+     *
+     * @param GetAIAgentConcurrencyRequest $request
+     *
+     * @return GetAIAgentConcurrencyResponse
+     */
+    public function getAIAgentConcurrency($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAIAgentConcurrencyWithOptions($request, $runtime);
     }
 
     /**
