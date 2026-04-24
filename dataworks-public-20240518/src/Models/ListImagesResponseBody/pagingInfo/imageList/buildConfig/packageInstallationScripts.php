@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes\inputs;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesResponseBody\pagingInfo\imageList\buildConfig;
 
 use AlibabaCloud\Dara\Model;
 
-class nodeOutputs extends Model
+class packageInstallationScripts extends Model
 {
     /**
      * @var string
      */
-    public $data;
+    public $content;
 
     /**
      * @var string
      */
-    public $refTableName;
+    public $type;
     protected $_name = [
-        'data' => 'Data',
-        'refTableName' => 'RefTableName',
+        'content' => 'Content',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class nodeOutputs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
 
-        if (null !== $this->refTableName) {
-            $res['RefTableName'] = $this->refTableName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class nodeOutputs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
 
-        if (isset($map['RefTableName'])) {
-            $model->refTableName = $map['RefTableName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

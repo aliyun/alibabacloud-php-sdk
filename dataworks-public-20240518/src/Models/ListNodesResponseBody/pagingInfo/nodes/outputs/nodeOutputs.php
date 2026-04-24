@@ -12,8 +12,14 @@ class nodeOutputs extends Model
      * @var string
      */
     public $data;
+
+    /**
+     * @var string
+     */
+    public $refTableName;
     protected $_name = [
         'data' => 'Data',
+        'refTableName' => 'RefTableName',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class nodeOutputs extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+
+        if (null !== $this->refTableName) {
+            $res['RefTableName'] = $this->refTableName;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class nodeOutputs extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+
+        if (isset($map['RefTableName'])) {
+            $model->refTableName = $map['RefTableName'];
         }
 
         return $model;

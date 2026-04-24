@@ -2,24 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes\inputs;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class nodeOutputs extends Model
+class AssociateProjectToImageResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
     public $data;
 
     /**
      * @var string
      */
-    public $refTableName;
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'data' => 'Data',
-        'refTableName' => 'RefTableName',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -34,8 +40,12 @@ class nodeOutputs extends Model
             $res['Data'] = $this->data;
         }
 
-        if (null !== $this->refTableName) {
-            $res['RefTableName'] = $this->refTableName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -53,8 +63,12 @@ class nodeOutputs extends Model
             $model->data = $map['Data'];
         }
 
-        if (isset($map['RefTableName'])) {
-            $model->refTableName = $map['RefTableName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

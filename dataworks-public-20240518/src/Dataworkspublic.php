@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskRequest;
@@ -207,6 +209,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessRequest;
@@ -280,6 +284,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetIDEEventDetailResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequest;
@@ -427,6 +433,13 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFoldersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFoldersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageAssociatedProjectsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageAssociatedProjectsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImagesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageVersionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesRequest;
@@ -987,6 +1000,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Adds a custom image to a workspace.
+     *
+     * @param Request - AssociateProjectToImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateProjectToImageResponse
+     *
+     * @param AssociateProjectToImageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AssociateProjectToImageResponse
+     */
+    public function associateProjectToImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateProjectToImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateProjectToImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds a custom image to a workspace.
+     *
+     * @param Request - AssociateProjectToImageRequest
+     *
+     * @returns AssociateProjectToImageResponse
+     *
+     * @param AssociateProjectToImageRequest $request
+     *
+     * @return AssociateProjectToImageResponse
+     */
+    public function associateProjectToImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateProjectToImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Associates a resource group with a workspace.
      *
      * @remarks
@@ -1207,7 +1281,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 取消并停止Agent当前正在进行中的Session会话.
+     * Interrupts an agent call for a specified session. Streaming response interruption is supported.
      *
      * @param tmpReq - CancelAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1260,7 +1334,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 取消并停止Agent当前正在进行中的Session会话.
+     * Interrupts an agent call for a specified session. Streaming response interruption is supported.
      *
      * @param Request - CancelAgentSessionRequest
      *
@@ -1349,7 +1423,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建一个Agent Session会话.
+     * Creates a new Agent session and returns the session ID.
      *
      * @param tmpReq - CreateAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1402,7 +1476,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建一个Agent Session会话.
+     * Creates a new Agent session and returns the session ID.
      *
      * @param Request - CreateAgentSessionRequest
      *
@@ -7319,6 +7393,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Disassociates an image from a workspace.
+     *
+     * @param Request - DissociateProjectFromImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DissociateProjectFromImageResponse
+     *
+     * @param DissociateProjectFromImageRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DissociateProjectFromImageResponse
+     */
+    public function dissociateProjectFromImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DissociateProjectFromImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DissociateProjectFromImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disassociates an image from a workspace.
+     *
+     * @param Request - DissociateProjectFromImageRequest
+     *
+     * @returns DissociateProjectFromImageResponse
+     *
+     * @param DissociateProjectFromImageRequest $request
+     *
+     * @return DissociateProjectFromImageResponse
+     */
+    public function dissociateProjectFromImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dissociateProjectFromImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Disassociates a resource group from a workspace.
      *
      * @remarks
@@ -7627,7 +7762,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取Agent指定Session下的模型产出物详情.
+     * Obtains the metadata and body content of an Artifact based on the session ID and file path.
      *
      * @param tmpReq - GetAgentSessionArtifactMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7680,7 +7815,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取Agent指定Session下的模型产出物详情.
+     * Obtains the metadata and body content of an Artifact based on the session ID and file path.
      *
      * @param Request - GetAgentSessionArtifactMetaRequest
      *
@@ -7698,7 +7833,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取Agent指定Session下的Token用量.
+     * Queries the cumulative AI token usage of a session aggregated by session ID.
      *
      * @param tmpReq - GetAgentSessionTokenUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7751,7 +7886,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取Agent指定Session下的Token用量.
+     * Queries the cumulative AI token usage of a session aggregated by session ID.
      *
      * @param Request - GetAgentSessionTokenUsageRequest
      *
@@ -9538,6 +9673,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Obtains the details of a specified image by image ID.
+     *
+     * @param Request - GetImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageResponse
+     *
+     * @param GetImageRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetImageResponse
+     */
+    public function getImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->imageVersion) {
+            @$query['ImageVersion'] = $request->imageVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetImage',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Obtains the details of a specified image by image ID.
+     *
+     * @param Request - GetImageRequest
+     *
+     * @returns GetImageResponse
+     *
+     * @param GetImageRequest $request
+     *
+     * @return GetImageResponse
+     */
+    public function getImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *
      * @param Request - GetJobStatusRequest
@@ -11166,7 +11362,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取Agent指定Session下的模型产出物清单列表.
+     * Queries the Artifact files that are produced by a specified session.
      *
      * @param tmpReq - ListAgentSessionArtifactsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11219,7 +11415,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取Agent指定Session下的模型产出物清单列表.
+     * Queries the Artifact files that are produced by a specified session.
      *
      * @param Request - ListAgentSessionArtifactsRequest
      *
@@ -11237,7 +11433,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 加载Agent Session对话历史列表.
+     * Loads the conversation history list of an Agent Session.
      *
      * @param tmpReq - ListAgentSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11290,7 +11486,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 加载Agent Session对话历史列表.
+     * Loads the conversation history list of an Agent Session.
      *
      * @param Request - ListAgentSessionsRequest
      *
@@ -11308,7 +11504,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取DataAgent的Agent定义列表.
+     * Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
      *
      * @param tmpReq - ListAgentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11361,7 +11557,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取DataAgent的Agent定义列表.
+     * Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
      *
      * @param Request - ListAgentsRequest
      *
@@ -14050,6 +14246,259 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Queries the workspaces associated with an image.
+     *
+     * @param Request - ListImageAssociatedProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageAssociatedProjectsResponse
+     *
+     * @param ListImageAssociatedProjectsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListImageAssociatedProjectsResponse
+     */
+    public function listImageAssociatedProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImageAssociatedProjects',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImageAssociatedProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the workspaces associated with an image.
+     *
+     * @param Request - ListImageAssociatedProjectsRequest
+     *
+     * @returns ListImageAssociatedProjectsResponse
+     *
+     * @param ListImageAssociatedProjectsRequest $request
+     *
+     * @return ListImageAssociatedProjectsResponse
+     */
+    public function listImageAssociatedProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageAssociatedProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a specified image version.
+     *
+     * @param Request - ListImageVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageVersionsResponse
+     *
+     * @param ListImageVersionsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListImageVersionsResponse
+     */
+    public function listImageVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImageVersions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImageVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified image version.
+     *
+     * @param Request - ListImageVersionsRequest
+     *
+     * @returns ListImageVersionsResponse
+     *
+     * @param ListImageVersionsRequest $request
+     *
+     * @return ListImageVersionsResponse
+     */
+    public function listImageVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of images.
+     *
+     * @param tmpReq - ListImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListImagesResponse
+     */
+    public function listImagesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListImagesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->projectIds) {
+            $request->projectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->projectIds, 'ProjectIds', 'json');
+        }
+
+        if (null !== $tmpReq->providerTypes) {
+            $request->providerTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->providerTypes, 'ProviderTypes', 'json');
+        }
+
+        if (null !== $tmpReq->stages) {
+            $request->stagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stages, 'Stages', 'json');
+        }
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+
+        if (null !== $tmpReq->supportedModules) {
+            $request->supportedModulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supportedModules, 'SupportedModules', 'json');
+        }
+
+        if (null !== $tmpReq->supportedTaskTypes) {
+            $request->supportedTaskTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->supportedTaskTypes, 'SupportedTaskTypes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->accessibility) {
+            @$query['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->official) {
+            @$query['Official'] = $request->official;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectIdsShrink) {
+            @$query['ProjectIds'] = $request->projectIdsShrink;
+        }
+
+        if (null !== $request->providerTypesShrink) {
+            @$query['ProviderTypes'] = $request->providerTypesShrink;
+        }
+
+        if (null !== $request->searchAll) {
+            @$query['SearchAll'] = $request->searchAll;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->stagesShrink) {
+            @$query['Stages'] = $request->stagesShrink;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$query['Statuses'] = $request->statusesShrink;
+        }
+
+        if (null !== $request->supportedModulesShrink) {
+            @$query['SupportedModules'] = $request->supportedModulesShrink;
+        }
+
+        if (null !== $request->supportedTaskTypesShrink) {
+            @$query['SupportedTaskTypes'] = $request->supportedTaskTypesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImages',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of images.
+     *
+     * @param Request - ListImagesRequest
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     *
+     * @return ListImagesResponse
+     */
+    public function listImages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImagesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
      *
      * @param Request - ListLineageRelationshipsRequest
@@ -16218,7 +16667,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 加载Agent Session对话历史.
+     * Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
      *
      * @param tmpReq - LoadAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16284,7 +16733,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 加载Agent Session对话历史.
+     * Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
      *
      * @param tmpReq - LoadAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16337,7 +16786,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 加载Agent Session对话历史.
+     * Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
      *
      * @param Request - LoadAgentSessionRequest
      *
@@ -16672,7 +17121,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 在当前的Agent Session中发起一轮新的对话.
+     * Sends a user prompt to an existing session and streams back the agent response.
      *
      * @param tmpReq - PromptAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16738,7 +17187,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 在当前的Agent Session中发起一轮新的对话.
+     * Sends a user prompt to an existing session and streams back the agent response.
      *
      * @param tmpReq - PromptAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16791,7 +17240,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 在当前的Agent Session中发起一轮新的对话.
+     * Sends a user prompt to an existing session and streams back the agent response.
      *
      * @param Request - PromptAgentSessionRequest
      *

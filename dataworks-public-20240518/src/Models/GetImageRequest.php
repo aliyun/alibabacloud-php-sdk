@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes\inputs;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class nodeOutputs extends Model
+class GetImageRequest extends Model
 {
     /**
      * @var string
      */
-    public $data;
+    public $id;
 
     /**
      * @var string
      */
-    public $refTableName;
+    public $imageVersion;
     protected $_name = [
-        'data' => 'Data',
-        'refTableName' => 'RefTableName',
+        'id' => 'Id',
+        'imageVersion' => 'ImageVersion',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class nodeOutputs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
-        if (null !== $this->refTableName) {
-            $res['RefTableName'] = $this->refTableName;
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class nodeOutputs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
-        if (isset($map['RefTableName'])) {
-            $model->refTableName = $map['RefTableName'];
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
         }
 
         return $model;
