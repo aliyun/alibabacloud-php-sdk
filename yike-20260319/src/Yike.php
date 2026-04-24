@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeVoiceNarratorJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeVoiceNarratorJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeAssetFoldersRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeAssetFoldersResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeProductionsRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -868,6 +872,63 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 查询一刻口播视频生成任务
+     *
+     * @param request - GetYikeVoiceNarratorJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeVoiceNarratorJobResponse
+     *
+     * @param GetYikeVoiceNarratorJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetYikeVoiceNarratorJobResponse
+     */
+    public function getYikeVoiceNarratorJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeVoiceNarratorJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeVoiceNarratorJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一刻口播视频生成任务
+     *
+     * @param request - GetYikeVoiceNarratorJobRequest
+     *
+     * @returns GetYikeVoiceNarratorJobResponse
+     *
+     * @param GetYikeVoiceNarratorJobRequest $request
+     *
+     * @return GetYikeVoiceNarratorJobResponse
+     */
+    public function getYikeVoiceNarratorJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeVoiceNarratorJobWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取一刻文件夹列表.
      *
      * @param request - ListYikeAssetFoldersRequest
@@ -1553,5 +1614,66 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitYikeStoryboardJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交一刻口播视频生成任务
+     *
+     * @param request - SubmitYikeVoiceNarratorJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitYikeVoiceNarratorJobResponse
+     *
+     * @param SubmitYikeVoiceNarratorJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitYikeVoiceNarratorJobResponse
+     */
+    public function submitYikeVoiceNarratorJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobParams) {
+            @$body['JobParams'] = $request->jobParams;
+        }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitYikeVoiceNarratorJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitYikeVoiceNarratorJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交一刻口播视频生成任务
+     *
+     * @param request - SubmitYikeVoiceNarratorJobRequest
+     *
+     * @returns SubmitYikeVoiceNarratorJobResponse
+     *
+     * @param SubmitYikeVoiceNarratorJobRequest $request
+     *
+     * @return SubmitYikeVoiceNarratorJobResponse
+     */
+    public function submitYikeVoiceNarratorJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitYikeVoiceNarratorJobWithOptions($request, $runtime);
     }
 }
