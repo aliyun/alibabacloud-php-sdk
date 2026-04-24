@@ -590,7 +590,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消预约重启.
+     * Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - CancelRestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -661,7 +661,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消预约重启.
+     * Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - CancelRestartInstanceRequest
      *
@@ -4865,6 +4865,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+     *
      * @param request - DescribeSlowLogTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4934,6 +4936,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+     *
      * @param request - DescribeSlowLogTrendRequest
      *
      * @returns DescribeSlowLogTrendResponse

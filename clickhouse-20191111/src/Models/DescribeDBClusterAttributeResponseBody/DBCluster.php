@@ -283,6 +283,16 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $webUISnatStatus;
+
+    /**
+     * @var string
+     */
+    public $webUIStatus;
+
+    /**
+     * @var string
+     */
     public $zoneId;
 
     /**
@@ -349,6 +359,8 @@ class DBCluster extends Model
         'vpcCloudInstanceId' => 'VpcCloudInstanceId',
         'vpcId' => 'VpcId',
         'vpcIpAddr' => 'VpcIpAddr',
+        'webUISnatStatus' => 'WebUISnatStatus',
+        'webUIStatus' => 'WebUIStatus',
         'zoneId' => 'ZoneId',
         'zoneIdVswitchMap' => 'ZoneIdVswitchMap',
         'zookeeperClass' => 'ZookeeperClass',
@@ -593,6 +605,14 @@ class DBCluster extends Model
 
         if (null !== $this->vpcIpAddr) {
             $res['VpcIpAddr'] = $this->vpcIpAddr;
+        }
+
+        if (null !== $this->webUISnatStatus) {
+            $res['WebUISnatStatus'] = $this->webUISnatStatus;
+        }
+
+        if (null !== $this->webUIStatus) {
+            $res['WebUIStatus'] = $this->webUIStatus;
         }
 
         if (null !== $this->zoneId) {
@@ -842,6 +862,14 @@ class DBCluster extends Model
 
         if (isset($map['VpcIpAddr'])) {
             $model->vpcIpAddr = $map['VpcIpAddr'];
+        }
+
+        if (isset($map['WebUISnatStatus'])) {
+            $model->webUISnatStatus = $map['WebUISnatStatus'];
+        }
+
+        if (isset($map['WebUIStatus'])) {
+            $model->webUIStatus = $map['WebUIStatus'];
         }
 
         if (isset($map['ZoneId'])) {

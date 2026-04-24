@@ -1,3 +1,8 @@
+2026-04-24 Version: 4.2.4
+- Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.WebUISnatStatus.
+- Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.WebUIStatus.
+
+
 2026-01-28 Version: 4.2.3
 - Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.LbKind.
 
