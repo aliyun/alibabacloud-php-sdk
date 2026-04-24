@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelRequest;
@@ -690,6 +692,159 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeMediaTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席新增.
+     *
+     * @param request - CloudCreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudCreateAgentResponse
+     *
+     * @param CloudCreateAgentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CloudCreateAgentResponse
+     */
+    public function cloudCreateAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
+        }
+
+        if (null !== $request->areaCode) {
+            @$query['AreaCode'] = $request->areaCode;
+        }
+
+        if (null !== $request->callPower) {
+            @$query['CallPower'] = $request->callPower;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ibRecord) {
+            @$query['IbRecord'] = $request->ibRecord;
+        }
+
+        if (null !== $request->isAsr) {
+            @$query['IsAsr'] = $request->isAsr;
+        }
+
+        if (null !== $request->isOb) {
+            @$query['IsOb'] = $request->isOb;
+        }
+
+        if (null !== $request->isObRemember) {
+            @$query['IsObRemember'] = $request->isObRemember;
+        }
+
+        if (null !== $request->isQualityCheck) {
+            @$query['IsQualityCheck'] = $request->isQualityCheck;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->obClid) {
+            @$query['ObClid'] = $request->obClid;
+        }
+
+        if (null !== $request->obClidProperty) {
+            @$query['ObClidProperty'] = $request->obClidProperty;
+        }
+
+        if (null !== $request->obClidType) {
+            @$query['ObClidType'] = $request->obClidType;
+        }
+
+        if (null !== $request->obRecord) {
+            @$query['ObRecord'] = $request->obRecord;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->permitObPreviewTime) {
+            @$query['PermitObPreviewTime'] = $request->permitObPreviewTime;
+        }
+
+        if (null !== $request->power) {
+            @$query['Power'] = $request->power;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->skillIds) {
+            @$query['SkillIds'] = $request->skillIds;
+        }
+
+        if (null !== $request->skillLevels) {
+            @$query['SkillLevels'] = $request->skillLevels;
+        }
+
+        if (null !== $request->webrtcUrlType) {
+            @$query['WebrtcUrlType'] = $request->webrtcUrlType;
+        }
+
+        if (null !== $request->wrapup) {
+            @$query['Wrapup'] = $request->wrapup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudCreateAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudCreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席新增.
+     *
+     * @param request - CloudCreateAgentRequest
+     *
+     * @returns CloudCreateAgentResponse
+     *
+     * @param CloudCreateAgentRequest $request
+     *
+     * @return CloudCreateAgentResponse
+     */
+    public function cloudCreateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudCreateAgentWithOptions($request, $runtime);
     }
 
     /**
