@@ -109,6 +109,11 @@ class Resource extends Model
     public $resourceType;
 
     /**
+     * @var int
+     */
+    public $serviceCount;
+
+    /**
      * @var string
      */
     public $status;
@@ -148,6 +153,7 @@ class Resource extends Model
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
+        'serviceCount' => 'ServiceCount',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
         'usageMode' => 'UsageMode',
@@ -258,6 +264,10 @@ class Resource extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->serviceCount) {
+            $res['ServiceCount'] = $this->serviceCount;
         }
 
         if (null !== $this->status) {
@@ -377,6 +387,10 @@ class Resource extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['ServiceCount'])) {
+            $model->serviceCount = $map['ServiceCount'];
         }
 
         if (isset($map['Status'])) {

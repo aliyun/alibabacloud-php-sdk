@@ -121,6 +121,11 @@ class DescribeResourceResponseBody extends Model
     /**
      * @var string
      */
+    public $serviceCount;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -155,6 +160,7 @@ class DescribeResourceResponseBody extends Model
         'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
+        'serviceCount' => 'ServiceCount',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
         'usageMode' => 'UsageMode',
@@ -264,6 +270,10 @@ class DescribeResourceResponseBody extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->serviceCount) {
+            $res['ServiceCount'] = $this->serviceCount;
         }
 
         if (null !== $this->status) {
@@ -382,6 +392,10 @@ class DescribeResourceResponseBody extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['ServiceCount'])) {
+            $model->serviceCount = $map['ServiceCount'];
         }
 
         if (isset($map['Status'])) {
