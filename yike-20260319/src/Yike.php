@@ -41,6 +41,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\RegisterYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\RegisterYikeAssetMediaInfoResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ResumeYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ResumeYikeStoryboardJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeCallbackConfigRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeCallbackConfigResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeUserRoleRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeUserRoleResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobRequest;
@@ -1188,6 +1190,67 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeYikeStoryboardJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置一刻事件回调.
+     *
+     * @param request - SetYikeCallbackConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetYikeCallbackConfigResponse
+     *
+     * @param SetYikeCallbackConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetYikeCallbackConfigResponse
+     */
+    public function setYikeCallbackConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callbackConfig) {
+            @$query['CallbackConfig'] = $request->callbackConfig;
+        }
+
+        if (null !== $request->callbackUrl) {
+            @$query['CallbackUrl'] = $request->callbackUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetYikeCallbackConfig',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetYikeCallbackConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置一刻事件回调.
+     *
+     * @param request - SetYikeCallbackConfigRequest
+     *
+     * @returns SetYikeCallbackConfigResponse
+     *
+     * @param SetYikeCallbackConfigRequest $request
+     *
+     * @return SetYikeCallbackConfigResponse
+     */
+    public function setYikeCallbackConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setYikeCallbackConfigWithOptions($request, $runtime);
     }
 
     /**
