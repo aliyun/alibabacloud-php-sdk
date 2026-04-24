@@ -24,6 +24,11 @@ class schedules extends Model
     public $frequency;
 
     /**
+     * @var string
+     */
+    public $inspectionItems;
+
+    /**
      * @var int
      */
     public $instanceCount;
@@ -66,6 +71,7 @@ class schedules extends Model
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'frequency' => 'Frequency',
+        'inspectionItems' => 'InspectionItems',
         'instanceCount' => 'InstanceCount',
         'name' => 'Name',
         'regionId' => 'RegionId',
@@ -94,6 +100,10 @@ class schedules extends Model
 
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
+        }
+
+        if (null !== $this->inspectionItems) {
+            $res['InspectionItems'] = $this->inspectionItems;
         }
 
         if (null !== $this->instanceCount) {
@@ -149,6 +159,10 @@ class schedules extends Model
 
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
+        }
+
+        if (isset($map['InspectionItems'])) {
+            $model->inspectionItems = $map['InspectionItems'];
         }
 
         if (isset($map['InstanceCount'])) {

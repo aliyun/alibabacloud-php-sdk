@@ -10,15 +10,14 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesTaskStopRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ChatMessagesTaskStopResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentShrinkRequest;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateEdgeFunctionRequest;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateEdgeFunctionResponse;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateEdgeFunctionShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskRequest;
@@ -26,12 +25,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSkillShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteAppInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteCustomAgentResponse;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteEdgeFunctionRequest;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteEdgeFunctionResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteScheduledTaskResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DeleteSkillRequest;
@@ -40,8 +39,6 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstancesResponse;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEdgeFunctionsRequest;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEdgeFunctionsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEventsListRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeEventsListResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceAuthInfoRequest;
@@ -56,8 +53,19 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceSSLResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeModelOperatorRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeModelOperatorResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeWhitelistIpsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeWhitelistIpsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
@@ -66,6 +74,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetInspectionReportRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetInspectionReportResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetMessagesResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetModelOperatorOrderRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetModelOperatorOrderResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledInstancesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledInstancesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetScheduledReportsRequest;
@@ -74,6 +84,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetStandAloneReportsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
@@ -103,6 +115,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyMessagesFeedbacksResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyScheduledTaskResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyWhitelistIpsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyWhitelistIpsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RenameApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\RenameApiKeyResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetApiKeyRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
@@ -111,12 +129,12 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentShrinkRequest;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateEdgeFunctionRequest;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateEdgeFunctionResponse;
-use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateEdgeFunctionShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillShrinkRequest;
@@ -370,6 +388,83 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 创建实例密钥.
+     *
+     * @param request - CreateApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApiKeyResponse
+     *
+     * @param CreateApiKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateApiKeyResponse
+     */
+    public function createApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyName) {
+            @$query['KeyName'] = $request->keyName;
+        }
+
+        if (null !== $request->limitRate) {
+            @$query['LimitRate'] = $request->limitRate;
+        }
+
+        if (null !== $request->limitType) {
+            @$query['LimitType'] = $request->limitType;
+        }
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
+        }
+
+        if (null !== $request->tokenQuota) {
+            @$query['TokenQuota'] = $request->tokenQuota;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例密钥.
+     *
+     * @param request - CreateApiKeyRequest
+     *
+     * @returns CreateApiKeyResponse
+     *
+     * @param CreateApiKeyRequest $request
+     *
+     * @return CreateApiKeyResponse
+     */
+    public function createApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an RDS Supabase instance.
      *
      * @remarks
@@ -594,107 +689,6 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an edge function.
-     *
-     * @remarks
-     * Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
-     *
-     * @param tmpReq - CreateEdgeFunctionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateEdgeFunctionResponse
-     *
-     * @param CreateEdgeFunctionRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateEdgeFunctionResponse
-     */
-    public function createEdgeFunctionWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new CreateEdgeFunctionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->code) {
-            $request->codeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->code, 'Code', 'json');
-        }
-
-        if (null !== $tmpReq->customConfig) {
-            $request->customConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customConfig, 'CustomConfig', 'json');
-        }
-
-        if (null !== $tmpReq->envs) {
-            $request->envsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
-        }
-
-        $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->codeShrink) {
-            @$query['Code'] = $request->codeShrink;
-        }
-
-        if (null !== $request->customConfigShrink) {
-            @$query['CustomConfig'] = $request->customConfigShrink;
-        }
-
-        if (null !== $request->edgeFunctionName) {
-            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
-        }
-
-        if (null !== $request->envsShrink) {
-            @$query['Envs'] = $request->envsShrink;
-        }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'CreateEdgeFunction',
-            'version' => '2025-05-07',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return CreateEdgeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Creates an edge function.
-     *
-     * @remarks
-     * Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
-     *
-     * @param request - CreateEdgeFunctionRequest
-     *
-     * @returns CreateEdgeFunctionResponse
-     *
-     * @param CreateEdgeFunctionRequest $request
-     *
-     * @return CreateEdgeFunctionResponse
-     */
-    public function createEdgeFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createEdgeFunctionWithOptions($request, $runtime);
-    }
-
-    /**
      * Creates an inspection task for multiple instances.
      *
      * @param request - CreateInspectionTaskRequest
@@ -802,6 +796,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->frequency) {
             @$query['Frequency'] = $request->frequency;
+        }
+
+        if (null !== $request->inspectionItems) {
+            @$query['InspectionItems'] = $request->inspectionItems;
         }
 
         if (null !== $request->instanceIds) {
@@ -952,6 +950,67 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 删除apiKey.
+     *
+     * @param request - DeleteApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApiKeyResponse
+     *
+     * @param DeleteApiKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteApiKeyResponse
+     */
+    public function deleteApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除apiKey.
+     *
+     * @param request - DeleteApiKeyRequest
+     *
+     * @returns DeleteApiKeyResponse
+     *
+     * @param DeleteApiKeyRequest $request
+     *
+     * @return DeleteApiKeyResponse
+     */
+    public function deleteApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an RDS Supabase instance.
      *
      * @remarks
@@ -1087,81 +1146,6 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomAgentWithOptions($request, $runtime);
-    }
-
-    /**
-     * Deletes an edge function.
-     *
-     * @remarks
-     * Deletes an edge function.
-     *
-     * @param request - DeleteEdgeFunctionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteEdgeFunctionResponse
-     *
-     * @param DeleteEdgeFunctionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteEdgeFunctionResponse
-     */
-    public function deleteEdgeFunctionWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->edgeFunctionName) {
-            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
-        }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteEdgeFunction',
-            'version' => '2025-05-07',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DeleteEdgeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Deletes an edge function.
-     *
-     * @remarks
-     * Deletes an edge function.
-     *
-     * @param request - DeleteEdgeFunctionRequest
-     *
-     * @returns DeleteEdgeFunctionResponse
-     *
-     * @param DeleteEdgeFunctionRequest $request
-     *
-     * @return DeleteEdgeFunctionResponse
-     */
-    public function deleteEdgeFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteEdgeFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -1434,81 +1418,6 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * Query the list of edge functions or a specified edge function.
-     *
-     * @remarks
-     * Query the list of edge functions or a specified edge function.
-     *
-     * @param request - DescribeEdgeFunctionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEdgeFunctionsResponse
-     *
-     * @param DescribeEdgeFunctionsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeEdgeFunctionsResponse
-     */
-    public function describeEdgeFunctionsWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->edgeFunctionName) {
-            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
-        }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeEdgeFunctions',
-            'version' => '2025-05-07',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeEdgeFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Query the list of edge functions or a specified edge function.
-     *
-     * @remarks
-     * Query the list of edge functions or a specified edge function.
-     *
-     * @param request - DescribeEdgeFunctionsRequest
-     *
-     * @returns DescribeEdgeFunctionsResponse
-     *
-     * @param DescribeEdgeFunctionsRequest $request
-     *
-     * @return DescribeEdgeFunctionsResponse
-     */
-    public function describeEdgeFunctions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEdgeFunctionsWithOptions($request, $runtime);
     }
 
     /**
@@ -2021,6 +1930,231 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 查看 model operator 实例具体 token 使用情况.
+     *
+     * @param request - DescribeMOTokenUsageDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMOTokenUsageDetailResponse
+     *
+     * @param DescribeMOTokenUsageDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMOTokenUsageDetailResponse
+     */
+    public function describeMOTokenUsageDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerName) {
+            @$query['ConsumerName'] = $request->consumerName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMOTokenUsageDetail',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMOTokenUsageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看 model operator 实例具体 token 使用情况.
+     *
+     * @param request - DescribeMOTokenUsageDetailRequest
+     *
+     * @returns DescribeMOTokenUsageDetailResponse
+     *
+     * @param DescribeMOTokenUsageDetailRequest $request
+     *
+     * @return DescribeMOTokenUsageDetailResponse
+     */
+    public function describeMOTokenUsageDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMOTokenUsageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询MO实例信息.
+     *
+     * @param request - DescribeModelOperatorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelOperatorResponse
+     *
+     * @param DescribeModelOperatorRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeModelOperatorResponse
+     */
+    public function describeModelOperatorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelOperator',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelOperatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询MO实例信息.
+     *
+     * @param request - DescribeModelOperatorRequest
+     *
+     * @returns DescribeModelOperatorResponse
+     *
+     * @param DescribeModelOperatorRequest $request
+     *
+     * @return DescribeModelOperatorResponse
+     */
+    public function describeModelOperator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelOperatorWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询监控数据.
+     *
+     * @param tmpReq - DescribeMonitorDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorDataResponse
+     *
+     * @param DescribeMonitorDataRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeMonitorDataResponse
+     */
+    public function describeMonitorDataWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeMonitorDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiKeyName) {
+            $request->apiKeyNameShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiKeyName, 'ApiKeyName', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiKeyNameShrink) {
+            @$query['ApiKeyName'] = $request->apiKeyNameShrink;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMonitorData',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询监控数据.
+     *
+     * @param request - DescribeMonitorDataRequest
+     *
+     * @returns DescribeMonitorDataResponse
+     *
+     * @param DescribeMonitorDataRequest $request
+     *
+     * @return DescribeMonitorDataResponse
+     */
+    public function describeMonitorData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMonitorDataWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询沙箱模板列表.
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -2099,6 +2233,136 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSandboxTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新旗舰版白名单.
+     *
+     * @param request - DescribeWhitelistIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWhitelistIpsResponse
+     *
+     * @param DescribeWhitelistIpsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeWhitelistIpsResponse
+     */
+    public function describeWhitelistIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWhitelistIps',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWhitelistIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新旗舰版白名单.
+     *
+     * @param request - DescribeWhitelistIpsRequest
+     *
+     * @returns DescribeWhitelistIpsResponse
+     *
+     * @param DescribeWhitelistIpsRequest $request
+     *
+     * @return DescribeWhitelistIpsResponse
+     */
+    public function describeWhitelistIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhitelistIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用Supabase的沙箱和边缘函数能力.
+     *
+     * @param request - EnableAgentRuntimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableAgentRuntimeResponse
+     *
+     * @param EnableAgentRuntimeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EnableAgentRuntimeResponse
+     */
+    public function enableAgentRuntimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableAgentRuntime',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableAgentRuntimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用Supabase的沙箱和边缘函数能力.
+     *
+     * @param request - EnableAgentRuntimeRequest
+     *
+     * @returns EnableAgentRuntimeResponse
+     *
+     * @param EnableAgentRuntimeRequest $request
+     *
+     * @return EnableAgentRuntimeResponse
+     */
+    public function enableAgentRuntime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAgentRuntimeWithOptions($request, $runtime);
     }
 
     /**
@@ -2359,6 +2623,56 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMessagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询MO订单信息.
+     *
+     * @param request - GetModelOperatorOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelOperatorOrderResponse
+     *
+     * @param GetModelOperatorOrderRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetModelOperatorOrderResponse
+     */
+    public function getModelOperatorOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetModelOperatorOrder',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelOperatorOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询MO订单信息.
+     *
+     * @param request - GetModelOperatorOrderRequest
+     *
+     * @returns GetModelOperatorOrderResponse
+     *
+     * @param GetModelOperatorOrderRequest $request
+     *
+     * @return GetModelOperatorOrderResponse
+     */
+    public function getModelOperatorOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getModelOperatorOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -2631,6 +2945,71 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getStandAloneReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例密钥信息.
+     *
+     * @param request - ListApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiKeysResponse
+     *
+     * @param ListApiKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListApiKeysResponse
+     */
+    public function listApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiKeys',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例密钥信息.
+     *
+     * @param request - ListApiKeysRequest
+     *
+     * @returns ListApiKeysResponse
+     *
+     * @param ListApiKeysRequest $request
+     *
+     * @return ListApiKeysResponse
+     */
+    public function listApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApiKeysWithOptions($request, $runtime);
     }
 
     /**
@@ -3554,6 +3933,10 @@ class RdsAi extends OpenApiClient
             @$query['Frequency'] = $request->frequency;
         }
 
+        if (null !== $request->inspectionItems) {
+            @$query['InspectionItems'] = $request->inspectionItems;
+        }
+
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
         }
@@ -3612,6 +3995,193 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新旗舰版白名单.
+     *
+     * @param request - ModifyWhitelistIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyWhitelistIpsResponse
+     *
+     * @param ModifyWhitelistIpsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyWhitelistIpsResponse
+     */
+    public function modifyWhitelistIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ipWhitelist) {
+            @$query['IpWhitelist'] = $request->ipWhitelist;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyWhitelistIps',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyWhitelistIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新旗舰版白名单.
+     *
+     * @param request - ModifyWhitelistIpsRequest
+     *
+     * @returns ModifyWhitelistIpsResponse
+     *
+     * @param ModifyWhitelistIpsRequest $request
+     *
+     * @return ModifyWhitelistIpsResponse
+     */
+    public function modifyWhitelistIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWhitelistIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重命名实例密钥.
+     *
+     * @param request - RenameApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenameApiKeyResponse
+     *
+     * @param RenameApiKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RenameApiKeyResponse
+     */
+    public function renameApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keyName) {
+            @$query['KeyName'] = $request->keyName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenameApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenameApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重命名实例密钥.
+     *
+     * @param request - RenameApiKeyRequest
+     *
+     * @returns RenameApiKeyResponse
+     *
+     * @param RenameApiKeyRequest $request
+     *
+     * @return RenameApiKeyResponse
+     */
+    public function renameApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renameApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重置apiKey.
+     *
+     * @param request - ResetApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetApiKeyResponse
+     *
+     * @param ResetApiKeyRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResetApiKeyResponse
+     */
+    public function resetApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetApiKey',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置apiKey.
+     *
+     * @param request - ResetApiKeyRequest
+     *
+     * @returns ResetApiKeyResponse
+     *
+     * @param ResetApiKeyRequest $request
+     *
+     * @return ResetApiKeyResponse
+     */
+    public function resetApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -3917,6 +4487,73 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 修改实例密钥配额.
+     *
+     * @param tmpReq - UpdateApiKeyQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApiKeyQuotaResponse
+     *
+     * @param UpdateApiKeyQuotaRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateApiKeyQuotaResponse
+     */
+    public function updateApiKeyQuotaWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateApiKeyQuotaShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApiKeyQuota',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApiKeyQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例密钥配额.
+     *
+     * @param request - UpdateApiKeyQuotaRequest
+     *
+     * @returns UpdateApiKeyQuotaResponse
+     *
+     * @param UpdateApiKeyQuotaRequest $request
+     *
+     * @return UpdateApiKeyQuotaResponse
+     */
+    public function updateApiKeyQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApiKeyQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the custom agent.
      *
      * @param tmpReq - UpdateCustomAgentRequest
@@ -4001,107 +4638,6 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomAgentWithOptions($request, $runtime);
-    }
-
-    /**
-     * Updates an edge function.
-     *
-     * @remarks
-     * Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
-     *
-     * @param tmpReq - UpdateEdgeFunctionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateEdgeFunctionResponse
-     *
-     * @param UpdateEdgeFunctionRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateEdgeFunctionResponse
-     */
-    public function updateEdgeFunctionWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new UpdateEdgeFunctionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->code) {
-            $request->codeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->code, 'Code', 'json');
-        }
-
-        if (null !== $tmpReq->customConfig) {
-            $request->customConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customConfig, 'CustomConfig', 'json');
-        }
-
-        if (null !== $tmpReq->envs) {
-            $request->envsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
-        }
-
-        $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
-        if (null !== $request->codeShrink) {
-            @$query['Code'] = $request->codeShrink;
-        }
-
-        if (null !== $request->customConfigShrink) {
-            @$query['CustomConfig'] = $request->customConfigShrink;
-        }
-
-        if (null !== $request->edgeFunctionName) {
-            @$query['EdgeFunctionName'] = $request->edgeFunctionName;
-        }
-
-        if (null !== $request->envsShrink) {
-            @$query['Envs'] = $request->envsShrink;
-        }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'UpdateEdgeFunction',
-            'version' => '2025-05-07',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return UpdateEdgeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Updates an edge function.
-     *
-     * @remarks
-     * Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
-     *
-     * @param request - UpdateEdgeFunctionRequest
-     *
-     * @returns UpdateEdgeFunctionResponse
-     *
-     * @param UpdateEdgeFunctionRequest $request
-     *
-     * @return UpdateEdgeFunctionResponse
-     */
-    public function updateEdgeFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateEdgeFunctionWithOptions($request, $runtime);
     }
 
     /**

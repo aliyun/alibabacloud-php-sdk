@@ -21,6 +21,11 @@ class CreateScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $inspectionItems;
+
+    /**
+     * @var string
+     */
     public $instanceIds;
 
     /**
@@ -60,6 +65,7 @@ class CreateScheduledTaskRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'frequency' => 'Frequency',
+        'inspectionItems' => 'InspectionItems',
         'instanceIds' => 'InstanceIds',
         'name' => 'Name',
         'regionId' => 'RegionId',
@@ -84,6 +90,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
+        }
+
+        if (null !== $this->inspectionItems) {
+            $res['InspectionItems'] = $this->inspectionItems;
         }
 
         if (null !== $this->instanceIds) {
@@ -135,6 +145,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
+        }
+
+        if (isset($map['InspectionItems'])) {
+            $model->inspectionItems = $map['InspectionItems'];
         }
 
         if (isset($map['InstanceIds'])) {

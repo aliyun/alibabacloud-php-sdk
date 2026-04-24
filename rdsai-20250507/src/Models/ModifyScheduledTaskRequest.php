@@ -21,6 +21,11 @@ class ModifyScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $inspectionItems;
+
+    /**
+     * @var string
+     */
     public $instanceIds;
 
     /**
@@ -50,6 +55,7 @@ class ModifyScheduledTaskRequest extends Model
     protected $_name = [
         'description' => 'Description',
         'frequency' => 'Frequency',
+        'inspectionItems' => 'InspectionItems',
         'instanceIds' => 'InstanceIds',
         'name' => 'Name',
         'reportLanguage' => 'ReportLanguage',
@@ -72,6 +78,10 @@ class ModifyScheduledTaskRequest extends Model
 
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
+        }
+
+        if (null !== $this->inspectionItems) {
+            $res['InspectionItems'] = $this->inspectionItems;
         }
 
         if (null !== $this->instanceIds) {
@@ -115,6 +125,10 @@ class ModifyScheduledTaskRequest extends Model
 
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
+        }
+
+        if (isset($map['InspectionItems'])) {
+            $model->inspectionItems = $map['InspectionItems'];
         }
 
         if (isset($map['InstanceIds'])) {

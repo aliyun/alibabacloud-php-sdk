@@ -21,6 +21,11 @@ class reports extends Model
     /**
      * @var string
      */
+    public $inspectionItems;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -50,6 +55,7 @@ class reports extends Model
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'endTime' => 'EndTime',
+        'inspectionItems' => 'InspectionItems',
         'regionId' => 'RegionId',
         'reportLanguage' => 'ReportLanguage',
         'reportType' => 'ReportType',
@@ -72,6 +78,10 @@ class reports extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->inspectionItems) {
+            $res['InspectionItems'] = $this->inspectionItems;
         }
 
         if (null !== $this->regionId) {
@@ -115,6 +125,10 @@ class reports extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['InspectionItems'])) {
+            $model->inspectionItems = $map['InspectionItems'];
         }
 
         if (isset($map['RegionId'])) {
