@@ -17,6 +17,16 @@ class imagePipelineExecutionSet extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorInfo;
+
+    /**
+     * @var string
+     */
     public $executionId;
 
     /**
@@ -55,6 +65,8 @@ class imagePipelineExecutionSet extends Model
     public $tags;
     protected $_name = [
         'creationTime' => 'CreationTime',
+        'errorCode' => 'ErrorCode',
+        'errorInfo' => 'ErrorInfo',
         'executionId' => 'ExecutionId',
         'imageId' => 'ImageId',
         'imagePipelineId' => 'ImagePipelineId',
@@ -78,6 +90,14 @@ class imagePipelineExecutionSet extends Model
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->errorInfo) {
+            $res['ErrorInfo'] = $this->errorInfo;
         }
 
         if (null !== $this->executionId) {
@@ -125,6 +145,14 @@ class imagePipelineExecutionSet extends Model
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+
+        if (isset($map['ErrorInfo'])) {
+            $model->errorInfo = $map['ErrorInfo'];
         }
 
         if (isset($map['ExecutionId'])) {
