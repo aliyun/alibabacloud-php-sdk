@@ -87,6 +87,11 @@ class data extends Model
     public $expireTime;
 
     /**
+     * @var string[]
+     */
+    public $langfuseInstanceIds;
+
+    /**
      * @var string
      */
     public $latestEngineMinorVersion;
@@ -199,6 +204,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $webUISnatStatus;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'aliUid' => 'AliUid',
@@ -216,6 +226,7 @@ class data extends Model
         'engineMinorVersion' => 'EngineMinorVersion',
         'engineVersion' => 'EngineVersion',
         'expireTime' => 'ExpireTime',
+        'langfuseInstanceIds' => 'LangfuseInstanceIds',
         'latestEngineMinorVersion' => 'LatestEngineMinorVersion',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
@@ -238,11 +249,15 @@ class data extends Model
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
+        'webUISnatStatus' => 'WebUISnatStatus',
         'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->langfuseInstanceIds)) {
+            Model::validateArray($this->langfuseInstanceIds);
+        }
         if (\is_array($this->multiZones)) {
             Model::validateArray($this->multiZones);
         }
@@ -316,6 +331,17 @@ class data extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->langfuseInstanceIds) {
+            if (\is_array($this->langfuseInstanceIds)) {
+                $res['LangfuseInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->langfuseInstanceIds as $item1) {
+                    $res['LangfuseInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->latestEngineMinorVersion) {
@@ -427,6 +453,10 @@ class data extends Model
             $res['VpcId'] = $this->vpcId;
         }
 
+        if (null !== $this->webUISnatStatus) {
+            $res['WebUISnatStatus'] = $this->webUISnatStatus;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -500,6 +530,17 @@ class data extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['LangfuseInstanceIds'])) {
+            if (!empty($map['LangfuseInstanceIds'])) {
+                $model->langfuseInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['LangfuseInstanceIds'] as $item1) {
+                    $model->langfuseInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LatestEngineMinorVersion'])) {
@@ -609,6 +650,10 @@ class data extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WebUISnatStatus'])) {
+            $model->webUISnatStatus = $map['WebUISnatStatus'];
         }
 
         if (isset($map['ZoneId'])) {

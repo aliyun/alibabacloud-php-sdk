@@ -1807,6 +1807,10 @@ class Clickhouse extends OpenApiClient
             @$query['Tags'] = $request->tags;
         }
 
+        if (null !== $request->vpcIds) {
+            @$query['VpcIds'] = $request->vpcIds;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2004,7 +2008,6 @@ class Clickhouse extends OpenApiClient
     /**
      * 查询云数据库ClickHouse所有地域和可用区的信息.
      *
-     * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRegionsResponse

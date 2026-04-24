@@ -48,6 +48,11 @@ class DescribeDBInstancesRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $vpcIds;
     protected $_name = [
         'DBInstanceIds' => 'DBInstanceIds',
         'DBInstanceStatus' => 'DBInstanceStatus',
@@ -57,6 +62,7 @@ class DescribeDBInstancesRequest extends Model
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
+        'vpcIds' => 'VpcIds',
     ];
 
     public function validate()
@@ -109,6 +115,10 @@ class DescribeDBInstancesRequest extends Model
             }
         }
 
+        if (null !== $this->vpcIds) {
+            $res['VpcIds'] = $this->vpcIds;
+        }
+
         return $res;
     }
 
@@ -157,6 +167,10 @@ class DescribeDBInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VpcIds'])) {
+            $model->vpcIds = $map['VpcIds'];
         }
 
         return $model;
