@@ -16,7 +16,17 @@ class DescribePolarFsQuotaRequest extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $polarFsInstanceId;
+
+    /**
+     * @var string
+     */
+    public $quotaType;
 
     /**
      * @var string
@@ -24,7 +34,9 @@ class DescribePolarFsQuotaRequest extends Model
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'path' => 'Path',
         'polarFsInstanceId' => 'PolarFsInstanceId',
+        'quotaType' => 'QuotaType',
         'regionId' => 'RegionId',
     ];
 
@@ -40,8 +52,16 @@ class DescribePolarFsQuotaRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+
         if (null !== $this->polarFsInstanceId) {
             $res['PolarFsInstanceId'] = $this->polarFsInstanceId;
+        }
+
+        if (null !== $this->quotaType) {
+            $res['QuotaType'] = $this->quotaType;
         }
 
         if (null !== $this->regionId) {
@@ -63,8 +83,16 @@ class DescribePolarFsQuotaRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+
         if (isset($map['PolarFsInstanceId'])) {
             $model->polarFsInstanceId = $map['PolarFsInstanceId'];
+        }
+
+        if (isset($map['QuotaType'])) {
+            $model->quotaType = $map['QuotaType'];
         }
 
         if (isset($map['RegionId'])) {

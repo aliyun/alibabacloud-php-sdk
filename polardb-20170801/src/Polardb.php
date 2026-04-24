@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddEncryptionDBRolePrivilegeReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddEncryptionDBRolePrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsPathMappingRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsPathMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddSQLRateLimitingRulesRequest;
@@ -166,6 +168,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsPathMappingRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsPathMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesRequest;
@@ -944,6 +948,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addFirewallRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增polarfs bucket路径.
+     *
+     * @param request - AddPolarFsPathMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPolarFsPathMappingResponse
+     *
+     * @param AddPolarFsPathMappingRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddPolarFsPathMappingResponse
+     */
+    public function addPolarFsPathMappingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customBucketPathList) {
+            @$query['CustomBucketPathList'] = $request->customBucketPathList;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPolarFsPathMapping',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPolarFsPathMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增polarfs bucket路径.
+     *
+     * @param request - AddPolarFsPathMappingRequest
+     *
+     * @returns AddPolarFsPathMappingResponse
+     *
+     * @param AddPolarFsPathMappingRequest $request
+     *
+     * @return AddPolarFsPathMappingResponse
+     */
+    public function addPolarFsPathMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPolarFsPathMappingWithOptions($request, $runtime);
     }
 
     /**
@@ -7796,6 +7865,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolarFsObjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除polar fs bucket路径.
+     *
+     * @param request - DeletePolarFsPathMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarFsPathMappingResponse
+     *
+     * @param DeletePolarFsPathMappingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeletePolarFsPathMappingResponse
+     */
+    public function deletePolarFsPathMappingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customBucketPathList) {
+            @$query['CustomBucketPathList'] = $request->customBucketPathList;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarFsPathMapping',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarFsPathMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除polar fs bucket路径.
+     *
+     * @param request - DeletePolarFsPathMappingRequest
+     *
+     * @returns DeletePolarFsPathMappingResponse
+     *
+     * @param DeletePolarFsPathMappingRequest $request
+     *
+     * @return DeletePolarFsPathMappingResponse
+     */
+    public function deletePolarFsPathMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarFsPathMappingWithOptions($request, $runtime);
     }
 
     /**
@@ -16414,8 +16548,16 @@ class Polardb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
         if (null !== $request->polarFsInstanceId) {
             @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->quotaType) {
+            @$query['QuotaType'] = $request->quotaType;
         }
 
         if (null !== $request->regionId) {
@@ -26440,7 +26582,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 为目录应用配额规则.
+     * 为目录配置配额或应用配额规则.
      *
      * @param request - SetPolarFsFileQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26487,7 +26629,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 为目录应用配额规则.
+     * 为目录配置配额或应用配额规则.
      *
      * @param request - SetPolarFsFileQuotaRequest
      *

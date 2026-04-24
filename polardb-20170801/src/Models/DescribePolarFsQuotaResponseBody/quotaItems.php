@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaRequest;
+namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class filePathQuotas extends Model
+class quotaItems extends Model
 {
     /**
      * @var int
@@ -14,36 +14,30 @@ class filePathQuotas extends Model
     public $capacity;
 
     /**
-     * @var string
-     */
-    public $filePathId;
-
-    /**
      * @var int
      */
     public $inodes;
 
     /**
+     * @var string
+     */
+    public $path;
+
+    /**
      * @var int
      */
-    public $maxDepth;
+    public $usedCapacity;
 
     /**
-     * @var string
+     * @var int
      */
-    public $quotaIds;
-
-    /**
-     * @var string
-     */
-    public $strategy;
+    public $usedInodes;
     protected $_name = [
         'capacity' => 'Capacity',
-        'filePathId' => 'FilePathId',
         'inodes' => 'Inodes',
-        'maxDepth' => 'MaxDepth',
-        'quotaIds' => 'QuotaIds',
-        'strategy' => 'Strategy',
+        'path' => 'Path',
+        'usedCapacity' => 'UsedCapacity',
+        'usedInodes' => 'UsedInodes',
     ];
 
     public function validate()
@@ -58,24 +52,20 @@ class filePathQuotas extends Model
             $res['Capacity'] = $this->capacity;
         }
 
-        if (null !== $this->filePathId) {
-            $res['FilePathId'] = $this->filePathId;
-        }
-
         if (null !== $this->inodes) {
             $res['Inodes'] = $this->inodes;
         }
 
-        if (null !== $this->maxDepth) {
-            $res['MaxDepth'] = $this->maxDepth;
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
-        if (null !== $this->quotaIds) {
-            $res['QuotaIds'] = $this->quotaIds;
+        if (null !== $this->usedCapacity) {
+            $res['UsedCapacity'] = $this->usedCapacity;
         }
 
-        if (null !== $this->strategy) {
-            $res['Strategy'] = $this->strategy;
+        if (null !== $this->usedInodes) {
+            $res['UsedInodes'] = $this->usedInodes;
         }
 
         return $res;
@@ -93,24 +83,20 @@ class filePathQuotas extends Model
             $model->capacity = $map['Capacity'];
         }
 
-        if (isset($map['FilePathId'])) {
-            $model->filePathId = $map['FilePathId'];
-        }
-
         if (isset($map['Inodes'])) {
             $model->inodes = $map['Inodes'];
         }
 
-        if (isset($map['MaxDepth'])) {
-            $model->maxDepth = $map['MaxDepth'];
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
-        if (isset($map['QuotaIds'])) {
-            $model->quotaIds = $map['QuotaIds'];
+        if (isset($map['UsedCapacity'])) {
+            $model->usedCapacity = $map['UsedCapacity'];
         }
 
-        if (isset($map['Strategy'])) {
-            $model->strategy = $map['Strategy'];
+        if (isset($map['UsedInodes'])) {
+            $model->usedInodes = $map['UsedInodes'];
         }
 
         return $model;

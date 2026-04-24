@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponseBody\policyItems;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponseBody\quotaItems;
 
 class DescribePolarFsQuotaResponseBody extends Model
 {
@@ -27,12 +28,22 @@ class DescribePolarFsQuotaResponseBody extends Model
     /**
      * @var string
      */
+    public $path;
+
+    /**
+     * @var string
+     */
     public $polarFsInstanceId;
 
     /**
      * @var policyItems[]
      */
     public $policyItems;
+
+    /**
+     * @var quotaItems[]
+     */
+    public $quotaItems;
 
     /**
      * @var string
@@ -47,8 +58,10 @@ class DescribePolarFsQuotaResponseBody extends Model
         'pageNumber' => 'PageNumber',
         'pageRecordCount' => 'PageRecordCount',
         'pageSize' => 'PageSize',
+        'path' => 'Path',
         'polarFsInstanceId' => 'PolarFsInstanceId',
         'policyItems' => 'PolicyItems',
+        'quotaItems' => 'QuotaItems',
         'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
@@ -57,6 +70,9 @@ class DescribePolarFsQuotaResponseBody extends Model
     {
         if (\is_array($this->policyItems)) {
             Model::validateArray($this->policyItems);
+        }
+        if (\is_array($this->quotaItems)) {
+            Model::validateArray($this->quotaItems);
         }
         parent::validate();
     }
@@ -76,6 +92,10 @@ class DescribePolarFsQuotaResponseBody extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+
         if (null !== $this->polarFsInstanceId) {
             $res['PolarFsInstanceId'] = $this->polarFsInstanceId;
         }
@@ -86,6 +106,17 @@ class DescribePolarFsQuotaResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->policyItems as $item1) {
                     $res['PolicyItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->quotaItems) {
+            if (\is_array($this->quotaItems)) {
+                $res['QuotaItems'] = [];
+                $n1 = 0;
+                foreach ($this->quotaItems as $item1) {
+                    $res['QuotaItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -122,6 +153,10 @@ class DescribePolarFsQuotaResponseBody extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+
         if (isset($map['PolarFsInstanceId'])) {
             $model->polarFsInstanceId = $map['PolarFsInstanceId'];
         }
@@ -132,6 +167,17 @@ class DescribePolarFsQuotaResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['PolicyItems'] as $item1) {
                     $model->policyItems[$n1] = policyItems::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['QuotaItems'])) {
+            if (!empty($map['QuotaItems'])) {
+                $model->quotaItems = [];
+                $n1 = 0;
+                foreach ($map['QuotaItems'] as $item1) {
+                    $model->quotaItems[$n1] = quotaItems::fromMap($item1);
                     ++$n1;
                 }
             }
