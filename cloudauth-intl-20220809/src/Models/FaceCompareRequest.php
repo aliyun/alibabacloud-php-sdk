@@ -16,6 +16,11 @@ class FaceCompareRequest extends Model
     /**
      * @var string
      */
+    public $faceQualityCheck;
+
+    /**
+     * @var string
+     */
     public $merchantBizId;
 
     /**
@@ -39,6 +44,7 @@ class FaceCompareRequest extends Model
     public $targetFacePictureUrl;
     protected $_name = [
         'facePictureQualityCheck' => 'FacePictureQualityCheck',
+        'faceQualityCheck' => 'FaceQualityCheck',
         'merchantBizId' => 'MerchantBizId',
         'sourceFacePicture' => 'SourceFacePicture',
         'sourceFacePictureUrl' => 'SourceFacePictureUrl',
@@ -56,6 +62,10 @@ class FaceCompareRequest extends Model
         $res = [];
         if (null !== $this->facePictureQualityCheck) {
             $res['FacePictureQualityCheck'] = $this->facePictureQualityCheck;
+        }
+
+        if (null !== $this->faceQualityCheck) {
+            $res['FaceQualityCheck'] = $this->faceQualityCheck;
         }
 
         if (null !== $this->merchantBizId) {
@@ -91,6 +101,10 @@ class FaceCompareRequest extends Model
         $model = new self();
         if (isset($map['FacePictureQualityCheck'])) {
             $model->facePictureQualityCheck = $map['FacePictureQualityCheck'];
+        }
+
+        if (isset($map['FaceQualityCheck'])) {
+            $model->faceQualityCheck = $map['FaceQualityCheck'];
         }
 
         if (isset($map['MerchantBizId'])) {

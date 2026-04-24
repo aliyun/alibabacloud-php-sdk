@@ -2,27 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponseBody\result;
+namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponseBody\result;
 
 use AlibabaCloud\Dara\Model;
 
 class extFaceInfo extends Model
 {
-    /**
-     * @var int
-     */
-    public $faceAge;
-
-    /**
-     * @var string
-     */
-    public $faceAttack;
-
-    /**
-     * @var string
-     */
-    public $faceGender;
-
     /**
      * @var float
      */
@@ -39,11 +24,6 @@ class extFaceInfo extends Model
     public $kaOcclusionScore;
 
     /**
-     * @var string
-     */
-    public $occlusionResult;
-
-    /**
      * @var float
      */
     public $occlusionScore;
@@ -53,13 +33,9 @@ class extFaceInfo extends Model
      */
     public $sharpnessScore;
     protected $_name = [
-        'faceAge' => 'FaceAge',
-        'faceAttack' => 'FaceAttack',
-        'faceGender' => 'FaceGender',
         'faceQualityScore' => 'FaceQualityScore',
         'illuminationScore' => 'IlluminationScore',
         'kaOcclusionScore' => 'KaOcclusionScore',
-        'occlusionResult' => 'OcclusionResult',
         'occlusionScore' => 'OcclusionScore',
         'sharpnessScore' => 'SharpnessScore',
     ];
@@ -72,18 +48,6 @@ class extFaceInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->faceAge) {
-            $res['FaceAge'] = $this->faceAge;
-        }
-
-        if (null !== $this->faceAttack) {
-            $res['FaceAttack'] = $this->faceAttack;
-        }
-
-        if (null !== $this->faceGender) {
-            $res['FaceGender'] = $this->faceGender;
-        }
-
         if (null !== $this->faceQualityScore) {
             $res['FaceQualityScore'] = $this->faceQualityScore;
         }
@@ -94,10 +58,6 @@ class extFaceInfo extends Model
 
         if (null !== $this->kaOcclusionScore) {
             $res['KaOcclusionScore'] = $this->kaOcclusionScore;
-        }
-
-        if (null !== $this->occlusionResult) {
-            $res['OcclusionResult'] = $this->occlusionResult;
         }
 
         if (null !== $this->occlusionScore) {
@@ -119,18 +79,6 @@ class extFaceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceAge'])) {
-            $model->faceAge = $map['FaceAge'];
-        }
-
-        if (isset($map['FaceAttack'])) {
-            $model->faceAttack = $map['FaceAttack'];
-        }
-
-        if (isset($map['FaceGender'])) {
-            $model->faceGender = $map['FaceGender'];
-        }
-
         if (isset($map['FaceQualityScore'])) {
             $model->faceQualityScore = $map['FaceQualityScore'];
         }
@@ -141,10 +89,6 @@ class extFaceInfo extends Model
 
         if (isset($map['KaOcclusionScore'])) {
             $model->kaOcclusionScore = $map['KaOcclusionScore'];
-        }
-
-        if (isset($map['OcclusionResult'])) {
-            $model->occlusionResult = $map['OcclusionResult'];
         }
 
         if (isset($map['OcclusionScore'])) {

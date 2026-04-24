@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponseBody\result\extFaceInfo;
 
 class result extends Model
 {
+    /**
+     * @var extFaceInfo
+     */
+    public $extFaceInfo;
+
     /**
      * @var float
      */
@@ -23,6 +29,7 @@ class result extends Model
      */
     public $transactionId;
     protected $_name = [
+        'extFaceInfo' => 'ExtFaceInfo',
         'faceComparisonScore' => 'FaceComparisonScore',
         'passed' => 'Passed',
         'transactionId' => 'TransactionId',
@@ -30,12 +37,19 @@ class result extends Model
 
     public function validate()
     {
+        if (null !== $this->extFaceInfo) {
+            $this->extFaceInfo->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extFaceInfo) {
+            $res['ExtFaceInfo'] = null !== $this->extFaceInfo ? $this->extFaceInfo->toArray($noStream) : $this->extFaceInfo;
+        }
+
         if (null !== $this->faceComparisonScore) {
             $res['FaceComparisonScore'] = $this->faceComparisonScore;
         }
@@ -59,6 +73,10 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtFaceInfo'])) {
+            $model->extFaceInfo = extFaceInfo::fromMap($map['ExtFaceInfo']);
+        }
+
         if (isset($map['FaceComparisonScore'])) {
             $model->faceComparisonScore = $map['FaceComparisonScore'];
         }

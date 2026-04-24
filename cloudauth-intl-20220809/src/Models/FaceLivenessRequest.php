@@ -31,6 +31,11 @@ class FaceLivenessRequest extends Model
     /**
      * @var string
      */
+    public $faceQualityCheck;
+
+    /**
+     * @var string
+     */
     public $merchantBizId;
 
     /**
@@ -52,6 +57,7 @@ class FaceLivenessRequest extends Model
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl' => 'FacePictureUrl',
         'faceQuality' => 'FaceQuality',
+        'faceQualityCheck' => 'FaceQualityCheck',
         'merchantBizId' => 'MerchantBizId',
         'merchantUserId' => 'MerchantUserId',
         'occlusion' => 'Occlusion',
@@ -80,6 +86,10 @@ class FaceLivenessRequest extends Model
 
         if (null !== $this->faceQuality) {
             $res['FaceQuality'] = $this->faceQuality;
+        }
+
+        if (null !== $this->faceQualityCheck) {
+            $res['FaceQualityCheck'] = $this->faceQualityCheck;
         }
 
         if (null !== $this->merchantBizId) {
@@ -123,6 +133,10 @@ class FaceLivenessRequest extends Model
 
         if (isset($map['FaceQuality'])) {
             $model->faceQuality = $map['FaceQuality'];
+        }
+
+        if (isset($map['FaceQualityCheck'])) {
+            $model->faceQualityCheck = $map['FaceQualityCheck'];
         }
 
         if (isset($map['MerchantBizId'])) {

@@ -21,6 +21,11 @@ class FaceDuplicationCheckIntlRequest extends Model
     /**
      * @var string
      */
+    public $faceQualityCheck;
+
+    /**
+     * @var string
+     */
     public $faceRegisterGroupCode;
 
     /**
@@ -90,6 +95,7 @@ class FaceDuplicationCheckIntlRequest extends Model
     protected $_name = [
         'autoRegistration' => 'AutoRegistration',
         'faceGroupCodes' => 'FaceGroupCodes',
+        'faceQualityCheck' => 'FaceQualityCheck',
         'faceRegisterGroupCode' => 'FaceRegisterGroupCode',
         'faceVerifyThreshold' => 'FaceVerifyThreshold',
         'liveness' => 'Liveness',
@@ -120,6 +126,10 @@ class FaceDuplicationCheckIntlRequest extends Model
 
         if (null !== $this->faceGroupCodes) {
             $res['FaceGroupCodes'] = $this->faceGroupCodes;
+        }
+
+        if (null !== $this->faceQualityCheck) {
+            $res['FaceQualityCheck'] = $this->faceQualityCheck;
         }
 
         if (null !== $this->faceRegisterGroupCode) {
@@ -195,6 +205,10 @@ class FaceDuplicationCheckIntlRequest extends Model
 
         if (isset($map['FaceGroupCodes'])) {
             $model->faceGroupCodes = $map['FaceGroupCodes'];
+        }
+
+        if (isset($map['FaceQualityCheck'])) {
+            $model->faceQualityCheck = $map['FaceQualityCheck'];
         }
 
         if (isset($map['FaceRegisterGroupCode'])) {

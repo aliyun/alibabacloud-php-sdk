@@ -2697,6 +2697,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['FacePictureQualityCheck'] = $request->facePictureQualityCheck;
         }
 
+        if (null !== $request->faceQualityCheck) {
+            @$query['FaceQualityCheck'] = $request->faceQualityCheck;
+        }
+
         if (null !== $request->merchantBizId) {
             @$query['MerchantBizId'] = $request->merchantBizId;
         }
@@ -2774,6 +2778,10 @@ class Cloudauthintl extends OpenApiClient
         $query = [];
         if (null !== $request->facePictureQualityCheck) {
             @$query['FacePictureQualityCheck'] = $request->facePictureQualityCheck;
+        }
+
+        if (null !== $request->faceQualityCheck) {
+            @$query['FaceQualityCheck'] = $request->faceQualityCheck;
         }
 
         if (null !== $request->merchantBizId) {
@@ -3086,6 +3094,10 @@ class Cloudauthintl extends OpenApiClient
             @$body['FaceGroupCodes'] = $request->faceGroupCodes;
         }
 
+        if (null !== $request->faceQualityCheck) {
+            @$body['FaceQualityCheck'] = $request->faceQualityCheck;
+        }
+
         if (null !== $request->faceRegisterGroupCode) {
             @$body['FaceRegisterGroupCode'] = $request->faceRegisterGroupCode;
         }
@@ -3275,6 +3287,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->faceQuality) {
             @$query['FaceQuality'] = $request->faceQuality;
+        }
+
+        if (null !== $request->faceQualityCheck) {
+            @$query['FaceQualityCheck'] = $request->faceQualityCheck;
         }
 
         if (null !== $request->merchantBizId) {

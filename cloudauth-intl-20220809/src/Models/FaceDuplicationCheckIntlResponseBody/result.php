@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceDuplicationCheckIntlResponseBody\result\extFaceInfo;
 
 class result extends Model
 {
@@ -12,6 +13,11 @@ class result extends Model
      * @var string
      */
     public $duplicateFace;
+
+    /**
+     * @var extFaceInfo
+     */
+    public $extFaceInfo;
 
     /**
      * @var string
@@ -64,6 +70,7 @@ class result extends Model
     public $transactionId;
     protected $_name = [
         'duplicateFace' => 'DuplicateFace',
+        'extFaceInfo' => 'ExtFaceInfo',
         'faceAge' => 'FaceAge',
         'faceAttack' => 'FaceAttack',
         'faceAttackScore' => 'FaceAttackScore',
@@ -78,6 +85,9 @@ class result extends Model
 
     public function validate()
     {
+        if (null !== $this->extFaceInfo) {
+            $this->extFaceInfo->validate();
+        }
         parent::validate();
     }
 
@@ -86,6 +96,10 @@ class result extends Model
         $res = [];
         if (null !== $this->duplicateFace) {
             $res['DuplicateFace'] = $this->duplicateFace;
+        }
+
+        if (null !== $this->extFaceInfo) {
+            $res['ExtFaceInfo'] = null !== $this->extFaceInfo ? $this->extFaceInfo->toArray($noStream) : $this->extFaceInfo;
         }
 
         if (null !== $this->faceAge) {
@@ -141,6 +155,10 @@ class result extends Model
         $model = new self();
         if (isset($map['DuplicateFace'])) {
             $model->duplicateFace = $map['DuplicateFace'];
+        }
+
+        if (isset($map['ExtFaceInfo'])) {
+            $model->extFaceInfo = extFaceInfo::fromMap($map['ExtFaceInfo']);
         }
 
         if (isset($map['FaceAge'])) {
