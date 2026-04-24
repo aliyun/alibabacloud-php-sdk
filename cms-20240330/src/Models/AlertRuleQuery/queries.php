@@ -40,6 +40,16 @@ class queries extends Model
     public $expr;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $promQl;
+
+    /**
      * @var int
      */
     public $start;
@@ -60,6 +70,8 @@ class queries extends Model
         'duration' => 'duration',
         'end' => 'end',
         'expr' => 'expr',
+        'name' => 'name',
+        'promQl' => 'promQl',
         'start' => 'start',
         'timeUnit' => 'timeUnit',
         'window' => 'window',
@@ -115,6 +127,14 @@ class queries extends Model
 
         if (null !== $this->expr) {
             $res['expr'] = $this->expr;
+        }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
+        if (null !== $this->promQl) {
+            $res['promQl'] = $this->promQl;
         }
 
         if (null !== $this->start) {
@@ -176,6 +196,14 @@ class queries extends Model
 
         if (isset($map['expr'])) {
             $model->expr = $map['expr'];
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
+        if (isset($map['promQl'])) {
+            $model->promQl = $map['promQl'];
         }
 
         if (isset($map['start'])) {

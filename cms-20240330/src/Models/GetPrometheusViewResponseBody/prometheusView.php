@@ -58,6 +58,11 @@ class prometheusView extends Model
     /**
      * @var string
      */
+    public $httpApiInternalUrl;
+
+    /**
+     * @var string
+     */
     public $httpApiIntraUrl;
 
     /**
@@ -99,6 +104,11 @@ class prometheusView extends Model
      * @var string
      */
     public $remoteReadInterUrl;
+
+    /**
+     * @var string
+     */
+    public $remoteReadInternalUrl;
 
     /**
      * @var string
@@ -154,6 +164,7 @@ class prometheusView extends Model
         'grafanaInstanceId' => 'grafanaInstanceId',
         'grafanaInstanceName' => 'grafanaInstanceName',
         'httpApiInterUrl' => 'httpApiInterUrl',
+        'httpApiInternalUrl' => 'httpApiInternalUrl',
         'httpApiIntraUrl' => 'httpApiIntraUrl',
         'instanceType' => 'instanceType',
         'paymentType' => 'paymentType',
@@ -163,6 +174,7 @@ class prometheusView extends Model
         'prometheusViewName' => 'prometheusViewName',
         'regionId' => 'regionId',
         'remoteReadInterUrl' => 'remoteReadInterUrl',
+        'remoteReadInternalUrl' => 'remoteReadInternalUrl',
         'remoteReadIntraUrl' => 'remoteReadIntraUrl',
         'resourceGroupId' => 'resourceGroupId',
         'resourceType' => 'resourceType',
@@ -227,6 +239,10 @@ class prometheusView extends Model
             $res['httpApiInterUrl'] = $this->httpApiInterUrl;
         }
 
+        if (null !== $this->httpApiInternalUrl) {
+            $res['httpApiInternalUrl'] = $this->httpApiInternalUrl;
+        }
+
         if (null !== $this->httpApiIntraUrl) {
             $res['httpApiIntraUrl'] = $this->httpApiIntraUrl;
         }
@@ -268,6 +284,10 @@ class prometheusView extends Model
 
         if (null !== $this->remoteReadInterUrl) {
             $res['remoteReadInterUrl'] = $this->remoteReadInterUrl;
+        }
+
+        if (null !== $this->remoteReadInternalUrl) {
+            $res['remoteReadInternalUrl'] = $this->remoteReadInternalUrl;
         }
 
         if (null !== $this->remoteReadIntraUrl) {
@@ -367,6 +387,10 @@ class prometheusView extends Model
             $model->httpApiInterUrl = $map['httpApiInterUrl'];
         }
 
+        if (isset($map['httpApiInternalUrl'])) {
+            $model->httpApiInternalUrl = $map['httpApiInternalUrl'];
+        }
+
         if (isset($map['httpApiIntraUrl'])) {
             $model->httpApiIntraUrl = $map['httpApiIntraUrl'];
         }
@@ -408,6 +432,10 @@ class prometheusView extends Model
 
         if (isset($map['remoteReadInterUrl'])) {
             $model->remoteReadInterUrl = $map['remoteReadInterUrl'];
+        }
+
+        if (isset($map['remoteReadInternalUrl'])) {
+            $model->remoteReadInternalUrl = $map['remoteReadInternalUrl'];
         }
 
         if (isset($map['remoteReadIntraUrl'])) {

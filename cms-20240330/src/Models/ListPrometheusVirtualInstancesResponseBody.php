@@ -17,10 +17,28 @@ class ListPrometheusVirtualInstancesResponseBody extends Model
     /**
      * @var string
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
         'instances' => 'instances',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
         'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -45,8 +63,20 @@ class ListPrometheusVirtualInstancesResponseBody extends Model
             }
         }
 
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -71,8 +101,20 @@ class ListPrometheusVirtualInstancesResponseBody extends Model
             }
         }
 
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
+        }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

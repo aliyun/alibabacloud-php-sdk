@@ -82,6 +82,11 @@ class prometheusInstance extends Model
     /**
      * @var string
      */
+    public $httpApiInternalUrl;
+
+    /**
+     * @var string
+     */
     public $httpApiIntraUrl;
 
     /**
@@ -122,6 +127,11 @@ class prometheusInstance extends Model
     /**
      * @var string
      */
+    public $pushGatewayInternalUrl;
+
+    /**
+     * @var string
+     */
     public $pushGatewayIntraUrl;
 
     /**
@@ -137,12 +147,22 @@ class prometheusInstance extends Model
     /**
      * @var string
      */
+    public $remoteReadInternalUrl;
+
+    /**
+     * @var string
+     */
     public $remoteReadIntraUrl;
 
     /**
      * @var string
      */
     public $remoteWriteInterUrl;
+
+    /**
+     * @var string
+     */
+    public $remoteWriteInternalUrl;
 
     /**
      * @var string
@@ -208,6 +228,7 @@ class prometheusInstance extends Model
         'grafanaInstanceId' => 'grafanaInstanceId',
         'grafanaInstanceName' => 'grafanaInstanceName',
         'httpApiInterUrl' => 'httpApiInterUrl',
+        'httpApiInternalUrl' => 'httpApiInternalUrl',
         'httpApiIntraUrl' => 'httpApiIntraUrl',
         'instanceType' => 'instanceType',
         'paymentType' => 'paymentType',
@@ -216,11 +237,14 @@ class prometheusInstance extends Model
         'prometheusInstanceId' => 'prometheusInstanceId',
         'prometheusInstanceName' => 'prometheusInstanceName',
         'pushGatewayInterUrl' => 'pushGatewayInterUrl',
+        'pushGatewayInternalUrl' => 'pushGatewayInternalUrl',
         'pushGatewayIntraUrl' => 'pushGatewayIntraUrl',
         'regionId' => 'regionId',
         'remoteReadInterUrl' => 'remoteReadInterUrl',
+        'remoteReadInternalUrl' => 'remoteReadInternalUrl',
         'remoteReadIntraUrl' => 'remoteReadIntraUrl',
         'remoteWriteInterUrl' => 'remoteWriteInterUrl',
+        'remoteWriteInternalUrl' => 'remoteWriteInternalUrl',
         'remoteWriteIntraUrl' => 'remoteWriteIntraUrl',
         'resourceGroupId' => 'resourceGroupId',
         'resourceType' => 'resourceType',
@@ -311,6 +335,10 @@ class prometheusInstance extends Model
             $res['httpApiInterUrl'] = $this->httpApiInterUrl;
         }
 
+        if (null !== $this->httpApiInternalUrl) {
+            $res['httpApiInternalUrl'] = $this->httpApiInternalUrl;
+        }
+
         if (null !== $this->httpApiIntraUrl) {
             $res['httpApiIntraUrl'] = $this->httpApiIntraUrl;
         }
@@ -343,6 +371,10 @@ class prometheusInstance extends Model
             $res['pushGatewayInterUrl'] = $this->pushGatewayInterUrl;
         }
 
+        if (null !== $this->pushGatewayInternalUrl) {
+            $res['pushGatewayInternalUrl'] = $this->pushGatewayInternalUrl;
+        }
+
         if (null !== $this->pushGatewayIntraUrl) {
             $res['pushGatewayIntraUrl'] = $this->pushGatewayIntraUrl;
         }
@@ -355,12 +387,20 @@ class prometheusInstance extends Model
             $res['remoteReadInterUrl'] = $this->remoteReadInterUrl;
         }
 
+        if (null !== $this->remoteReadInternalUrl) {
+            $res['remoteReadInternalUrl'] = $this->remoteReadInternalUrl;
+        }
+
         if (null !== $this->remoteReadIntraUrl) {
             $res['remoteReadIntraUrl'] = $this->remoteReadIntraUrl;
         }
 
         if (null !== $this->remoteWriteInterUrl) {
             $res['remoteWriteInterUrl'] = $this->remoteWriteInterUrl;
+        }
+
+        if (null !== $this->remoteWriteInternalUrl) {
+            $res['remoteWriteInternalUrl'] = $this->remoteWriteInternalUrl;
         }
 
         if (null !== $this->remoteWriteIntraUrl) {
@@ -489,6 +529,10 @@ class prometheusInstance extends Model
             $model->httpApiInterUrl = $map['httpApiInterUrl'];
         }
 
+        if (isset($map['httpApiInternalUrl'])) {
+            $model->httpApiInternalUrl = $map['httpApiInternalUrl'];
+        }
+
         if (isset($map['httpApiIntraUrl'])) {
             $model->httpApiIntraUrl = $map['httpApiIntraUrl'];
         }
@@ -521,6 +565,10 @@ class prometheusInstance extends Model
             $model->pushGatewayInterUrl = $map['pushGatewayInterUrl'];
         }
 
+        if (isset($map['pushGatewayInternalUrl'])) {
+            $model->pushGatewayInternalUrl = $map['pushGatewayInternalUrl'];
+        }
+
         if (isset($map['pushGatewayIntraUrl'])) {
             $model->pushGatewayIntraUrl = $map['pushGatewayIntraUrl'];
         }
@@ -533,12 +581,20 @@ class prometheusInstance extends Model
             $model->remoteReadInterUrl = $map['remoteReadInterUrl'];
         }
 
+        if (isset($map['remoteReadInternalUrl'])) {
+            $model->remoteReadInternalUrl = $map['remoteReadInternalUrl'];
+        }
+
         if (isset($map['remoteReadIntraUrl'])) {
             $model->remoteReadIntraUrl = $map['remoteReadIntraUrl'];
         }
 
         if (isset($map['remoteWriteInterUrl'])) {
             $model->remoteWriteInterUrl = $map['remoteWriteInterUrl'];
+        }
+
+        if (isset($map['remoteWriteInternalUrl'])) {
+            $model->remoteWriteInternalUrl = $map['remoteWriteInternalUrl'];
         }
 
         if (isset($map['remoteWriteIntraUrl'])) {

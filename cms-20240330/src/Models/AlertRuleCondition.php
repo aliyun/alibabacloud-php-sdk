@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compareList;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compositeEscalation;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\expressEscalation;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\simpleEscalation;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\triggers;
 
 class AlertRuleCondition extends Model
 {
@@ -32,6 +33,11 @@ class AlertRuleCondition extends Model
      * @var compositeEscalation
      */
     public $compositeEscalation;
+
+    /**
+     * @var bool
+     */
+    public $enableSeveritySuppression;
 
     /**
      * @var string
@@ -74,6 +80,11 @@ class AlertRuleCondition extends Model
     public $simpleEscalation;
 
     /**
+     * @var triggers[]
+     */
+    public $triggers;
+
+    /**
      * @var string
      */
     public $type;
@@ -87,6 +98,7 @@ class AlertRuleCondition extends Model
         'caseList' => 'caseList',
         'compareList' => 'compareList',
         'compositeEscalation' => 'compositeEscalation',
+        'enableSeveritySuppression' => 'enableSeveritySuppression',
         'escalationType' => 'escalationType',
         'expressEscalation' => 'expressEscalation',
         'noDataAlertLevel' => 'noDataAlertLevel',
@@ -95,6 +107,7 @@ class AlertRuleCondition extends Model
         'oper' => 'oper',
         'relation' => 'relation',
         'simpleEscalation' => 'simpleEscalation',
+        'triggers' => 'triggers',
         'type' => 'type',
         'value' => 'value',
     ];
@@ -115,6 +128,9 @@ class AlertRuleCondition extends Model
         }
         if (null !== $this->simpleEscalation) {
             $this->simpleEscalation->validate();
+        }
+        if (\is_array($this->triggers)) {
+            Model::validateArray($this->triggers);
         }
         parent::validate();
     }
@@ -152,6 +168,10 @@ class AlertRuleCondition extends Model
             $res['compositeEscalation'] = null !== $this->compositeEscalation ? $this->compositeEscalation->toArray($noStream) : $this->compositeEscalation;
         }
 
+        if (null !== $this->enableSeveritySuppression) {
+            $res['enableSeveritySuppression'] = $this->enableSeveritySuppression;
+        }
+
         if (null !== $this->escalationType) {
             $res['escalationType'] = $this->escalationType;
         }
@@ -182,6 +202,17 @@ class AlertRuleCondition extends Model
 
         if (null !== $this->simpleEscalation) {
             $res['simpleEscalation'] = null !== $this->simpleEscalation ? $this->simpleEscalation->toArray($noStream) : $this->simpleEscalation;
+        }
+
+        if (null !== $this->triggers) {
+            if (\is_array($this->triggers)) {
+                $res['triggers'] = [];
+                $n1 = 0;
+                foreach ($this->triggers as $item1) {
+                    $res['triggers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -233,6 +264,10 @@ class AlertRuleCondition extends Model
             $model->compositeEscalation = compositeEscalation::fromMap($map['compositeEscalation']);
         }
 
+        if (isset($map['enableSeveritySuppression'])) {
+            $model->enableSeveritySuppression = $map['enableSeveritySuppression'];
+        }
+
         if (isset($map['escalationType'])) {
             $model->escalationType = $map['escalationType'];
         }
@@ -263,6 +298,17 @@ class AlertRuleCondition extends Model
 
         if (isset($map['simpleEscalation'])) {
             $model->simpleEscalation = simpleEscalation::fromMap($map['simpleEscalation']);
+        }
+
+        if (isset($map['triggers'])) {
+            if (!empty($map['triggers'])) {
+                $model->triggers = [];
+                $n1 = 0;
+                foreach ($map['triggers'] as $item1) {
+                    $model->triggers[$n1] = triggers::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['type'])) {

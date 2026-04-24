@@ -83,6 +83,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteWorkspaceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryRequest;
@@ -3117,6 +3120,93 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteWorkspaceWithOptions($workspaceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询元数据meta.
+     *
+     * @param tmpReq - DescribeMetricMetaListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricMetaListResponse
+     *
+     * @param DescribeMetricMetaListRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMetricMetaListResponse
+     */
+    public function describeMetricMetaListWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeMetricMetaListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labels) {
+            $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'labels', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->labelsShrink) {
+            @$query['labels'] = $request->labelsShrink;
+        }
+
+        if (null !== $request->metaFormat) {
+            @$query['metaFormat'] = $request->metaFormat;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['metricName'] = $request->metricName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMetricMetaList',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/describe-metric-meta-list',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMetricMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询元数据meta.
+     *
+     * @param request - DescribeMetricMetaListRequest
+     *
+     * @returns DescribeMetricMetaListResponse
+     *
+     * @param DescribeMetricMetaListRequest $request
+     *
+     * @return DescribeMetricMetaListResponse
+     */
+    public function describeMetricMetaList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeMetricMetaListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6956,8 +7046,16 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
         if (null !== $request->namespace) {
             @$query['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
 
         if (null !== $request->tenantId) {

@@ -44,6 +44,11 @@ class AlertRuleNotification extends Model
     public $notifyTime;
 
     /**
+     * @var mixed[][]
+     */
+    public $qwencloudContacts;
+
+    /**
      * @var int
      */
     public $silenceTime;
@@ -65,6 +70,7 @@ class AlertRuleNotification extends Model
         'fsWebhooks' => 'fsWebhooks',
         'groups' => 'groups',
         'notifyTime' => 'notifyTime',
+        'qwencloudContacts' => 'qwencloudContacts',
         'silenceTime' => 'silenceTime',
         'slackWebhooks' => 'slackWebhooks',
         'wxWebhooks' => 'wxWebhooks',
@@ -92,6 +98,9 @@ class AlertRuleNotification extends Model
         }
         if (null !== $this->notifyTime) {
             $this->notifyTime->validate();
+        }
+        if (\is_array($this->qwencloudContacts)) {
+            Model::validateArray($this->qwencloudContacts);
         }
         if (\is_array($this->slackWebhooks)) {
             Model::validateArray($this->slackWebhooks);
@@ -173,6 +182,15 @@ class AlertRuleNotification extends Model
 
         if (null !== $this->notifyTime) {
             $res['notifyTime'] = null !== $this->notifyTime ? $this->notifyTime->toArray($noStream) : $this->notifyTime;
+        }
+
+        if (null !== $this->qwencloudContacts) {
+            if (\is_array($this->qwencloudContacts)) {
+                $res['qwencloudContacts'] = [];
+                foreach ($this->qwencloudContacts as $key1 => $value1) {
+                    $res['qwencloudContacts'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->silenceTime) {
@@ -280,6 +298,15 @@ class AlertRuleNotification extends Model
 
         if (isset($map['notifyTime'])) {
             $model->notifyTime = AlertRuleTimeSpan::fromMap($map['notifyTime']);
+        }
+
+        if (isset($map['qwencloudContacts'])) {
+            if (!empty($map['qwencloudContacts'])) {
+                $model->qwencloudContacts = [];
+                foreach ($map['qwencloudContacts'] as $key1 => $value1) {
+                    $model->qwencloudContacts[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['silenceTime'])) {

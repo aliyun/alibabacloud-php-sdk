@@ -37,6 +37,11 @@ class AlertRuleDataSource extends Model
     /**
      * @var string
      */
+    public $tenantId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'appType' => 'appType',
@@ -44,6 +49,7 @@ class AlertRuleDataSource extends Model
         'instanceId' => 'instanceId',
         'namespace' => 'namespace',
         'regionId' => 'regionId',
+        'tenantId' => 'tenantId',
         'type' => 'type',
     ];
 
@@ -83,6 +89,10 @@ class AlertRuleDataSource extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['tenantId'] = $this->tenantId;
         }
 
         if (null !== $this->type) {
@@ -125,6 +135,10 @@ class AlertRuleDataSource extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['tenantId'])) {
+            $model->tenantId = $map['tenantId'];
         }
 
         if (isset($map['type'])) {
