@@ -27,15 +27,24 @@ class options extends Model
      * @var string
      */
     public $vpcEndpointName;
+
+    /**
+     * @var string[]
+     */
+    public $vpcEndpoints;
     protected $_name = [
         'compatibilityCheck' => 'compatibilityCheck',
         'credentialName' => 'credentialName',
         'flowName' => 'flowName',
         'vpcEndpointName' => 'vpcEndpointName',
+        'vpcEndpoints' => 'vpcEndpoints',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vpcEndpoints)) {
+            Model::validateArray($this->vpcEndpoints);
+        }
         parent::validate();
     }
 
@@ -56,6 +65,15 @@ class options extends Model
 
         if (null !== $this->vpcEndpointName) {
             $res['vpcEndpointName'] = $this->vpcEndpointName;
+        }
+
+        if (null !== $this->vpcEndpoints) {
+            if (\is_array($this->vpcEndpoints)) {
+                $res['vpcEndpoints'] = [];
+                foreach ($this->vpcEndpoints as $key1 => $value1) {
+                    $res['vpcEndpoints'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
@@ -83,6 +101,15 @@ class options extends Model
 
         if (isset($map['vpcEndpointName'])) {
             $model->vpcEndpointName = $map['vpcEndpointName'];
+        }
+
+        if (isset($map['vpcEndpoints'])) {
+            if (!empty($map['vpcEndpoints'])) {
+                $model->vpcEndpoints = [];
+                foreach ($map['vpcEndpoints'] as $key1 => $value1) {
+                    $model->vpcEndpoints[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

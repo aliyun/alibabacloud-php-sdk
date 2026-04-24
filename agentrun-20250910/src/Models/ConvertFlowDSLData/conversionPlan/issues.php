@@ -14,7 +14,7 @@ class issues extends Model
     public $description;
 
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $details;
 
