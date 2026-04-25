@@ -25,7 +25,7 @@ class browserConfig extends Model
     public $browserParam;
 
     /**
-     * @var string
+     * @var bool
      */
     public $cookiesSync;
 
