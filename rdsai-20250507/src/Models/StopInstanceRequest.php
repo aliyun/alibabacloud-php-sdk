@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class StopInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $instanceName;
@@ -18,6 +23,7 @@ class StopInstanceRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'force' => 'Force',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
@@ -30,6 +36,10 @@ class StopInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -49,6 +59,10 @@ class StopInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

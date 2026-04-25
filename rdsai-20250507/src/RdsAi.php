@@ -4436,6 +4436,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
