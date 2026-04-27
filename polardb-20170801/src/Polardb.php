@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckPolarFsQuotaConsistencyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckPolarFsQuotaConsistencyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ClonePolarFsBasicSnapshotRequest;
@@ -107,6 +109,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
@@ -377,6 +381,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyRequest;
@@ -577,6 +583,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyScheduleTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyScheduleTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySQLRateLimitingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupRequest;
@@ -2077,6 +2085,93 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkKMSAuthorizedWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于检查PolarFS实例中配额设置的一致性状态。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+     * ### 注意事项
+     * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+     * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+     * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+     * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+     *
+     * @param request - CheckPolarFsQuotaConsistencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckPolarFsQuotaConsistencyResponse
+     *
+     * @param CheckPolarFsQuotaConsistencyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckPolarFsQuotaConsistencyResponse
+     */
+    public function checkPolarFsQuotaConsistencyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enableRepair) {
+            @$query['EnableRepair'] = $request->enableRepair;
+        }
+
+        if (null !== $request->enableStrictCalculate) {
+            @$query['EnableStrictCalculate'] = $request->enableStrictCalculate;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckPolarFsQuotaConsistency',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckPolarFsQuotaConsistencyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于检查PolarFS实例中配额设置的一致性状态。
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+     * ### 注意事项
+     * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+     * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+     * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+     * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+     *
+     * @param request - CheckPolarFsQuotaConsistencyRequest
+     *
+     * @returns CheckPolarFsQuotaConsistencyResponse
+     *
+     * @param CheckPolarFsQuotaConsistencyRequest $request
+     *
+     * @return CheckPolarFsQuotaConsistencyResponse
+     */
+    public function checkPolarFsQuotaConsistency($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkPolarFsQuotaConsistencyWithOptions($request, $runtime);
     }
 
     /**
@@ -5515,6 +5610,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于在指定PolarFS实例中创建新的目录。
+     *
+     * @remarks
+     * ## 请求说明
+     * - **Path**：需要创建的目录绝对路径。
+     * - **Recursive**：是否递归创建父目录，默认为 `false`。
+     * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+     * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+     * - 创建目录时，请确保具有足够的权限。
+     *
+     * @param request - CreatePolarFsObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarFsObjectResponse
+     *
+     * @param CreatePolarFsObjectRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreatePolarFsObjectResponse
+     */
+    public function createPolarFsObjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarFsObject',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarFsObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用于在指定PolarFS实例中创建新的目录。
+     *
+     * @remarks
+     * ## 请求说明
+     * - **Path**：需要创建的目录绝对路径。
+     * - **Recursive**：是否递归创建父目录，默认为 `false`。
+     * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+     * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+     * - 创建目录时，请确保具有足够的权限。
+     *
+     * @param request - CreatePolarFsObjectRequest
+     *
+     * @returns CreatePolarFsObjectResponse
+     *
+     * @param CreatePolarFsObjectRequest $request
+     *
+     * @return CreatePolarFsObjectResponse
+     */
+    public function createPolarFsObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarFsObjectWithOptions($request, $runtime);
     }
 
     /**
@@ -16528,6 +16700,81 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 列出指定路径下的文件和子目录信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - **Path** 参数必须提供一个绝对路径。
+     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     *
+     * @param request - DescribePolarFsObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsObjectsResponse
+     *
+     * @param DescribePolarFsObjectsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribePolarFsObjectsResponse
+     */
+    public function describePolarFsObjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFsObjects',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出指定路径下的文件和子目录信息。
+     *
+     * @remarks
+     * ## 请求说明
+     * - **Path** 参数必须提供一个绝对路径。
+     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     *
+     * @param request - DescribePolarFsObjectsRequest
+     *
+     * @returns DescribePolarFsObjectsResponse
+     *
+     * @param DescribePolarFsObjectsRequest $request
+     *
+     * @return DescribePolarFsObjectsResponse
+     */
+    public function describePolarFsObjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsObjectsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询配额规则.
      *
      * @param request - DescribePolarFsQuotaRequest
@@ -25342,6 +25589,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyScheduleTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重命名或移动文件.
+     *
+     * @param request - MovePolarFsObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MovePolarFsObjectsResponse
+     *
+     * @param MovePolarFsObjectsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MovePolarFsObjectsResponse
+     */
+    public function movePolarFsObjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->objectsToMove) {
+            @$query['ObjectsToMove'] = $request->objectsToMove;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MovePolarFsObjects',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MovePolarFsObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重命名或移动文件.
+     *
+     * @param request - MovePolarFsObjectsRequest
+     *
+     * @returns MovePolarFsObjectsResponse
+     *
+     * @param MovePolarFsObjectsRequest $request
+     *
+     * @return MovePolarFsObjectsResponse
+     */
+    public function movePolarFsObjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->movePolarFsObjectsWithOptions($request, $runtime);
     }
 
     /**
