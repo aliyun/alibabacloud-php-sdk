@@ -42,6 +42,11 @@ class UpdateAppRequest extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var int
+     */
+    public $workerId;
     protected $_name = [
         'accessToken' => 'AccessToken',
         'appName' => 'AppName',
@@ -50,6 +55,7 @@ class UpdateAppRequest extends Model
         'labelRouteStrategy' => 'LabelRouteStrategy',
         'maxConcurrency' => 'MaxConcurrency',
         'title' => 'Title',
+        'workerId' => 'WorkerId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class UpdateAppRequest extends Model
 
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+
+        if (null !== $this->workerId) {
+            $res['WorkerId'] = $this->workerId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class UpdateAppRequest extends Model
 
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+
+        if (isset($map['WorkerId'])) {
+            $model->workerId = $map['WorkerId'];
         }
 
         return $model;

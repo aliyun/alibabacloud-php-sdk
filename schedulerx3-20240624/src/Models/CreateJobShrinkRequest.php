@@ -142,6 +142,11 @@ class CreateJobShrinkRequest extends Model
      * @var int
      */
     public $weight;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'appName' => 'AppName',
         'attemptInterval' => 'AttemptInterval',
@@ -170,6 +175,7 @@ class CreateJobShrinkRequest extends Model
         'timeType' => 'TimeType',
         'timezone' => 'Timezone',
         'weight' => 'Weight',
+        'XAttrs' => 'XAttrs',
     ];
 
     public function validate()
@@ -286,6 +292,10 @@ class CreateJobShrinkRequest extends Model
 
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
+        }
+
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
         }
 
         return $res;
@@ -405,6 +415,10 @@ class CreateJobShrinkRequest extends Model
 
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
+        }
+
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;

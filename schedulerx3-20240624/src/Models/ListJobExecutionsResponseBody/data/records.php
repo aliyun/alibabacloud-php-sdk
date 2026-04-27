@@ -122,6 +122,11 @@ class records extends Model
      * @var string
      */
     public $workflowName;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'appName' => 'AppName',
         'attempt' => 'Attempt',
@@ -146,6 +151,7 @@ class records extends Model
         'workflowExecutionId' => 'WorkflowExecutionId',
         'workflowId' => 'WorkflowId',
         'workflowName' => 'WorkflowName',
+        'XAttrs' => 'XAttrs',
     ];
 
     public function validate()
@@ -246,6 +252,10 @@ class records extends Model
 
         if (null !== $this->workflowName) {
             $res['WorkflowName'] = $this->workflowName;
+        }
+
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
         }
 
         return $res;
@@ -349,6 +359,10 @@ class records extends Model
 
         if (isset($map['WorkflowName'])) {
             $model->workflowName = $map['WorkflowName'];
+        }
+
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;

@@ -30,6 +30,11 @@ class records extends Model
     public $clusterSpec;
 
     /**
+     * @var int
+     */
+    public $clusterType;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -98,6 +103,7 @@ class records extends Model
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
+        'clusterType' => 'ClusterType',
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
         'engineType' => 'EngineType',
@@ -141,6 +147,10 @@ class records extends Model
 
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
+        }
+
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
 
         if (null !== $this->createTime) {
@@ -232,6 +242,10 @@ class records extends Model
 
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];
+        }
+
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
 
         if (isset($map['CreateTime'])) {

@@ -28,6 +28,11 @@ class CreateClusterRequest extends Model
     /**
      * @var int
      */
+    public $clusterType;
+
+    /**
+     * @var int
+     */
     public $duration;
 
     /**
@@ -58,6 +63,7 @@ class CreateClusterRequest extends Model
         'chargeType' => 'ChargeType',
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
+        'clusterType' => 'ClusterType',
         'duration' => 'Duration',
         'engineType' => 'EngineType',
         'pricingCycle' => 'PricingCycle',
@@ -90,6 +96,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
+        }
+
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
 
         if (null !== $this->duration) {
@@ -151,6 +161,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];
+        }
+
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
 
         if (isset($map['Duration'])) {

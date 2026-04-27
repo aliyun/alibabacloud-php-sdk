@@ -134,6 +134,11 @@ class UpdateJobRequest extends Model
      * @var int
      */
     public $weight;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'appName' => 'AppName',
         'attemptInterval' => 'AttemptInterval',
@@ -160,6 +165,7 @@ class UpdateJobRequest extends Model
         'timeType' => 'TimeType',
         'timezone' => 'Timezone',
         'weight' => 'Weight',
+        'XAttrs' => 'XAttrs',
     ];
 
     public function validate()
@@ -283,6 +289,10 @@ class UpdateJobRequest extends Model
             $res['Weight'] = $this->weight;
         }
 
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
+        }
+
         return $res;
     }
 
@@ -399,6 +409,10 @@ class UpdateJobRequest extends Model
 
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
+        }
+
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;

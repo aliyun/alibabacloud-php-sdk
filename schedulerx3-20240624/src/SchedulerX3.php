@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterShrinkRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateDatasourceRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateDatasourceResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorGroupRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorGroupResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateJobRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteDatasourceRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteDatasourceResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteExecutorGroupRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteExecutorGroupResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteJobsShrinkRequest;
@@ -63,6 +67,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogEventResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetLogResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetPageLogRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetPageLogResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowDAGPreviewRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowDAGPreviewResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowDAGRequest;
@@ -177,6 +183,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateDatasourceRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateDatasourceResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorGroupRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorGroupResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateJobExecutionRequest;
@@ -233,7 +241,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
      *
      * @param request - CreateAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -300,7 +308,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
      *
      * @param request - CreateAppRequest
      *
@@ -391,7 +399,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建集群.
+     * Creates a cluster.
      *
      * @param tmpReq - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -428,6 +436,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->clusterSpec) {
             @$body['ClusterSpec'] = $request->clusterSpec;
+        }
+
+        if (null !== $request->clusterType) {
+            @$body['ClusterType'] = $request->clusterType;
         }
 
         if (null !== $request->duration) {
@@ -470,7 +482,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建集群.
+     * Creates a cluster.
      *
      * @param request - CreateClusterRequest
      *
@@ -565,6 +577,95 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 添加执行器组.
+     *
+     * @param request - CreateExecutorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExecutorGroupResponse
+     *
+     * @param CreateExecutorGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateExecutorGroupResponse
+     */
+    public function createExecutorGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->authType) {
+            @$body['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->network) {
+            @$body['Network'] = $request->network;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->workerType) {
+            @$body['WorkerType'] = $request->workerType;
+        }
+
+        if (null !== $request->workers) {
+            @$body['Workers'] = $request->workers;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateExecutorGroup',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateExecutorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加执行器组.
+     *
+     * @param request - CreateExecutorGroupRequest
+     *
+     * @returns CreateExecutorGroupResponse
+     *
+     * @param CreateExecutorGroupRequest $request
+     *
+     * @return CreateExecutorGroupResponse
+     */
+    public function createExecutorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExecutorGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * 添加执行器.
      *
      * @param request - CreateExecutorsRequest
@@ -634,7 +735,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建任务
+     * Creates a job.
      *
      * @param tmpReq - CreateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -772,6 +873,10 @@ class SchedulerX3 extends OpenApiClient
             @$body['Weight'] = $request->weight;
         }
 
+        if (null !== $request->XAttrs) {
+            @$body['XAttrs'] = $request->XAttrs;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -791,7 +896,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建任务
+     * Creates a job.
      *
      * @param request - CreateJobRequest
      *
@@ -906,7 +1011,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除应用分组.
+     * Deletes an application group.
      *
      * @param request - DeleteAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -949,7 +1054,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除应用分组.
+     * Deletes an application group.
      *
      * @param request - DeleteAppRequest
      *
@@ -1032,7 +1137,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 释放删除集群.
+     * Deletes a cluster.
      *
      * @param request - DeleteClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1071,7 +1176,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 释放删除集群.
+     * Deletes a cluster.
      *
      * @param request - DeleteClusterRequest
      *
@@ -1150,7 +1255,68 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量删除任务
+     * 添加执行器组.
+     *
+     * @param request - DeleteExecutorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExecutorGroupResponse
+     *
+     * @param DeleteExecutorGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteExecutorGroupResponse
+     */
+    public function deleteExecutorGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteExecutorGroup',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteExecutorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加执行器组.
+     *
+     * @param request - DeleteExecutorGroupRequest
+     *
+     * @returns DeleteExecutorGroupResponse
+     *
+     * @param DeleteExecutorGroupRequest $request
+     *
+     * @return DeleteExecutorGroupResponse
+     */
+    public function deleteExecutorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExecutorGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes multiple jobs at a time.
      *
      * @param tmpReq - DeleteJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1203,7 +1369,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量删除任务
+     * Deletes multiple jobs at a time.
      *
      * @param request - DeleteJobsRequest
      *
@@ -1365,7 +1531,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导出任务信息.
+     * Exports the information about jobs at a time.
      *
      * @param tmpReq - ExportJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1422,7 +1588,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导出任务信息.
+     * Exports the information about jobs at a time.
      *
      * @param request - ExportJobsRequest
      *
@@ -1637,7 +1803,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取集群详细信息.
+     * Queries the details of a cluster.
      *
      * @param request - GetClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1672,7 +1838,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取集群详细信息.
+     * Queries the details of a cluster.
      *
      * @param request - GetClusterRequest
      *
@@ -1690,7 +1856,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取指定机器信息.
+     * Queries a specified machine.
      *
      * @param request - GetDesigateInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1725,7 +1891,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取指定机器信息.
+     * Queries a specified machine.
      *
      * @param request - GetDesigateInfoRequest
      *
@@ -1873,7 +2039,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务执行的详情.
+     * Obtains the execution details of a job.
      *
      * @param request - GetJobExecutionProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1908,7 +2074,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务执行的详情.
+     * Obtains the execution details of a job.
      *
      * @param request - GetJobExecutionProgressRequest
      *
@@ -1979,7 +2145,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询日志.
+     * Queries logs.
      *
      * @param request - GetLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2014,7 +2180,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询日志.
+     * Queries logs.
      *
      * @param request - GetLogRequest
      *
@@ -2082,6 +2248,103 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLogEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取分页日志.
+     *
+     * @param request - GetPageLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPageLogResponse
+     *
+     * @param GetPageLogRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetPageLogResponse
+     */
+    public function getPageLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->jobExecutionId) {
+            @$query['JobExecutionId'] = $request->jobExecutionId;
+        }
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workerAddr) {
+            @$query['WorkerAddr'] = $request->workerAddr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPageLog',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPageLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取分页日志.
+     *
+     * @param request - GetPageLogRequest
+     *
+     * @returns GetPageLogResponse
+     *
+     * @param GetPageLogRequest $request
+     *
+     * @return GetPageLogResponse
+     */
+    public function getPageLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPageLogWithOptions($request, $runtime);
     }
 
     /**
@@ -2349,7 +2612,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 导入日历.
+     * Imports a calendar.
      *
      * @param request - ImportCalendarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2400,7 +2663,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 导入日历.
+     * Imports a calendar.
      *
      * @param request - ImportCalendarRequest
      *
@@ -2418,7 +2681,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导入任务
+     * Imports jobs at a time.
      *
      * @param request - ImportJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2469,7 +2732,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导入任务
+     * Imports jobs at a time.
      *
      * @param request - ImportJobsRequest
      *
@@ -2556,7 +2819,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取报警事件.
+     * Obtains a list of alert events.
      *
      * @param request - ListAlarmEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2591,7 +2854,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取报警事件.
+     * Obtains a list of alert events.
      *
      * @param request - ListAlarmEventRequest
      *
@@ -2609,7 +2872,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取应用名字列表.
+     * Obtains a list of application names.
      *
      * @param request - ListAppNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2644,7 +2907,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取应用名字列表.
+     * Obtains a list of application names.
      *
      * @param request - ListAppNamesRequest
      *
@@ -2662,7 +2925,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取应用列表.
+     * Queries a list of applications.
      *
      * @param request - ListAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2697,7 +2960,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取应用列表.
+     * Queries a list of applications.
      *
      * @param request - ListAppsRequest
      *
@@ -2715,7 +2978,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取日历名字列表.
+     * Obtains a list of calendar names.
      *
      * @param request - ListCalendarNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2750,7 +3013,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取日历名字列表.
+     * Obtains a list of calendar names.
      *
      * @param request - ListCalendarNamesRequest
      *
@@ -2845,7 +3108,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * Queries a list of instances.
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2880,7 +3143,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询实例列表.
+     * Queries a list of instances.
      *
      * @param request - ListClustersRequest
      *
@@ -2979,7 +3242,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询Executor列表.
+     * Queries a list of executors.
      *
      * @param request - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3014,7 +3277,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询Executor列表.
+     * Queries a list of executors.
      *
      * @param request - ListExecutorsRequest
      *
@@ -3032,7 +3295,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务实例列表.
+     * Obtains a list of job instances.
      *
      * @param request - ListJobExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3111,7 +3374,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务实例列表.
+     * Obtains a list of job instances.
      *
      * @param request - ListJobExecutionsRequest
      *
@@ -3202,7 +3465,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务列表.
+     * Queries a list of jobs.
      *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3277,7 +3540,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务列表.
+     * Queries a list of jobs.
      *
      * @param request - ListJobsRequest
      *
@@ -3368,7 +3631,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取executor的label列表.
+     * Obtains a list of tags of an executor.
      *
      * @param request - ListLablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3403,7 +3666,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取executor的label列表.
+     * Obtains a list of tags of an executor.
      *
      * @param request - ListLablesRequest
      *
@@ -3421,9 +3684,8 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取可用区列表.
+     * Obtains a list of zones.
      *
-     * @param request - ListRegionZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRegionZoneResponse
@@ -3451,7 +3713,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取可用区列表.
+     * Obtains a list of zones.
      *
      * @returns ListRegionZoneResponse
      *
@@ -3465,9 +3727,8 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取所有region列表.
+     * Obtains a list of all regions.
      *
-     * @param request - ListRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRegionsResponse
@@ -3495,7 +3756,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取所有region列表.
+     * Obtains a list of all regions.
      *
      * @returns ListRegionsResponse
      *
@@ -3509,7 +3770,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询调度事件.
+     * Queries scheduling events.
      *
      * @param request - ListScheduleEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3544,7 +3805,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询调度事件.
+     * Queries scheduling events.
      *
      * @param request - ListScheduleEventRequest
      *
@@ -3562,7 +3823,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取指定时间类型和表达式未来5次调度时间.
+     * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
      *
      * @param request - ListScheduleTimesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3597,7 +3858,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取指定时间类型和表达式未来5次调度时间.
+     * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
      *
      * @param request - ListScheduleTimesRequest
      *
@@ -4024,7 +4285,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 指定执行器.
+     * Designates executors.
      *
      * @param tmpReq - OperateDesignateExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4089,7 +4350,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 指定执行器.
+     * Designates executors.
      *
      * @param request - OperateDesignateExecutorsRequest
      *
@@ -4107,7 +4368,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量禁用任务
+     * Disables multiple jobs at a time.
      *
      * @param tmpReq - OperateDisableJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4160,7 +4421,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量禁用任务
+     * Disables multiple jobs at a time.
      *
      * @param request - OperateDisableJobsRequest
      *
@@ -4249,7 +4510,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量启用任务
+     * Enables multiple jobs at a time.
      *
      * @param tmpReq - OperateEnableJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4302,7 +4563,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量启用任务
+     * Enables multiple jobs at a time.
      *
      * @param request - OperateEnableJobsRequest
      *
@@ -4391,7 +4652,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 运行一次任务
+     * Runs a job once.
      *
      * @param request - OperateExecuteJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4450,7 +4711,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 运行一次任务
+     * Runs a job once.
      *
      * @param request - OperateExecuteJobRequest
      *
@@ -4793,7 +5054,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 重刷任务历史数据.
+     * Reprocesses the historical data of a job.
      *
      * @param request - OperateRerunJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4852,7 +5113,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 重刷任务历史数据.
+     * Reprocesses the historical data of a job.
      *
      * @param request - OperateRerunJobRequest
      *
@@ -4870,7 +5131,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 重跑失败的任务实例.
+     * Reruns failed job instances.
      *
      * @param tmpReq - OperateRetryJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4931,7 +5192,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 重跑失败的任务实例.
+     * Reruns failed job instances.
      *
      * @param request - OperateRetryJobExecutionRequest
      *
@@ -5083,7 +5344,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 停止运行中的任务实例.
+     * Stops running instances.
      *
      * @param tmpReq - OperateStopJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5140,7 +5401,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 停止运行中的任务实例.
+     * Stops running instances.
      *
      * @param request - OperateStopJobExecutionRequest
      *
@@ -5497,7 +5758,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新应用分组.
+     * Updates an application group.
      *
      * @param request - UpdateAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5541,6 +5802,10 @@ class SchedulerX3 extends OpenApiClient
             @$body['Title'] = $request->title;
         }
 
+        if (null !== $request->workerId) {
+            @$body['WorkerId'] = $request->workerId;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -5560,7 +5825,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新应用分组.
+     * Updates an application group.
      *
      * @param request - UpdateAppRequest
      *
@@ -5655,7 +5920,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新集群.
+     * Updates a cluster.
      *
      * @param request - UpdateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5702,7 +5967,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新集群.
+     * Updates a cluster.
      *
      * @param request - UpdateClusterRequest
      *
@@ -5797,6 +6062,95 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 更新执行器组.
+     *
+     * @param request - UpdateExecutorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExecutorGroupResponse
+     *
+     * @param UpdateExecutorGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateExecutorGroupResponse
+     */
+    public function updateExecutorGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->authType) {
+            @$body['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->network) {
+            @$body['Network'] = $request->network;
+        }
+
+        if (null !== $request->protocol) {
+            @$body['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->workerType) {
+            @$body['WorkerType'] = $request->workerType;
+        }
+
+        if (null !== $request->workers) {
+            @$body['Workers'] = $request->workers;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateExecutorGroup',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateExecutorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新执行器组.
+     *
+     * @param request - UpdateExecutorGroupRequest
+     *
+     * @returns UpdateExecutorGroupResponse
+     *
+     * @param UpdateExecutorGroupRequest $request
+     *
+     * @return UpdateExecutorGroupResponse
+     */
+    public function updateExecutorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateExecutorGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新执行器.
      *
      * @param request - UpdateExecutorsRequest
@@ -5866,7 +6220,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新任务信息.
+     * Updates the job information.
      *
      * @param tmpReq - UpdateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5992,6 +6346,10 @@ class SchedulerX3 extends OpenApiClient
             @$body['Weight'] = $request->weight;
         }
 
+        if (null !== $request->XAttrs) {
+            @$body['XAttrs'] = $request->XAttrs;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -6011,7 +6369,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新任务信息.
+     * Updates the job information.
      *
      * @param request - UpdateJobRequest
      *

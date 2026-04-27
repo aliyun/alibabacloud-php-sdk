@@ -22,6 +22,11 @@ class ListClustersRequest extends Model
     /**
      * @var int
      */
+    public $clusterType;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -36,6 +41,7 @@ class ListClustersRequest extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'tag' => 'Tag',
@@ -58,6 +64,10 @@ class ListClustersRequest extends Model
 
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
 
         if (null !== $this->pageNum) {
@@ -96,6 +106,10 @@ class ListClustersRequest extends Model
 
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
 
         if (isset($map['PageNum'])) {

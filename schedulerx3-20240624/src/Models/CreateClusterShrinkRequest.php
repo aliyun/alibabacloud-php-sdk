@@ -27,6 +27,11 @@ class CreateClusterShrinkRequest extends Model
     /**
      * @var int
      */
+    public $clusterType;
+
+    /**
+     * @var int
+     */
     public $duration;
 
     /**
@@ -57,6 +62,7 @@ class CreateClusterShrinkRequest extends Model
         'chargeType' => 'ChargeType',
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
+        'clusterType' => 'ClusterType',
         'duration' => 'Duration',
         'engineType' => 'EngineType',
         'pricingCycle' => 'PricingCycle',
@@ -86,6 +92,10 @@ class CreateClusterShrinkRequest extends Model
 
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
+        }
+
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
 
         if (null !== $this->duration) {
@@ -140,6 +150,10 @@ class CreateClusterShrinkRequest extends Model
 
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];
+        }
+
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
 
         if (isset($map['Duration'])) {

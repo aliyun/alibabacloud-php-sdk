@@ -30,6 +30,11 @@ class data extends Model
     public $clusterSpec;
 
     /**
+     * @var int
+     */
+    public $clusterType;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -138,6 +143,7 @@ class data extends Model
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
+        'clusterType' => 'ClusterType',
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
         'engineType' => 'EngineType',
@@ -192,6 +198,10 @@ class data extends Model
 
         if (null !== $this->clusterSpec) {
             $res['ClusterSpec'] = $this->clusterSpec;
+        }
+
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
 
         if (null !== $this->createTime) {
@@ -322,6 +332,10 @@ class data extends Model
 
         if (isset($map['ClusterSpec'])) {
             $model->clusterSpec = $map['ClusterSpec'];
+        }
+
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
 
         if (isset($map['CreateTime'])) {

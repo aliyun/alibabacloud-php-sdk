@@ -79,9 +79,19 @@ class records extends Model
     public $updater;
 
     /**
+     * @var int
+     */
+    public $workerId;
+
+    /**
      * @var string
      */
     public $workerRegistry;
+
+    /**
+     * @var string
+     */
+    public $workerType;
 
     /**
      * @var int
@@ -102,7 +112,9 @@ class records extends Model
         'maxJobs' => 'MaxJobs',
         'title' => 'Title',
         'updater' => 'Updater',
+        'workerId' => 'WorkerId',
         'workerRegistry' => 'WorkerRegistry',
+        'workerType' => 'WorkerType',
         'workflowNum' => 'WorkflowNum',
     ];
 
@@ -170,8 +182,16 @@ class records extends Model
             $res['Updater'] = $this->updater;
         }
 
+        if (null !== $this->workerId) {
+            $res['WorkerId'] = $this->workerId;
+        }
+
         if (null !== $this->workerRegistry) {
             $res['WorkerRegistry'] = $this->workerRegistry;
+        }
+
+        if (null !== $this->workerType) {
+            $res['WorkerType'] = $this->workerType;
         }
 
         if (null !== $this->workflowNum) {
@@ -245,8 +265,16 @@ class records extends Model
             $model->updater = $map['Updater'];
         }
 
+        if (isset($map['WorkerId'])) {
+            $model->workerId = $map['WorkerId'];
+        }
+
         if (isset($map['WorkerRegistry'])) {
             $model->workerRegistry = $map['WorkerRegistry'];
+        }
+
+        if (isset($map['WorkerType'])) {
+            $model->workerType = $map['WorkerType'];
         }
 
         if (isset($map['WorkflowNum'])) {
