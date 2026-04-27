@@ -25,6 +25,11 @@ class cpuOptions extends Model
     public $hyperThreadingAdjustable;
 
     /**
+     * @var string
+     */
+    public $nestedVirtualizationSupport;
+
+    /**
      * @var supportedTopologyTypes
      */
     public $supportedTopologyTypes;
@@ -37,6 +42,7 @@ class cpuOptions extends Model
         'core' => 'Core',
         'coreFactor' => 'CoreFactor',
         'hyperThreadingAdjustable' => 'HyperThreadingAdjustable',
+        'nestedVirtualizationSupport' => 'NestedVirtualizationSupport',
         'supportedTopologyTypes' => 'SupportedTopologyTypes',
         'threadsPerCore' => 'ThreadsPerCore',
     ];
@@ -62,6 +68,10 @@ class cpuOptions extends Model
 
         if (null !== $this->hyperThreadingAdjustable) {
             $res['HyperThreadingAdjustable'] = $this->hyperThreadingAdjustable;
+        }
+
+        if (null !== $this->nestedVirtualizationSupport) {
+            $res['NestedVirtualizationSupport'] = $this->nestedVirtualizationSupport;
         }
 
         if (null !== $this->supportedTopologyTypes) {
@@ -93,6 +103,10 @@ class cpuOptions extends Model
 
         if (isset($map['HyperThreadingAdjustable'])) {
             $model->hyperThreadingAdjustable = $map['HyperThreadingAdjustable'];
+        }
+
+        if (isset($map['NestedVirtualizationSupport'])) {
+            $model->nestedVirtualizationSupport = $map['NestedVirtualizationSupport'];
         }
 
         if (isset($map['SupportedTopologyTypes'])) {

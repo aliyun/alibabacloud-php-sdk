@@ -17,6 +17,11 @@ class launchResult extends Model
     /**
      * @var string
      */
+    public $candidateEvaluateLevel;
+
+    /**
+     * @var string
+     */
     public $errorCode;
 
     /**
@@ -45,6 +50,7 @@ class launchResult extends Model
     public $zoneId;
     protected $_name = [
         'amount' => 'Amount',
+        'candidateEvaluateLevel' => 'CandidateEvaluateLevel',
         'errorCode' => 'ErrorCode',
         'errorMsg' => 'ErrorMsg',
         'instanceIds' => 'InstanceIds',
@@ -66,6 +72,10 @@ class launchResult extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+
+        if (null !== $this->candidateEvaluateLevel) {
+            $res['CandidateEvaluateLevel'] = $this->candidateEvaluateLevel;
         }
 
         if (null !== $this->errorCode) {
@@ -105,6 +115,10 @@ class launchResult extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+
+        if (isset($map['CandidateEvaluateLevel'])) {
+            $model->candidateEvaluateLevel = $map['CandidateEvaluateLevel'];
         }
 
         if (isset($map['ErrorCode'])) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\candidateOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\dataDiskConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\launchTemplateConfig;
@@ -28,6 +29,11 @@ class CreateAutoProvisioningGroupShrinkRequest extends Model
      * @var string
      */
     public $autoProvisioningGroupType;
+
+    /**
+     * @var candidateOptions
+     */
+    public $candidateOptions;
 
     /**
      * @var string
@@ -197,6 +203,7 @@ class CreateAutoProvisioningGroupShrinkRequest extends Model
         'launchConfiguration' => 'LaunchConfiguration',
         'autoProvisioningGroupName' => 'AutoProvisioningGroupName',
         'autoProvisioningGroupType' => 'AutoProvisioningGroupType',
+        'candidateOptions' => 'CandidateOptions',
         'clientToken' => 'ClientToken',
         'dataDiskConfig' => 'DataDiskConfig',
         'defaultTargetCapacityType' => 'DefaultTargetCapacityType',
@@ -237,6 +244,9 @@ class CreateAutoProvisioningGroupShrinkRequest extends Model
         if (null !== $this->launchConfiguration) {
             $this->launchConfiguration->validate();
         }
+        if (null !== $this->candidateOptions) {
+            $this->candidateOptions->validate();
+        }
         if (\is_array($this->dataDiskConfig)) {
             Model::validateArray($this->dataDiskConfig);
         }
@@ -268,6 +278,10 @@ class CreateAutoProvisioningGroupShrinkRequest extends Model
 
         if (null !== $this->autoProvisioningGroupType) {
             $res['AutoProvisioningGroupType'] = $this->autoProvisioningGroupType;
+        }
+
+        if (null !== $this->candidateOptions) {
+            $res['CandidateOptions'] = null !== $this->candidateOptions ? $this->candidateOptions->toArray($noStream) : $this->candidateOptions;
         }
 
         if (null !== $this->clientToken) {
@@ -451,6 +465,10 @@ class CreateAutoProvisioningGroupShrinkRequest extends Model
 
         if (isset($map['AutoProvisioningGroupType'])) {
             $model->autoProvisioningGroupType = $map['AutoProvisioningGroupType'];
+        }
+
+        if (isset($map['CandidateOptions'])) {
+            $model->candidateOptions = candidateOptions::fromMap($map['CandidateOptions']);
         }
 
         if (isset($map['ClientToken'])) {

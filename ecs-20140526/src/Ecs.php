@@ -4352,6 +4352,10 @@ class Ecs extends OpenApiClient
             @$query['AutoProvisioningGroupType'] = $request->autoProvisioningGroupType;
         }
 
+        if (null !== $request->candidateOptions) {
+            @$query['CandidateOptions'] = $request->candidateOptions;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -13460,6 +13464,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->autoProvisioningGroupStatus) {
             @$query['AutoProvisioningGroupStatus'] = $request->autoProvisioningGroupStatus;
+        }
+
+        if (null !== $request->autoProvisioningGroupTypes) {
+            @$query['AutoProvisioningGroupTypes'] = $request->autoProvisioningGroupTypes;
         }
 
         if (null !== $request->ownerAccount) {

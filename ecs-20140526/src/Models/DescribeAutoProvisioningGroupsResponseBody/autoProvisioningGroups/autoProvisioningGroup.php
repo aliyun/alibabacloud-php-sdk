@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\candidateOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\capacitySpecification;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\launchTemplateConfigs;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\payAsYouGoOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\spotOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\suspendedProcesses;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\tags;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup\targetCapacitySpecification;
 
@@ -27,6 +30,16 @@ class autoProvisioningGroup extends Model
      * @var string
      */
     public $autoProvisioningGroupType;
+
+    /**
+     * @var candidateOptions
+     */
+    public $candidateOptions;
+
+    /**
+     * @var capacitySpecification
+     */
+    public $capacitySpecification;
 
     /**
      * @var string
@@ -89,6 +102,11 @@ class autoProvisioningGroup extends Model
     public $status;
 
     /**
+     * @var suspendedProcesses
+     */
+    public $suspendedProcesses;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -121,6 +139,8 @@ class autoProvisioningGroup extends Model
         'autoProvisioningGroupId' => 'AutoProvisioningGroupId',
         'autoProvisioningGroupName' => 'AutoProvisioningGroupName',
         'autoProvisioningGroupType' => 'AutoProvisioningGroupType',
+        'candidateOptions' => 'CandidateOptions',
+        'capacitySpecification' => 'CapacitySpecification',
         'creationTime' => 'CreationTime',
         'excessCapacityTerminationPolicy' => 'ExcessCapacityTerminationPolicy',
         'launchTemplateConfigs' => 'LaunchTemplateConfigs',
@@ -133,6 +153,7 @@ class autoProvisioningGroup extends Model
         'spotOptions' => 'SpotOptions',
         'state' => 'State',
         'status' => 'Status',
+        'suspendedProcesses' => 'SuspendedProcesses',
         'tags' => 'Tags',
         'targetCapacitySpecification' => 'TargetCapacitySpecification',
         'terminateInstances' => 'TerminateInstances',
@@ -143,6 +164,12 @@ class autoProvisioningGroup extends Model
 
     public function validate()
     {
+        if (null !== $this->candidateOptions) {
+            $this->candidateOptions->validate();
+        }
+        if (null !== $this->capacitySpecification) {
+            $this->capacitySpecification->validate();
+        }
         if (null !== $this->launchTemplateConfigs) {
             $this->launchTemplateConfigs->validate();
         }
@@ -151,6 +178,9 @@ class autoProvisioningGroup extends Model
         }
         if (null !== $this->spotOptions) {
             $this->spotOptions->validate();
+        }
+        if (null !== $this->suspendedProcesses) {
+            $this->suspendedProcesses->validate();
         }
         if (null !== $this->tags) {
             $this->tags->validate();
@@ -174,6 +204,14 @@ class autoProvisioningGroup extends Model
 
         if (null !== $this->autoProvisioningGroupType) {
             $res['AutoProvisioningGroupType'] = $this->autoProvisioningGroupType;
+        }
+
+        if (null !== $this->candidateOptions) {
+            $res['CandidateOptions'] = null !== $this->candidateOptions ? $this->candidateOptions->toArray($noStream) : $this->candidateOptions;
+        }
+
+        if (null !== $this->capacitySpecification) {
+            $res['CapacitySpecification'] = null !== $this->capacitySpecification ? $this->capacitySpecification->toArray($noStream) : $this->capacitySpecification;
         }
 
         if (null !== $this->creationTime) {
@@ -224,6 +262,10 @@ class autoProvisioningGroup extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->suspendedProcesses) {
+            $res['SuspendedProcesses'] = null !== $this->suspendedProcesses ? $this->suspendedProcesses->toArray($noStream) : $this->suspendedProcesses;
+        }
+
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
@@ -269,6 +311,14 @@ class autoProvisioningGroup extends Model
 
         if (isset($map['AutoProvisioningGroupType'])) {
             $model->autoProvisioningGroupType = $map['AutoProvisioningGroupType'];
+        }
+
+        if (isset($map['CandidateOptions'])) {
+            $model->candidateOptions = candidateOptions::fromMap($map['CandidateOptions']);
+        }
+
+        if (isset($map['CapacitySpecification'])) {
+            $model->capacitySpecification = capacitySpecification::fromMap($map['CapacitySpecification']);
         }
 
         if (isset($map['CreationTime'])) {
@@ -317,6 +367,10 @@ class autoProvisioningGroup extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SuspendedProcesses'])) {
+            $model->suspendedProcesses = suspendedProcesses::fromMap($map['SuspendedProcesses']);
         }
 
         if (isset($map['Tags'])) {

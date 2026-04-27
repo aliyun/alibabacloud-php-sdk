@@ -25,6 +25,11 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $autoProvisioningGroupStatus;
 
     /**
+     * @var string[]
+     */
+    public $autoProvisioningGroupTypes;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -72,6 +77,7 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         'autoProvisioningGroupId' => 'AutoProvisioningGroupId',
         'autoProvisioningGroupName' => 'AutoProvisioningGroupName',
         'autoProvisioningGroupStatus' => 'AutoProvisioningGroupStatus',
+        'autoProvisioningGroupTypes' => 'AutoProvisioningGroupTypes',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
@@ -90,6 +96,9 @@ class DescribeAutoProvisioningGroupsRequest extends Model
         }
         if (\is_array($this->autoProvisioningGroupStatus)) {
             Model::validateArray($this->autoProvisioningGroupStatus);
+        }
+        if (\is_array($this->autoProvisioningGroupTypes)) {
+            Model::validateArray($this->autoProvisioningGroupTypes);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -121,6 +130,17 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $n1 = 0;
                 foreach ($this->autoProvisioningGroupStatus as $item1) {
                     $res['AutoProvisioningGroupStatus'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->autoProvisioningGroupTypes) {
+            if (\is_array($this->autoProvisioningGroupTypes)) {
+                $res['AutoProvisioningGroupTypes'] = [];
+                $n1 = 0;
+                foreach ($this->autoProvisioningGroupTypes as $item1) {
+                    $res['AutoProvisioningGroupTypes'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -201,6 +221,17 @@ class DescribeAutoProvisioningGroupsRequest extends Model
                 $n1 = 0;
                 foreach ($map['AutoProvisioningGroupStatus'] as $item1) {
                     $model->autoProvisioningGroupStatus[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AutoProvisioningGroupTypes'])) {
+            if (!empty($map['AutoProvisioningGroupTypes'])) {
+                $model->autoProvisioningGroupTypes = [];
+                $n1 = 0;
+                foreach ($map['AutoProvisioningGroupTypes'] as $item1) {
+                    $model->autoProvisioningGroupTypes[$n1] = $item1;
                     ++$n1;
                 }
             }
