@@ -34,12 +34,16 @@ use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeScenesRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeScenesResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeSearchTemplatesRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeSearchTemplatesResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailDeliveryMetricDataRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailDeliveryMetricDataResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailsRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeTrailsResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserAlertCountRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserAlertCountResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserLogCountRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserLogCountResponse;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserTrailCountRequest;
+use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DescribeUserTrailCountResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DisableInsightRequest;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\DisableInsightResponse;
 use AlibabaCloud\SDK\Actiontrail\V20200706\Models\EnableInsightRequest;
@@ -798,7 +802,6 @@ class Actiontrail extends OpenApiClient
     /**
      * 查询高级查询历史记录.
      *
-     * @param request - DescribeAdvancedQueryHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAdvancedQueryHistoryResponse
@@ -1151,6 +1154,59 @@ class Actiontrail extends OpenApiClient
     }
 
     /**
+     * 获取投递监控指标.
+     *
+     * @param request - DescribeTrailDeliveryMetricDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTrailDeliveryMetricDataResponse
+     *
+     * @param DescribeTrailDeliveryMetricDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeTrailDeliveryMetricDataResponse
+     */
+    public function describeTrailDeliveryMetricDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTrailDeliveryMetricData',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTrailDeliveryMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取投递监控指标.
+     *
+     * @param request - DescribeTrailDeliveryMetricDataRequest
+     *
+     * @returns DescribeTrailDeliveryMetricDataResponse
+     *
+     * @param DescribeTrailDeliveryMetricDataRequest $request
+     *
+     * @return DescribeTrailDeliveryMetricDataResponse
+     */
+    public function describeTrailDeliveryMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTrailDeliveryMetricDataWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries created trails.
      *
      * @remarks
@@ -1341,6 +1397,56 @@ class Actiontrail extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserLogCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户跟踪量.
+     *
+     * @param request - DescribeUserTrailCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserTrailCountResponse
+     *
+     * @param DescribeUserTrailCountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeUserTrailCountResponse
+     */
+    public function describeUserTrailCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeUserTrailCount',
+            'version' => '2020-07-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserTrailCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户跟踪量.
+     *
+     * @param request - DescribeUserTrailCountRequest
+     *
+     * @returns DescribeUserTrailCountResponse
+     *
+     * @param DescribeUserTrailCountRequest $request
+     *
+     * @return DescribeUserTrailCountResponse
+     */
+    public function describeUserTrailCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserTrailCountWithOptions($request, $runtime);
     }
 
     /**
@@ -1992,7 +2098,6 @@ class Actiontrail extends OpenApiClient
      * By default, global events are stored in the Singapore region.
      * To obtain the permissions to call the API operation, you must submit a ticket.
      *
-     * @param request - GetGlobalEventsStorageRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetGlobalEventsStorageRegionResponse
@@ -2040,7 +2145,6 @@ class Actiontrail extends OpenApiClient
     /**
      * 操作审计成熟度查询接口.
      *
-     * @param request - GetGovernanceMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetGovernanceMetricsResponse
@@ -2141,7 +2245,6 @@ class Actiontrail extends OpenApiClient
     /**
      * 获取查询账号开启insight的类型.
      *
-     * @param request - GetInsightTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInsightTypesResponse
