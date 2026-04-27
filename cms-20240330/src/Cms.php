@@ -7622,8 +7622,8 @@ class Cms extends OpenApiClient
             @$body['rerank'] = $request->rerank;
         }
 
-        if (null !== $request->retrieveLevel) {
-            @$body['retrieveLevel'] = $request->retrieveLevel;
+        if (null !== $request->retrievalOption) {
+            @$body['retrievalOption'] = $request->retrievalOption;
         }
 
         if (null !== $request->runId) {

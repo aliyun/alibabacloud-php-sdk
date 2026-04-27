@@ -36,7 +36,7 @@ class SearchMemoriesRequest extends Model
     /**
      * @var string
      */
-    public $retrieveLevel;
+    public $retrievalOption;
 
     /**
      * @var string
@@ -68,7 +68,7 @@ class SearchMemoriesRequest extends Model
         'filters' => 'filters',
         'query' => 'query',
         'rerank' => 'rerank',
-        'retrieveLevel' => 'retrieveLevel',
+        'retrievalOption' => 'retrievalOption',
         'runId' => 'runId',
         'searchType' => 'searchType',
         'threshold' => 'threshold',
@@ -112,8 +112,8 @@ class SearchMemoriesRequest extends Model
             $res['rerank'] = $this->rerank;
         }
 
-        if (null !== $this->retrieveLevel) {
-            $res['retrieveLevel'] = $this->retrieveLevel;
+        if (null !== $this->retrievalOption) {
+            $res['retrievalOption'] = $this->retrievalOption;
         }
 
         if (null !== $this->runId) {
@@ -172,8 +172,8 @@ class SearchMemoriesRequest extends Model
             $model->rerank = $map['rerank'];
         }
 
-        if (isset($map['retrieveLevel'])) {
-            $model->retrieveLevel = $map['retrieveLevel'];
+        if (isset($map['retrievalOption'])) {
+            $model->retrievalOption = $map['retrievalOption'];
         }
 
         if (isset($map['runId'])) {

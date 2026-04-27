@@ -34,7 +34,7 @@ class EntityDiscoverRule extends Model
     public $instanceIds;
 
     /**
-     * @var ipMatchRule[]
+     * @var ipMatchRule
      */
     public $ipMatchRule;
 
@@ -83,8 +83,8 @@ class EntityDiscoverRule extends Model
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
         }
-        if (\is_array($this->ipMatchRule)) {
-            Model::validateArray($this->ipMatchRule);
+        if (null !== $this->ipMatchRule) {
+            $this->ipMatchRule->validate();
         }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
@@ -146,14 +146,7 @@ class EntityDiscoverRule extends Model
         }
 
         if (null !== $this->ipMatchRule) {
-            if (\is_array($this->ipMatchRule)) {
-                $res['ipMatchRule'] = [];
-                $n1 = 0;
-                foreach ($this->ipMatchRule as $item1) {
-                    $res['ipMatchRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+            $res['ipMatchRule'] = null !== $this->ipMatchRule ? $this->ipMatchRule->toArray($noStream) : $this->ipMatchRule;
         }
 
         if (null !== $this->labels) {
@@ -249,14 +242,7 @@ class EntityDiscoverRule extends Model
         }
 
         if (isset($map['ipMatchRule'])) {
-            if (!empty($map['ipMatchRule'])) {
-                $model->ipMatchRule = [];
-                $n1 = 0;
-                foreach ($map['ipMatchRule'] as $item1) {
-                    $model->ipMatchRule[$n1] = ipMatchRule::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->ipMatchRule = ipMatchRule::fromMap($map['ipMatchRule']);
         }
 
         if (isset($map['labels'])) {
