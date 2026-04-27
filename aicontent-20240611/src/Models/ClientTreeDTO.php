@@ -19,6 +19,11 @@ class ClientTreeDTO extends Model
     public $allowedModels;
 
     /**
+     * @var ClientBalanceDTO
+     */
+    public $balance;
+
+    /**
      * @var ClientTreeDTO[]
      */
     public $children;
@@ -85,6 +90,7 @@ class ClientTreeDTO extends Model
     protected $_name = [
         'address' => 'address',
         'allowedModels' => 'allowedModels',
+        'balance' => 'balance',
         'children' => 'children',
         'clientUuid' => 'clientUuid',
         'contact' => 'contact',
@@ -102,6 +108,9 @@ class ClientTreeDTO extends Model
 
     public function validate()
     {
+        if (null !== $this->balance) {
+            $this->balance->validate();
+        }
         if (\is_array($this->children)) {
             Model::validateArray($this->children);
         }
@@ -117,6 +126,10 @@ class ClientTreeDTO extends Model
 
         if (null !== $this->allowedModels) {
             $res['allowedModels'] = $this->allowedModels;
+        }
+
+        if (null !== $this->balance) {
+            $res['balance'] = null !== $this->balance ? $this->balance->toArray($noStream) : $this->balance;
         }
 
         if (null !== $this->children) {
@@ -195,6 +208,10 @@ class ClientTreeDTO extends Model
 
         if (isset($map['allowedModels'])) {
             $model->allowedModels = $map['allowedModels'];
+        }
+
+        if (isset($map['balance'])) {
+            $model->balance = ClientBalanceDTO::fromMap($map['balance']);
         }
 
         if (isset($map['children'])) {

@@ -136,6 +136,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetri
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
@@ -5850,6 +5852,79 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryUsageBreakdownWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 流控管理/写入流控配置.
+     *
+     * @param request - ModelRouterSaveFlowConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterSaveFlowConfigResponse
+     *
+     * @param ModelRouterSaveFlowConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModelRouterSaveFlowConfigResponse
+     */
+    public function modelRouterSaveFlowConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelId) {
+            @$body['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->rpm) {
+            @$body['rpm'] = $request->rpm;
+        }
+
+        if (null !== $request->smoothFlowEnabled) {
+            @$body['smoothFlowEnabled'] = $request->smoothFlowEnabled;
+        }
+
+        if (null !== $request->tpm) {
+            @$body['tpm'] = $request->tpm;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterSaveFlowConfig',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/flow-config',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterSaveFlowConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 流控管理/写入流控配置.
+     *
+     * @param request - ModelRouterSaveFlowConfigRequest
+     *
+     * @returns ModelRouterSaveFlowConfigResponse
+     *
+     * @param ModelRouterSaveFlowConfigRequest $request
+     *
+     * @return ModelRouterSaveFlowConfigResponse
+     */
+    public function modelRouterSaveFlowConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterSaveFlowConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
