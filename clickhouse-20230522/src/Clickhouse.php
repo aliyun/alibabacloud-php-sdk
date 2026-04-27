@@ -87,6 +87,7 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceAttributeReques
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceClassRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceClassResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceClassShrinkRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConnectionStringRequest;
@@ -2954,20 +2955,30 @@ class Clickhouse extends OpenApiClient
     /**
      * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
      *
-     * @param request - ModifyDBInstanceClassRequest
+     * @param tmpReq - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDBInstanceClassResponse
      *
-     * @param ModifyDBInstanceClassRequest $request
+     * @param ModifyDBInstanceClassRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return ModifyDBInstanceClassResponse
      */
-    public function modifyDBInstanceClassWithOptions($request, $runtime)
+    public function modifyDBInstanceClassWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyDBInstanceClassShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->autoScaleConfig) {
+            $request->autoScaleConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->autoScaleConfig, 'AutoScaleConfig', 'json');
+        }
+
         $query = [];
+        if (null !== $request->autoScaleConfigShrink) {
+            @$query['AutoScaleConfig'] = $request->autoScaleConfigShrink;
+        }
+
         if (null !== $request->computingGroupId) {
             @$query['ComputingGroupId'] = $request->computingGroupId;
         }

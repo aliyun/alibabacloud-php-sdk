@@ -1,3 +1,7 @@
+2026-04-27 Version: 2.5.2
+- Update API ModifyDBInstanceClass: add request parameters AutoScaleConfig.
+
+
 2026-04-24 Version: 2.5.1
 - Update API DescribeDBInstanceAttribute: add response parameters Body.Data.LangfuseInstanceIds.
 - Update API DescribeDBInstanceAttribute: add response parameters Body.Data.WebUISnatStatus.

@@ -5,14 +5,13 @@
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceClassRequest\autoScaleConfig;
 
-class ModifyDBInstanceClassRequest extends Model
+class ModifyDBInstanceClassShrinkRequest extends Model
 {
     /**
-     * @var autoScaleConfig
+     * @var string
      */
-    public $autoScaleConfig;
+    public $autoScaleConfigShrink;
 
     /**
      * @var string
@@ -64,7 +63,7 @@ class ModifyDBInstanceClassRequest extends Model
      */
     public $storageType;
     protected $_name = [
-        'autoScaleConfig' => 'AutoScaleConfig',
+        'autoScaleConfigShrink' => 'AutoScaleConfig',
         'computingGroupId' => 'ComputingGroupId',
         'DBInstanceId' => 'DBInstanceId',
         'nodeCount' => 'NodeCount',
@@ -79,17 +78,14 @@ class ModifyDBInstanceClassRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->autoScaleConfig) {
-            $this->autoScaleConfig->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->autoScaleConfig) {
-            $res['AutoScaleConfig'] = null !== $this->autoScaleConfig ? $this->autoScaleConfig->toArray($noStream) : $this->autoScaleConfig;
+        if (null !== $this->autoScaleConfigShrink) {
+            $res['AutoScaleConfig'] = $this->autoScaleConfigShrink;
         }
 
         if (null !== $this->computingGroupId) {
@@ -144,7 +140,7 @@ class ModifyDBInstanceClassRequest extends Model
     {
         $model = new self();
         if (isset($map['AutoScaleConfig'])) {
-            $model->autoScaleConfig = autoScaleConfig::fromMap($map['AutoScaleConfig']);
+            $model->autoScaleConfigShrink = $map['AutoScaleConfig'];
         }
 
         if (isset($map['ComputingGroupId'])) {
