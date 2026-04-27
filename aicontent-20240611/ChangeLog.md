@@ -1,3 +1,8 @@
+2026-04-27 Version: 6.2.0
+- Support API ModelRouterQueryBillingCostBreakdown.
+- Support API ModelRouterQueryUsageBreakdown.
+
+
 2026-04-23 Version: 6.1.0
 - Support API ModelRouterBillingCostTabs.
 - Support API ModelRouterCreateBillingRule.

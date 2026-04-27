@@ -100,6 +100,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingCostBreakdownRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingCostBreakdownResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingRuleListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryBillingRuleListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryClientDiscountLogsRequest;
@@ -132,6 +134,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsR
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryObservationMetricsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
@@ -4216,6 +4220,91 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 计费管理/批量查询计费明细.
+     *
+     * @param request - ModelRouterQueryBillingCostBreakdownRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryBillingCostBreakdownResponse
+     *
+     * @param ModelRouterQueryBillingCostBreakdownRequest $request
+     * @param string[]                                    $headers
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModelRouterQueryBillingCostBreakdownResponse
+     */
+    public function modelRouterQueryBillingCostBreakdownWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryBillingCostBreakdown',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/billing/cost/breakdown',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryBillingCostBreakdownResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计费管理/批量查询计费明细.
+     *
+     * @param request - ModelRouterQueryBillingCostBreakdownRequest
+     *
+     * @returns ModelRouterQueryBillingCostBreakdownResponse
+     *
+     * @param ModelRouterQueryBillingCostBreakdownRequest $request
+     *
+     * @return ModelRouterQueryBillingCostBreakdownResponse
+     */
+    public function modelRouterQueryBillingCostBreakdown($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryBillingCostBreakdownWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 计费管理/查询计费规则列表.
      *
      * @param request - ModelRouterQueryBillingRuleListRequest
@@ -5676,6 +5765,91 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterQueryObservationMetricsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 用量管理/批量查询用量明细.
+     *
+     * @param request - ModelRouterQueryUsageBreakdownRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterQueryUsageBreakdownResponse
+     *
+     * @param ModelRouterQueryUsageBreakdownRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModelRouterQueryUsageBreakdownResponse
+     */
+    public function modelRouterQueryUsageBreakdownWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterQueryUsageBreakdown',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/usage/breakdown',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterQueryUsageBreakdownResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用量管理/批量查询用量明细.
+     *
+     * @param request - ModelRouterQueryUsageBreakdownRequest
+     *
+     * @returns ModelRouterQueryUsageBreakdownResponse
+     *
+     * @param ModelRouterQueryUsageBreakdownRequest $request
+     *
+     * @return ModelRouterQueryUsageBreakdownResponse
+     */
+    public function modelRouterQueryUsageBreakdown($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterQueryUsageBreakdownWithOptions($request, $headers, $runtime);
     }
 
     /**
