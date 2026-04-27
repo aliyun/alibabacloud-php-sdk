@@ -20,6 +20,11 @@ class orderItems extends Model
     public $components;
 
     /**
+     * @var string
+     */
+    public $data;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -56,6 +61,7 @@ class orderItems extends Model
     protected $_name = [
         'amount' => 'Amount',
         'components' => 'Components',
+        'data' => 'Data',
         'instanceIds' => 'InstanceIds',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
@@ -95,6 +101,10 @@ class orderItems extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
 
         if (null !== $this->instanceIds) {
@@ -163,6 +173,10 @@ class orderItems extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
 
         if (isset($map['InstanceIds'])) {

@@ -132,7 +132,6 @@ class Wss extends OpenApiClient
     /**
      * 查询物流地址
      *
-     * @param request - DescribeDeliveryAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDeliveryAddressResponse
