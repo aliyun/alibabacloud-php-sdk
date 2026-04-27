@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ActivateAICenterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ActivateAICenterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueReque
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GenerateTaskCodesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GenerateTaskCodesResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetAICenterStateRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetAICenterStateResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationRequest;
@@ -183,6 +187,63 @@ class Emrserverlessspark extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 激活AI中心.
+     *
+     * @param request - ActivateAICenterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActivateAICenterResponse
+     *
+     * @param string                  $workspaceId
+     * @param ActivateAICenterRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ActivateAICenterResponse
+     */
+    public function activateAICenterWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ActivateAICenter',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/activateaicenter',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ActivateAICenterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 激活AI中心.
+     *
+     * @param request - ActivateAICenterRequest
+     *
+     * @returns ActivateAICenterResponse
+     *
+     * @param string                  $workspaceId
+     * @param ActivateAICenterRequest $request
+     *
+     * @return ActivateAICenterResponse
+     */
+    public function activateAICenter($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->activateAICenterWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1970,6 +2031,63 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->generateTaskCodesWithOptions($bizId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取AI中心状态
+     *
+     * @param request - GetAICenterStateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICenterStateResponse
+     *
+     * @param string                  $workspaceId
+     * @param GetAICenterStateRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAICenterStateResponse
+     */
+    public function getAICenterStateWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAICenterState',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/aicenter',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAICenterStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取AI中心状态
+     *
+     * @param request - GetAICenterStateRequest
+     *
+     * @returns GetAICenterStateResponse
+     *
+     * @param string                  $workspaceId
+     * @param GetAICenterStateRequest $request
+     *
+     * @return GetAICenterStateResponse
+     */
+    public function getAICenterState($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICenterStateWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**

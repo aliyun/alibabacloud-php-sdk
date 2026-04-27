@@ -1,3 +1,8 @@
+2026-04-27 Version: 1.25.0
+- Support API ActivateAICenter.
+- Support API GetAICenterState.
+
+
 2026-04-23 Version: 1.24.0
 - Support API ListExecutorLogs.
 
