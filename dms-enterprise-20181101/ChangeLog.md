@@ -1,3 +1,6 @@
+2026-04-27 Version: 2.6.1
+- Generated php 2018-11-01 for dms-enterprise.
+
 2026-04-23 Version: 2.6.0
 - Support API CheckInventoryJob.
 - Support API ConfirmInventoryKnowledge.

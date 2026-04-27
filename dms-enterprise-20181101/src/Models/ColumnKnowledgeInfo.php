@@ -36,6 +36,11 @@ class ColumnKnowledgeInfo extends Model
     /**
      * @var int
      */
+    public $level;
+
+    /**
+     * @var int
+     */
     public $position;
     protected $_name = [
         'assetDescription' => 'AssetDescription',
@@ -43,6 +48,7 @@ class ColumnKnowledgeInfo extends Model
         'columnName' => 'ColumnName',
         'columnType' => 'ColumnType',
         'description' => 'Description',
+        'level' => 'Level',
         'position' => 'Position',
     ];
 
@@ -72,6 +78,10 @@ class ColumnKnowledgeInfo extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
 
         if (null !== $this->position) {
@@ -107,6 +117,10 @@ class ColumnKnowledgeInfo extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
 
         if (isset($map['Position'])) {

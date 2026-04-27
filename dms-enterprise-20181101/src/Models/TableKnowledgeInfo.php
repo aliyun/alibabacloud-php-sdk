@@ -29,6 +29,11 @@ class TableKnowledgeInfo extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $level;
+
+    /**
      * @var string
      */
     public $summary;
@@ -42,6 +47,7 @@ class TableKnowledgeInfo extends Model
         'assetModifiedGmt' => 'AssetModifiedGmt',
         'columnList' => 'ColumnList',
         'description' => 'Description',
+        'level' => 'Level',
         'summary' => 'Summary',
         'tableName' => 'TableName',
     ];
@@ -78,6 +84,10 @@ class TableKnowledgeInfo extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
 
         if (null !== $this->summary) {
@@ -120,6 +130,10 @@ class TableKnowledgeInfo extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
 
         if (isset($map['Summary'])) {
