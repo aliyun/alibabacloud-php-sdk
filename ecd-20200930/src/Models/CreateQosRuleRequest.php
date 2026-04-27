@@ -16,6 +16,11 @@ class CreateQosRuleRequest extends Model
     /**
      * @var string[]
      */
+    public $authDesktopGroupId;
+
+    /**
+     * @var string[]
+     */
     public $authDesktopId;
 
     /**
@@ -39,6 +44,7 @@ class CreateQosRuleRequest extends Model
     public $upload;
     protected $_name = [
         'authAndroidId' => 'AuthAndroidId',
+        'authDesktopGroupId' => 'AuthDesktopGroupId',
         'authDesktopId' => 'AuthDesktopId',
         'download' => 'Download',
         'networkPackageId' => 'NetworkPackageId',
@@ -50,6 +56,9 @@ class CreateQosRuleRequest extends Model
     {
         if (\is_array($this->authAndroidId)) {
             Model::validateArray($this->authAndroidId);
+        }
+        if (\is_array($this->authDesktopGroupId)) {
+            Model::validateArray($this->authDesktopGroupId);
         }
         if (\is_array($this->authDesktopId)) {
             Model::validateArray($this->authDesktopId);
@@ -66,6 +75,17 @@ class CreateQosRuleRequest extends Model
                 $n1 = 0;
                 foreach ($this->authAndroidId as $item1) {
                     $res['AuthAndroidId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->authDesktopGroupId) {
+            if (\is_array($this->authDesktopGroupId)) {
+                $res['AuthDesktopGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->authDesktopGroupId as $item1) {
+                    $res['AuthDesktopGroupId'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -115,6 +135,17 @@ class CreateQosRuleRequest extends Model
                 $n1 = 0;
                 foreach ($map['AuthAndroidId'] as $item1) {
                     $model->authAndroidId[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AuthDesktopGroupId'])) {
+            if (!empty($map['AuthDesktopGroupId'])) {
+                $model->authDesktopGroupId = [];
+                $n1 = 0;
+                foreach ($map['AuthDesktopGroupId'] as $item1) {
+                    $model->authDesktopGroupId[$n1] = $item1;
                     ++$n1;
                 }
             }

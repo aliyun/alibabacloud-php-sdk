@@ -1,3 +1,19 @@
+2026-04-27 Version: 4.19.2
+- Update API CreateConfigGroup: add request parameters ConfigTimers.$.SegmentTimers.$.VerificationNotificationTime.
+- Update API CreateConfigGroup: add request parameters ConfigTimers.$.SegmentTimers.$.VerificationTime.
+- Update API CreateDesktops: add request parameters PurchaseOptions.
+- Update API CreateQosRule: add request parameters AuthDesktopGroupId.
+- Update API DescribeDesktopGroups: add request parameters QosRuleId.
+- Update API DescribeDesktopGroups: add response parameters Body.DesktopGroups.$.QosRuleId.
+- Update API DescribeQosRules: add response parameters Body.QosRules.$.DesktopGroupCount.
+- Update API DescribeTimerGroup: add response parameters Body.Data.ConfigTimers.$.SegmentTimers.$.VerificationNotificationTime.
+- Update API DescribeTimerGroup: add response parameters Body.Data.ConfigTimers.$.SegmentTimers.$.VerificationTime.
+- Update API ModifyQosEntries: add request parameters AuthDesktopGroupId.
+- Update API ModifyQosEntries: add request parameters RevokeDesktopGroupId.
+- Update API ModifyTimerGroup: add request parameters ConfigTimers.$.SegmentTimers.$.VerificationNotificationTime.
+- Update API ModifyTimerGroup: add request parameters ConfigTimers.$.SegmentTimers.$.VerificationTime.
+
+
 2026-04-20 Version: 4.19.1
 - Update API CreateConfigGroup: add request parameters ConfigTimers.$.SegmentTimers.$.CreateSnapshot.
 - Update API CreateConfigGroup: add request parameters ConfigTimers.$.SegmentTimers.$.PatchId.

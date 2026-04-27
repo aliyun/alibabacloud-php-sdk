@@ -16,6 +16,11 @@ class ModifyQosEntriesRequest extends Model
     /**
      * @var string[]
      */
+    public $authDesktopGroupId;
+
+    /**
+     * @var string[]
+     */
     public $authDesktopId;
 
     /**
@@ -31,12 +36,19 @@ class ModifyQosEntriesRequest extends Model
     /**
      * @var string[]
      */
+    public $revokeDesktopGroupId;
+
+    /**
+     * @var string[]
+     */
     public $revokeDesktopId;
     protected $_name = [
         'authAndroidId' => 'AuthAndroidId',
+        'authDesktopGroupId' => 'AuthDesktopGroupId',
         'authDesktopId' => 'AuthDesktopId',
         'qosRuleId' => 'QosRuleId',
         'revokeAndroidId' => 'RevokeAndroidId',
+        'revokeDesktopGroupId' => 'RevokeDesktopGroupId',
         'revokeDesktopId' => 'RevokeDesktopId',
     ];
 
@@ -45,11 +57,17 @@ class ModifyQosEntriesRequest extends Model
         if (\is_array($this->authAndroidId)) {
             Model::validateArray($this->authAndroidId);
         }
+        if (\is_array($this->authDesktopGroupId)) {
+            Model::validateArray($this->authDesktopGroupId);
+        }
         if (\is_array($this->authDesktopId)) {
             Model::validateArray($this->authDesktopId);
         }
         if (\is_array($this->revokeAndroidId)) {
             Model::validateArray($this->revokeAndroidId);
+        }
+        if (\is_array($this->revokeDesktopGroupId)) {
+            Model::validateArray($this->revokeDesktopGroupId);
         }
         if (\is_array($this->revokeDesktopId)) {
             Model::validateArray($this->revokeDesktopId);
@@ -66,6 +84,17 @@ class ModifyQosEntriesRequest extends Model
                 $n1 = 0;
                 foreach ($this->authAndroidId as $item1) {
                     $res['AuthAndroidId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->authDesktopGroupId) {
+            if (\is_array($this->authDesktopGroupId)) {
+                $res['AuthDesktopGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->authDesktopGroupId as $item1) {
+                    $res['AuthDesktopGroupId'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -92,6 +121,17 @@ class ModifyQosEntriesRequest extends Model
                 $n1 = 0;
                 foreach ($this->revokeAndroidId as $item1) {
                     $res['RevokeAndroidId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->revokeDesktopGroupId) {
+            if (\is_array($this->revokeDesktopGroupId)) {
+                $res['RevokeDesktopGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->revokeDesktopGroupId as $item1) {
+                    $res['RevokeDesktopGroupId'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -130,6 +170,17 @@ class ModifyQosEntriesRequest extends Model
             }
         }
 
+        if (isset($map['AuthDesktopGroupId'])) {
+            if (!empty($map['AuthDesktopGroupId'])) {
+                $model->authDesktopGroupId = [];
+                $n1 = 0;
+                foreach ($map['AuthDesktopGroupId'] as $item1) {
+                    $model->authDesktopGroupId[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AuthDesktopId'])) {
             if (!empty($map['AuthDesktopId'])) {
                 $model->authDesktopId = [];
@@ -151,6 +202,17 @@ class ModifyQosEntriesRequest extends Model
                 $n1 = 0;
                 foreach ($map['RevokeAndroidId'] as $item1) {
                     $model->revokeAndroidId[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RevokeDesktopGroupId'])) {
+            if (!empty($map['RevokeDesktopGroupId'])) {
+                $model->revokeDesktopGroupId = [];
+                $n1 = 0;
+                foreach ($map['RevokeDesktopGroupId'] as $item1) {
+                    $model->revokeDesktopGroupId[$n1] = $item1;
                     ++$n1;
                 }
             }

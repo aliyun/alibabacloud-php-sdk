@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\bundleModels;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopAttachment;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopTimers;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\monthDesktopSetting;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\purchaseOptions;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\userCommands;
 
@@ -135,6 +136,11 @@ class CreateDesktopsRequest extends Model
     public $promotionId;
 
     /**
+     * @var purchaseOptions
+     */
+    public $purchaseOptions;
+
+    /**
      * @var string
      */
     public $qosRuleId;
@@ -233,6 +239,7 @@ class CreateDesktopsRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
         'promotionId' => 'PromotionId',
+        'purchaseOptions' => 'PurchaseOptions',
         'qosRuleId' => 'QosRuleId',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
@@ -266,6 +273,9 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->monthDesktopSetting) {
             $this->monthDesktopSetting->validate();
+        }
+        if (null !== $this->purchaseOptions) {
+            $this->purchaseOptions->validate();
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -394,6 +404,10 @@ class CreateDesktopsRequest extends Model
 
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+
+        if (null !== $this->purchaseOptions) {
+            $res['PurchaseOptions'] = null !== $this->purchaseOptions ? $this->purchaseOptions->toArray($noStream) : $this->purchaseOptions;
         }
 
         if (null !== $this->qosRuleId) {
@@ -596,6 +610,10 @@ class CreateDesktopsRequest extends Model
 
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+
+        if (isset($map['PurchaseOptions'])) {
+            $model->purchaseOptions = purchaseOptions::fromMap($map['PurchaseOptions']);
         }
 
         if (isset($map['QosRuleId'])) {

@@ -14,6 +14,11 @@ class qosRules extends Model
     public $desktopCount;
 
     /**
+     * @var int
+     */
+    public $desktopGroupCount;
+
+    /**
      * @var string
      */
     public $download;
@@ -39,6 +44,7 @@ class qosRules extends Model
     public $upload;
     protected $_name = [
         'desktopCount' => 'DesktopCount',
+        'desktopGroupCount' => 'DesktopGroupCount',
         'download' => 'Download',
         'networkPackageId' => 'NetworkPackageId',
         'qosRuleId' => 'QosRuleId',
@@ -56,6 +62,10 @@ class qosRules extends Model
         $res = [];
         if (null !== $this->desktopCount) {
             $res['DesktopCount'] = $this->desktopCount;
+        }
+
+        if (null !== $this->desktopGroupCount) {
+            $res['DesktopGroupCount'] = $this->desktopGroupCount;
         }
 
         if (null !== $this->download) {
@@ -91,6 +101,10 @@ class qosRules extends Model
         $model = new self();
         if (isset($map['DesktopCount'])) {
             $model->desktopCount = $map['DesktopCount'];
+        }
+
+        if (isset($map['DesktopGroupCount'])) {
+            $model->desktopGroupCount = $map['DesktopGroupCount'];
         }
 
         if (isset($map['Download'])) {

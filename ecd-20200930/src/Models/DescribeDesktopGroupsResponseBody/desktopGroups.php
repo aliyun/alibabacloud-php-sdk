@@ -236,6 +236,11 @@ class desktopGroups extends Model
     public $protocolType;
 
     /**
+     * @var string
+     */
+    public $qosRuleId;
+
+    /**
      * @var float
      */
     public $ratioThreshold;
@@ -350,6 +355,7 @@ class desktopGroups extends Model
         'policyGroupName' => 'PolicyGroupName',
         'policyGroupNameList' => 'PolicyGroupNameList',
         'protocolType' => 'ProtocolType',
+        'qosRuleId' => 'QosRuleId',
         'ratioThreshold' => 'RatioThreshold',
         'resetType' => 'ResetType',
         'simpleUserGroupId' => 'SimpleUserGroupId',
@@ -595,6 +601,10 @@ class desktopGroups extends Model
 
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+
+        if (null !== $this->qosRuleId) {
+            $res['QosRuleId'] = $this->qosRuleId;
         }
 
         if (null !== $this->ratioThreshold) {
@@ -877,6 +887,10 @@ class desktopGroups extends Model
 
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+
+        if (isset($map['QosRuleId'])) {
+            $model->qosRuleId = $map['QosRuleId'];
         }
 
         if (isset($map['RatioThreshold'])) {

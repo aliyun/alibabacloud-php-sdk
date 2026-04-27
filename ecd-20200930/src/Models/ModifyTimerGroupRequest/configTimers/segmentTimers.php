@@ -77,6 +77,16 @@ class segmentTimers extends Model
      * @var string
      */
     public $triggerType;
+
+    /**
+     * @var int
+     */
+    public $verificationNotificationTime;
+
+    /**
+     * @var int
+     */
+    public $verificationTime;
     protected $_name = [
         'appointmentTimer' => 'AppointmentTimer',
         'endCronExpression' => 'EndCronExpression',
@@ -92,6 +102,8 @@ class segmentTimers extends Model
         'timerOrder' => 'TimerOrder',
         'timezone' => 'Timezone',
         'triggerType' => 'TriggerType',
+        'verificationNotificationTime' => 'VerificationNotificationTime',
+        'verificationTime' => 'VerificationTime',
     ];
 
     public function validate()
@@ -168,6 +180,14 @@ class segmentTimers extends Model
             $res['TriggerType'] = $this->triggerType;
         }
 
+        if (null !== $this->verificationNotificationTime) {
+            $res['VerificationNotificationTime'] = $this->verificationNotificationTime;
+        }
+
+        if (null !== $this->verificationTime) {
+            $res['VerificationTime'] = $this->verificationTime;
+        }
+
         return $res;
     }
 
@@ -240,6 +260,14 @@ class segmentTimers extends Model
 
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+
+        if (isset($map['VerificationNotificationTime'])) {
+            $model->verificationNotificationTime = $map['VerificationNotificationTime'];
+        }
+
+        if (isset($map['VerificationTime'])) {
+            $model->verificationTime = $map['VerificationTime'];
         }
 
         return $model;

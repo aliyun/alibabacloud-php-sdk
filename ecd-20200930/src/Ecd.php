@@ -4960,6 +4960,10 @@ class Ecd extends OpenApiClient
             $request->desktopAttachmentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->desktopAttachment, 'DesktopAttachment', 'json');
         }
 
+        if (null !== $tmpReq->purchaseOptions) {
+            $request->purchaseOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->purchaseOptions, 'PurchaseOptions', 'json');
+        }
+
         $query = [];
         if (null !== $request->amount) {
             @$query['Amount'] = $request->amount;
@@ -5055,6 +5059,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->promotionId) {
             @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->purchaseOptionsShrink) {
+            @$query['PurchaseOptions'] = $request->purchaseOptionsShrink;
         }
 
         if (null !== $request->qosRuleId) {
@@ -6219,6 +6227,10 @@ class Ecd extends OpenApiClient
         $query = [];
         if (null !== $request->authAndroidId) {
             @$query['AuthAndroidId'] = $request->authAndroidId;
+        }
+
+        if (null !== $request->authDesktopGroupId) {
+            @$query['AuthDesktopGroupId'] = $request->authDesktopGroupId;
         }
 
         if (null !== $request->authDesktopId) {
@@ -10317,6 +10329,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->protocolType) {
             @$query['ProtocolType'] = $request->protocolType;
+        }
+
+        if (null !== $request->qosRuleId) {
+            @$query['QosRuleId'] = $request->qosRuleId;
         }
 
         if (null !== $request->regionId) {
@@ -21611,6 +21627,10 @@ class Ecd extends OpenApiClient
             @$query['AuthAndroidId'] = $request->authAndroidId;
         }
 
+        if (null !== $request->authDesktopGroupId) {
+            @$query['AuthDesktopGroupId'] = $request->authDesktopGroupId;
+        }
+
         if (null !== $request->authDesktopId) {
             @$query['AuthDesktopId'] = $request->authDesktopId;
         }
@@ -21621,6 +21641,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->revokeAndroidId) {
             @$query['RevokeAndroidId'] = $request->revokeAndroidId;
+        }
+
+        if (null !== $request->revokeDesktopGroupId) {
+            @$query['RevokeDesktopGroupId'] = $request->revokeDesktopGroupId;
         }
 
         if (null !== $request->revokeDesktopId) {

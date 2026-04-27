@@ -97,6 +97,11 @@ class DescribeDesktopGroupsRequest extends Model
     /**
      * @var string
      */
+    public $qosRuleId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -126,6 +131,7 @@ class DescribeDesktopGroupsRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
         'protocolType' => 'ProtocolType',
+        'qosRuleId' => 'QosRuleId',
         'regionId' => 'RegionId',
         'status' => 'Status',
         'tag' => 'Tag',
@@ -260,6 +266,10 @@ class DescribeDesktopGroupsRequest extends Model
             $res['ProtocolType'] = $this->protocolType;
         }
 
+        if (null !== $this->qosRuleId) {
+            $res['QosRuleId'] = $this->qosRuleId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -391,6 +401,10 @@ class DescribeDesktopGroupsRequest extends Model
 
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+
+        if (isset($map['QosRuleId'])) {
+            $model->qosRuleId = $map['QosRuleId'];
         }
 
         if (isset($map['RegionId'])) {

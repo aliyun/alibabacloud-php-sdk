@@ -136,6 +136,11 @@ class CreateDesktopsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $purchaseOptionsShrink;
+
+    /**
+     * @var string
+     */
     public $qosRuleId;
 
     /**
@@ -232,6 +237,7 @@ class CreateDesktopsShrinkRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
         'promotionId' => 'PromotionId',
+        'purchaseOptionsShrink' => 'PurchaseOptions',
         'qosRuleId' => 'QosRuleId',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
@@ -390,6 +396,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (null !== $this->promotionId) {
             $res['PromotionId'] = $this->promotionId;
+        }
+
+        if (null !== $this->purchaseOptionsShrink) {
+            $res['PurchaseOptions'] = $this->purchaseOptionsShrink;
         }
 
         if (null !== $this->qosRuleId) {
@@ -592,6 +602,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (isset($map['PromotionId'])) {
             $model->promotionId = $map['PromotionId'];
+        }
+
+        if (isset($map['PurchaseOptions'])) {
+            $model->purchaseOptionsShrink = $map['PurchaseOptions'];
         }
 
         if (isset($map['QosRuleId'])) {
