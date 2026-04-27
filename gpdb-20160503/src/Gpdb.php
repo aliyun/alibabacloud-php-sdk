@@ -454,6 +454,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectResourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectResourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationRequest;
@@ -13131,7 +13133,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of API keys for a Supabase project.
+     * Queries the API keys and JWT secrets of a Supabase instance.
      *
      * @remarks
      * You can call this operation to query a list of API keys for a Supabase project.
@@ -13177,7 +13179,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of API keys for a Supabase project.
+     * Queries the API keys and JWT secrets of a Supabase instance.
      *
      * @remarks
      * You can call this operation to query a list of API keys for a Supabase project.
@@ -17728,7 +17730,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改Supabase自动启停策略.
+     * Modify the auto pause/resume policy of Supabase.
      *
      * @param Request - ModifySupabaseAutoScalePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17775,7 +17777,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 修改Supabase自动启停策略.
+     * Modify the auto pause/resume policy of Supabase.
      *
      * @param Request - ModifySupabaseAutoScalePolicyRequest
      *
@@ -17790,6 +17792,79 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySupabaseAutoScalePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+     *
+     * @param Request - ModifySupabaseProjectResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseProjectResourceResponse
+     *
+     * @param ModifySupabaseProjectResourceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifySupabaseProjectResourceResponse
+     */
+    public function modifySupabaseProjectResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectSpec) {
+            @$query['ProjectSpec'] = $request->projectSpec;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->storageSize) {
+            @$query['StorageSize'] = $request->storageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseProjectResource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseProjectResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+     *
+     * @param Request - ModifySupabaseProjectResourceRequest
+     *
+     * @returns ModifySupabaseProjectResourceResponse
+     *
+     * @param ModifySupabaseProjectResourceRequest $request
+     *
+     * @return ModifySupabaseProjectResourceResponse
+     */
+    public function modifySupabaseProjectResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseProjectResourceWithOptions($request, $runtime);
     }
 
     /**
