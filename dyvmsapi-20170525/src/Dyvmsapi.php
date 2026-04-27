@@ -17,17 +17,61 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ChangeMediaTypeResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentLoginRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentLoginResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentLogoutRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentLogoutResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentSetUserDataRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentSetUserDataResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentUnlinkRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudAgentUnlinkResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudBatchCreateAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudBatchCreateAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudBatchGetAgentStatusRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudBatchGetAgentStatusResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudBatchUpdateAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudBatchUpdateAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateAgentRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudCreateTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudDeleteAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudDeleteAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudDeleteAgentTelRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudDeleteAgentTelResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentStatusRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentStatusResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelShrinkRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudInterruptIvrRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudInterruptIvrResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListAgentTelRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListAgentTelResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListFreeAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListFreeAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListOnlineAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListOnlineAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudPreviewoutcallRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudPreviewoutcallResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentCnoAndNameRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentCnoAndNameResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentGroupRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentGroupResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentSkillRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentSkillResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudStartTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudStartTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateAgentRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateTaskResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudWebcallRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudWebcallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskRequest;
@@ -695,6 +739,673 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * 座席上线
+     *
+     * @param request - CloudAgentLoginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudAgentLoginResponse
+     *
+     * @param CloudAgentLoginRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloudAgentLoginResponse
+     */
+    public function cloudAgentLoginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bindTel) {
+            @$query['BindTel'] = $request->bindTel;
+        }
+
+        if (null !== $request->bindType) {
+            @$query['BindType'] = $request->bindType;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->loginStatus) {
+            @$query['LoginStatus'] = $request->loginStatus;
+        }
+
+        if (null !== $request->pauseDescription) {
+            @$query['PauseDescription'] = $request->pauseDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudAgentLogin',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudAgentLoginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席上线
+     *
+     * @param request - CloudAgentLoginRequest
+     *
+     * @returns CloudAgentLoginResponse
+     *
+     * @param CloudAgentLoginRequest $request
+     *
+     * @return CloudAgentLoginResponse
+     */
+    public function cloudAgentLogin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudAgentLoginWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席下线
+     *
+     * @param request - CloudAgentLogoutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudAgentLogoutResponse
+     *
+     * @param CloudAgentLogoutRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CloudAgentLogoutResponse
+     */
+    public function cloudAgentLogoutWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ignoreOffline) {
+            @$query['IgnoreOffline'] = $request->ignoreOffline;
+        }
+
+        if (null !== $request->isKickout) {
+            @$query['IsKickout'] = $request->isKickout;
+        }
+
+        if (null !== $request->removeBinding) {
+            @$query['RemoveBinding'] = $request->removeBinding;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudAgentLogout',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudAgentLogoutResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席下线
+     *
+     * @param request - CloudAgentLogoutRequest
+     *
+     * @returns CloudAgentLogoutResponse
+     *
+     * @param CloudAgentLogoutRequest $request
+     *
+     * @return CloudAgentLogoutResponse
+     */
+    public function cloudAgentLogout($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudAgentLogoutWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席设置随路数据.
+     *
+     * @param request - CloudAgentSetUserDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudAgentSetUserDataResponse
+     *
+     * @param CloudAgentSetUserDataRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CloudAgentSetUserDataResponse
+     */
+    public function cloudAgentSetUserDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudAgentSetUserData',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudAgentSetUserDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席设置随路数据.
+     *
+     * @param request - CloudAgentSetUserDataRequest
+     *
+     * @returns CloudAgentSetUserDataResponse
+     *
+     * @param CloudAgentSetUserDataRequest $request
+     *
+     * @return CloudAgentSetUserDataResponse
+     */
+    public function cloudAgentSetUserData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudAgentSetUserDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席挂机.
+     *
+     * @param request - CloudAgentUnlinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudAgentUnlinkResponse
+     *
+     * @param CloudAgentUnlinkRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CloudAgentUnlinkResponse
+     */
+    public function cloudAgentUnlinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->requestUniqueId) {
+            @$query['RequestUniqueId'] = $request->requestUniqueId;
+        }
+
+        if (null !== $request->side) {
+            @$query['Side'] = $request->side;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudAgentUnlink',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudAgentUnlinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席挂机.
+     *
+     * @param request - CloudAgentUnlinkRequest
+     *
+     * @returns CloudAgentUnlinkResponse
+     *
+     * @param CloudAgentUnlinkRequest $request
+     *
+     * @return CloudAgentUnlinkResponse
+     */
+    public function cloudAgentUnlink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudAgentUnlinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量新增座席,单次批量创建不能超过100个.
+     *
+     * @param request - CloudBatchCreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudBatchCreateAgentResponse
+     *
+     * @param CloudBatchCreateAgentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CloudBatchCreateAgentResponse
+     */
+    public function cloudBatchCreateAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
+        }
+
+        if (null !== $request->areaCode) {
+            @$query['AreaCode'] = $request->areaCode;
+        }
+
+        if (null !== $request->callPower) {
+            @$query['CallPower'] = $request->callPower;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->endCno) {
+            @$query['EndCno'] = $request->endCno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ibRecord) {
+            @$query['IbRecord'] = $request->ibRecord;
+        }
+
+        if (null !== $request->isAsr) {
+            @$query['IsAsr'] = $request->isAsr;
+        }
+
+        if (null !== $request->isOb) {
+            @$query['IsOb'] = $request->isOb;
+        }
+
+        if (null !== $request->isQualityCheck) {
+            @$query['IsQualityCheck'] = $request->isQualityCheck;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->obClid) {
+            @$query['ObClid'] = $request->obClid;
+        }
+
+        if (null !== $request->obClidProperty) {
+            @$query['ObClidProperty'] = $request->obClidProperty;
+        }
+
+        if (null !== $request->obClidType) {
+            @$query['ObClidType'] = $request->obClidType;
+        }
+
+        if (null !== $request->obRecord) {
+            @$query['ObRecord'] = $request->obRecord;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->power) {
+            @$query['Power'] = $request->power;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->skillIds) {
+            @$query['SkillIds'] = $request->skillIds;
+        }
+
+        if (null !== $request->skillLevels) {
+            @$query['SkillLevels'] = $request->skillLevels;
+        }
+
+        if (null !== $request->webrtcUrlType) {
+            @$query['WebrtcUrlType'] = $request->webrtcUrlType;
+        }
+
+        if (null !== $request->wrapup) {
+            @$query['Wrapup'] = $request->wrapup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudBatchCreateAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudBatchCreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量新增座席,单次批量创建不能超过100个.
+     *
+     * @param request - CloudBatchCreateAgentRequest
+     *
+     * @returns CloudBatchCreateAgentResponse
+     *
+     * @param CloudBatchCreateAgentRequest $request
+     *
+     * @return CloudBatchCreateAgentResponse
+     */
+    public function cloudBatchCreateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudBatchCreateAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席实时状态批量获取.
+     *
+     * @param request - CloudBatchGetAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudBatchGetAgentStatusResponse
+     *
+     * @param CloudBatchGetAgentStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CloudBatchGetAgentStatusResponse
+     */
+    public function cloudBatchGetAgentStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudBatchGetAgentStatus',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudBatchGetAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席实时状态批量获取.
+     *
+     * @param request - CloudBatchGetAgentStatusRequest
+     *
+     * @returns CloudBatchGetAgentStatusResponse
+     *
+     * @param CloudBatchGetAgentStatusRequest $request
+     *
+     * @return CloudBatchGetAgentStatusResponse
+     */
+    public function cloudBatchGetAgentStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudBatchGetAgentStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量更新座席基本信息，不包含座席绑定的技能信息的更新.
+     *
+     * @param request - CloudBatchUpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudBatchUpdateAgentResponse
+     *
+     * @param CloudBatchUpdateAgentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CloudBatchUpdateAgentResponse
+     */
+    public function cloudBatchUpdateAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
+        }
+
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
+        if (null !== $request->areaCode) {
+            @$query['AreaCode'] = $request->areaCode;
+        }
+
+        if (null !== $request->callPower) {
+            @$query['CallPower'] = $request->callPower;
+        }
+
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ibRecord) {
+            @$query['IbRecord'] = $request->ibRecord;
+        }
+
+        if (null !== $request->isAsr) {
+            @$query['IsAsr'] = $request->isAsr;
+        }
+
+        if (null !== $request->isOb) {
+            @$query['IsOb'] = $request->isOb;
+        }
+
+        if (null !== $request->isObRemember) {
+            @$query['IsObRemember'] = $request->isObRemember;
+        }
+
+        if (null !== $request->isQualityCheck) {
+            @$query['IsQualityCheck'] = $request->isQualityCheck;
+        }
+
+        if (null !== $request->isRandom) {
+            @$query['IsRandom'] = $request->isRandom;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->obClid) {
+            @$query['ObClid'] = $request->obClid;
+        }
+
+        if (null !== $request->obClidProperty) {
+            @$query['ObClidProperty'] = $request->obClidProperty;
+        }
+
+        if (null !== $request->obClidType) {
+            @$query['ObClidType'] = $request->obClidType;
+        }
+
+        if (null !== $request->obRecord) {
+            @$query['ObRecord'] = $request->obRecord;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->permitObPreviewTime) {
+            @$query['PermitObPreviewTime'] = $request->permitObPreviewTime;
+        }
+
+        if (null !== $request->power) {
+            @$query['Power'] = $request->power;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->webrtcUrlType) {
+            @$query['WebrtcUrlType'] = $request->webrtcUrlType;
+        }
+
+        if (null !== $request->wrapup) {
+            @$query['Wrapup'] = $request->wrapup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudBatchUpdateAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudBatchUpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量更新座席基本信息，不包含座席绑定的技能信息的更新.
+     *
+     * @param request - CloudBatchUpdateAgentRequest
+     *
+     * @returns CloudBatchUpdateAgentResponse
+     *
+     * @param CloudBatchUpdateAgentRequest $request
+     *
+     * @return CloudBatchUpdateAgentResponse
+     */
+    public function cloudBatchUpdateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudBatchUpdateAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * 座席新增.
      *
      * @param request - CloudCreateAgentRequest
@@ -1117,6 +1828,302 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * 座席删除.
+     *
+     * @param request - CloudDeleteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudDeleteAgentResponse
+     *
+     * @param CloudDeleteAgentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CloudDeleteAgentResponse
+     */
+    public function cloudDeleteAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudDeleteAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudDeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席删除.
+     *
+     * @param request - CloudDeleteAgentRequest
+     *
+     * @returns CloudDeleteAgentResponse
+     *
+     * @param CloudDeleteAgentRequest $request
+     *
+     * @return CloudDeleteAgentResponse
+     */
+    public function cloudDeleteAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudDeleteAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除座席电话.
+     *
+     * @param request - CloudDeleteAgentTelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudDeleteAgentTelResponse
+     *
+     * @param CloudDeleteAgentTelRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CloudDeleteAgentTelResponse
+     */
+    public function cloudDeleteAgentTelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->tel) {
+            @$query['Tel'] = $request->tel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudDeleteAgentTel',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudDeleteAgentTelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除座席电话.
+     *
+     * @param request - CloudDeleteAgentTelRequest
+     *
+     * @returns CloudDeleteAgentTelResponse
+     *
+     * @param CloudDeleteAgentTelRequest $request
+     *
+     * @return CloudDeleteAgentTelResponse
+     */
+    public function cloudDeleteAgentTel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudDeleteAgentTelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席详细信息获取.
+     *
+     * @param request - CloudGetAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudGetAgentResponse
+     *
+     * @param CloudGetAgentRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CloudGetAgentResponse
+     */
+    public function cloudGetAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudGetAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudGetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席详细信息获取.
+     *
+     * @param request - CloudGetAgentRequest
+     *
+     * @returns CloudGetAgentResponse
+     *
+     * @param CloudGetAgentRequest $request
+     *
+     * @return CloudGetAgentResponse
+     */
+    public function cloudGetAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudGetAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席实时状态获取.
+     *
+     * @param request - CloudGetAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudGetAgentStatusResponse
+     *
+     * @param CloudGetAgentStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CloudGetAgentStatusResponse
+     */
+    public function cloudGetAgentStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudGetAgentStatus',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudGetAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席实时状态获取.
+     *
+     * @param request - CloudGetAgentStatusRequest
+     *
+     * @returns CloudGetAgentStatusResponse
+     *
+     * @param CloudGetAgentStatusRequest $request
+     *
+     * @return CloudGetAgentStatusResponse
+     */
+    public function cloudGetAgentStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudGetAgentStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * 任务号码导入.
      *
      * @param tmpReq - CloudImportTaskTelRequest
@@ -1228,6 +2235,767 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * IVR等待打断.
+     *
+     * @param request - CloudInterruptIvrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudInterruptIvrResponse
+     *
+     * @param CloudInterruptIvrRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CloudInterruptIvrResponse
+     */
+    public function cloudInterruptIvrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->checkName) {
+            @$query['CheckName'] = $request->checkName;
+        }
+
+        if (null !== $request->checkValue) {
+            @$query['CheckValue'] = $request->checkValue;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        if (null !== $request->userField) {
+            @$query['UserField'] = $request->userField;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudInterruptIvr',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudInterruptIvrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * IVR等待打断.
+     *
+     * @param request - CloudInterruptIvrRequest
+     *
+     * @returns CloudInterruptIvrResponse
+     *
+     * @param CloudInterruptIvrRequest $request
+     *
+     * @return CloudInterruptIvrResponse
+     */
+    public function cloudInterruptIvr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudInterruptIvrWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取座席电话.
+     *
+     * @param request - CloudListAgentTelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudListAgentTelResponse
+     *
+     * @param CloudListAgentTelRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CloudListAgentTelResponse
+     */
+    public function cloudListAgentTelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->tel) {
+            @$query['Tel'] = $request->tel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudListAgentTel',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudListAgentTelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取座席电话.
+     *
+     * @param request - CloudListAgentTelRequest
+     *
+     * @returns CloudListAgentTelResponse
+     *
+     * @param CloudListAgentTelRequest $request
+     *
+     * @return CloudListAgentTelResponse
+     */
+    public function cloudListAgentTel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudListAgentTelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取在线空闲座席.
+     *
+     * @param request - CloudListFreeAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudListFreeAgentResponse
+     *
+     * @param CloudListFreeAgentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CloudListFreeAgentResponse
+     */
+    public function cloudListFreeAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudListFreeAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudListFreeAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取在线空闲座席.
+     *
+     * @param request - CloudListFreeAgentRequest
+     *
+     * @returns CloudListFreeAgentResponse
+     *
+     * @param CloudListFreeAgentRequest $request
+     *
+     * @return CloudListFreeAgentResponse
+     */
+    public function cloudListFreeAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudListFreeAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 在线座席信息.
+     *
+     * @param request - CloudListOnlineAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudListOnlineAgentResponse
+     *
+     * @param CloudListOnlineAgentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CloudListOnlineAgentResponse
+     */
+    public function cloudListOnlineAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pauseDescription) {
+            @$query['PauseDescription'] = $request->pauseDescription;
+        }
+
+        if (null !== $request->pauseType) {
+            @$query['PauseType'] = $request->pauseType;
+        }
+
+        if (null !== $request->qnos) {
+            @$query['Qnos'] = $request->qnos;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->stateCode) {
+            @$query['StateCode'] = $request->stateCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudListOnlineAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudListOnlineAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 在线座席信息.
+     *
+     * @param request - CloudListOnlineAgentRequest
+     *
+     * @returns CloudListOnlineAgentResponse
+     *
+     * @param CloudListOnlineAgentRequest $request
+     *
+     * @return CloudListOnlineAgentResponse
+     */
+    public function cloudListOnlineAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudListOnlineAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席外呼
+     *
+     * @param request - CloudPreviewoutcallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudPreviewoutcallResponse
+     *
+     * @param CloudPreviewoutcallRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CloudPreviewoutcallResponse
+     */
+    public function cloudPreviewoutcallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupTels) {
+            @$query['BackupTels'] = $request->backupTels;
+        }
+
+        if (null !== $request->callVariables) {
+            @$query['CallVariables'] = $request->callVariables;
+        }
+
+        if (null !== $request->cdrIsAsr) {
+            @$query['CdrIsAsr'] = $request->cdrIsAsr;
+        }
+
+        if (null !== $request->clidList) {
+            @$query['ClidList'] = $request->clidList;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->crnId) {
+            @$query['CrnId'] = $request->crnId;
+        }
+
+        if (null !== $request->dialTelTimeout) {
+            @$query['DialTelTimeout'] = $request->dialTelTimeout;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->isInvestigation) {
+            @$query['IsInvestigation'] = $request->isInvestigation;
+        }
+
+        if (null !== $request->obClid) {
+            @$query['ObClid'] = $request->obClid;
+        }
+
+        if (null !== $request->obClidAreaCode) {
+            @$query['ObClidAreaCode'] = $request->obClidAreaCode;
+        }
+
+        if (null !== $request->obClidGroup) {
+            @$query['ObClidGroup'] = $request->obClidGroup;
+        }
+
+        if (null !== $request->requestUniqueId) {
+            @$query['RequestUniqueId'] = $request->requestUniqueId;
+        }
+
+        if (null !== $request->tel) {
+            @$query['Tel'] = $request->tel;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudPreviewoutcall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudPreviewoutcallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席外呼
+     *
+     * @param request - CloudPreviewoutcallRequest
+     *
+     * @returns CloudPreviewoutcallResponse
+     *
+     * @param CloudPreviewoutcallRequest $request
+     *
+     * @return CloudPreviewoutcallResponse
+     */
+    public function cloudPreviewoutcall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudPreviewoutcallWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席详细信息列表获取.
+     *
+     * @param request - CloudQueryAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryAgentResponse
+     *
+     * @param CloudQueryAgentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloudQueryAgentResponse
+     */
+    public function cloudQueryAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
+        }
+
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qno) {
+            @$query['Qno'] = $request->qno;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->returnQueue) {
+            @$query['ReturnQueue'] = $request->returnQueue;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->webrtcUrlType) {
+            @$query['WebrtcUrlType'] = $request->webrtcUrlType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席详细信息列表获取.
+     *
+     * @param request - CloudQueryAgentRequest
+     *
+     * @returns CloudQueryAgentResponse
+     *
+     * @param CloudQueryAgentRequest $request
+     *
+     * @return CloudQueryAgentResponse
+     */
+    public function cloudQueryAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席列表获取.
+     *
+     * @param request - CloudQueryAgentCnoAndNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryAgentCnoAndNameResponse
+     *
+     * @param CloudQueryAgentCnoAndNameRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CloudQueryAgentCnoAndNameResponse
+     */
+    public function cloudQueryAgentCnoAndNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryAgentCnoAndName',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryAgentCnoAndNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席列表获取.
+     *
+     * @param request - CloudQueryAgentCnoAndNameRequest
+     *
+     * @returns CloudQueryAgentCnoAndNameResponse
+     *
+     * @param CloudQueryAgentCnoAndNameRequest $request
+     *
+     * @return CloudQueryAgentCnoAndNameResponse
+     */
+    public function cloudQueryAgentCnoAndName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryAgentCnoAndNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取座席外呼组.
+     *
+     * @param request - CloudQueryAgentGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryAgentGroupResponse
+     *
+     * @param CloudQueryAgentGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CloudQueryAgentGroupResponse
+     */
+    public function cloudQueryAgentGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryAgentGroup',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryAgentGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取座席外呼组.
+     *
+     * @param request - CloudQueryAgentGroupRequest
+     *
+     * @returns CloudQueryAgentGroupResponse
+     *
+     * @param CloudQueryAgentGroupRequest $request
+     *
+     * @return CloudQueryAgentGroupResponse
+     */
+    public function cloudQueryAgentGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryAgentGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取座席技能.
+     *
+     * @param request - CloudQueryAgentSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryAgentSkillResponse
+     *
+     * @param CloudQueryAgentSkillRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CloudQueryAgentSkillResponse
+     */
+    public function cloudQueryAgentSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryAgentSkill',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryAgentSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取座席技能.
+     *
+     * @param request - CloudQueryAgentSkillRequest
+     *
+     * @returns CloudQueryAgentSkillResponse
+     *
+     * @param CloudQueryAgentSkillRequest $request
+     *
+     * @return CloudQueryAgentSkillResponse
+     */
+    public function cloudQueryAgentSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryAgentSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * 任务启动.
      *
      * @param request - CloudStartTaskRequest
@@ -1298,6 +3066,167 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloudStartTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 座席更新.
+     *
+     * @param request - CloudUpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudUpdateAgentResponse
+     *
+     * @param CloudUpdateAgentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CloudUpdateAgentResponse
+     */
+    public function cloudUpdateAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
+        }
+
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
+        if (null !== $request->areaCode) {
+            @$query['AreaCode'] = $request->areaCode;
+        }
+
+        if (null !== $request->callPower) {
+            @$query['CallPower'] = $request->callPower;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->ibRecord) {
+            @$query['IbRecord'] = $request->ibRecord;
+        }
+
+        if (null !== $request->isAsr) {
+            @$query['IsAsr'] = $request->isAsr;
+        }
+
+        if (null !== $request->isOb) {
+            @$query['IsOb'] = $request->isOb;
+        }
+
+        if (null !== $request->isObRemember) {
+            @$query['IsObRemember'] = $request->isObRemember;
+        }
+
+        if (null !== $request->isQualityCheck) {
+            @$query['IsQualityCheck'] = $request->isQualityCheck;
+        }
+
+        if (null !== $request->isRandom) {
+            @$query['IsRandom'] = $request->isRandom;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->obClid) {
+            @$query['ObClid'] = $request->obClid;
+        }
+
+        if (null !== $request->obClidProperty) {
+            @$query['ObClidProperty'] = $request->obClidProperty;
+        }
+
+        if (null !== $request->obClidType) {
+            @$query['ObClidType'] = $request->obClidType;
+        }
+
+        if (null !== $request->obRecord) {
+            @$query['ObRecord'] = $request->obRecord;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->permitObPreviewTime) {
+            @$query['PermitObPreviewTime'] = $request->permitObPreviewTime;
+        }
+
+        if (null !== $request->power) {
+            @$query['Power'] = $request->power;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->skillIds) {
+            @$query['SkillIds'] = $request->skillIds;
+        }
+
+        if (null !== $request->skillLevels) {
+            @$query['SkillLevels'] = $request->skillLevels;
+        }
+
+        if (null !== $request->webrtcUrlType) {
+            @$query['WebrtcUrlType'] = $request->webrtcUrlType;
+        }
+
+        if (null !== $request->wrapup) {
+            @$query['Wrapup'] = $request->wrapup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudUpdateAgent',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudUpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 座席更新.
+     *
+     * @param request - CloudUpdateAgentRequest
+     *
+     * @returns CloudUpdateAgentResponse
+     *
+     * @param CloudUpdateAgentRequest $request
+     *
+     * @return CloudUpdateAgentResponse
+     */
+    public function cloudUpdateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudUpdateAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -1555,6 +3484,135 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloudUpdateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * webcall.
+     *
+     * @param request - CloudWebcallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudWebcallResponse
+     *
+     * @param CloudWebcallRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CloudWebcallResponse
+     */
+    public function cloudWebcallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amd) {
+            @$query['Amd'] = $request->amd;
+        }
+
+        if (null !== $request->clid) {
+            @$query['Clid'] = $request->clid;
+        }
+
+        if (null !== $request->clidAreaCode) {
+            @$query['ClidAreaCode'] = $request->clidAreaCode;
+        }
+
+        if (null !== $request->clidGroup) {
+            @$query['ClidGroup'] = $request->clidGroup;
+        }
+
+        if (null !== $request->clidList) {
+            @$query['ClidList'] = $request->clidList;
+        }
+
+        if (null !== $request->crnId) {
+            @$query['CrnId'] = $request->crnId;
+        }
+
+        if (null !== $request->delay) {
+            @$query['Delay'] = $request->delay;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->expirTime) {
+            @$query['ExpirTime'] = $request->expirTime;
+        }
+
+        if (null !== $request->ivrId) {
+            @$query['IvrId'] = $request->ivrId;
+        }
+
+        if (null !== $request->multiTelDelay) {
+            @$query['MultiTelDelay'] = $request->multiTelDelay;
+        }
+
+        if (null !== $request->multiTelPush) {
+            @$query['MultiTelPush'] = $request->multiTelPush;
+        }
+
+        if (null !== $request->requestUniqueId) {
+            @$query['RequestUniqueId'] = $request->requestUniqueId;
+        }
+
+        if (null !== $request->retry) {
+            @$query['Retry'] = $request->retry;
+        }
+
+        if (null !== $request->retryInterval) {
+            @$query['RetryInterval'] = $request->retryInterval;
+        }
+
+        if (null !== $request->tel) {
+            @$query['Tel'] = $request->tel;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->userField) {
+            @$query['UserField'] = $request->userField;
+        }
+
+        if (null !== $request->vid) {
+            @$query['Vid'] = $request->vid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudWebcall',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudWebcallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * webcall.
+     *
+     * @param request - CloudWebcallRequest
+     *
+     * @returns CloudWebcallResponse
+     *
+     * @param CloudWebcallRequest $request
+     *
+     * @return CloudWebcallResponse
+     */
+    public function cloudWebcall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudWebcallWithOptions($request, $runtime);
     }
 
     /**
