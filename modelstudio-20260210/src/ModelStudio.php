@@ -141,6 +141,10 @@ class ModelStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->serviceSite) {
+            @$query['serviceSite'] = $request->serviceSite;
+        }
+
         if (null !== $request->workspaceName) {
             @$query['workspaceName'] = $request->workspaceName;
         }
@@ -387,6 +391,10 @@ class ModelStudio extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspaceId'] = $request->workspaceId;
         }
 
         if (null !== $request->workspaceName) {

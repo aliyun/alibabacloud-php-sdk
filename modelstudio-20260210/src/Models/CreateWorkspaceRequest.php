@@ -11,8 +11,14 @@ class CreateWorkspaceRequest extends Model
     /**
      * @var string
      */
+    public $serviceSite;
+
+    /**
+     * @var string
+     */
     public $workspaceName;
     protected $_name = [
+        'serviceSite' => 'serviceSite',
         'workspaceName' => 'workspaceName',
     ];
 
@@ -24,6 +30,10 @@ class CreateWorkspaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->serviceSite) {
+            $res['serviceSite'] = $this->serviceSite;
+        }
+
         if (null !== $this->workspaceName) {
             $res['workspaceName'] = $this->workspaceName;
         }
@@ -39,6 +49,10 @@ class CreateWorkspaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['serviceSite'])) {
+            $model->serviceSite = $map['serviceSite'];
+        }
+
         if (isset($map['workspaceName'])) {
             $model->workspaceName = $map['workspaceName'];
         }

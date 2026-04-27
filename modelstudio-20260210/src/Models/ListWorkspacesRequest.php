@@ -21,10 +21,16 @@ class ListWorkspacesRequest extends Model
     /**
      * @var string
      */
+    public $workspaceId;
+
+    /**
+     * @var string
+     */
     public $workspaceName;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'workspaceId' => 'workspaceId',
         'workspaceName' => 'workspaceName',
     ];
 
@@ -42,6 +48,10 @@ class ListWorkspacesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         if (null !== $this->workspaceName) {
@@ -65,6 +75,10 @@ class ListWorkspacesRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         if (isset($map['workspaceName'])) {
