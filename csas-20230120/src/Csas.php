@@ -149,6 +149,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateTargetsReques
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListEnterpriseAccelerateTargetsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListForwardStrategiesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListForwardStrategiesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListForwardStrategyBindingItemsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListForwardStrategyBindingItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpConfigsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListIdpDepartmentsRequest;
@@ -352,7 +356,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载业务策略至指定审批流程.
+     * Mount a business policy to a specified approval flow.
      *
      * @param request - AttachPolicy2ApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -399,7 +403,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 挂载业务策略至指定审批流程.
+     * Mount a business policy to a specified approval flow.
      *
      * @param request - AttachPolicy2ApprovalProcessRequest
      *
@@ -417,7 +421,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建审批流程.
+     * Create an approval flow under the current Alibaba Cloud account.
      *
      * @param tmpReq - CreateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -477,7 +481,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建审批流程.
+     * Create an approval flow under the current Alibaba Cloud account.
      *
      * @param request - CreateApprovalProcessRequest
      *
@@ -672,7 +676,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速策略.
+     * Create an enterprise acceleration policy.
      *
      * @param request - CreateEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -743,7 +747,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速策略.
+     * Create an enterprise acceleration policy.
      *
      * @param request - CreateEnterpriseAcceleratePolicyRequest
      *
@@ -761,7 +765,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速对象
+     * Create an enterprise acceleration address.
      *
      * @param request - CreateEnterpriseAccelerateTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -807,7 +811,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建加速对象
+     * Create an enterprise acceleration address.
      *
      * @param request - CreateEnterpriseAccelerateTargetRequest
      *
@@ -886,7 +890,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问诊断任务
+     * Create an internal network access diagnostic task.
      *
      * @param tmpReq - CreatePADiagnosisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -967,7 +971,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 创建内网访问诊断任务
+     * Create an internal network access diagnostic task.
      *
      * @param request - CreatePADiagnosisTaskRequest
      *
@@ -1896,7 +1900,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除审批流程.
+     * Batch delete approval flows under the current Alibaba Cloud account.
      *
      * @param request - DeleteApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1938,7 +1942,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量删除审批流程.
+     * Batch delete approval flows under the current Alibaba Cloud account.
      *
      * @param request - DeleteApprovalProcessesRequest
      *
@@ -2070,7 +2074,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速策略.
+     * Delete an enterprise acceleration policy.
      *
      * @param request - DeleteEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2109,7 +2113,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速策略.
+     * Delete an enterprise acceleration policy.
      *
      * @param request - DeleteEnterpriseAcceleratePolicyRequest
      *
@@ -2127,7 +2131,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速对象
+     * Delete an enterprise acceleration address.
      *
      * @param request - DeleteEnterpriseAccelerateTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2173,7 +2177,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 删除加速对象
+     * Delete an enterprise acceleration address.
      *
      * @param request - DeleteEnterpriseAccelerateTargetRequest
      *
@@ -2252,7 +2256,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * DeleteOtpConfig.
+     * Delete the employee OTP configuration.
      *
      * @param request - DeleteOtpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2291,7 +2295,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * DeleteOtpConfig.
+     * Delete the employee OTP configuration.
      *
      * @param request - DeleteOtpConfigRequest
      *
@@ -2729,7 +2733,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 解绑业务策略与审批流程.
+     * Detach business policies from approval flows.
      *
      * @param request - DetachPolicy2ApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2776,7 +2780,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 解绑业务策略与审批流程.
+     * Detach business policies from approval flows.
      *
      * @param request - DetachPolicy2ApprovalProcessRequest
      *
@@ -2794,7 +2798,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 禁用加速策略.
+     * Disable enterprise acceleration policy.
      *
      * @param request - DisableEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2833,7 +2837,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 禁用加速策略.
+     * Disable enterprise acceleration policy.
      *
      * @param request - DisableEnterpriseAcceleratePolicyRequest
      *
@@ -2851,7 +2855,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 启用加速策略.
+     * Enable enterprise acceleration policy.
      *
      * @param request - EnableEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2890,7 +2894,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 启用加速策略.
+     * Enable enterprise acceleration policy.
      *
      * @param request - EnableEnterpriseAcceleratePolicyRequest
      *
@@ -3026,7 +3030,6 @@ class Csas extends OpenApiClient
     /**
      * 查询已启用的身份源配置.
      *
-     * @param request - GetActiveIdpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetActiveIdpConfigResponse
@@ -3068,7 +3071,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批.
+     * Queries the details of an approval instance within your Alibaba Cloud account.
      *
      * @param request - GetApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3103,7 +3106,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批.
+     * Queries the details of an approval instance within your Alibaba Cloud account.
      *
      * @param request - GetApprovalRequest
      *
@@ -3121,7 +3124,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程.
+     * Queries the details of an approval flow under the current Alibaba Cloud account.
      *
      * @param request - GetApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3156,7 +3159,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程.
+     * Queries the details of an approval flow under the current Alibaba Cloud account.
      *
      * @param request - GetApprovalProcessRequest
      *
@@ -3174,7 +3177,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批动态模板
+     * Queries the details of an approval template within your Alibaba Cloud account.
      *
      * @param request - GetApprovalSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3209,7 +3212,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批动态模板
+     * Queries the details of an approval template within your Alibaba Cloud account.
      *
      * @param request - GetApprovalSchemaRequest
      *
@@ -3227,9 +3230,8 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自启动与防卸载策略配置.
+     * Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
      *
-     * @param request - GetBootAndAntiUninstallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBootAndAntiUninstallPolicyResponse
@@ -3257,7 +3259,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询自启动与防卸载策略配置.
+     * Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
      *
      * @returns GetBootAndAntiUninstallPolicyResponse
      *
@@ -3430,7 +3432,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询内网访问诊断任务详情.
+     * Query the details of an internal network access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3465,7 +3467,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询内网访问诊断任务详情.
+     * Query the details of an internal network access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
      *
@@ -3854,7 +3856,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量导入加速对象异步任务
+     * Batch import accelerated address List.
      *
      * @param request - ImportEnterpriseAccelerateTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3897,7 +3899,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量导入加速对象异步任务
+     * Batch import accelerated address List.
      *
      * @param request - ImportEnterpriseAccelerateTargetsRequest
      *
@@ -3915,7 +3917,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的应用.
+     * Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3950,7 +3952,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略的应用.
+     * Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
      *
@@ -4021,7 +4023,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批流程.
+     * Queries the approval flow list under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4056,7 +4058,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批流程.
+     * Queries the approval flow list under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalProcessesRequest
      *
@@ -4074,7 +4076,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批渲染模板关联的流程.
+     * Query flows associated with an approval rendering template.
      *
      * @param request - ListApprovalProcessesForApprovalSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4109,7 +4111,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批渲染模板关联的流程.
+     * Query flows associated with an approval rendering template.
      *
      * @param request - ListApprovalProcessesForApprovalSchemasRequest
      *
@@ -4127,7 +4129,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批动态模板
+     * Queries the list of approval templates under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4162,7 +4164,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询审批动态模板
+     * Queries the list of approval templates under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalSchemasRequest
      *
@@ -4180,7 +4182,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程关联的渲染模板
+     * Query rendering templates associated with an approval flow.
      *
      * @param request - ListApprovalSchemasForApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4215,7 +4217,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询审批流程关联的渲染模板
+     * Query rendering templates associated with an approval flow.
      *
      * @param request - ListApprovalSchemasForApprovalProcessesRequest
      *
@@ -4233,7 +4235,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询审批.
+     * Queries the approval instance list under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4268,7 +4270,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询审批.
+     * Queries the approval instance list under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalsRequest
      *
@@ -4392,7 +4394,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch Query Dynamic Policy Disposal Processes.
+     * Batch query Dynamic policy handling flows.
      *
      * @param request - ListDynamicDisposalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4427,7 +4429,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch Query Dynamic Policy Disposal Processes.
+     * Batch query Dynamic policy handling flows.
      *
      * @param request - ListDynamicDisposalProcessesRequest
      *
@@ -4447,7 +4449,6 @@ class Csas extends OpenApiClient
     /**
      * 批量查询动态路由的地域
      *
-     * @param request - ListDynamicRouteRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDynamicRouteRegionsResponse
@@ -4542,7 +4543,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略日志列表.
+     * Queries enterprise acceleration Audit logs.
      *
      * @param request - ListEnterpriseAccelerateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4577,7 +4578,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略日志列表.
+     * Queries enterprise acceleration Audit logs.
      *
      * @param request - ListEnterpriseAccelerateLogsRequest
      *
@@ -4595,7 +4596,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略列表.
+     * Query acceleration policy list.
      *
      * @param request - ListEnterpriseAcceleratePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4630,7 +4631,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速策略列表.
+     * Query acceleration policy list.
      *
      * @param request - ListEnterpriseAcceleratePoliciesRequest
      *
@@ -4648,7 +4649,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速对象列表.
+     * Query the enterprise acceleration address list.
      *
      * @param request - ListEnterpriseAccelerateTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4683,7 +4684,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询加速对象列表.
+     * Query the enterprise acceleration address list.
      *
      * @param request - ListEnterpriseAccelerateTargetsRequest
      *
@@ -4751,6 +4752,112 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listExcessiveDeviceRegistrationApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询转发策略.
+     *
+     * @param request - ListForwardStrategiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListForwardStrategiesResponse
+     *
+     * @param ListForwardStrategiesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListForwardStrategiesResponse
+     */
+    public function listForwardStrategiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListForwardStrategies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListForwardStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询转发策略.
+     *
+     * @param request - ListForwardStrategiesRequest
+     *
+     * @returns ListForwardStrategiesResponse
+     *
+     * @param ListForwardStrategiesRequest $request
+     *
+     * @return ListForwardStrategiesResponse
+     */
+    public function listForwardStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listForwardStrategiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量查询转发策略绑定项目.
+     *
+     * @param request - ListForwardStrategyBindingItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListForwardStrategyBindingItemsResponse
+     *
+     * @param ListForwardStrategyBindingItemsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListForwardStrategyBindingItemsResponse
+     */
+    public function listForwardStrategyBindingItemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListForwardStrategyBindingItems',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListForwardStrategyBindingItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询转发策略绑定项目.
+     *
+     * @param request - ListForwardStrategyBindingItemsRequest
+     *
+     * @returns ListForwardStrategyBindingItemsResponse
+     *
+     * @param ListForwardStrategyBindingItemsRequest $request
+     *
+     * @return ListForwardStrategyBindingItemsResponse
+     */
+    public function listForwardStrategyBindingItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listForwardStrategyBindingItemsWithOptions($request, $runtime);
     }
 
     /**
@@ -4860,7 +4967,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 入网用户列表.
+     * Network User List.
      *
      * @param request - ListNacUserCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4927,7 +5034,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 入网用户列表.
+     * Network User List.
      *
      * @param request - ListNacUserCertRequest
      *
@@ -5727,7 +5834,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询卸载申请列表.
+     * Batch queries the uninstall request list under the current Alibaba Cloud account.
      *
      * @param request - ListUninstallApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5762,7 +5869,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询卸载申请列表.
+     * Batch queries the uninstall request list under the current Alibaba Cloud account.
      *
      * @param request - ListUninstallApplicationsRequest
      *
@@ -5780,7 +5887,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询用户应用权限.
+     * Queries the application permissions of a logon user under the current Alibaba Cloud account.
      *
      * @param request - ListUserApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5815,7 +5922,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 列表查询用户应用权限.
+     * Queries the application permissions of a logon user under the current Alibaba Cloud account.
      *
      * @param request - ListUserApplicationsRequest
      *
@@ -6045,7 +6152,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * List query of user zero trust policies.
+     * Query the zero trust policies of a User in a List.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6080,7 +6187,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * List query of user zero trust policies.
+     * Query the zero trust policies of a User in a List.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      *
@@ -6204,7 +6311,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改加速策略.
+     * Modify enterprise acceleration policy.
      *
      * @param request - ModifyEnterpriseAcceleratePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6283,7 +6390,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改加速策略.
+     * Modify enterprise acceleration policy.
      *
      * @param request - ModifyEnterpriseAcceleratePolicyRequest
      *
@@ -6301,7 +6408,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 吊销用户登录会话.
+     * Revoke a User logon session.
      *
      * @deprecated OpenAPI RevokeUserSession is deprecated
      *
@@ -6347,7 +6454,7 @@ class Csas extends OpenApiClient
 
     // Deprecated
     /**
-     * 吊销用户登录会话.
+     * Revoke a User logon session.
      *
      * @deprecated OpenAPI RevokeUserSession is deprecated
      *
@@ -6367,7 +6474,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新审批流程.
+     * Update an approval flow under the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6453,7 +6560,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新审批流程.
+     * Update an approval flow under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalProcessRequest
      *
@@ -6471,7 +6578,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改审批状态
+     * Update the approval instance status under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6514,7 +6621,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 修改审批状态
+     * Update the approval instance status under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      *
@@ -6532,7 +6639,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新自启动与防卸载策略配置.
+     * Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
      *
      * @param tmpReq - UpdateBootAndAntiUninstallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6600,7 +6707,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新自启动与防卸载策略配置.
+     * Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
      *
      * @param request - UpdateBootAndAntiUninstallPolicyRequest
      *
@@ -7050,7 +7157,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新NAC User 状态
+     * Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
      *
      * @param request - UpdateNacUserCertStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7096,7 +7203,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 更新NAC User 状态
+     * Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
      *
      * @param request - UpdateNacUserCertStatusRequest
      *
@@ -7494,7 +7601,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改卸载申请状态
+     * Batch updates the uninstall request status under the current Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7540,7 +7647,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量修改卸载申请状态
+     * Batch updates the uninstall request status under the current Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      *
