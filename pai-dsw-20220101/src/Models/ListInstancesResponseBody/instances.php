@@ -215,6 +215,11 @@ class instances extends Model
     /**
      * @var string
      */
+    public $tenantId;
+
+    /**
+     * @var string
+     */
     public $terminalUrl;
 
     /**
@@ -290,6 +295,7 @@ class instances extends Model
         'serviceConfig' => 'ServiceConfig',
         'status' => 'Status',
         'tags' => 'Tags',
+        'tenantId' => 'TenantId',
         'terminalUrl' => 'TerminalUrl',
         'userId' => 'UserId',
         'userName' => 'UserName',
@@ -545,6 +551,10 @@ class instances extends Model
             }
         }
 
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
         if (null !== $this->terminalUrl) {
             $res['TerminalUrl'] = $this->terminalUrl;
         }
@@ -778,6 +788,10 @@ class instances extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         if (isset($map['TerminalUrl'])) {

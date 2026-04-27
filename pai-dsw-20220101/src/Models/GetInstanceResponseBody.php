@@ -259,6 +259,11 @@ class GetInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $tenantId;
+
+    /**
+     * @var string
+     */
     public $terminalUrl;
 
     /**
@@ -348,6 +353,7 @@ class GetInstanceResponseBody extends Model
         'status' => 'Status',
         'success' => 'Success',
         'tags' => 'Tags',
+        'tenantId' => 'TenantId',
         'terminalUrl' => 'TerminalUrl',
         'userCommandId' => 'UserCommandId',
         'userId' => 'UserId',
@@ -672,6 +678,10 @@ class GetInstanceResponseBody extends Model
             }
         }
 
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
         if (null !== $this->terminalUrl) {
             $res['TerminalUrl'] = $this->terminalUrl;
         }
@@ -962,6 +972,10 @@ class GetInstanceResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         if (isset($map['TerminalUrl'])) {
