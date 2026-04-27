@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddUninstallClientsByUuidsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddUninstallClientsByUuidsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddUnknownThreatDetectProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddUnknownThreatDetectProcessResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsRequest;
@@ -195,6 +197,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUniRestorePlanResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUnknownThreatDetectStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUnknownThreatDetectStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateVirusScanOnceTaskRequest;
@@ -307,6 +311,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteTagWithUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUniBackupPolicyResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUnknownThreatDetectProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUnknownThreatDetectProcessResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUnknownThreatDetectStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteUnknownThreatDetectStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVpcHoneyPotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteVulAutoRepairConfigRequest;
@@ -1153,6 +1161,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetTenantCheckAvailableResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetUnknownThreatDetectStatisticRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetUnknownThreatDetectStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetUserLangResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetValidDeductInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetValidDeductInstancesResponse;
@@ -1173,6 +1183,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarMaliciousFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarMaliciousFilesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarSecurityEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\HandleUnknownThreatDetectEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\HandleUnknownThreatDetectEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreCheckItemsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreCheckItemsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\IgnoreHcCheckWarningsRequest;
@@ -1401,6 +1413,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListUniBackupRecordRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUniBackupRecordResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUninstallAegisMachinesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUninstallAegisMachinesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectEventResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectMachineResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectProcessResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListUnknownThreatDetectStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUserVpcRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUserVpcResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListUuidsByAppIdRequest;
@@ -1601,6 +1621,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSuspiciousTargetConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSwitchStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateSwitchStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateUnknownThreatDetectMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\OperateUnknownThreatDetectMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVirusEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVirusEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\OperateVulsRequest;
@@ -1794,6 +1816,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateStrictEventNameRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateStrictEventNameResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateTargetListByBatchRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateTargetListByBatchResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateUnknownThreatDetectProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateUnknownThreatDetectProcessResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateUnknownThreatDetectStrategyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateUnknownThreatDetectStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateWhiteListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateWhiteListStrategyStatusRequest;
@@ -3478,6 +3504,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 新增未知威胁分析进程.
+     *
+     * @param request - AddUnknownThreatDetectProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUnknownThreatDetectProcessResponse
+     *
+     * @param AddUnknownThreatDetectProcessRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AddUnknownThreatDetectProcessResponse
+     */
+    public function addUnknownThreatDetectProcessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventIdList) {
+            @$query['EventIdList'] = $request->eventIdList;
+        }
+
+        if (null !== $request->processList) {
+            @$query['ProcessList'] = $request->processList;
+        }
+
+        if (null !== $request->uuidList) {
+            @$query['UuidList'] = $request->uuidList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddUnknownThreatDetectProcess',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUnknownThreatDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增未知威胁分析进程.
+     *
+     * @param request - AddUnknownThreatDetectProcessRequest
+     *
+     * @returns AddUnknownThreatDetectProcessResponse
+     *
+     * @param AddUnknownThreatDetectProcessRequest $request
+     *
+     * @return AddUnknownThreatDetectProcessResponse
+     */
+    public function addUnknownThreatDetectProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUnknownThreatDetectProcessWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a honeypot.
      *
      * @param request - AddVpcHoneyPotRequest
@@ -4489,7 +4580,6 @@ class Sas extends OpenApiClient
     /**
      * Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
      *
-     * @param request - CheckStsTokenAuthRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckStsTokenAuthResponse
@@ -8815,6 +8905,79 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 创建未知威胁发现的策略.
+     *
+     * @param request - CreateUnknownThreatDetectStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUnknownThreatDetectStrategyResponse
+     *
+     * @param CreateUnknownThreatDetectStrategyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateUnknownThreatDetectStrategyResponse
+     */
+    public function createUnknownThreatDetectStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetSelectionType) {
+            @$query['AssetSelectionType'] = $request->assetSelectionType;
+        }
+
+        if (null !== $request->durationDaysAfterInit) {
+            @$query['DurationDaysAfterInit'] = $request->durationDaysAfterInit;
+        }
+
+        if (null !== $request->durationDaysAfterStop) {
+            @$query['DurationDaysAfterStop'] = $request->durationDaysAfterStop;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->studyMode) {
+            @$query['StudyMode'] = $request->studyMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUnknownThreatDetectStrategy',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUnknownThreatDetectStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建未知威胁发现的策略.
+     *
+     * @param request - CreateUnknownThreatDetectStrategyRequest
+     *
+     * @returns CreateUnknownThreatDetectStrategyResponse
+     *
+     * @param CreateUnknownThreatDetectStrategyRequest $request
+     *
+     * @return CreateUnknownThreatDetectStrategyResponse
+     */
+    public function createUnknownThreatDetectStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUnknownThreatDetectStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates the risk level settings for baseline check items.
      *
      * @param request - CreateUserSettingRequest
@@ -12220,6 +12383,120 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 删除未知威胁发现进程.
+     *
+     * @param request - DeleteUnknownThreatDetectProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUnknownThreatDetectProcessResponse
+     *
+     * @param DeleteUnknownThreatDetectProcessRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteUnknownThreatDetectProcessResponse
+     */
+    public function deleteUnknownThreatDetectProcessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->processIdList) {
+            @$query['ProcessIdList'] = $request->processIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUnknownThreatDetectProcess',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUnknownThreatDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除未知威胁发现进程.
+     *
+     * @param request - DeleteUnknownThreatDetectProcessRequest
+     *
+     * @returns DeleteUnknownThreatDetectProcessResponse
+     *
+     * @param DeleteUnknownThreatDetectProcessRequest $request
+     *
+     * @return DeleteUnknownThreatDetectProcessResponse
+     */
+    public function deleteUnknownThreatDetectProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUnknownThreatDetectProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除未知威胁发现策略.
+     *
+     * @param request - DeleteUnknownThreatDetectStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUnknownThreatDetectStrategyResponse
+     *
+     * @param DeleteUnknownThreatDetectStrategyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteUnknownThreatDetectStrategyResponse
+     */
+    public function deleteUnknownThreatDetectStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->idList) {
+            @$query['IdList'] = $request->idList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUnknownThreatDetectStrategy',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUnknownThreatDetectStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除未知威胁发现策略.
+     *
+     * @param request - DeleteUnknownThreatDetectStrategyRequest
+     *
+     * @returns DeleteUnknownThreatDetectStrategyResponse
+     *
+     * @param DeleteUnknownThreatDetectStrategyRequest $request
+     *
+     * @return DeleteUnknownThreatDetectStrategyResponse
+     */
+    public function deleteUnknownThreatDetectStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUnknownThreatDetectStrategyWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a honeypot.
      *
      * @param request - DeleteVpcHoneyPotRequest
@@ -12405,7 +12682,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the overview of user AI assets.
      *
-     * @param request - DescribeAIAssetSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAIAssetSummaryResponse
@@ -13070,7 +13346,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the information about all assets. The information includes asset group IDs and asset names.
      *
-     * @param request - DescribeAllEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAllEntityResponse
@@ -13374,7 +13649,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the scan cycle for application vulnerabilities.
      *
-     * @param request - DescribeAppVulScanCycleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAppVulScanCycleResponse
@@ -13559,7 +13833,6 @@ class Sas extends OpenApiClient
     /**
      * The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * @param request - DescribeAssetSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAssetSummaryResponse
@@ -13737,6 +14010,8 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistics of attack analysis.
      *
+     * @deprecated openAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead
+     *
      * @param request - DescribeAttackAnalysisDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13801,8 +14076,11 @@ class Sas extends OpenApiClient
         return DescribeAttackAnalysisDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Queries the statistics of attack analysis.
+     *
+     * @deprecated openAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead
      *
      * @param request - DescribeAttackAnalysisDataRequest
      *
@@ -13895,7 +14173,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
      *
-     * @param request - DescribeAutoDelConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAutoDelConfigResponse
@@ -14342,7 +14619,6 @@ class Sas extends OpenApiClient
      * @remarks
      * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
      *
-     * @param request - DescribeBackupRestoreCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeBackupRestoreCountResponse
@@ -14608,7 +14884,6 @@ class Sas extends OpenApiClient
     /**
      * Check if the asset can be sold by VPC.
      *
-     * @param request - DescribeCanAccessVpcSaleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCanAccessVpcSaleResponse
@@ -14813,7 +15088,6 @@ class Sas extends OpenApiClient
     /**
      * Checks the permissions on the trial use of Security Center.
      *
-     * @param request - DescribeCanTrySasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCanTrySasResponse
@@ -15121,7 +15395,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the result of the ISO 27001 compliance check.
      *
-     * @param request - DescribeCheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCheckResultResponse
@@ -15911,7 +16184,6 @@ class Sas extends OpenApiClient
      *
      * @deprecated openAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead
      *
-     * @param request - DescribeCloudProductFieldStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCloudProductFieldStatisticsResponse
@@ -16041,7 +16313,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get the cloud product access template for vendors.
+     * Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
      *
      * @param request - DescribeCloudVendorProductTemplateConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16084,7 +16356,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Get the cloud product access template for vendors.
+     * Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
      *
      * @param request - DescribeCloudVendorProductTemplateConfigRequest
      *
@@ -17067,7 +17339,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistical information about containers.
      *
-     * @param request - DescribeContainerFieldStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeContainerFieldStatisticsResponse
@@ -17633,7 +17904,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of images that are not scanned.
      *
-     * @param request - DescribeCountNotScannedImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCountNotScannedImageResponse
@@ -17677,7 +17947,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of images that are scanned.
      *
-     * @param request - DescribeCountScannedImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCountScannedImageResponse
@@ -18448,7 +18717,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
      *
-     * @param request - DescribeDefaultProxyInstallVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeDefaultProxyInstallVersionResponse
@@ -19254,7 +19522,6 @@ class Sas extends OpenApiClient
     /**
      * Queries whether Security Center is authorized to scan for urgent vulnerabilities.
      *
-     * @param request - DescribeEmgUserAgreementRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeEmgUserAgreementResponse
@@ -19943,7 +20210,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the exposure statistics of the assets on the Internet.
      *
-     * @param request - DescribeExposedStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeExposedStatisticsResponse
@@ -20145,7 +20411,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
      *
-     * @param request - DescribeFixUsedCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeFixUsedCountResponse
@@ -22334,7 +22599,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the configurations of the scheduled fix of image risks.
      *
-     * @param request - DescribeImageFixCycleConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeImageFixCycleConfigResponse
@@ -23311,7 +23575,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of images on which security alerts are generated. Security alerts are generated for risks such as vulnerabilities, baselines risks, and malicious samples.
      *
-     * @param request - DescribeImageRiskLevelStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeImageRiskLevelStatisticResponse
@@ -23355,7 +23618,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the details of the quota for container image scan.
      *
-     * @param request - DescribeImageScanAuthCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeImageScanAuthCountResponse
@@ -23674,7 +23936,6 @@ class Sas extends OpenApiClient
      * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
      * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
      *
-     * @param request - DescribeImageStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeImageStatisticsResponse
@@ -24035,7 +24296,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the installation verification code that is used to run the installation command of the Security Center agent.
      *
-     * @param request - DescribeInstallCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeInstallCodeResponse
@@ -24084,7 +24344,6 @@ class Sas extends OpenApiClient
      * ### QPS limit
      * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *
-     * @param request - DescribeInstallCodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeInstallCodesResponse
@@ -24393,7 +24652,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the progress of the last virus scan task.
      *
-     * @param request - DescribeLatestScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeLatestScanTaskResponse
@@ -24632,7 +24890,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
      *
-     * @param request - DescribeLoginSwitchConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeLoginSwitchConfigsResponse
@@ -24859,7 +25116,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the configurations of the asset fingerprint module.
      *
-     * @param request - DescribeModuleConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeModuleConfigResponse
@@ -24903,7 +25159,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the list of accounts that are added to the multi-account management feature as members.
      *
-     * @param request - DescribeMonitorAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeMonitorAccountsResponse
@@ -25537,7 +25792,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Asset Fingerprint Scheduled Task Details.
+     * Queries the detailed info of the Schedule Job List in host Assets.
      *
      * @param request - DescribePropertyCronDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25608,7 +25863,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Asset Fingerprint Scheduled Task Details.
+     * Queries the detailed info of the Schedule Job List in host Assets.
      *
      * @param request - DescribePropertyCronDetailRequest
      *
@@ -29704,7 +29959,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the time when a system vulnerability was last detected.
      *
-     * @param request - DescribeSupervisonInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSupervisonInfoResponse
@@ -29748,7 +30002,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the regions in which the anti-ransomware feature is supported.
      *
-     * @param request - DescribeSupportRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSupportRegionResponse
@@ -30342,7 +30595,6 @@ class Sas extends OpenApiClient
     /**
      * Query Alarm Security Event Statistics.
      *
-     * @param request - DescribeSuspiciousSecurityEventyStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
@@ -31141,7 +31393,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistics on backups based on anti-ransomware policies.
      *
-     * @param request - DescribeUniBackupStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeUniBackupStatisticsResponse
@@ -31254,7 +31505,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the region that is supported by anti-ransomware for databases.
      *
-     * @param request - DescribeUniSupportRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeUniSupportRegionResponse
@@ -31298,7 +31548,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the information about the servers to which an anti-ransomware policy is applied.
      *
-     * @param request - DescribeUserBackupMachinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeUserBackupMachinesResponse
@@ -31577,7 +31826,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the service providers whose assets can be added to Security Center.
      *
-     * @param request - DescribeVendorListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVendorListResponse
@@ -31883,7 +32131,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the information about virtual private clouds (VPCs).
      *
-     * @param request - DescribeVpcListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVpcListResponse
@@ -32250,7 +32497,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistics of vulnerability fixes.
      *
-     * @param request - DescribeVulFixStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVulFixStatisticsResponse
@@ -32508,7 +32754,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistics of vulnerabilities in Security Center.
      *
-     * @param request - DescribeVulMetaCountStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeVulMetaCountStatisticsResponse
@@ -33112,7 +33357,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the types of files that are excluded from web tamper proofing.
      *
-     * @param request - DescribeWebLockExclusiveFileTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeWebLockExclusiveFileTypeResponse
@@ -33298,7 +33542,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the summary information about the types of files for which web tamper proofing is enabled.
      *
-     * @param request - DescribeWebLockFileTypeSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeWebLockFileTypeSummaryResponse
@@ -33342,7 +33585,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the types of files that can be protected by web tamper proofing.
      *
-     * @param request - DescribeWebLockInclusiveFileTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeWebLockInclusiveFileTypeResponse
@@ -33581,7 +33823,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of times that the files protected by web tamper proofing are changed.
      *
-     * @param request - DescribeWebLockTotalFileChangeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeWebLockTotalFileChangeCountResponse
@@ -34660,7 +34901,6 @@ class Sas extends OpenApiClient
      * @remarks
      * You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
      *
-     * @param request - EnableServiceAccessResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EnableServiceAccessResourceDirectoryResponse
@@ -36694,7 +36934,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Attack Path Event Details.
+     * Query attack path management event details.
      *
      * @param request - GetAttackPathEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36741,7 +36981,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query Attack Path Event Details.
+     * Query attack path management event details.
      *
      * @param request - GetAttackPathEventDetailRequest
      *
@@ -36761,7 +37001,6 @@ class Sas extends OpenApiClient
     /**
      * Query Attack Path Event Statistics.
      *
-     * @param request - GetAttackPathEventStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAttackPathEventStatisticsResponse
@@ -36923,7 +37162,6 @@ class Sas extends OpenApiClient
     /**
      * Queries a list of attack types on the Attack Analysis page.
      *
-     * @param request - GetAttackTypeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAttackTypeListResponse
@@ -36967,7 +37205,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistics of asset protection quota.
      *
-     * @param request - GetAuthSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAuthSummaryResponse
@@ -37011,7 +37248,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the statistics about the numbers of assets protected by each edition of Security Center.
      *
-     * @param request - GetAuthVersionStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAuthVersionStatisticResponse
@@ -37055,7 +37291,6 @@ class Sas extends OpenApiClient
     /**
      * Checks whether the managed anti-ransomware feature can automatically configure an anti-ransomware policy for servers.
      *
-     * @param request - GetBackupAutoConfigStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBackupAutoConfigStatusResponse
@@ -37099,7 +37334,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the anti-ransomware capacity that is used.
      *
-     * @param request - GetBackupStorageCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetBackupStorageCountResponse
@@ -37261,7 +37495,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the information about an automatic configuration check on cloud services.
      *
-     * @param request - GetCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCheckConfigResponse
@@ -38388,7 +38621,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the number of policies in each cluster.
      *
-     * @param request - GetClusterStrategyCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetClusterStrategyCountResponse
@@ -38672,7 +38904,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the publish details of the Security Center agent.
      *
-     * @param request - GetCurrentVersionPublishRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCurrentVersionPublishResponse
@@ -38785,7 +39016,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the numbers of handled alerts of the precision defense type and the web tamper proofing type.
      *
-     * @param request - GetDefenceCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDefenceCountResponse
@@ -38943,7 +39173,6 @@ class Sas extends OpenApiClient
     /**
      * Obtains the usage information of the malicious file detection SDK.
      *
-     * @param request - GetFileDetectApiInvokeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFileDetectApiInvokeInfoResponse
@@ -39131,7 +39360,6 @@ class Sas extends OpenApiClient
     /**
      * Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
      *
-     * @param request - GetFileProtectDashboardRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFileProtectDashboardResponse
@@ -39346,7 +39574,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the queries per second (QPS) limit on the files uploaded from the client.
      *
-     * @param request - GetFileUploadLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetFileUploadLimitResponse
@@ -40160,7 +40387,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Count the number of security events for a single instance.
+     * Queries the alerting statistics information of a server.
      *
      * @param request - GetInstanceAlarmStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40203,7 +40430,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Count the number of security events for a single instance.
+     * Queries the alerting statistics information of a server.
      *
      * @param request - GetInstanceAlarmStatisticsRequest
      *
@@ -40223,7 +40450,6 @@ class Sas extends OpenApiClient
     /**
      * Get Instance Authorization Value Range.
      *
-     * @param request - GetInstanceAuthRangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceAuthRangeResponse
@@ -40993,7 +41219,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the baselines that are supported by at-risk image blocking.
      *
-     * @param request - GetOpaClusterBaseLineListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOpaClusterBaseLineListResponse
@@ -41358,7 +41583,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
      *
-     * @param request - GetOpaStrategyTemplateSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetOpaStrategyTemplateSummaryResponse
@@ -41585,7 +41809,6 @@ class Sas extends OpenApiClient
     /**
      * Get Publish Time Configuration.
      *
-     * @param request - GetPublishCronRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPublishCronResponse
@@ -41632,7 +41855,6 @@ class Sas extends OpenApiClient
      * @remarks
      * You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *
-     * @param request - GetRdTreeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRdTreeResponse
@@ -41679,7 +41901,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the time range of image scans.
      *
-     * @param request - GetRegistryScanDayNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRegistryScanDayNumResponse
@@ -41723,7 +41944,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the numbers of system defense rules and custom defense rules.
      *
-     * @param request - GetRulesCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRulesCountResponse
@@ -42487,7 +42707,6 @@ class Sas extends OpenApiClient
     /**
      * Checks whether you can submit a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
      *
-     * @param request - GetTenantCheckAvailableRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetTenantCheckAvailableResponse
@@ -42529,9 +42748,58 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 获取未知威胁发现的统计信息.
+     *
+     * @param request - GetUnknownThreatDetectStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUnknownThreatDetectStatisticResponse
+     *
+     * @param GetUnknownThreatDetectStatisticRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetUnknownThreatDetectStatisticResponse
+     */
+    public function getUnknownThreatDetectStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetUnknownThreatDetectStatistic',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUnknownThreatDetectStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取未知威胁发现的统计信息.
+     *
+     * @param request - GetUnknownThreatDetectStatisticRequest
+     *
+     * @returns GetUnknownThreatDetectStatisticResponse
+     *
+     * @param GetUnknownThreatDetectStatisticRequest $request
+     *
+     * @return GetUnknownThreatDetectStatisticResponse
+     */
+    public function getUnknownThreatDetectStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUnknownThreatDetectStatisticWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the language settings of log analysis.
      *
-     * @param request - GetUserLangRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUserLangResponse
@@ -42697,7 +42965,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the information about the latest virus scan task.
      *
-     * @param request - GetVirusScanLatestTaskStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetVirusScanLatestTaskStatisticResponse
@@ -43239,6 +43506,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->handleSimilarSecurityEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 处理未知威胁分析告警.
+     *
+     * @param request - HandleUnknownThreatDetectEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HandleUnknownThreatDetectEventResponse
+     *
+     * @param HandleUnknownThreatDetectEventRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return HandleUnknownThreatDetectEventResponse
+     */
+    public function handleUnknownThreatDetectEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventIdList) {
+            @$query['EventIdList'] = $request->eventIdList;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'HandleUnknownThreatDetectEvent',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return HandleUnknownThreatDetectEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 处理未知威胁分析告警.
+     *
+     * @param request - HandleUnknownThreatDetectEventRequest
+     *
+     * @returns HandleUnknownThreatDetectEventResponse
+     *
+     * @param HandleUnknownThreatDetectEventRequest $request
+     *
+     * @return HandleUnknownThreatDetectEventResponse
+     */
+    public function handleUnknownThreatDetectEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->handleUnknownThreatDetectEventWithOptions($request, $runtime);
     }
 
     /**
@@ -43938,7 +44266,6 @@ class Sas extends OpenApiClient
      * @remarks
      * You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
      *
-     * @param request - ListAccountsInResourceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAccountsInResourceDirectoryResponse
@@ -44307,7 +44634,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the regions that are supported by the agentless detection feature.
      *
-     * @param request - ListAgentlessRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAgentlessRegionResponse
@@ -44630,7 +44956,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the configurations for cleaning offline hosts whose provider cannot be identified.
      *
-     * @param request - ListAssetCleanConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAssetCleanConfigResponse
@@ -45963,7 +46288,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * List User Policies.
+     * In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
      *
      * @param request - ListCheckPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -45998,7 +46323,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * List User Policies.
+     * In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
      *
      * @param request - ListCheckPoliciesRequest
      *
@@ -46468,7 +46793,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the supported types of custom defense rules.
      *
-     * @param request - ListClientUserDefineRuleTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListClientUserDefineRuleTypesResponse
@@ -47303,7 +47627,6 @@ class Sas extends OpenApiClient
     /**
      * Queries a list of clusters that are included in a rule for non-image program defense.
      *
-     * @param request - ListContainerDefenseRuleClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListContainerDefenseRuleClustersResponse
@@ -49345,7 +49668,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.
      *
-     * @param request - ListLogShipperRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListLogShipperRegionsResponse
@@ -50433,7 +50755,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the information about the self-managed Kubernetes clusters that are added to Security Center.
      *
-     * @param request - ListPrivateK8sRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListPrivateK8sResponse
@@ -50663,7 +50984,6 @@ class Sas extends OpenApiClient
      * @remarks
      * You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
      *
-     * @param request - ListRdDefaultSyncListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRdDefaultSyncListResponse
@@ -50905,7 +51225,6 @@ class Sas extends OpenApiClient
     /**
      * Queries supported file suffixes.
      *
-     * @param request - ListSupportObjectSuffixRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSupportObjectSuffixResponse
@@ -51002,7 +51321,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the types of system rules.
      *
-     * @param request - ListSystemClientRuleTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSystemClientRuleTypesResponse
@@ -51467,6 +51785,346 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUninstallAegisMachinesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询未知威胁发现事件.
+     *
+     * @param request - ListUnknownThreatDetectEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUnknownThreatDetectEventResponse
+     *
+     * @param ListUnknownThreatDetectEventRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListUnknownThreatDetectEventResponse
+     */
+    public function listUnknownThreatDetectEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->hashKey) {
+            @$query['HashKey'] = $request->hashKey;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->parentProcessPath) {
+            @$query['ParentProcessPath'] = $request->parentProcessPath;
+        }
+
+        if (null !== $request->processPath) {
+            @$query['ProcessPath'] = $request->processPath;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUnknownThreatDetectEvent',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUnknownThreatDetectEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询未知威胁发现事件.
+     *
+     * @param request - ListUnknownThreatDetectEventRequest
+     *
+     * @returns ListUnknownThreatDetectEventResponse
+     *
+     * @param ListUnknownThreatDetectEventRequest $request
+     *
+     * @return ListUnknownThreatDetectEventResponse
+     */
+    public function listUnknownThreatDetectEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUnknownThreatDetectEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询未知威胁发现的机器列表.
+     *
+     * @param request - ListUnknownThreatDetectMachineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUnknownThreatDetectMachineResponse
+     *
+     * @param ListUnknownThreatDetectMachineRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListUnknownThreatDetectMachineResponse
+     */
+    public function listUnknownThreatDetectMachineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->studyMode) {
+            @$query['StudyMode'] = $request->studyMode;
+        }
+
+        if (null !== $request->studyTimeEnd) {
+            @$query['StudyTimeEnd'] = $request->studyTimeEnd;
+        }
+
+        if (null !== $request->studyTimeStart) {
+            @$query['StudyTimeStart'] = $request->studyTimeStart;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUnknownThreatDetectMachine',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUnknownThreatDetectMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询未知威胁发现的机器列表.
+     *
+     * @param request - ListUnknownThreatDetectMachineRequest
+     *
+     * @returns ListUnknownThreatDetectMachineResponse
+     *
+     * @param ListUnknownThreatDetectMachineRequest $request
+     *
+     * @return ListUnknownThreatDetectMachineResponse
+     */
+    public function listUnknownThreatDetectMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUnknownThreatDetectMachineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询未知威胁发现进程列表.
+     *
+     * @param request - ListUnknownThreatDetectProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUnknownThreatDetectProcessResponse
+     *
+     * @param ListUnknownThreatDetectProcessRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListUnknownThreatDetectProcessResponse
+     */
+    public function listUnknownThreatDetectProcessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->analyzeResult) {
+            @$query['AnalyzeResult'] = $request->analyzeResult;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->firstTimeEnd) {
+            @$query['FirstTimeEnd'] = $request->firstTimeEnd;
+        }
+
+        if (null !== $request->firstTimeStart) {
+            @$query['FirstTimeStart'] = $request->firstTimeStart;
+        }
+
+        if (null !== $request->md5) {
+            @$query['Md5'] = $request->md5;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->processPath) {
+            @$query['ProcessPath'] = $request->processPath;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->sha256) {
+            @$query['Sha256'] = $request->sha256;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUnknownThreatDetectProcess',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUnknownThreatDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询未知威胁发现进程列表.
+     *
+     * @param request - ListUnknownThreatDetectProcessRequest
+     *
+     * @returns ListUnknownThreatDetectProcessResponse
+     *
+     * @param ListUnknownThreatDetectProcessRequest $request
+     *
+     * @return ListUnknownThreatDetectProcessResponse
+     */
+    public function listUnknownThreatDetectProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUnknownThreatDetectProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询未知威胁发现策略列表.
+     *
+     * @param request - ListUnknownThreatDetectStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUnknownThreatDetectStrategyResponse
+     *
+     * @param ListUnknownThreatDetectStrategyRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListUnknownThreatDetectStrategyResponse
+     */
+    public function listUnknownThreatDetectStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->studyMode) {
+            @$query['StudyMode'] = $request->studyMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUnknownThreatDetectStrategy',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUnknownThreatDetectStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询未知威胁发现策略列表.
+     *
+     * @param request - ListUnknownThreatDetectStrategyRequest
+     *
+     * @returns ListUnknownThreatDetectStrategyResponse
+     *
+     * @param ListUnknownThreatDetectStrategyRequest $request
+     *
+     * @return ListUnknownThreatDetectStrategyResponse
+     */
+    public function listUnknownThreatDetectStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUnknownThreatDetectStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -56052,7 +56710,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manage Serverless Asset Authorization.
+     * Serverless Asset authorization Management.
      *
      * @param request - ModifyServerlessAuthToMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -56147,7 +56805,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manage Serverless Asset Authorization.
+     * Serverless Asset authorization Management.
      *
      * @param request - ModifyServerlessAuthToMachineRequest
      *
@@ -58511,6 +59169,71 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 修改未知威胁发现的机器状态
+     *
+     * @param request - OperateUnknownThreatDetectMachineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateUnknownThreatDetectMachineResponse
+     *
+     * @param OperateUnknownThreatDetectMachineRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return OperateUnknownThreatDetectMachineResponse
+     */
+    public function operateUnknownThreatDetectMachineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->uuidList) {
+            @$query['UuidList'] = $request->uuidList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OperateUnknownThreatDetectMachine',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateUnknownThreatDetectMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改未知威胁发现的机器状态
+     *
+     * @param request - OperateUnknownThreatDetectMachineRequest
+     *
+     * @returns OperateUnknownThreatDetectMachineResponse
+     *
+     * @param OperateUnknownThreatDetectMachineRequest $request
+     *
+     * @return OperateUnknownThreatDetectMachineResponse
+     */
+    public function operateUnknownThreatDetectMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateUnknownThreatDetectMachineWithOptions($request, $runtime);
+    }
+
+    /**
      * Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
      *
      * @param request - OperateVirusEventsRequest
@@ -59657,7 +60380,6 @@ class Sas extends OpenApiClient
     /**
      * Queries the list of beginner tasks. Security Center provides rewards for users who complete tasks. The rewards include the quota for a value-added feature and log storage capacity.
      *
-     * @param request - QueryGuidTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryGuidTaskListResponse
@@ -60067,7 +60789,6 @@ class Sas extends OpenApiClient
     /**
      * Refreshes the list of Object Storage Service (OSS) buckets.
      *
-     * @param request - RefreshOssBucketScanInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RefreshOssBucketScanInfoResponse
@@ -61736,7 +62457,6 @@ class Sas extends OpenApiClient
     /**
      * Starts a database scan task.
      *
-     * @param request - StartDiscoverDatabaseTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StartDiscoverDatabaseTaskResponse
@@ -61841,7 +62561,6 @@ class Sas extends OpenApiClient
     /**
      * Starts an IDC scan task.
      *
-     * @param request - StartIdcProbeScanRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StartIdcProbeScanResponse
@@ -62206,7 +62925,6 @@ class Sas extends OpenApiClient
     /**
      * Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
      *
-     * @param request - SubmitTenantCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SubmitTenantCheckResponse
@@ -62250,7 +62968,6 @@ class Sas extends OpenApiClient
     /**
      * Triggers ISO 27001 compliance checks of Security Center.
      *
-     * @param request - TriggerCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns TriggerCheckResponse
@@ -65235,6 +65952,140 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTargetListByBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新未知威胁发现的进程详情.
+     *
+     * @param request - UpdateUnknownThreatDetectProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUnknownThreatDetectProcessResponse
+     *
+     * @param UpdateUnknownThreatDetectProcessRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateUnknownThreatDetectProcessResponse
+     */
+    public function updateUnknownThreatDetectProcessWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->processId) {
+            @$query['ProcessId'] = $request->processId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUnknownThreatDetectProcess',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUnknownThreatDetectProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新未知威胁发现的进程详情.
+     *
+     * @param request - UpdateUnknownThreatDetectProcessRequest
+     *
+     * @returns UpdateUnknownThreatDetectProcessResponse
+     *
+     * @param UpdateUnknownThreatDetectProcessRequest $request
+     *
+     * @return UpdateUnknownThreatDetectProcessResponse
+     */
+    public function updateUnknownThreatDetectProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUnknownThreatDetectProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新未知威胁发现策略.
+     *
+     * @param request - UpdateUnknownThreatDetectStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUnknownThreatDetectStrategyResponse
+     *
+     * @param UpdateUnknownThreatDetectStrategyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateUnknownThreatDetectStrategyResponse
+     */
+    public function updateUnknownThreatDetectStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->durationDaysAfterInit) {
+            @$query['DurationDaysAfterInit'] = $request->durationDaysAfterInit;
+        }
+
+        if (null !== $request->durationDaysAfterStop) {
+            @$query['DurationDaysAfterStop'] = $request->durationDaysAfterStop;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->studyMode) {
+            @$query['StudyMode'] = $request->studyMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUnknownThreatDetectStrategy',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUnknownThreatDetectStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新未知威胁发现策略.
+     *
+     * @param request - UpdateUnknownThreatDetectStrategyRequest
+     *
+     * @returns UpdateUnknownThreatDetectStrategyResponse
+     *
+     * @param UpdateUnknownThreatDetectStrategyRequest $request
+     *
+     * @return UpdateUnknownThreatDetectStrategyResponse
+     */
+    public function updateUnknownThreatDetectStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUnknownThreatDetectStrategyWithOptions($request, $runtime);
     }
 
     /**
