@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponseBody\orgs\resourcePolicyList;
 
 class orgs extends Model
 {
@@ -27,15 +28,24 @@ class orgs extends Model
      * @var string
      */
     public $parentOrgId;
+
+    /**
+     * @var resourcePolicyList[]
+     */
+    public $resourcePolicyList;
     protected $_name = [
         'orgId' => 'OrgId',
         'orgName' => 'OrgName',
         'orgNamePath' => 'OrgNamePath',
         'parentOrgId' => 'ParentOrgId',
+        'resourcePolicyList' => 'ResourcePolicyList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourcePolicyList)) {
+            Model::validateArray($this->resourcePolicyList);
+        }
         parent::validate();
     }
 
@@ -56,6 +66,17 @@ class orgs extends Model
 
         if (null !== $this->parentOrgId) {
             $res['ParentOrgId'] = $this->parentOrgId;
+        }
+
+        if (null !== $this->resourcePolicyList) {
+            if (\is_array($this->resourcePolicyList)) {
+                $res['ResourcePolicyList'] = [];
+                $n1 = 0;
+                foreach ($this->resourcePolicyList as $item1) {
+                    $res['ResourcePolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -83,6 +104,17 @@ class orgs extends Model
 
         if (isset($map['ParentOrgId'])) {
             $model->parentOrgId = $map['ParentOrgId'];
+        }
+
+        if (isset($map['ResourcePolicyList'])) {
+            if (!empty($map['ResourcePolicyList'])) {
+                $model->resourcePolicyList = [];
+                $n1 = 0;
+                foreach ($map['ResourcePolicyList'] as $item1) {
+                    $model->resourcePolicyList[$n1] = resourcePolicyList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsShrinkRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUserRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUserResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersShrinkRequest;
@@ -1261,6 +1263,10 @@ class Edsuser extends OpenApiClient
             @$query['BusinessChannel'] = $request->businessChannel;
         }
 
+        if (null !== $request->includeOrgIds) {
+            @$query['IncludeOrgIds'] = $request->includeOrgIds;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -1403,6 +1409,71 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourceGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query basic user information.
+     *
+     * @param request - DescribeUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserResponse
+     *
+     * @param DescribeUserRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeUserResponse
+     */
+    public function describeUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->requireExtraAttributes) {
+            @$query['RequireExtraAttributes'] = $request->requireExtraAttributes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUser',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query basic user information.
+     *
+     * @param request - DescribeUserRequest
+     *
+     * @returns DescribeUserResponse
+     *
+     * @param DescribeUserRequest $request
+     *
+     * @return DescribeUserResponse
+     */
+    public function describeUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserWithOptions($request, $runtime);
     }
 
     /**
@@ -1639,6 +1710,10 @@ class Edsuser extends OpenApiClient
 
         if (null !== $request->propertyKeyValueFilterParam) {
             @$query['PropertyKeyValueFilterParam'] = $request->propertyKeyValueFilterParam;
+        }
+
+        if (null !== $request->showExtras) {
+            @$query['ShowExtras'] = $request->showExtras;
         }
 
         if (null !== $request->status) {
@@ -2903,7 +2978,6 @@ class Edsuser extends OpenApiClient
     /**
      * Synchronizes all education information.
      *
-     * @param request - SyncAllEduInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns SyncAllEduInfoResponse

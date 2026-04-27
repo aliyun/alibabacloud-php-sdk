@@ -14,6 +14,11 @@ class DescribeOrgsShrinkRequest extends Model
     public $businessChannel;
 
     /**
+     * @var string[]
+     */
+    public $includeOrgIds;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -39,6 +44,7 @@ class DescribeOrgsShrinkRequest extends Model
     public $showExtrasShrink;
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
+        'includeOrgIds' => 'IncludeOrgIds',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orgName' => 'OrgName',
@@ -48,6 +54,9 @@ class DescribeOrgsShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->includeOrgIds)) {
+            Model::validateArray($this->includeOrgIds);
+        }
         parent::validate();
     }
 
@@ -56,6 +65,17 @@ class DescribeOrgsShrinkRequest extends Model
         $res = [];
         if (null !== $this->businessChannel) {
             $res['BusinessChannel'] = $this->businessChannel;
+        }
+
+        if (null !== $this->includeOrgIds) {
+            if (\is_array($this->includeOrgIds)) {
+                $res['IncludeOrgIds'] = [];
+                $n1 = 0;
+                foreach ($this->includeOrgIds as $item1) {
+                    $res['IncludeOrgIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->maxResults) {
@@ -91,6 +111,17 @@ class DescribeOrgsShrinkRequest extends Model
         $model = new self();
         if (isset($map['BusinessChannel'])) {
             $model->businessChannel = $map['BusinessChannel'];
+        }
+
+        if (isset($map['IncludeOrgIds'])) {
+            if (!empty($map['IncludeOrgIds'])) {
+                $model->includeOrgIds = [];
+                $n1 = 0;
+                foreach ($map['IncludeOrgIds'] as $item1) {
+                    $model->includeOrgIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['MaxResults'])) {

@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\externalInfo;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\groups;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\orgList;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\resourcePolicyList;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\supportLoginIdps;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\userSetPropertiesModels;
 
@@ -99,6 +100,11 @@ class users extends Model
     public $remark;
 
     /**
+     * @var resourcePolicyList[]
+     */
+    public $resourcePolicyList;
+
+    /**
      * @var int
      */
     public $status;
@@ -130,6 +136,7 @@ class users extends Model
         'phone' => 'Phone',
         'realNickName' => 'RealNickName',
         'remark' => 'Remark',
+        'resourcePolicyList' => 'ResourcePolicyList',
         'status' => 'Status',
         'supportLoginIdps' => 'SupportLoginIdps',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
@@ -145,6 +152,9 @@ class users extends Model
         }
         if (\is_array($this->orgList)) {
             Model::validateArray($this->orgList);
+        }
+        if (\is_array($this->resourcePolicyList)) {
+            Model::validateArray($this->resourcePolicyList);
         }
         if (\is_array($this->supportLoginIdps)) {
             Model::validateArray($this->supportLoginIdps);
@@ -238,6 +248,17 @@ class users extends Model
 
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->resourcePolicyList) {
+            if (\is_array($this->resourcePolicyList)) {
+                $res['ResourcePolicyList'] = [];
+                $n1 = 0;
+                foreach ($this->resourcePolicyList as $item1) {
+                    $res['ResourcePolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->status) {
@@ -357,6 +378,17 @@ class users extends Model
 
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['ResourcePolicyList'])) {
+            if (!empty($map['ResourcePolicyList'])) {
+                $model->resourcePolicyList = [];
+                $n1 = 0;
+                foreach ($map['ResourcePolicyList'] as $item1) {
+                    $model->resourcePolicyList[$n1] = resourcePolicyList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Status'])) {

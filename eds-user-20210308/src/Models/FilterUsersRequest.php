@@ -97,6 +97,11 @@ class FilterUsersRequest extends Model
     public $propertyKeyValueFilterParam;
 
     /**
+     * @var string[]
+     */
+    public $showExtras;
+
+    /**
      * @var int
      */
     public $status;
@@ -118,6 +123,7 @@ class FilterUsersRequest extends Model
         'ownerType' => 'OwnerType',
         'propertyFilterParam' => 'PropertyFilterParam',
         'propertyKeyValueFilterParam' => 'PropertyKeyValueFilterParam',
+        'showExtras' => 'ShowExtras',
         'status' => 'Status',
     ];
 
@@ -140,6 +146,9 @@ class FilterUsersRequest extends Model
         }
         if (\is_array($this->propertyKeyValueFilterParam)) {
             Model::validateArray($this->propertyKeyValueFilterParam);
+        }
+        if (\is_array($this->showExtras)) {
+            Model::validateArray($this->showExtras);
         }
         parent::validate();
     }
@@ -244,6 +253,15 @@ class FilterUsersRequest extends Model
                 foreach ($this->propertyKeyValueFilterParam as $item1) {
                     $res['PropertyKeyValueFilterParam'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->showExtras) {
+            if (\is_array($this->showExtras)) {
+                $res['ShowExtras'] = [];
+                foreach ($this->showExtras as $key1 => $value1) {
+                    $res['ShowExtras'][$key1] = $value1;
                 }
             }
         }
@@ -360,6 +378,15 @@ class FilterUsersRequest extends Model
                 foreach ($map['PropertyKeyValueFilterParam'] as $item1) {
                     $model->propertyKeyValueFilterParam[$n1] = propertyKeyValueFilterParam::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ShowExtras'])) {
+            if (!empty($map['ShowExtras'])) {
+                $model->showExtras = [];
+                foreach ($map['ShowExtras'] as $key1 => $value1) {
+                    $model->showExtras[$key1] = $value1;
                 }
             }
         }
