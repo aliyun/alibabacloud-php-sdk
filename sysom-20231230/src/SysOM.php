@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateInstanceInspectionRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateInstanceInspectionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertDestinationRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotspotTrackingRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotspotTrackingResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotSpotUniqListRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotSpotUniqListResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInspectionReportRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInspectionReportResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInstantScoreRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInstantScoreResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetListRecordRequest;
@@ -577,6 +581,79 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->createAlertStrategyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建实例巡检
+     *
+     * @param request - CreateInstanceInspectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceInspectionResponse
+     *
+     * @param CreateInstanceInspectionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateInstanceInspectionResponse
+     */
+    public function createInstanceInspectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instance) {
+            @$body['instance'] = $request->instance;
+        }
+
+        if (null !== $request->items) {
+            @$body['items'] = $request->items;
+        }
+
+        if (null !== $request->region) {
+            @$body['region'] = $request->region;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstanceInspection',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/inspection/createInstanceInspection',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例巡检
+     *
+     * @param request - CreateInstanceInspectionRequest
+     *
+     * @returns CreateInstanceInspectionResponse
+     *
+     * @param CreateInstanceInspectionRequest $request
+     *
+     * @return CreateInstanceInspectionResponse
+     */
+    public function createInstanceInspection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceInspectionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2170,6 +2247,67 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->getHotspotTrackingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取巡检报告.
+     *
+     * @param request - GetInspectionReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInspectionReportResponse
+     *
+     * @param GetInspectionReportRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetInspectionReportResponse
+     */
+    public function getInspectionReportWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->reportId) {
+            @$query['reportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInspectionReport',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/inspection/getInspectionReport',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInspectionReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取巡检报告.
+     *
+     * @param request - GetInspectionReportRequest
+     *
+     * @returns GetInspectionReportResponse
+     *
+     * @param GetInspectionReportRequest $request
+     *
+     * @return GetInspectionReportResponse
+     */
+    public function getInspectionReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInspectionReportWithOptions($request, $headers, $runtime);
     }
 
     /**
