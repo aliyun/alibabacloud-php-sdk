@@ -12024,6 +12024,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->elementName) {
+            @$query['ElementName'] = $request->elementName;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

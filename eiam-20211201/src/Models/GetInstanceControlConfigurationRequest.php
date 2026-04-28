@@ -11,8 +11,14 @@ class GetInstanceControlConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $elementName;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
+        'elementName' => 'ElementName',
         'instanceId' => 'InstanceId',
     ];
 
@@ -24,6 +30,10 @@ class GetInstanceControlConfigurationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->elementName) {
+            $res['ElementName'] = $this->elementName;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,6 +49,10 @@ class GetInstanceControlConfigurationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ElementName'])) {
+            $model->elementName = $map['ElementName'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
