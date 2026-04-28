@@ -19,6 +19,11 @@ class ExtraPodSpec extends Model
     public $lifecycle;
 
     /**
+     * @var SecurityContext
+     */
+    public $mainContainerSecurityContext;
+
+    /**
      * @var string[]
      */
     public $podAnnotations;
@@ -40,6 +45,7 @@ class ExtraPodSpec extends Model
     protected $_name = [
         'initContainers' => 'InitContainers',
         'lifecycle' => 'Lifecycle',
+        'mainContainerSecurityContext' => 'MainContainerSecurityContext',
         'podAnnotations' => 'PodAnnotations',
         'podLabels' => 'PodLabels',
         'sharedVolumeMountPaths' => 'SharedVolumeMountPaths',
@@ -53,6 +59,9 @@ class ExtraPodSpec extends Model
         }
         if (null !== $this->lifecycle) {
             $this->lifecycle->validate();
+        }
+        if (null !== $this->mainContainerSecurityContext) {
+            $this->mainContainerSecurityContext->validate();
         }
         if (\is_array($this->podAnnotations)) {
             Model::validateArray($this->podAnnotations);
@@ -85,6 +94,10 @@ class ExtraPodSpec extends Model
 
         if (null !== $this->lifecycle) {
             $res['Lifecycle'] = null !== $this->lifecycle ? $this->lifecycle->toArray($noStream) : $this->lifecycle;
+        }
+
+        if (null !== $this->mainContainerSecurityContext) {
+            $res['MainContainerSecurityContext'] = null !== $this->mainContainerSecurityContext ? $this->mainContainerSecurityContext->toArray($noStream) : $this->mainContainerSecurityContext;
         }
 
         if (null !== $this->podAnnotations) {
@@ -151,6 +164,10 @@ class ExtraPodSpec extends Model
 
         if (isset($map['Lifecycle'])) {
             $model->lifecycle = Lifecycle::fromMap($map['Lifecycle']);
+        }
+
+        if (isset($map['MainContainerSecurityContext'])) {
+            $model->mainContainerSecurityContext = SecurityContext::fromMap($map['MainContainerSecurityContext']);
         }
 
         if (isset($map['PodAnnotations'])) {
