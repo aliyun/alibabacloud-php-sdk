@@ -43,6 +43,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentStatusRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetAgentStatusResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetObCdrRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetObCdrResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetRecordUrlRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudGetRecordUrlResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudImportTaskTelShrinkRequest;
@@ -54,6 +58,10 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListFreeAgentRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListFreeAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListOnlineAgentRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudListOnlineAgentResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudOutboundObClidReportRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudOutboundObClidReportResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudOutboundPreviewObReportRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudOutboundPreviewObReportResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudPreviewoutcallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudPreviewoutcallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentCnoAndNameRequest;
@@ -64,6 +72,14 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentSkillRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryAgentSkillResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryIbCdrRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryIbCdrResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryObCdrRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryObCdrResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryPredictiveCallCdrRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryPredictiveCallCdrResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryWebcallCdrRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudQueryWebcallCdrResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudStartTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudStartTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloudUpdateAgentRequest;
@@ -2124,6 +2140,148 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * 获取座席外呼通话记录详情.
+     *
+     * @param request - CloudGetObCdrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudGetObCdrResponse
+     *
+     * @param CloudGetObCdrRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CloudGetObCdrResponse
+     */
+    public function cloudGetObCdrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudGetObCdr',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudGetObCdrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取座席外呼通话记录详情.
+     *
+     * @param request - CloudGetObCdrRequest
+     *
+     * @returns CloudGetObCdrResponse
+     *
+     * @param CloudGetObCdrRequest $request
+     *
+     * @return CloudGetObCdrResponse
+     */
+    public function cloudGetObCdr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudGetObCdrWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取通话录音地址
+     *
+     * @param request - CloudGetRecordUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudGetRecordUrlResponse
+     *
+     * @param CloudGetRecordUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CloudGetRecordUrlResponse
+     */
+    public function cloudGetRecordUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callType) {
+            @$query['CallType'] = $request->callType;
+        }
+
+        if (null !== $request->download) {
+            @$query['Download'] = $request->download;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->recordFile) {
+            @$query['RecordFile'] = $request->recordFile;
+        }
+
+        if (null !== $request->recordFormat) {
+            @$query['RecordFormat'] = $request->recordFormat;
+        }
+
+        if (null !== $request->recordSide) {
+            @$query['RecordSide'] = $request->recordSide;
+        }
+
+        if (null !== $request->recordType) {
+            @$query['RecordType'] = $request->recordType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudGetRecordUrl',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudGetRecordUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取通话录音地址
+     *
+     * @param request - CloudGetRecordUrlRequest
+     *
+     * @returns CloudGetRecordUrlResponse
+     *
+     * @param CloudGetRecordUrlRequest $request
+     *
+     * @return CloudGetRecordUrlResponse
+     */
+    public function cloudGetRecordUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudGetRecordUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * 任务号码导入.
      *
      * @param tmpReq - CloudImportTaskTelRequest
@@ -2540,6 +2698,192 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloudListOnlineAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取预览外呼主叫号码报表.
+     *
+     * @param request - CloudOutboundObClidReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudOutboundObClidReportResponse
+     *
+     * @param CloudOutboundObClidReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CloudOutboundObClidReportResponse
+     */
+    public function cloudOutboundObClidReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->areaCodes) {
+            @$query['AreaCodes'] = $request->areaCodes;
+        }
+
+        if (null !== $request->endHour) {
+            @$query['EndHour'] = $request->endHour;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startHour) {
+            @$query['StartHour'] = $request->startHour;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statisticMethod) {
+            @$query['StatisticMethod'] = $request->statisticMethod;
+        }
+
+        if (null !== $request->timeRangeType) {
+            @$query['TimeRangeType'] = $request->timeRangeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudOutboundObClidReport',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudOutboundObClidReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取预览外呼主叫号码报表.
+     *
+     * @param request - CloudOutboundObClidReportRequest
+     *
+     * @returns CloudOutboundObClidReportResponse
+     *
+     * @param CloudOutboundObClidReportRequest $request
+     *
+     * @return CloudOutboundObClidReportResponse
+     */
+    public function cloudOutboundObClidReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudOutboundObClidReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取预览外呼报表.
+     *
+     * @param request - CloudOutboundPreviewObReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudOutboundPreviewObReportResponse
+     *
+     * @param CloudOutboundPreviewObReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CloudOutboundPreviewObReportResponse
+     */
+    public function cloudOutboundPreviewObReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cnos) {
+            @$query['Cnos'] = $request->cnos;
+        }
+
+        if (null !== $request->endHour) {
+            @$query['EndHour'] = $request->endHour;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startHour) {
+            @$query['StartHour'] = $request->startHour;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statisticMethod) {
+            @$query['StatisticMethod'] = $request->statisticMethod;
+        }
+
+        if (null !== $request->timeRangeType) {
+            @$query['TimeRangeType'] = $request->timeRangeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudOutboundPreviewObReport',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudOutboundPreviewObReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取预览外呼报表.
+     *
+     * @param request - CloudOutboundPreviewObReportRequest
+     *
+     * @returns CloudOutboundPreviewObReportResponse
+     *
+     * @param CloudOutboundPreviewObReportRequest $request
+     *
+     * @return CloudOutboundPreviewObReportResponse
+     */
+    public function cloudOutboundPreviewObReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudOutboundPreviewObReportWithOptions($request, $runtime);
     }
 
     /**
@@ -2993,6 +3337,578 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloudQueryAgentSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * 来电通话记录.
+     *
+     * @param request - CloudQueryIbCdrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryIbCdrResponse
+     *
+     * @param CloudQueryIbCdrRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloudQueryIbCdrResponse
+     */
+    public function cloudQueryIbCdrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->calleeNumber) {
+            @$query['CalleeNumber'] = $request->calleeNumber;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->customerNumber) {
+            @$query['CustomerNumber'] = $request->customerNumber;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->hotline) {
+            @$query['Hotline'] = $request->hotline;
+        }
+
+        if (null !== $request->joinQueueCode) {
+            @$query['JoinQueueCode'] = $request->joinQueueCode;
+        }
+
+        if (null !== $request->leaveQueueCode) {
+            @$query['LeaveQueueCode'] = $request->leaveQueueCode;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        if (null !== $request->qno) {
+            @$query['Qno'] = $request->qno;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->timeRangeType) {
+            @$query['TimeRangeType'] = $request->timeRangeType;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        if (null !== $request->userFieldValue) {
+            @$query['UserFieldValue'] = $request->userFieldValue;
+        }
+
+        if (null !== $request->userFieldkey) {
+            @$query['UserFieldkey'] = $request->userFieldkey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryIbCdr',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryIbCdrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 来电通话记录.
+     *
+     * @param request - CloudQueryIbCdrRequest
+     *
+     * @returns CloudQueryIbCdrResponse
+     *
+     * @param CloudQueryIbCdrRequest $request
+     *
+     * @return CloudQueryIbCdrResponse
+     */
+    public function cloudQueryIbCdr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryIbCdrWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取座席外呼通话记录.
+     *
+     * @param request - CloudQueryObCdrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryObCdrResponse
+     *
+     * @param CloudQueryObCdrRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloudQueryObCdrResponse
+     */
+    public function cloudQueryObCdrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->agentNumber) {
+            @$query['AgentNumber'] = $request->agentNumber;
+        }
+
+        if (null !== $request->callType) {
+            @$query['CallType'] = $request->callType;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->clid) {
+            @$query['Clid'] = $request->clid;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->customerNumber) {
+            @$query['CustomerNumber'] = $request->customerNumber;
+        }
+
+        if (null !== $request->downGrade) {
+            @$query['DownGrade'] = $request->downGrade;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->gno) {
+            @$query['Gno'] = $request->gno;
+        }
+
+        if (null !== $request->isRealAnswer) {
+            @$query['IsRealAnswer'] = $request->isRealAnswer;
+        }
+
+        if (null !== $request->leftDisplayNumber) {
+            @$query['LeftDisplayNumber'] = $request->leftDisplayNumber;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        if (null !== $request->requestUniqueId) {
+            @$query['RequestUniqueId'] = $request->requestUniqueId;
+        }
+
+        if (null !== $request->returnCount) {
+            @$query['ReturnCount'] = $request->returnCount;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->timeRangeType) {
+            @$query['TimeRangeType'] = $request->timeRangeType;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        if (null !== $request->userFieldValue) {
+            @$query['UserFieldValue'] = $request->userFieldValue;
+        }
+
+        if (null !== $request->userFieldkey) {
+            @$query['UserFieldkey'] = $request->userFieldkey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryObCdr',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryObCdrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取座席外呼通话记录.
+     *
+     * @param request - CloudQueryObCdrRequest
+     *
+     * @returns CloudQueryObCdrResponse
+     *
+     * @param CloudQueryObCdrRequest $request
+     *
+     * @return CloudQueryObCdrResponse
+     */
+    public function cloudQueryObCdr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryObCdrWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预测式外呼通话记录.
+     *
+     * @param request - CloudQueryPredictiveCallCdrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryPredictiveCallCdrResponse
+     *
+     * @param CloudQueryPredictiveCallCdrRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CloudQueryPredictiveCallCdrResponse
+     */
+    public function cloudQueryPredictiveCallCdrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->clid) {
+            @$query['Clid'] = $request->clid;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->customerNumber) {
+            @$query['CustomerNumber'] = $request->customerNumber;
+        }
+
+        if (null !== $request->displayNumber) {
+            @$query['DisplayNumber'] = $request->displayNumber;
+        }
+
+        if (null !== $request->downGrade) {
+            @$query['DownGrade'] = $request->downGrade;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->gno) {
+            @$query['Gno'] = $request->gno;
+        }
+
+        if (null !== $request->isRealAnswer) {
+            @$query['IsRealAnswer'] = $request->isRealAnswer;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        if (null !== $request->requestUniqueId) {
+            @$query['RequestUniqueId'] = $request->requestUniqueId;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskFileId) {
+            @$query['TaskFileId'] = $request->taskFileId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->timeRangeType) {
+            @$query['TimeRangeType'] = $request->timeRangeType;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        if (null !== $request->userFieldValue) {
+            @$query['UserFieldValue'] = $request->userFieldValue;
+        }
+
+        if (null !== $request->userFieldkey) {
+            @$query['UserFieldkey'] = $request->userFieldkey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryPredictiveCallCdr',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryPredictiveCallCdrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预测式外呼通话记录.
+     *
+     * @param request - CloudQueryPredictiveCallCdrRequest
+     *
+     * @returns CloudQueryPredictiveCallCdrResponse
+     *
+     * @param CloudQueryPredictiveCallCdrRequest $request
+     *
+     * @return CloudQueryPredictiveCallCdrResponse
+     */
+    public function cloudQueryPredictiveCallCdr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryPredictiveCallCdrWithOptions($request, $runtime);
+    }
+
+    /**
+     * webcall通话记录.
+     *
+     * @param request - CloudQueryWebcallCdrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloudQueryWebcallCdrResponse
+     *
+     * @param CloudQueryWebcallCdrRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CloudQueryWebcallCdrResponse
+     */
+    public function cloudQueryWebcallCdrWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->calleeClid) {
+            @$query['CalleeClid'] = $request->calleeClid;
+        }
+
+        if (null !== $request->calleeDisplayNumber) {
+            @$query['CalleeDisplayNumber'] = $request->calleeDisplayNumber;
+        }
+
+        if (null !== $request->calleeNumber) {
+            @$query['CalleeNumber'] = $request->calleeNumber;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->clid) {
+            @$query['Clid'] = $request->clid;
+        }
+
+        if (null !== $request->cno) {
+            @$query['Cno'] = $request->cno;
+        }
+
+        if (null !== $request->customerNumber) {
+            @$query['CustomerNumber'] = $request->customerNumber;
+        }
+
+        if (null !== $request->displayNumber) {
+            @$query['DisplayNumber'] = $request->displayNumber;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->enterpriseId) {
+            @$query['EnterpriseId'] = $request->enterpriseId;
+        }
+
+        if (null !== $request->gno) {
+            @$query['Gno'] = $request->gno;
+        }
+
+        if (null !== $request->isRealAnswer) {
+            @$query['IsRealAnswer'] = $request->isRealAnswer;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        if (null !== $request->requestUniqueId) {
+            @$query['RequestUniqueId'] = $request->requestUniqueId;
+        }
+
+        if (null !== $request->returnCount) {
+            @$query['ReturnCount'] = $request->returnCount;
+        }
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->timeRangeType) {
+            @$query['TimeRangeType'] = $request->timeRangeType;
+        }
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
+        }
+
+        if (null !== $request->userFieldValue) {
+            @$query['UserFieldValue'] = $request->userFieldValue;
+        }
+
+        if (null !== $request->userFieldkey) {
+            @$query['UserFieldkey'] = $request->userFieldkey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloudQueryWebcallCdr',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloudQueryWebcallCdrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * webcall通话记录.
+     *
+     * @param request - CloudQueryWebcallCdrRequest
+     *
+     * @returns CloudQueryWebcallCdrResponse
+     *
+     * @param CloudQueryWebcallCdrRequest $request
+     *
+     * @return CloudQueryWebcallCdrResponse
+     */
+    public function cloudQueryWebcallCdr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloudQueryWebcallCdrWithOptions($request, $runtime);
     }
 
     /**
