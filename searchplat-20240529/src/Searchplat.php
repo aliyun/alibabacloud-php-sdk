@@ -11,12 +11,20 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskReques
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateDocumentAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateImageAnalyzeTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateMemoryRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateMemoryResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateMemorySkillRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateMemorySkillResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSegmentationTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSegmentationTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSnapshotTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSummarizationTaskRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\CreateVideoSummarizationTaskResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\DeleteMemoryRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\DeleteMemorySkillRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\DeleteMemorySkillResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetAudioAsrTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetAudioAsrTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentAnalyzeTaskStatusRequest;
@@ -31,6 +39,14 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusReques
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryHealthRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryHealthResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemorySkillRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemorySkillResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryTaskRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryTaskResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalEmbeddingResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMultiModalRerankerRequest;
@@ -54,6 +70,12 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSummarizationTaskStatus
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetVideoSummarizationTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\SearchMemoryRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\SearchMemoryResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\UpdateMemoryRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\UpdateMemorySkillRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\UpdateMemorySkillResponse;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -283,6 +305,160 @@ class Searchplat extends OpenApiClient
     }
 
     /**
+     * 存储 Memory 内容.
+     *
+     * @param request - CreateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param CreateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateMemoryResponse
+     */
+    public function createMemoryWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
+        }
+
+        if (null !== $request->enhancements) {
+            @$body['enhancements'] = $request->enhancements;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->runId) {
+            @$body['run_id'] = $request->runId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemory',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/memories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 存储 Memory 内容.
+     *
+     * @param request - CreateMemoryRequest
+     *
+     * @returns CreateMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param CreateMemoryRequest $request
+     *
+     * @return CreateMemoryResponse
+     */
+    public function createMemory($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 上传skill.
+     *
+     * @param request - CreateMemorySkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemorySkillResponse
+     *
+     * @param string                   $workspaceName
+     * @param string                   $serviceId
+     * @param CreateMemorySkillRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMemorySkillResponse
+     */
+    public function createMemorySkillWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
+        }
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
+        }
+
+        if (null !== $request->zipBase64) {
+            @$body['zip_base64'] = $request->zipBase64;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemorySkill',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/skills',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemorySkillResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 上传skill.
+     *
+     * @param request - CreateMemorySkillRequest
+     *
+     * @returns CreateMemorySkillResponse
+     *
+     * @param string                   $workspaceName
+     * @param string                   $serviceId
+     * @param CreateMemorySkillRequest $request
+     *
+     * @return CreateMemorySkillResponse
+     */
+    public function createMemorySkill($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemorySkillWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 创建视频切割异步任务
      *
      * @param request - CreateVideoSegmentationTaskRequest
@@ -499,6 +675,128 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->createVideoSummarizationTaskWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除一条 Memory.
+     *
+     * @param request - DeleteMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemoryWithOptions($workspaceName, $serviceId, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemory',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/memories/' . $memoryId . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除一条 Memory.
+     *
+     * @param request - DeleteMemoryRequest
+     *
+     * @returns DeleteMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param string              $memoryId
+     * @param DeleteMemoryRequest $request
+     *
+     * @return DeleteMemoryResponse
+     */
+    public function deleteMemory($workspaceName, $serviceId, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryWithOptions($workspaceName, $serviceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除skill.
+     *
+     * @param request - DeleteMemorySkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemorySkillResponse
+     *
+     * @param string                   $workspaceName
+     * @param string                   $serviceId
+     * @param string                   $skillId
+     * @param DeleteMemorySkillRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMemorySkillResponse
+     */
+    public function deleteMemorySkillWithOptions($workspaceName, $serviceId, $skillId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemorySkill',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/skills/' . $skillId . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemorySkillResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除skill.
+     *
+     * @param request - DeleteMemorySkillRequest
+     *
+     * @returns DeleteMemorySkillResponse
+     *
+     * @param string                   $workspaceName
+     * @param string                   $serviceId
+     * @param string                   $skillId
+     * @param DeleteMemorySkillRequest $request
+     *
+     * @return DeleteMemorySkillResponse
+     */
+    public function deleteMemorySkill($workspaceName, $serviceId, $skillId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemorySkillWithOptions($workspaceName, $serviceId, $skillId, $request, $headers, $runtime);
     }
 
     /**
@@ -970,6 +1268,248 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getImageObjectDetectionWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看memory详情.
+     *
+     * @param request - GetMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string           $workspaceName
+     * @param string           $serviceId
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemoryWithOptions($workspaceName, $serviceId, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemory',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/memories/' . $memoryId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查看memory详情.
+     *
+     * @param request - GetMemoryRequest
+     *
+     * @returns GetMemoryResponse
+     *
+     * @param string           $workspaceName
+     * @param string           $serviceId
+     * @param string           $memoryId
+     * @param GetMemoryRequest $request
+     *
+     * @return GetMemoryResponse
+     */
+    public function getMemory($workspaceName, $serviceId, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryWithOptions($workspaceName, $serviceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 检查 Memory 服务健康状态
+     *
+     * @param request - GetMemoryHealthRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryHealthResponse
+     *
+     * @param string                 $workspaceName
+     * @param string                 $serviceId
+     * @param GetMemoryHealthRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMemoryHealthResponse
+     */
+    public function getMemoryHealthWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryHealth',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/health',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryHealthResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 检查 Memory 服务健康状态
+     *
+     * @param request - GetMemoryHealthRequest
+     *
+     * @returns GetMemoryHealthResponse
+     *
+     * @param string                 $workspaceName
+     * @param string                 $serviceId
+     * @param GetMemoryHealthRequest $request
+     *
+     * @return GetMemoryHealthResponse
+     */
+    public function getMemoryHealth($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryHealthWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看skill详情.
+     *
+     * @param request - GetMemorySkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemorySkillResponse
+     *
+     * @param string                $workspaceName
+     * @param string                $serviceId
+     * @param string                $skillId
+     * @param GetMemorySkillRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMemorySkillResponse
+     */
+    public function getMemorySkillWithOptions($workspaceName, $serviceId, $skillId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemorySkill',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/skills/' . $skillId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemorySkillResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查看skill详情.
+     *
+     * @param request - GetMemorySkillRequest
+     *
+     * @returns GetMemorySkillResponse
+     *
+     * @param string                $workspaceName
+     * @param string                $serviceId
+     * @param string                $skillId
+     * @param GetMemorySkillRequest $request
+     *
+     * @return GetMemorySkillResponse
+     */
+    public function getMemorySkill($workspaceName, $serviceId, $skillId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemorySkillWithOptions($workspaceName, $serviceId, $skillId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询memory异步任务的处理状态
+     *
+     * @param request - GetMemoryTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryTaskResponse
+     *
+     * @param string               $workspaceName
+     * @param string               $serviceId
+     * @param string               $taskId
+     * @param GetMemoryTaskRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMemoryTaskResponse
+     */
+    public function getMemoryTaskWithOptions($workspaceName, $serviceId, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/tasks/' . $taskId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询memory异步任务的处理状态
+     *
+     * @param request - GetMemoryTaskRequest
+     *
+     * @returns GetMemoryTaskResponse
+     *
+     * @param string               $workspaceName
+     * @param string               $serviceId
+     * @param string               $taskId
+     * @param GetMemoryTaskRequest $request
+     *
+     * @return GetMemoryTaskResponse
+     */
+    public function getMemoryTask($workspaceName, $serviceId, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryTaskWithOptions($workspaceName, $serviceId, $taskId, $request, $headers, $runtime);
     }
 
     /**
@@ -1755,5 +2295,240 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getWebSearchWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 根据查询条件搜索 Memory.
+     *
+     * @param request - SearchMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param SearchMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SearchMemoryResponse
+     */
+    public function searchMemoryWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
+        }
+
+        if (null !== $request->enhancements) {
+            @$body['enhancements'] = $request->enhancements;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->runId) {
+            @$body['run_id'] = $request->runId;
+        }
+
+        if (null !== $request->size) {
+            @$body['size'] = $request->size;
+        }
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchMemory',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 根据查询条件搜索 Memory.
+     *
+     * @param request - SearchMemoryRequest
+     *
+     * @returns SearchMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param SearchMemoryRequest $request
+     *
+     * @return SearchMemoryResponse
+     */
+    public function searchMemory($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchMemoryWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 Memory.
+     *
+     * @param request - UpdateMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemoryWithOptions($workspaceName, $serviceId, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->memory) {
+            @$body['memory'] = $request->memory;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemory',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/memories/' . $memoryId . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 Memory.
+     *
+     * @param request - UpdateMemoryRequest
+     *
+     * @returns UpdateMemoryResponse
+     *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param string              $memoryId
+     * @param UpdateMemoryRequest $request
+     *
+     * @return UpdateMemoryResponse
+     */
+    public function updateMemory($workspaceName, $serviceId, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryWithOptions($workspaceName, $serviceId, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 Skill.
+     *
+     * @param request - UpdateMemorySkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemorySkillResponse
+     *
+     * @param string                   $workspaceName
+     * @param string                   $serviceId
+     * @param string                   $skillId
+     * @param UpdateMemorySkillRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateMemorySkillResponse
+     */
+    public function updateMemorySkillWithOptions($workspaceName, $serviceId, $skillId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agent_id'] = $request->agentId;
+        }
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemorySkill',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/memory/' . $serviceId . '/skills/' . $skillId . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemorySkillResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 Skill.
+     *
+     * @param request - UpdateMemorySkillRequest
+     *
+     * @returns UpdateMemorySkillResponse
+     *
+     * @param string                   $workspaceName
+     * @param string                   $serviceId
+     * @param string                   $skillId
+     * @param UpdateMemorySkillRequest $request
+     *
+     * @return UpdateMemorySkillResponse
+     */
+    public function updateMemorySkill($workspaceName, $serviceId, $skillId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemorySkillWithOptions($workspaceName, $serviceId, $skillId, $request, $headers, $runtime);
     }
 }
