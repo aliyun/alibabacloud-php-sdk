@@ -1415,6 +1415,8 @@ class Amqp extends OpenApiClient
     }
 
     /**
+     * 获取region列表.
+     *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1452,6 +1454,8 @@ class Amqp extends OpenApiClient
     }
 
     /**
+     * 获取region列表.
+     *
      * @param request - DescribeRegionsRequest
      *
      * @returns DescribeRegionsResponse
@@ -1958,6 +1962,8 @@ class Amqp extends OpenApiClient
     }
 
     /**
+     * 获取购买页地址
+     *
      * @param request - GetCommonBuyUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2003,6 +2009,8 @@ class Amqp extends OpenApiClient
     }
 
     /**
+     * 获取购买页地址
+     *
      * @param request - GetCommonBuyUrlRequest
      *
      * @returns GetCommonBuyUrlResponse
@@ -3340,6 +3348,10 @@ class Amqp extends OpenApiClient
         $query = [];
         if (null !== $request->consoleSessionId) {
             @$query['ConsoleSessionId'] = $request->consoleSessionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
         if (null !== $request->tags) {

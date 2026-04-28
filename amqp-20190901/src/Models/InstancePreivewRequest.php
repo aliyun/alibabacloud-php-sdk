@@ -16,9 +16,15 @@ class InstancePreivewRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $tags;
     protected $_name = [
         'consoleSessionId' => 'ConsoleSessionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'tags' => 'Tags',
     ];
 
@@ -32,6 +38,10 @@ class InstancePreivewRequest extends Model
         $res = [];
         if (null !== $this->consoleSessionId) {
             $res['ConsoleSessionId'] = $this->consoleSessionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->tags) {
@@ -51,6 +61,10 @@ class InstancePreivewRequest extends Model
         $model = new self();
         if (isset($map['ConsoleSessionId'])) {
             $model->consoleSessionId = $map['ConsoleSessionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Tags'])) {
