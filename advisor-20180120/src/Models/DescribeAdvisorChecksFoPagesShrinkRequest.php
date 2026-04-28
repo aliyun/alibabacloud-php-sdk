@@ -31,6 +31,11 @@ class DescribeAdvisorChecksFoPagesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -67,6 +72,7 @@ class DescribeAdvisorChecksFoPagesShrinkRequest extends Model
         'bizCategory' => 'BizCategory',
         'category' => 'Category',
         'checkTypesShrink' => 'CheckTypes',
+        'language' => 'Language',
         'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -98,6 +104,10 @@ class DescribeAdvisorChecksFoPagesShrinkRequest extends Model
 
         if (null !== $this->checkTypesShrink) {
             $res['CheckTypes'] = $this->checkTypesShrink;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->name) {
@@ -153,6 +163,10 @@ class DescribeAdvisorChecksFoPagesShrinkRequest extends Model
 
         if (isset($map['CheckTypes'])) {
             $model->checkTypesShrink = $map['CheckTypes'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['Name'])) {

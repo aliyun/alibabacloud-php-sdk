@@ -154,7 +154,8 @@ class result extends Model
                 $res['SubCategory'] = [];
                 $n1 = 0;
                 foreach ($this->subCategory as $item1) {
-                    $res['SubCategory'][$n1++] = $item1;
+                    $res['SubCategory'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -227,7 +228,8 @@ class result extends Model
                 $model->subCategory = [];
                 $n1 = 0;
                 foreach ($map['SubCategory'] as $item1) {
-                    $model->subCategory[$n1++] = $item1;
+                    $model->subCategory[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

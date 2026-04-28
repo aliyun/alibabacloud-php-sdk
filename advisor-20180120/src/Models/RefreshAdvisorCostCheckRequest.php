@@ -68,7 +68,8 @@ class RefreshAdvisorCostCheckRequest extends Model
                 $res['AssumeAliyunIdList'] = [];
                 $n1 = 0;
                 foreach ($this->assumeAliyunIdList as $item1) {
-                    $res['AssumeAliyunIdList'][$n1++] = $item1;
+                    $res['AssumeAliyunIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class RefreshAdvisorCostCheckRequest extends Model
                 $res['CheckIds'] = [];
                 $n1 = 0;
                 foreach ($this->checkIds as $item1) {
-                    $res['CheckIds'][$n1++] = $item1;
+                    $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,7 +102,8 @@ class RefreshAdvisorCostCheckRequest extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,7 +124,8 @@ class RefreshAdvisorCostCheckRequest extends Model
                 $model->assumeAliyunIdList = [];
                 $n1 = 0;
                 foreach ($map['AssumeAliyunIdList'] as $item1) {
-                    $model->assumeAliyunIdList[$n1++] = $item1;
+                    $model->assumeAliyunIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -131,7 +135,8 @@ class RefreshAdvisorCostCheckRequest extends Model
                 $model->checkIds = [];
                 $n1 = 0;
                 foreach ($map['CheckIds'] as $item1) {
-                    $model->checkIds[$n1++] = $item1;
+                    $model->checkIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -153,7 +158,8 @@ class RefreshAdvisorCostCheckRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

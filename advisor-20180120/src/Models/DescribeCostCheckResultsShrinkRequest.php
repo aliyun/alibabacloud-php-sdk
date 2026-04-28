@@ -31,6 +31,11 @@ class DescribeCostCheckResultsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
@@ -82,6 +87,7 @@ class DescribeCostCheckResultsShrinkRequest extends Model
         'checkIdsShrink' => 'CheckIds',
         'checkPlanId' => 'CheckPlanId',
         'groupBy' => 'GroupBy',
+        'language' => 'Language',
         'product' => 'Product',
         'regionIdsShrink' => 'RegionIds',
         'resourceGroupIdListShrink' => 'ResourceGroupIdList',
@@ -116,6 +122,10 @@ class DescribeCostCheckResultsShrinkRequest extends Model
 
         if (null !== $this->groupBy) {
             $res['GroupBy'] = $this->groupBy;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->product) {
@@ -183,6 +193,10 @@ class DescribeCostCheckResultsShrinkRequest extends Model
 
         if (isset($map['GroupBy'])) {
             $model->groupBy = $map['GroupBy'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['Product'])) {

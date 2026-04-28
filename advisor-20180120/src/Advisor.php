@@ -333,6 +333,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * 巡检
+     *
      * @param request - DescribeAdvisorChecksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -374,6 +376,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * 巡检
+     *
      * @param request - DescribeAdvisorChecksRequest
      *
      * @returns DescribeAdvisorChecksResponse
@@ -426,6 +430,10 @@ class Advisor extends OpenApiClient
 
         if (null !== $request->checkTypesShrink) {
             @$query['CheckTypes'] = $request->checkTypesShrink;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
 
         if (null !== $request->name) {
@@ -493,6 +501,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * 查询资源.
+     *
      * @param request - DescribeAdvisorResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -550,6 +560,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * 查询资源.
+     *
      * @param request - DescribeAdvisorResourcesRequest
      *
      * @returns DescribeAdvisorResourcesResponse
@@ -775,6 +787,10 @@ class Advisor extends OpenApiClient
             @$query['GroupBy'] = $request->groupBy;
         }
 
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
         if (null !== $request->product) {
             @$query['Product'] = $request->product;
         }
@@ -927,6 +943,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * 历史.
+     *
      * @param request - GetHistoryAdvicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -992,6 +1010,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * 历史.
+     *
      * @param request - GetHistoryAdvicesRequest
      *
      * @returns GetHistoryAdvicesResponse
@@ -1089,6 +1109,10 @@ class Advisor extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
         if (null !== $request->token) {
             @$query['Token'] = $request->token;
         }

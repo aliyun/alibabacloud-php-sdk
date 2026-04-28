@@ -42,7 +42,8 @@ class tagList extends Model
                 $res['TagValue'] = [];
                 $n1 = 0;
                 foreach ($this->tagValue as $item1) {
-                    $res['TagValue'][$n1++] = $item1;
+                    $res['TagValue'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class tagList extends Model
                 $model->tagValue = [];
                 $n1 = 0;
                 foreach ($map['TagValue'] as $item1) {
-                    $model->tagValue[$n1++] = $item1;
+                    $model->tagValue[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

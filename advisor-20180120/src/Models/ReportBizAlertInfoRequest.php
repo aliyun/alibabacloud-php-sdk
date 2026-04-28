@@ -98,7 +98,8 @@ class ReportBizAlertInfoRequest extends Model
                 $res['AlertUid'] = [];
                 $n1 = 0;
                 foreach ($this->alertUid as $item1) {
-                    $res['AlertUid'][$n1++] = $item1;
+                    $res['AlertUid'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,7 +148,8 @@ class ReportBizAlertInfoRequest extends Model
                 $model->alertUid = [];
                 $n1 = 0;
                 foreach ($map['AlertUid'] as $item1) {
-                    $model->alertUid[$n1++] = $item1;
+                    $model->alertUid[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

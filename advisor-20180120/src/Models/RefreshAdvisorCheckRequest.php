@@ -95,7 +95,8 @@ class RefreshAdvisorCheckRequest extends Model
                 $res['ResourceDimensionList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceDimensionList as $item1) {
-                    $res['ResourceDimensionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ResourceDimensionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +145,8 @@ class RefreshAdvisorCheckRequest extends Model
                 $model->resourceDimensionList = [];
                 $n1 = 0;
                 foreach ($map['ResourceDimensionList'] as $item1) {
-                    $model->resourceDimensionList[$n1++] = resourceDimensionList::fromMap($item1);
+                    $model->resourceDimensionList[$n1] = resourceDimensionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -31,6 +31,11 @@ class DescribeAdvisorChecksFoPagesRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -67,6 +72,7 @@ class DescribeAdvisorChecksFoPagesRequest extends Model
         'bizCategory' => 'BizCategory',
         'category' => 'Category',
         'checkTypes' => 'CheckTypes',
+        'language' => 'Language',
         'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -104,9 +110,14 @@ class DescribeAdvisorChecksFoPagesRequest extends Model
                 $res['CheckTypes'] = [];
                 $n1 = 0;
                 foreach ($this->checkTypes as $item1) {
-                    $res['CheckTypes'][$n1++] = $item1;
+                    $res['CheckTypes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->name) {
@@ -165,9 +176,14 @@ class DescribeAdvisorChecksFoPagesRequest extends Model
                 $model->checkTypes = [];
                 $n1 = 0;
                 foreach ($map['CheckTypes'] as $item1) {
-                    $model->checkTypes[$n1++] = $item1;
+                    $model->checkTypes[$n1] = $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['Name'])) {

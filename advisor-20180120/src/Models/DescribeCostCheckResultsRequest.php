@@ -32,6 +32,11 @@ class DescribeCostCheckResultsRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
@@ -83,6 +88,7 @@ class DescribeCostCheckResultsRequest extends Model
         'checkIds' => 'CheckIds',
         'checkPlanId' => 'CheckPlanId',
         'groupBy' => 'GroupBy',
+        'language' => 'Language',
         'product' => 'Product',
         'regionIds' => 'RegionIds',
         'resourceGroupIdList' => 'ResourceGroupIdList',
@@ -132,7 +138,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['AssumeAliyunIdList'] = [];
                 $n1 = 0;
                 foreach ($this->assumeAliyunIdList as $item1) {
-                    $res['AssumeAliyunIdList'][$n1++] = $item1;
+                    $res['AssumeAliyunIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +149,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['CheckIds'] = [];
                 $n1 = 0;
                 foreach ($this->checkIds as $item1) {
-                    $res['CheckIds'][$n1++] = $item1;
+                    $res['CheckIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -155,6 +163,10 @@ class DescribeCostCheckResultsRequest extends Model
             $res['GroupBy'] = $this->groupBy;
         }
 
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
@@ -164,7 +176,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['RegionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1++] = $item1;
+                    $res['RegionIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +187,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['ResourceGroupIdList'] = [];
                 $n1 = 0;
                 foreach ($this->resourceGroupIdList as $item1) {
-                    $res['ResourceGroupIdList'][$n1++] = $item1;
+                    $res['ResourceGroupIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -188,7 +202,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['ResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
-                    $res['ResourceIds'][$n1++] = $item1;
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -206,7 +221,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['TagKeys'] = [];
                 $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = $item1;
+                    $res['TagKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -216,7 +232,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['TagList'] = [];
                 $n1 = 0;
                 foreach ($this->tagList as $item1) {
-                    $res['TagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -226,7 +243,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $res['TagValues'] = [];
                 $n1 = 0;
                 foreach ($this->tagValues as $item1) {
-                    $res['TagValues'][$n1++] = $item1;
+                    $res['TagValues'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -247,7 +265,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->assumeAliyunIdList = [];
                 $n1 = 0;
                 foreach ($map['AssumeAliyunIdList'] as $item1) {
-                    $model->assumeAliyunIdList[$n1++] = $item1;
+                    $model->assumeAliyunIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -257,7 +276,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->checkIds = [];
                 $n1 = 0;
                 foreach ($map['CheckIds'] as $item1) {
-                    $model->checkIds[$n1++] = $item1;
+                    $model->checkIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,6 +290,10 @@ class DescribeCostCheckResultsRequest extends Model
             $model->groupBy = $map['GroupBy'];
         }
 
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
@@ -279,7 +303,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->regionIds = [];
                 $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
-                    $model->regionIds[$n1++] = $item1;
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -289,7 +314,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->resourceGroupIdList = [];
                 $n1 = 0;
                 foreach ($map['ResourceGroupIdList'] as $item1) {
-                    $model->resourceGroupIdList[$n1++] = $item1;
+                    $model->resourceGroupIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -303,7 +329,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->resourceIds = [];
                 $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -321,7 +348,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->tagKeys = [];
                 $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = $item1;
+                    $model->tagKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -331,7 +359,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->tagList = [];
                 $n1 = 0;
                 foreach ($map['TagList'] as $item1) {
-                    $model->tagList[$n1++] = tagList::fromMap($item1);
+                    $model->tagList[$n1] = tagList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -341,7 +370,8 @@ class DescribeCostCheckResultsRequest extends Model
                 $model->tagValues = [];
                 $n1 = 0;
                 foreach ($map['TagValues'] as $item1) {
-                    $model->tagValues[$n1++] = $item1;
+                    $model->tagValues[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

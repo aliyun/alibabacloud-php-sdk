@@ -54,7 +54,8 @@ class DescribeCostOptimizationOverviewRequest extends Model
                 $res['AssumeAliyunIdList'] = [];
                 $n1 = 0;
                 foreach ($this->assumeAliyunIdList as $item1) {
-                    $res['AssumeAliyunIdList'][$n1++] = $item1;
+                    $res['AssumeAliyunIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,7 +88,8 @@ class DescribeCostOptimizationOverviewRequest extends Model
                 $model->assumeAliyunIdList = [];
                 $n1 = 0;
                 foreach ($map['AssumeAliyunIdList'] as $item1) {
-                    $model->assumeAliyunIdList[$n1++] = $item1;
+                    $model->assumeAliyunIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

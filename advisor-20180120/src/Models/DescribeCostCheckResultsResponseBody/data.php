@@ -89,7 +89,8 @@ class data extends Model
                 $res['ViewGroup'] = [];
                 $n1 = 0;
                 foreach ($this->viewGroup as $item1) {
-                    $res['ViewGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ViewGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +135,8 @@ class data extends Model
                 $model->viewGroup = [];
                 $n1 = 0;
                 foreach ($map['ViewGroup'] as $item1) {
-                    $model->viewGroup[$n1++] = viewGroup::fromMap($item1);
+                    $model->viewGroup[$n1] = viewGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

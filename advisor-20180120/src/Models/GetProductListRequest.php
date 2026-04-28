@@ -11,8 +11,14 @@ class GetProductListRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $token;
     protected $_name = [
+        'language' => 'Language',
         'token' => 'Token',
     ];
 
@@ -24,6 +30,10 @@ class GetProductListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -39,6 +49,10 @@ class GetProductListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }
