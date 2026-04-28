@@ -42,6 +42,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $thresholdPercent;
+
+    /**
+     * @var int
+     */
     public $total;
     protected $_name = [
         'baseUrl' => 'BaseUrl',
@@ -50,6 +55,7 @@ class data extends Model
         'page' => 'Page',
         'pageSize' => 'PageSize',
         'systemApiKey' => 'SystemApiKey',
+        'thresholdPercent' => 'ThresholdPercent',
         'total' => 'Total',
     ];
 
@@ -93,6 +99,10 @@ class data extends Model
 
         if (null !== $this->systemApiKey) {
             $res['SystemApiKey'] = $this->systemApiKey;
+        }
+
+        if (null !== $this->thresholdPercent) {
+            $res['ThresholdPercent'] = $this->thresholdPercent;
         }
 
         if (null !== $this->total) {
@@ -139,6 +149,10 @@ class data extends Model
 
         if (isset($map['SystemApiKey'])) {
             $model->systemApiKey = $map['SystemApiKey'];
+        }
+
+        if (isset($map['ThresholdPercent'])) {
+            $model->thresholdPercent = $map['ThresholdPercent'];
         }
 
         if (isset($map['Total'])) {

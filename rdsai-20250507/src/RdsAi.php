@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeWhitelistIpsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeWhitelistIpsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DisableAgentRuntimeRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DisableAgentRuntimeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
@@ -2293,6 +2295,71 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * 关闭Supabase的沙箱和边缘函数能力.
+     *
+     * @param request - DisableAgentRuntimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableAgentRuntimeResponse
+     *
+     * @param DisableAgentRuntimeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableAgentRuntimeResponse
+     */
+    public function disableAgentRuntimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableAgentRuntime',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableAgentRuntimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭Supabase的沙箱和边缘函数能力.
+     *
+     * @param request - DisableAgentRuntimeRequest
+     *
+     * @returns DisableAgentRuntimeResponse
+     *
+     * @param DisableAgentRuntimeRequest $request
+     *
+     * @return DisableAgentRuntimeResponse
+     */
+    public function disableAgentRuntime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableAgentRuntimeWithOptions($request, $runtime);
+    }
+
+    /**
      * 启用Supabase的沙箱和边缘函数能力.
      *
      * @param request - EnableAgentRuntimeRequest
@@ -2626,7 +2693,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询MO订单信息.
+     * Obtain RDS AI Assistant Ultimate order information.
      *
      * @param request - GetModelOperatorOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2658,7 +2725,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 查询MO订单信息.
+     * Obtain RDS AI Assistant Ultimate order information.
      *
      * @param request - GetModelOperatorOrderRequest
      *

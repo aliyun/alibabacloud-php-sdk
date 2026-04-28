@@ -36,6 +36,11 @@ class customKeyList extends Model
     /**
      * @var int
      */
+    public $thresholdPercent;
+
+    /**
+     * @var int
+     */
     public $tokenQuota;
     protected $_name = [
         'apiKey' => 'ApiKey',
@@ -43,6 +48,7 @@ class customKeyList extends Model
         'keyName' => 'KeyName',
         'limitRate' => 'LimitRate',
         'limitType' => 'LimitType',
+        'thresholdPercent' => 'ThresholdPercent',
         'tokenQuota' => 'TokenQuota',
     ];
 
@@ -72,6 +78,10 @@ class customKeyList extends Model
 
         if (null !== $this->limitType) {
             $res['LimitType'] = $this->limitType;
+        }
+
+        if (null !== $this->thresholdPercent) {
+            $res['ThresholdPercent'] = $this->thresholdPercent;
         }
 
         if (null !== $this->tokenQuota) {
@@ -107,6 +117,10 @@ class customKeyList extends Model
 
         if (isset($map['LimitType'])) {
             $model->limitType = $map['LimitType'];
+        }
+
+        if (isset($map['ThresholdPercent'])) {
+            $model->thresholdPercent = $map['ThresholdPercent'];
         }
 
         if (isset($map['TokenQuota'])) {
