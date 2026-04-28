@@ -339,6 +339,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SyncBusinessAppHistoryRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\SyncBusinessAppHistoryResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SyncFlowRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SyncFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\SyncMessageCampaignRequest;
@@ -12593,6 +12595,79 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendChatappMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步business app历史记录等.
+     *
+     * @param request - SyncBusinessAppHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncBusinessAppHistoryResponse
+     *
+     * @param SyncBusinessAppHistoryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SyncBusinessAppHistoryResponse
+     */
+    public function syncBusinessAppHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SyncBusinessAppHistory',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncBusinessAppHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步business app历史记录等.
+     *
+     * @param request - SyncBusinessAppHistoryRequest
+     *
+     * @returns SyncBusinessAppHistoryResponse
+     *
+     * @param SyncBusinessAppHistoryRequest $request
+     *
+     * @return SyncBusinessAppHistoryResponse
+     */
+    public function syncBusinessAppHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncBusinessAppHistoryWithOptions($request, $runtime);
     }
 
     /**

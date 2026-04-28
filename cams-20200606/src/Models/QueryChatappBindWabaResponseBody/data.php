@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $isOnBizApp;
+
+    /**
+     * @var string
+     */
     public $marketingMessageLiteStatus;
 
     /**
@@ -64,6 +69,7 @@ class data extends Model
         'businessName' => 'BusinessName',
         'currency' => 'Currency',
         'id' => 'Id',
+        'isOnBizApp' => 'IsOnBizApp',
         'marketingMessageLiteStatus' => 'MarketingMessageLiteStatus',
         'messageTemplateNamespace' => 'MessageTemplateNamespace',
         'name' => 'Name',
@@ -108,6 +114,10 @@ class data extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->isOnBizApp) {
+            $res['IsOnBizApp'] = $this->isOnBizApp;
         }
 
         if (null !== $this->marketingMessageLiteStatus) {
@@ -164,6 +174,10 @@ class data extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['IsOnBizApp'])) {
+            $model->isOnBizApp = $map['IsOnBizApp'];
         }
 
         if (isset($map['MarketingMessageLiteStatus'])) {
