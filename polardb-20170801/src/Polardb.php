@@ -75,8 +75,16 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBudgetPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBudgetPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateConsumerGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateConsumerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateConsumerResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateCostRuleRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateCostRuleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateCronJobPolicyServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateCronJobPolicyServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseRequest;
@@ -97,12 +105,18 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateExtensionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGatewayRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGatewayResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDataNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelServiceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelServiceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateNetworkChannelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateNetworkChannelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderRequest;
@@ -111,6 +125,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
@@ -135,6 +151,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBudgetPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBudgetPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteConsumerGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteConsumerGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteConsumerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteConsumerResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteCostRuleRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteCostRuleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseZonalRequest;
@@ -157,6 +181,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteExtensionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGatewayRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalDataNetworkRequest;
@@ -165,6 +191,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteModelApiRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteModelApiResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteModelServiceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
@@ -176,6 +206,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsPathMappingRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsPathMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsRequest;
@@ -237,12 +269,20 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetPoliciesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetPoliciesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeClassListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeClassListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeColdStorageInstanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeColdStorageInstanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeConsumerGroupsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeConsumerGroupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeConsumersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeConsumersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCostRulesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCostRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCronJobPolicyServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCronJobPolicyServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCrossCloudLevelsRequest;
@@ -329,6 +369,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeExtensionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGlobalDatabaseNetworksRequest;
@@ -359,6 +403,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMaskingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMaskingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMetaListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeMetaListResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeModelApisRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeModelApisResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeModelServicesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeModelServicesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeModifyParameterLogRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeModifyParameterLogResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeNetworkChannelRequest;
@@ -387,6 +435,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRateLimitPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRdsVpcsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRdsVpcsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRdsVSwitchsRequest;
@@ -488,6 +538,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBudgetPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBudgetPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyConsumerGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyConsumerGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyConsumerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyConsumerResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyCostRuleRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyCostRuleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyCronJobPolicyServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyCronJobPolicyServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAccessWhitelistRequest;
@@ -575,8 +633,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyMaskingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyMaskingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelApiRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelApiResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelServiceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelServiceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourcePackageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourcePackageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyScheduleTaskRequest;
@@ -599,6 +663,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkRequest;
@@ -3606,6 +3672,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 创建预算策略.
+     *
+     * @param request - CreateBudgetPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBudgetPolicyResponse
+     *
+     * @param CreateBudgetPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBudgetPolicyResponse
+     */
+    public function createBudgetPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertThresholdPct) {
+            @$query['AlertThresholdPct'] = $request->alertThresholdPct;
+        }
+
+        if (null !== $request->budgetDimensionRefId) {
+            @$query['BudgetDimensionRefId'] = $request->budgetDimensionRefId;
+        }
+
+        if (null !== $request->budgetPoints) {
+            @$query['BudgetPoints'] = $request->budgetPoints;
+        }
+
+        if (null !== $request->budgetType) {
+            @$query['BudgetType'] = $request->budgetType;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resetDayOfMonth) {
+            @$query['ResetDayOfMonth'] = $request->resetDayOfMonth;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBudgetPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBudgetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建预算策略.
+     *
+     * @param request - CreateBudgetPolicyRequest
+     *
+     * @returns CreateBudgetPolicyResponse
+     *
+     * @param CreateBudgetPolicyRequest $request
+     *
+     * @return CreateBudgetPolicyResponse
+     */
+    public function createBudgetPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBudgetPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a cluster that is used to store cold data.
      *
      * @param request - CreateColdStorageInstanceRequest
@@ -3688,6 +3835,237 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createColdStorageInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建消费者.
+     *
+     * @param request - CreateConsumerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConsumerResponse
+     *
+     * @param CreateConsumerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateConsumerResponse
+     */
+    public function createConsumerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupName) {
+            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->keyType) {
+            @$query['KeyType'] = $request->keyType;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConsumer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建消费者.
+     *
+     * @param request - CreateConsumerRequest
+     *
+     * @returns CreateConsumerResponse
+     *
+     * @param CreateConsumerRequest $request
+     *
+     * @return CreateConsumerResponse
+     */
+    public function createConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConsumerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建消费者组.
+     *
+     * @param request - CreateConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConsumerGroupResponse
+     *
+     * @param CreateConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateConsumerGroupResponse
+     */
+    public function createConsumerGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupName) {
+            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
+        }
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConsumerGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建消费者组.
+     *
+     * @param request - CreateConsumerGroupRequest
+     *
+     * @returns CreateConsumerGroupResponse
+     *
+     * @param CreateConsumerGroupRequest $request
+     *
+     * @return CreateConsumerGroupResponse
+     */
+    public function createConsumerGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConsumerGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建限流策略.
+     *
+     * @param request - CreateCostRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCostRuleResponse
+     *
+     * @param CreateCostRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCostRuleResponse
+     */
+    public function createCostRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cacheCostPointsPerMillion) {
+            @$query['CacheCostPointsPerMillion'] = $request->cacheCostPointsPerMillion;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->inputCostPointsPerMillion) {
+            @$query['InputCostPointsPerMillion'] = $request->inputCostPointsPerMillion;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelServiceId) {
+            @$query['ModelServiceId'] = $request->modelServiceId;
+        }
+
+        if (null !== $request->outputCostPointsPerMillion) {
+            @$query['OutputCostPointsPerMillion'] = $request->outputCostPointsPerMillion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCostRule',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCostRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建限流策略.
+     *
+     * @param request - CreateCostRuleRequest
+     *
+     * @returns CreateCostRuleResponse
+     *
+     * @param CreateCostRuleRequest $request
+     *
+     * @return CreateCostRuleResponse
+     */
+    public function createCostRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCostRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -5045,6 +5423,103 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 创建网关地址
+     *
+     * @param request - CreateGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayResponse
+     *
+     * @param CreateGatewayRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateGatewayResponse
+     */
+    public function createGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->DBClusterClass) {
+            @$query['DBClusterClass'] = $request->DBClusterClass;
+        }
+
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGateway',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网关地址
+     *
+     * @param request - CreateGatewayRequest
+     *
+     * @returns CreateGatewayResponse
+     *
+     * @param CreateGatewayRequest $request
+     *
+     * @return CreateGatewayResponse
+     */
+    public function createGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a global data network (GDN).
      *
      * @param request - CreateGlobalDataNetworkRequest
@@ -5323,6 +5798,196 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建路由规则.
+     *
+     * @param request - CreateModelApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelApiResponse
+     *
+     * @param CreateModelApiRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateModelApiResponse
+     */
+    public function createModelApiWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->forceModel) {
+            @$query['ForceModel'] = $request->forceModel;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelCategory) {
+            @$query['ModelCategory'] = $request->modelCategory;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pathPrefix) {
+            @$query['PathPrefix'] = $request->pathPrefix;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->recordInput) {
+            @$query['RecordInput'] = $request->recordInput;
+        }
+
+        if (null !== $request->recordOutput) {
+            @$query['RecordOutput'] = $request->recordOutput;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->routeRules) {
+            @$query['RouteRules'] = $request->routeRules;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelApi',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建路由规则.
+     *
+     * @param request - CreateModelApiRequest
+     *
+     * @returns CreateModelApiResponse
+     *
+     * @param CreateModelApiRequest $request
+     *
+     * @return CreateModelApiResponse
+     */
+    public function createModelApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - CreateModelServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param CreateModelServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$query['BaseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->inputCostPointsPerMillion) {
+            @$query['InputCostPointsPerMillion'] = $request->inputCostPointsPerMillion;
+        }
+
+        if (null !== $request->modelCategory) {
+            @$query['ModelCategory'] = $request->modelCategory;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->outputCostPointsPerMillion) {
+            @$query['OutputCostPointsPerMillion'] = $request->outputCostPointsPerMillion;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->requestCostPoints) {
+            @$query['RequestCostPoints'] = $request->requestCostPoints;
+        }
+
+        if (null !== $request->vendor) {
+            @$query['Vendor'] = $request->vendor;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelService',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - CreateModelServiceRequest
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param CreateModelServiceRequest $request
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -5687,6 +6352,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPolarFsObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建限流策略.
+     *
+     * @param request - CreateRateLimitPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRateLimitPolicyResponse
+     *
+     * @param CreateRateLimitPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateRateLimitPolicyResponse
+     */
+    public function createRateLimitPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->rateLimitRpm) {
+            @$query['RateLimitRpm'] = $request->rateLimitRpm;
+        }
+
+        if (null !== $request->rateLimitTpm) {
+            @$query['RateLimitTpm'] = $request->rateLimitTpm;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scopeRefId) {
+            @$query['ScopeRefId'] = $request->scopeRefId;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRateLimitPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRateLimitPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建限流策略.
+     *
+     * @param request - CreateRateLimitPolicyRequest
+     *
+     * @returns CreateRateLimitPolicyResponse
+     *
+     * @param CreateRateLimitPolicyRequest $request
+     *
+     * @return CreateRateLimitPolicyResponse
+     */
+    public function createRateLimitPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRateLimitPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -6567,6 +7309,266 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除预算策略.
+     *
+     * @param request - DeleteBudgetPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBudgetPolicyResponse
+     *
+     * @param DeleteBudgetPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBudgetPolicyResponse
+     */
+    public function deleteBudgetPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->budgetPolicyId) {
+            @$query['BudgetPolicyId'] = $request->budgetPolicyId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBudgetPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBudgetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除预算策略.
+     *
+     * @param request - DeleteBudgetPolicyRequest
+     *
+     * @returns DeleteBudgetPolicyResponse
+     *
+     * @param DeleteBudgetPolicyRequest $request
+     *
+     * @return DeleteBudgetPolicyResponse
+     */
+    public function deleteBudgetPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBudgetPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除消费者.
+     *
+     * @param request - DeleteConsumerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumerResponse
+     *
+     * @param DeleteConsumerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteConsumerResponse
+     */
+    public function deleteConsumerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConsumer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除消费者.
+     *
+     * @param request - DeleteConsumerRequest
+     *
+     * @returns DeleteConsumerResponse
+     *
+     * @param DeleteConsumerRequest $request
+     *
+     * @return DeleteConsumerResponse
+     */
+    public function deleteConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteConsumerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除消费者组.
+     *
+     * @param request - DeleteConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
+     * @param DeleteConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteConsumerGroupResponse
+     */
+    public function deleteConsumerGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupName) {
+            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除消费者组.
+     *
+     * @param request - DeleteConsumerGroupRequest
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
+     * @param DeleteConsumerGroupRequest $request
+     *
+     * @return DeleteConsumerGroupResponse
+     */
+    public function deleteConsumerGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteConsumerGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除限流策略.
+     *
+     * @param request - DeleteCostRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCostRuleResponse
+     *
+     * @param DeleteCostRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCostRuleResponse
+     */
+    public function deleteCostRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->costRuleId) {
+            @$query['CostRuleId'] = $request->costRuleId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCostRule',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCostRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除限流策略.
+     *
+     * @param request - DeleteCostRuleRequest
+     *
+     * @returns DeleteCostRuleResponse
+     *
+     * @param DeleteCostRuleRequest $request
+     *
+     * @return DeleteCostRuleResponse
+     */
+    public function deleteCostRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCostRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -7477,6 +8479,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除网关实例.
+     *
+     * @param request - DeleteGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayResponse
+     *
+     * @param DeleteGatewayRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteGatewayResponse
+     */
+    public function deleteGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGateway',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关实例.
+     *
+     * @param request - DeleteGatewayRequest
+     *
+     * @returns DeleteGatewayResponse
+     *
+     * @param DeleteGatewayRequest $request
+     *
+     * @return DeleteGatewayResponse
+     */
+    public function deleteGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a global data network (GDN).
      *
      * @param request - DeleteGlobalDataNetworkRequest
@@ -7772,6 +8835,136 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMaskingRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除路由规则.
+     *
+     * @param request - DeleteModelApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelApiResponse
+     *
+     * @param DeleteModelApiRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteModelApiResponse
+     */
+    public function deleteModelApiWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelApiId) {
+            @$query['ModelApiId'] = $request->modelApiId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelApi',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除路由规则.
+     *
+     * @param request - DeleteModelApiRequest
+     *
+     * @returns DeleteModelApiResponse
+     *
+     * @param DeleteModelApiRequest $request
+     *
+     * @return DeleteModelApiResponse
+     */
+    public function deleteModelApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除模型服务
+     *
+     * @param request - DeleteModelServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param DeleteModelServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelService',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型服务
+     *
+     * @param request - DeleteModelServiceRequest
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param DeleteModelServiceRequest $request
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -8167,6 +9360,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolarFsQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除限流策略.
+     *
+     * @param request - DeleteRateLimitPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRateLimitPolicyResponse
+     *
+     * @param DeleteRateLimitPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRateLimitPolicyResponse
+     */
+    public function deleteRateLimitPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRateLimitPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRateLimitPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除限流策略.
+     *
+     * @param request - DeleteRateLimitPolicyRequest
+     *
+     * @returns DeleteRateLimitPolicyResponse
+     *
+     * @param DeleteRateLimitPolicyRequest $request
+     *
+     * @return DeleteRateLimitPolicyResponse
+     */
+    public function deleteRateLimitPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRateLimitPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -10618,6 +11876,91 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询预算策略.
+     *
+     * @param request - DescribeBudgetPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBudgetPoliciesResponse
+     *
+     * @param DescribeBudgetPoliciesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeBudgetPoliciesResponse
+     */
+    public function describeBudgetPoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->budgetDimensionRefId) {
+            @$query['BudgetDimensionRefId'] = $request->budgetDimensionRefId;
+        }
+
+        if (null !== $request->budgetDimensionType) {
+            @$query['BudgetDimensionType'] = $request->budgetDimensionType;
+        }
+
+        if (null !== $request->budgetPolicyId) {
+            @$query['BudgetPolicyId'] = $request->budgetPolicyId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBudgetPolicies',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBudgetPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询预算策略.
+     *
+     * @param request - DescribeBudgetPoliciesRequest
+     *
+     * @returns DescribeBudgetPoliciesResponse
+     *
+     * @param DescribeBudgetPoliciesRequest $request
+     *
+     * @return DescribeBudgetPoliciesResponse
+     */
+    public function describeBudgetPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBudgetPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries character sets that are supported by a PolarDB for MySQL cluster.
      *
      * @param request - DescribeCharacterSetNameRequest
@@ -10894,6 +12237,233 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeColdStorageInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询消费者组列表.
+     *
+     * @param request - DescribeConsumerGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeConsumerGroupsResponse
+     *
+     * @param DescribeConsumerGroupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeConsumerGroupsResponse
+     */
+    public function describeConsumerGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupId) {
+            @$query['ConsumerGroupId'] = $request->consumerGroupId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeConsumerGroups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeConsumerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者组列表.
+     *
+     * @param request - DescribeConsumerGroupsRequest
+     *
+     * @returns DescribeConsumerGroupsResponse
+     *
+     * @param DescribeConsumerGroupsRequest $request
+     *
+     * @return DescribeConsumerGroupsResponse
+     */
+    public function describeConsumerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConsumerGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询消费者列表.
+     *
+     * @param request - DescribeConsumersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeConsumersResponse
+     *
+     * @param DescribeConsumersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeConsumersResponse
+     */
+    public function describeConsumersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupId) {
+            @$query['ConsumerGroupId'] = $request->consumerGroupId;
+        }
+
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeConsumers',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者列表.
+     *
+     * @param request - DescribeConsumersRequest
+     *
+     * @returns DescribeConsumersResponse
+     *
+     * @param DescribeConsumersRequest $request
+     *
+     * @return DescribeConsumersResponse
+     */
+    public function describeConsumers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConsumersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询限流策略.
+     *
+     * @param request - DescribeCostRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCostRulesResponse
+     *
+     * @param DescribeCostRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeCostRulesResponse
+     */
+    public function describeCostRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelServiceId) {
+            @$query['ModelServiceId'] = $request->modelServiceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCostRules',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCostRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询限流策略.
+     *
+     * @param request - DescribeCostRulesRequest
+     *
+     * @returns DescribeCostRulesResponse
+     *
+     * @param DescribeCostRulesRequest $request
+     *
+     * @return DescribeCostRulesResponse
+     */
+    public function describeCostRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCostRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -14510,6 +16080,140 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询网关实例详情.
+     *
+     * @param request - DescribeGatewayAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGatewayAttributeResponse
+     *
+     * @param DescribeGatewayAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeGatewayAttributeResponse
+     */
+    public function describeGatewayAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGatewayAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关实例详情.
+     *
+     * @param request - DescribeGatewayAttributeRequest
+     *
+     * @returns DescribeGatewayAttributeResponse
+     *
+     * @param DescribeGatewayAttributeRequest $request
+     *
+     * @return DescribeGatewayAttributeResponse
+     */
+    public function describeGatewayAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGatewayAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网关实例列表.
+     *
+     * @param request - DescribeGatewayListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGatewayListResponse
+     *
+     * @param DescribeGatewayListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeGatewayListResponse
+     */
+    public function describeGatewayListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->gwDescription) {
+            @$query['GwDescription'] = $request->gwDescription;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGatewayList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGatewayListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关实例列表.
+     *
+     * @param request - DescribeGatewayListRequest
+     *
+     * @returns DescribeGatewayListResponse
+     *
+     * @param DescribeGatewayListRequest $request
+     *
+     * @return DescribeGatewayListResponse
+     */
+    public function describeGatewayList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGatewayListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the PolarFS global data network (GDN) details in all regions.
      *
      * @param request - DescribeGlobalDataNetworkListRequest
@@ -15829,6 +17533,188 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询路由规则列表.
+     *
+     * @param request - DescribeModelApisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelApisResponse
+     *
+     * @param DescribeModelApisRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeModelApisResponse
+     */
+    public function describeModelApisWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelApiIds) {
+            @$query['ModelApiIds'] = $request->modelApiIds;
+        }
+
+        if (null !== $request->modelCategory) {
+            @$query['ModelCategory'] = $request->modelCategory;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pathPrefix) {
+            @$query['PathPrefix'] = $request->pathPrefix;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelApis',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询路由规则列表.
+     *
+     * @param request - DescribeModelApisRequest
+     *
+     * @returns DescribeModelApisResponse
+     *
+     * @param DescribeModelApisRequest $request
+     *
+     * @return DescribeModelApisResponse
+     */
+    public function describeModelApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelApisWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型服务列表.
+     *
+     * @param request - DescribeModelServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelServicesResponse
+     *
+     * @param DescribeModelServicesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeModelServicesResponse
+     */
+    public function describeModelServicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelCategory) {
+            @$query['ModelCategory'] = $request->modelCategory;
+        }
+
+        if (null !== $request->modelServiceIds) {
+            @$query['ModelServiceIds'] = $request->modelServiceIds;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelServices',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型服务列表.
+     *
+     * @param request - DescribeModelServicesRequest
+     *
+     * @returns DescribeModelServicesResponse
+     *
+     * @param DescribeModelServicesRequest $request
+     *
+     * @return DescribeModelServicesResponse
+     */
+    public function describeModelServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询参数修改历史.
      *
      * @param request - DescribeModifyParameterLogRequest
@@ -16898,6 +18784,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarSQLCollectorPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询限流策略.
+     *
+     * @param request - DescribeRateLimitPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRateLimitPolicyResponse
+     *
+     * @param DescribeRateLimitPolicyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeRateLimitPolicyResponse
+     */
+    public function describeRateLimitPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scopeRefId) {
+            @$query['ScopeRefId'] = $request->scopeRefId;
+        }
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRateLimitPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRateLimitPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询限流策略.
+     *
+     * @param request - DescribeRateLimitPolicyRequest
+     *
+     * @returns DescribeRateLimitPolicyResponse
+     *
+     * @param DescribeRateLimitPolicyRequest $request
+     *
+     * @return DescribeRateLimitPolicyResponse
+     */
+    public function describeRateLimitPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRateLimitPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -21231,6 +23198,318 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 修改预算策略.
+     *
+     * @param request - ModifyBudgetPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBudgetPolicyResponse
+     *
+     * @param ModifyBudgetPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBudgetPolicyResponse
+     */
+    public function modifyBudgetPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertThresholdPct) {
+            @$query['AlertThresholdPct'] = $request->alertThresholdPct;
+        }
+
+        if (null !== $request->budgetPoints) {
+            @$query['BudgetPoints'] = $request->budgetPoints;
+        }
+
+        if (null !== $request->budgetPolicyId) {
+            @$query['BudgetPolicyId'] = $request->budgetPolicyId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resetDayOfMonth) {
+            @$query['ResetDayOfMonth'] = $request->resetDayOfMonth;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBudgetPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBudgetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改预算策略.
+     *
+     * @param request - ModifyBudgetPolicyRequest
+     *
+     * @returns ModifyBudgetPolicyResponse
+     *
+     * @param ModifyBudgetPolicyRequest $request
+     *
+     * @return ModifyBudgetPolicyResponse
+     */
+    public function modifyBudgetPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBudgetPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改消费者.
+     *
+     * @param request - ModifyConsumerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyConsumerResponse
+     *
+     * @param ModifyConsumerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyConsumerResponse
+     */
+    public function modifyConsumerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupName) {
+            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        }
+
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyConsumer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改消费者.
+     *
+     * @param request - ModifyConsumerRequest
+     *
+     * @returns ModifyConsumerResponse
+     *
+     * @param ModifyConsumerRequest $request
+     *
+     * @return ModifyConsumerResponse
+     */
+    public function modifyConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyConsumerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改消费者组.
+     *
+     * @param request - ModifyConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyConsumerGroupResponse
+     *
+     * @param ModifyConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyConsumerGroupResponse
+     */
+    public function modifyConsumerGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerGroupName) {
+            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
+        }
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyConsumerGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改消费者组.
+     *
+     * @param request - ModifyConsumerGroupRequest
+     *
+     * @returns ModifyConsumerGroupResponse
+     *
+     * @param ModifyConsumerGroupRequest $request
+     *
+     * @return ModifyConsumerGroupResponse
+     */
+    public function modifyConsumerGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyConsumerGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改限流策略.
+     *
+     * @param request - ModifyCostRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCostRuleResponse
+     *
+     * @param ModifyCostRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyCostRuleResponse
+     */
+    public function modifyCostRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cacheCostPointsPerMillion) {
+            @$query['CacheCostPointsPerMillion'] = $request->cacheCostPointsPerMillion;
+        }
+
+        if (null !== $request->costRuleId) {
+            @$query['CostRuleId'] = $request->costRuleId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->inputCostPointsPerMillion) {
+            @$query['InputCostPointsPerMillion'] = $request->inputCostPointsPerMillion;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelServiceId) {
+            @$query['ModelServiceId'] = $request->modelServiceId;
+        }
+
+        if (null !== $request->outputCostPointsPerMillion) {
+            @$query['OutputCostPointsPerMillion'] = $request->outputCostPointsPerMillion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyCostRule',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyCostRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改限流策略.
+     *
+     * @param request - ModifyCostRuleRequest
+     *
+     * @returns ModifyCostRuleResponse
+     *
+     * @param ModifyCostRuleRequest $request
+     *
+     * @return ModifyCostRuleResponse
+     */
+    public function modifyCostRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCostRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * 修改周期任务策略.
      *
      * @param request - ModifyCronJobPolicyServerlessRequest
@@ -25272,6 +27551,192 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 修改模型API.
+     *
+     * @param request - ModifyModelApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyModelApiResponse
+     *
+     * @param ModifyModelApiRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyModelApiResponse
+     */
+    public function modifyModelApiWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->modelApiId) {
+            @$query['ModelApiId'] = $request->modelApiId;
+        }
+
+        if (null !== $request->modelCategory) {
+            @$query['ModelCategory'] = $request->modelCategory;
+        }
+
+        if (null !== $request->pathPrefix) {
+            @$query['PathPrefix'] = $request->pathPrefix;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->recordInput) {
+            @$query['RecordInput'] = $request->recordInput;
+        }
+
+        if (null !== $request->recordOutput) {
+            @$query['RecordOutput'] = $request->recordOutput;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->routeRules) {
+            @$query['RouteRules'] = $request->routeRules;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyModelApi',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyModelApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改模型API.
+     *
+     * @param request - ModifyModelApiRequest
+     *
+     * @returns ModifyModelApiResponse
+     *
+     * @param ModifyModelApiRequest $request
+     *
+     * @return ModifyModelApiResponse
+     */
+    public function modifyModelApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyModelApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改模型服务
+     *
+     * @param request - ModifyModelServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyModelServiceResponse
+     *
+     * @param ModifyModelServiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyModelServiceResponse
+     */
+    public function modifyModelServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->baseUrl) {
+            @$query['BaseUrl'] = $request->baseUrl;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->inputCostPointsPerMillion) {
+            @$query['InputCostPointsPerMillion'] = $request->inputCostPointsPerMillion;
+        }
+
+        if (null !== $request->modelCategory) {
+            @$query['ModelCategory'] = $request->modelCategory;
+        }
+
+        if (null !== $request->modelServiceId) {
+            @$query['ModelServiceId'] = $request->modelServiceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->outputCostPointsPerMillion) {
+            @$query['OutputCostPointsPerMillion'] = $request->outputCostPointsPerMillion;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->requestCostPoints) {
+            @$query['RequestCostPoints'] = $request->requestCostPoints;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyModelService',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改模型服务
+     *
+     * @param request - ModifyModelServiceRequest
+     *
+     * @returns ModifyModelServiceResponse
+     *
+     * @param ModifyModelServiceRequest $request
+     *
+     * @return ModifyModelServiceResponse
+     */
+    public function modifyModelService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyModelServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the switching time of a pending event.
      *
      * @param request - ModifyPendingMaintenanceActionRequest
@@ -25358,6 +27823,79 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPendingMaintenanceActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改限流策略.
+     *
+     * @param request - ModifyRateLimitPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyRateLimitPolicyResponse
+     *
+     * @param ModifyRateLimitPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyRateLimitPolicyResponse
+     */
+    public function modifyRateLimitPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->rateLimitRpm) {
+            @$query['RateLimitRpm'] = $request->rateLimitRpm;
+        }
+
+        if (null !== $request->rateLimitTpm) {
+            @$query['RateLimitTpm'] = $request->rateLimitTpm;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyRateLimitPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyRateLimitPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改限流策略.
+     *
+     * @param request - ModifyRateLimitPolicyRequest
+     *
+     * @returns ModifyRateLimitPolicyResponse
+     *
+     * @param ModifyRateLimitPolicyRequest $request
+     *
+     * @return ModifyRateLimitPolicyResponse
+     */
+    public function modifyRateLimitPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRateLimitPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -26219,6 +28757,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAccountZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 重置API密钥.
+     *
+     * @param request - ResetConsumerApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetConsumerApiKeyResponse
+     *
+     * @param ResetConsumerApiKeyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ResetConsumerApiKeyResponse
+     */
+    public function resetConsumerApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetConsumerApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetConsumerApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置API密钥.
+     *
+     * @param request - ResetConsumerApiKeyRequest
+     *
+     * @returns ResetConsumerApiKeyResponse
+     *
+     * @param ResetConsumerApiKeyRequest $request
+     *
+     * @return ResetConsumerApiKeyResponse
+     */
+    public function resetConsumerApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetConsumerApiKeyWithOptions($request, $runtime);
     }
 
     /**
