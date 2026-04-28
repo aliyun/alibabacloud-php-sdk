@@ -207,6 +207,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyEnterpriseAcceleratePolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserDeviceSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest;
@@ -6405,6 +6407,67 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyEnterpriseAcceleratePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 吊销用户设备会话.
+     *
+     * @param request - RevokeUserDeviceSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeUserDeviceSessionResponse
+     *
+     * @param RevokeUserDeviceSessionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RevokeUserDeviceSessionResponse
+     */
+    public function revokeUserDeviceSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->devTag) {
+            @$body['DevTag'] = $request->devTag;
+        }
+
+        if (null !== $request->saseUserId) {
+            @$body['SaseUserId'] = $request->saseUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeUserDeviceSession',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeUserDeviceSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 吊销用户设备会话.
+     *
+     * @param request - RevokeUserDeviceSessionRequest
+     *
+     * @returns RevokeUserDeviceSessionResponse
+     *
+     * @param RevokeUserDeviceSessionRequest $request
+     *
+     * @return RevokeUserDeviceSessionResponse
+     */
+    public function revokeUserDeviceSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeUserDeviceSessionWithOptions($request, $runtime);
     }
 
     /**
