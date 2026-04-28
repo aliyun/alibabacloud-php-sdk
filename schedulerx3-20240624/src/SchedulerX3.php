@@ -97,6 +97,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListClustersRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListClustersResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListDatasourcesRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListDatasourcesResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorGroupRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorGroupResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListJobExecutionsRequest;
@@ -3239,6 +3241,87 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDatasourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取执行器组列表.
+     *
+     * @param request - ListExecutorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExecutorGroupResponse
+     *
+     * @param ListExecutorGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListExecutorGroupResponse
+     */
+    public function listExecutorGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workerType) {
+            @$query['WorkerType'] = $request->workerType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListExecutorGroup',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListExecutorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取执行器组列表.
+     *
+     * @param request - ListExecutorGroupRequest
+     *
+     * @returns ListExecutorGroupResponse
+     *
+     * @param ListExecutorGroupRequest $request
+     *
+     * @return ListExecutorGroupResponse
+     */
+    public function listExecutorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExecutorGroupWithOptions($request, $runtime);
     }
 
     /**
