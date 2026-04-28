@@ -150,6 +150,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinition
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateRayClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateWorkspaceRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateWorkspaceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -5920,5 +5922,96 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->updateRayClusterWithOptions($workspaceId, $clusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新workspace属性.
+     *
+     * @param request - UpdateWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkspaceResponse
+     *
+     * @param UpdateWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateWorkspaceResponse
+     */
+    public function updateWorkspaceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->cu) {
+            @$body['cu'] = $request->cu;
+        }
+
+        if (null !== $request->gpu) {
+            @$body['gpu'] = $request->gpu;
+        }
+
+        if (null !== $request->gpuSpec) {
+            @$body['gpuSpec'] = $request->gpuSpec;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->subscription) {
+            @$body['subscription'] = $request->subscription;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$body['workspaceName'] = $request->workspaceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkspace',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新workspace属性.
+     *
+     * @param request - UpdateWorkspaceRequest
+     *
+     * @returns UpdateWorkspaceResponse
+     *
+     * @param UpdateWorkspaceRequest $request
+     *
+     * @return UpdateWorkspaceResponse
+     */
+    public function updateWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkspaceWithOptions($request, $headers, $runtime);
     }
 }

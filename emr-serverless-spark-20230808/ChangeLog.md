@@ -1,3 +1,7 @@
+2026-04-28 Version: 1.26.0
+- Support API UpdateWorkspace.
+
+
 2026-04-27 Version: 1.25.0
 - Support API ActivateAICenter.
 - Support API GetAICenterState.
