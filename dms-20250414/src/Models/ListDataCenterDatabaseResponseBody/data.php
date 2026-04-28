@@ -46,6 +46,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $downloadLink;
+
+    /**
+     * @var string
+     */
     public $gmtCreated;
 
     /**
@@ -61,12 +66,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $intranetDownloadLink;
+
+    /**
+     * @var string
+     */
     public $isInternal;
+
+    /**
+     * @var string
+     */
+    public $ossBucket;
 
     /**
      * @var int
      */
     public $size;
+
+    /**
+     * @var bool
+     */
+    public $useUserOssBucket;
     protected $_name = [
         'databaseDesc' => 'DatabaseDesc',
         'databaseName' => 'DatabaseName',
@@ -75,11 +95,15 @@ class data extends Model
         'descUpdateTime' => 'DescUpdateTime',
         'dmsDbId' => 'DmsDbId',
         'dmsInstanceId' => 'DmsInstanceId',
+        'downloadLink' => 'DownloadLink',
         'gmtCreated' => 'GmtCreated',
         'importType' => 'ImportType',
         'instanceName' => 'InstanceName',
+        'intranetDownloadLink' => 'IntranetDownloadLink',
         'isInternal' => 'IsInternal',
+        'ossBucket' => 'OssBucket',
         'size' => 'Size',
+        'useUserOssBucket' => 'UseUserOssBucket',
     ];
 
     public function validate()
@@ -118,6 +142,10 @@ class data extends Model
             $res['DmsInstanceId'] = $this->dmsInstanceId;
         }
 
+        if (null !== $this->downloadLink) {
+            $res['DownloadLink'] = $this->downloadLink;
+        }
+
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
@@ -130,12 +158,24 @@ class data extends Model
             $res['InstanceName'] = $this->instanceName;
         }
 
+        if (null !== $this->intranetDownloadLink) {
+            $res['IntranetDownloadLink'] = $this->intranetDownloadLink;
+        }
+
         if (null !== $this->isInternal) {
             $res['IsInternal'] = $this->isInternal;
         }
 
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
+        }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->useUserOssBucket) {
+            $res['UseUserOssBucket'] = $this->useUserOssBucket;
         }
 
         return $res;
@@ -177,6 +217,10 @@ class data extends Model
             $model->dmsInstanceId = $map['DmsInstanceId'];
         }
 
+        if (isset($map['DownloadLink'])) {
+            $model->downloadLink = $map['DownloadLink'];
+        }
+
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
@@ -189,12 +233,24 @@ class data extends Model
             $model->instanceName = $map['InstanceName'];
         }
 
+        if (isset($map['IntranetDownloadLink'])) {
+            $model->intranetDownloadLink = $map['IntranetDownloadLink'];
+        }
+
         if (isset($map['IsInternal'])) {
             $model->isInternal = $map['IsInternal'];
         }
 
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
+        }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['UseUserOssBucket'])) {
+            $model->useUserOssBucket = $map['UseUserOssBucket'];
         }
 
         return $model;
