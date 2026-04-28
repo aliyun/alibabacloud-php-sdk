@@ -6,17 +6,22 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDataSetRecordsRequest extends Model
+class ListAutoDisposeEntitiesRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $dataSetId;
+    public $autoDisposeRecordIds;
 
     /**
      * @var string
      */
-    public $filter;
+    public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $dataSourceType;
 
     /**
      * @var string
@@ -36,60 +41,51 @@ class ListDataSetRecordsRequest extends Model
     /**
      * @var string
      */
-    public $order;
-
-    /**
-     * @var string
-     */
-    public $orderField;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
     public $pageSize;
 
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $roleFor;
+    public $uuid;
     protected $_name = [
-        'dataSetId' => 'DataSetId',
-        'filter' => 'Filter',
+        'autoDisposeRecordIds' => 'AutoDisposeRecordIds',
+        'currentPage' => 'CurrentPage',
+        'dataSourceType' => 'DataSourceType',
         'lang' => 'Lang',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
-        'order' => 'Order',
-        'orderField' => 'OrderField',
-        'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
-        'regionId' => 'RegionId',
-        'roleFor' => 'RoleFor',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
     {
+        if (\is_array($this->autoDisposeRecordIds)) {
+            Model::validateArray($this->autoDisposeRecordIds);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dataSetId) {
-            $res['DataSetId'] = $this->dataSetId;
+        if (null !== $this->autoDisposeRecordIds) {
+            if (\is_array($this->autoDisposeRecordIds)) {
+                $res['AutoDisposeRecordIds'] = [];
+                $n1 = 0;
+                foreach ($this->autoDisposeRecordIds as $item1) {
+                    $res['AutoDisposeRecordIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (null !== $this->filter) {
-            $res['Filter'] = $this->filter;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->dataSourceType) {
+            $res['DataSourceType'] = $this->dataSourceType;
         }
 
         if (null !== $this->lang) {
@@ -104,28 +100,12 @@ class ListDataSetRecordsRequest extends Model
             $res['NextToken'] = $this->nextToken;
         }
 
-        if (null !== $this->order) {
-            $res['Order'] = $this->order;
-        }
-
-        if (null !== $this->orderField) {
-            $res['OrderField'] = $this->orderField;
-        }
-
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->roleFor) {
-            $res['RoleFor'] = $this->roleFor;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -139,12 +119,23 @@ class ListDataSetRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataSetId'])) {
-            $model->dataSetId = $map['DataSetId'];
+        if (isset($map['AutoDisposeRecordIds'])) {
+            if (!empty($map['AutoDisposeRecordIds'])) {
+                $model->autoDisposeRecordIds = [];
+                $n1 = 0;
+                foreach ($map['AutoDisposeRecordIds'] as $item1) {
+                    $model->autoDisposeRecordIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (isset($map['Filter'])) {
-            $model->filter = $map['Filter'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['DataSourceType'])) {
+            $model->dataSourceType = $map['DataSourceType'];
         }
 
         if (isset($map['Lang'])) {
@@ -159,28 +150,12 @@ class ListDataSetRecordsRequest extends Model
             $model->nextToken = $map['NextToken'];
         }
 
-        if (isset($map['Order'])) {
-            $model->order = $map['Order'];
-        }
-
-        if (isset($map['OrderField'])) {
-            $model->orderField = $map['OrderField'];
-        }
-
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['RoleFor'])) {
-            $model->roleFor = $map['RoleFor'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

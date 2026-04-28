@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CheckUpgradeItemRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CheckUpgradeItemResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateAutoDisposeConfigRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateAutoDisposeConfigResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateDataIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateDataIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\CreateDataSetRequest;
@@ -57,10 +59,14 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DisableDataIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DisableDataIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\EnableDataIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\EnableDataIngestionResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ExecuteAutoDisposeRecordsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ExecuteAutoDisposeRecordsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ExecuteLogQueryRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ExecuteLogQueryResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ExecuteUpgradeRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ExecuteUpgradeResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetAutoDisposeConfigRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetAutoDisposeConfigResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataBatchIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataBatchIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageRequest;
@@ -81,6 +87,9 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetNormalizationSchemaResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetUserConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetUserConfigResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesShrinkRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataIngestionsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataIngestionsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataIngestionsShrinkRequest;
@@ -142,6 +151,10 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeConfigRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeConfigResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeRecordRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeRecordResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataBatchIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataBatchIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataBatchIngestionShrinkRequest;
@@ -287,6 +300,71 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkUpgradeItemWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建用户自动处置配置.
+     *
+     * @param request - CreateAutoDisposeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAutoDisposeConfigResponse
+     *
+     * @param CreateAutoDisposeConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAutoDisposeConfigResponse
+     */
+    public function createAutoDisposeConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoDecisionStatus) {
+            @$body['AutoDecisionStatus'] = $request->autoDecisionStatus;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAutoDisposeConfig',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAutoDisposeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建用户自动处置配置.
+     *
+     * @param request - CreateAutoDisposeConfigRequest
+     *
+     * @returns CreateAutoDisposeConfigResponse
+     *
+     * @param CreateAutoDisposeConfigRequest $request
+     *
+     * @return CreateAutoDisposeConfigResponse
+     */
+    public function createAutoDisposeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAutoDisposeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -653,12 +731,20 @@ class Cloudsiem extends OpenApiClient
             @$body['AlertAttCk'] = $request->alertAttCk;
         }
 
+        if (null !== $request->alertAttCkMapping) {
+            @$body['AlertAttCkMapping'] = $request->alertAttCkMapping;
+        }
+
         if (null !== $request->alertDescription) {
             @$body['AlertDescription'] = $request->alertDescription;
         }
 
         if (null !== $request->alertLevel) {
             @$body['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->alertLevelMapping) {
+            @$body['AlertLevelMapping'] = $request->alertLevelMapping;
         }
 
         if (null !== $request->alertName) {
@@ -687,6 +773,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->alertType) {
             @$body['AlertType'] = $request->alertType;
+        }
+
+        if (null !== $request->alertTypeMapping) {
+            @$body['AlertTypeMapping'] = $request->alertTypeMapping;
         }
 
         if (null !== $request->detectionExpressionContent) {
@@ -2372,6 +2462,74 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * 手动处置告警.
+     *
+     * @param request - ExecuteAutoDisposeRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAutoDisposeRecordsResponse
+     *
+     * @param ExecuteAutoDisposeRecordsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ExecuteAutoDisposeRecordsResponse
+     */
+    public function executeAutoDisposeRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->selectedEntityList) {
+            @$bodyFlat['SelectedEntityList'] = $request->selectedEntityList;
+        }
+
+        if (null !== $request->unSelectedEntityList) {
+            @$bodyFlat['UnSelectedEntityList'] = $request->unSelectedEntityList;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAutoDisposeRecords',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteAutoDisposeRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手动处置告警.
+     *
+     * @param request - ExecuteAutoDisposeRecordsRequest
+     *
+     * @returns ExecuteAutoDisposeRecordsResponse
+     *
+     * @param ExecuteAutoDisposeRecordsRequest $request
+     *
+     * @return ExecuteAutoDisposeRecordsResponse
+     */
+    public function executeAutoDisposeRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeAutoDisposeRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查看LogStore.
      *
      * @param request - ExecuteLogQueryRequest
@@ -2535,6 +2693,67 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeUpgradeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户自动处置配置.
+     *
+     * @param request - GetAutoDisposeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAutoDisposeConfigResponse
+     *
+     * @param GetAutoDisposeConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAutoDisposeConfigResponse
+     */
+    public function getAutoDisposeConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAutoDisposeConfig',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAutoDisposeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户自动处置配置.
+     *
+     * @param request - GetAutoDisposeConfigRequest
+     *
+     * @returns GetAutoDisposeConfigResponse
+     *
+     * @param GetAutoDisposeConfigRequest $request
+     *
+     * @return GetAutoDisposeConfigResponse
+     */
+    public function getAutoDisposeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAutoDisposeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3220,6 +3439,97 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * 获取AI研判实体列表.
+     *
+     * @param tmpReq - ListAutoDisposeEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAutoDisposeEntitiesResponse
+     *
+     * @param ListAutoDisposeEntitiesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListAutoDisposeEntitiesResponse
+     */
+    public function listAutoDisposeEntitiesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAutoDisposeEntitiesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->autoDisposeRecordIds) {
+            $request->autoDisposeRecordIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->autoDisposeRecordIds, 'AutoDisposeRecordIds', 'simple');
+        }
+
+        $body = [];
+        if (null !== $request->autoDisposeRecordIdsShrink) {
+            @$body['AutoDisposeRecordIds'] = $request->autoDisposeRecordIdsShrink;
+        }
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->dataSourceType) {
+            @$body['DataSourceType'] = $request->dataSourceType;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAutoDisposeEntities',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAutoDisposeEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取AI研判实体列表.
+     *
+     * @param request - ListAutoDisposeEntitiesRequest
+     *
+     * @returns ListAutoDisposeEntitiesResponse
+     *
+     * @param ListAutoDisposeEntitiesRequest $request
+     *
+     * @return ListAutoDisposeEntitiesResponse
+     */
+    public function listAutoDisposeEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAutoDisposeEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询接入模板
      *
      * @param request - ListDataIngestionTemplatesRequest
@@ -3424,6 +3734,10 @@ class Cloudsiem extends OpenApiClient
             @$body['DataSetId'] = $request->dataSetId;
         }
 
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
+        }
+
         if (null !== $request->lang) {
             @$body['Lang'] = $request->lang;
         }
@@ -3434,6 +3748,14 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
+        }
+
+        if (null !== $request->orderField) {
+            @$body['OrderField'] = $request->orderField;
         }
 
         if (null !== $request->pageNumber) {
@@ -5545,6 +5867,144 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * 更新用户自动处置配置.
+     *
+     * @param request - UpdateAutoDisposeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAutoDisposeConfigResponse
+     *
+     * @param UpdateAutoDisposeConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAutoDisposeConfigResponse
+     */
+    public function updateAutoDisposeConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoDecisionStatus) {
+            @$body['AutoDecisionStatus'] = $request->autoDecisionStatus;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAutoDisposeConfig',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAutoDisposeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新用户自动处置配置.
+     *
+     * @param request - UpdateAutoDisposeConfigRequest
+     *
+     * @returns UpdateAutoDisposeConfigResponse
+     *
+     * @param UpdateAutoDisposeConfigRequest $request
+     *
+     * @return UpdateAutoDisposeConfigResponse
+     */
+    public function updateAutoDisposeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAutoDisposeConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步研判结果.
+     *
+     * @param request - UpdateAutoDisposeRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAutoDisposeRecordResponse
+     *
+     * @param UpdateAutoDisposeRecordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAutoDisposeRecordResponse
+     */
+    public function updateAutoDisposeRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoDecisionConclusion) {
+            @$body['AutoDecisionConclusion'] = $request->autoDecisionConclusion;
+        }
+
+        if (null !== $request->autoDecisionEntityList) {
+            @$body['AutoDecisionEntityList'] = $request->autoDecisionEntityList;
+        }
+
+        if (null !== $request->autoDecisionResult) {
+            @$body['AutoDecisionResult'] = $request->autoDecisionResult;
+        }
+
+        if (null !== $request->autoDisposeRecordId) {
+            @$body['AutoDisposeRecordId'] = $request->autoDisposeRecordId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAutoDisposeRecord',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAutoDisposeRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步研判结果.
+     *
+     * @param request - UpdateAutoDisposeRecordRequest
+     *
+     * @returns UpdateAutoDisposeRecordResponse
+     *
+     * @param UpdateAutoDisposeRecordRequest $request
+     *
+     * @return UpdateAutoDisposeRecordResponse
+     */
+    public function updateAutoDisposeRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAutoDisposeRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新数据批量接入.
      *
      * @param tmpReq - UpdateDataBatchIngestionRequest
@@ -6431,12 +6891,20 @@ class Cloudsiem extends OpenApiClient
             @$body['AlertAttCk'] = $request->alertAttCk;
         }
 
+        if (null !== $request->alertAttCkMapping) {
+            @$body['AlertAttCkMapping'] = $request->alertAttCkMapping;
+        }
+
         if (null !== $request->alertDescription) {
             @$body['AlertDescription'] = $request->alertDescription;
         }
 
         if (null !== $request->alertLevel) {
             @$body['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->alertLevelMapping) {
+            @$body['AlertLevelMapping'] = $request->alertLevelMapping;
         }
 
         if (null !== $request->alertName) {
@@ -6465,6 +6933,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->alertType) {
             @$body['AlertType'] = $request->alertType;
+        }
+
+        if (null !== $request->alertTypeMapping) {
+            @$body['AlertTypeMapping'] = $request->alertTypeMapping;
         }
 
         if (null !== $request->detectionExpressionContent) {

@@ -16,12 +16,22 @@ class CreateDetectionRuleRequest extends Model
     /**
      * @var string
      */
+    public $alertAttCkMapping;
+
+    /**
+     * @var string
+     */
     public $alertDescription;
 
     /**
      * @var string
      */
     public $alertLevel;
+
+    /**
+     * @var string
+     */
+    public $alertLevelMapping;
 
     /**
      * @var string
@@ -57,6 +67,11 @@ class CreateDetectionRuleRequest extends Model
      * @var string
      */
     public $alertType;
+
+    /**
+     * @var string
+     */
+    public $alertTypeMapping;
 
     /**
      * @var string
@@ -179,8 +194,10 @@ class CreateDetectionRuleRequest extends Model
     public $scheduleWindow;
     protected $_name = [
         'alertAttCk' => 'AlertAttCk',
+        'alertAttCkMapping' => 'AlertAttCkMapping',
         'alertDescription' => 'AlertDescription',
         'alertLevel' => 'AlertLevel',
+        'alertLevelMapping' => 'AlertLevelMapping',
         'alertName' => 'AlertName',
         'alertSchemaId' => 'AlertSchemaId',
         'alertTacticId' => 'AlertTacticId',
@@ -188,6 +205,7 @@ class CreateDetectionRuleRequest extends Model
         'alertThresholdGroup' => 'AlertThresholdGroup',
         'alertThresholdPeriod' => 'AlertThresholdPeriod',
         'alertType' => 'AlertType',
+        'alertTypeMapping' => 'AlertTypeMapping',
         'detectionExpressionContent' => 'DetectionExpressionContent',
         'detectionExpressionType' => 'DetectionExpressionType',
         'detectionRuleDescription' => 'DetectionRuleDescription',
@@ -226,12 +244,20 @@ class CreateDetectionRuleRequest extends Model
             $res['AlertAttCk'] = $this->alertAttCk;
         }
 
+        if (null !== $this->alertAttCkMapping) {
+            $res['AlertAttCkMapping'] = $this->alertAttCkMapping;
+        }
+
         if (null !== $this->alertDescription) {
             $res['AlertDescription'] = $this->alertDescription;
         }
 
         if (null !== $this->alertLevel) {
             $res['AlertLevel'] = $this->alertLevel;
+        }
+
+        if (null !== $this->alertLevelMapping) {
+            $res['AlertLevelMapping'] = $this->alertLevelMapping;
         }
 
         if (null !== $this->alertName) {
@@ -260,6 +286,10 @@ class CreateDetectionRuleRequest extends Model
 
         if (null !== $this->alertType) {
             $res['AlertType'] = $this->alertType;
+        }
+
+        if (null !== $this->alertTypeMapping) {
+            $res['AlertTypeMapping'] = $this->alertTypeMapping;
         }
 
         if (null !== $this->detectionExpressionContent) {
@@ -373,12 +403,20 @@ class CreateDetectionRuleRequest extends Model
             $model->alertAttCk = $map['AlertAttCk'];
         }
 
+        if (isset($map['AlertAttCkMapping'])) {
+            $model->alertAttCkMapping = $map['AlertAttCkMapping'];
+        }
+
         if (isset($map['AlertDescription'])) {
             $model->alertDescription = $map['AlertDescription'];
         }
 
         if (isset($map['AlertLevel'])) {
             $model->alertLevel = $map['AlertLevel'];
+        }
+
+        if (isset($map['AlertLevelMapping'])) {
+            $model->alertLevelMapping = $map['AlertLevelMapping'];
         }
 
         if (isset($map['AlertName'])) {
@@ -407,6 +445,10 @@ class CreateDetectionRuleRequest extends Model
 
         if (isset($map['AlertType'])) {
             $model->alertType = $map['AlertType'];
+        }
+
+        if (isset($map['AlertTypeMapping'])) {
+            $model->alertTypeMapping = $map['AlertTypeMapping'];
         }
 
         if (isset($map['DetectionExpressionContent'])) {
