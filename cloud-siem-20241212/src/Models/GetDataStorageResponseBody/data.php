@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\normalizationLogStores;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\normalizationLogViews;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\sasLogStores;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\unusedLogStores;
 
 class data extends Model
 {
@@ -60,6 +61,11 @@ class data extends Model
      * @var sasLogStores[]
      */
     public $sasLogStores;
+
+    /**
+     * @var unusedLogStores[]
+     */
+    public $unusedLogStores;
     protected $_name = [
         'coldStorageUsedCapacity' => 'ColdStorageUsedCapacity',
         'dataStorageRegionId' => 'DataStorageRegionId',
@@ -71,6 +77,7 @@ class data extends Model
         'normalizationLogStores' => 'NormalizationLogStores',
         'normalizationLogViews' => 'NormalizationLogViews',
         'sasLogStores' => 'SasLogStores',
+        'unusedLogStores' => 'UnusedLogStores',
     ];
 
     public function validate()
@@ -83,6 +90,9 @@ class data extends Model
         }
         if (\is_array($this->sasLogStores)) {
             Model::validateArray($this->sasLogStores);
+        }
+        if (\is_array($this->unusedLogStores)) {
+            Model::validateArray($this->unusedLogStores);
         }
         parent::validate();
     }
@@ -146,6 +156,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->sasLogStores as $item1) {
                     $res['SasLogStores'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->unusedLogStores) {
+            if (\is_array($this->unusedLogStores)) {
+                $res['UnusedLogStores'] = [];
+                $n1 = 0;
+                foreach ($this->unusedLogStores as $item1) {
+                    $res['UnusedLogStores'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -218,6 +239,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['SasLogStores'] as $item1) {
                     $model->sasLogStores[$n1] = sasLogStores::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['UnusedLogStores'])) {
+            if (!empty($map['UnusedLogStores'])) {
+                $model->unusedLogStores = [];
+                $n1 = 0;
+                foreach ($map['UnusedLogStores'] as $item1) {
+                    $model->unusedLogStores[$n1] = unusedLogStores::fromMap($item1);
                     ++$n1;
                 }
             }

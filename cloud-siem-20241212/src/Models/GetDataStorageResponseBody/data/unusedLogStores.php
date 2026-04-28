@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody
 
 use AlibabaCloud\Dara\Model;
 
-class normalizationLogStores extends Model
+class unusedLogStores extends Model
 {
     /**
      * @var string

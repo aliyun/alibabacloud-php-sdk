@@ -57,6 +57,11 @@ class sasLogStores extends Model
      * @var int
      */
     public $logStoreTtl;
+
+    /**
+     * @var float
+     */
+    public $usedCapacity;
     protected $_name = [
         'logCode' => 'LogCode',
         'logDeliveryGroup' => 'LogDeliveryGroup',
@@ -68,6 +73,7 @@ class sasLogStores extends Model
         'logStoreExisted' => 'LogStoreExisted',
         'logStoreName' => 'LogStoreName',
         'logStoreTtl' => 'LogStoreTtl',
+        'usedCapacity' => 'UsedCapacity',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class sasLogStores extends Model
 
         if (null !== $this->logStoreTtl) {
             $res['LogStoreTtl'] = $this->logStoreTtl;
+        }
+
+        if (null !== $this->usedCapacity) {
+            $res['UsedCapacity'] = $this->usedCapacity;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class sasLogStores extends Model
 
         if (isset($map['LogStoreTtl'])) {
             $model->logStoreTtl = $map['LogStoreTtl'];
+        }
+
+        if (isset($map['UsedCapacity'])) {
+            $model->usedCapacity = $map['UsedCapacity'];
         }
 
         return $model;
