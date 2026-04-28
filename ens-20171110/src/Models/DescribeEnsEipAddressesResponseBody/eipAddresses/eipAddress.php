@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsEipAddressesResponseBody\eipAddresses;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsEipAddressesResponseBody\eipAddresses\eipAddress\operationLocks;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsEipAddressesResponseBody\eipAddresses\eipAddress\tags;
 
 class eipAddress extends Model
@@ -23,6 +24,16 @@ class eipAddress extends Model
      * @var int
      */
     public $bandwidth;
+
+    /**
+     * @var int
+     */
+    public $bandwidthPackageBandwidth;
+
+    /**
+     * @var string
+     */
+    public $bandwidthPackageId;
 
     /**
      * @var string
@@ -80,6 +91,11 @@ class eipAddress extends Model
     public $name;
 
     /**
+     * @var operationLocks
+     */
+    public $operationLocks;
+
+    /**
      * @var bool
      */
     public $standby;
@@ -97,6 +113,8 @@ class eipAddress extends Model
         'allocationId' => 'AllocationId',
         'allocationTime' => 'AllocationTime',
         'bandwidth' => 'Bandwidth',
+        'bandwidthPackageBandwidth' => 'BandwidthPackageBandwidth',
+        'bandwidthPackageId' => 'BandwidthPackageId',
         'chargeType' => 'ChargeType',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
@@ -108,6 +126,7 @@ class eipAddress extends Model
         'ipStatus' => 'IpStatus',
         'isp' => 'Isp',
         'name' => 'Name',
+        'operationLocks' => 'OperationLocks',
         'standby' => 'Standby',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -115,6 +134,9 @@ class eipAddress extends Model
 
     public function validate()
     {
+        if (null !== $this->operationLocks) {
+            $this->operationLocks->validate();
+        }
         if (null !== $this->tags) {
             $this->tags->validate();
         }
@@ -134,6 +156,14 @@ class eipAddress extends Model
 
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+
+        if (null !== $this->bandwidthPackageBandwidth) {
+            $res['BandwidthPackageBandwidth'] = $this->bandwidthPackageBandwidth;
+        }
+
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
 
         if (null !== $this->chargeType) {
@@ -180,6 +210,10 @@ class eipAddress extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->operationLocks) {
+            $res['OperationLocks'] = null !== $this->operationLocks ? $this->operationLocks->toArray($noStream) : $this->operationLocks;
+        }
+
         if (null !== $this->standby) {
             $res['Standby'] = $this->standby;
         }
@@ -213,6 +247,14 @@ class eipAddress extends Model
 
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+
+        if (isset($map['BandwidthPackageBandwidth'])) {
+            $model->bandwidthPackageBandwidth = $map['BandwidthPackageBandwidth'];
+        }
+
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
 
         if (isset($map['ChargeType'])) {
@@ -257,6 +299,10 @@ class eipAddress extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OperationLocks'])) {
+            $model->operationLocks = operationLocks::fromMap($map['OperationLocks']);
         }
 
         if (isset($map['Standby'])) {

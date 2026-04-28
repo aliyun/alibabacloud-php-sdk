@@ -9743,6 +9743,10 @@ class Ens extends OpenApiClient
             @$query['IcmpReplyEnabled'] = $request->icmpReplyEnabled;
         }
 
+        if (null !== $request->lockReason) {
+            @$query['LockReason'] = $request->lockReason;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -9753,6 +9757,10 @@ class Ens extends OpenApiClient
 
         if (null !== $request->standby) {
             @$query['Standby'] = $request->standby;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
 
         $req = new OpenApiRequest([

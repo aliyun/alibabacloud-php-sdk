@@ -49,6 +49,11 @@ class DescribeEnsEipAddressesRequest extends Model
     public $icmpReplyEnabled;
 
     /**
+     * @var string
+     */
+    public $lockReason;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -62,6 +67,11 @@ class DescribeEnsEipAddressesRequest extends Model
      * @var string
      */
     public $standby;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'allocationId' => 'AllocationId',
         'associatedInstanceId' => 'AssociatedInstanceId',
@@ -71,9 +81,11 @@ class DescribeEnsEipAddressesRequest extends Model
         'ensRegionId' => 'EnsRegionId',
         'ensRegionIds' => 'EnsRegionIds',
         'icmpReplyEnabled' => 'IcmpReplyEnabled',
+        'lockReason' => 'LockReason',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'standby' => 'Standby',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -126,6 +138,10 @@ class DescribeEnsEipAddressesRequest extends Model
             $res['IcmpReplyEnabled'] = $this->icmpReplyEnabled;
         }
 
+        if (null !== $this->lockReason) {
+            $res['LockReason'] = $this->lockReason;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -136,6 +152,10 @@ class DescribeEnsEipAddressesRequest extends Model
 
         if (null !== $this->standby) {
             $res['Standby'] = $this->standby;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -188,6 +208,10 @@ class DescribeEnsEipAddressesRequest extends Model
             $model->icmpReplyEnabled = $map['IcmpReplyEnabled'];
         }
 
+        if (isset($map['LockReason'])) {
+            $model->lockReason = $map['LockReason'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -198,6 +222,10 @@ class DescribeEnsEipAddressesRequest extends Model
 
         if (isset($map['Standby'])) {
             $model->standby = $map['Standby'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
