@@ -29,6 +29,11 @@ class CreateLLMConfigRequest extends Model
     public $embeddingDimension;
 
     /**
+     * @var bool
+     */
+    public $enableFusion;
+
+    /**
      * @var int
      */
     public $maxTokens;
@@ -37,6 +42,11 @@ class CreateLLMConfigRequest extends Model
      * @var string
      */
     public $model;
+
+    /**
+     * @var string
+     */
+    public $modelType;
 
     /**
      * @var string
@@ -57,8 +67,10 @@ class CreateLLMConfigRequest extends Model
         'baseUrl' => 'BaseUrl',
         'batchSize' => 'BatchSize',
         'embeddingDimension' => 'EmbeddingDimension',
+        'enableFusion' => 'EnableFusion',
         'maxTokens' => 'MaxTokens',
         'model' => 'Model',
+        'modelType' => 'ModelType',
         'name' => 'Name',
         'rps' => 'Rps',
         'workspaceId' => 'WorkspaceId',
@@ -88,12 +100,20 @@ class CreateLLMConfigRequest extends Model
             $res['EmbeddingDimension'] = $this->embeddingDimension;
         }
 
+        if (null !== $this->enableFusion) {
+            $res['EnableFusion'] = $this->enableFusion;
+        }
+
         if (null !== $this->maxTokens) {
             $res['MaxTokens'] = $this->maxTokens;
         }
 
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
         }
 
         if (null !== $this->name) {
@@ -135,12 +155,20 @@ class CreateLLMConfigRequest extends Model
             $model->embeddingDimension = $map['EmbeddingDimension'];
         }
 
+        if (isset($map['EnableFusion'])) {
+            $model->enableFusion = $map['EnableFusion'];
+        }
+
         if (isset($map['MaxTokens'])) {
             $model->maxTokens = $map['MaxTokens'];
         }
 
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
         }
 
         if (isset($map['Name'])) {

@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetFeatureViewResponseBody\fields\transform;
+namespace AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateFeatureViewRequest\fields\transform;
 
 use AlibabaCloud\Dara\Model;
 

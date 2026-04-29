@@ -29,6 +29,11 @@ class LLMConfigs extends Model
     public $embeddingDimension;
 
     /**
+     * @var bool
+     */
+    public $enableFusion;
+
+    /**
      * @var string
      */
     public $gmtCreateTime;
@@ -56,6 +61,11 @@ class LLMConfigs extends Model
     /**
      * @var string
      */
+    public $modelType;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -77,11 +87,13 @@ class LLMConfigs extends Model
         'baseUrl' => 'BaseUrl',
         'batchSize' => 'BatchSize',
         'embeddingDimension' => 'EmbeddingDimension',
+        'enableFusion' => 'EnableFusion',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'LLMConfigId' => 'LLMConfigId',
         'maxTokens' => 'MaxTokens',
         'model' => 'Model',
+        'modelType' => 'ModelType',
         'name' => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
         'rps' => 'Rps',
@@ -112,6 +124,10 @@ class LLMConfigs extends Model
             $res['EmbeddingDimension'] = $this->embeddingDimension;
         }
 
+        if (null !== $this->enableFusion) {
+            $res['EnableFusion'] = $this->enableFusion;
+        }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -130,6 +146,10 @@ class LLMConfigs extends Model
 
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->modelType) {
+            $res['ModelType'] = $this->modelType;
         }
 
         if (null !== $this->name) {
@@ -175,6 +195,10 @@ class LLMConfigs extends Model
             $model->embeddingDimension = $map['EmbeddingDimension'];
         }
 
+        if (isset($map['EnableFusion'])) {
+            $model->enableFusion = $map['EnableFusion'];
+        }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -193,6 +217,10 @@ class LLMConfigs extends Model
 
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+
+        if (isset($map['ModelType'])) {
+            $model->modelType = $map['ModelType'];
         }
 
         if (isset($map['Name'])) {

@@ -11,6 +11,11 @@ class input extends Model
     /**
      * @var string
      */
+    public $modality;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -18,6 +23,7 @@ class input extends Model
      */
     public $type;
     protected $_name = [
+        'modality' => 'Modality',
         'name' => 'Name',
         'type' => 'Type',
     ];
@@ -30,6 +36,10 @@ class input extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->modality) {
+            $res['Modality'] = $this->modality;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,6 +59,10 @@ class input extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Modality'])) {
+            $model->modality = $map['Modality'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -95,6 +95,8 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\PublishFeatureViewTableRes
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\StopTaskResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateDatasourceRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateDatasourceResponse;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateFeatureViewRequest;
+use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateFeatureViewResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLLMConfigRequest;
@@ -271,7 +273,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建数据源。
+     * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
      *
      * @param request - CreateDatasourceRequest
      * @param headers - map
@@ -330,7 +332,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建数据源。
+     * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
      *
      * @param request - CreateDatasourceRequest
      *
@@ -632,12 +634,20 @@ class PaiFeatureStore extends OpenApiClient
             @$body['EmbeddingDimension'] = $request->embeddingDimension;
         }
 
+        if (null !== $request->enableFusion) {
+            @$body['EnableFusion'] = $request->enableFusion;
+        }
+
         if (null !== $request->maxTokens) {
             @$body['MaxTokens'] = $request->maxTokens;
         }
 
         if (null !== $request->model) {
             @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->modelType) {
+            @$body['ModelType'] = $request->modelType;
         }
 
         if (null !== $request->name) {
@@ -850,7 +860,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建FeatureStore项目.
+     * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
      *
      * @param request - CreateProjectRequest
      * @param headers - map
@@ -913,7 +923,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建FeatureStore项目.
+     * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
      *
      * @param request - CreateProjectRequest
      *
@@ -994,7 +1004,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定数据源。
+     * Delete a datasource from a FeatureStore Instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1029,7 +1039,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定数据源。
+     * Delete a datasource from a FeatureStore Instance.
      *
      * @returns DeleteDatasourceResponse
      *
@@ -1446,7 +1456,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源详细信息。
+     * Get the details of a datasource, including its type, connection info, and Config.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1481,7 +1491,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源详细信息。
+     * Get the details of a datasource, including its type, connection info, and Config.
      *
      * @returns GetDatasourceResponse
      *
@@ -2372,7 +2382,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源列表。
+     * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
      *
      * @param request - ListDatasourcesRequest
      * @param headers - map
@@ -2439,7 +2449,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源列表。
+     * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
      *
      * @param request - ListDatasourcesRequest
      *
@@ -3814,7 +3824,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新数据源信息。
+     * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
      *
      * @param request - UpdateDatasourceRequest
      * @param headers - map
@@ -3866,7 +3876,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新数据源信息。
+     * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
      *
      * @param request - UpdateDatasourceRequest
      *
@@ -3884,6 +3894,71 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->updateDatasourceWithOptions($InstanceId, $DatasourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新特征视图。
+     *
+     * @param request - UpdateFeatureViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFeatureViewResponse
+     *
+     * @param string                   $InstanceId
+     * @param string                   $FeatureViewId
+     * @param UpdateFeatureViewRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateFeatureViewResponse
+     */
+    public function updateFeatureViewWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFeatureView',
+            'version' => '2023-06-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($InstanceId) . '/featureviews/' . Url::percentEncode($FeatureViewId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFeatureViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新特征视图。
+     *
+     * @param request - UpdateFeatureViewRequest
+     *
+     * @returns UpdateFeatureViewResponse
+     *
+     * @param string                   $InstanceId
+     * @param string                   $FeatureViewId
+     * @param UpdateFeatureViewRequest $request
+     *
+     * @return UpdateFeatureViewResponse
+     */
+    public function updateFeatureView($InstanceId, $FeatureViewId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFeatureViewWithOptions($InstanceId, $FeatureViewId, $request, $headers, $runtime);
     }
 
     /**
@@ -3923,12 +3998,20 @@ class PaiFeatureStore extends OpenApiClient
             @$body['EmbeddingDimension'] = $request->embeddingDimension;
         }
 
+        if (null !== $request->enableFusion) {
+            @$body['EnableFusion'] = $request->enableFusion;
+        }
+
         if (null !== $request->maxTokens) {
             @$body['MaxTokens'] = $request->maxTokens;
         }
 
         if (null !== $request->model) {
             @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->modelType) {
+            @$body['ModelType'] = $request->modelType;
         }
 
         if (null !== $request->name) {
