@@ -929,7 +929,6 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param request - GetIntlDomainDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetIntlDomainDownloadUrlResponse
@@ -969,7 +968,6 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * @param request - GetReserveDomainUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetReserveDomainUrlResponse
@@ -1385,7 +1383,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询回购订单列表.
+     * Queries the details of requests.
      *
      * @param request - QueryBrokerDemandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1436,7 +1434,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 查询回购订单列表.
+     * Queries the details of requests.
      *
      * @param request - QueryBrokerDemandRequest
      *
