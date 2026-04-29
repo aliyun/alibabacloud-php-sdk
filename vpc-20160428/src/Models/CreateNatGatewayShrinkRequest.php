@@ -22,6 +22,11 @@ class CreateNatGatewayShrinkRequest extends Model
     /**
      * @var string
      */
+    public $availabilityMode;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -141,6 +146,7 @@ class CreateNatGatewayShrinkRequest extends Model
     protected $_name = [
         'accessModeShrink' => 'AccessMode',
         'autoPay' => 'AutoPay',
+        'availabilityMode' => 'AvailabilityMode',
         'clientToken' => 'ClientToken',
         'description' => 'Description',
         'duration' => 'Duration',
@@ -184,6 +190,10 @@ class CreateNatGatewayShrinkRequest extends Model
 
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->availabilityMode) {
+            $res['AvailabilityMode'] = $this->availabilityMode;
         }
 
         if (null !== $this->clientToken) {
@@ -306,6 +316,10 @@ class CreateNatGatewayShrinkRequest extends Model
 
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['AvailabilityMode'])) {
+            $model->availabilityMode = $map['AvailabilityMode'];
         }
 
         if (isset($map['ClientToken'])) {

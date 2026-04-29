@@ -23,6 +23,11 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $accessMode;
 
     /**
+     * @var string
+     */
+    public $availabilityMode;
+
+    /**
      * @var billingConfig
      */
     public $billingConfig;
@@ -148,6 +153,7 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $vpcId;
     protected $_name = [
         'accessMode' => 'AccessMode',
+        'availabilityMode' => 'AvailabilityMode',
         'billingConfig' => 'BillingConfig',
         'businessStatus' => 'BusinessStatus',
         'creationTime' => 'CreationTime',
@@ -212,6 +218,10 @@ class GetNatGatewayAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->accessMode) {
             $res['AccessMode'] = null !== $this->accessMode ? $this->accessMode->toArray($noStream) : $this->accessMode;
+        }
+
+        if (null !== $this->availabilityMode) {
+            $res['AvailabilityMode'] = $this->availabilityMode;
         }
 
         if (null !== $this->billingConfig) {
@@ -334,6 +344,10 @@ class GetNatGatewayAttributeResponseBody extends Model
         $model = new self();
         if (isset($map['AccessMode'])) {
             $model->accessMode = accessMode::fromMap($map['AccessMode']);
+        }
+
+        if (isset($map['AvailabilityMode'])) {
+            $model->availabilityMode = $map['AvailabilityMode'];
         }
 
         if (isset($map['BillingConfig'])) {

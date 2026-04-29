@@ -7772,6 +7772,10 @@ class Vpc extends OpenApiClient
             @$query['AutoPay'] = $request->autoPay;
         }
 
+        if (null !== $request->availabilityMode) {
+            @$query['AvailabilityMode'] = $request->availabilityMode;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -21017,6 +21021,10 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->availabilityMode) {
+            @$query['AvailabilityMode'] = $request->availabilityMode;
+        }
+
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
         }

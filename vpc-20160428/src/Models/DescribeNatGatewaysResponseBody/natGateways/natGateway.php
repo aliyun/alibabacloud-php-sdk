@@ -29,6 +29,11 @@ class natGateway extends Model
     /**
      * @var string
      */
+    public $availabilityMode;
+
+    /**
+     * @var string
+     */
     public $businessStatus;
 
     /**
@@ -178,6 +183,7 @@ class natGateway extends Model
     protected $_name = [
         'accessMode' => 'AccessMode',
         'autoPay' => 'AutoPay',
+        'availabilityMode' => 'AvailabilityMode',
         'businessStatus' => 'BusinessStatus',
         'creationTime' => 'CreationTime',
         'deletionProtection' => 'DeletionProtection',
@@ -248,6 +254,10 @@ class natGateway extends Model
 
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->availabilityMode) {
+            $res['AvailabilityMode'] = $this->availabilityMode;
         }
 
         if (null !== $this->businessStatus) {
@@ -387,6 +397,10 @@ class natGateway extends Model
 
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['AvailabilityMode'])) {
+            $model->availabilityMode = $map['AvailabilityMode'];
         }
 
         if (isset($map['BusinessStatus'])) {

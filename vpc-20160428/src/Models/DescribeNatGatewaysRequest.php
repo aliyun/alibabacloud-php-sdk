@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeNatGatewaysRequest\tag;
 class DescribeNatGatewaysRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $availabilityMode;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -104,6 +109,7 @@ class DescribeNatGatewaysRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'availabilityMode' => 'AvailabilityMode',
         'dryRun' => 'DryRun',
         'instanceChargeType' => 'InstanceChargeType',
         'name' => 'Name',
@@ -136,6 +142,10 @@ class DescribeNatGatewaysRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->availabilityMode) {
+            $res['AvailabilityMode'] = $this->availabilityMode;
+        }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -230,6 +240,10 @@ class DescribeNatGatewaysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailabilityMode'])) {
+            $model->availabilityMode = $map['AvailabilityMode'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
