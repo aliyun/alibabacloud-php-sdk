@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\PaiRecService\V20221213\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateRecallManagementTableRequest\fields;
 
 class UpdateRecallManagementTableRequest extends Model
 {
@@ -17,6 +18,11 @@ class UpdateRecallManagementTableRequest extends Model
      * @var bool
      */
     public $enableRowCountFluctuationThreshold;
+
+    /**
+     * @var fields
+     */
+    public $fields;
 
     /**
      * @var string
@@ -50,6 +56,7 @@ class UpdateRecallManagementTableRequest extends Model
     protected $_name = [
         'enableDataSizeFluctuationThreshold' => 'EnableDataSizeFluctuationThreshold',
         'enableRowCountFluctuationThreshold' => 'EnableRowCountFluctuationThreshold',
+        'fields' => 'Fields',
         'indexVersionId' => 'IndexVersionId',
         'instanceId' => 'InstanceId',
         'maxDataSizeFluctuationThreshold' => 'MaxDataSizeFluctuationThreshold',
@@ -60,6 +67,9 @@ class UpdateRecallManagementTableRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->fields) {
+            $this->fields->validate();
+        }
         parent::validate();
     }
 
@@ -72,6 +82,10 @@ class UpdateRecallManagementTableRequest extends Model
 
         if (null !== $this->enableRowCountFluctuationThreshold) {
             $res['EnableRowCountFluctuationThreshold'] = $this->enableRowCountFluctuationThreshold;
+        }
+
+        if (null !== $this->fields) {
+            $res['Fields'] = null !== $this->fields ? $this->fields->toArray($noStream) : $this->fields;
         }
 
         if (null !== $this->indexVersionId) {
@@ -115,6 +129,10 @@ class UpdateRecallManagementTableRequest extends Model
 
         if (isset($map['EnableRowCountFluctuationThreshold'])) {
             $model->enableRowCountFluctuationThreshold = $map['EnableRowCountFluctuationThreshold'];
+        }
+
+        if (isset($map['Fields'])) {
+            $model->fields = fields::fromMap($map['Fields']);
         }
 
         if (isset($map['IndexVersionId'])) {

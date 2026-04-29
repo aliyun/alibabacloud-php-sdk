@@ -14,12 +14,12 @@ class triggerConfig extends Model
     public $field;
 
     /**
-     * @var string
+     * @var int
      */
     public $fieldQuantityLimit;
 
     /**
-     * @var string
+     * @var bool
      */
     public $isRandSort;
 

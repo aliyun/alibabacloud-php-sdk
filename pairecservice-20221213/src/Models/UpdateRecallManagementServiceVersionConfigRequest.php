@@ -13,11 +13,6 @@ class UpdateRecallManagementServiceVersionConfigRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $configType;
 
     /**
@@ -35,7 +30,6 @@ class UpdateRecallManagementServiceVersionConfigRequest extends Model
      */
     public $recallConfig;
     protected $_name = [
-        'regionId' => 'RegionId',
         'configType' => 'ConfigType',
         'instanceId' => 'InstanceId',
         'mergeConfig' => 'MergeConfig',
@@ -56,10 +50,6 @@ class UpdateRecallManagementServiceVersionConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
         }
@@ -87,10 +77,6 @@ class UpdateRecallManagementServiceVersionConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
         }

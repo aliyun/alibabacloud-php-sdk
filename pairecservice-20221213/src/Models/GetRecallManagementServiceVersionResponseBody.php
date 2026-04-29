@@ -25,11 +25,6 @@ class GetRecallManagementServiceVersionResponseBody extends Model
     public $gmtModifiedTime;
 
     /**
-     * @var string
-     */
-    public $isDefault;
-
-    /**
      * @var bool
      */
     public $isEffective;
@@ -52,7 +47,6 @@ class GetRecallManagementServiceVersionResponseBody extends Model
         'configs' => 'Configs',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'isDefault' => 'IsDefault',
         'isEffective' => 'IsEffective',
         'name' => 'Name',
         'recallManagementServiceVersionId' => 'RecallManagementServiceVersionId',
@@ -80,10 +74,6 @@ class GetRecallManagementServiceVersionResponseBody extends Model
 
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
-        }
-
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
         }
 
         if (null !== $this->isEffective) {
@@ -123,10 +113,6 @@ class GetRecallManagementServiceVersionResponseBody extends Model
 
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
-        }
-
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
         }
 
         if (isset($map['IsEffective'])) {

@@ -67,6 +67,16 @@ class GetTableMetaResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $resourceUri;
+
+    /**
+     * @var string
+     */
     public $tableMetaId;
 
     /**
@@ -95,6 +105,8 @@ class GetTableMetaResponseBody extends Model
         'name' => 'Name',
         'requestId' => 'RequestId',
         'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'resourceUri' => 'ResourceUri',
         'tableMetaId' => 'TableMetaId',
         'tableName' => 'TableName',
         'type' => 'Type',
@@ -161,6 +173,14 @@ class GetTableMetaResponseBody extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->resourceUri) {
+            $res['ResourceUri'] = $this->resourceUri;
         }
 
         if (null !== $this->tableMetaId) {
@@ -239,6 +259,14 @@ class GetTableMetaResponseBody extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['ResourceUri'])) {
+            $model->resourceUri = $map['ResourceUri'];
         }
 
         if (isset($map['TableMetaId'])) {

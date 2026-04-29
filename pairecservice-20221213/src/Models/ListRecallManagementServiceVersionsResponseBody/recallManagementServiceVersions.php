@@ -19,9 +19,9 @@ class recallManagementServiceVersions extends Model
     public $gmtModifiedTime;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $isDefault;
+    public $isEffective;
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class recallManagementServiceVersions extends Model
     protected $_name = [
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'isDefault' => 'IsDefault',
+        'isEffective' => 'IsEffective',
         'name' => 'Name',
         'recallManagementServiceVersionId' => 'RecallManagementServiceVersionId',
     ];
@@ -56,8 +56,8 @@ class recallManagementServiceVersions extends Model
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
 
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
+        if (null !== $this->isEffective) {
+            $res['IsEffective'] = $this->isEffective;
         }
 
         if (null !== $this->name) {
@@ -87,8 +87,8 @@ class recallManagementServiceVersions extends Model
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
 
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
+        if (isset($map['IsEffective'])) {
+            $model->isEffective = $map['IsEffective'];
         }
 
         if (isset($map['Name'])) {

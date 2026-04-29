@@ -30,7 +30,7 @@ class operators extends Model
     /**
      * @var string
      */
-    public $operatorsType;
+    public $operatorType;
 
     /**
      * @var triggerConfig
@@ -40,7 +40,7 @@ class operators extends Model
         'featureConfig' => 'FeatureConfig',
         'filterConfig' => 'FilterConfig',
         'joinConfig' => 'JoinConfig',
-        'operatorsType' => 'OperatorsType',
+        'operatorType' => 'OperatorType',
         'triggerConfig' => 'TriggerConfig',
     ];
 
@@ -76,8 +76,8 @@ class operators extends Model
             $res['JoinConfig'] = null !== $this->joinConfig ? $this->joinConfig->toArray($noStream) : $this->joinConfig;
         }
 
-        if (null !== $this->operatorsType) {
-            $res['OperatorsType'] = $this->operatorsType;
+        if (null !== $this->operatorType) {
+            $res['OperatorType'] = $this->operatorType;
         }
 
         if (null !== $this->triggerConfig) {
@@ -107,8 +107,8 @@ class operators extends Model
             $model->joinConfig = joinConfig::fromMap($map['JoinConfig']);
         }
 
-        if (isset($map['OperatorsType'])) {
-            $model->operatorsType = $map['OperatorsType'];
+        if (isset($map['OperatorType'])) {
+            $model->operatorType = $map['OperatorType'];
         }
 
         if (isset($map['TriggerConfig'])) {

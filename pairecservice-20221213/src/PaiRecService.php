@@ -137,6 +137,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskRequ
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeleteTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeployTrafficControlTaskCodeRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\DeployTrafficControlTaskCodeResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ExportRecallManagementTableRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ExportRecallManagementTableResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateAlgorithmCustomizationScriptRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateAlgorithmCustomizationScriptResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\GenerateTrafficControlTaskCodeRequest;
@@ -297,6 +299,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\PushResourceRuleShrinkRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryDataDiagnosisStatisticsRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryDataDiagnosisStatisticsResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryRecallManagementTableRecordsRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryRecallManagementTableRecordsResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QuerySampleConsistencyJobDifferenceRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QuerySampleConsistencyJobDifferenceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\QueryTrafficControlTargetItemReportDetailRequest;
@@ -5539,6 +5543,85 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->deployTrafficControlTaskCodeWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 召回管理表导出.
+     *
+     * @param request - ExportRecallManagementTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportRecallManagementTableResponse
+     *
+     * @param string                             $RecallManagementTableId
+     * @param ExportRecallManagementTableRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ExportRecallManagementTableResponse
+     */
+    public function exportRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxcomputeProjectName) {
+            @$body['MaxcomputeProjectName'] = $request->maxcomputeProjectName;
+        }
+
+        if (null !== $request->maxcomputeSchema) {
+            @$body['MaxcomputeSchema'] = $request->maxcomputeSchema;
+        }
+
+        if (null !== $request->maxcomputeTableName) {
+            @$body['MaxcomputeTableName'] = $request->maxcomputeTableName;
+        }
+
+        if (null !== $request->partitions) {
+            @$body['Partitions'] = $request->partitions;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportRecallManagementTable',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '/action/export',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportRecallManagementTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 召回管理表导出.
+     *
+     * @param request - ExportRecallManagementTableRequest
+     *
+     * @returns ExportRecallManagementTableResponse
+     *
+     * @param string                             $RecallManagementTableId
+     * @param ExportRecallManagementTableRequest $request
+     *
+     * @return ExportRecallManagementTableResponse
+     */
+    public function exportRecallManagementTable($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportRecallManagementTableWithOptions($RecallManagementTableId, $request, $headers, $runtime);
     }
 
     /**
@@ -11048,6 +11131,77 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
+     * 查询召回管理表数据.
+     *
+     * @param request - QueryRecallManagementTableRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRecallManagementTableRecordsResponse
+     *
+     * @param string                                   $RecallManagementTableId
+     * @param QueryRecallManagementTableRecordsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QueryRecallManagementTableRecordsResponse
+     */
+    public function queryRecallManagementTableRecordsWithOptions($RecallManagementTableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->primaryKeys) {
+            @$query['PrimaryKeys'] = $request->primaryKeys;
+        }
+
+        if (null !== $request->recallManagementTableVersionId) {
+            @$query['RecallManagementTableVersionId'] = $request->recallManagementTableVersionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRecallManagementTableRecords',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementtables/' . Url::percentEncode($RecallManagementTableId) . '/queryrecords',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRecallManagementTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询召回管理表数据.
+     *
+     * @param request - QueryRecallManagementTableRecordsRequest
+     *
+     * @returns QueryRecallManagementTableRecordsResponse
+     *
+     * @param string                                   $RecallManagementTableId
+     * @param QueryRecallManagementTableRecordsRequest $request
+     *
+     * @return QueryRecallManagementTableRecordsResponse
+     */
+    public function queryRecallManagementTableRecords($RecallManagementTableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryRecallManagementTableRecordsWithOptions($RecallManagementTableId, $request, $headers, $runtime);
+    }
+
+    /**
      * 查看样本一致性任务差异的详情.
      *
      * @param request - QuerySampleConsistencyJobDifferenceRequest
@@ -13519,11 +13673,6 @@ class PaiRecService extends OpenApiClient
     public function updateRecallManagementServiceVersionConfigWithOptions($RecallManagementServiceId, $RecallManagementServiceVersionId, $RecallManagementServiceVersionConfigId, $request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
         $body = [];
         if (null !== $request->configType) {
             @$body['ConfigType'] = $request->configType;
@@ -13543,7 +13692,6 @@ class PaiRecService extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -13609,6 +13757,10 @@ class PaiRecService extends OpenApiClient
 
         if (null !== $request->enableRowCountFluctuationThreshold) {
             @$body['EnableRowCountFluctuationThreshold'] = $request->enableRowCountFluctuationThreshold;
+        }
+
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
         }
 
         if (null !== $request->indexVersionId) {

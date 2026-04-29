@@ -57,6 +57,11 @@ class recallConfig extends Model
     /**
      * @var string
      */
+    public $recallManagementServiceVersionConfigId;
+
+    /**
+     * @var string
+     */
     public $recallManagementTableId;
 
     /**
@@ -88,6 +93,7 @@ class recallConfig extends Model
         'name' => 'Name',
         'operators' => 'Operators',
         'priority' => 'Priority',
+        'recallManagementServiceVersionConfigId' => 'RecallManagementServiceVersionConfigId',
         'recallManagementTableId' => 'RecallManagementTableId',
         'recallType' => 'RecallType',
         'sortFields' => 'SortFields',
@@ -147,6 +153,10 @@ class recallConfig extends Model
 
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+
+        if (null !== $this->recallManagementServiceVersionConfigId) {
+            $res['RecallManagementServiceVersionConfigId'] = $this->recallManagementServiceVersionConfigId;
         }
 
         if (null !== $this->recallManagementTableId) {
@@ -221,6 +231,10 @@ class recallConfig extends Model
 
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+
+        if (isset($map['RecallManagementServiceVersionConfigId'])) {
+            $model->recallManagementServiceVersionConfigId = $map['RecallManagementServiceVersionConfigId'];
         }
 
         if (isset($map['RecallManagementTableId'])) {

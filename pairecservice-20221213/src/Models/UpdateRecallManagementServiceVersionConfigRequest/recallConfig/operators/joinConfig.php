@@ -14,7 +14,7 @@ class joinConfig extends Model
     public $field;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $outputFields;
 
@@ -30,6 +30,9 @@ class joinConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->outputFields)) {
+            Model::validateArray($this->outputFields);
+        }
         parent::validate();
     }
 
@@ -41,7 +44,14 @@ class joinConfig extends Model
         }
 
         if (null !== $this->outputFields) {
-            $res['OutputFields'] = $this->outputFields;
+            if (\is_array($this->outputFields)) {
+                $res['OutputFields'] = [];
+                $n1 = 0;
+                foreach ($this->outputFields as $item1) {
+                    $res['OutputFields'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->recallManagementTableId) {
@@ -64,7 +74,14 @@ class joinConfig extends Model
         }
 
         if (isset($map['OutputFields'])) {
-            $model->outputFields = $map['OutputFields'];
+            if (!empty($map['OutputFields'])) {
+                $model->outputFields = [];
+                $n1 = 0;
+                foreach ($map['OutputFields'] as $item1) {
+                    $model->outputFields[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RecallManagementTableId'])) {
