@@ -10968,6 +10968,10 @@ class Sae extends OpenApiClient
             @$query['ScalingRuleTimer'] = $request->scalingRuleTimer;
         }
 
+        if (null !== $request->scalingRuleType) {
+            @$query['ScalingRuleType'] = $request->scalingRuleType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

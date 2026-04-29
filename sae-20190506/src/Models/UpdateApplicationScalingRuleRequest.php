@@ -42,6 +42,11 @@ class UpdateApplicationScalingRuleRequest extends Model
      * @var string
      */
     public $scalingRuleTimer;
+
+    /**
+     * @var string
+     */
+    public $scalingRuleType;
     protected $_name = [
         'appId' => 'AppId',
         'enableIdle' => 'EnableIdle',
@@ -50,6 +55,7 @@ class UpdateApplicationScalingRuleRequest extends Model
         'scalingRuleMetric' => 'ScalingRuleMetric',
         'scalingRuleName' => 'ScalingRuleName',
         'scalingRuleTimer' => 'ScalingRuleTimer',
+        'scalingRuleType' => 'ScalingRuleType',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class UpdateApplicationScalingRuleRequest extends Model
 
         if (null !== $this->scalingRuleTimer) {
             $res['ScalingRuleTimer'] = $this->scalingRuleTimer;
+        }
+
+        if (null !== $this->scalingRuleType) {
+            $res['ScalingRuleType'] = $this->scalingRuleType;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class UpdateApplicationScalingRuleRequest extends Model
 
         if (isset($map['ScalingRuleTimer'])) {
             $model->scalingRuleTimer = $map['ScalingRuleTimer'];
+        }
+
+        if (isset($map['ScalingRuleType'])) {
+            $model->scalingRuleType = $map['ScalingRuleType'];
         }
 
         return $model;
