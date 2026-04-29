@@ -1,3 +1,9 @@
+2026-04-29 Version: 13.9.0
+- Support API DescribeDBInstanceSwitchLog.
+- Update API DescribeRCDisks: add request parameters Status.
+- Update API RunRCInstances: add request parameters BusinessInfo.
+
+
 2026-04-02 Version: 13.8.0
 - Support API ModifyDBInstance.
 - Update API DescribeDBProxyEndpoint: add response parameters Body.DBProxyEndpointCostThresholdForDuckdb.

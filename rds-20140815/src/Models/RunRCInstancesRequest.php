@@ -41,6 +41,11 @@ class RunRCInstancesRequest extends Model
     /**
      * @var string
      */
+    public $businessInfo;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -238,6 +243,7 @@ class RunRCInstancesRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
+        'businessInfo' => 'BusinessInfo',
         'clientToken' => 'ClientToken',
         'createAckEdgeParam' => 'CreateAckEdgeParam',
         'createExtraParam' => 'CreateExtraParam',
@@ -323,6 +329,10 @@ class RunRCInstancesRequest extends Model
 
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
         }
 
         if (null !== $this->clientToken) {
@@ -531,6 +541,10 @@ class RunRCInstancesRequest extends Model
 
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
         }
 
         if (isset($map['ClientToken'])) {

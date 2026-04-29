@@ -35,6 +35,11 @@ class DescribeRCDisksRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -44,6 +49,7 @@ class DescribeRCDisksRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'status' => 'Status',
         'tag' => 'Tag',
     ];
 
@@ -76,6 +82,10 @@ class DescribeRCDisksRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->tag) {
@@ -118,6 +128,10 @@ class DescribeRCDisksRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Tag'])) {

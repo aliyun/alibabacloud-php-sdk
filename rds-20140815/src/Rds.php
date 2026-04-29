@@ -312,6 +312,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSwitchLogRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceSwitchLogResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceTDERequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstanceTDEResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBMiniEngineVersionsRequest;
@@ -14889,6 +14891,99 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceSecurityGroupRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实例切换日志.
+     *
+     * @param request - DescribeDBInstanceSwitchLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceSwitchLogResponse
+     *
+     * @param DescribeDBInstanceSwitchLogRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBInstanceSwitchLogResponse
+     */
+    public function describeDBInstanceSwitchLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceSwitchLog',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstanceSwitchLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例切换日志.
+     *
+     * @param request - DescribeDBInstanceSwitchLogRequest
+     *
+     * @returns DescribeDBInstanceSwitchLogResponse
+     *
+     * @param DescribeDBInstanceSwitchLogRequest $request
+     *
+     * @return DescribeDBInstanceSwitchLogResponse
+     */
+    public function describeDBInstanceSwitchLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceSwitchLogWithOptions($request, $runtime);
     }
 
     /**
@@ -33118,7 +33213,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 修改块存储属性.
+     * Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
      *
      * @param request - ModifyRCDiskAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33177,7 +33272,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 修改块存储属性.
+     * Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
      *
      * @param request - ModifyRCDiskAttributeRequest
      *
@@ -38179,6 +38274,10 @@ class Rds extends OpenApiClient
 
         if (null !== $request->autoUseCoupon) {
             @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
+        if (null !== $request->businessInfo) {
+            @$query['BusinessInfo'] = $request->businessInfo;
         }
 
         if (null !== $request->clientToken) {
