@@ -1177,6 +1177,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GrantSwitchAgreementRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GrantSwitchAgreementResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleMaliciousFilesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleMaliciousFilesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\HandleObjectScanEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\HandleObjectScanEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSimilarMaliciousFilesRequest;
@@ -43263,6 +43265,87 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->handleMaliciousFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 文件检测告警处理操作.
+     *
+     * @param request - HandleObjectScanEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HandleObjectScanEventResponse
+     *
+     * @param HandleObjectScanEventRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return HandleObjectScanEventResponse
+     */
+    public function handleObjectScanEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchType) {
+            @$query['BatchType'] = $request->batchType;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventIdList) {
+            @$query['EventIdList'] = $request->eventIdList;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->ruleConditionList) {
+            @$query['RuleConditionList'] = $request->ruleConditionList;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'HandleObjectScanEvent',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return HandleObjectScanEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 文件检测告警处理操作.
+     *
+     * @param request - HandleObjectScanEventRequest
+     *
+     * @returns HandleObjectScanEventResponse
+     *
+     * @param HandleObjectScanEventRequest $request
+     *
+     * @return HandleObjectScanEventResponse
+     */
+    public function handleObjectScanEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->handleObjectScanEventWithOptions($request, $runtime);
     }
 
     /**
