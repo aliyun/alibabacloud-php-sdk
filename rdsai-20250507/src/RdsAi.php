@@ -137,6 +137,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateApiKeyQuotaShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateMOQuotaAlertThresholdRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateMOQuotaAlertThresholdResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateMOQuotaAlertThresholdShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\UpdateSkillShrinkRequest;
@@ -4709,6 +4712,73 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新 API key 的告警百分比阈值
+     *
+     * @param tmpReq - UpdateMOQuotaAlertThresholdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMOQuotaAlertThresholdResponse
+     *
+     * @param UpdateMOQuotaAlertThresholdRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateMOQuotaAlertThresholdResponse
+     */
+    public function updateMOQuotaAlertThresholdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMOQuotaAlertThresholdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apikey) {
+            $request->apikeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apikey, 'Apikey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apikeyShrink) {
+            @$query['Apikey'] = $request->apikeyShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMOQuotaAlertThreshold',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMOQuotaAlertThresholdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 API key 的告警百分比阈值
+     *
+     * @param request - UpdateMOQuotaAlertThresholdRequest
+     *
+     * @returns UpdateMOQuotaAlertThresholdResponse
+     *
+     * @param UpdateMOQuotaAlertThresholdRequest $request
+     *
+     * @return UpdateMOQuotaAlertThresholdResponse
+     */
+    public function updateMOQuotaAlertThreshold($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMOQuotaAlertThresholdWithOptions($request, $runtime);
     }
 
     /**

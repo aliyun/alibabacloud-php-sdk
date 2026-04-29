@@ -56,6 +56,11 @@ class data extends Model
     public $keyUsageList;
 
     /**
+     * @var bool
+     */
+    public $prefixCacheEnabled;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -84,6 +89,7 @@ class data extends Model
         'instanceClass' => 'InstanceClass',
         'instanceId' => 'InstanceId',
         'keyUsageList' => 'KeyUsageList',
+        'prefixCacheEnabled' => 'PrefixCacheEnabled',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'totalQuota' => 'TotalQuota',
@@ -152,6 +158,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->prefixCacheEnabled) {
+            $res['PrefixCacheEnabled'] = $this->prefixCacheEnabled;
         }
 
         if (null !== $this->startTime) {
@@ -229,6 +239,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PrefixCacheEnabled'])) {
+            $model->prefixCacheEnabled = $map['PrefixCacheEnabled'];
         }
 
         if (isset($map['StartTime'])) {
