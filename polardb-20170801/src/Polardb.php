@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AddEncryptionDBRolePrivilegeReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddEncryptionDBRolePrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarClawMCPServerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarClawMCPServerResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarClawMCPServerShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsPathMappingRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsPathMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AddPolarFsQuotaRequest;
@@ -22,6 +25,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\BindPolarClawAgentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\BindPolarClawAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelCronJobPolicyServerlessRequest;
@@ -123,6 +128,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateOrGetVirtualLicenseOrderResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawAgentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawChannelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawChannelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawChannelShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyRequest;
@@ -199,6 +212,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteNetworkChannelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawAgentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawChannelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawChannelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawCronJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsShrinkRequest;
@@ -427,6 +446,19 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentSessionStatusReq
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentSessionStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawChannelsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawChannelsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawChannelsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawCronJobsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawCronJobsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawCronJobsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawMCPServersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawMCPServersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawPluginsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawPluginsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsRequest;
@@ -472,6 +504,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterOrcaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterOrcaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterServerlessResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawChannelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawChannelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawCronJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawCronJobResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawPluginRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDynamoDBRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDynamoDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterOrcaRequest;
@@ -480,6 +518,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterServerlessRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterServerlessResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnablePolarClawChannelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnablePolarClawChannelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnablePolarClawCronJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnablePolarClawCronJobResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnablePolarClawPluginRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnablePolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EvaluateRegionResourceRequest;
@@ -494,12 +538,19 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneR
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawConfigRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawConfigResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawPluginRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ListPolarClawBindingsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ListPolarClawBindingsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ListPolarClawBindingsShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListTagResourcesForRegionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListTagResourcesForRegionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListTagResourcesRequest;
@@ -651,12 +702,20 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\PatchPolarClawConfigRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\PatchPolarClawConfigResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\PatchPolarClawConfigShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveApplicationEnvironmentVariablesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveApplicationEnvironmentVariablesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveApplicationEnvironmentVariablesShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemovePolarClawMCPServerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RemovePolarClawMCPServerResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountRequest;
@@ -679,6 +738,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RunPolarClawCronJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RunPolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchMemoriesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaRequest;
@@ -691,14 +752,32 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\TempModifyDBNodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TempModifyDBNodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindPolarClawAgentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindPolarClawAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawPluginRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateApplicationEnvironmentVariablesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateApplicationEnvironmentVariablesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateApplicationEnvironmentVariablesShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawChannelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawChannelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawChannelShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawPluginRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1022,6 +1101,77 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addFirewallRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加PolarClaw MCP Server.
+     *
+     * @param tmpReq - AddPolarClawMCPServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPolarClawMCPServerResponse
+     *
+     * @param AddPolarClawMCPServerRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddPolarClawMCPServerResponse
+     */
+    public function addPolarClawMCPServerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddPolarClawMCPServerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serverConfig) {
+            $request->serverConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serverConfig, 'ServerConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->serverConfigShrink) {
+            @$query['ServerConfig'] = $request->serverConfigShrink;
+        }
+
+        if (null !== $request->serverName) {
+            @$query['ServerName'] = $request->serverName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPolarClawMCPServer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPolarClawMCPServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加PolarClaw MCP Server.
+     *
+     * @param request - AddPolarClawMCPServerRequest
+     *
+     * @returns AddPolarClawMCPServerResponse
+     *
+     * @param AddPolarClawMCPServerRequest $request
+     *
+     * @return AddPolarClawMCPServerResponse
+     */
+    public function addPolarClawMCPServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPolarClawMCPServerWithOptions($request, $runtime);
     }
 
     /**
@@ -1377,6 +1527,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachApplicationPolarFSWithOptions($request, $runtime);
+    }
+
+    /**
+     * 绑定PolarClaw Agent.
+     *
+     * @param request - BindPolarClawAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindPolarClawAgentResponse
+     *
+     * @param BindPolarClawAgentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BindPolarClawAgentResponse
+     */
+    public function bindPolarClawAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->channelAccountId) {
+            @$query['ChannelAccountId'] = $request->channelAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindPolarClawAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindPolarClawAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定PolarClaw Agent.
+     *
+     * @param request - BindPolarClawAgentRequest
+     *
+     * @returns BindPolarClawAgentResponse
+     *
+     * @param BindPolarClawAgentRequest $request
+     *
+     * @return BindPolarClawAgentResponse
+     */
+    public function bindPolarClawAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindPolarClawAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -6278,6 +6497,297 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 创建PolarClaw Agent.
+     *
+     * @param request - CreatePolarClawAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarClawAgentResponse
+     *
+     * @param CreatePolarClawAgentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreatePolarClawAgentResponse
+     */
+    public function createPolarClawAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->avatar) {
+            @$query['Avatar'] = $request->avatar;
+        }
+
+        if (null !== $request->emoji) {
+            @$query['Emoji'] = $request->emoji;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarClawAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarClawAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建PolarClaw Agent.
+     *
+     * @param request - CreatePolarClawAgentRequest
+     *
+     * @returns CreatePolarClawAgentResponse
+     *
+     * @param CreatePolarClawAgentRequest $request
+     *
+     * @return CreatePolarClawAgentResponse
+     */
+    public function createPolarClawAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarClawAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建PolarClaw Channel.
+     *
+     * @param tmpReq - CreatePolarClawChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarClawChannelResponse
+     *
+     * @param CreatePolarClawChannelRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePolarClawChannelResponse
+     */
+    public function createPolarClawChannelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePolarClawChannelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->channelConfig) {
+            $request->channelConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelConfig, 'ChannelConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channelConfigShrink) {
+            @$query['ChannelConfig'] = $request->channelConfigShrink;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->npmPackage) {
+            @$query['NpmPackage'] = $request->npmPackage;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarClawChannel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarClawChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建PolarClaw Channel.
+     *
+     * @param request - CreatePolarClawChannelRequest
+     *
+     * @returns CreatePolarClawChannelResponse
+     *
+     * @param CreatePolarClawChannelRequest $request
+     *
+     * @return CreatePolarClawChannelResponse
+     */
+    public function createPolarClawChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarClawChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建PolarClaw定时任务
+     *
+     * @param tmpReq - CreatePolarClawCronJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarClawCronJobResponse
+     *
+     * @param CreatePolarClawCronJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePolarClawCronJobResponse
+     */
+    public function createPolarClawCronJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePolarClawCronJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->delivery) {
+            $request->deliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->delivery, 'Delivery', 'json');
+        }
+
+        if (null !== $tmpReq->failureAlert) {
+            $request->failureAlertShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->failureAlert, 'FailureAlert', 'json');
+        }
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        }
+
+        if (null !== $tmpReq->schedule) {
+            $request->scheduleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->deleteAfterRun) {
+            @$query['DeleteAfterRun'] = $request->deleteAfterRun;
+        }
+
+        if (null !== $request->deliveryShrink) {
+            @$query['Delivery'] = $request->deliveryShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->failureAlertShrink) {
+            @$query['FailureAlert'] = $request->failureAlertShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->runImmediately) {
+            @$query['RunImmediately'] = $request->runImmediately;
+        }
+
+        if (null !== $request->scheduleShrink) {
+            @$query['Schedule'] = $request->scheduleShrink;
+        }
+
+        if (null !== $request->sessionKey) {
+            @$query['SessionKey'] = $request->sessionKey;
+        }
+
+        if (null !== $request->sessionTarget) {
+            @$query['SessionTarget'] = $request->sessionTarget;
+        }
+
+        if (null !== $request->wakeMode) {
+            @$query['WakeMode'] = $request->wakeMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarClawCronJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarClawCronJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建PolarClaw定时任务
+     *
+     * @param request - CreatePolarClawCronJobRequest
+     *
+     * @returns CreatePolarClawCronJobResponse
+     *
+     * @param CreatePolarClawCronJobRequest $request
+     *
+     * @return CreatePolarClawCronJobResponse
+     */
+    public function createPolarClawCronJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
      * 用于在指定PolarFS实例中创建新的目录。
      *
      * @remarks
@@ -9147,6 +9657,209 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarClaw Agent.
+     *
+     * @param request - DeletePolarClawAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarClawAgentResponse
+     *
+     * @param DeletePolarClawAgentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeletePolarClawAgentResponse
+     */
+    public function deletePolarClawAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->deleteFiles) {
+            @$query['DeleteFiles'] = $request->deleteFiles;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarClawAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarClawAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarClaw Agent.
+     *
+     * @param request - DeletePolarClawAgentRequest
+     *
+     * @returns DeletePolarClawAgentResponse
+     *
+     * @param DeletePolarClawAgentRequest $request
+     *
+     * @return DeletePolarClawAgentResponse
+     */
+    public function deletePolarClawAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarClawAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarClaw Channel.
+     *
+     * @param request - DeletePolarClawChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarClawChannelResponse
+     *
+     * @param DeletePolarClawChannelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeletePolarClawChannelResponse
+     */
+    public function deletePolarClawChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->uninstallPlugin) {
+            @$query['UninstallPlugin'] = $request->uninstallPlugin;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarClawChannel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarClawChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarClaw Channel.
+     *
+     * @param request - DeletePolarClawChannelRequest
+     *
+     * @returns DeletePolarClawChannelResponse
+     *
+     * @param DeletePolarClawChannelRequest $request
+     *
+     * @return DeletePolarClawChannelResponse
+     */
+    public function deletePolarClawChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarClawChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarClaw定时任务
+     *
+     * @param request - DeletePolarClawCronJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarClawCronJobResponse
+     *
+     * @param DeletePolarClawCronJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeletePolarClawCronJobResponse
+     */
+    public function deletePolarClawCronJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarClawCronJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarClawCronJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarClaw定时任务
+     *
+     * @param request - DeletePolarClawCronJobRequest
+     *
+     * @returns DeletePolarClawCronJobResponse
+     *
+     * @param DeletePolarClawCronJobRequest $request
+     *
+     * @return DeletePolarClawCronJobResponse
+     */
+    public function deletePolarClawCronJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarClawCronJobWithOptions($request, $runtime);
     }
 
     /**
@@ -18521,6 +19234,341 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询PolarClaw Agent列表.
+     *
+     * @param tmpReq - DescribePolarClawAgentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawAgentsResponse
+     *
+     * @param DescribePolarClawAgentsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePolarClawAgentsResponse
+     */
+    public function describePolarClawAgentsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribePolarClawAgentsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentList) {
+            $request->agentListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentList, 'AgentList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentListShrink) {
+            @$query['AgentList'] = $request->agentListShrink;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawAgents',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarClaw Agent列表.
+     *
+     * @param request - DescribePolarClawAgentsRequest
+     *
+     * @returns DescribePolarClawAgentsResponse
+     *
+     * @param DescribePolarClawAgentsRequest $request
+     *
+     * @return DescribePolarClawAgentsResponse
+     */
+    public function describePolarClawAgents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawAgentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarClaw Channels.
+     *
+     * @param tmpReq - DescribePolarClawChannelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawChannelsResponse
+     *
+     * @param DescribePolarClawChannelsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePolarClawChannelsResponse
+     */
+    public function describePolarClawChannelsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribePolarClawChannelsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->channelList) {
+            $request->channelListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelList, 'ChannelList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channelListShrink) {
+            @$query['ChannelList'] = $request->channelListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawChannels',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarClaw Channels.
+     *
+     * @param request - DescribePolarClawChannelsRequest
+     *
+     * @returns DescribePolarClawChannelsResponse
+     *
+     * @param DescribePolarClawChannelsRequest $request
+     *
+     * @return DescribePolarClawChannelsResponse
+     */
+    public function describePolarClawChannels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawChannelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarClaw定时任务列表.
+     *
+     * @param tmpReq - DescribePolarClawCronJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawCronJobsResponse
+     *
+     * @param DescribePolarClawCronJobsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePolarClawCronJobsResponse
+     */
+    public function describePolarClawCronJobsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribePolarClawCronJobsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIdList) {
+            $request->jobIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIdList, 'JobIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->includeDisabled) {
+            @$query['IncludeDisabled'] = $request->includeDisabled;
+        }
+
+        if (null !== $request->includeRuns) {
+            @$query['IncludeRuns'] = $request->includeRuns;
+        }
+
+        if (null !== $request->jobIdListShrink) {
+            @$query['JobIdList'] = $request->jobIdListShrink;
+        }
+
+        if (null !== $request->runLimit) {
+            @$query['RunLimit'] = $request->runLimit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawCronJobs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawCronJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarClaw定时任务列表.
+     *
+     * @param request - DescribePolarClawCronJobsRequest
+     *
+     * @returns DescribePolarClawCronJobsResponse
+     *
+     * @param DescribePolarClawCronJobsRequest $request
+     *
+     * @return DescribePolarClawCronJobsResponse
+     */
+    public function describePolarClawCronJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawCronJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarClaw MCP Servers.
+     *
+     * @param request - DescribePolarClawMCPServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawMCPServersResponse
+     *
+     * @param DescribePolarClawMCPServersRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePolarClawMCPServersResponse
+     */
+    public function describePolarClawMCPServersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->serverList) {
+            @$query['ServerList'] = $request->serverList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawMCPServers',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawMCPServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarClaw MCP Servers.
+     *
+     * @param request - DescribePolarClawMCPServersRequest
+     *
+     * @returns DescribePolarClawMCPServersResponse
+     *
+     * @param DescribePolarClawMCPServersRequest $request
+     *
+     * @return DescribePolarClawMCPServersResponse
+     */
+    public function describePolarClawMCPServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawMCPServersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarClaw Plugins.
+     *
+     * @param request - DescribePolarClawPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawPluginsResponse
+     *
+     * @param DescribePolarClawPluginsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePolarClawPluginsResponse
+     */
+    public function describePolarClawPluginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->pluginList) {
+            @$query['PluginList'] = $request->pluginList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawPlugins',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarClaw Plugins.
+     *
+     * @param request - DescribePolarClawPluginsRequest
+     *
+     * @returns DescribePolarClawPluginsResponse
+     *
+     * @param DescribePolarClawPluginsRequest $request
+     *
+     * @return DescribePolarClawPluginsResponse
+     */
+    public function describePolarClawPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawPluginsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取PolarFS实例详情.
      *
      * @param request - DescribePolarFsAttributeRequest
@@ -20434,6 +21482,201 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 禁用PolarClaw Channel.
+     *
+     * @param request - DisablePolarClawChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisablePolarClawChannelResponse
+     *
+     * @param DisablePolarClawChannelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisablePolarClawChannelResponse
+     */
+    public function disablePolarClawChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisablePolarClawChannel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisablePolarClawChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用PolarClaw Channel.
+     *
+     * @param request - DisablePolarClawChannelRequest
+     *
+     * @returns DisablePolarClawChannelResponse
+     *
+     * @param DisablePolarClawChannelRequest $request
+     *
+     * @return DisablePolarClawChannelResponse
+     */
+    public function disablePolarClawChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disablePolarClawChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用PolarClaw定时任务
+     *
+     * @param request - DisablePolarClawCronJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisablePolarClawCronJobResponse
+     *
+     * @param DisablePolarClawCronJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisablePolarClawCronJobResponse
+     */
+    public function disablePolarClawCronJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisablePolarClawCronJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisablePolarClawCronJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用PolarClaw定时任务
+     *
+     * @param request - DisablePolarClawCronJobRequest
+     *
+     * @returns DisablePolarClawCronJobResponse
+     *
+     * @param DisablePolarClawCronJobRequest $request
+     *
+     * @return DisablePolarClawCronJobResponse
+     */
+    public function disablePolarClawCronJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disablePolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用PolarClaw Plugin.
+     *
+     * @param request - DisablePolarClawPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisablePolarClawPluginResponse
+     *
+     * @param DisablePolarClawPluginRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DisablePolarClawPluginResponse
+     */
+    public function disablePolarClawPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisablePolarClawPlugin',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisablePolarClawPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用PolarClaw Plugin.
+     *
+     * @param request - DisablePolarClawPluginRequest
+     *
+     * @returns DisablePolarClawPluginResponse
+     *
+     * @param DisablePolarClawPluginRequest $request
+     *
+     * @return DisablePolarClawPluginResponse
+     */
+    public function disablePolarClawPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disablePolarClawPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * 开启DynamoDB兼容性能力.
      *
      * @param request - EnableDBClusterDynamoDBRequest
@@ -20739,6 +21982,201 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableFirewallRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用PolarClaw Channel.
+     *
+     * @param request - EnablePolarClawChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnablePolarClawChannelResponse
+     *
+     * @param EnablePolarClawChannelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnablePolarClawChannelResponse
+     */
+    public function enablePolarClawChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnablePolarClawChannel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnablePolarClawChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用PolarClaw Channel.
+     *
+     * @param request - EnablePolarClawChannelRequest
+     *
+     * @returns EnablePolarClawChannelResponse
+     *
+     * @param EnablePolarClawChannelRequest $request
+     *
+     * @return EnablePolarClawChannelResponse
+     */
+    public function enablePolarClawChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enablePolarClawChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用PolarClaw定时任务
+     *
+     * @param request - EnablePolarClawCronJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnablePolarClawCronJobResponse
+     *
+     * @param EnablePolarClawCronJobRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnablePolarClawCronJobResponse
+     */
+    public function enablePolarClawCronJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnablePolarClawCronJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnablePolarClawCronJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用PolarClaw定时任务
+     *
+     * @param request - EnablePolarClawCronJobRequest
+     *
+     * @returns EnablePolarClawCronJobResponse
+     *
+     * @param EnablePolarClawCronJobRequest $request
+     *
+     * @return EnablePolarClawCronJobResponse
+     */
+    public function enablePolarClawCronJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enablePolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用PolarClaw Plugin.
+     *
+     * @param request - EnablePolarClawPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnablePolarClawPluginResponse
+     *
+     * @param EnablePolarClawPluginRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EnablePolarClawPluginResponse
+     */
+    public function enablePolarClawPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnablePolarClawPlugin',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnablePolarClawPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用PolarClaw Plugin.
+     *
+     * @param request - EnablePolarClawPluginRequest
+     *
+     * @returns EnablePolarClawPluginResponse
+     *
+     * @param EnablePolarClawPluginRequest $request
+     *
+     * @return EnablePolarClawPluginResponse
+     */
+    public function enablePolarClawPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enablePolarClawPluginWithOptions($request, $runtime);
     }
 
     /**
@@ -21401,6 +22839,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 获取PolarClaw配置.
+     *
+     * @param request - GetPolarClawConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolarClawConfigResponse
+     *
+     * @param GetPolarClawConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPolarClawConfigResponse
+     */
+    public function getPolarClawConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->configPath) {
+            @$query['ConfigPath'] = $request->configPath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPolarClawConfig',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPolarClawConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取PolarClaw配置.
+     *
+     * @param request - GetPolarClawConfigRequest
+     *
+     * @returns GetPolarClawConfigResponse
+     *
+     * @param GetPolarClawConfigRequest $request
+     *
+     * @return GetPolarClawConfigResponse
+     */
+    public function getPolarClawConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolarClawConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
      *
      * @remarks
@@ -21589,6 +23088,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 安装PolarClaw Plugin.
+     *
+     * @param request - InstallPolarClawPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallPolarClawPluginResponse
+     *
+     * @param InstallPolarClawPluginRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return InstallPolarClawPluginResponse
+     */
+    public function installPolarClawPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->npmPackage) {
+            @$query['NpmPackage'] = $request->npmPackage;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstallPolarClawPlugin',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallPolarClawPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 安装PolarClaw Plugin.
+     *
+     * @param request - InstallPolarClawPluginRequest
+     *
+     * @returns InstallPolarClawPluginResponse
+     *
+     * @param InstallPolarClawPluginRequest $request
+     *
+     * @return InstallPolarClawPluginResponse
+     */
+    public function installPolarClawPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installPolarClawPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询订单.
      *
      * @param request - ListOrdersRequest
@@ -21679,6 +23247,73 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOrdersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询PolarClaw绑定关系列表.
+     *
+     * @param tmpReq - ListPolarClawBindingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPolarClawBindingsResponse
+     *
+     * @param ListPolarClawBindingsRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListPolarClawBindingsResponse
+     */
+    public function listPolarClawBindingsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListPolarClawBindingsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentList) {
+            $request->agentListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentList, 'AgentList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentListShrink) {
+            @$query['AgentList'] = $request->agentListShrink;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPolarClawBindings',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPolarClawBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PolarClaw绑定关系列表.
+     *
+     * @param request - ListPolarClawBindingsRequest
+     *
+     * @returns ListPolarClawBindingsResponse
+     *
+     * @param ListPolarClawBindingsRequest $request
+     *
+     * @return ListPolarClawBindingsResponse
+     */
+    public function listPolarClawBindings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPolarClawBindingsWithOptions($request, $runtime);
     }
 
     /**
@@ -28284,6 +29919,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 更新PolarClaw配置.
+     *
+     * @param tmpReq - PatchPolarClawConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PatchPolarClawConfigResponse
+     *
+     * @param PatchPolarClawConfigRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PatchPolarClawConfigResponse
+     */
+    public function patchPolarClawConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PatchPolarClawConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configPatch) {
+            $request->configPatchShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configPatch, 'ConfigPatch', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->configPatchShrink) {
+            @$query['ConfigPatch'] = $request->configPatchShrink;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PatchPolarClawConfig',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PatchPolarClawConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新PolarClaw配置.
+     *
+     * @param request - PatchPolarClawConfigRequest
+     *
+     * @returns PatchPolarClawConfigResponse
+     *
+     * @param PatchPolarClawConfigRequest $request
+     *
+     * @return PatchPolarClawConfigResponse
+     */
+    public function patchPolarClawConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->patchPolarClawConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Reactivates the backup feature.
      *
      * @param request - ReactivateDBClusterBackupRequest
@@ -28414,6 +30120,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除应用环境变量.
+     *
+     * @param tmpReq - RemoveApplicationEnvironmentVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveApplicationEnvironmentVariablesResponse
+     *
+     * @param RemoveApplicationEnvironmentVariablesRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RemoveApplicationEnvironmentVariablesResponse
+     */
+    public function removeApplicationEnvironmentVariablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RemoveApplicationEnvironmentVariablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->variableNames) {
+            $request->variableNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variableNames, 'VariableNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->variableNamesShrink) {
+            @$query['VariableNames'] = $request->variableNamesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveApplicationEnvironmentVariables',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveApplicationEnvironmentVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用环境变量.
+     *
+     * @param request - RemoveApplicationEnvironmentVariablesRequest
+     *
+     * @returns RemoveApplicationEnvironmentVariablesResponse
+     *
+     * @param RemoveApplicationEnvironmentVariablesRequest $request
+     *
+     * @return RemoveApplicationEnvironmentVariablesResponse
+     */
+    public function removeApplicationEnvironmentVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeApplicationEnvironmentVariablesWithOptions($request, $runtime);
+    }
+
+    /**
      * Removes a secondary cluster from a GDN.
      *
      * @remarks
@@ -28506,6 +30283,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeDBClusterFromGDNWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除PolarClaw MCP Server.
+     *
+     * @param request - RemovePolarClawMCPServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemovePolarClawMCPServerResponse
+     *
+     * @param RemovePolarClawMCPServerRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RemovePolarClawMCPServerResponse
+     */
+    public function removePolarClawMCPServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->serverName) {
+            @$query['ServerName'] = $request->serverName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemovePolarClawMCPServer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemovePolarClawMCPServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarClaw MCP Server.
+     *
+     * @param request - RemovePolarClawMCPServerRequest
+     *
+     * @returns RemovePolarClawMCPServerResponse
+     *
+     * @param RemovePolarClawMCPServerRequest $request
+     *
+     * @return RemovePolarClawMCPServerResponse
+     */
+    public function removePolarClawMCPServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removePolarClawMCPServerWithOptions($request, $runtime);
     }
 
     /**
@@ -29412,6 +31250,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 手动执行PolarClaw定时任务
+     *
+     * @param request - RunPolarClawCronJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunPolarClawCronJobResponse
+     *
+     * @param RunPolarClawCronJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RunPolarClawCronJobResponse
+     */
+    public function runPolarClawCronJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunPolarClawCronJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunPolarClawCronJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 手动执行PolarClaw定时任务
+     *
+     * @param request - RunPolarClawCronJobRequest
+     *
+     * @returns RunPolarClawCronJobResponse
+     *
+     * @param RunPolarClawCronJobRequest $request
+     *
+     * @return RunPolarClawCronJobResponse
+     */
+    public function runPolarClawCronJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runPolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
      * 检索记忆.
      *
      * @param request - SearchMemoriesRequest
@@ -29954,6 +31861,140 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 解绑PolarClaw Agent通道.
+     *
+     * @param request - UnbindPolarClawAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindPolarClawAgentResponse
+     *
+     * @param UnbindPolarClawAgentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UnbindPolarClawAgentResponse
+     */
+    public function unbindPolarClawAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->channelAccountId) {
+            @$query['ChannelAccountId'] = $request->channelAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindPolarClawAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindPolarClawAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑PolarClaw Agent通道.
+     *
+     * @param request - UnbindPolarClawAgentRequest
+     *
+     * @returns UnbindPolarClawAgentResponse
+     *
+     * @param UnbindPolarClawAgentRequest $request
+     *
+     * @return UnbindPolarClawAgentResponse
+     */
+    public function unbindPolarClawAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindPolarClawAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 卸载PolarClaw Plugin.
+     *
+     * @param request - UninstallPolarClawPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallPolarClawPluginResponse
+     *
+     * @param UninstallPolarClawPluginRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UninstallPolarClawPluginResponse
+     */
+    public function uninstallPolarClawPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallPolarClawPlugin',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallPolarClawPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 卸载PolarClaw Plugin.
+     *
+     * @param request - UninstallPolarClawPluginRequest
+     *
+     * @returns UninstallPolarClawPluginResponse
+     *
+     * @param UninstallPolarClawPluginRequest $request
+     *
+     * @return UninstallPolarClawPluginResponse
+     */
+    public function uninstallPolarClawPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallPolarClawPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * Unbinds tags from PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
@@ -30040,6 +32081,77 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新应用环境变量.
+     *
+     * @param tmpReq - UpdateApplicationEnvironmentVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationEnvironmentVariablesResponse
+     *
+     * @param UpdateApplicationEnvironmentVariablesRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UpdateApplicationEnvironmentVariablesResponse
+     */
+    public function updateApplicationEnvironmentVariablesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateApplicationEnvironmentVariablesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->variables) {
+            $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'Variables', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->variablesShrink) {
+            @$query['Variables'] = $request->variablesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationEnvironmentVariables',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationEnvironmentVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新应用环境变量.
+     *
+     * @param request - UpdateApplicationEnvironmentVariablesRequest
+     *
+     * @returns UpdateApplicationEnvironmentVariablesResponse
+     *
+     * @param UpdateApplicationEnvironmentVariablesRequest $request
+     *
+     * @return UpdateApplicationEnvironmentVariablesResponse
+     */
+    public function updateApplicationEnvironmentVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationEnvironmentVariablesWithOptions($request, $runtime);
     }
 
     /**
@@ -30141,6 +32253,228 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新PolarClaw Agent.
+     *
+     * @param tmpReq - UpdatePolarClawAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolarClawAgentResponse
+     *
+     * @param UpdatePolarClawAgentRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdatePolarClawAgentResponse
+     */
+    public function updatePolarClawAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePolarClawAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->avatar) {
+            @$query['Avatar'] = $request->avatar;
+        }
+
+        if (null !== $request->filesShrink) {
+            @$query['Files'] = $request->filesShrink;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['Workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePolarClawAgent',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePolarClawAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新PolarClaw Agent.
+     *
+     * @param request - UpdatePolarClawAgentRequest
+     *
+     * @returns UpdatePolarClawAgentResponse
+     *
+     * @param UpdatePolarClawAgentRequest $request
+     *
+     * @return UpdatePolarClawAgentResponse
+     */
+    public function updatePolarClawAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePolarClawAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新PolarClaw定时任务
+     *
+     * @param tmpReq - UpdatePolarClawCronJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolarClawCronJobResponse
+     *
+     * @param UpdatePolarClawCronJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdatePolarClawCronJobResponse
+     */
+    public function updatePolarClawCronJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePolarClawCronJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->delivery) {
+            $request->deliveryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->delivery, 'Delivery', 'json');
+        }
+
+        if (null !== $tmpReq->failureAlert) {
+            $request->failureAlertShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->failureAlert, 'FailureAlert', 'json');
+        }
+
+        if (null !== $tmpReq->payload) {
+            $request->payloadShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
+        }
+
+        if (null !== $tmpReq->schedule) {
+            $request->scheduleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->deleteAfterRun) {
+            @$query['DeleteAfterRun'] = $request->deleteAfterRun;
+        }
+
+        if (null !== $request->deliveryShrink) {
+            @$query['Delivery'] = $request->deliveryShrink;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->failureAlertShrink) {
+            @$query['FailureAlert'] = $request->failureAlertShrink;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->payloadShrink) {
+            @$query['Payload'] = $request->payloadShrink;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        if (null !== $request->scheduleShrink) {
+            @$query['Schedule'] = $request->scheduleShrink;
+        }
+
+        if (null !== $request->sessionKey) {
+            @$query['SessionKey'] = $request->sessionKey;
+        }
+
+        if (null !== $request->sessionTarget) {
+            @$query['SessionTarget'] = $request->sessionTarget;
+        }
+
+        if (null !== $request->wakeMode) {
+            @$query['WakeMode'] = $request->wakeMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePolarClawCronJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePolarClawCronJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新PolarClaw定时任务
+     *
+     * @param request - UpdatePolarClawCronJobRequest
+     *
+     * @returns UpdatePolarClawCronJobResponse
+     *
+     * @param UpdatePolarClawCronJobRequest $request
+     *
+     * @return UpdatePolarClawCronJobResponse
+     */
+    public function updatePolarClawCronJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePolarClawCronJobWithOptions($request, $runtime);
     }
 
     /**
@@ -30363,6 +32697,158 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBClusterVersionZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 升级PolarClaw Channel.
+     *
+     * @param tmpReq - UpgradePolarClawChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradePolarClawChannelResponse
+     *
+     * @param UpgradePolarClawChannelRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpgradePolarClawChannelResponse
+     */
+    public function upgradePolarClawChannelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpgradePolarClawChannelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->channelConfig) {
+            $request->channelConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->channelConfig, 'ChannelConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->channelConfigShrink) {
+            @$query['ChannelConfig'] = $request->channelConfigShrink;
+        }
+
+        if (null !== $request->channelId) {
+            @$query['ChannelId'] = $request->channelId;
+        }
+
+        if (null !== $request->npmPackage) {
+            @$query['NpmPackage'] = $request->npmPackage;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradePolarClawChannel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradePolarClawChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 升级PolarClaw Channel.
+     *
+     * @param request - UpgradePolarClawChannelRequest
+     *
+     * @returns UpgradePolarClawChannelResponse
+     *
+     * @param UpgradePolarClawChannelRequest $request
+     *
+     * @return UpgradePolarClawChannelResponse
+     */
+    public function upgradePolarClawChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradePolarClawChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 升级PolarClaw Plugin.
+     *
+     * @param request - UpgradePolarClawPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradePolarClawPluginResponse
+     *
+     * @param UpgradePolarClawPluginRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradePolarClawPluginResponse
+     */
+    public function upgradePolarClawPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->npmPackage) {
+            @$query['NpmPackage'] = $request->npmPackage;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->restart) {
+            @$query['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradePolarClawPlugin',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradePolarClawPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 升级PolarClaw Plugin.
+     *
+     * @param request - UpgradePolarClawPluginRequest
+     *
+     * @returns UpgradePolarClawPluginResponse
+     *
+     * @param UpgradePolarClawPluginRequest $request
+     *
+     * @return UpgradePolarClawPluginResponse
+     */
+    public function upgradePolarClawPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradePolarClawPluginWithOptions($request, $runtime);
     }
 
     /**
