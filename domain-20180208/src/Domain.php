@@ -82,6 +82,8 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\SubmitPurchaseInfoResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\UpdatePartnerReservePriceResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\UpdateProxyPriceRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\UpdateProxyPriceResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteAddDnsRecordRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteAddDnsRecordResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\WebsiteDeleteDnsRecordRequest;
@@ -2446,6 +2448,71 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePartnerReservePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新代理价.
+     *
+     * @param request - UpdateProxyPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProxyPriceResponse
+     *
+     * @param UpdateProxyPriceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateProxyPriceResponse
+     */
+    public function updateProxyPriceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->auctionId) {
+            @$body['AuctionId'] = $request->auctionId;
+        }
+
+        if (null !== $request->currency) {
+            @$body['Currency'] = $request->currency;
+        }
+
+        if (null !== $request->price) {
+            @$body['Price'] = $request->price;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProxyPrice',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProxyPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新代理价.
+     *
+     * @param request - UpdateProxyPriceRequest
+     *
+     * @returns UpdateProxyPriceResponse
+     *
+     * @param UpdateProxyPriceRequest $request
+     *
+     * @return UpdateProxyPriceResponse
+     */
+    public function updateProxyPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProxyPriceWithOptions($request, $runtime);
     }
 
     /**
