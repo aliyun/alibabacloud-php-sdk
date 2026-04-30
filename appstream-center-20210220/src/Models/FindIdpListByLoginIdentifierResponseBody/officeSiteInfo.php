@@ -19,6 +19,11 @@ class officeSiteInfo extends Model
     public $officeSiteId;
 
     /**
+     * @var bool
+     */
+    public $preferVpcAccess;
+
+    /**
      * @var string
      */
     public $providerId;
@@ -32,12 +37,19 @@ class officeSiteInfo extends Model
      * @var string
      */
     public $ssoServiceUrl;
+
+    /**
+     * @var string
+     */
+    public $vpcAccessAddress;
     protected $_name = [
         'accessType' => 'AccessType',
         'officeSiteId' => 'OfficeSiteId',
+        'preferVpcAccess' => 'PreferVpcAccess',
         'providerId' => 'ProviderId',
         'regionId' => 'RegionId',
         'ssoServiceUrl' => 'SsoServiceUrl',
+        'vpcAccessAddress' => 'VpcAccessAddress',
     ];
 
     public function validate()
@@ -56,6 +68,10 @@ class officeSiteInfo extends Model
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
+        if (null !== $this->preferVpcAccess) {
+            $res['PreferVpcAccess'] = $this->preferVpcAccess;
+        }
+
         if (null !== $this->providerId) {
             $res['ProviderId'] = $this->providerId;
         }
@@ -66,6 +82,10 @@ class officeSiteInfo extends Model
 
         if (null !== $this->ssoServiceUrl) {
             $res['SsoServiceUrl'] = $this->ssoServiceUrl;
+        }
+
+        if (null !== $this->vpcAccessAddress) {
+            $res['VpcAccessAddress'] = $this->vpcAccessAddress;
         }
 
         return $res;
@@ -87,6 +107,10 @@ class officeSiteInfo extends Model
             $model->officeSiteId = $map['OfficeSiteId'];
         }
 
+        if (isset($map['PreferVpcAccess'])) {
+            $model->preferVpcAccess = $map['PreferVpcAccess'];
+        }
+
         if (isset($map['ProviderId'])) {
             $model->providerId = $map['ProviderId'];
         }
@@ -97,6 +121,10 @@ class officeSiteInfo extends Model
 
         if (isset($map['SsoServiceUrl'])) {
             $model->ssoServiceUrl = $map['SsoServiceUrl'];
+        }
+
+        if (isset($map['VpcAccessAddress'])) {
+            $model->vpcAccessAddress = $map['VpcAccessAddress'];
         }
 
         return $model;

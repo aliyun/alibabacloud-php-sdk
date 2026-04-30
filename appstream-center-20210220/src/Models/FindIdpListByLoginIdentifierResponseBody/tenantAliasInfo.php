@@ -14,12 +14,24 @@ class tenantAliasInfo extends Model
     public $accessType;
 
     /**
+     * @var bool
+     */
+    public $preferVpcAccess;
+
+    /**
      * @var string
      */
     public $tenantAlias;
+
+    /**
+     * @var string
+     */
+    public $vpcAccessAddress;
     protected $_name = [
         'accessType' => 'AccessType',
+        'preferVpcAccess' => 'PreferVpcAccess',
         'tenantAlias' => 'TenantAlias',
+        'vpcAccessAddress' => 'VpcAccessAddress',
     ];
 
     public function validate()
@@ -34,8 +46,16 @@ class tenantAliasInfo extends Model
             $res['AccessType'] = $this->accessType;
         }
 
+        if (null !== $this->preferVpcAccess) {
+            $res['PreferVpcAccess'] = $this->preferVpcAccess;
+        }
+
         if (null !== $this->tenantAlias) {
             $res['TenantAlias'] = $this->tenantAlias;
+        }
+
+        if (null !== $this->vpcAccessAddress) {
+            $res['VpcAccessAddress'] = $this->vpcAccessAddress;
         }
 
         return $res;
@@ -53,8 +73,16 @@ class tenantAliasInfo extends Model
             $model->accessType = $map['AccessType'];
         }
 
+        if (isset($map['PreferVpcAccess'])) {
+            $model->preferVpcAccess = $map['PreferVpcAccess'];
+        }
+
         if (isset($map['TenantAlias'])) {
             $model->tenantAlias = $map['TenantAlias'];
+        }
+
+        if (isset($map['VpcAccessAddress'])) {
+            $model->vpcAccessAddress = $map['VpcAccessAddress'];
         }
 
         return $model;
