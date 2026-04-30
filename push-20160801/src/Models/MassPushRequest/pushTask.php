@@ -244,6 +244,11 @@ class pushTask extends Model
     public $androidTargetUserType;
 
     /**
+     * @var string
+     */
+    public $androidVivoLiveMessage;
+
+    /**
      * @var int
      */
     public $androidVivoPushMode;
@@ -600,6 +605,7 @@ class pushTask extends Model
         'androidRemind' => 'AndroidRemind',
         'androidRenderStyle' => 'AndroidRenderStyle',
         'androidTargetUserType' => 'AndroidTargetUserType',
+        'androidVivoLiveMessage' => 'AndroidVivoLiveMessage',
         'androidVivoPushMode' => 'AndroidVivoPushMode',
         'androidVivoReceiptId' => 'AndroidVivoReceiptId',
         'androidXiaoMiActivity' => 'AndroidXiaoMiActivity',
@@ -874,6 +880,10 @@ class pushTask extends Model
 
         if (null !== $this->androidTargetUserType) {
             $res['AndroidTargetUserType'] = $this->androidTargetUserType;
+        }
+
+        if (null !== $this->androidVivoLiveMessage) {
+            $res['AndroidVivoLiveMessage'] = $this->androidVivoLiveMessage;
         }
 
         if (null !== $this->androidVivoPushMode) {
@@ -1331,6 +1341,10 @@ class pushTask extends Model
 
         if (isset($map['AndroidTargetUserType'])) {
             $model->androidTargetUserType = $map['AndroidTargetUserType'];
+        }
+
+        if (isset($map['AndroidVivoLiveMessage'])) {
+            $model->androidVivoLiveMessage = $map['AndroidVivoLiveMessage'];
         }
 
         if (isset($map['AndroidVivoPushMode'])) {

@@ -744,7 +744,6 @@ class Push extends OpenApiClient
      *
      * @deprecated openAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead
      *
-     * @param request - ListSummaryAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSummaryAppsResponse
@@ -1196,6 +1195,10 @@ class Push extends OpenApiClient
 
         if (null !== $request->androidTargetUserType) {
             @$query['AndroidTargetUserType'] = $request->androidTargetUserType;
+        }
+
+        if (null !== $request->androidVivoLiveMessage) {
+            @$query['AndroidVivoLiveMessage'] = $request->androidVivoLiveMessage;
         }
 
         if (null !== $request->androidVivoPushMode) {

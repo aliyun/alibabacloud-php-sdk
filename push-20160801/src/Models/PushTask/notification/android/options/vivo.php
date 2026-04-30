@@ -21,10 +21,16 @@ class vivo extends Model
     /**
      * @var string
      */
+    public $liveMessage;
+
+    /**
+     * @var string
+     */
     public $receiptId;
     protected $_name = [
         'category' => 'Category',
         'importance' => 'Importance',
+        'liveMessage' => 'LiveMessage',
         'receiptId' => 'ReceiptId',
     ];
 
@@ -42,6 +48,10 @@ class vivo extends Model
 
         if (null !== $this->importance) {
             $res['Importance'] = $this->importance;
+        }
+
+        if (null !== $this->liveMessage) {
+            $res['LiveMessage'] = $this->liveMessage;
         }
 
         if (null !== $this->receiptId) {
@@ -65,6 +75,10 @@ class vivo extends Model
 
         if (isset($map['Importance'])) {
             $model->importance = $map['Importance'];
+        }
+
+        if (isset($map['LiveMessage'])) {
+            $model->liveMessage = $map['LiveMessage'];
         }
 
         if (isset($map['ReceiptId'])) {
