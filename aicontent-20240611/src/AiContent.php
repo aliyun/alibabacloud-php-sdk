@@ -82,9 +82,13 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsReques
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterBillingCostTabsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterChatCompletionsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterConfigureClientBalanceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterConfigureClientBalanceResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCopyApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateApiKeyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateBalanceTransactionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateBalanceTransactionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateBillingRuleRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateClientRequest;
@@ -97,6 +101,10 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteConversationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
@@ -3414,6 +3422,77 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 客户管理/启用部门余额限流
+     *
+     * @param request - ModelRouterConfigureClientBalanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterConfigureClientBalanceResponse
+     *
+     * @param string                                   $id
+     * @param ModelRouterConfigureClientBalanceRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModelRouterConfigureClientBalanceResponse
+     */
+    public function modelRouterConfigureClientBalanceWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->enableBalance) {
+            @$body['enableBalance'] = $request->enableBalance;
+        }
+
+        if (null !== $request->initialBalance) {
+            @$body['initialBalance'] = $request->initialBalance;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterConfigureClientBalance',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterConfigureClientBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/启用部门余额限流
+     *
+     * @param request - ModelRouterConfigureClientBalanceRequest
+     *
+     * @returns ModelRouterConfigureClientBalanceResponse
+     *
+     * @param string                                   $id
+     * @param ModelRouterConfigureClientBalanceRequest $request
+     *
+     * @return ModelRouterConfigureClientBalanceResponse
+     */
+    public function modelRouterConfigureClientBalance($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterConfigureClientBalanceWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
      * API密钥管理/复制API密钥.
      *
      * @param headers - map
@@ -3523,6 +3602,77 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterCreateApiKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/创建余额交易.
+     *
+     * @param request - ModelRouterCreateBalanceTransactionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateBalanceTransactionResponse
+     *
+     * @param string                                     $id
+     * @param ModelRouterCreateBalanceTransactionRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ModelRouterCreateBalanceTransactionResponse
+     */
+    public function modelRouterCreateBalanceTransactionWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->amount) {
+            @$body['amount'] = $request->amount;
+        }
+
+        if (null !== $request->remark) {
+            @$body['remark'] = $request->remark;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateBalanceTransaction',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance/transactions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateBalanceTransactionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/创建余额交易.
+     *
+     * @param request - ModelRouterCreateBalanceTransactionRequest
+     *
+     * @returns ModelRouterCreateBalanceTransactionResponse
+     *
+     * @param string                                     $id
+     * @param ModelRouterCreateBalanceTransactionRequest $request
+     *
+     * @return ModelRouterCreateBalanceTransactionResponse
+     */
+    public function modelRouterCreateBalanceTransaction($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateBalanceTransactionWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
@@ -4067,6 +4217,142 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->modelRouterDeleteModelWithOptions($id, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/获取部门余额.
+     *
+     * @param request - ModelRouterGetClientBalanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetClientBalanceResponse
+     *
+     * @param string                             $id
+     * @param ModelRouterGetClientBalanceRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterGetClientBalanceResponse
+     */
+    public function modelRouterGetClientBalanceWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetClientBalance',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetClientBalanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/获取部门余额.
+     *
+     * @param request - ModelRouterGetClientBalanceRequest
+     *
+     * @returns ModelRouterGetClientBalanceResponse
+     *
+     * @param string                             $id
+     * @param ModelRouterGetClientBalanceRequest $request
+     *
+     * @return ModelRouterGetClientBalanceResponse
+     */
+    public function modelRouterGetClientBalance($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetClientBalanceWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 客户管理/获取部门余额变更日志.
+     *
+     * @param request - ModelRouterGetClientBalanceLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterGetClientBalanceLogsResponse
+     *
+     * @param string                                 $id
+     * @param ModelRouterGetClientBalanceLogsRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModelRouterGetClientBalanceLogsResponse
+     */
+    public function modelRouterGetClientBalanceLogsWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->changeType) {
+            @$query['changeType'] = $request->changeType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterGetClientBalanceLogs',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterGetClientBalanceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/获取部门余额变更日志.
+     *
+     * @param request - ModelRouterGetClientBalanceLogsRequest
+     *
+     * @returns ModelRouterGetClientBalanceLogsResponse
+     *
+     * @param string                                 $id
+     * @param ModelRouterGetClientBalanceLogsRequest $request
+     *
+     * @return ModelRouterGetClientBalanceLogsResponse
+     */
+    public function modelRouterGetClientBalanceLogs($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterGetClientBalanceLogsWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
