@@ -2877,6 +2877,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessAttribute) {
+            @$query['AccessAttribute'] = $request->accessAttribute;
+        }
+
         if (null !== $request->adHostname) {
             @$query['AdHostname'] = $request->adHostname;
         }
@@ -6547,6 +6551,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->accessAttribute) {
+            @$query['AccessAttribute'] = $request->accessAttribute;
+        }
+
         if (null !== $request->accountType) {
             @$query['AccountType'] = $request->accountType;
         }

@@ -97,6 +97,11 @@ class fileSystems extends Model
     public $officeSites;
 
     /**
+     * @var string
+     */
+    public $productType;
+
+    /**
      * @var bool
      */
     public $profileCompatible;
@@ -110,6 +115,11 @@ class fileSystems extends Model
      * @var string
      */
     public $scene;
+
+    /**
+     * @var int
+     */
+    public $sizeQuota;
 
     /**
      * @var string
@@ -143,9 +153,11 @@ class fileSystems extends Model
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
         'officeSites' => 'OfficeSites',
+        'productType' => 'ProductType',
         'profileCompatible' => 'ProfileCompatible',
         'regionId' => 'RegionId',
         'scene' => 'Scene',
+        'sizeQuota' => 'SizeQuota',
         'storageType' => 'StorageType',
         'supportAcl' => 'SupportAcl',
         'zoneId' => 'ZoneId',
@@ -257,6 +269,10 @@ class fileSystems extends Model
             }
         }
 
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+
         if (null !== $this->profileCompatible) {
             $res['ProfileCompatible'] = $this->profileCompatible;
         }
@@ -267,6 +283,10 @@ class fileSystems extends Model
 
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
+        }
+
+        if (null !== $this->sizeQuota) {
+            $res['SizeQuota'] = $this->sizeQuota;
         }
 
         if (null !== $this->storageType) {
@@ -381,6 +401,10 @@ class fileSystems extends Model
             }
         }
 
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+
         if (isset($map['ProfileCompatible'])) {
             $model->profileCompatible = $map['ProfileCompatible'];
         }
@@ -391,6 +415,10 @@ class fileSystems extends Model
 
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
+        }
+
+        if (isset($map['SizeQuota'])) {
+            $model->sizeQuota = $map['SizeQuota'];
         }
 
         if (isset($map['StorageType'])) {

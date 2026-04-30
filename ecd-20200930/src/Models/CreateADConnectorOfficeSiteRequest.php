@@ -11,6 +11,11 @@ class CreateADConnectorOfficeSiteRequest extends Model
     /**
      * @var string
      */
+    public $accessAttribute;
+
+    /**
+     * @var string
+     */
     public $adHostname;
 
     /**
@@ -123,6 +128,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
      */
     public $verifyCode;
     protected $_name = [
+        'accessAttribute' => 'AccessAttribute',
         'adHostname' => 'AdHostname',
         'backupDCHostname' => 'BackupDCHostname',
         'backupDns' => 'BackupDns',
@@ -165,6 +171,10 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessAttribute) {
+            $res['AccessAttribute'] = $this->accessAttribute;
+        }
+
         if (null !== $this->adHostname) {
             $res['AdHostname'] = $this->adHostname;
         }
@@ -289,6 +299,10 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessAttribute'])) {
+            $model->accessAttribute = $map['AccessAttribute'];
+        }
+
         if (isset($map['AdHostname'])) {
             $model->adHostname = $map['AdHostname'];
         }

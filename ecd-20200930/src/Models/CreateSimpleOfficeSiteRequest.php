@@ -11,6 +11,11 @@ class CreateSimpleOfficeSiteRequest extends Model
     /**
      * @var string
      */
+    public $accessAttribute;
+
+    /**
+     * @var string
+     */
     public $accountType;
 
     /**
@@ -113,6 +118,7 @@ class CreateSimpleOfficeSiteRequest extends Model
      */
     public $vpcType;
     protected $_name = [
+        'accessAttribute' => 'AccessAttribute',
         'accountType' => 'AccountType',
         'authorityHost' => 'AuthorityHost',
         'bandwidth' => 'Bandwidth',
@@ -147,6 +153,10 @@ class CreateSimpleOfficeSiteRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessAttribute) {
+            $res['AccessAttribute'] = $this->accessAttribute;
+        }
+
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
@@ -249,6 +259,10 @@ class CreateSimpleOfficeSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessAttribute'])) {
+            $model->accessAttribute = $map['AccessAttribute'];
+        }
+
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }

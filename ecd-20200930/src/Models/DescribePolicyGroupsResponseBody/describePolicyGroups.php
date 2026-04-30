@@ -210,6 +210,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $endUserCount;
+
+    /**
+     * @var string
+     */
     public $endUserGroupCoordinate;
 
     /**
@@ -386,6 +391,16 @@ class describePolicyGroups extends Model
      * @var netRedirectRule[]
      */
     public $netRedirectRule;
+
+    /**
+     * @var string
+     */
+    public $networkPrinter;
+
+    /**
+     * @var string
+     */
+    public $organizationCount;
 
     /**
      * @var string
@@ -755,6 +770,7 @@ class describePolicyGroups extends Model
         'domainResolveRuleType' => 'DomainResolveRuleType',
         'edsCount' => 'EdsCount',
         'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
+        'endUserCount' => 'EndUserCount',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
         'externalDrive' => 'ExternalDrive',
         'fileMigrate' => 'FileMigrate',
@@ -791,6 +807,8 @@ class describePolicyGroups extends Model
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
+        'networkPrinter' => 'NetworkPrinter',
+        'organizationCount' => 'OrganizationCount',
         'policyGroupId' => 'PolicyGroupId',
         'policyGroupType' => 'PolicyGroupType',
         'policyStatus' => 'PolicyStatus',
@@ -1116,6 +1134,10 @@ class describePolicyGroups extends Model
             $res['EndUserApplyAdminCoordinate'] = $this->endUserApplyAdminCoordinate;
         }
 
+        if (null !== $this->endUserCount) {
+            $res['EndUserCount'] = $this->endUserCount;
+        }
+
         if (null !== $this->endUserGroupCoordinate) {
             $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
         }
@@ -1272,6 +1294,14 @@ class describePolicyGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->networkPrinter) {
+            $res['NetworkPrinter'] = $this->networkPrinter;
+        }
+
+        if (null !== $this->organizationCount) {
+            $res['OrganizationCount'] = $this->organizationCount;
         }
 
         if (null !== $this->policyGroupId) {
@@ -1799,6 +1829,10 @@ class describePolicyGroups extends Model
             $model->endUserApplyAdminCoordinate = $map['EndUserApplyAdminCoordinate'];
         }
 
+        if (isset($map['EndUserCount'])) {
+            $model->endUserCount = $map['EndUserCount'];
+        }
+
         if (isset($map['EndUserGroupCoordinate'])) {
             $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
         }
@@ -1955,6 +1989,14 @@ class describePolicyGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NetworkPrinter'])) {
+            $model->networkPrinter = $map['NetworkPrinter'];
+        }
+
+        if (isset($map['OrganizationCount'])) {
+            $model->organizationCount = $map['OrganizationCount'];
         }
 
         if (isset($map['PolicyGroupId'])) {

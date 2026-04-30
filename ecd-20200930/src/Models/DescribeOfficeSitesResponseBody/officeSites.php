@@ -24,6 +24,11 @@ class officeSites extends Model
     /**
      * @var string
      */
+    public $accessAttribute;
+
+    /**
+     * @var string
+     */
     public $accountType;
 
     /**
@@ -343,6 +348,7 @@ class officeSites extends Model
     protected $_name = [
         'ADConnectors' => 'ADConnectors',
         'acceleratorId' => 'AcceleratorId',
+        'accessAttribute' => 'AccessAttribute',
         'accountType' => 'AccountType',
         'adHostname' => 'AdHostname',
         'authorityHost' => 'AuthorityHost',
@@ -454,6 +460,10 @@ class officeSites extends Model
 
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+
+        if (null !== $this->accessAttribute) {
+            $res['AccessAttribute'] = $this->accessAttribute;
         }
 
         if (null !== $this->accountType) {
@@ -785,6 +795,10 @@ class officeSites extends Model
 
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+
+        if (isset($map['AccessAttribute'])) {
+            $model->accessAttribute = $map['AccessAttribute'];
         }
 
         if (isset($map['AccountType'])) {
