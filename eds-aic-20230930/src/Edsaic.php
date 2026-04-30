@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeKeyPairsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastRequest;
@@ -148,6 +150,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyDisplayConfigShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceChargeTypeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyInstanceChargeTypeResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
@@ -3203,6 +3207,71 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 查询JVS实例信息.
+     *
+     * @param request - DescribeJVSInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeJVSInstanceResponse
+     *
+     * @param DescribeJVSInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeJVSInstanceResponse
+     */
+    public function describeJVSInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeJVSInstance',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeJVSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询JVS实例信息.
+     *
+     * @param request - DescribeJVSInstanceRequest
+     *
+     * @returns DescribeJVSInstanceResponse
+     *
+     * @param DescribeJVSInstanceRequest $request
+     *
+     * @return DescribeJVSInstanceResponse
+     */
+    public function describeJVSInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeJVSInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries one or more key pairs.
      *
      * @param request - DescribeKeyPairsRequest
@@ -5605,6 +5674,75 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceChargeTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改JVS信息.
+     *
+     * @param request - ModifyJVSInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyJVSInstanceResponse
+     *
+     * @param ModifyJVSInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyJVSInstanceResponse
+     */
+    public function modifyJVSInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applyToAll) {
+            @$query['ApplyToAll'] = $request->applyToAll;
+        }
+
+        if (null !== $request->creditConfig) {
+            @$query['CreditConfig'] = $request->creditConfig;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyJVSInstance',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyJVSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改JVS信息.
+     *
+     * @param request - ModifyJVSInstanceRequest
+     *
+     * @returns ModifyJVSInstanceResponse
+     *
+     * @param ModifyJVSInstanceRequest $request
+     *
+     * @return ModifyJVSInstanceResponse
+     */
+    public function modifyJVSInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyJVSInstanceWithOptions($request, $runtime);
     }
 
     /**
