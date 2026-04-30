@@ -49,14 +49,54 @@ class clipboardPolicy extends Model
     public $richTextClipboardLimit;
 
     /**
+     * @var int
+     */
+    public $richTextClipboardReadLimit;
+
+    /**
+     * @var string
+     */
+    public $richTextClipboardReadSizeUnit;
+
+    /**
      * @var string
      */
     public $richTextClipboardSizeUnit;
 
     /**
+     * @var int
+     */
+    public $richTextClipboardWriteLimit;
+
+    /**
+     * @var string
+     */
+    public $richTextClipboardWriteSizeUnit;
+
+    /**
      * @var string
      */
     public $textClipboard;
+
+    /**
+     * @var int
+     */
+    public $textClipboardReadLimit;
+
+    /**
+     * @var string
+     */
+    public $textClipboardReadSizeUnit;
+
+    /**
+     * @var int
+     */
+    public $textClipboardWriteLimit;
+
+    /**
+     * @var string
+     */
+    public $textClipboardWriteSizeUnit;
     protected $_name = [
         'clipboard' => 'Clipboard',
         'clipboardReadLimit' => 'ClipboardReadLimit',
@@ -66,8 +106,16 @@ class clipboardPolicy extends Model
         'fileClipboard' => 'FileClipboard',
         'richTextClipboard' => 'RichTextClipboard',
         'richTextClipboardLimit' => 'RichTextClipboardLimit',
+        'richTextClipboardReadLimit' => 'RichTextClipboardReadLimit',
+        'richTextClipboardReadSizeUnit' => 'RichTextClipboardReadSizeUnit',
         'richTextClipboardSizeUnit' => 'RichTextClipboardSizeUnit',
+        'richTextClipboardWriteLimit' => 'RichTextClipboardWriteLimit',
+        'richTextClipboardWriteSizeUnit' => 'RichTextClipboardWriteSizeUnit',
         'textClipboard' => 'TextClipboard',
+        'textClipboardReadLimit' => 'TextClipboardReadLimit',
+        'textClipboardReadSizeUnit' => 'TextClipboardReadSizeUnit',
+        'textClipboardWriteLimit' => 'TextClipboardWriteLimit',
+        'textClipboardWriteSizeUnit' => 'TextClipboardWriteSizeUnit',
     ];
 
     public function validate()
@@ -110,12 +158,44 @@ class clipboardPolicy extends Model
             $res['RichTextClipboardLimit'] = $this->richTextClipboardLimit;
         }
 
+        if (null !== $this->richTextClipboardReadLimit) {
+            $res['RichTextClipboardReadLimit'] = $this->richTextClipboardReadLimit;
+        }
+
+        if (null !== $this->richTextClipboardReadSizeUnit) {
+            $res['RichTextClipboardReadSizeUnit'] = $this->richTextClipboardReadSizeUnit;
+        }
+
         if (null !== $this->richTextClipboardSizeUnit) {
             $res['RichTextClipboardSizeUnit'] = $this->richTextClipboardSizeUnit;
         }
 
+        if (null !== $this->richTextClipboardWriteLimit) {
+            $res['RichTextClipboardWriteLimit'] = $this->richTextClipboardWriteLimit;
+        }
+
+        if (null !== $this->richTextClipboardWriteSizeUnit) {
+            $res['RichTextClipboardWriteSizeUnit'] = $this->richTextClipboardWriteSizeUnit;
+        }
+
         if (null !== $this->textClipboard) {
             $res['TextClipboard'] = $this->textClipboard;
+        }
+
+        if (null !== $this->textClipboardReadLimit) {
+            $res['TextClipboardReadLimit'] = $this->textClipboardReadLimit;
+        }
+
+        if (null !== $this->textClipboardReadSizeUnit) {
+            $res['TextClipboardReadSizeUnit'] = $this->textClipboardReadSizeUnit;
+        }
+
+        if (null !== $this->textClipboardWriteLimit) {
+            $res['TextClipboardWriteLimit'] = $this->textClipboardWriteLimit;
+        }
+
+        if (null !== $this->textClipboardWriteSizeUnit) {
+            $res['TextClipboardWriteSizeUnit'] = $this->textClipboardWriteSizeUnit;
         }
 
         return $res;
@@ -161,12 +241,44 @@ class clipboardPolicy extends Model
             $model->richTextClipboardLimit = $map['RichTextClipboardLimit'];
         }
 
+        if (isset($map['RichTextClipboardReadLimit'])) {
+            $model->richTextClipboardReadLimit = $map['RichTextClipboardReadLimit'];
+        }
+
+        if (isset($map['RichTextClipboardReadSizeUnit'])) {
+            $model->richTextClipboardReadSizeUnit = $map['RichTextClipboardReadSizeUnit'];
+        }
+
         if (isset($map['RichTextClipboardSizeUnit'])) {
             $model->richTextClipboardSizeUnit = $map['RichTextClipboardSizeUnit'];
         }
 
+        if (isset($map['RichTextClipboardWriteLimit'])) {
+            $model->richTextClipboardWriteLimit = $map['RichTextClipboardWriteLimit'];
+        }
+
+        if (isset($map['RichTextClipboardWriteSizeUnit'])) {
+            $model->richTextClipboardWriteSizeUnit = $map['RichTextClipboardWriteSizeUnit'];
+        }
+
         if (isset($map['TextClipboard'])) {
             $model->textClipboard = $map['TextClipboard'];
+        }
+
+        if (isset($map['TextClipboardReadLimit'])) {
+            $model->textClipboardReadLimit = $map['TextClipboardReadLimit'];
+        }
+
+        if (isset($map['TextClipboardReadSizeUnit'])) {
+            $model->textClipboardReadSizeUnit = $map['TextClipboardReadSizeUnit'];
+        }
+
+        if (isset($map['TextClipboardWriteLimit'])) {
+            $model->textClipboardWriteLimit = $map['TextClipboardWriteLimit'];
+        }
+
+        if (isset($map['TextClipboardWriteSizeUnit'])) {
+            $model->textClipboardWriteSizeUnit = $map['TextClipboardWriteSizeUnit'];
         }
 
         return $model;

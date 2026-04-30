@@ -29,6 +29,11 @@ class policy extends Model
     /**
      * @var string
      */
+    public $fileManager;
+
+    /**
+     * @var string
+     */
     public $html5FileTransfer;
 
     /**
@@ -64,6 +69,7 @@ class policy extends Model
         'clipboardPolicy' => 'ClipboardPolicy',
         'disconnectKeepSession' => 'DisconnectKeepSession',
         'disconnectKeepSessionTime' => 'DisconnectKeepSessionTime',
+        'fileManager' => 'FileManager',
         'html5FileTransfer' => 'Html5FileTransfer',
         'noOperationDisconnect' => 'NoOperationDisconnect',
         'noOperationDisconnectTime' => 'NoOperationDisconnectTime',
@@ -100,6 +106,10 @@ class policy extends Model
 
         if (null !== $this->disconnectKeepSessionTime) {
             $res['DisconnectKeepSessionTime'] = $this->disconnectKeepSessionTime;
+        }
+
+        if (null !== $this->fileManager) {
+            $res['FileManager'] = $this->fileManager;
         }
 
         if (null !== $this->html5FileTransfer) {
@@ -151,6 +161,10 @@ class policy extends Model
 
         if (isset($map['DisconnectKeepSessionTime'])) {
             $model->disconnectKeepSessionTime = $map['DisconnectKeepSessionTime'];
+        }
+
+        if (isset($map['FileManager'])) {
+            $model->fileManager = $map['FileManager'];
         }
 
         if (isset($map['Html5FileTransfer'])) {
