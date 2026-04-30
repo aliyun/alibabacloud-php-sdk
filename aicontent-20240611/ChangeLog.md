@@ -1,3 +1,6 @@
+2026-04-30 Version: 6.4.1
+- Generated php 20240611 for AiContent.
+
 2026-04-30 Version: 6.4.0
 - Support API ModelRouterConfigureClientBalance.
 - Support API ModelRouterCreateBalanceTransaction.
