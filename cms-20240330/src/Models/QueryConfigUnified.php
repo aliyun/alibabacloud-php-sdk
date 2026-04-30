@@ -34,6 +34,11 @@ class QueryConfigUnified extends Model
     public $entityType;
 
     /**
+     * @var string
+     */
+    public $expr;
+
+    /**
      * @var ApmFilterConfig[]
      */
     public $filterList;
@@ -78,6 +83,7 @@ class QueryConfigUnified extends Model
         'entityFields' => 'entityFields',
         'entityFilters' => 'entityFilters',
         'entityType' => 'entityType',
+        'expr' => 'expr',
         'filterList' => 'filterList',
         'labelFilters' => 'labelFilters',
         'measureList' => 'measureList',
@@ -146,6 +152,10 @@ class QueryConfigUnified extends Model
 
         if (null !== $this->entityType) {
             $res['entityType'] = $this->entityType;
+        }
+
+        if (null !== $this->expr) {
+            $res['expr'] = $this->expr;
         }
 
         if (null !== $this->filterList) {
@@ -251,6 +261,10 @@ class QueryConfigUnified extends Model
 
         if (isset($map['entityType'])) {
             $model->entityType = $map['entityType'];
+        }
+
+        if (isset($map['expr'])) {
+            $model->expr = $map['expr'];
         }
 
         if (isset($map['filterList'])) {
