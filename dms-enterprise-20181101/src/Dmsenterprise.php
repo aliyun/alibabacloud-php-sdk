@@ -347,12 +347,16 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobDetailReques
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncJobDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableColumnListRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableColumnListResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableInstructionsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableInstructionsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
@@ -595,6 +599,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultRespons
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryKnowledgeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryKnowledgeResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableAssetKnowledgeRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableAssetKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
@@ -12788,6 +12794,73 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等.
+     *
+     * @remarks
+     * 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+     *
+     * @param request - GetTableColumnListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableColumnListResponse
+     *
+     * @param GetTableColumnListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTableColumnListResponse
+     */
+    public function getTableColumnListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableColumnList',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableColumnListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等.
+     *
+     * @remarks
+     * 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+     *
+     * @param request - GetTableColumnListRequest
+     *
+     * @returns GetTableColumnListResponse
+     *
+     * @param GetTableColumnListRequest $request
+     *
+     * @return GetTableColumnListResponse
+     */
+    public function getTableColumnList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableColumnListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the topology of a data table.
      *
      * @param request - GetTableDBTopologyRequest
@@ -12968,6 +13041,73 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableDesignProjectInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询表的业务知识/使用说明（业务描述、摘要、关联资产）.
+     *
+     * @remarks
+     * 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+     *
+     * @param request - GetTableInstructionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableInstructionsResponse
+     *
+     * @param GetTableInstructionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetTableInstructionsResponse
+     */
+    public function getTableInstructionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableInstructions',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableInstructionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表的业务知识/使用说明（业务描述、摘要、关联资产）.
+     *
+     * @remarks
+     * 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+     *
+     * @param request - GetTableInstructionsRequest
+     *
+     * @returns GetTableInstructionsResponse
+     *
+     * @param GetTableInstructionsRequest $request
+     *
+     * @return GetTableInstructionsResponse
+     */
+    public function getTableInstructions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableInstructionsWithOptions($request, $runtime);
     }
 
     /**
@@ -21964,6 +22104,89 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）.
+     *
+     * @remarks
+     * 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+     *
+     * @param request - SearchTableAssetKnowledgeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchTableAssetKnowledgeResponse
+     *
+     * @param SearchTableAssetKnowledgeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SearchTableAssetKnowledgeResponse
+     */
+    public function searchTableAssetKnowledgeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->showType) {
+            @$query['ShowType'] = $request->showType;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchTableAssetKnowledge',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchTableAssetKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）.
+     *
+     * @remarks
+     * 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+     *
+     * @param request - SearchTableAssetKnowledgeRequest
+     *
+     * @returns SearchTableAssetKnowledgeResponse
+     *
+     * @param SearchTableAssetKnowledgeRequest $request
+     *
+     * @return SearchTableAssetKnowledgeResponse
+     */
+    public function searchTableAssetKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchTableAssetKnowledgeWithOptions($request, $runtime);
     }
 
     /**
