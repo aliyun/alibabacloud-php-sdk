@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesRequest;
@@ -2844,6 +2846,187 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->continueDBClusterMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建AI集群.
+     *
+     * @param request - CreateAIDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIDBClusterResponse
+     *
+     * @param CreateAIDBClusterRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAIDBClusterResponse
+     */
+    public function createAIDBClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ackAdmin) {
+            @$query['AckAdmin'] = $request->ackAdmin;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->autoUseCoupon) {
+            @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeClass) {
+            @$query['DBNodeClass'] = $request->DBNodeClass;
+        }
+
+        if (null !== $request->extension) {
+            @$query['Extension'] = $request->extension;
+        }
+
+        if (null !== $request->inferenceEngine) {
+            @$query['InferenceEngine'] = $request->inferenceEngine;
+        }
+
+        if (null !== $request->kubeClusterId) {
+            @$query['KubeClusterId'] = $request->kubeClusterId;
+        }
+
+        if (null !== $request->kubeConfig) {
+            @$query['KubeConfig'] = $request->kubeConfig;
+        }
+
+        if (null !== $request->kubeManagement) {
+            @$query['KubeManagement'] = $request->kubeManagement;
+        }
+
+        if (null !== $request->kubeType) {
+            @$query['KubeType'] = $request->kubeType;
+        }
+
+        if (null !== $request->kubernetesConfig) {
+            @$query['KubernetesConfig'] = $request->kubernetesConfig;
+        }
+
+        if (null !== $request->managementMode) {
+            @$query['ManagementMode'] = $request->managementMode;
+        }
+
+        if (null !== $request->modeName) {
+            @$query['ModeName'] = $request->modeName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->promotionCode) {
+            @$query['PromotionCode'] = $request->promotionCode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->storageSpace) {
+            @$query['StorageSpace'] = $request->storageSpace;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->timeSlices) {
+            @$query['TimeSlices'] = $request->timeSlices;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建AI集群.
+     *
+     * @param request - CreateAIDBClusterRequest
+     *
+     * @returns CreateAIDBClusterResponse
+     *
+     * @param CreateAIDBClusterRequest $request
+     *
+     * @return CreateAIDBClusterResponse
+     */
+    public function createAIDBCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIDBClusterWithOptions($request, $runtime);
     }
 
     /**
