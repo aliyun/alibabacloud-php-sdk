@@ -7,8 +7,6 @@ namespace AlibabaCloud\SDK\DocumentParseService\V20260414;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\DocumentParseService\V20260414\Models\DocumentParseOnlineApiRequest;
 use AlibabaCloud\SDK\DocumentParseService\V20260414\Models\DocumentParseOnlineApiResponse;
-use AlibabaCloud\SDK\DocumentParseService\V20260414\Models\DocumentParseTestApiRequest;
-use AlibabaCloud\SDK\DocumentParseService\V20260414\Models\DocumentParseTestApiResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -107,66 +105,5 @@ class DocumentParseService extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->documentParseOnlineApiWithOptions($request, $runtime);
-    }
-
-    /**
-     * 文档解析测试接口.
-     *
-     * @param request - DocumentParseTestApiRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DocumentParseTestApiResponse
-     *
-     * @param DocumentParseTestApiRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DocumentParseTestApiResponse
-     */
-    public function documentParseTestApiWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->imageUrl) {
-            @$body['ImageUrl'] = $request->imageUrl;
-        }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'DocumentParseTestApi',
-            'version' => '2026-04-14',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DocumentParseTestApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 文档解析测试接口.
-     *
-     * @param request - DocumentParseTestApiRequest
-     *
-     * @returns DocumentParseTestApiResponse
-     *
-     * @param DocumentParseTestApiRequest $request
-     *
-     * @return DocumentParseTestApiResponse
-     */
-    public function documentParseTestApi($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->documentParseTestApiWithOptions($request, $runtime);
     }
 }
