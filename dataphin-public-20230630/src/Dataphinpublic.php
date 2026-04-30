@@ -269,6 +269,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizMetricByNameResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizMetricByNameShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCatalogAssetDetailsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetCheckConnectivityJobsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvRequest;
@@ -475,6 +478,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizUnitsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizUnitsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListCatalogAssetsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListCatalogAssetsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListCatalogAssetsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListComputeSourcesShrinkRequest;
@@ -7512,6 +7518,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 查询数据目录资产详情。
+     *
+     * @param tmpReq - GetCatalogAssetDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCatalogAssetDetailsResponse
+     *
+     * @param GetCatalogAssetDetailsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCatalogAssetDetailsResponse
+     */
+    public function getCatalogAssetDetailsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetCatalogAssetDetailsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->getCatalogAssetDetailsQuery) {
+            $request->getCatalogAssetDetailsQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->getCatalogAssetDetailsQuery, 'GetCatalogAssetDetailsQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->getCatalogAssetDetailsQueryShrink) {
+            @$body['GetCatalogAssetDetailsQuery'] = $request->getCatalogAssetDetailsQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalogAssetDetails',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCatalogAssetDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据目录资产详情。
+     *
+     * @param request - GetCatalogAssetDetailsRequest
+     *
+     * @returns GetCatalogAssetDetailsResponse
+     *
+     * @param GetCatalogAssetDetailsRequest $request
+     *
+     * @return GetCatalogAssetDetailsResponse
+     */
+    public function getCatalogAssetDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCatalogAssetDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询数据源连通性检查任务。
      *
      * @param request - GetCheckConnectivityJobsRequest
@@ -13496,6 +13571,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBizUnitsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据目录资产列表。
+     *
+     * @param tmpReq - ListCatalogAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCatalogAssetsResponse
+     *
+     * @param ListCatalogAssetsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCatalogAssetsResponse
+     */
+    public function listCatalogAssetsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListCatalogAssetsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listCatalogAssetsQuery) {
+            $request->listCatalogAssetsQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listCatalogAssetsQuery, 'ListCatalogAssetsQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listCatalogAssetsQueryShrink) {
+            @$body['ListCatalogAssetsQuery'] = $request->listCatalogAssetsQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCatalogAssets',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCatalogAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据目录资产列表。
+     *
+     * @param request - ListCatalogAssetsRequest
+     *
+     * @returns ListCatalogAssetsResponse
+     *
+     * @param ListCatalogAssetsRequest $request
+     *
+     * @return ListCatalogAssetsResponse
+     */
+    public function listCatalogAssets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCatalogAssetsWithOptions($request, $runtime);
     }
 
     /**
