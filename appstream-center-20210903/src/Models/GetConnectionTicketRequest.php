@@ -109,6 +109,11 @@ class GetConnectionTicketRequest extends Model
     public $productType;
 
     /**
+     * @var bool
+     */
+    public $requireUuidValidation;
+
+    /**
      * @var string
      */
     public $resourceId;
@@ -153,6 +158,7 @@ class GetConnectionTicketRequest extends Model
         'loginToken' => 'LoginToken',
         'param' => 'Param',
         'productType' => 'ProductType',
+        'requireUuidValidation' => 'RequireUuidValidation',
         'resourceId' => 'ResourceId',
         'sessionId' => 'SessionId',
         'taskId' => 'TaskId',
@@ -246,6 +252,10 @@ class GetConnectionTicketRequest extends Model
 
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+
+        if (null !== $this->requireUuidValidation) {
+            $res['RequireUuidValidation'] = $this->requireUuidValidation;
         }
 
         if (null !== $this->resourceId) {
@@ -357,6 +367,10 @@ class GetConnectionTicketRequest extends Model
 
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+
+        if (isset($map['RequireUuidValidation'])) {
+            $model->requireUuidValidation = $map['RequireUuidValidation'];
         }
 
         if (isset($map['ResourceId'])) {

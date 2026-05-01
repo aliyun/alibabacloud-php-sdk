@@ -159,6 +159,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['ProductType'] = $request->productType;
         }
 
+        if (null !== $request->requireUuidValidation) {
+            @$body['RequireUuidValidation'] = $request->requireUuidValidation;
+        }
+
         if (null !== $request->resourceId) {
             @$body['ResourceId'] = $request->resourceId;
         }
