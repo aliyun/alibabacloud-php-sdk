@@ -10,6 +10,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeChannelRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeChannelResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
@@ -17,6 +23,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
@@ -41,6 +49,10 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeChannelRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeChannelResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
@@ -49,8 +61,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsRe
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUserGroupsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplateResourceGroupRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplateResourceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodesRequest;
@@ -89,6 +105,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyWuyingServerAttribut
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyWuyingServerAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveResourceGroupModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveResourceGroupModelTemplateResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveRuntimeChannelRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveRuntimeChannelResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveRuntimeModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveRuntimeModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewAppInstanceGroupShrinkRequest;
@@ -320,6 +342,215 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置资源组模型模板
+     *
+     * @param request - ConfigResourceGroupModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigResourceGroupModelTemplateResponse
+     *
+     * @param ConfigResourceGroupModelTemplateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ConfigResourceGroupModelTemplateResponse
+     */
+    public function configResourceGroupModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelTemplateId) {
+            @$body['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigResourceGroupModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigResourceGroupModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置资源组模型模板
+     *
+     * @param request - ConfigResourceGroupModelTemplateRequest
+     *
+     * @returns ConfigResourceGroupModelTemplateResponse
+     *
+     * @param ConfigResourceGroupModelTemplateRequest $request
+     *
+     * @return ConfigResourceGroupModelTemplateResponse
+     */
+    public function configResourceGroupModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configResourceGroupModelTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置Runtime通道.
+     *
+     * @param request - ConfigRuntimeChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigRuntimeChannelResponse
+     *
+     * @param ConfigRuntimeChannelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ConfigRuntimeChannelResponse
+     */
+    public function configRuntimeChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        $body = [];
+        if (null !== $request->agentProvider) {
+            @$body['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
+        }
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->runtimeIds) {
+            @$body['RuntimeIds'] = $request->runtimeIds;
+        }
+
+        if (null !== $request->runtimeType) {
+            @$body['RuntimeType'] = $request->runtimeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigRuntimeChannel',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigRuntimeChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置Runtime通道.
+     *
+     * @param request - ConfigRuntimeChannelRequest
+     *
+     * @returns ConfigRuntimeChannelResponse
+     *
+     * @param ConfigRuntimeChannelRequest $request
+     *
+     * @return ConfigRuntimeChannelResponse
+     */
+    public function configRuntimeChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configRuntimeChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过RuntimeIds配置模型模板
+     *
+     * @param request - ConfigRuntimeModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigRuntimeModelTemplateResponse
+     *
+     * @param ConfigRuntimeModelTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ConfigRuntimeModelTemplateResponse
+     */
+    public function configRuntimeModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelTemplateId) {
+            @$body['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->runtimeIds) {
+            @$body['RuntimeIds'] = $request->runtimeIds;
+        }
+
+        if (null !== $request->runtimeType) {
+            @$body['RuntimeType'] = $request->runtimeType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigRuntimeModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigRuntimeModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过RuntimeIds配置模型模板
+     *
+     * @param request - ConfigRuntimeModelTemplateRequest
+     *
+     * @returns ConfigRuntimeModelTemplateResponse
+     *
+     * @param ConfigRuntimeModelTemplateRequest $request
+     *
+     * @return ConfigRuntimeModelTemplateResponse
+     */
+    public function configRuntimeModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configRuntimeModelTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -689,6 +920,79 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageFromAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模型模板
+     *
+     * @param request - CreateModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelTemplateResponse
+     *
+     * @param CreateModelTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateModelTemplateResponse
+     */
+    public function createModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型模板
+     *
+     * @param request - CreateModelTemplateRequest
+     *
+     * @returns CreateModelTemplateResponse
+     *
+     * @param CreateModelTemplateRequest $request
+     *
+     * @return CreateModelTemplateResponse
+     */
+    public function createModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1651,6 +1955,152 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 查询Runtime通道配置.
+     *
+     * @param request - GetRuntimeChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRuntimeChannelResponse
+     *
+     * @param GetRuntimeChannelRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRuntimeChannelResponse
+     */
+    public function getRuntimeChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->includeRiskInfo) {
+            @$query['IncludeRiskInfo'] = $request->includeRiskInfo;
+        }
+
+        if (null !== $request->runtimeId) {
+            @$query['RuntimeId'] = $request->runtimeId;
+        }
+
+        if (null !== $request->runtimeType) {
+            @$query['RuntimeType'] = $request->runtimeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRuntimeChannel',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRuntimeChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Runtime通道配置.
+     *
+     * @param request - GetRuntimeChannelRequest
+     *
+     * @returns GetRuntimeChannelResponse
+     *
+     * @param GetRuntimeChannelRequest $request
+     *
+     * @return GetRuntimeChannelResponse
+     */
+    public function getRuntimeChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuntimeChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云电脑模型配置详情.
+     *
+     * @param request - GetRuntimeModelConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRuntimeModelConfigResponse
+     *
+     * @param GetRuntimeModelConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRuntimeModelConfigResponse
+     */
+    public function getRuntimeModelConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->includeRiskInfo) {
+            @$query['IncludeRiskInfo'] = $request->includeRiskInfo;
+        }
+
+        if (null !== $request->runtimeId) {
+            @$query['RuntimeId'] = $request->runtimeId;
+        }
+
+        if (null !== $request->runtimeType) {
+            @$query['RuntimeType'] = $request->runtimeType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRuntimeModelConfig',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRuntimeModelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云电脑模型配置详情.
+     *
+     * @param request - GetRuntimeModelConfigRequest
+     *
+     * @returns GetRuntimeModelConfigResponse
+     *
+     * @param GetRuntimeModelConfigRequest $request
+     *
+     * @return GetRuntimeModelConfigResponse
+     */
+    public function getRuntimeModelConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRuntimeModelConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of multiple delivery groups that meet the query conditions.
      *
      * @param request - ListAppInstanceGroupRequest
@@ -2007,6 +2457,135 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 查询桌面Agent运行时列表.
+     *
+     * @param request - ListDesktopAgentRuntimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDesktopAgentRuntimeResponse
+     *
+     * @param ListDesktopAgentRuntimeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDesktopAgentRuntimeResponse
+     */
+    public function listDesktopAgentRuntimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentInstanceStatuses) {
+            @$query['AgentInstanceStatuses'] = $request->agentInstanceStatuses;
+        }
+
+        if (null !== $request->agentInstanceVersions) {
+            @$query['AgentInstanceVersions'] = $request->agentInstanceVersions;
+        }
+
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->authUsers) {
+            @$query['AuthUsers'] = $request->authUsers;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->channelConfigure) {
+            @$query['ChannelConfigure'] = $request->channelConfigure;
+        }
+
+        if (null !== $request->deploymentSource) {
+            @$query['DeploymentSource'] = $request->deploymentSource;
+        }
+
+        if (null !== $request->desktopIds) {
+            @$query['DesktopIds'] = $request->desktopIds;
+        }
+
+        if (null !== $request->desktopNames) {
+            @$query['DesktopNames'] = $request->desktopNames;
+        }
+
+        if (null !== $request->desktopStatuses) {
+            @$query['DesktopStatuses'] = $request->desktopStatuses;
+        }
+
+        if (null !== $request->hasAuthUser) {
+            @$query['HasAuthUser'] = $request->hasAuthUser;
+        }
+
+        if (null !== $request->hasRisk) {
+            @$query['HasRisk'] = $request->hasRisk;
+        }
+
+        if (null !== $request->includeRiskInfo) {
+            @$query['IncludeRiskInfo'] = $request->includeRiskInfo;
+        }
+
+        if (null !== $request->modelConfigure) {
+            @$query['ModelConfigure'] = $request->modelConfigure;
+        }
+
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDesktopAgentRuntime',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDesktopAgentRuntimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询桌面Agent运行时列表.
+     *
+     * @param request - ListDesktopAgentRuntimeRequest
+     *
+     * @returns ListDesktopAgentRuntimeResponse
+     *
+     * @param ListDesktopAgentRuntimeRequest $request
+     *
+     * @return ListDesktopAgentRuntimeResponse
+     */
+    public function listDesktopAgentRuntime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDesktopAgentRuntimeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the image information about an ECS instance.
      *
      * @param request - ListImageRequest
@@ -2143,6 +2722,75 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型分组绑定的资源组列表.
+     *
+     * @param request - ListModelTemplateResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelTemplateResourceGroupResponse
+     *
+     * @param ListModelTemplateResourceGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListModelTemplateResourceGroupResponse
+     */
+    public function listModelTemplateResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelTemplateResourceGroup',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelTemplateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型分组绑定的资源组列表.
+     *
+     * @param request - ListModelTemplateResourceGroupRequest
+     *
+     * @returns ListModelTemplateResourceGroupResponse
+     *
+     * @param ListModelTemplateResourceGroupRequest $request
+     *
+     * @return ListModelTemplateResourceGroupResponse
+     */
+    public function listModelTemplateResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelTemplateResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3499,6 +4147,205 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pageListAppInstanceGroupUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移除资源组模型模板配置.
+     *
+     * @param request - RemoveResourceGroupModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveResourceGroupModelTemplateResponse
+     *
+     * @param RemoveResourceGroupModelTemplateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveResourceGroupModelTemplateResponse
+     */
+    public function removeResourceGroupModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelTemplateId) {
+            @$body['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->resourceGroupIds) {
+            @$body['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveResourceGroupModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveResourceGroupModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除资源组模型模板配置.
+     *
+     * @param request - RemoveResourceGroupModelTemplateRequest
+     *
+     * @returns RemoveResourceGroupModelTemplateResponse
+     *
+     * @param RemoveResourceGroupModelTemplateRequest $request
+     *
+     * @return RemoveResourceGroupModelTemplateResponse
+     */
+    public function removeResourceGroupModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeResourceGroupModelTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 移除Runtime通道.
+     *
+     * @param request - RemoveRuntimeChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveRuntimeChannelResponse
+     *
+     * @param RemoveRuntimeChannelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveRuntimeChannelResponse
+     */
+    public function removeRuntimeChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentPlatform) {
+            @$body['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$body['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
+        }
+
+        if (null !== $request->runtimeIds) {
+            @$body['RuntimeIds'] = $request->runtimeIds;
+        }
+
+        if (null !== $request->runtimeType) {
+            @$body['RuntimeType'] = $request->runtimeType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveRuntimeChannel',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveRuntimeChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除Runtime通道.
+     *
+     * @param request - RemoveRuntimeChannelRequest
+     *
+     * @returns RemoveRuntimeChannelResponse
+     *
+     * @param RemoveRuntimeChannelRequest $request
+     *
+     * @return RemoveRuntimeChannelResponse
+     */
+    public function removeRuntimeChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeRuntimeChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过RuntimeIds移除模型模板配置.
+     *
+     * @param request - RemoveRuntimeModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveRuntimeModelTemplateResponse
+     *
+     * @param RemoveRuntimeModelTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RemoveRuntimeModelTemplateResponse
+     */
+    public function removeRuntimeModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modelTemplateId) {
+            @$body['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->runtimeIds) {
+            @$body['RuntimeIds'] = $request->runtimeIds;
+        }
+
+        if (null !== $request->runtimeType) {
+            @$body['RuntimeType'] = $request->runtimeType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveRuntimeModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveRuntimeModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过RuntimeIds移除模型模板配置.
+     *
+     * @param request - RemoveRuntimeModelTemplateRequest
+     *
+     * @returns RemoveRuntimeModelTemplateResponse
+     *
+     * @param RemoveRuntimeModelTemplateRequest $request
+     *
+     * @return RemoveRuntimeModelTemplateResponse
+     */
+    public function removeRuntimeModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeRuntimeModelTemplateWithOptions($request, $runtime);
     }
 
     /**
