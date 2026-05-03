@@ -36,6 +36,11 @@ class user extends Model
     public $gmtCreate;
 
     /**
+     * @var string
+     */
+    public $nickName;
+
+    /**
      * @var string[]
      */
     public $orgIds;
@@ -75,6 +80,7 @@ class user extends Model
         'externalInfo' => 'ExternalInfo',
         'extras' => 'Extras',
         'gmtCreate' => 'GmtCreate',
+        'nickName' => 'NickName',
         'orgIds' => 'OrgIds',
         'orgPaths' => 'OrgPaths',
         'phone' => 'Phone',
@@ -130,6 +136,10 @@ class user extends Model
 
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
         }
 
         if (null !== $this->orgIds) {
@@ -215,6 +225,10 @@ class user extends Model
 
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
         }
 
         if (isset($map['OrgIds'])) {
