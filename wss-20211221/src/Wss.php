@@ -8,6 +8,12 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderShrinkRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditPackageAgentsRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditPackageAgentsResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditUsageInfoRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditUsageInfoResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeductionStatisticRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeductionStatisticResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceResponse;
@@ -15,6 +21,8 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\ModifyInstancePropertiesRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\ModifyInstancePropertiesResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\SetAgentCreditQuotaRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\SetAgentCreditQuotaResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -127,6 +135,217 @@ class Wss extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMultiOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询积分包Agent列表.
+     *
+     * @param request - DescribeCreditPackageAgentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCreditPackageAgentsResponse
+     *
+     * @param DescribeCreditPackageAgentsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCreditPackageAgentsResponse
+     */
+    public function describeCreditPackageAgentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentIds) {
+            @$query['AgentIds'] = $request->agentIds;
+        }
+
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCreditPackageAgents',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCreditPackageAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询积分包Agent列表.
+     *
+     * @param request - DescribeCreditPackageAgentsRequest
+     *
+     * @returns DescribeCreditPackageAgentsResponse
+     *
+     * @param DescribeCreditPackageAgentsRequest $request
+     *
+     * @return DescribeCreditPackageAgentsResponse
+     */
+    public function describeCreditPackageAgents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCreditPackageAgentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询积分包用量信息.
+     *
+     * @param request - DescribeCreditUsageInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCreditUsageInfoResponse
+     *
+     * @param DescribeCreditUsageInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCreditUsageInfoResponse
+     */
+    public function describeCreditUsageInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->usageType) {
+            @$query['UsageType'] = $request->usageType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCreditUsageInfo',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCreditUsageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询积分包用量信息.
+     *
+     * @param request - DescribeCreditUsageInfoRequest
+     *
+     * @returns DescribeCreditUsageInfoResponse
+     *
+     * @param DescribeCreditUsageInfoRequest $request
+     *
+     * @return DescribeCreditUsageInfoResponse
+     */
+    public function describeCreditUsageInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCreditUsageInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询计量消耗信息.
+     *
+     * @param request - DescribeDeductionStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDeductionStatisticResponse
+     *
+     * @param DescribeDeductionStatisticRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDeductionStatisticResponse
+     */
+    public function describeDeductionStatisticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->periods) {
+            @$query['Periods'] = $request->periods;
+        }
+
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDeductionStatistic',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDeductionStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询计量消耗信息.
+     *
+     * @param request - DescribeDeductionStatisticRequest
+     *
+     * @returns DescribeDeductionStatisticResponse
+     *
+     * @param DescribeDeductionStatisticRequest $request
+     *
+     * @return DescribeDeductionStatisticResponse
+     */
+    public function describeDeductionStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDeductionStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -397,5 +616,74 @@ class Wss extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstancePropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量设置Agent积分配额.
+     *
+     * @param request - SetAgentCreditQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAgentCreditQuotaResponse
+     *
+     * @param SetAgentCreditQuotaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetAgentCreditQuotaResponse
+     */
+    public function setAgentCreditQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentIds) {
+            @$query['AgentIds'] = $request->agentIds;
+        }
+
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->creditQuota) {
+            @$query['CreditQuota'] = $request->creditQuota;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAgentCreditQuota',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAgentCreditQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量设置Agent积分配额.
+     *
+     * @param request - SetAgentCreditQuotaRequest
+     *
+     * @returns SetAgentCreditQuotaResponse
+     *
+     * @param SetAgentCreditQuotaRequest $request
+     *
+     * @return SetAgentCreditQuotaResponse
+     */
+    public function setAgentCreditQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAgentCreditQuotaWithOptions($request, $runtime);
     }
 }
