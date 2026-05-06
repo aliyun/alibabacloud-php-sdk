@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class Instance extends Model
 {
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var float
      */
     public $currentAmount;
@@ -158,6 +163,7 @@ class Instance extends Model
      */
     public $zone;
     protected $_name = [
+        'createTime' => 'CreateTime',
         'currentAmount' => 'CurrentAmount',
         'detached' => 'Detached',
         'externalIP' => 'ExternalIP',
@@ -201,6 +207,10 @@ class Instance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->currentAmount) {
             $res['CurrentAmount'] = $this->currentAmount;
         }
@@ -344,6 +354,10 @@ class Instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['CurrentAmount'])) {
             $model->currentAmount = $map['CurrentAmount'];
         }
