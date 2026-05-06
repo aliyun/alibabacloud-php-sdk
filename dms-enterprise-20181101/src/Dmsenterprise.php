@@ -357,6 +357,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoReq
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDesignProjectInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableInstructionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableInstructionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeDetailsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeDetailsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableKnowledgeInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableTopologyRequest;
@@ -13108,6 +13110,73 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTableInstructionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询表的资产知识详情，包含表元信息、业务描述、字段列表等.
+     *
+     * @remarks
+     * 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+     *
+     * @param request - GetTableKnowledgeDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableKnowledgeDetailsResponse
+     *
+     * @param GetTableKnowledgeDetailsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetTableKnowledgeDetailsResponse
+     */
+    public function getTableKnowledgeDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbId) {
+            @$query['DbId'] = $request->dbId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableKnowledgeDetails',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableKnowledgeDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表的资产知识详情，包含表元信息、业务描述、字段列表等.
+     *
+     * @remarks
+     * 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+     *
+     * @param request - GetTableKnowledgeDetailsRequest
+     *
+     * @returns GetTableKnowledgeDetailsResponse
+     *
+     * @param GetTableKnowledgeDetailsRequest $request
+     *
+     * @return GetTableKnowledgeDetailsResponse
+     */
+    public function getTableKnowledgeDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableKnowledgeDetailsWithOptions($request, $runtime);
     }
 
     /**
