@@ -291,6 +291,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOnlineUserCountRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOnlineUserCountResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceForCreateDesktopOversoldGroupRequest;
@@ -502,6 +504,9 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\MoveCdsFileResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryActiveUserCountResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryMetricDistributionRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryMetricDistributionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
@@ -13345,6 +13350,71 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param request - DescribeOnlineUserCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOnlineUserCountResponse
+     *
+     * @param DescribeOnlineUserCountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeOnlineUserCountResponse
+     */
+    public function describeOnlineUserCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOnlineUserCount',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOnlineUserCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DescribeOnlineUserCountRequest
+     *
+     * @returns DescribeOnlineUserCountResponse
+     *
+     * @param DescribeOnlineUserCountRequest $request
+     *
+     * @return DescribeOnlineUserCountResponse
+     */
+    public function describeOnlineUserCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOnlineUserCountWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a cloud computer policy.
      *
      * @param request - DescribePolicyGroupsRequest
@@ -22490,6 +22560,97 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryHistoryActiveUserCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询桌面平均指标列表.
+     *
+     * @param tmpReq - QueryHistoryAvgMetricListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHistoryAvgMetricListResponse
+     *
+     * @param QueryHistoryAvgMetricListRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryHistoryAvgMetricListResponse
+     */
+    public function queryHistoryAvgMetricListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryHistoryAvgMetricListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->range) {
+            $request->rangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->range, 'Range', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->dataDate) {
+            @$query['DataDate'] = $request->dataDate;
+        }
+
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->rangeShrink) {
+            @$query['Range'] = $request->rangeShrink;
+        }
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHistoryAvgMetricList',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHistoryAvgMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询桌面平均指标列表.
+     *
+     * @param request - QueryHistoryAvgMetricListRequest
+     *
+     * @returns QueryHistoryAvgMetricListResponse
+     *
+     * @param QueryHistoryAvgMetricListRequest $request
+     *
+     * @return QueryHistoryAvgMetricListResponse
+     */
+    public function queryHistoryAvgMetricList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHistoryAvgMetricListWithOptions($request, $runtime);
     }
 
     /**
