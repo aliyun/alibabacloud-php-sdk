@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\BatchDeleteSampleDataRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\BatchDeleteSampleDataResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\BindVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\BindVariableResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CancelSubTaskRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CancelSubTaskResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCopyRuleVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCopyRuleVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckCustVariableLimitRequest;
@@ -21,6 +23,10 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckExpressionVariableLimitRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckExpressionVariableLimitResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckFieldLimitRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckFieldLimitResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckSampleNameRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckSampleNameResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckTaskGroupNameRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckTaskGroupNameResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckUsageVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CheckUsageVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CompareCopyRuleVariableRequest;
@@ -47,6 +53,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateModelRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateModelResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocEvRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocEvResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocSampleRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreatePocSampleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateQueryVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateQueryVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateRecommendEventRuleRequest;
@@ -65,6 +73,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSampleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSimulationTaskRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateSimulationTaskResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTaskGroupRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTaskGroupResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeepCopyRuleRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeepCopyRuleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteAnalysisConditionFavoriteRequest;
@@ -95,6 +105,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleBatchRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleBatchResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleDataRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleDataResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSampleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSelfBindVariableRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DeleteSelfBindVariableResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeAdvanceSearchLeftVariableListRequest;
@@ -457,20 +469,34 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableVersionDetailRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVariableVersionDetailResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVersionPageListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DescribeVersionPageListResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSampleFileRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSampleFileResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSmapleBatchResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSubTaskResultRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\DownloadSubTaskResultResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ExpressionTestRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ExpressionTestResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\FileUploadRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\FileUploadResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\GetSampleDetailRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\GetSampleDetailResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\GetSubTaskResultRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\GetSubTaskResultResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportFieldRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportFieldResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportNameListRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportNameListResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportTemplateEventRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ImportTemplateEventResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ListSampleRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ListSampleResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ListTaskGroupRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\ListTaskGroupResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ListVariableDefineRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ListVariableDefineResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\MergeDownloadRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\MergeDownloadResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelDeleteRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelDeleteResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\ModelFileUploadRequest;
@@ -523,6 +549,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\SaveAnalysisColumnRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SaveAnalysisColumnResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SaveByPassOrShuntEventRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\SaveByPassOrShuntEventResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\SearchSampleRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\SearchSampleResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\StartOrStopByPassShuntEventRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\StartOrStopByPassShuntEventResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\StartSimulationTaskRequest;
@@ -561,6 +589,8 @@ use AlibabaCloud\SDK\Xtee\V20210910\Models\UpdateSampleBatchRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\UpdateSampleBatchResponse;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadFileCheckRequest;
 use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadFileCheckResponse;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadSampleFileRequest;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\UploadSampleFileResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -925,6 +955,75 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 创建任务组.
+     *
+     * @param request - CancelSubTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelSubTaskResponse
+     *
+     * @param CancelSubTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CancelSubTaskResponse
+     */
+    public function cancelSubTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelSubTask',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建任务组.
+     *
+     * @param request - CancelSubTaskRequest
+     *
+     * @returns CancelSubTaskResponse
+     *
+     * @param CancelSubTaskRequest $request
+     *
+     * @return CancelSubTaskResponse
+     */
+    public function cancelSubTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelSubTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Policy Replication Lineage Check.
      *
      * @param request - CheckCopyRuleVariableRequest
@@ -1190,6 +1289,136 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkFieldLimitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 样本名称唯一性校验.
+     *
+     * @param request - CheckSampleNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSampleNameResponse
+     *
+     * @param CheckSampleNameRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CheckSampleNameResponse
+     */
+    public function checkSampleNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleName) {
+            @$query['SampleName'] = $request->sampleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckSampleName',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckSampleNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 样本名称唯一性校验.
+     *
+     * @param request - CheckSampleNameRequest
+     *
+     * @returns CheckSampleNameResponse
+     *
+     * @param CheckSampleNameRequest $request
+     *
+     * @return CheckSampleNameResponse
+     */
+    public function checkSampleName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSampleNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 任务组名称唯一性校验.
+     *
+     * @param request - CheckTaskGroupNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckTaskGroupNameResponse
+     *
+     * @param CheckTaskGroupNameRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckTaskGroupNameResponse
+     */
+    public function checkTaskGroupNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->taskGroupName) {
+            @$query['TaskGroupName'] = $request->taskGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckTaskGroupName',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckTaskGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 任务组名称唯一性校验.
+     *
+     * @param request - CheckTaskGroupNameRequest
+     *
+     * @returns CheckTaskGroupNameResponse
+     *
+     * @param CheckTaskGroupNameRequest $request
+     *
+     * @return CheckTaskGroupNameResponse
+     */
+    public function checkTaskGroupName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkTaskGroupNameWithOptions($request, $runtime);
     }
 
     /**
@@ -2306,6 +2535,91 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 创建样本记录.
+     *
+     * @param request - CreatePocSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePocSampleResponse
+     *
+     * @param CreatePocSampleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreatePocSampleResponse
+     */
+    public function createPocSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->sampleName) {
+            @$query['SampleName'] = $request->sampleName;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePocSample',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePocSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建样本记录.
+     *
+     * @param request - CreatePocSampleRequest
+     *
+     * @returns CreatePocSampleResponse
+     *
+     * @param CreatePocSampleRequest $request
+     *
+     * @return CreatePocSampleResponse
+     */
+    public function createPocSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPocSampleWithOptions($request, $runtime);
+    }
+
+    /**
      * Add New Custom Query Variable.
      *
      * @param request - CreateQueryVariableRequest
@@ -3107,6 +3421,95 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 取消子任务
+     *
+     * @param request - CreateTaskGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTaskGroupResponse
+     *
+     * @param CreateTaskGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateTaskGroupResponse
+     */
+    public function createTaskGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleIds) {
+            @$query['SampleIds'] = $request->sampleIds;
+        }
+
+        if (null !== $request->scenes) {
+            @$query['Scenes'] = $request->scenes;
+        }
+
+        if (null !== $request->serviceCodes) {
+            @$query['ServiceCodes'] = $request->serviceCodes;
+        }
+
+        if (null !== $request->serviceNames) {
+            @$query['ServiceNames'] = $request->serviceNames;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        if (null !== $request->taskGroupName) {
+            @$query['TaskGroupName'] = $request->taskGroupName;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTaskGroup',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTaskGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消子任务
+     *
+     * @param request - CreateTaskGroupRequest
+     *
+     * @returns CreateTaskGroupResponse
+     *
+     * @param CreateTaskGroupRequest $request
+     *
+     * @return CreateTaskGroupResponse
+     */
+    public function createTaskGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTaskGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Policy Replication.
      *
      * @param request - DeepCopyRuleRequest
@@ -3610,7 +4013,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 删除字段.
+     * Delete Field.
      *
      * @param request - DeleteFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3661,7 +4064,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 删除字段.
+     * Delete Field.
      *
      * @param request - DeleteFieldRequest
      *
@@ -3947,6 +4350,71 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 删除样本.
+     *
+     * @param request - DeleteSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSampleResponse
+     *
+     * @param DeleteSampleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteSampleResponse
+     */
+    public function deleteSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleId) {
+            @$query['SampleId'] = $request->sampleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSample',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除样本.
+     *
+     * @param request - DeleteSampleRequest
+     *
+     * @returns DeleteSampleResponse
+     *
+     * @param DeleteSampleRequest $request
+     *
+     * @return DeleteSampleResponse
+     */
+    public function deleteSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSampleWithOptions($request, $runtime);
+    }
+
+    /**
      * Batch Delete Samples.
      *
      * @param request - DeleteSampleBatchRequest
@@ -4211,7 +4679,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 高级查询获取左变量接口.
+     * Advanced Query to Get Left Variables Interface.
      *
      * @param request - DescribeAdvanceSearchLeftVariableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4262,7 +4730,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 高级查询获取左变量接口.
+     * Advanced Query to Get Left Variables Interface.
      *
      * @param request - DescribeAdvanceSearchLeftVariableListRequest
      *
@@ -4373,7 +4841,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 数据源列表.
+     * Data Source List.
      *
      * @param request - DescribeAllDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4416,7 +4884,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 数据源列表.
+     * Data Source List.
      *
      * @param request - DescribeAllDataSourceRequest
      *
@@ -5575,7 +6043,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 策略列表.
+     * Policy List.
      *
      * @param request - DescribeAuthRulePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5630,7 +6098,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 策略列表.
+     * Policy List.
      *
      * @param request - DescribeAuthRulePageListRequest
      *
@@ -5648,7 +6116,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 场景列表.
+     * List of Scenarios.
      *
      * @param request - DescribeAuthSceneListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5691,7 +6159,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 场景列表.
+     * List of Scenarios.
      *
      * @param request - DescribeAuthSceneListRequest
      *
@@ -5985,7 +6453,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 基础统计
+     * Basic Statistics.
      *
      * @param request - DescribeBasicStartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6040,7 +6508,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 基础统计
+     * Basic Statistics.
      *
      * @param request - DescribeBasicStartRequest
      *
@@ -11560,7 +12028,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查询变量列表查询.
+     * Query Variable List Query.
      *
      * @param request - DescribeQueryVariablePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11623,7 +12091,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查询变量列表查询.
+     * Query Variable List Query.
      *
      * @param request - DescribeQueryVariablePageListRequest
      *
@@ -17109,6 +17577,75 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 下载样本文件.
+     *
+     * @param request - DownloadSampleFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadSampleFileResponse
+     *
+     * @param DownloadSampleFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DownloadSampleFileResponse
+     */
+    public function downloadSampleFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleId) {
+            @$query['SampleId'] = $request->sampleId;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadSampleFile',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadSampleFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下载样本文件.
+     *
+     * @param request - DownloadSampleFileRequest
+     *
+     * @returns DownloadSampleFileResponse
+     *
+     * @param DownloadSampleFileRequest $request
+     *
+     * @return DownloadSampleFileResponse
+     */
+    public function downloadSampleFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadSampleFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Sample List Data Download.
      *
      * @param request - DownloadSmapleBatchRequest
@@ -17171,6 +17708,71 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadSmapleBatchWithOptions($request, $runtime);
+    }
+
+    /**
+     * 下载子任务结果.
+     *
+     * @param request - DownloadSubTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadSubTaskResultResponse
+     *
+     * @param DownloadSubTaskResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DownloadSubTaskResultResponse
+     */
+    public function downloadSubTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadSubTaskResult',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadSubTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下载子任务结果.
+     *
+     * @param request - DownloadSubTaskResultRequest
+     *
+     * @returns DownloadSubTaskResultResponse
+     *
+     * @param DownloadSubTaskResultRequest $request
+     *
+     * @return DownloadSubTaskResultResponse
+     */
+    public function downloadSubTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadSubTaskResultWithOptions($request, $runtime);
     }
 
     /**
@@ -17321,6 +17923,136 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fileUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建样本记录.
+     *
+     * @param request - GetSampleDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSampleDetailResponse
+     *
+     * @param GetSampleDetailRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSampleDetailResponse
+     */
+    public function getSampleDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleId) {
+            @$query['SampleId'] = $request->sampleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSampleDetail',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSampleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建样本记录.
+     *
+     * @param request - GetSampleDetailRequest
+     *
+     * @returns GetSampleDetailResponse
+     *
+     * @param GetSampleDetailRequest $request
+     *
+     * @return GetSampleDetailResponse
+     */
+    public function getSampleDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSampleDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看子任务结果.
+     *
+     * @param request - GetSubTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubTaskResultResponse
+     *
+     * @param GetSubTaskResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSubTaskResultResponse
+     */
+    public function getSubTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSubTaskResult',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSubTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看子任务结果.
+     *
+     * @param request - GetSubTaskResultRequest
+     *
+     * @returns GetSubTaskResultResponse
+     *
+     * @param GetSubTaskResultRequest $request
+     *
+     * @return GetSubTaskResultResponse
+     */
+    public function getSubTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSubTaskResultWithOptions($request, $runtime);
     }
 
     /**
@@ -17547,6 +18279,176 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 样本列表查询.
+     *
+     * @param request - ListSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSampleResponse
+     *
+     * @param ListSampleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListSampleResponse
+     */
+    public function listSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleName) {
+            @$query['SampleName'] = $request->sampleName;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->uploadTimeEnd) {
+            @$query['UploadTimeEnd'] = $request->uploadTimeEnd;
+        }
+
+        if (null !== $request->uploadTimeStart) {
+            @$query['UploadTimeStart'] = $request->uploadTimeStart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSample',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 样本列表查询.
+     *
+     * @param request - ListSampleRequest
+     *
+     * @returns ListSampleResponse
+     *
+     * @param ListSampleRequest $request
+     *
+     * @return ListSampleResponse
+     */
+    public function listSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSampleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 任务组列表查询.
+     *
+     * @param request - ListTaskGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTaskGroupResponse
+     *
+     * @param ListTaskGroupRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTaskGroupResponse
+     */
+    public function listTaskGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->sampleName) {
+            @$query['SampleName'] = $request->sampleName;
+        }
+
+        if (null !== $request->taskGroupName) {
+            @$query['TaskGroupName'] = $request->taskGroupName;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTaskGroup',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTaskGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 任务组列表查询.
+     *
+     * @param request - ListTaskGroupRequest
+     *
+     * @returns ListTaskGroupResponse
+     *
+     * @param ListTaskGroupRequest $request
+     *
+     * @return ListTaskGroupResponse
+     */
+    public function listTaskGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Variable Definition.
      *
      * @param request - ListVariableDefineRequest
@@ -17653,6 +18555,71 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVariableDefineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 合并下载.
+     *
+     * @param request - MergeDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MergeDownloadResponse
+     *
+     * @param MergeDownloadRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return MergeDownloadResponse
+     */
+    public function mergeDownloadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->subTaskIds) {
+            @$query['SubTaskIds'] = $request->subTaskIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MergeDownload',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MergeDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 合并下载.
+     *
+     * @param request - MergeDownloadRequest
+     *
+     * @returns MergeDownloadResponse
+     *
+     * @param MergeDownloadRequest $request
+     *
+     * @return MergeDownloadResponse
+     */
+    public function mergeDownload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mergeDownloadWithOptions($request, $runtime);
     }
 
     /**
@@ -19538,6 +20505,87 @@ class Xtee extends OpenApiClient
     }
 
     /**
+     * 样本列表查询.
+     *
+     * @param request - SearchSampleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchSampleResponse
+     *
+     * @param SearchSampleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SearchSampleResponse
+     */
+    public function searchSampleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->uploadTimeEnd) {
+            @$query['UploadTimeEnd'] = $request->uploadTimeEnd;
+        }
+
+        if (null !== $request->uploadTimeStart) {
+            @$query['UploadTimeStart'] = $request->uploadTimeStart;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchSample',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 样本列表查询.
+     *
+     * @param request - SearchSampleRequest
+     *
+     * @returns SearchSampleResponse
+     *
+     * @param SearchSampleRequest $request
+     *
+     * @return SearchSampleResponse
+     */
+    public function searchSample($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchSampleWithOptions($request, $runtime);
+    }
+
+    /**
      * Start/Stop Bypass Event.
      *
      * @param request - StartOrStopByPassShuntEventRequest
@@ -21014,5 +22062,82 @@ class Xtee extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadFileCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传并校验样本文件.
+     *
+     * @param request - UploadSampleFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadSampleFileResponse
+     *
+     * @param UploadSampleFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UploadSampleFileResponse
+     */
+    public function uploadSampleFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regId) {
+            @$query['RegId'] = $request->regId;
+        }
+
+        if (null !== $request->tab) {
+            @$query['Tab'] = $request->tab;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadSampleFile',
+            'version' => '2021-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadSampleFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传并校验样本文件.
+     *
+     * @param request - UploadSampleFileRequest
+     *
+     * @returns UploadSampleFileResponse
+     *
+     * @param UploadSampleFileRequest $request
+     *
+     * @return UploadSampleFileResponse
+     */
+    public function uploadSampleFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadSampleFileWithOptions($request, $runtime);
     }
 }
