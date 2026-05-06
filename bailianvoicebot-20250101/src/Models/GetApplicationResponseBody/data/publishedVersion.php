@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationRespon
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\interactionConfig;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\ragConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\scriptProfile;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\synthesizerConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\transcriberConfig;
@@ -16,6 +17,11 @@ class publishedVersion extends Model
      * @var interactionConfig
      */
     public $interactionConfig;
+
+    /**
+     * @var ragConfig
+     */
+    public $ragConfig;
 
     /**
      * @var scriptProfile
@@ -38,6 +44,7 @@ class publishedVersion extends Model
     public $versionId;
     protected $_name = [
         'interactionConfig' => 'InteractionConfig',
+        'ragConfig' => 'RagConfig',
         'scriptProfile' => 'ScriptProfile',
         'synthesizerConfig' => 'SynthesizerConfig',
         'transcriberConfig' => 'TranscriberConfig',
@@ -48,6 +55,9 @@ class publishedVersion extends Model
     {
         if (null !== $this->interactionConfig) {
             $this->interactionConfig->validate();
+        }
+        if (null !== $this->ragConfig) {
+            $this->ragConfig->validate();
         }
         if (null !== $this->scriptProfile) {
             $this->scriptProfile->validate();
@@ -66,6 +76,10 @@ class publishedVersion extends Model
         $res = [];
         if (null !== $this->interactionConfig) {
             $res['InteractionConfig'] = null !== $this->interactionConfig ? $this->interactionConfig->toArray($noStream) : $this->interactionConfig;
+        }
+
+        if (null !== $this->ragConfig) {
+            $res['RagConfig'] = null !== $this->ragConfig ? $this->ragConfig->toArray($noStream) : $this->ragConfig;
         }
 
         if (null !== $this->scriptProfile) {
@@ -97,6 +111,10 @@ class publishedVersion extends Model
         $model = new self();
         if (isset($map['InteractionConfig'])) {
             $model->interactionConfig = interactionConfig::fromMap($map['InteractionConfig']);
+        }
+
+        if (isset($map['RagConfig'])) {
+            $model->ragConfig = ragConfig::fromMap($map['RagConfig']);
         }
 
         if (isset($map['ScriptProfile'])) {

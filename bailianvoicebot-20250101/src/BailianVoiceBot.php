@@ -16,24 +16,62 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateCloneVoiceRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateCloneVoiceResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVariableRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVariableResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVocabularyResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVocabularyShrinkRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVoiceAccessProfileRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVoiceAccessProfileResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateVoiceAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteCloneVoiceRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteCloneVoiceResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVariableRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVariableResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVocabularyResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVoiceAccessProfileRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DeleteVoiceAccessProfileResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DisableSubscriptionRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\DisableSubscriptionResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ExportVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ExportVocabularyResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ExportVocabularyShrinkRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GenerateFileUploadParamsRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GenerateFileUploadParamsResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetDataChannelCredentialResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetSubscriptionRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetSubscriptionResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetVocabularyResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ImportVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ImportVocabularyResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListBackgroundMusicsRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListBackgroundMusicsResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListCloneVoiceModelsRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListCloneVoiceRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListCloneVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListNluModelsRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListNluModelsResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVariableRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVariableResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVocabularyResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVoiceAccessProfileRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVoiceAccessProfileResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVoiceEnginesRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVoiceEnginesResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVoicesRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\ListVoicesResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PreviewVoiceRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PreviewVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PreviewVoiceShrinkRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PublishApplicationVersionRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\PublishApplicationVersionResponse;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationRequest;
@@ -43,8 +81,17 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionRe
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateApplicationVersionShrinkRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateCloneVoiceRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateCloneVoiceResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateSubscriptionRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateSubscriptionResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateSubscriptionShrinkRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVariableRequest;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVariableResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVocabularyRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVocabularyResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVocabularyShrinkRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVoiceAccessProfileRequest;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVoiceAccessProfileResponse;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\UpdateVoiceAccessProfileShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -268,6 +315,10 @@ class BailianVoiceBot extends OpenApiClient
             $request->interactionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interactionConfig, 'InteractionConfig', 'json');
         }
 
+        if (null !== $tmpReq->ragConfig) {
+            $request->ragConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ragConfig, 'RagConfig', 'json');
+        }
+
         if (null !== $tmpReq->scriptProfile) {
             $request->scriptProfileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scriptProfile, 'ScriptProfile', 'json');
         }
@@ -291,6 +342,10 @@ class BailianVoiceBot extends OpenApiClient
 
         if (null !== $request->interactionConfigShrink) {
             @$query['InteractionConfig'] = $request->interactionConfigShrink;
+        }
+
+        if (null !== $request->ragConfigShrink) {
+            @$query['RagConfig'] = $request->ragConfigShrink;
         }
 
         if (null !== $request->scriptProfileShrink) {
@@ -480,6 +535,152 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
+     * @param tmpReq - CreateVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVocabularyResponse
+     *
+     * @param CreateVocabularyRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateVocabularyResponse
+     */
+    public function createVocabularyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateVocabularyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->words) {
+            $request->wordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->words, 'Words', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->wordsShrink) {
+            @$body['Words'] = $request->wordsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例.
+     *
+     * @param request - CreateVocabularyRequest
+     *
+     * @returns CreateVocabularyResponse
+     *
+     * @param CreateVocabularyRequest $request
+     *
+     * @return CreateVocabularyResponse
+     */
+    public function createVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVocabularyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建实例.
+     *
+     * @param tmpReq - CreateVoiceAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVoiceAccessProfileResponse
+     *
+     * @param CreateVoiceAccessProfileRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateVoiceAccessProfileResponse
+     */
+    public function createVoiceAccessProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateVoiceAccessProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->profile) {
+            $request->profileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->profile, 'Profile', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->nlsEngine) {
+            @$body['NlsEngine'] = $request->nlsEngine;
+        }
+
+        if (null !== $request->profileShrink) {
+            @$body['Profile'] = $request->profileShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVoiceAccessProfile',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVoiceAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例.
+     *
+     * @param request - CreateVoiceAccessProfileRequest
+     *
+     * @returns CreateVoiceAccessProfileResponse
+     *
+     * @param CreateVoiceAccessProfileRequest $request
+     *
+     * @return CreateVoiceAccessProfileResponse
+     */
+    public function createVoiceAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVoiceAccessProfileWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除应用.
      *
      * @param request - DeleteApplicationRequest
@@ -660,6 +861,252 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVariableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除场景.
+     *
+     * @param request - DeleteVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVocabularyResponse
+     *
+     * @param DeleteVocabularyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteVocabularyResponse
+     */
+    public function deleteVocabularyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->vocabularyId) {
+            @$body['VocabularyId'] = $request->vocabularyId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除场景.
+     *
+     * @param request - DeleteVocabularyRequest
+     *
+     * @returns DeleteVocabularyResponse
+     *
+     * @param DeleteVocabularyRequest $request
+     *
+     * @return DeleteVocabularyResponse
+     */
+    public function deleteVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVocabularyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除三方语音配置.
+     *
+     * @param request - DeleteVoiceAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVoiceAccessProfileResponse
+     *
+     * @param DeleteVoiceAccessProfileRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteVoiceAccessProfileResponse
+     */
+    public function deleteVoiceAccessProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessProfileId) {
+            @$body['AccessProfileId'] = $request->accessProfileId;
+        }
+
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVoiceAccessProfile',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVoiceAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除三方语音配置.
+     *
+     * @param request - DeleteVoiceAccessProfileRequest
+     *
+     * @returns DeleteVoiceAccessProfileResponse
+     *
+     * @param DeleteVoiceAccessProfileRequest $request
+     *
+     * @return DeleteVoiceAccessProfileResponse
+     */
+    public function deleteVoiceAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVoiceAccessProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用消息订阅.
+     *
+     * @param request - DisableSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSubscriptionResponse
+     *
+     * @param DisableSubscriptionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableSubscriptionResponse
+     */
+    public function disableSubscriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSubscription',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用消息订阅.
+     *
+     * @param request - DisableSubscriptionRequest
+     *
+     * @returns DisableSubscriptionResponse
+     *
+     * @param DisableSubscriptionRequest $request
+     *
+     * @return DisableSubscriptionResponse
+     */
+    public function disableSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导出热词.
+     *
+     * @param tmpReq - ExportVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportVocabularyResponse
+     *
+     * @param ExportVocabularyRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExportVocabularyResponse
+     */
+    public function exportVocabularyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExportVocabularyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->vocabularyIds) {
+            $request->vocabularyIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vocabularyIds, 'VocabularyIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->vocabularyIdsShrink) {
+            @$body['VocabularyIds'] = $request->vocabularyIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出热词.
+     *
+     * @param request - ExportVocabularyRequest
+     *
+     * @returns ExportVocabularyResponse
+     *
+     * @param ExportVocabularyRequest $request
+     *
+     * @return ExportVocabularyResponse
+     */
+    public function exportVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportVocabularyWithOptions($request, $runtime);
     }
 
     /**
@@ -850,6 +1297,185 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
+     * 获取MQ配置.
+     *
+     * @param request - GetSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubscriptionResponse
+     *
+     * @param GetSubscriptionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSubscriptionResponse
+     */
+    public function getSubscriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSubscription',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取MQ配置.
+     *
+     * @param request - GetSubscriptionRequest
+     *
+     * @returns GetSubscriptionResponse
+     *
+     * @param GetSubscriptionRequest $request
+     *
+     * @return GetSubscriptionResponse
+     */
+    public function getSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - GetVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVocabularyResponse
+     *
+     * @param GetVocabularyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetVocabularyResponse
+     */
+    public function getVocabularyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->vocabularyId) {
+            @$body['VocabularyId'] = $request->vocabularyId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - GetVocabularyRequest
+     *
+     * @returns GetVocabularyResponse
+     *
+     * @param GetVocabularyRequest $request
+     *
+     * @return GetVocabularyResponse
+     */
+    public function getVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVocabularyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导入热词.
+     *
+     * @param request - ImportVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportVocabularyResponse
+     *
+     * @param ImportVocabularyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ImportVocabularyResponse
+     */
+    public function importVocabularyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->fileKey) {
+            @$body['FileKey'] = $request->fileKey;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入热词.
+     *
+     * @param request - ImportVocabularyRequest
+     *
+     * @returns ImportVocabularyResponse
+     *
+     * @param ImportVocabularyRequest $request
+     *
+     * @return ImportVocabularyResponse
+     */
+    public function importVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importVocabularyWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询应用.
      *
      * @param request - ListApplicationsRequest
@@ -916,6 +1542,71 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取背景音列表.
+     *
+     * @param request - ListBackgroundMusicsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBackgroundMusicsResponse
+     *
+     * @param ListBackgroundMusicsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBackgroundMusicsResponse
+     */
+    public function listBackgroundMusicsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBackgroundMusics',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBackgroundMusicsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取背景音列表.
+     *
+     * @param request - ListBackgroundMusicsRequest
+     *
+     * @returns ListBackgroundMusicsResponse
+     *
+     * @param ListBackgroundMusicsRequest $request
+     *
+     * @return ListBackgroundMusicsResponse
+     */
+    public function listBackgroundMusics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBackgroundMusicsWithOptions($request, $runtime);
     }
 
     /**
@@ -988,6 +1679,124 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
+     * 获取克隆音色可用模型列表.
+     *
+     * @param request - ListCloneVoiceModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloneVoiceModelsResponse
+     *
+     * @param ListCloneVoiceModelsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCloneVoiceModelsResponse
+     */
+    public function listCloneVoiceModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloneVoiceModels',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloneVoiceModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取克隆音色可用模型列表.
+     *
+     * @param request - ListCloneVoiceModelsRequest
+     *
+     * @returns ListCloneVoiceModelsResponse
+     *
+     * @param ListCloneVoiceModelsRequest $request
+     *
+     * @return ListCloneVoiceModelsResponse
+     */
+    public function listCloneVoiceModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloneVoiceModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取对话模型列表.
+     *
+     * @param request - ListNluModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNluModelsResponse
+     *
+     * @param ListNluModelsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListNluModelsResponse
+     */
+    public function listNluModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNluModels',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNluModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取对话模型列表.
+     *
+     * @param request - ListNluModelsRequest
+     *
+     * @returns ListNluModelsResponse
+     *
+     * @param ListNluModelsRequest $request
+     *
+     * @return ListNluModelsResponse
+     */
+    public function listNluModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNluModelsWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取变量列表.
      *
      * @param request - ListVariableRequest
@@ -1054,6 +1863,361 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVariableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - ListVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVocabularyResponse
+     *
+     * @param ListVocabularyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListVocabularyResponse
+     */
+    public function listVocabularyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取实例详情.
+     *
+     * @param request - ListVocabularyRequest
+     *
+     * @returns ListVocabularyResponse
+     *
+     * @param ListVocabularyRequest $request
+     *
+     * @return ListVocabularyResponse
+     */
+    public function listVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVocabularyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取三方语音配置列表.
+     *
+     * @param request - ListVoiceAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoiceAccessProfileResponse
+     *
+     * @param ListVoiceAccessProfileRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListVoiceAccessProfileResponse
+     */
+    public function listVoiceAccessProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVoiceAccessProfile',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVoiceAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取三方语音配置列表.
+     *
+     * @param request - ListVoiceAccessProfileRequest
+     *
+     * @returns ListVoiceAccessProfileResponse
+     *
+     * @param ListVoiceAccessProfileRequest $request
+     *
+     * @return ListVoiceAccessProfileResponse
+     */
+    public function listVoiceAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVoiceAccessProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取引擎列表.
+     *
+     * @param request - ListVoiceEnginesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoiceEnginesResponse
+     *
+     * @param ListVoiceEnginesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListVoiceEnginesResponse
+     */
+    public function listVoiceEnginesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVoiceEngines',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVoiceEnginesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取引擎列表.
+     *
+     * @param request - ListVoiceEnginesRequest
+     *
+     * @returns ListVoiceEnginesResponse
+     *
+     * @param ListVoiceEnginesRequest $request
+     *
+     * @return ListVoiceEnginesResponse
+     */
+    public function listVoiceEngines($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVoiceEnginesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取音色列表.
+     *
+     * @param request - ListVoicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoicesResponse
+     *
+     * @param ListVoicesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListVoicesResponse
+     */
+    public function listVoicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->nlsAccessType) {
+            @$body['NlsAccessType'] = $request->nlsAccessType;
+        }
+
+        if (null !== $request->nlsEngine) {
+            @$body['NlsEngine'] = $request->nlsEngine;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVoices',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVoicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取音色列表.
+     *
+     * @param request - ListVoicesRequest
+     *
+     * @returns ListVoicesResponse
+     *
+     * @param ListVoicesRequest $request
+     *
+     * @return ListVoicesResponse
+     */
+    public function listVoices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVoicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 试听.
+     *
+     * @param tmpReq - PreviewVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewVoiceResponse
+     *
+     * @param PreviewVoiceRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PreviewVoiceResponse
+     */
+    public function previewVoiceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PreviewVoiceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->nlsAccessType) {
+            @$body['NlsAccessType'] = $request->nlsAccessType;
+        }
+
+        if (null !== $request->nlsEngine) {
+            @$body['NlsEngine'] = $request->nlsEngine;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        if (null !== $request->text) {
+            @$body['Text'] = $request->text;
+        }
+
+        if (null !== $request->voice) {
+            @$body['Voice'] = $request->voice;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewVoice',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 试听.
+     *
+     * @param request - PreviewVoiceRequest
+     *
+     * @returns PreviewVoiceResponse
+     *
+     * @param PreviewVoiceRequest $request
+     *
+     * @return PreviewVoiceResponse
+     */
+    public function previewVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->previewVoiceWithOptions($request, $runtime);
     }
 
     /**
@@ -1216,6 +2380,10 @@ class BailianVoiceBot extends OpenApiClient
             $request->interactionConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interactionConfig, 'InteractionConfig', 'json');
         }
 
+        if (null !== $tmpReq->ragConfig) {
+            $request->ragConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ragConfig, 'RagConfig', 'json');
+        }
+
         if (null !== $tmpReq->scriptProfile) {
             $request->scriptProfileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scriptProfile, 'ScriptProfile', 'json');
         }
@@ -1239,6 +2407,10 @@ class BailianVoiceBot extends OpenApiClient
 
         if (null !== $request->interactionConfigShrink) {
             @$query['InteractionConfig'] = $request->interactionConfigShrink;
+        }
+
+        if (null !== $request->ragConfigShrink) {
+            @$query['RagConfig'] = $request->ragConfigShrink;
         }
 
         if (null !== $request->scriptProfileShrink) {
@@ -1359,6 +2531,101 @@ class BailianVoiceBot extends OpenApiClient
     }
 
     /**
+     * 创建或更新MQ配置.
+     *
+     * @param tmpReq - UpdateSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param UpdateSubscriptionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSubscriptionResponse
+     */
+    public function updateSubscriptionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSubscriptionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->eventSubscriptions) {
+            $request->eventSubscriptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventSubscriptions, 'EventSubscriptions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->endpoint) {
+            @$body['Endpoint'] = $request->endpoint;
+        }
+
+        if (null !== $request->eventSubscriptionsShrink) {
+            @$body['EventSubscriptions'] = $request->eventSubscriptionsShrink;
+        }
+
+        if (null !== $request->mqInstanceId) {
+            @$body['MqInstanceId'] = $request->mqInstanceId;
+        }
+
+        if (null !== $request->mqType) {
+            @$body['MqType'] = $request->mqType;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->producerId) {
+            @$body['ProducerId'] = $request->producerId;
+        }
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSubscription',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建或更新MQ配置.
+     *
+     * @param request - UpdateSubscriptionRequest
+     *
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param UpdateSubscriptionRequest $request
+     *
+     * @return UpdateSubscriptionResponse
+     */
+    public function updateSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新变量.
      *
      * @param request - UpdateVariableRequest
@@ -1425,5 +2692,159 @@ class BailianVoiceBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateVariableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param tmpReq - UpdateVocabularyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVocabularyResponse
+     *
+     * @param UpdateVocabularyRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateVocabularyResponse
+     */
+    public function updateVocabularyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateVocabularyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->words) {
+            $request->wordsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->words, 'Words', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->vocabularyId) {
+            @$body['VocabularyId'] = $request->vocabularyId;
+        }
+
+        if (null !== $request->wordsShrink) {
+            @$body['Words'] = $request->wordsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVocabulary',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVocabularyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例.
+     *
+     * @param request - UpdateVocabularyRequest
+     *
+     * @returns UpdateVocabularyResponse
+     *
+     * @param UpdateVocabularyRequest $request
+     *
+     * @return UpdateVocabularyResponse
+     */
+    public function updateVocabulary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVocabularyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新三方语音配置.
+     *
+     * @param tmpReq - UpdateVoiceAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVoiceAccessProfileResponse
+     *
+     * @param UpdateVoiceAccessProfileRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateVoiceAccessProfileResponse
+     */
+    public function updateVoiceAccessProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateVoiceAccessProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->profile) {
+            $request->profileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->profile, 'Profile', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accessProfileId) {
+            @$body['AccessProfileId'] = $request->accessProfileId;
+        }
+
+        if (null !== $request->businessUnitId) {
+            @$body['BusinessUnitId'] = $request->businessUnitId;
+        }
+
+        if (null !== $request->nlsEngine) {
+            @$body['NlsEngine'] = $request->nlsEngine;
+        }
+
+        if (null !== $request->profileShrink) {
+            @$body['Profile'] = $request->profileShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVoiceAccessProfile',
+            'version' => '2025-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVoiceAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新三方语音配置.
+     *
+     * @param request - UpdateVoiceAccessProfileRequest
+     *
+     * @returns UpdateVoiceAccessProfileResponse
+     *
+     * @param UpdateVoiceAccessProfileRequest $request
+     *
+     * @return UpdateVoiceAccessProfileResponse
+     */
+    public function updateVoiceAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVoiceAccessProfileWithOptions($request, $runtime);
     }
 }

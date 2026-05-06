@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\interactionConfig;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\ragConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\scriptProfile;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\synthesizerConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\transcriberConfig;
@@ -26,6 +27,11 @@ class CreateApplicationVersionRequest extends Model
      * @var interactionConfig
      */
     public $interactionConfig;
+
+    /**
+     * @var ragConfig
+     */
+    public $ragConfig;
 
     /**
      * @var scriptProfile
@@ -50,6 +56,7 @@ class CreateApplicationVersionRequest extends Model
         'applicationId' => 'ApplicationId',
         'businessUnitId' => 'BusinessUnitId',
         'interactionConfig' => 'InteractionConfig',
+        'ragConfig' => 'RagConfig',
         'scriptProfile' => 'ScriptProfile',
         'sourceVersionId' => 'SourceVersionId',
         'synthesizerConfig' => 'SynthesizerConfig',
@@ -60,6 +67,9 @@ class CreateApplicationVersionRequest extends Model
     {
         if (null !== $this->interactionConfig) {
             $this->interactionConfig->validate();
+        }
+        if (null !== $this->ragConfig) {
+            $this->ragConfig->validate();
         }
         if (null !== $this->scriptProfile) {
             $this->scriptProfile->validate();
@@ -86,6 +96,10 @@ class CreateApplicationVersionRequest extends Model
 
         if (null !== $this->interactionConfig) {
             $res['InteractionConfig'] = null !== $this->interactionConfig ? $this->interactionConfig->toArray($noStream) : $this->interactionConfig;
+        }
+
+        if (null !== $this->ragConfig) {
+            $res['RagConfig'] = null !== $this->ragConfig ? $this->ragConfig->toArray($noStream) : $this->ragConfig;
         }
 
         if (null !== $this->scriptProfile) {
@@ -125,6 +139,10 @@ class CreateApplicationVersionRequest extends Model
 
         if (isset($map['InteractionConfig'])) {
             $model->interactionConfig = interactionConfig::fromMap($map['InteractionConfig']);
+        }
+
+        if (isset($map['RagConfig'])) {
+            $model->ragConfig = ragConfig::fromMap($map['RagConfig']);
         }
 
         if (isset($map['ScriptProfile'])) {
