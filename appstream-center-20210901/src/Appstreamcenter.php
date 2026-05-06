@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BatchCreateLlmTemplatesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BatchCreateLlmTemplatesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeChannelRequest;
@@ -23,6 +25,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageByInstanceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateImageFromAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelProviderTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelProviderTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest;
@@ -33,6 +37,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteLlmTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteLlmTemplateResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteModelProviderTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteModelProviderTemplateResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
@@ -43,6 +53,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
@@ -65,8 +77,17 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeReq
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderTemplatesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderTemplatesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplateResourceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplateResourceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplatesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplatesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodesRequest;
@@ -132,6 +153,11 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelProviderTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelProviderTemplateResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelProviderTemplateShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -342,6 +368,71 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->authorizeInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量创建LLM模板
+     *
+     * @param request - BatchCreateLlmTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateLlmTemplatesResponse
+     *
+     * @param BatchCreateLlmTemplatesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchCreateLlmTemplatesResponse
+     */
+    public function batchCreateLlmTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->llmTemplateItems) {
+            @$body['LlmTemplateItems'] = $request->llmTemplateItems;
+        }
+
+        if (null !== $request->modelTemplateId) {
+            @$body['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->providerTemplateId) {
+            @$body['ProviderTemplateId'] = $request->providerTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCreateLlmTemplates',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCreateLlmTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量创建LLM模板
+     *
+     * @param request - BatchCreateLlmTemplatesRequest
+     *
+     * @returns BatchCreateLlmTemplatesResponse
+     *
+     * @param BatchCreateLlmTemplatesRequest $request
+     *
+     * @return BatchCreateLlmTemplatesResponse
+     */
+    public function batchCreateLlmTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateLlmTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -923,6 +1014,99 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 创建模型提供商模板
+     *
+     * @param request - CreateModelProviderTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelProviderTemplateResponse
+     *
+     * @param CreateModelProviderTemplateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateModelProviderTemplateResponse
+     */
+    public function createModelProviderTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableWuyingProxy) {
+            @$query['EnableWuyingProxy'] = $request->enableWuyingProxy;
+        }
+
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->providerName) {
+            @$query['ProviderName'] = $request->providerName;
+        }
+
+        if (null !== $request->providerType) {
+            @$query['ProviderType'] = $request->providerType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelProviderTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelProviderTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型提供商模板
+     *
+     * @param request - CreateModelProviderTemplateRequest
+     *
+     * @returns CreateModelProviderTemplateResponse
+     *
+     * @param CreateModelProviderTemplateRequest $request
+     *
+     * @return CreateModelProviderTemplateResponse
+     */
+    public function createModelProviderTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelProviderTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建模型模板
      *
      * @param request - CreateModelTemplateRequest
@@ -1383,6 +1567,177 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 删除LLM模板
+     *
+     * @param request - DeleteLlmTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLlmTemplateResponse
+     *
+     * @param DeleteLlmTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteLlmTemplateResponse
+     */
+    public function deleteLlmTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->llmTemplateId) {
+            @$query['LlmTemplateId'] = $request->llmTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLlmTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLlmTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除LLM模板
+     *
+     * @param request - DeleteLlmTemplateRequest
+     *
+     * @returns DeleteLlmTemplateResponse
+     *
+     * @param DeleteLlmTemplateRequest $request
+     *
+     * @return DeleteLlmTemplateResponse
+     */
+    public function deleteLlmTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLlmTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除模型提供商模板
+     *
+     * @param request - DeleteModelProviderTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelProviderTemplateResponse
+     *
+     * @param DeleteModelProviderTemplateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteModelProviderTemplateResponse
+     */
+    public function deleteModelProviderTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->providerTemplateId) {
+            @$query['ProviderTemplateId'] = $request->providerTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelProviderTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelProviderTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型提供商模板
+     *
+     * @param request - DeleteModelProviderTemplateRequest
+     *
+     * @returns DeleteModelProviderTemplateResponse
+     *
+     * @param DeleteModelProviderTemplateRequest $request
+     *
+     * @return DeleteModelProviderTemplateResponse
+     */
+    public function deleteModelProviderTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelProviderTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除模型模板
+     *
+     * @param request - DeleteModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelTemplateResponse
+     *
+     * @param DeleteModelTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteModelTemplateResponse
+     */
+    public function deleteModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型模板
+     *
+     * @param request - DeleteModelTemplateRequest
+     *
+     * @returns DeleteModelTemplateResponse
+     *
+     * @param DeleteModelTemplateRequest $request
+     *
+     * @return DeleteModelTemplateResponse
+     */
+    public function deleteModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteModelTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除工作站.
      *
      * @remarks
@@ -1741,6 +2096,63 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDebugAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型提供商模板详情.
+     *
+     * @param request - GetModelProviderTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelProviderTemplateResponse
+     *
+     * @param GetModelProviderTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetModelProviderTemplateResponse
+     */
+    public function getModelProviderTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->providerTemplateId) {
+            @$query['ProviderTemplateId'] = $request->providerTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetModelProviderTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelProviderTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型提供商模板详情.
+     *
+     * @param request - GetModelProviderTemplateRequest
+     *
+     * @returns GetModelProviderTemplateResponse
+     *
+     * @param GetModelProviderTemplateRequest $request
+     *
+     * @return GetModelProviderTemplateResponse
+     */
+    public function getModelProviderTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getModelProviderTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2725,6 +3137,180 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 查询LLM模板列表.
+     *
+     * @param tmpReq - ListLlmTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLlmTemplatesResponse
+     *
+     * @param ListLlmTemplatesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListLlmTemplatesResponse
+     */
+    public function listLlmTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListLlmTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->llmTemplateIds) {
+            $request->llmTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->llmTemplateIds, 'LlmTemplateIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->llmCode) {
+            @$query['LlmCode'] = $request->llmCode;
+        }
+
+        if (null !== $request->llmTemplateIdsShrink) {
+            @$query['LlmTemplateIds'] = $request->llmTemplateIdsShrink;
+        }
+
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->providerTemplateId) {
+            @$query['ProviderTemplateId'] = $request->providerTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLlmTemplates',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLlmTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询LLM模板列表.
+     *
+     * @param request - ListLlmTemplatesRequest
+     *
+     * @returns ListLlmTemplatesResponse
+     *
+     * @param ListLlmTemplatesRequest $request
+     *
+     * @return ListLlmTemplatesResponse
+     */
+    public function listLlmTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLlmTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型提供商模板列表.
+     *
+     * @param tmpReq - ListModelProviderTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelProviderTemplatesResponse
+     *
+     * @param ListModelProviderTemplatesRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListModelProviderTemplatesResponse
+     */
+    public function listModelProviderTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListModelProviderTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->providerTemplateIds) {
+            $request->providerTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->providerTemplateIds, 'ProviderTemplateIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->providerName) {
+            @$query['ProviderName'] = $request->providerName;
+        }
+
+        if (null !== $request->providerTemplateIdsShrink) {
+            @$query['ProviderTemplateIds'] = $request->providerTemplateIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelProviderTemplates',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelProviderTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型提供商模板列表.
+     *
+     * @param request - ListModelProviderTemplatesRequest
+     *
+     * @returns ListModelProviderTemplatesResponse
+     *
+     * @param ListModelProviderTemplatesRequest $request
+     *
+     * @return ListModelProviderTemplatesResponse
+     */
+    public function listModelProviderTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelProviderTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询模型分组绑定的资源组列表.
      *
      * @param request - ListModelTemplateResourceGroupRequest
@@ -2791,6 +3377,93 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listModelTemplateResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型模板列表.
+     *
+     * @param tmpReq - ListModelTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelTemplatesResponse
+     *
+     * @param ListModelTemplatesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListModelTemplatesResponse
+     */
+    public function listModelTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListModelTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->modelTemplateIdList) {
+            $request->modelTemplateIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelTemplateIdList, 'ModelTemplateIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->hasModel) {
+            @$query['HasModel'] = $request->hasModel;
+        }
+
+        if (null !== $request->modelTemplateIdListShrink) {
+            @$query['ModelTemplateIdList'] = $request->modelTemplateIdListShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelTemplates',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型模板列表.
+     *
+     * @param request - ListModelTemplatesRequest
+     *
+     * @returns ListModelTemplatesResponse
+     *
+     * @param ListModelTemplatesRequest $request
+     *
+     * @return ListModelTemplatesResponse
+     */
+    public function listModelTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -5075,6 +5748,156 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAppInstanceGroupImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新模型提供商模板
+     *
+     * @param tmpReq - UpdateModelProviderTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelProviderTemplateResponse
+     *
+     * @param UpdateModelProviderTemplateRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateModelProviderTemplateResponse
+     */
+    public function updateModelProviderTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateModelProviderTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->config) {
+            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configShrink) {
+            @$query['Config'] = $request->configShrink;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableWuyingProxy) {
+            @$body['EnableWuyingProxy'] = $request->enableWuyingProxy;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->providerTemplateId) {
+            @$body['ProviderTemplateId'] = $request->providerTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelProviderTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelProviderTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模型提供商模板
+     *
+     * @param request - UpdateModelProviderTemplateRequest
+     *
+     * @returns UpdateModelProviderTemplateResponse
+     *
+     * @param UpdateModelProviderTemplateRequest $request
+     *
+     * @return UpdateModelProviderTemplateResponse
+     */
+    public function updateModelProviderTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateModelProviderTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新模型模板
+     *
+     * @param request - UpdateModelTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelTemplateResponse
+     *
+     * @param UpdateModelTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateModelTemplateResponse
+     */
+    public function updateModelTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->modelTemplateId) {
+            @$query['ModelTemplateId'] = $request->modelTemplateId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新模型模板
+     *
+     * @param request - UpdateModelTemplateRequest
+     *
+     * @returns UpdateModelTemplateResponse
+     *
+     * @param UpdateModelTemplateRequest $request
+     *
+     * @return UpdateModelTemplateResponse
+     */
+    public function updateModelTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateModelTemplateWithOptions($request, $runtime);
     }
 
     /**
