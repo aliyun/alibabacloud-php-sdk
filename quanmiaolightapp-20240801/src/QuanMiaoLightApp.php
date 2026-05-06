@@ -41,6 +41,7 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisR
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEnterpriseVocAnalysisShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEssayCorrectionRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEssayCorrectionResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunEssayCorrectionShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatShrinkRequest;
@@ -1346,25 +1347,35 @@ class QuanMiaoLightApp extends OpenApiClient
     /**
      * 作业批改.
      *
-     * @param request - RunEssayCorrectionRequest
+     * @param tmpReq - RunEssayCorrectionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunEssayCorrectionResponse
      *
      * @param string                    $workspaceId
-     * @param RunEssayCorrectionRequest $request
+     * @param RunEssayCorrectionRequest $tmpReq
      * @param string[]                  $headers
      * @param RuntimeOptions            $runtime
      *
      * @return RunEssayCorrectionResponse
      */
-    public function runEssayCorrectionWithSSE($workspaceId, $request, $headers, $runtime)
+    public function runEssayCorrectionWithSSE($workspaceId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RunEssayCorrectionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dimensions) {
+            $request->dimensionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'dimensions', 'json');
+        }
+
         $body = [];
         if (null !== $request->answer) {
             @$body['answer'] = $request->answer;
+        }
+
+        if (null !== $request->dimensionsShrink) {
+            @$body['dimensions'] = $request->dimensionsShrink;
         }
 
         if (null !== $request->grade) {
@@ -1426,25 +1437,35 @@ class QuanMiaoLightApp extends OpenApiClient
     /**
      * 作业批改.
      *
-     * @param request - RunEssayCorrectionRequest
+     * @param tmpReq - RunEssayCorrectionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RunEssayCorrectionResponse
      *
      * @param string                    $workspaceId
-     * @param RunEssayCorrectionRequest $request
+     * @param RunEssayCorrectionRequest $tmpReq
      * @param string[]                  $headers
      * @param RuntimeOptions            $runtime
      *
      * @return RunEssayCorrectionResponse
      */
-    public function runEssayCorrectionWithOptions($workspaceId, $request, $headers, $runtime)
+    public function runEssayCorrectionWithOptions($workspaceId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RunEssayCorrectionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dimensions) {
+            $request->dimensionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'dimensions', 'json');
+        }
+
         $body = [];
         if (null !== $request->answer) {
             @$body['answer'] = $request->answer;
+        }
+
+        if (null !== $request->dimensionsShrink) {
+            @$body['dimensions'] = $request->dimensionsShrink;
         }
 
         if (null !== $request->grade) {
@@ -4302,11 +4323,19 @@ class QuanMiaoLightApp extends OpenApiClient
         $tmpReq->validate();
         $request = new SubmitEssayCorrectionTaskShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dimensions) {
+            $request->dimensionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'dimensions', 'json');
+        }
+
         if (null !== $tmpReq->tasks) {
             $request->tasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'tasks', 'json');
         }
 
         $body = [];
+        if (null !== $request->dimensionsShrink) {
+            @$body['dimensions'] = $request->dimensionsShrink;
+        }
+
         if (null !== $request->grade) {
             @$body['grade'] = $request->grade;
         }

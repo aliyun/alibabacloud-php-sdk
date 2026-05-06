@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEssayCorrectionTaskRequest\dimensions;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEssayCorrectionTaskRequest\tasks;
 
 class SubmitEssayCorrectionTaskRequest extends Model
 {
+    /**
+     * @var dimensions[]
+     */
+    public $dimensions;
+
     /**
      * @var string
      */
@@ -44,6 +50,7 @@ class SubmitEssayCorrectionTaskRequest extends Model
      */
     public $totalScore;
     protected $_name = [
+        'dimensions' => 'dimensions',
         'grade' => 'grade',
         'modelId' => 'modelId',
         'otherReviewPoints' => 'otherReviewPoints',
@@ -55,6 +62,9 @@ class SubmitEssayCorrectionTaskRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
         if (\is_array($this->tasks)) {
             Model::validateArray($this->tasks);
         }
@@ -64,6 +74,17 @@ class SubmitEssayCorrectionTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dimensions) {
+            if (\is_array($this->dimensions)) {
+                $res['dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->grade) {
             $res['grade'] = $this->grade;
         }
@@ -110,6 +131,17 @@ class SubmitEssayCorrectionTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dimensions'])) {
+            if (!empty($map['dimensions'])) {
+                $model->dimensions = [];
+                $n1 = 0;
+                foreach ($map['dimensions'] as $item1) {
+                    $model->dimensions[$n1] = dimensions::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['grade'])) {
             $model->grade = $map['grade'];
         }

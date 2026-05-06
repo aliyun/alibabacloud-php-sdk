@@ -11,6 +11,11 @@ class SubmitEssayCorrectionTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $dimensionsShrink;
+
+    /**
+     * @var string
+     */
     public $grade;
 
     /**
@@ -43,6 +48,7 @@ class SubmitEssayCorrectionTaskShrinkRequest extends Model
      */
     public $totalScore;
     protected $_name = [
+        'dimensionsShrink' => 'dimensions',
         'grade' => 'grade',
         'modelId' => 'modelId',
         'otherReviewPoints' => 'otherReviewPoints',
@@ -60,6 +66,10 @@ class SubmitEssayCorrectionTaskShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dimensionsShrink) {
+            $res['dimensions'] = $this->dimensionsShrink;
+        }
+
         if (null !== $this->grade) {
             $res['grade'] = $this->grade;
         }
@@ -99,6 +109,10 @@ class SubmitEssayCorrectionTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dimensions'])) {
+            $model->dimensionsShrink = $map['dimensions'];
+        }
+
         if (isset($map['grade'])) {
             $model->grade = $map['grade'];
         }
