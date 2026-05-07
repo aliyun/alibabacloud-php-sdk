@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DisableAgentRuntimeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DisableAgentRuntimeResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\EnableAgentRuntimeResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
@@ -91,6 +93,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListCustomAgentToolsResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListLLMTokenUsageRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListLLMTokenUsageResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListSkillRequest;
@@ -2436,6 +2440,71 @@ class RdsAi extends OpenApiClient
     }
 
     /**
+     * GetAvailableLLMModels.
+     *
+     * @param request - GetAvailableLLMModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAvailableLLMModelsResponse
+     *
+     * @param GetAvailableLLMModelsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAvailableLLMModelsResponse
+     */
+    public function getAvailableLLMModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAvailableLLMModels',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAvailableLLMModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetAvailableLLMModels.
+     *
+     * @param request - GetAvailableLLMModelsRequest
+     *
+     * @returns GetAvailableLLMModelsResponse
+     *
+     * @param GetAvailableLLMModelsRequest $request
+     *
+     * @return GetAvailableLLMModelsResponse
+     */
+    public function getAvailableLLMModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAvailableLLMModelsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the history conversations of a user.
      *
      * @param request - GetConversationsRequest
@@ -3184,6 +3253,79 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomAgentToolsWithOptions($runtime);
+    }
+
+    /**
+     * ListLLMTokenUsage.
+     *
+     * @param request - ListLLMTokenUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLLMTokenUsageResponse
+     *
+     * @param ListLLMTokenUsageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLLMTokenUsageResponse
+     */
+    public function listLLMTokenUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLLMTokenUsage',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLLMTokenUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListLLMTokenUsage.
+     *
+     * @param request - ListLLMTokenUsageRequest
+     *
+     * @returns ListLLMTokenUsageResponse
+     *
+     * @param ListLLMTokenUsageRequest $request
+     *
+     * @return ListLLMTokenUsageResponse
+     */
+    public function listLLMTokenUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLLMTokenUsageWithOptions($request, $runtime);
     }
 
     /**
