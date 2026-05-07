@@ -916,6 +916,10 @@ class Dms extends OpenApiClient
             @$query['DMSUnit'] = $request->DMSUnit;
         }
 
+        if (null !== $request->isSessionShareEnabled) {
+            @$query['IsSessionShareEnabled'] = $request->isSessionShareEnabled;
+        }
+
         if (null !== $request->workspaceDesc) {
             @$query['WorkspaceDesc'] = $request->workspaceDesc;
         }
@@ -4911,6 +4915,10 @@ class Dms extends OpenApiClient
         $query = [];
         if (null !== $request->DMSUnit) {
             @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->isSessionShareEnabled) {
+            @$query['IsSessionShareEnabled'] = $request->isSessionShareEnabled;
         }
 
         if (null !== $request->workspaceDesc) {

@@ -19,6 +19,11 @@ class data extends Model
     public $creator;
 
     /**
+     * @var bool
+     */
+    public $isSessionShareEnabled;
+
+    /**
      * @var string
      */
     public $modifyTime;
@@ -55,6 +60,7 @@ class data extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
+        'isSessionShareEnabled' => 'IsSessionShareEnabled',
         'modifyTime' => 'ModifyTime',
         'roleName' => 'RoleName',
         'totalMember' => 'TotalMember',
@@ -78,6 +84,10 @@ class data extends Model
 
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
+        }
+
+        if (null !== $this->isSessionShareEnabled) {
+            $res['IsSessionShareEnabled'] = $this->isSessionShareEnabled;
         }
 
         if (null !== $this->modifyTime) {
@@ -125,6 +135,10 @@ class data extends Model
 
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
+        }
+
+        if (isset($map['IsSessionShareEnabled'])) {
+            $model->isSessionShareEnabled = $map['IsSessionShareEnabled'];
         }
 
         if (isset($map['ModifyTime'])) {

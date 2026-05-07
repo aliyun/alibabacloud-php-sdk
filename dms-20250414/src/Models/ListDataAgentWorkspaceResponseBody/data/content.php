@@ -24,6 +24,11 @@ class content extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $isSessionShareEnabled;
+
+    /**
      * @var int
      */
     public $modifyTime;
@@ -56,6 +61,7 @@ class content extends Model
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
         'description' => 'Description',
+        'isSessionShareEnabled' => 'IsSessionShareEnabled',
         'modifyTime' => 'ModifyTime',
         'roleName' => 'RoleName',
         'totalMember' => 'TotalMember',
@@ -82,6 +88,10 @@ class content extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->isSessionShareEnabled) {
+            $res['IsSessionShareEnabled'] = $this->isSessionShareEnabled;
         }
 
         if (null !== $this->modifyTime) {
@@ -129,6 +139,10 @@ class content extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['IsSessionShareEnabled'])) {
+            $model->isSessionShareEnabled = $map['IsSessionShareEnabled'];
         }
 
         if (isset($map['ModifyTime'])) {

@@ -14,6 +14,11 @@ class CreateDataAgentWorkspaceRequest extends Model
     public $DMSUnit;
 
     /**
+     * @var bool
+     */
+    public $isSessionShareEnabled;
+
+    /**
      * @var string
      */
     public $workspaceDesc;
@@ -24,6 +29,7 @@ class CreateDataAgentWorkspaceRequest extends Model
     public $workspaceName;
     protected $_name = [
         'DMSUnit' => 'DMSUnit',
+        'isSessionShareEnabled' => 'IsSessionShareEnabled',
         'workspaceDesc' => 'WorkspaceDesc',
         'workspaceName' => 'WorkspaceName',
     ];
@@ -38,6 +44,10 @@ class CreateDataAgentWorkspaceRequest extends Model
         $res = [];
         if (null !== $this->DMSUnit) {
             $res['DMSUnit'] = $this->DMSUnit;
+        }
+
+        if (null !== $this->isSessionShareEnabled) {
+            $res['IsSessionShareEnabled'] = $this->isSessionShareEnabled;
         }
 
         if (null !== $this->workspaceDesc) {
@@ -61,6 +71,10 @@ class CreateDataAgentWorkspaceRequest extends Model
         $model = new self();
         if (isset($map['DMSUnit'])) {
             $model->DMSUnit = $map['DMSUnit'];
+        }
+
+        if (isset($map['IsSessionShareEnabled'])) {
+            $model->isSessionShareEnabled = $map['IsSessionShareEnabled'];
         }
 
         if (isset($map['WorkspaceDesc'])) {
