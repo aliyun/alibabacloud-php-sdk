@@ -26,6 +26,11 @@ class jobResult extends Model
     /**
      * @var string
      */
+    public $srtFileUrl;
+
+    /**
+     * @var string
+     */
     public $storyboardInfoList;
 
     /**
@@ -41,6 +46,7 @@ class jobResult extends Model
         'exceptionStoryboardIds' => 'ExceptionStoryboardIds',
         'failureShotList' => 'FailureShotList',
         'outputUrl' => 'OutputUrl',
+        'srtFileUrl' => 'SrtFileUrl',
         'storyboardInfoList' => 'StoryboardInfoList',
         'successStoryboardIds' => 'SuccessStoryboardIds',
         'successStoryboardList' => 'SuccessStoryboardList',
@@ -64,6 +70,10 @@ class jobResult extends Model
 
         if (null !== $this->outputUrl) {
             $res['OutputUrl'] = $this->outputUrl;
+        }
+
+        if (null !== $this->srtFileUrl) {
+            $res['SrtFileUrl'] = $this->srtFileUrl;
         }
 
         if (null !== $this->storyboardInfoList) {
@@ -99,6 +109,10 @@ class jobResult extends Model
 
         if (isset($map['OutputUrl'])) {
             $model->outputUrl = $map['OutputUrl'];
+        }
+
+        if (isset($map['SrtFileUrl'])) {
+            $model->srtFileUrl = $map['SrtFileUrl'];
         }
 
         if (isset($map['StoryboardInfoList'])) {
