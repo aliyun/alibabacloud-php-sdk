@@ -8,10 +8,14 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobTemplateRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetDashboardRequest;
@@ -24,6 +28,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobSanityCheckResultRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobSanityCheckResultResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobTemplateRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
@@ -45,8 +51,12 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobSanityCheckResultsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsShrinkRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobTemplatesRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobTemplatesResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobRequest;
@@ -55,6 +65,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobTemplateRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateTensorboardResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -305,6 +317,87 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 创建任务模板
+     *
+     * @param request - CreateJobTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobTemplateResponse
+     *
+     * @param CreateJobTemplateRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateJobTemplateResponse
+     */
+    public function createJobTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->constraints) {
+            @$body['Constraints'] = $request->constraints;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['Metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateJobTemplate',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobtemplates',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建任务模板
+     *
+     * @param request - CreateJobTemplateRequest
+     *
+     * @returns CreateJobTemplateResponse
+     *
+     * @param CreateJobTemplateRequest $request
+     *
+     * @return CreateJobTemplateResponse
+     */
+    public function createJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createJobTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a TensorBoard by using a job or specifying a data source configuration.
      *
      * @param request - CreateTensorboardRequest
@@ -496,6 +589,63 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->deleteJobWithOptions($JobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除任务模板
+     *
+     * @param request - DeleteJobTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteJobTemplateResponse
+     *
+     * @param string                   $TemplateId
+     * @param DeleteJobTemplateRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteJobTemplateResponse
+     */
+    public function deleteJobTemplateWithOptions($TemplateId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteJobTemplate',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobtemplates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除任务模板
+     *
+     * @param request - DeleteJobTemplateRequest
+     *
+     * @returns DeleteJobTemplateResponse
+     *
+     * @param string                   $TemplateId
+     * @param DeleteJobTemplateRequest $request
+     *
+     * @return DeleteJobTemplateResponse
+     */
+    public function deleteJobTemplate($TemplateId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteJobTemplateWithOptions($TemplateId, $request, $headers, $runtime);
     }
 
     /**
@@ -916,6 +1066,69 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getJobSanityCheckResultWithOptions($JobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取任务模板详情.
+     *
+     * @param request - GetJobTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobTemplateResponse
+     *
+     * @param string                $TemplateId
+     * @param GetJobTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetJobTemplateResponse
+     */
+    public function getJobTemplateWithOptions($TemplateId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetJobTemplate',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobtemplates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取任务模板详情.
+     *
+     * @param request - GetJobTemplateRequest
+     *
+     * @returns GetJobTemplateResponse
+     *
+     * @param string                $TemplateId
+     * @param GetJobTemplateRequest $request
+     *
+     * @return GetJobTemplateResponse
+     */
+    public function getJobTemplate($TemplateId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getJobTemplateWithOptions($TemplateId, $request, $headers, $runtime);
     }
 
     /**
@@ -1570,6 +1783,95 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 列出任务模板
+     *
+     * @param request - ListJobTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobTemplatesResponse
+     *
+     * @param ListJobTemplatesRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListJobTemplatesResponse
+     */
+    public function listJobTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListJobTemplates',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobtemplates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出任务模板
+     *
+     * @param request - ListJobTemplatesRequest
+     *
+     * @returns ListJobTemplatesResponse
+     *
+     * @param ListJobTemplatesRequest $request
+     *
+     * @return ListJobTemplatesResponse
+     */
+    public function listJobTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listJobTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
      *
      * @param tmpReq - ListJobsRequest
@@ -1914,6 +2216,69 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 设置任务模板默认版本.
+     *
+     * @param request - SetJobTemplateDefaultVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetJobTemplateDefaultVersionResponse
+     *
+     * @param string                              $TemplateId
+     * @param SetJobTemplateDefaultVersionRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SetJobTemplateDefaultVersionResponse
+     */
+    public function setJobTemplateDefaultVersionWithOptions($TemplateId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->version) {
+            @$body['Version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetJobTemplateDefaultVersion',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobtemplates/' . Url::percentEncode($TemplateId) . '/defaultversion',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SetJobTemplateDefaultVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置任务模板默认版本.
+     *
+     * @param request - SetJobTemplateDefaultVersionRequest
+     *
+     * @returns SetJobTemplateDefaultVersionResponse
+     *
+     * @param string                              $TemplateId
+     * @param SetJobTemplateDefaultVersionRequest $request
+     *
+     * @return SetJobTemplateDefaultVersionResponse
+     */
+    public function setJobTemplateDefaultVersion($TemplateId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setJobTemplateDefaultVersionWithOptions($TemplateId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a TensorBoard instance.
      *
      * @param request - StartTensorboardRequest
@@ -2169,6 +2534,93 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->updateJobWithOptions($JobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新任务模板
+     *
+     * @param request - UpdateJobTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobTemplateResponse
+     *
+     * @param string                   $TemplateId
+     * @param UpdateJobTemplateRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateJobTemplateResponse
+     */
+    public function updateJobTemplateWithOptions($TemplateId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->constraints) {
+            @$body['Constraints'] = $request->constraints;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['Metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->setAsDefault) {
+            @$body['SetAsDefault'] = $request->setAsDefault;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateJobTemplate',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobtemplates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新任务模板
+     *
+     * @param request - UpdateJobTemplateRequest
+     *
+     * @returns UpdateJobTemplateResponse
+     *
+     * @param string                   $TemplateId
+     * @param UpdateJobTemplateRequest $request
+     *
+     * @return UpdateJobTemplateResponse
+     */
+    public function updateJobTemplate($TemplateId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateJobTemplateWithOptions($TemplateId, $request, $headers, $runtime);
     }
 
     /**
