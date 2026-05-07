@@ -11530,6 +11530,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['Prompt'] = $request->prompt;
         }
 
+        if (null !== $request->responseFormat) {
+            @$body['ResponseFormat'] = $request->responseFormat;
+        }
+
         if (null !== $request->sessionId) {
             @$body['SessionId'] = $request->sessionId;
         }
@@ -11606,6 +11610,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['Prompt'] = $request->prompt;
         }
 
+        if (null !== $request->responseFormat) {
+            @$body['ResponseFormat'] = $request->responseFormat;
+        }
+
         if (null !== $request->sessionId) {
             @$body['SessionId'] = $request->sessionId;
         }
@@ -11671,6 +11679,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->cleanCache) {
+            @$body['CleanCache'] = $request->cleanCache;
+        }
+
         if (null !== $request->docId) {
             @$body['DocId'] = $request->docId;
         }
@@ -11739,6 +11751,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->cleanCache) {
+            @$body['CleanCache'] = $request->cleanCache;
+        }
+
         if (null !== $request->docId) {
             @$body['DocId'] = $request->docId;
         }
@@ -12762,6 +12778,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['Prompt'] = $request->prompt;
         }
 
+        if (null !== $request->responseFormat) {
+            @$body['ResponseFormat'] = $request->responseFormat;
+        }
+
         if (null !== $request->sessionId) {
             @$body['SessionId'] = $request->sessionId;
         }
@@ -12844,6 +12864,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->prompt) {
             @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->responseFormat) {
+            @$body['ResponseFormat'] = $request->responseFormat;
         }
 
         if (null !== $request->sessionId) {

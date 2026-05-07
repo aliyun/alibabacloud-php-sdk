@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class RunBookIntroductionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $cleanCache;
+
+    /**
      * @var string
      */
     public $docId;
@@ -33,6 +38,7 @@ class RunBookIntroductionRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'cleanCache' => 'CleanCache',
         'docId' => 'DocId',
         'keyPointPrompt' => 'KeyPointPrompt',
         'sessionId' => 'SessionId',
@@ -48,6 +54,10 @@ class RunBookIntroductionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cleanCache) {
+            $res['CleanCache'] = $this->cleanCache;
+        }
+
         if (null !== $this->docId) {
             $res['DocId'] = $this->docId;
         }
@@ -79,6 +89,10 @@ class RunBookIntroductionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CleanCache'])) {
+            $model->cleanCache = $map['CleanCache'];
+        }
+
         if (isset($map['DocId'])) {
             $model->docId = $map['DocId'];
         }

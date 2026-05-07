@@ -29,6 +29,11 @@ class RunBookBrainmapRequest extends Model
     public $prompt;
 
     /**
+     * @var int
+     */
+    public $responseFormat;
+
+    /**
      * @var string
      */
     public $sessionId;
@@ -47,6 +52,7 @@ class RunBookBrainmapRequest extends Model
         'docId' => 'DocId',
         'nodeNumber' => 'NodeNumber',
         'prompt' => 'Prompt',
+        'responseFormat' => 'ResponseFormat',
         'sessionId' => 'SessionId',
         'wordNumber' => 'WordNumber',
         'workspaceId' => 'WorkspaceId',
@@ -74,6 +80,10 @@ class RunBookBrainmapRequest extends Model
 
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
+        }
+
+        if (null !== $this->responseFormat) {
+            $res['ResponseFormat'] = $this->responseFormat;
         }
 
         if (null !== $this->sessionId) {
@@ -113,6 +123,10 @@ class RunBookBrainmapRequest extends Model
 
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
+        }
+
+        if (isset($map['ResponseFormat'])) {
+            $model->responseFormat = $map['ResponseFormat'];
         }
 
         if (isset($map['SessionId'])) {
