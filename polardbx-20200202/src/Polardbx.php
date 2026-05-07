@@ -249,6 +249,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\StartSwitchDatabaseRequest;
@@ -5538,7 +5540,6 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRegionsResponse
@@ -8740,6 +8741,187 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 克隆PolarDB-X实例.
+     *
+     * @remarks
+     *
+     * @param request - RestoreDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreDBInstanceResponse
+     *
+     * @param RestoreDBInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RestoreDBInstanceResponse
+     */
+    public function restoreDBInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
+        }
+
+        if (null !== $request->backupSetRegion) {
+            @$query['BackupSetRegion'] = $request->backupSetRegion;
+        }
+
+        if (null !== $request->CNNodeCount) {
+            @$query['CNNodeCount'] = $request->CNNodeCount;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloneInstanceName) {
+            @$query['CloneInstanceName'] = $request->cloneInstanceName;
+        }
+
+        if (null !== $request->cnClass) {
+            @$query['CnClass'] = $request->cnClass;
+        }
+
+        if (null !== $request->DBNodeClass) {
+            @$query['DBNodeClass'] = $request->DBNodeClass;
+        }
+
+        if (null !== $request->DBNodeCount) {
+            @$query['DBNodeCount'] = $request->DBNodeCount;
+        }
+
+        if (null !== $request->DNNodeCount) {
+            @$query['DNNodeCount'] = $request->DNNodeCount;
+        }
+
+        if (null !== $request->dnClass) {
+            @$query['DnClass'] = $request->dnClass;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->gdnRole) {
+            @$query['GdnRole'] = $request->gdnRole;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->primaryZone) {
+            @$query['PrimaryZone'] = $request->primaryZone;
+        }
+
+        if (null !== $request->recoveryTypeCode) {
+            @$query['RecoveryTypeCode'] = $request->recoveryTypeCode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->restoreTime) {
+            @$query['RestoreTime'] = $request->restoreTime;
+        }
+
+        if (null !== $request->secondaryZone) {
+            @$query['SecondaryZone'] = $request->secondaryZone;
+        }
+
+        if (null !== $request->series) {
+            @$query['Series'] = $request->series;
+        }
+
+        if (null !== $request->sourceInstanceRegion) {
+            @$query['SourceInstanceRegion'] = $request->sourceInstanceRegion;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->tertiaryZone) {
+            @$query['TertiaryZone'] = $request->tertiaryZone;
+        }
+
+        if (null !== $request->topologyType) {
+            @$query['TopologyType'] = $request->topologyType;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestoreDBInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestoreDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 克隆PolarDB-X实例.
+     *
+     * @remarks
+     *
+     * @param request - RestoreDBInstanceRequest
+     *
+     * @returns RestoreDBInstanceResponse
+     *
+     * @param RestoreDBInstanceRequest $request
+     *
+     * @return RestoreDBInstanceResponse
+     */
+    public function restoreDBInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreDBInstanceWithOptions($request, $runtime);
     }
 
     /**
