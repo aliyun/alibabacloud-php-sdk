@@ -2105,12 +2105,20 @@ class Vod extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableFirstFrameCover) {
+            @$query['EnableFirstFrameCover'] = $request->enableFirstFrameCover;
+        }
+
         if (null !== $request->fileName) {
             @$query['FileName'] = $request->fileName;
         }
 
         if (null !== $request->fileSize) {
             @$query['FileSize'] = $request->fileSize;
+        }
+
+        if (null !== $request->generateThumbnail) {
+            @$query['GenerateThumbnail'] = $request->generateThumbnail;
         }
 
         if (null !== $request->referenceId) {
@@ -11800,6 +11808,14 @@ class Vod extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->enableFirstFrameCover) {
+            @$query['EnableFirstFrameCover'] = $request->enableFirstFrameCover;
+        }
+
+        if (null !== $request->generateThumbnail) {
+            @$query['GenerateThumbnail'] = $request->generateThumbnail;
+        }
+
         if (null !== $request->registerMetadatas) {
             @$query['RegisterMetadatas'] = $request->registerMetadatas;
         }
@@ -14861,6 +14877,14 @@ class Vod extends OpenApiClient
         $query = [];
         if (null !== $request->appId) {
             @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->enableFirstFrameCover) {
+            @$query['EnableFirstFrameCover'] = $request->enableFirstFrameCover;
+        }
+
+        if (null !== $request->generateThumbnail) {
+            @$query['GenerateThumbnail'] = $request->generateThumbnail;
         }
 
         if (null !== $request->sessionId) {

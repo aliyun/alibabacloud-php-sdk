@@ -29,6 +29,11 @@ class CreateUploadVideoRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableFirstFrameCover;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -37,6 +42,11 @@ class CreateUploadVideoRequest extends Model
      * @var int
      */
     public $fileSize;
+
+    /**
+     * @var bool
+     */
+    public $generateThumbnail;
 
     /**
      * @var string
@@ -77,8 +87,10 @@ class CreateUploadVideoRequest extends Model
         'cateId' => 'CateId',
         'coverURL' => 'CoverURL',
         'description' => 'Description',
+        'enableFirstFrameCover' => 'EnableFirstFrameCover',
         'fileName' => 'FileName',
         'fileSize' => 'FileSize',
+        'generateThumbnail' => 'GenerateThumbnail',
         'referenceId' => 'ReferenceId',
         'storageLocation' => 'StorageLocation',
         'tags' => 'Tags',
@@ -112,12 +124,20 @@ class CreateUploadVideoRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->enableFirstFrameCover) {
+            $res['EnableFirstFrameCover'] = $this->enableFirstFrameCover;
+        }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
 
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
+        }
+
+        if (null !== $this->generateThumbnail) {
+            $res['GenerateThumbnail'] = $this->generateThumbnail;
         }
 
         if (null !== $this->referenceId) {
@@ -175,12 +195,20 @@ class CreateUploadVideoRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EnableFirstFrameCover'])) {
+            $model->enableFirstFrameCover = $map['EnableFirstFrameCover'];
+        }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
 
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
+        }
+
+        if (isset($map['GenerateThumbnail'])) {
+            $model->generateThumbnail = $map['GenerateThumbnail'];
         }
 
         if (isset($map['ReferenceId'])) {

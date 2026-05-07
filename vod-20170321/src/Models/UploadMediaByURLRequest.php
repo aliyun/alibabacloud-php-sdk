@@ -14,6 +14,16 @@ class UploadMediaByURLRequest extends Model
     public $appId;
 
     /**
+     * @var bool
+     */
+    public $enableFirstFrameCover;
+
+    /**
+     * @var bool
+     */
+    public $generateThumbnail;
+
+    /**
      * @var string
      */
     public $sessionId;
@@ -49,6 +59,8 @@ class UploadMediaByURLRequest extends Model
     public $workflowId;
     protected $_name = [
         'appId' => 'AppId',
+        'enableFirstFrameCover' => 'EnableFirstFrameCover',
+        'generateThumbnail' => 'GenerateThumbnail',
         'sessionId' => 'SessionId',
         'storageLocation' => 'StorageLocation',
         'templateGroupId' => 'TemplateGroupId',
@@ -68,6 +80,14 @@ class UploadMediaByURLRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+
+        if (null !== $this->enableFirstFrameCover) {
+            $res['EnableFirstFrameCover'] = $this->enableFirstFrameCover;
+        }
+
+        if (null !== $this->generateThumbnail) {
+            $res['GenerateThumbnail'] = $this->generateThumbnail;
         }
 
         if (null !== $this->sessionId) {
@@ -111,6 +131,14 @@ class UploadMediaByURLRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+
+        if (isset($map['EnableFirstFrameCover'])) {
+            $model->enableFirstFrameCover = $map['EnableFirstFrameCover'];
+        }
+
+        if (isset($map['GenerateThumbnail'])) {
+            $model->generateThumbnail = $map['GenerateThumbnail'];
         }
 
         if (isset($map['SessionId'])) {

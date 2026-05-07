@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class RegisterMediaRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableFirstFrameCover;
+
+    /**
+     * @var bool
+     */
+    public $generateThumbnail;
+
+    /**
      * @var string
      */
     public $registerMetadatas;
@@ -28,6 +38,8 @@ class RegisterMediaRequest extends Model
      */
     public $workflowId;
     protected $_name = [
+        'enableFirstFrameCover' => 'EnableFirstFrameCover',
+        'generateThumbnail' => 'GenerateThumbnail',
         'registerMetadatas' => 'RegisterMetadatas',
         'templateGroupId' => 'TemplateGroupId',
         'userData' => 'UserData',
@@ -42,6 +54,14 @@ class RegisterMediaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableFirstFrameCover) {
+            $res['EnableFirstFrameCover'] = $this->enableFirstFrameCover;
+        }
+
+        if (null !== $this->generateThumbnail) {
+            $res['GenerateThumbnail'] = $this->generateThumbnail;
+        }
+
         if (null !== $this->registerMetadatas) {
             $res['RegisterMetadatas'] = $this->registerMetadatas;
         }
@@ -69,6 +89,14 @@ class RegisterMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableFirstFrameCover'])) {
+            $model->enableFirstFrameCover = $map['EnableFirstFrameCover'];
+        }
+
+        if (isset($map['GenerateThumbnail'])) {
+            $model->generateThumbnail = $map['GenerateThumbnail'];
+        }
+
         if (isset($map['RegisterMetadatas'])) {
             $model->registerMetadatas = $map['RegisterMetadatas'];
         }
