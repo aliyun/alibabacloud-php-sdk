@@ -280,6 +280,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DisableRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DisableRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\EnableRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\EnableRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\GenerateCdnDiagnoseRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\GenerateCdnDiagnoseResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\GetGrayDomainFunctionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\GetGrayDomainFunctionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListDomainsByLogConfigIdRequest;
@@ -1977,7 +1979,6 @@ class Cdn extends OpenApiClient
      * @remarks
      * >  You can call this API operation up to three times per second per account.
      *
-     * @param request - DeleteCdnSubTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteCdnSubTaskResponse
@@ -4373,7 +4374,6 @@ class Cdn extends OpenApiClient
      *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
      * *   You can call this operation up to three times per second per account.
      *
-     * @param request - DescribeCdnSubListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCdnSubListResponse
@@ -9936,7 +9936,6 @@ class Cdn extends OpenApiClient
      * @remarks
      * >The maximum number of times that each user can call this operation per second is 30.
      *
-     * @param request - DescribeStagingIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeStagingIpResponse
@@ -10193,7 +10192,6 @@ class Cdn extends OpenApiClient
      * @remarks
      * > You can call this operation up to 100 times per second per account.
      *
-     * @param request - DescribeUserCertificateExpireCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeUserCertificateExpireCountResponse
@@ -10429,7 +10427,6 @@ class Cdn extends OpenApiClient
      * @remarks
      * > You can call this operation up to 100 times per second per account.
      *
-     * @param request - DescribeUserTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeUserTagsResponse
@@ -10844,6 +10841,63 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * Generates a link to the detection tool based on the access URL.
+     *
+     * @param request - GenerateCdnDiagnoseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCdnDiagnoseResponse
+     *
+     * @param GenerateCdnDiagnoseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GenerateCdnDiagnoseResponse
+     */
+    public function generateCdnDiagnoseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateCdnDiagnose',
+            'version' => '2018-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateCdnDiagnoseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Generates a link to the detection tool based on the access URL.
+     *
+     * @param request - GenerateCdnDiagnoseRequest
+     *
+     * @returns GenerateCdnDiagnoseResponse
+     *
+     * @param GenerateCdnDiagnoseRequest $request
+     *
+     * @return GenerateCdnDiagnoseResponse
+     */
+    public function generateCdnDiagnose($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateCdnDiagnoseWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the canary release configurations, such as canary release status and progress, by domain name and function name.
      *
      * @param request - GetGrayDomainFunctionRequest
@@ -11025,7 +11079,6 @@ class Cdn extends OpenApiClient
     /**
      * Queries all real-time log delivery tasks within your Alibaba Cloud account.
      *
-     * @param request - ListRealtimeLogDeliveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRealtimeLogDeliveryResponse
@@ -11131,7 +11184,6 @@ class Cdn extends OpenApiClient
      * @remarks
      * > You can call this operation up to 100 times per second per account.
      *
-     * @param request - ListRealtimeLogDeliveryInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRealtimeLogDeliveryInfosResponse
@@ -11258,7 +11310,6 @@ class Cdn extends OpenApiClient
      * @remarks
      * > You can call this operation up to 100 times per second per account.
      *
-     * @param request - ListUserCustomLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUserCustomLogConfigResponse
