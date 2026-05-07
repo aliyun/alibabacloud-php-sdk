@@ -60,6 +60,11 @@ class DescribeCouponRequest extends Model
     public $expireStartDate;
 
     /**
+     * @var bool
+     */
+    public $includeShare;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -82,6 +87,11 @@ class DescribeCouponRequest extends Model
     /**
      * @var string
      */
+    public $productCode;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'couponId' => 'CouponId',
@@ -94,10 +104,12 @@ class DescribeCouponRequest extends Model
         'effectiveStartTime' => 'EffectiveStartTime',
         'expireEndDate' => 'ExpireEndDate',
         'expireStartDate' => 'ExpireStartDate',
+        'includeShare' => 'IncludeShare',
         'maxResults' => 'MaxResults',
         'nbid' => 'Nbid',
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
+        'productCode' => 'ProductCode',
         'status' => 'Status',
     ];
 
@@ -169,6 +181,10 @@ class DescribeCouponRequest extends Model
             $res['ExpireStartDate'] = $this->expireStartDate;
         }
 
+        if (null !== $this->includeShare) {
+            $res['IncludeShare'] = $this->includeShare;
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -183,6 +199,10 @@ class DescribeCouponRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
 
         if (null !== $this->status) {
@@ -254,6 +274,10 @@ class DescribeCouponRequest extends Model
             $model->expireStartDate = $map['ExpireStartDate'];
         }
 
+        if (isset($map['IncludeShare'])) {
+            $model->includeShare = $map['IncludeShare'];
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
@@ -268,6 +292,10 @@ class DescribeCouponRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
 
         if (isset($map['Status'])) {

@@ -903,7 +903,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Create a bill report subscription.
+     * Creates a billing report subscription.
      *
      * @param request - CreateReportDefinitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -992,7 +992,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Create a bill report subscription.
+     * Creates a billing report subscription.
      *
      * @param request - CreateReportDefinitionRequest
      *
@@ -1288,7 +1288,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询优惠券列表.
+     * Queries the list of coupons.
      *
      * @param tmpReq - DescribeCouponRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1354,6 +1354,10 @@ class BssOpenApi extends OpenApiClient
             @$query['ExpireStartDate'] = $request->expireStartDate;
         }
 
+        if (null !== $request->includeShare) {
+            @$query['IncludeShare'] = $request->includeShare;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
@@ -1368,6 +1372,10 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
 
         if (null !== $request->status) {
@@ -1393,7 +1401,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询优惠券列表.
+     * Queries the list of coupons.
      *
      * @param request - DescribeCouponRequest
      *
@@ -1411,7 +1419,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询优惠券可用商品列表.
+     * Query the list of products for which a coupon is applicable.
      *
      * @param tmpReq - DescribeCouponItemListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1476,7 +1484,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询优惠券可用商品列表.
+     * Query the list of products for which a coupon is applicable.
      *
      * @param request - DescribeCouponItemListRequest
      *
@@ -2749,7 +2757,6 @@ class BssOpenApi extends OpenApiClient
     /**
      * 发票抬头查询服务
      *
-     * @param request - ListInvoiceTitleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListInvoiceTitleResponse
