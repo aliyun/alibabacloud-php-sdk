@@ -2901,6 +2901,10 @@ class PaiRecService extends OpenApiClient
             @$body['Configs'] = $request->configs;
         }
 
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->sourceRecallManagementServiceVersionId) {
             @$body['SourceRecallManagementServiceVersionId'] = $request->sourceRecallManagementServiceVersionId;
         }
@@ -4291,6 +4295,10 @@ class PaiRecService extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->deleteAll) {
+            @$query['DeleteAll'] = $request->deleteAll;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

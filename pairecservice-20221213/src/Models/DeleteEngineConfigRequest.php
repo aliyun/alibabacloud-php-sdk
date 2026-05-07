@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DeleteEngineConfigRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteAll;
+
+    /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
+        'deleteAll' => 'DeleteAll',
         'instanceId' => 'InstanceId',
     ];
 
@@ -24,6 +30,10 @@ class DeleteEngineConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->deleteAll) {
+            $res['DeleteAll'] = $this->deleteAll;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,6 +49,10 @@ class DeleteEngineConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteAll'])) {
+            $model->deleteAll = $map['DeleteAll'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

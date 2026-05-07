@@ -16,7 +16,17 @@ class networkConfigs extends Model
     /**
      * @var string
      */
+    public $publicEndpoint;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $token;
 
     /**
      * @var string
@@ -29,7 +39,9 @@ class networkConfigs extends Model
     public $vswitchIds;
     protected $_name = [
         'privateLinkAddress' => 'PrivateLinkAddress',
+        'publicEndpoint' => 'PublicEndpoint',
         'status' => 'Status',
+        'token' => 'Token',
         'vpcId' => 'VpcId',
         'vswitchIds' => 'VswitchIds',
     ];
@@ -49,8 +61,16 @@ class networkConfigs extends Model
             $res['PrivateLinkAddress'] = $this->privateLinkAddress;
         }
 
+        if (null !== $this->publicEndpoint) {
+            $res['PublicEndpoint'] = $this->publicEndpoint;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         if (null !== $this->vpcId) {
@@ -81,8 +101,16 @@ class networkConfigs extends Model
             $model->privateLinkAddress = $map['PrivateLinkAddress'];
         }
 
+        if (isset($map['PublicEndpoint'])) {
+            $model->publicEndpoint = $map['PublicEndpoint'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         if (isset($map['VpcId'])) {

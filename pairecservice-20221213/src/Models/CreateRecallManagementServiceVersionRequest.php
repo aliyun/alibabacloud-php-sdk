@@ -17,9 +17,15 @@ class CreateRecallManagementServiceVersionRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $sourceRecallManagementServiceVersionId;
     protected $_name = [
         'configs' => 'Configs',
+        'instanceId' => 'InstanceId',
         'sourceRecallManagementServiceVersionId' => 'SourceRecallManagementServiceVersionId',
     ];
 
@@ -36,6 +42,10 @@ class CreateRecallManagementServiceVersionRequest extends Model
         $res = [];
         if (null !== $this->configs) {
             $res['Configs'] = null !== $this->configs ? $this->configs->toArray($noStream) : $this->configs;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->sourceRecallManagementServiceVersionId) {
@@ -55,6 +65,10 @@ class CreateRecallManagementServiceVersionRequest extends Model
         $model = new self();
         if (isset($map['Configs'])) {
             $model->configs = configs::fromMap($map['Configs']);
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['SourceRecallManagementServiceVersionId'])) {
