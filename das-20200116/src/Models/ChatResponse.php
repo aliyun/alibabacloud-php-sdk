@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetHDMLastAliyunResourceSyncResultResponse extends Model
+class ChatResponse extends Model
 {
     /**
      * @var string[]
@@ -19,12 +19,24 @@ class GetHDMLastAliyunResourceSyncResultResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetHDMLastAliyunResourceSyncResultResponseBody
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $event;
+
+    /**
+     * @var ChatResponseBody
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
+        'id' => 'id',
+        'event' => 'event',
         'body' => 'body',
     ];
 
@@ -55,6 +67,14 @@ class GetHDMLastAliyunResourceSyncResultResponse extends Model
             $res['statusCode'] = $this->statusCode;
         }
 
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
+        }
+
+        if (null !== $this->event) {
+            $res['event'] = $this->event;
+        }
+
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -83,8 +103,16 @@ class GetHDMLastAliyunResourceSyncResultResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
 
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
+        }
+
+        if (isset($map['event'])) {
+            $model->event = $map['event'];
+        }
+
         if (isset($map['body'])) {
-            $model->body = GetHDMLastAliyunResourceSyncResultResponseBody::fromMap($map['body']);
+            $model->body = ChatResponseBody::fromMap($map['body']);
         }
 
         return $model;

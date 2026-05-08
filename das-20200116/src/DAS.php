@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\DAS\V20200116;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\DAS\V20200116\Models\AddHDMInstanceRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\AddHDMInstanceResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\ChatRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\ChatResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateCacheAnalysisJobRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateCacheAnalysisJobResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateCloudBenchTasksRequest;
@@ -135,8 +137,6 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\GetDeadlockHistogramRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDeadlockHistogramResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDeadLockHistoryRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDeadLockHistoryResponse;
-use AlibabaCloud\SDK\DAS\V20200116\Models\GetEndpointSwitchTaskRequest;
-use AlibabaCloud\SDK\DAS\V20200116\Models\GetEndpointSwitchTaskResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetErrorRequestSampleRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetErrorRequestSampleResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetEventSubscriptionRequest;
@@ -147,10 +147,6 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\GetFullRequestSampleByInstanceIdReques
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetFullRequestSampleByInstanceIdResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetFullRequestStatResultByInstanceIdRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetFullRequestStatResultByInstanceIdResponse;
-use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMAliyunResourceSyncResultRequest;
-use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMAliyunResourceSyncResultResponse;
-use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMLastAliyunResourceSyncResultRequest;
-use AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMLastAliyunResourceSyncResultResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportDetailRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportDetailResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceGroupInspectReportListRequest;
@@ -386,6 +382,139 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addHDMInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * DAS大模型能力异步逻辑接口.
+     *
+     * @param request - ChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ChatResponse
+     */
+    public function chatWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'Chat',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ChatResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * DAS大模型能力异步逻辑接口.
+     *
+     * @param request - ChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ChatResponse
+     */
+    public function chatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'Chat',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DAS大模型能力异步逻辑接口.
+     *
+     * @param request - ChatRequest
+     *
+     * @returns ChatResponse
+     *
+     * @param ChatRequest $request
+     *
+     * @return ChatResponse
+     */
+    public function chat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatWithOptions($request, $runtime);
     }
 
     /**
@@ -5643,87 +5772,6 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * @param request - GetEndpointSwitchTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetEndpointSwitchTaskResponse
-     *
-     * @param GetEndpointSwitchTaskRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetEndpointSwitchTaskResponse
-     */
-    public function getEndpointSwitchTaskWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
-        }
-
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
-        }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
-        }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
-        }
-
-        if (null !== $request->accessKey) {
-            @$query['accessKey'] = $request->accessKey;
-        }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
-        }
-
-        if (null !== $request->skipAuth) {
-            @$query['skipAuth'] = $request->skipAuth;
-        }
-
-        if (null !== $request->timestamp) {
-            @$query['timestamp'] = $request->timestamp;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetEndpointSwitchTask',
-            'version' => '2020-01-16',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetEndpointSwitchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param request - GetEndpointSwitchTaskRequest
-     *
-     * @returns GetEndpointSwitchTaskResponse
-     *
-     * @param GetEndpointSwitchTaskRequest $request
-     *
-     * @return GetEndpointSwitchTaskResponse
-     */
-    public function getEndpointSwitchTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getEndpointSwitchTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
      *
      * @remarks
@@ -6200,164 +6248,6 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFullRequestStatResultByInstanceIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param request - GetHDMAliyunResourceSyncResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetHDMAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMAliyunResourceSyncResultRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return GetHDMAliyunResourceSyncResultResponse
-     */
-    public function getHDMAliyunResourceSyncResultWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
-        }
-
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
-        }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
-        }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
-        }
-
-        if (null !== $request->accessKey) {
-            @$query['accessKey'] = $request->accessKey;
-        }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
-        }
-
-        if (null !== $request->skipAuth) {
-            @$query['skipAuth'] = $request->skipAuth;
-        }
-
-        if (null !== $request->timestamp) {
-            @$query['timestamp'] = $request->timestamp;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetHDMAliyunResourceSyncResult',
-            'version' => '2020-01-16',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetHDMAliyunResourceSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param request - GetHDMAliyunResourceSyncResultRequest
-     *
-     * @returns GetHDMAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMAliyunResourceSyncResultRequest $request
-     *
-     * @return GetHDMAliyunResourceSyncResultResponse
-     */
-    public function getHDMAliyunResourceSyncResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHDMAliyunResourceSyncResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param request - GetHDMLastAliyunResourceSyncResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetHDMLastAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMLastAliyunResourceSyncResultRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GetHDMLastAliyunResourceSyncResultResponse
-     */
-    public function getHDMLastAliyunResourceSyncResultWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
-        }
-
-        if (null !== $request->userId) {
-            @$query['UserId'] = $request->userId;
-        }
-
-        if (null !== $request->context) {
-            @$query['__context'] = $request->context;
-        }
-
-        if (null !== $request->accessKey) {
-            @$query['accessKey'] = $request->accessKey;
-        }
-
-        if (null !== $request->signature) {
-            @$query['signature'] = $request->signature;
-        }
-
-        if (null !== $request->skipAuth) {
-            @$query['skipAuth'] = $request->skipAuth;
-        }
-
-        if (null !== $request->timestamp) {
-            @$query['timestamp'] = $request->timestamp;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetHDMLastAliyunResourceSyncResult',
-            'version' => '2020-01-16',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetHDMLastAliyunResourceSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param request - GetHDMLastAliyunResourceSyncResultRequest
-     *
-     * @returns GetHDMLastAliyunResourceSyncResultResponse
-     *
-     * @param GetHDMLastAliyunResourceSyncResultRequest $request
-     *
-     * @return GetHDMLastAliyunResourceSyncResultResponse
-     */
-    public function getHDMLastAliyunResourceSyncResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHDMLastAliyunResourceSyncResultWithOptions($request, $runtime);
     }
 
     /**
