@@ -11,6 +11,16 @@ class DescribeClusterTasksRequest extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
@@ -18,6 +28,8 @@ class DescribeClusterTasksRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'maxResults' => 'max_results',
+        'nextToken' => 'next_token',
         'pageNumber' => 'page_number',
         'pageSize' => 'page_size',
     ];
@@ -30,6 +42,14 @@ class DescribeClusterTasksRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->maxResults) {
+            $res['max_results'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['next_token'] = $this->nextToken;
+        }
+
         if (null !== $this->pageNumber) {
             $res['page_number'] = $this->pageNumber;
         }
@@ -49,6 +69,14 @@ class DescribeClusterTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['max_results'])) {
+            $model->maxResults = $map['max_results'];
+        }
+
+        if (isset($map['next_token'])) {
+            $model->nextToken = $map['next_token'];
+        }
+
         if (isset($map['page_number'])) {
             $model->pageNumber = $map['page_number'];
         }

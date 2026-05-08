@@ -1001,7 +1001,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 查询自愈规则.
+     * Creates an auto-repair policy.
      *
      * @param request - CreateAutoRepairPolicyRequest
      * @param headers - map
@@ -1056,7 +1056,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 查询自愈规则.
+     * Creates an auto-repair policy.
      *
      * @param request - CreateAutoRepairPolicyRequest
      *
@@ -3665,6 +3665,14 @@ class CS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['page_number'] = $request->pageNumber;
         }
@@ -4045,6 +4053,14 @@ class CS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['page_number'] = $request->pageNumber;
         }
@@ -4291,7 +4307,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+     * Queries all existing clusters in ACK, including Kubernetes clusters and Swarm clusters.
      *
      * @deprecated OpenAPI DescribeClusters is deprecated
      *
@@ -4344,7 +4360,7 @@ class CS extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+     * Queries all existing clusters in ACK, including Kubernetes clusters and Swarm clusters.
      *
      * @deprecated OpenAPI DescribeClusters is deprecated
      *
@@ -4563,6 +4579,14 @@ class CS extends OpenApiClient
             @$query['cluster_id'] = $request->clusterId;
         }
 
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['page_number'] = $request->pageNumber;
         }
@@ -4635,6 +4659,14 @@ class CS extends OpenApiClient
         $query = [];
         if (null !== $request->clusterId) {
             @$query['cluster_id'] = $request->clusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['max_results'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['next_token'] = $request->nextToken;
         }
 
         if (null !== $request->pageNumber) {
@@ -5181,7 +5213,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 查询地域列表.
+     * Queries the list of available regions.
      *
      * @param request - DescribeRegionsRequest
      * @param headers - map
@@ -5231,7 +5263,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 查询地域列表.
+     * Queries the list of available regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -6586,7 +6618,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 为ACK集群节点池安装节点组件.
+     * Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
      *
      * @param request - InstallNodePoolComponentsRequest
      * @param headers - map
@@ -6638,7 +6670,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 为ACK集群节点池安装节点组件.
+     * Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
      *
      * @param request - InstallNodePoolComponentsRequest
      *
@@ -6740,7 +6772,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 查询自愈规则.
+     * List auto-repair policies.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6774,7 +6806,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 查询自愈规则.
+     * List auto-repair policies.
      *
      * @returns ListAutoRepairPoliciesResponse
      *
@@ -6791,7 +6823,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 获取集群组件实例的资源列表.
+     * Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6826,7 +6858,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 获取集群组件实例的资源列表.
+     * Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
      *
      * @returns ListClusterAddonInstanceResourcesResponse
      *
@@ -9371,7 +9403,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -9425,7 +9457,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
      *
      * @param request - TagResourcesRequest
      *
@@ -9958,7 +9990,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 更新 Secret 落盘加密配置.
+     * Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
      *
      * @param request - UpdateKMSEncryptionRequest
      * @param headers - map
@@ -10005,7 +10037,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 更新 Secret 落盘加密配置.
+     * Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
      *
      * @param request - UpdateKMSEncryptionRequest
      *
@@ -10025,7 +10057,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 更新节点组件.
+     * Updates a specific component within a node pool, such as the kubelet.
      *
      * @param request - UpdateNodePoolComponentRequest
      * @param headers - map
@@ -10089,7 +10121,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 更新节点组件.
+     * Updates a specific component within a node pool, such as the kubelet.
      *
      * @param request - UpdateNodePoolComponentRequest
      *
@@ -10429,7 +10461,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates cluster add-ons to newer versions for enhanced functionality.
+     * Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
      *
      * @param request - UpgradeClusterAddonsRequest
      * @param headers - map
@@ -10467,7 +10499,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates cluster add-ons to newer versions for enhanced functionality.
+     * Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
      *
      * @param request - UpgradeClusterAddonsRequest
      *

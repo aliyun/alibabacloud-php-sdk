@@ -16,6 +16,16 @@ class DescribeEventsRequest extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
@@ -29,6 +39,8 @@ class DescribeEventsRequest extends Model
     public $type;
     protected $_name = [
         'clusterId' => 'cluster_id',
+        'maxResults' => 'max_results',
+        'nextToken' => 'next_token',
         'pageNumber' => 'page_number',
         'pageSize' => 'page_size',
         'type' => 'type',
@@ -44,6 +56,14 @@ class DescribeEventsRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['max_results'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['next_token'] = $this->nextToken;
         }
 
         if (null !== $this->pageNumber) {
@@ -71,6 +91,14 @@ class DescribeEventsRequest extends Model
         $model = new self();
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
+        }
+
+        if (isset($map['max_results'])) {
+            $model->maxResults = $map['max_results'];
+        }
+
+        if (isset($map['next_token'])) {
+            $model->nextToken = $map['next_token'];
         }
 
         if (isset($map['page_number'])) {

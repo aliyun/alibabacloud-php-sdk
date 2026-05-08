@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterTasksResponseBody\tasks;
 class DescribeClusterTasksResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var pageInfo
      */
     public $pageInfo;
@@ -25,6 +30,7 @@ class DescribeClusterTasksResponseBody extends Model
      */
     public $tasks;
     protected $_name = [
+        'nextToken' => 'next_token',
         'pageInfo' => 'page_info',
         'requestId' => 'requestId',
         'tasks' => 'tasks',
@@ -44,6 +50,10 @@ class DescribeClusterTasksResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['next_token'] = $this->nextToken;
+        }
+
         if (null !== $this->pageInfo) {
             $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
@@ -74,6 +84,10 @@ class DescribeClusterTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['next_token'])) {
+            $model->nextToken = $map['next_token'];
+        }
+
         if (isset($map['page_info'])) {
             $model->pageInfo = pageInfo::fromMap($map['page_info']);
         }

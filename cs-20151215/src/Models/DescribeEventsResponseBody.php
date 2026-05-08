@@ -16,11 +16,17 @@ class DescribeEventsResponseBody extends Model
     public $events;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var pageInfo
      */
     public $pageInfo;
     protected $_name = [
         'events' => 'events',
+        'nextToken' => 'next_token',
         'pageInfo' => 'page_info',
     ];
 
@@ -49,6 +55,10 @@ class DescribeEventsResponseBody extends Model
             }
         }
 
+        if (null !== $this->nextToken) {
+            $res['next_token'] = $this->nextToken;
+        }
+
         if (null !== $this->pageInfo) {
             $res['page_info'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
@@ -73,6 +83,10 @@ class DescribeEventsResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['next_token'])) {
+            $model->nextToken = $map['next_token'];
         }
 
         if (isset($map['page_info'])) {
