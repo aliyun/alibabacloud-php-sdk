@@ -27,6 +27,11 @@ class CreateAIDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $DBClusterDescription;
 
     /**
@@ -172,6 +177,7 @@ class CreateAIDBClusterRequest extends Model
         'ackAdmin' => 'AckAdmin',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
+        'clientToken' => 'ClientToken',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
         'DBNodeClass' => 'DBNodeClass',
@@ -224,6 +230,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->DBClusterDescription) {
@@ -370,6 +380,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['DBClusterDescription'])) {

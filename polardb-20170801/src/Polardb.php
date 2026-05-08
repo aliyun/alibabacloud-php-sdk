@@ -2877,6 +2877,10 @@ class Polardb extends OpenApiClient
             @$query['AutoUseCoupon'] = $request->autoUseCoupon;
         }
 
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
         if (null !== $request->DBClusterDescription) {
             @$query['DBClusterDescription'] = $request->DBClusterDescription;
         }

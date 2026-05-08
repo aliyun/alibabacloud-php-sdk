@@ -23,6 +23,11 @@ class DescribeGatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $currentVersion;
+
+    /**
+     * @var string
+     */
     public $dbType;
 
     /**
@@ -53,6 +58,11 @@ class DescribeGatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $latestVersion;
+
+    /**
+     * @var string
+     */
     public $modifyTime;
 
     /**
@@ -69,6 +79,11 @@ class DescribeGatewayAttributeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $runningVersion;
 
     /**
      * @var securityIPArrays[]
@@ -92,16 +107,19 @@ class DescribeGatewayAttributeResponseBody extends Model
     protected $_name = [
         'classCode' => 'ClassCode',
         'createTime' => 'CreateTime',
+        'currentVersion' => 'CurrentVersion',
         'dbType' => 'DbType',
         'endpoints' => 'Endpoints',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
         'gwClusterId' => 'GwClusterId',
         'gwDescription' => 'GwDescription',
+        'latestVersion' => 'LatestVersion',
         'modifyTime' => 'ModifyTime',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
+        'runningVersion' => 'RunningVersion',
         'securityIPArrays' => 'SecurityIPArrays',
         'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
@@ -128,6 +146,10 @@ class DescribeGatewayAttributeResponseBody extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->currentVersion) {
+            $res['CurrentVersion'] = $this->currentVersion;
         }
 
         if (null !== $this->dbType) {
@@ -161,6 +183,10 @@ class DescribeGatewayAttributeResponseBody extends Model
             $res['GwDescription'] = $this->gwDescription;
         }
 
+        if (null !== $this->latestVersion) {
+            $res['LatestVersion'] = $this->latestVersion;
+        }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
@@ -175,6 +201,10 @@ class DescribeGatewayAttributeResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->runningVersion) {
+            $res['RunningVersion'] = $this->runningVersion;
         }
 
         if (null !== $this->securityIPArrays) {
@@ -219,6 +249,10 @@ class DescribeGatewayAttributeResponseBody extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['CurrentVersion'])) {
+            $model->currentVersion = $map['CurrentVersion'];
+        }
+
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
@@ -250,6 +284,10 @@ class DescribeGatewayAttributeResponseBody extends Model
             $model->gwDescription = $map['GwDescription'];
         }
 
+        if (isset($map['LatestVersion'])) {
+            $model->latestVersion = $map['LatestVersion'];
+        }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
@@ -264,6 +302,10 @@ class DescribeGatewayAttributeResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['RunningVersion'])) {
+            $model->runningVersion = $map['RunningVersion'];
         }
 
         if (isset($map['SecurityIPArrays'])) {
