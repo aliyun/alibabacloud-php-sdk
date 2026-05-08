@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cms\V20240330;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AddContextsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AddContextsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ChangeResourceGroupRequest;
@@ -19,6 +21,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreAPIKeyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreAPIKeyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateDeliveryTaskRequest;
@@ -55,6 +61,14 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreAPIKeyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreAPIKeyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteDeliveryTaskRequest;
@@ -111,6 +125,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCmsServiceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextStoreRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetContextStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetDeliveryTaskRequest;
@@ -176,6 +194,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListContactsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoreAPIKeysRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoreAPIKeysResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoresRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListContextStoresResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListDeliveryTasksRequest;
@@ -229,6 +251,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\SearchContextRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\SearchContextResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\TagResourcesRequest;
@@ -246,6 +270,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextStoreRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDatasetResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateDeliveryTaskRequest;
@@ -313,6 +341,79 @@ class Cms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 写入上下文.
+     *
+     * @param request - AddContextsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddContextsResponse
+     *
+     * @param string             $workspace
+     * @param string             $contextStoreName
+     * @param AddContextsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddContextsResponse
+     */
+    public function addContextsWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contextType) {
+            @$body['contextType'] = $request->contextType;
+        }
+
+        if (null !== $request->items) {
+            @$body['items'] = $request->items;
+        }
+
+        if (null !== $request->memoryType) {
+            @$body['memoryType'] = $request->memoryType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddContexts',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/context',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddContextsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 写入上下文.
+     *
+     * @param request - AddContextsRequest
+     *
+     * @returns AddContextsResponse
+     *
+     * @param string             $workspace
+     * @param string             $contextStoreName
+     * @param AddContextsRequest $request
+     *
+     * @return AddContextsResponse
+     */
+    public function addContexts($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addContextsWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -931,6 +1032,150 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 创建上下文库.
+     *
+     * @param request - CreateContextStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextStoreResponse
+     *
+     * @param string                    $workspace
+     * @param CreateContextStoreRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateContextStoreResponse
+     */
+    public function createContextStoreWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->contextStoreName) {
+            @$body['contextStoreName'] = $request->contextStoreName;
+        }
+
+        if (null !== $request->contextType) {
+            @$body['contextType'] = $request->contextType;
+        }
+
+        if (null !== $request->dataset) {
+            @$body['dataset'] = $request->dataset;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建上下文库.
+     *
+     * @param request - CreateContextStoreRequest
+     *
+     * @returns CreateContextStoreResponse
+     *
+     * @param string                    $workspace
+     * @param CreateContextStoreRequest $request
+     *
+     * @return CreateContextStoreResponse
+     */
+    public function createContextStore($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createContextStoreWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建 API Key.
+     *
+     * @param request - CreateContextStoreAPIKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContextStoreAPIKeyResponse
+     *
+     * @param string                          $workspace
+     * @param string                          $contextStoreName
+     * @param CreateContextStoreAPIKeyRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateContextStoreAPIKeyResponse
+     */
+    public function createContextStoreAPIKeyWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContextStoreAPIKey',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/apikey',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContextStoreAPIKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 API Key.
+     *
+     * @param request - CreateContextStoreAPIKeyRequest
+     *
+     * @returns CreateContextStoreAPIKeyResponse
+     *
+     * @param string                          $workspace
+     * @param string                          $contextStoreName
+     * @param CreateContextStoreAPIKeyRequest $request
+     *
+     * @return CreateContextStoreAPIKeyResponse
+     */
+    public function createContextStoreAPIKey($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createContextStoreAPIKeyWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -2278,6 +2523,256 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 删除上下文.
+     *
+     * @param request - DeleteContextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextResponse
+     *
+     * @param string               $workspace
+     * @param string               $contextStoreName
+     * @param string               $contextId
+     * @param DeleteContextRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteContextResponse
+     */
+    public function deleteContextWithOptions($workspace, $contextStoreName, $contextId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContext',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/context/' . Url::percentEncode($contextId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除上下文.
+     *
+     * @param request - DeleteContextRequest
+     *
+     * @returns DeleteContextResponse
+     *
+     * @param string               $workspace
+     * @param string               $contextStoreName
+     * @param string               $contextId
+     * @param DeleteContextRequest $request
+     *
+     * @return DeleteContextResponse
+     */
+    public function deleteContext($workspace, $contextStoreName, $contextId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteContextWithOptions($workspace, $contextStoreName, $contextId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除上下文库.
+     *
+     * @param request - DeleteContextStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextStoreResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $contextStoreName
+     * @param DeleteContextStoreRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteContextStoreResponse
+     */
+    public function deleteContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除上下文库.
+     *
+     * @param request - DeleteContextStoreRequest
+     *
+     * @returns DeleteContextStoreResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $contextStoreName
+     * @param DeleteContextStoreRequest $request
+     *
+     * @return DeleteContextStoreResponse
+     */
+    public function deleteContextStore($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除 API Key.
+     *
+     * @param request - DeleteContextStoreAPIKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextStoreAPIKeyResponse
+     *
+     * @param string                          $workspace
+     * @param string                          $contextStoreName
+     * @param string                          $name
+     * @param DeleteContextStoreAPIKeyRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteContextStoreAPIKeyResponse
+     */
+    public function deleteContextStoreAPIKeyWithOptions($workspace, $contextStoreName, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContextStoreAPIKey',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/apikey/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextStoreAPIKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 API Key.
+     *
+     * @param request - DeleteContextStoreAPIKeyRequest
+     *
+     * @returns DeleteContextStoreAPIKeyResponse
+     *
+     * @param string                          $workspace
+     * @param string                          $contextStoreName
+     * @param string                          $name
+     * @param DeleteContextStoreAPIKeyRequest $request
+     *
+     * @return DeleteContextStoreAPIKeyResponse
+     */
+    public function deleteContextStoreAPIKey($workspace, $contextStoreName, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteContextStoreAPIKeyWithOptions($workspace, $contextStoreName, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除上下文.
+     *
+     * @param request - DeleteContextsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContextsResponse
+     *
+     * @param string                $workspace
+     * @param string                $contextStoreName
+     * @param DeleteContextsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteContextsResponse
+     */
+    public function deleteContextsWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contextIds) {
+            @$query['contextIds'] = $request->contextIds;
+        }
+
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContexts',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/context',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContextsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除上下文.
+     *
+     * @param request - DeleteContextsRequest
+     *
+     * @returns DeleteContextsResponse
+     *
+     * @param string                $workspace
+     * @param string                $contextStoreName
+     * @param DeleteContextsRequest $request
+     *
+     * @return DeleteContextsResponse
+     */
+    public function deleteContexts($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteContextsWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -4055,6 +4550,132 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getCmsServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询单条上下文.
+     *
+     * @param request - GetContextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextResponse
+     *
+     * @param string            $workspace
+     * @param string            $contextStoreName
+     * @param string            $contextId
+     * @param GetContextRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetContextResponse
+     */
+    public function getContextWithOptions($workspace, $contextStoreName, $contextId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->formatted) {
+            @$query['formatted'] = $request->formatted;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContext',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/context/' . Url::percentEncode($contextId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单条上下文.
+     *
+     * @param request - GetContextRequest
+     *
+     * @returns GetContextResponse
+     *
+     * @param string            $workspace
+     * @param string            $contextStoreName
+     * @param string            $contextId
+     * @param GetContextRequest $request
+     *
+     * @return GetContextResponse
+     */
+    public function getContext($workspace, $contextStoreName, $contextId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getContextWithOptions($workspace, $contextStoreName, $contextId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询上下文库.
+     *
+     * @param request - GetContextStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextStoreResponse
+     *
+     * @param string                 $workspace
+     * @param string                 $contextStoreName
+     * @param GetContextStoreRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetContextStoreResponse
+     */
+    public function getContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetContextStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询上下文库.
+     *
+     * @param request - GetContextStoreRequest
+     *
+     * @returns GetContextStoreResponse
+     *
+     * @param string                 $workspace
+     * @param string                 $contextStoreName
+     * @param GetContextStoreRequest $request
+     *
+     * @return GetContextStoreResponse
+     */
+    public function getContextStore($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -6090,6 +6711,150 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 获取 API Key 列表.
+     *
+     * @param request - ListContextStoreAPIKeysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextStoreAPIKeysResponse
+     *
+     * @param string                         $workspace
+     * @param string                         $contextStoreName
+     * @param ListContextStoreAPIKeysRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListContextStoreAPIKeysResponse
+     */
+    public function listContextStoreAPIKeysWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextStoreAPIKeys',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/apikey',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextStoreAPIKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 API Key 列表.
+     *
+     * @param request - ListContextStoreAPIKeysRequest
+     *
+     * @returns ListContextStoreAPIKeysResponse
+     *
+     * @param string                         $workspace
+     * @param string                         $contextStoreName
+     * @param ListContextStoreAPIKeysRequest $request
+     *
+     * @return ListContextStoreAPIKeysResponse
+     */
+    public function listContextStoreAPIKeys($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listContextStoreAPIKeysWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询上下文库列表.
+     *
+     * @param request - ListContextStoresRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextStoresResponse
+     *
+     * @param string                   $workspace
+     * @param ListContextStoresRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListContextStoresResponse
+     */
+    public function listContextStoresWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contextStoreName) {
+            @$query['contextStoreName'] = $request->contextStoreName;
+        }
+
+        if (null !== $request->contextType) {
+            @$query['contextType'] = $request->contextType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextStores',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询上下文库列表.
+     *
+     * @param request - ListContextStoresRequest
+     *
+     * @returns ListContextStoresResponse
+     *
+     * @param string                   $workspace
+     * @param ListContextStoresRequest $request
+     *
+     * @return ListContextStoresResponse
+     */
+    public function listContextStores($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listContextStoresWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * 查询数据集列表.
      *
      * @param request - ListDatasetsRequest
@@ -7864,6 +8629,91 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 搜索上下文.
+     *
+     * @param request - SearchContextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchContextResponse
+     *
+     * @param string               $workspace
+     * @param string               $contextStoreName
+     * @param SearchContextRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SearchContextResponse
+     */
+    public function searchContextWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->filter) {
+            @$body['filter'] = $request->filter;
+        }
+
+        if (null !== $request->formatted) {
+            @$body['formatted'] = $request->formatted;
+        }
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
+        }
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->retrievalOption) {
+            @$body['retrievalOption'] = $request->retrievalOption;
+        }
+
+        if (null !== $request->threshold) {
+            @$body['threshold'] = $request->threshold;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchContext',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/context/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchContextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 搜索上下文.
+     *
+     * @param request - SearchContextRequest
+     *
+     * @returns SearchContextResponse
+     *
+     * @param string               $workspace
+     * @param string               $contextStoreName
+     * @param SearchContextRequest $request
+     *
+     * @return SearchContextResponse
+     */
+    public function searchContext($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchContextWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
+    }
+
+    /**
      * 搜索记忆.
      *
      * @param request - SearchMemoriesRequest
@@ -8543,6 +9393,166 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改上下文.
+     *
+     * @param request - UpdateContextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextResponse
+     *
+     * @param string               $workspace
+     * @param string               $contextStoreName
+     * @param string               $contextId
+     * @param UpdateContextRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateContextResponse
+     */
+    public function updateContextWithOptions($workspace, $contextStoreName, $contextId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->experience) {
+            @$body['experience'] = $request->experience;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->payload) {
+            @$body['payload'] = $request->payload;
+        }
+
+        if (null !== $request->triggerCondition) {
+            @$body['triggerCondition'] = $request->triggerCondition;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContext',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '/context/' . Url::percentEncode($contextId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改上下文.
+     *
+     * @param request - UpdateContextRequest
+     *
+     * @returns UpdateContextResponse
+     *
+     * @param string               $workspace
+     * @param string               $contextStoreName
+     * @param string               $contextId
+     * @param UpdateContextRequest $request
+     *
+     * @return UpdateContextResponse
+     */
+    public function updateContext($workspace, $contextStoreName, $contextId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateContextWithOptions($workspace, $contextStoreName, $contextId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改上下文库配置.
+     *
+     * @param request - UpdateContextStoreRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContextStoreResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $contextStoreName
+     * @param UpdateContextStoreRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateContextStoreResponse
+     */
+    public function updateContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->contextType) {
+            @$body['contextType'] = $request->contextType;
+        }
+
+        if (null !== $request->dataset) {
+            @$body['dataset'] = $request->dataset;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContextStore',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/contextstore/' . Url::percentEncode($contextStoreName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContextStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改上下文库配置.
+     *
+     * @param request - UpdateContextStoreRequest
+     *
+     * @returns UpdateContextStoreResponse
+     *
+     * @param string                    $workspace
+     * @param string                    $contextStoreName
+     * @param UpdateContextStoreRequest $request
+     *
+     * @return UpdateContextStoreResponse
+     */
+    public function updateContextStore($workspace, $contextStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateContextStoreWithOptions($workspace, $contextStoreName, $request, $headers, $runtime);
     }
 
     /**
