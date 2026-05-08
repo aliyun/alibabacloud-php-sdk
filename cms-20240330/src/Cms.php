@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusViewRequest;
@@ -67,6 +69,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewRequest;
@@ -128,6 +132,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetPipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusUserSettingRequest;
@@ -194,6 +200,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequiremen
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListPipelinesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusInstancesRequest;
@@ -250,6 +258,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePipelineRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusUserSettingRequest;
@@ -1316,6 +1326,89 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createMemoryStoreWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建流水线
+     *
+     * @param request - CreatePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineResponse
+     *
+     * @param string                $workspace
+     * @param CreatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipelineWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->executePolicy) {
+            @$body['executePolicy'] = $request->executePolicy;
+        }
+
+        if (null !== $request->pipeline) {
+            @$body['pipeline'] = $request->pipeline;
+        }
+
+        if (null !== $request->pipelineName) {
+            @$body['pipelineName'] = $request->pipelineName;
+        }
+
+        if (null !== $request->sink) {
+            @$body['sink'] = $request->sink;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/pipeline',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建流水线
+     *
+     * @param request - CreatePipelineRequest
+     *
+     * @returns CreatePipelineResponse
+     *
+     * @param string                $workspace
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipeline($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPipelineWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -2618,6 +2711,65 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除流水线
+     *
+     * @param request - DeletePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePipelineResponse
+     *
+     * @param string                $workspace
+     * @param string                $pipelineName
+     * @param DeletePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePipelineResponse
+     */
+    public function deletePipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeletePipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/pipeline/' . Url::percentEncode($pipelineName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除流水线
+     *
+     * @param request - DeletePipelineRequest
+     *
+     * @returns DeletePipelineResponse
+     *
+     * @param string                $workspace
+     * @param string                $pipelineName
+     * @param DeletePipelineRequest $request
+     *
+     * @return DeletePipelineResponse
+     */
+    public function deletePipeline($workspace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime);
     }
 
     /**
@@ -4548,6 +4700,65 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询流水线
+     *
+     * @param request - GetPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPipelineResponse
+     *
+     * @param string             $workspace
+     * @param string             $pipelineName
+     * @param GetPipelineRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetPipelineResponse
+     */
+    public function getPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetPipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/pipeline/' . Url::percentEncode($pipelineName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流水线
+     *
+     * @param request - GetPipelineRequest
+     *
+     * @returns GetPipelineResponse
+     *
+     * @param string             $workspace
+     * @param string             $pipelineName
+     * @param GetPipelineRequest $request
+     *
+     * @return GetPipelineResponse
+     */
+    public function getPipeline($workspace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime);
     }
 
     /**
@@ -6734,6 +6945,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询流水线列表.
+     *
+     * @param request - ListPipelinesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPipelinesResponse
+     *
+     * @param string               $workspace
+     * @param ListPipelinesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPipelinesResponse
+     */
+    public function listPipelinesWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pipelineName) {
+            @$query['pipelineName'] = $request->pipelineName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPipelines',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/pipeline',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询流水线列表.
+     *
+     * @param request - ListPipelinesRequest
+     *
+     * @returns ListPipelinesResponse
+     *
+     * @param string               $workspace
+     * @param ListPipelinesRequest $request
+     *
+     * @return ListPipelinesResponse
+     */
+    public function listPipelines($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPipelinesWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
      * Get Prometheus Instance Dashboard List.
      *
      * @remarks
@@ -8708,6 +8990,87 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateNotifyStrategyWithOptions($notifyStrategyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新流水线
+     *
+     * @param request - UpdatePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePipelineResponse
+     *
+     * @param string                $workspace
+     * @param string                $pipelineName
+     * @param UpdatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->executePolicy) {
+            @$body['executePolicy'] = $request->executePolicy;
+        }
+
+        if (null !== $request->pipeline) {
+            @$body['pipeline'] = $request->pipeline;
+        }
+
+        if (null !== $request->sink) {
+            @$body['sink'] = $request->sink;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePipeline',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/pipeline/' . Url::percentEncode($pipelineName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新流水线
+     *
+     * @param request - UpdatePipelineRequest
+     *
+     * @returns UpdatePipelineResponse
+     *
+     * @param string                $workspace
+     * @param string                $pipelineName
+     * @param UpdatePipelineRequest $request
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipeline($workspace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePipelineWithOptions($workspace, $pipelineName, $request, $headers, $runtime);
     }
 
     /**
