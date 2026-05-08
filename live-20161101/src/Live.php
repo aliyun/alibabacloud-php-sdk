@@ -3777,12 +3777,24 @@ class Live extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->selectAppName) {
+            @$query['SelectAppName'] = $request->selectAppName;
+        }
+
+        if (null !== $request->selectStreamName) {
+            @$query['SelectStreamName'] = $request->selectStreamName;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
 
         if (null !== $request->streamName) {
             @$query['StreamName'] = $request->streamName;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
         }
 
         $req = new OpenApiRequest([

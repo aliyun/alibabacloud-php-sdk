@@ -71,12 +71,27 @@ class AddLiveStreamMergeRequest extends Model
     /**
      * @var string
      */
+    public $selectAppName;
+
+    /**
+     * @var string
+     */
+    public $selectStreamName;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
      * @var string
      */
     public $streamName;
+
+    /**
+     * @var string
+     */
+    public $switchMode;
     protected $_name = [
         'appName' => 'AppName',
         'domainName' => 'DomainName',
@@ -90,8 +105,11 @@ class AddLiveStreamMergeRequest extends Model
         'ownerId' => 'OwnerId',
         'protocol' => 'Protocol',
         'regionId' => 'RegionId',
+        'selectAppName' => 'SelectAppName',
+        'selectStreamName' => 'SelectStreamName',
         'startTime' => 'StartTime',
         'streamName' => 'StreamName',
+        'switchMode' => 'SwitchMode',
     ];
 
     public function validate()
@@ -150,12 +168,24 @@ class AddLiveStreamMergeRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->selectAppName) {
+            $res['SelectAppName'] = $this->selectAppName;
+        }
+
+        if (null !== $this->selectStreamName) {
+            $res['SelectStreamName'] = $this->selectStreamName;
+        }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
+        }
+
+        if (null !== $this->switchMode) {
+            $res['SwitchMode'] = $this->switchMode;
         }
 
         return $res;
@@ -217,12 +247,24 @@ class AddLiveStreamMergeRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['SelectAppName'])) {
+            $model->selectAppName = $map['SelectAppName'];
+        }
+
+        if (isset($map['SelectStreamName'])) {
+            $model->selectStreamName = $map['SelectStreamName'];
+        }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
+        }
+
+        if (isset($map['SwitchMode'])) {
+            $model->switchMode = $map['SwitchMode'];
         }
 
         return $model;

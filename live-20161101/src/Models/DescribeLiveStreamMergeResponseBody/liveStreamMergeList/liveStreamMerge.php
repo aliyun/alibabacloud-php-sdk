@@ -82,6 +82,11 @@ class liveStreamMerge extends Model
      * @var string
      */
     public $streamUsing;
+
+    /**
+     * @var string
+     */
+    public $switchMode;
     protected $_name = [
         'appName' => 'AppName',
         'appUsing' => 'AppUsing',
@@ -98,6 +103,7 @@ class liveStreamMerge extends Model
         'startTime' => 'StartTime',
         'streamName' => 'StreamName',
         'streamUsing' => 'StreamUsing',
+        'switchMode' => 'SwitchMode',
     ];
 
     public function validate()
@@ -166,6 +172,10 @@ class liveStreamMerge extends Model
 
         if (null !== $this->streamUsing) {
             $res['StreamUsing'] = $this->streamUsing;
+        }
+
+        if (null !== $this->switchMode) {
+            $res['SwitchMode'] = $this->switchMode;
         }
 
         return $res;
@@ -237,6 +247,10 @@ class liveStreamMerge extends Model
 
         if (isset($map['StreamUsing'])) {
             $model->streamUsing = $map['StreamUsing'];
+        }
+
+        if (isset($map['SwitchMode'])) {
+            $model->switchMode = $map['SwitchMode'];
         }
 
         return $model;
