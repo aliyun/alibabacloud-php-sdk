@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAgentRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAgentResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskReportRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskReportResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionRequest;
@@ -1078,6 +1080,75 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createAICoachTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建离线评测任务
+     *
+     * @param request - CreateAICoachTaskReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAICoachTaskReportResponse
+     *
+     * @param CreateAICoachTaskReportRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAICoachTaskReportResponse
+     */
+    public function createAICoachTaskReportWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dialogueList) {
+            @$body['dialogueList'] = $request->dialogueList;
+        }
+
+        if (null !== $request->idempotentId) {
+            @$body['idempotentId'] = $request->idempotentId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAICoachTaskReport',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/startSessionReport',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAICoachTaskReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建离线评测任务
+     *
+     * @param request - CreateAICoachTaskReportRequest
+     *
+     * @returns CreateAICoachTaskReportResponse
+     *
+     * @param CreateAICoachTaskReportRequest $request
+     *
+     * @return CreateAICoachTaskReportResponse
+     */
+    public function createAICoachTaskReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAICoachTaskReportWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3135,16 +3206,17 @@ class IntelligentCreation extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield InteractTextResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield InteractTextResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -4410,16 +4482,17 @@ class IntelligentCreation extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield QueryTextStreamResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield QueryTextStreamResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 
@@ -4886,16 +4959,17 @@ class IntelligentCreation extends OpenApiClient
         $sseResp = $this->callSSEApi($params, $req, $runtime);
 
         foreach ($sseResp as $resp) {
-            $data = json_decode($resp->event->data, true);
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
 
-            yield SendSdkStreamMessageResponse::fromMap([
-                'statusCode' => $resp->statusCode,
-                'headers' => $resp->headers,
-                'body' => Dara::merge([
-                    'RequestId' => $resp->event->id,
-                    'Message' => $resp->event->event,
-                ], $data),
-            ]);
+                yield SendSdkStreamMessageResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
         }
     }
 

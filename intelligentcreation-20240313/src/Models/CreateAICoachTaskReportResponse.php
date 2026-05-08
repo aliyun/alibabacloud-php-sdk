@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class InteractTextResponse extends Model
+class CreateAICoachTaskReportResponse extends Model
 {
     /**
      * @var string[]
@@ -19,24 +19,12 @@ class InteractTextResponse extends Model
     public $statusCode;
 
     /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $event;
-
-    /**
-     * @var InteractTextResponseBody
+     * @var CreateAICoachTaskReportResponseBody
      */
     public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'id' => 'id',
-        'event' => 'event',
         'body' => 'body',
     ];
 
@@ -67,14 +55,6 @@ class InteractTextResponse extends Model
             $res['statusCode'] = $this->statusCode;
         }
 
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
-
-        if (null !== $this->event) {
-            $res['event'] = $this->event;
-        }
-
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -103,16 +83,8 @@ class InteractTextResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
 
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
-
-        if (isset($map['event'])) {
-            $model->event = $map['event'];
-        }
-
         if (isset($map['body'])) {
-            $model->body = InteractTextResponseBody::fromMap($map['body']);
+            $model->body = CreateAICoachTaskReportResponseBody::fromMap($map['body']);
         }
 
         return $model;
