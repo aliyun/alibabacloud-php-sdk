@@ -21,6 +21,10 @@ use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryAllActivityInfoReques
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryAllActivityInfoResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryOrderSessionListPopRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryOrderSessionListPopResponse;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryQwenConferenceSgTicketPopRequest;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryQwenConferenceSgTicketPopResponse;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryQwenConferenceSgTicketSearchPopRequest;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryQwenConferenceSgTicketSearchPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QuerySessionByActivityIdPopRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QuerySessionByActivityIdPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QuerySessionListPopRequest;
@@ -618,6 +622,120 @@ class Marketing_event extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryOrderSessionListPopWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询新加坡千问大会票证信息.
+     *
+     * @param request - QueryQwenConferenceSgTicketPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryQwenConferenceSgTicketPopResponse
+     *
+     * @param QueryQwenConferenceSgTicketPopRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryQwenConferenceSgTicketPopResponse
+     */
+    public function queryQwenConferenceSgTicketPopWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ticketToken) {
+            @$query['TicketToken'] = $request->ticketToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryQwenConferenceSgTicketPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryQwenConferenceSgTicketPopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询新加坡千问大会票证信息.
+     *
+     * @param request - QueryQwenConferenceSgTicketPopRequest
+     *
+     * @returns QueryQwenConferenceSgTicketPopResponse
+     *
+     * @param QueryQwenConferenceSgTicketPopRequest $request
+     *
+     * @return QueryQwenConferenceSgTicketPopResponse
+     */
+    public function queryQwenConferenceSgTicketPop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryQwenConferenceSgTicketPopWithOptions($request, $runtime);
+    }
+
+    /**
+     * 千问大会搜索票据信息.
+     *
+     * @param request - QueryQwenConferenceSgTicketSearchPopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryQwenConferenceSgTicketSearchPopResponse
+     *
+     * @param QueryQwenConferenceSgTicketSearchPopRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return QueryQwenConferenceSgTicketSearchPopResponse
+     */
+    public function queryQwenConferenceSgTicketSearchPopWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryQwenConferenceSgTicketSearchPop',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryQwenConferenceSgTicketSearchPopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 千问大会搜索票据信息.
+     *
+     * @param request - QueryQwenConferenceSgTicketSearchPopRequest
+     *
+     * @returns QueryQwenConferenceSgTicketSearchPopResponse
+     *
+     * @param QueryQwenConferenceSgTicketSearchPopRequest $request
+     *
+     * @return QueryQwenConferenceSgTicketSearchPopResponse
+     */
+    public function queryQwenConferenceSgTicketSearchPop($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryQwenConferenceSgTicketSearchPopWithOptions($request, $runtime);
     }
 
     /**
