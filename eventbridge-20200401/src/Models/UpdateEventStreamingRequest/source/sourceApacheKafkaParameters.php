@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceApacheKafkaParameters\sslKeystoreKey;
 
 class sourceApacheKafkaParameters extends Model
 {
@@ -56,6 +57,21 @@ class sourceApacheKafkaParameters extends Model
     /**
      * @var string
      */
+    public $sslKeyPassword;
+
+    /**
+     * @var string
+     */
+    public $sslKeystoreCertificateChain;
+
+    /**
+     * @var sslKeystoreKey
+     */
+    public $sslKeystoreKey;
+
+    /**
+     * @var string
+     */
     public $sslTruststoreCertificates;
 
     /**
@@ -87,6 +103,9 @@ class sourceApacheKafkaParameters extends Model
         'saslUser' => 'SaslUser',
         'securityGroupId' => 'SecurityGroupId',
         'securityProtocol' => 'SecurityProtocol',
+        'sslKeyPassword' => 'SslKeyPassword',
+        'sslKeystoreCertificateChain' => 'SslKeystoreCertificateChain',
+        'sslKeystoreKey' => 'SslKeystoreKey',
         'sslTruststoreCertificates' => 'SslTruststoreCertificates',
         'topic' => 'Topic',
         'vSwitchIds' => 'VSwitchIds',
@@ -96,6 +115,9 @@ class sourceApacheKafkaParameters extends Model
 
     public function validate()
     {
+        if (null !== $this->sslKeystoreKey) {
+            $this->sslKeystoreKey->validate();
+        }
         parent::validate();
     }
 
@@ -136,6 +158,18 @@ class sourceApacheKafkaParameters extends Model
 
         if (null !== $this->securityProtocol) {
             $res['SecurityProtocol'] = $this->securityProtocol;
+        }
+
+        if (null !== $this->sslKeyPassword) {
+            $res['SslKeyPassword'] = $this->sslKeyPassword;
+        }
+
+        if (null !== $this->sslKeystoreCertificateChain) {
+            $res['SslKeystoreCertificateChain'] = $this->sslKeystoreCertificateChain;
+        }
+
+        if (null !== $this->sslKeystoreKey) {
+            $res['SslKeystoreKey'] = null !== $this->sslKeystoreKey ? $this->sslKeystoreKey->toArray($noStream) : $this->sslKeystoreKey;
         }
 
         if (null !== $this->sslTruststoreCertificates) {
@@ -203,6 +237,18 @@ class sourceApacheKafkaParameters extends Model
 
         if (isset($map['SecurityProtocol'])) {
             $model->securityProtocol = $map['SecurityProtocol'];
+        }
+
+        if (isset($map['SslKeyPassword'])) {
+            $model->sslKeyPassword = $map['SslKeyPassword'];
+        }
+
+        if (isset($map['SslKeystoreCertificateChain'])) {
+            $model->sslKeystoreCertificateChain = $map['SslKeystoreCertificateChain'];
+        }
+
+        if (isset($map['SslKeystoreKey'])) {
+            $model->sslKeystoreKey = sslKeystoreKey::fromMap($map['SslKeystoreKey']);
         }
 
         if (isset($map['SslTruststoreCertificates'])) {

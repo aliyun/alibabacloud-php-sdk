@@ -5,10 +5,12 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\dynamicTopic;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\headers;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\key;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\networkType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\securityGroupId;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\sslKeystoreKey;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\value;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\vpcId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkApacheKafkaParameters\vSwitchIds;
@@ -29,6 +31,11 @@ class sinkApacheKafkaParameters extends Model
      * @var string
      */
     public $compressionType;
+
+    /**
+     * @var dynamicTopic
+     */
+    public $dynamicTopic;
 
     /**
      * @var headers
@@ -73,6 +80,21 @@ class sinkApacheKafkaParameters extends Model
     /**
      * @var string
      */
+    public $sslKeyPassword;
+
+    /**
+     * @var string
+     */
+    public $sslKeystoreCertificateChain;
+
+    /**
+     * @var sslKeystoreKey
+     */
+    public $sslKeystoreKey;
+
+    /**
+     * @var string
+     */
     public $sslTruststoreCertificates;
 
     /**
@@ -98,6 +120,7 @@ class sinkApacheKafkaParameters extends Model
         'acks' => 'Acks',
         'bootstraps' => 'Bootstraps',
         'compressionType' => 'CompressionType',
+        'dynamicTopic' => 'DynamicTopic',
         'headers' => 'Headers',
         'key' => 'Key',
         'networkType' => 'NetworkType',
@@ -106,6 +129,9 @@ class sinkApacheKafkaParameters extends Model
         'saslUser' => 'SaslUser',
         'securityGroupId' => 'SecurityGroupId',
         'securityProtocol' => 'SecurityProtocol',
+        'sslKeyPassword' => 'SslKeyPassword',
+        'sslKeystoreCertificateChain' => 'SslKeystoreCertificateChain',
+        'sslKeystoreKey' => 'SslKeystoreKey',
         'sslTruststoreCertificates' => 'SslTruststoreCertificates',
         'topic' => 'Topic',
         'vSwitchIds' => 'VSwitchIds',
@@ -115,6 +141,9 @@ class sinkApacheKafkaParameters extends Model
 
     public function validate()
     {
+        if (null !== $this->dynamicTopic) {
+            $this->dynamicTopic->validate();
+        }
         if (null !== $this->headers) {
             $this->headers->validate();
         }
@@ -126,6 +155,9 @@ class sinkApacheKafkaParameters extends Model
         }
         if (null !== $this->securityGroupId) {
             $this->securityGroupId->validate();
+        }
+        if (null !== $this->sslKeystoreKey) {
+            $this->sslKeystoreKey->validate();
         }
         if (null !== $this->vSwitchIds) {
             $this->vSwitchIds->validate();
@@ -152,6 +184,10 @@ class sinkApacheKafkaParameters extends Model
 
         if (null !== $this->compressionType) {
             $res['CompressionType'] = $this->compressionType;
+        }
+
+        if (null !== $this->dynamicTopic) {
+            $res['DynamicTopic'] = null !== $this->dynamicTopic ? $this->dynamicTopic->toArray($noStream) : $this->dynamicTopic;
         }
 
         if (null !== $this->headers) {
@@ -184,6 +220,18 @@ class sinkApacheKafkaParameters extends Model
 
         if (null !== $this->securityProtocol) {
             $res['SecurityProtocol'] = $this->securityProtocol;
+        }
+
+        if (null !== $this->sslKeyPassword) {
+            $res['SslKeyPassword'] = $this->sslKeyPassword;
+        }
+
+        if (null !== $this->sslKeystoreCertificateChain) {
+            $res['SslKeystoreCertificateChain'] = $this->sslKeystoreCertificateChain;
+        }
+
+        if (null !== $this->sslKeystoreKey) {
+            $res['SslKeystoreKey'] = null !== $this->sslKeystoreKey ? $this->sslKeystoreKey->toArray($noStream) : $this->sslKeystoreKey;
         }
 
         if (null !== $this->sslTruststoreCertificates) {
@@ -229,6 +277,10 @@ class sinkApacheKafkaParameters extends Model
             $model->compressionType = $map['CompressionType'];
         }
 
+        if (isset($map['DynamicTopic'])) {
+            $model->dynamicTopic = dynamicTopic::fromMap($map['DynamicTopic']);
+        }
+
         if (isset($map['Headers'])) {
             $model->headers = headers::fromMap($map['Headers']);
         }
@@ -259,6 +311,18 @@ class sinkApacheKafkaParameters extends Model
 
         if (isset($map['SecurityProtocol'])) {
             $model->securityProtocol = $map['SecurityProtocol'];
+        }
+
+        if (isset($map['SslKeyPassword'])) {
+            $model->sslKeyPassword = $map['SslKeyPassword'];
+        }
+
+        if (isset($map['SslKeystoreCertificateChain'])) {
+            $model->sslKeystoreCertificateChain = $map['SslKeystoreCertificateChain'];
+        }
+
+        if (isset($map['SslKeystoreKey'])) {
+            $model->sslKeystoreKey = sslKeystoreKey::fromMap($map['SslKeystoreKey']);
         }
 
         if (isset($map['SslTruststoreCertificates'])) {

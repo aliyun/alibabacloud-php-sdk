@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRespo
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkKafkaParameters\acks;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkKafkaParameters\dynamicTopic;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkKafkaParameters\instanceId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkKafkaParameters\key;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkKafkaParameters\topic;
@@ -22,6 +23,11 @@ class sinkKafkaParameters extends Model
      * @var string
      */
     public $compressionType;
+
+    /**
+     * @var dynamicTopic
+     */
+    public $dynamicTopic;
 
     /**
      * @var instanceId
@@ -45,6 +51,7 @@ class sinkKafkaParameters extends Model
     protected $_name = [
         'acks' => 'Acks',
         'compressionType' => 'CompressionType',
+        'dynamicTopic' => 'DynamicTopic',
         'instanceId' => 'InstanceId',
         'key' => 'Key',
         'topic' => 'Topic',
@@ -55,6 +62,9 @@ class sinkKafkaParameters extends Model
     {
         if (null !== $this->acks) {
             $this->acks->validate();
+        }
+        if (null !== $this->dynamicTopic) {
+            $this->dynamicTopic->validate();
         }
         if (null !== $this->instanceId) {
             $this->instanceId->validate();
@@ -80,6 +90,10 @@ class sinkKafkaParameters extends Model
 
         if (null !== $this->compressionType) {
             $res['CompressionType'] = $this->compressionType;
+        }
+
+        if (null !== $this->dynamicTopic) {
+            $res['DynamicTopic'] = null !== $this->dynamicTopic ? $this->dynamicTopic->toArray($noStream) : $this->dynamicTopic;
         }
 
         if (null !== $this->instanceId) {
@@ -115,6 +129,10 @@ class sinkKafkaParameters extends Model
 
         if (isset($map['CompressionType'])) {
             $model->compressionType = $map['CompressionType'];
+        }
+
+        if (isset($map['DynamicTopic'])) {
+            $model->dynamicTopic = dynamicTopic::fromMap($map['DynamicTopic']);
         }
 
         if (isset($map['InstanceId'])) {

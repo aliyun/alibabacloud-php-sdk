@@ -30,11 +30,17 @@ class SinkApiDestinationParameters extends Model
      * @var queryStringParameters
      */
     public $queryStringParameters;
+
+    /**
+     * @var int
+     */
+    public $timeout;
     protected $_name = [
         'bodyParameters' => 'BodyParameters',
         'headerParameters' => 'HeaderParameters',
         'name' => 'Name',
         'queryStringParameters' => 'QueryStringParameters',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -70,6 +76,10 @@ class SinkApiDestinationParameters extends Model
             $res['QueryStringParameters'] = null !== $this->queryStringParameters ? $this->queryStringParameters->toArray($noStream) : $this->queryStringParameters;
         }
 
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
+
         return $res;
     }
 
@@ -95,6 +105,10 @@ class SinkApiDestinationParameters extends Model
 
         if (isset($map['QueryStringParameters'])) {
             $model->queryStringParameters = queryStringParameters::fromMap($map['QueryStringParameters']);
+        }
+
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;
