@@ -1636,7 +1636,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻故事板任务
+     * 提交一刻故事板全链路编排任务
      *
      * @param request - SubmitYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1658,6 +1658,10 @@ class Yike extends OpenApiClient
 
         if (null !== $request->execMode) {
             @$query['ExecMode'] = $request->execMode;
+        }
+
+        if (null !== $request->keepOriginDialogue) {
+            @$query['KeepOriginDialogue'] = $request->keepOriginDialogue;
         }
 
         if (null !== $request->modelParams) {
@@ -1729,7 +1733,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻故事板任务
+     * 提交一刻故事板全链路编排任务
      *
      * @param request - SubmitYikeStoryboardJobRequest
      *

@@ -24,6 +24,11 @@ class SubmitYikeStoryboardJobRequest extends Model
     public $fileURL;
 
     /**
+     * @var bool
+     */
+    public $keepOriginDialogue;
+
+    /**
      * @var string
      */
     public $modelParams;
@@ -81,6 +86,7 @@ class SubmitYikeStoryboardJobRequest extends Model
         'aspectRatio' => 'AspectRatio',
         'execMode' => 'ExecMode',
         'fileURL' => 'FileURL',
+        'keepOriginDialogue' => 'KeepOriginDialogue',
         'modelParams' => 'ModelParams',
         'narrationVoiceId' => 'NarrationVoiceId',
         'resolution' => 'Resolution',
@@ -112,6 +118,10 @@ class SubmitYikeStoryboardJobRequest extends Model
 
         if (null !== $this->fileURL) {
             $res['FileURL'] = $this->fileURL;
+        }
+
+        if (null !== $this->keepOriginDialogue) {
+            $res['KeepOriginDialogue'] = $this->keepOriginDialogue;
         }
 
         if (null !== $this->modelParams) {
@@ -179,6 +189,10 @@ class SubmitYikeStoryboardJobRequest extends Model
 
         if (isset($map['FileURL'])) {
             $model->fileURL = $map['FileURL'];
+        }
+
+        if (isset($map['KeepOriginDialogue'])) {
+            $model->keepOriginDialogue = $map['KeepOriginDialogue'];
         }
 
         if (isset($map['ModelParams'])) {
