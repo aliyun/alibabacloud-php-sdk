@@ -14,6 +14,11 @@ class ModifyMountTargetRequest extends Model
     public $accessGroupName;
 
     /**
+     * @var bool
+     */
+    public $accessPointAccessOnly;
+
+    /**
      * @var string
      */
     public $dualStackMountTargetDomain;
@@ -34,6 +39,7 @@ class ModifyMountTargetRequest extends Model
     public $status;
     protected $_name = [
         'accessGroupName' => 'AccessGroupName',
+        'accessPointAccessOnly' => 'AccessPointAccessOnly',
         'dualStackMountTargetDomain' => 'DualStackMountTargetDomain',
         'fileSystemId' => 'FileSystemId',
         'mountTargetDomain' => 'MountTargetDomain',
@@ -50,6 +56,10 @@ class ModifyMountTargetRequest extends Model
         $res = [];
         if (null !== $this->accessGroupName) {
             $res['AccessGroupName'] = $this->accessGroupName;
+        }
+
+        if (null !== $this->accessPointAccessOnly) {
+            $res['AccessPointAccessOnly'] = $this->accessPointAccessOnly;
         }
 
         if (null !== $this->dualStackMountTargetDomain) {
@@ -81,6 +91,10 @@ class ModifyMountTargetRequest extends Model
         $model = new self();
         if (isset($map['AccessGroupName'])) {
             $model->accessGroupName = $map['AccessGroupName'];
+        }
+
+        if (isset($map['AccessPointAccessOnly'])) {
+            $model->accessPointAccessOnly = $map['AccessPointAccessOnly'];
         }
 
         if (isset($map['DualStackMountTargetDomain'])) {

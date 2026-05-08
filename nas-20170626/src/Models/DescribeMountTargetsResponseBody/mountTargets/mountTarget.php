@@ -16,6 +16,11 @@ class mountTarget extends Model
     public $accessGroup;
 
     /**
+     * @var bool
+     */
+    public $accessPointAccessOnly;
+
+    /**
      * @var clientMasterNodes
      */
     public $clientMasterNodes;
@@ -61,6 +66,7 @@ class mountTarget extends Model
     public $vswId;
     protected $_name = [
         'accessGroup' => 'AccessGroup',
+        'accessPointAccessOnly' => 'AccessPointAccessOnly',
         'clientMasterNodes' => 'ClientMasterNodes',
         'dualStackMountTargetDomain' => 'DualStackMountTargetDomain',
         'IPVersion' => 'IPVersion',
@@ -88,6 +94,10 @@ class mountTarget extends Model
         $res = [];
         if (null !== $this->accessGroup) {
             $res['AccessGroup'] = $this->accessGroup;
+        }
+
+        if (null !== $this->accessPointAccessOnly) {
+            $res['AccessPointAccessOnly'] = $this->accessPointAccessOnly;
         }
 
         if (null !== $this->clientMasterNodes) {
@@ -139,6 +149,10 @@ class mountTarget extends Model
         $model = new self();
         if (isset($map['AccessGroup'])) {
             $model->accessGroup = $map['AccessGroup'];
+        }
+
+        if (isset($map['AccessPointAccessOnly'])) {
+            $model->accessPointAccessOnly = $map['AccessPointAccessOnly'];
         }
 
         if (isset($map['ClientMasterNodes'])) {

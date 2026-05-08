@@ -17,9 +17,15 @@ class options extends Model
      * @var bool
      */
     public $enableOplock;
+
+    /**
+     * @var bool
+     */
+    public $vscAccessPointAccessOnly;
     protected $_name = [
         'enableABE' => 'EnableABE',
         'enableOplock' => 'EnableOplock',
+        'vscAccessPointAccessOnly' => 'VscAccessPointAccessOnly',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class options extends Model
 
         if (null !== $this->enableOplock) {
             $res['EnableOplock'] = $this->enableOplock;
+        }
+
+        if (null !== $this->vscAccessPointAccessOnly) {
+            $res['VscAccessPointAccessOnly'] = $this->vscAccessPointAccessOnly;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class options extends Model
 
         if (isset($map['EnableOplock'])) {
             $model->enableOplock = $map['EnableOplock'];
+        }
+
+        if (isset($map['VscAccessPointAccessOnly'])) {
+            $model->vscAccessPointAccessOnly = $map['VscAccessPointAccessOnly'];
         }
 
         return $model;
