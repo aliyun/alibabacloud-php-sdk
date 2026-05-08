@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Yike\V20260319;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Yike\V20260319\Models\AddYikeProductionMembersRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\AddYikeProductionMembersResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\AddYikeUserCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\AddYikeUserCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAIAppJobRequest;
@@ -37,6 +39,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeAssetFoldersRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeAssetFoldersResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeProductionsRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeProductionsResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeWorkspacesRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\ListYikeWorkspacesResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\PrecheckYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\PrecheckYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\RegisterYikeAssetMediaInfoRequest;
@@ -55,6 +59,10 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionMemberAuthRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionMemberAuthResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\UpdateYikeProductionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -92,6 +100,67 @@ class Yike extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 增加一刻项目成员.
+     *
+     * @param request - AddYikeProductionMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddYikeProductionMembersResponse
+     *
+     * @param AddYikeProductionMembersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddYikeProductionMembersResponse
+     */
+    public function addYikeProductionMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        if (null !== $request->yikeUserIds) {
+            @$query['YikeUserIds'] = $request->yikeUserIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddYikeProductionMembers',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddYikeProductionMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 增加一刻项目成员.
+     *
+     * @param request - AddYikeProductionMembersRequest
+     *
+     * @returns AddYikeProductionMembersResponse
+     *
+     * @param AddYikeProductionMembersRequest $request
+     *
+     * @return AddYikeProductionMembersResponse
+     */
+    public function addYikeProductionMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addYikeProductionMembersWithOptions($request, $runtime);
     }
 
     /**
@@ -1067,6 +1136,67 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 获取一刻工作室列表.
+     *
+     * @param request - ListYikeWorkspacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListYikeWorkspacesResponse
+     *
+     * @param ListYikeWorkspacesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListYikeWorkspacesResponse
+     */
+    public function listYikeWorkspacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListYikeWorkspaces',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListYikeWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一刻工作室列表.
+     *
+     * @param request - ListYikeWorkspacesRequest
+     *
+     * @returns ListYikeWorkspacesResponse
+     *
+     * @param ListYikeWorkspacesRequest $request
+     *
+     * @return ListYikeWorkspacesResponse
+     */
+    public function listYikeWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listYikeWorkspacesWithOptions($request, $runtime);
+    }
+
+    /**
      * 检查应用参数是否合法.
      *
      * @param request - PrecheckYikeAIAppJobRequest
@@ -1675,5 +1805,131 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitYikeVoiceNarratorJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新一刻项目.
+     *
+     * @param request - UpdateYikeProductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateYikeProductionResponse
+     *
+     * @param UpdateYikeProductionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateYikeProductionResponse
+     */
+    public function updateYikeProductionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateYikeProduction',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateYikeProductionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新一刻项目.
+     *
+     * @param request - UpdateYikeProductionRequest
+     *
+     * @returns UpdateYikeProductionResponse
+     *
+     * @param UpdateYikeProductionRequest $request
+     *
+     * @return UpdateYikeProductionResponse
+     */
+    public function updateYikeProduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateYikeProductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改一刻项目成员权限.
+     *
+     * @param request - UpdateYikeProductionMemberAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateYikeProductionMemberAuthResponse
+     *
+     * @param UpdateYikeProductionMemberAuthRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateYikeProductionMemberAuthResponse
+     */
+    public function updateYikeProductionMemberAuthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->auth) {
+            @$query['Auth'] = $request->auth;
+        }
+
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        if (null !== $request->yikeUserId) {
+            @$query['YikeUserId'] = $request->yikeUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateYikeProductionMemberAuth',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateYikeProductionMemberAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改一刻项目成员权限.
+     *
+     * @param request - UpdateYikeProductionMemberAuthRequest
+     *
+     * @returns UpdateYikeProductionMemberAuthResponse
+     *
+     * @param UpdateYikeProductionMemberAuthRequest $request
+     *
+     * @return UpdateYikeProductionMemberAuthResponse
+     */
+    public function updateYikeProductionMemberAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateYikeProductionMemberAuthWithOptions($request, $runtime);
     }
 }
