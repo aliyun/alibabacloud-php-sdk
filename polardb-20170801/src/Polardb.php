@@ -82,6 +82,9 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchTaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchTaskShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBudgetPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBudgetPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateColdStorageInstanceRequest;
@@ -290,6 +293,11 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTasksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTasksShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetPoliciesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetPoliciesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameRequest;
@@ -4075,6 +4083,85 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建批量任务
+     *
+     * @param tmpReq - CreateBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchTaskResponse
+     *
+     * @param CreateBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBatchTaskResponse
+     */
+    public function createBatchTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBatchTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBatchTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建批量任务
+     *
+     * @param request - CreateBatchTaskRequest
+     *
+     * @returns CreateBatchTaskResponse
+     *
+     * @param CreateBatchTaskRequest $request
+     *
+     * @return CreateBatchTaskResponse
+     */
+    public function createBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBatchTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -12773,6 +12860,146 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询批量任务状态详情.
+     *
+     * @param request - DescribeBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBatchTaskResponse
+     *
+     * @param DescribeBatchTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeBatchTaskResponse
+     */
+    public function describeBatchTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['BatchId'] = $request->batchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBatchTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询批量任务状态详情.
+     *
+     * @param request - DescribeBatchTaskRequest
+     *
+     * @returns DescribeBatchTaskResponse
+     *
+     * @param DescribeBatchTaskRequest $request
+     *
+     * @return DescribeBatchTaskResponse
+     */
+    public function describeBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询批量任务状态
+     *
+     * @param tmpReq - DescribeBatchTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBatchTasksResponse
+     *
+     * @param DescribeBatchTasksRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeBatchTasksResponse
+     */
+    public function describeBatchTasksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeBatchTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->status) {
+            $request->statusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->status, 'Status', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statusShrink) {
+            @$query['Status'] = $request->statusShrink;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBatchTasks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBatchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询批量任务状态
+     *
+     * @param request - DescribeBatchTasksRequest
+     *
+     * @returns DescribeBatchTasksResponse
+     *
+     * @param DescribeBatchTasksRequest $request
+     *
+     * @return DescribeBatchTasksResponse
+     */
+    public function describeBatchTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBatchTasksWithOptions($request, $runtime);
     }
 
     /**
