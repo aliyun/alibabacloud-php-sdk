@@ -99,6 +99,9 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListScheduledTasksResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListSkillRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListSkillResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyAppInstanceRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyAppInstanceResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigShrinkRequest;
@@ -3456,6 +3459,81 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改RDS AI应用实例.
+     *
+     * @param tmpReq - ModifyAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppInstanceResponse
+     *
+     * @param ModifyAppInstanceRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyAppInstanceResponse
+     */
+    public function modifyAppInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyAppInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->components) {
+            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->componentsShrink) {
+            @$query['Components'] = $request->componentsShrink;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppInstance',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改RDS AI应用实例.
+     *
+     * @param request - ModifyAppInstanceRequest
+     *
+     * @returns ModifyAppInstanceResponse
+     *
+     * @param ModifyAppInstanceRequest $request
+     *
+     * @return ModifyAppInstanceResponse
+     */
+    public function modifyAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppInstanceWithOptions($request, $runtime);
     }
 
     /**

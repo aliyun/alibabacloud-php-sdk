@@ -34,6 +34,11 @@ class sandboxTemplates extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $replicas;
+
+    /**
      * @var string
      */
     public $templateId;
@@ -43,6 +48,7 @@ class sandboxTemplates extends Model
         'description' => 'Description',
         'enableVpcAccess' => 'EnableVpcAccess',
         'name' => 'Name',
+        'replicas' => 'Replicas',
         'templateId' => 'TemplateId',
     ];
 
@@ -72,6 +78,10 @@ class sandboxTemplates extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->replicas) {
+            $res['Replicas'] = $this->replicas;
         }
 
         if (null !== $this->templateId) {
@@ -107,6 +117,10 @@ class sandboxTemplates extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Replicas'])) {
+            $model->replicas = $map['Replicas'];
         }
 
         if (isset($map['TemplateId'])) {
