@@ -14,6 +14,11 @@ class CreateSessionInput extends Model
     public $disableSessionIdReuse;
 
     /**
+     * @var JuiceFsConfig
+     */
+    public $juiceFsConfig;
+
+    /**
      * @var NASConfig
      */
     public $nasConfig;
@@ -44,6 +49,7 @@ class CreateSessionInput extends Model
     public $sessionTTLInSeconds;
     protected $_name = [
         'disableSessionIdReuse' => 'disableSessionIdReuse',
+        'juiceFsConfig' => 'juiceFsConfig',
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
         'polarFsConfig' => 'polarFsConfig',
@@ -54,6 +60,9 @@ class CreateSessionInput extends Model
 
     public function validate()
     {
+        if (null !== $this->juiceFsConfig) {
+            $this->juiceFsConfig->validate();
+        }
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
         }
@@ -71,6 +80,10 @@ class CreateSessionInput extends Model
         $res = [];
         if (null !== $this->disableSessionIdReuse) {
             $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
+        }
+
+        if (null !== $this->juiceFsConfig) {
+            $res['juiceFsConfig'] = null !== $this->juiceFsConfig ? $this->juiceFsConfig->toArray($noStream) : $this->juiceFsConfig;
         }
 
         if (null !== $this->nasConfig) {
@@ -110,6 +123,10 @@ class CreateSessionInput extends Model
         $model = new self();
         if (isset($map['disableSessionIdReuse'])) {
             $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
+        }
+
+        if (isset($map['juiceFsConfig'])) {
+            $model->juiceFsConfig = JuiceFsConfig::fromMap($map['juiceFsConfig']);
         }
 
         if (isset($map['nasConfig'])) {

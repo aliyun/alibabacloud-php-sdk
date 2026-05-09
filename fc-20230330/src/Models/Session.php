@@ -29,6 +29,11 @@ class Session extends Model
     public $functionName;
 
     /**
+     * @var JuiceFsConfig
+     */
+    public $juiceFsConfig;
+
+    /**
      * @var string
      */
     public $lastModifiedTime;
@@ -82,6 +87,7 @@ class Session extends Model
         'createdTime' => 'createdTime',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
         'functionName' => 'functionName',
+        'juiceFsConfig' => 'juiceFsConfig',
         'lastModifiedTime' => 'lastModifiedTime',
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
@@ -96,6 +102,9 @@ class Session extends Model
 
     public function validate()
     {
+        if (null !== $this->juiceFsConfig) {
+            $this->juiceFsConfig->validate();
+        }
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
         }
@@ -125,6 +134,10 @@ class Session extends Model
 
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
+        }
+
+        if (null !== $this->juiceFsConfig) {
+            $res['juiceFsConfig'] = null !== $this->juiceFsConfig ? $this->juiceFsConfig->toArray($noStream) : $this->juiceFsConfig;
         }
 
         if (null !== $this->lastModifiedTime) {
@@ -192,6 +205,10 @@ class Session extends Model
 
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
+        }
+
+        if (isset($map['juiceFsConfig'])) {
+            $model->juiceFsConfig = JuiceFsConfig::fromMap($map['juiceFsConfig']);
         }
 
         if (isset($map['lastModifiedTime'])) {

@@ -99,6 +99,11 @@ class UpdateFunctionInput extends Model
     public $internetAccess;
 
     /**
+     * @var JuiceFsConfig
+     */
+    public $juiceFsConfig;
+
+    /**
      * @var string[]
      */
     public $layers;
@@ -181,6 +186,7 @@ class UpdateFunctionInput extends Model
         'instanceIsolationMode' => 'instanceIsolationMode',
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
         'internetAccess' => 'internetAccess',
+        'juiceFsConfig' => 'juiceFsConfig',
         'layers' => 'layers',
         'logConfig' => 'logConfig',
         'memorySize' => 'memorySize',
@@ -218,6 +224,9 @@ class UpdateFunctionInput extends Model
         }
         if (null !== $this->instanceLifecycleConfig) {
             $this->instanceLifecycleConfig->validate();
+        }
+        if (null !== $this->juiceFsConfig) {
+            $this->juiceFsConfig->validate();
         }
         if (\is_array($this->layers)) {
             Model::validateArray($this->layers);
@@ -321,6 +330,10 @@ class UpdateFunctionInput extends Model
 
         if (null !== $this->internetAccess) {
             $res['internetAccess'] = $this->internetAccess;
+        }
+
+        if (null !== $this->juiceFsConfig) {
+            $res['juiceFsConfig'] = null !== $this->juiceFsConfig ? $this->juiceFsConfig->toArray($noStream) : $this->juiceFsConfig;
         }
 
         if (null !== $this->layers) {
@@ -468,6 +481,10 @@ class UpdateFunctionInput extends Model
 
         if (isset($map['internetAccess'])) {
             $model->internetAccess = $map['internetAccess'];
+        }
+
+        if (isset($map['juiceFsConfig'])) {
+            $model->juiceFsConfig = JuiceFsConfig::fromMap($map['juiceFsConfig']);
         }
 
         if (isset($map['layers'])) {

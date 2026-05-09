@@ -129,6 +129,11 @@ class Function_ extends Model
     public $invocationRestriction;
 
     /**
+     * @var JuiceFsConfig
+     */
+    public $juiceFsConfig;
+
+    /**
      * @var string
      */
     public $lastModifiedTime;
@@ -267,6 +272,7 @@ class Function_ extends Model
         'instanceLifecycleConfig' => 'instanceLifecycleConfig',
         'internetAccess' => 'internetAccess',
         'invocationRestriction' => 'invocationRestriction',
+        'juiceFsConfig' => 'juiceFsConfig',
         'lastModifiedTime' => 'lastModifiedTime',
         'lastUpdateStatus' => 'lastUpdateStatus',
         'lastUpdateStatusReason' => 'lastUpdateStatusReason',
@@ -314,6 +320,9 @@ class Function_ extends Model
         }
         if (null !== $this->invocationRestriction) {
             $this->invocationRestriction->validate();
+        }
+        if (null !== $this->juiceFsConfig) {
+            $this->juiceFsConfig->validate();
         }
         if (\is_array($this->layers)) {
             Model::validateArray($this->layers);
@@ -447,6 +456,10 @@ class Function_ extends Model
 
         if (null !== $this->invocationRestriction) {
             $res['invocationRestriction'] = null !== $this->invocationRestriction ? $this->invocationRestriction->toArray($noStream) : $this->invocationRestriction;
+        }
+
+        if (null !== $this->juiceFsConfig) {
+            $res['juiceFsConfig'] = null !== $this->juiceFsConfig ? $this->juiceFsConfig->toArray($noStream) : $this->juiceFsConfig;
         }
 
         if (null !== $this->lastModifiedTime) {
@@ -665,6 +678,10 @@ class Function_ extends Model
 
         if (isset($map['invocationRestriction'])) {
             $model->invocationRestriction = FunctionRestriction::fromMap($map['invocationRestriction']);
+        }
+
+        if (isset($map['juiceFsConfig'])) {
+            $model->juiceFsConfig = JuiceFsConfig::fromMap($map['juiceFsConfig']);
         }
 
         if (isset($map['lastModifiedTime'])) {
